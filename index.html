@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Düğün ve nişan hazırlıklarınızı sevdiklerinizle birlikte kolayca planlayın. İmece usulü bütçe, görev dağıtımı ve davetli listesi takibi mobil uygulamamızda.">
+    <title>Düğün & Nişan İmece — Mobil Organizasyon Platformu</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <!-- Stylesheet with Cache Buster -->
+    <link rel="stylesheet" href="style.css?v=2.1">
+</head>
+<body>
+
+    <!-- GPU-Accelerated Dark Transition Layer -->
+    <div class="dark-overlay" id="darkOverlay"></div>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="material-icons-round gold-icon">favorite</span>
+                <span class="logo-text">İmece Düğün</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#ozellikler">Özellikler</a>
+                <a href="#detaylar">Detaylar</a>
+                <a href="#hesaplayici">Paket Seçici</a>
+                <a href="#sss">S.S.S.</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="#indirin" class="btn btn-primary">Uygulamayı İndir</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Unified Pinned Section for Hero + Showcase Story -->
+        <section id="hero-showcase-story" class="unified-story-section">
+            <div class="container story-container">
+                
+                <!-- Left Side Content Stack -->
+                <div class="story-content-left">
+                    
+                    <!-- Hero Content Block -->
+                    <div class="story-slide-hero" id="heroContent">
+                        <div class="badge gold-badge">PREMIUM MOBİL UYGULAMA</div>
+                        <h1>Düğününüzü Birlikte Planlayın, Keyifle Hazırlanın.</h1>
+                        <p class="hero-lead">Düğün ve nişan hazırlıklarınızı tek başınıza yönetmek zorunda değilsiniz. Uygulamayı indirin, sevdiklerinizi davet edin; bütçeyi ve görevleri imece usulüyle keyifle yönetin.</p>
+                        
+                        <!-- Official App Store & Google Play Store Badges -->
+                        <div class="hero-actions store-buttons">
+                            <a href="https://apps.apple.com" target="_blank" class="store-badge-official app-store-official">
+                                <svg class="apple-svg" viewBox="0 0 16 16" width="22" height="22" fill="#ffffff">
+                                    <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
+                                </svg>
+                                <div class="store-text">
+                                    <span class="store-sub">Download on the</span>
+                                    <span class="store-main">App Store</span>
+                                </div>
+                            </a>
+                            <a href="https://play.google.com" target="_blank" class="store-badge-official google-play-official">
+                                <svg class="play-svg" viewBox="0 0 466 511.98" width="22" height="22">
+                                    <g>
+                                        <path fill="#EA4335" fill-rule="nonzero" d="M199.9 237.8l-198.5 232.37c7.22,24.57 30.16,41.81 55.8,41.81 11.16,0 20.93,-2.79 29.3,-8.37l0 0 244.16 -139.46 -130.76 -126.35z"/>
+                                        <path fill="#FBBC04" fill-rule="nonzero" d="M433.91 205.1l0 0 -104.65 -60 -111.61 110.22 113.01 108.83 104.64 -58.6c18.14,-9.77 30.7,-29.3 30.7,-50.23 -1.4,-20.93 -13.95,-40.46 -32.09,-50.22z"/>
+                                        <path fill="#34A853" fill-rule="nonzero" d="M199.42 273.45l129.85 -128.35 -241.37 -136.73c-8.37,-5.58 -19.54,-8.37 -30.7,-8.37 -26.5,0 -50.22,18.14 -55.8,41.86 0,0 0,0 0,0l198.02 231.59z"/>
+                                        <path fill="#4285F4" fill-rule="nonzero" d="M1.39 41.86c-1.39,4.18 -1.39,9.77 -1.39,15.34l0 397.64c0,5.57 0,9.76 1.4,15.34l216.27 -214.86 -216.28 -213.46z"/>
+                                    </g>
+                                </svg>
+                                <div class="store-text">
+                                    <span class="store-sub">GET IT ON</span>
+                                    <span class="store-main">Google Play</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature Slide 1 -->
+                    <div class="showcase-slide-text" id="text-slide-1">
+                        <div class="badge gold-badge">01 / BÜTÇE YÖNETİMİ</div>
+                        <h2>Her harcama gözünüzün önünde olsun.</h2>
+                        <p>Kategori bazında bütçe limitleri koyun. Ödemeleri eşinizle veya ailelerinizle kimin gerçekleştirdiğine göre anlık olarak takip edin. Bütçe aşımında anında uyarılar alın.</p>
+                    </div>
+
+                    <!-- Feature Slide 2 -->
+                    <div class="showcase-slide-text" id="text-slide-2">
+                        <div class="badge gold-badge">02 / GÖREV DAĞITIMI</div>
+                        <h2>Hazırlıkları paylaşın, sürecin tadını çıkarın.</h2>
+                        <p>Yapılacak her işi sorumlularına atayın. Görevlerin yapıldı, yapılıyor veya beklemede olma durumunu pasta grafiği üzerinden canlı olarak analiz edin.</p>
+                    </div>
+
+                    <!-- Feature Slide 2c: New invite flow step -->
+                    <div class="showcase-slide-text" id="text-slide-2c" style="display: none; opacity: 0;">
+                        <div class="badge gold-badge">03 / KOLAY DAVET</div>
+                        <h2>Uygulamayı henüz yüklememiş arkadaşınıza bile görev atayın.</h2>
+                        <p>Arkadaşınız henüz uygulamayı yüklememiş olsa dahi ona görevler atayabilir, hazırlıklara başlayabilirsiniz. Paylaşacağınız tek bir davet koduyla, uygulamayı indirdiği an tüm görevleri panosunda hazır olur.</p>
+                    </div>
+
+                    <!-- Feature Slide 3 -->
+                    <div class="showcase-slide-text" id="text-slide-3">
+                        <div class="badge gold-badge">04 / ORTAK YÖNETİCİ</div>
+                        <h2>Eşit yetkiyle, tam uyumla çalışın.</h2>
+                        <p>Eşinizi ortak yönetici (Co-host) olarak ekleyin. Aynı ekranları görün, aynı yetkilerle bütçeyi yönetin; yapılacaklar bir bir tamamlanırken özel gününüzü kutlamanın keyfini çıkarın.</p>
+                    </div>
+                    
+                </div>
+                
+                <!-- Right Side Empty Space for Mockup Align on Desktop -->
+                <div class="story-content-right-placeholder"></div>
+                
+                <!-- Desktop Sticky Phone Mockup (Pin target) -->
+                <div class="story-sticky-phone" id="desktopStickyPhone">
+                    <div class="phone-frame interactive-phone retina-phone" id="phoneMockup">
+                        <div class="phone-speaker"></div>
+                        <div class="phone-screen">
+                            <div class="phone-header">
+                                <span class="time">09:41</span>
+                                <span class="material-icons-round status-icon">signal_cellular_alt</span>
+                                <span class="material-icons-round status-icon">wifi</span>
+                                <span class="material-icons-round status-icon">battery_full</span>
+                            </div>
+                            
+                            <div class="phone-body">
+                                <div class="app-header">
+                                    <span class="back-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                                    </span>
+                                    <div class="app-title">Düğün Planlama</div>
+                                    <span class="calendar-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    </span>
+                                </div>
+                                
+                                <div class="app-content-slider-wrapper">
+                                    <!-- Dynamic vertical dashboard layout mirroring the real Flutter app -->
+                                    <div class="app-dashboard-scroller" id="mockupScroller">
+                                        
+                                        <!-- 1) TeamPoolBar ("Ekibim") -->
+                                        <div class="team-pool-section mockup-section-focus" id="mockup-team-section" onclick="if(currentIndex !== 5) goToStep(5)">
+                                            <div class="team-pool-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                                                <span class="team-title">Ekibim</span>
+                                                <div class="cohost-heart-btn" title="Ortak Yönetici Ekle" onclick="openCohostCreateDialog()">
+                                                    <svg viewBox="0 0 24 24" class="heart-icon"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                                    <!-- Automatic Click Ripple for Heart -->
+                                                    <div class="auto-tap-ripple" id="heartTapRipple" style="width: 20px; height: 20px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="team-pool-bar">
+                                                <div class="avatar-chip">
+                                                    <div class="avatar add-btn">
+                                                        <svg viewBox="0 0 24 24" class="add-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                                    </div>
+                                                    <span class="avatar-label">Yeni Kişi</span>
+                                                </div>
+                                                <div class="avatar-chip">
+                                                    <div class="avatar admin">M<div class="avatar-badge done"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+                                                    <span class="avatar-label">Mert</span>
+                                                </div>
+                                                <div class="avatar-chip">
+                                                    <div class="avatar">E<div class="avatar-badge pending"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div></div>
+                                                    <span class="avatar-label">Ece</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 2) DashboardSummaryCard (Unified Budget & Task stats) -->
+                                        <div class="app-card dashboard-summary-card-gradient">
+                                            
+                                            <!-- TaskStatsSection -->
+                                            <div class="task-stats-section-layout mockup-section-focus" id="mockup-task-section" onclick="if(currentIndex !== 2) goToStep(2)">
+                                                <span class="section-title-large">Görev Özeti</span>
+                                                <div class="task-stats-row">
+                                                    <div class="donut-chart-container">
+                                                        <div class="donut-chart" style="background: conic-gradient(var(--gold) 0% 66%, var(--text-light) 66% 100%);">
+                                                            <div class="donut-hole">12/18</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="donut-legend">
+                                                        <div class="legend-item"><span class="dot done"></span><span>Yapıldı</span></div>
+                                                        <div class="legend-item"><span class="dot progress"></span><span>Yapılıyor</span></div>
+                                                        <div class="legend-item"><span class="dot pending"></span><span>Bekliyor</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="coverage-text">12/18 göreve kişi atandı</div>
+                                                <div class="detail-click-text">Detay için grafiğe dokun</div>
+                                            </div>
+                                            
+                                            <div class="card-divider" style="margin: 16px 0;"></div>
+                                            
+                                            <!-- BudgetSummarySection -->
+                                            <div class="budget-summary-section-layout mockup-section-focus" id="mockup-budget-section" onclick="if(currentIndex !== 1) goToStep(1)">
+                                                <span class="section-title-large">Bütçe Özeti</span>
+                                                <div class="budget-stats-row">
+                                                    <div class="budget-val-col">
+                                                        <span class="budget-val-label">Tahmini</span>
+                                                        <span class="budget-val-amount">₺150.000</span>
+                                                    </div>
+                                                    <div class="budget-val-col">
+                                                        <span class="budget-val-label">Gerçekleşen</span>
+                                                        <span class="budget-val-amount actual">₺92.000</span>
+                                                    </div>
+                                                </div>
+                                                <div class="budget-progress-bar-wrapper" style="margin-top: 12px;">
+                                                    <div class="budget-progress-bar-fill" style="width: 61%"></div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        <!-- 3) RolesSection ("İş Paketleri") -->
+                                        <div class="roles-list-section mockup-section-focus" id="mockup-roles-list-section" onclick="if(currentIndex !== 3) goToStep(3)">
+                                            <span class="team-title" style="margin-bottom: 12px; display: block;">Yapılacaklar Listesi</span>
+                                            <div class="mockup-role-cards-container">
+                                                <!-- Role Card 1: Mekan & Nikah (Ece is Assigned but unverified/pending) -->
+                                                <div class="mockup-role-card accent-pink" id="mockup-role-card-1">
+                                                    <div class="role-card-header">
+                                                        <div class="role-icon-circle">
+                                                            <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                                        </div>
+                                                        <span class="role-card-title">Mekan & Nikah</span>
+                                                        
+                                                        <!-- EventProgressRing mockup: rotating bar with outline heart (incomplete) -->
+                                                        <div class="progress-ring-mock" id="mockup-progress-ring-1">
+                                                            <svg class="ring-svg" viewBox="0 0 36 36">
+                                                                <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                                <path class="ring-fill" stroke-dasharray="60, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                            </svg>
+                                                            <div class="ring-heart-container" id="ring-heart-1">
+                                                                <svg viewBox="0 0 24 24" class="ring-heart-svg outline"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="assignee-capsule-row" id="eceCapsuleRow" onclick="openInviteSheet(event)">
+                                                        <!-- Left Area: Avatar & Name -->
+                                                        <div class="assignee-picker-area">
+                                                            <div class="assignee-avatar-wrapper pending-border">
+                                                                <div class="assignee-avatar-mini">E</div>
+                                                            </div>
+                                                            <span class="assignee-name">Ece</span>
+                                                            <span class="swap-icon">
+                                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+                                                            </span>
+                                                        </div>
+                                                        <!-- Divider -->
+                                                        <div class="capsule-divider"></div>
+                                                        <!-- Right Area: Send Button -->
+                                                        <div class="capsule-send-btn" title="Davetiye Gönder">
+                                                            <svg viewBox="0 0 24 24" class="send-icon"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                                        </div>
+                                                        <!-- Automatic Click Ripple Indicator -->
+                                                        <div class="auto-tap-ripple" id="eceTapRipple"></div>
+                                                    </div>
+                                                    <div class="card-divider" style="margin: 8px 0;"></div>
+                                                    <div class="mockup-tasks-list">
+                                                        <div class="mockup-task-item done">
+                                                            <div class="mockup-status-chip compact done">
+                                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                                            </div>
+                                                            <span class="task-title-text">Nikah salonu tutulacak</span>
+                                                        </div>
+                                                        <div class="mockup-task-item progress" id="mockup-task-to-complete">
+                                                            <div class="mockup-status-chip compact progress" id="task-status-badge">
+                                                                <svg viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                                                            </div>
+                                                            <span class="task-title-text">Organizasyon firması ayarlanacak</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add-task-btn">
+                                                        <svg viewBox="0 0 24 24" class="add-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                                        Görev ekle
+                                                    </div>
+                                                </div>
+ 
+                                                <!-- Role Card 2: Müzik & Eğlence (Mert is Assigned & Verified) -->
+                                                <div class="mockup-role-card accent-blue">
+                                                    <div class="role-card-header">
+                                                        <div class="role-icon-circle">
+                                                            <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                                                        </div>
+                                                        <span class="role-card-title">Müzik & Eğlence</span>
+                                                        
+                                                        <!-- EventProgressRing mockup: rotating bar with filled heart (complete) -->
+                                                        <div class="progress-ring-mock complete">
+                                                            <svg class="ring-svg" viewBox="0 0 36 36">
+                                                                <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                                <path class="ring-fill" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                            </svg>
+                                                            <div class="ring-heart-container">
+                                                                <svg viewBox="0 0 24 24" class="ring-heart-svg filled"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="assignee-capsule-row verified-style">
+                                                        <div class="assignee-picker-area">
+                                                            <div class="assignee-avatar-wrapper verified-border">
+                                                                <div class="assignee-avatar-mini">M</div>
+                                                            </div>
+                                                            <span class="assignee-name">Mert</span>
+                                                            <span class="swap-icon">
+                                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-divider" style="margin: 8px 0;"></div>
+                                                    <div class="mockup-tasks-list">
+                                                        <div class="mockup-task-item done">
+                                                            <div class="mockup-status-chip compact done">
+                                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                                            </div>
+                                                            <span class="task-title-text">Müzisyen/DJ seçimi yapılacak</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add-task-btn">
+                                                        <svg viewBox="0 0 24 24" class="add-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                                        Görev ekle
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Real App Create Co-Host Central Dialog Mockup -->
+                            <div class="mockup-dialog-overlay" id="cohostCreateDialog">
+                                <div class="dialog-container">
+                                    <h4 class="dialog-title">Ortak Yönetici Ekle</h4>
+                                    <p class="dialog-subtitle">Ortağınız tüm yetkilere sahip olacak ve hazırlıkları birlikte yöneteceksiniz.</p>
+                                    
+                                    <div class="dialog-input-group">
+                                        <label class="dialog-label">Adı Soyadı</label>
+                                        <div class="dialog-input-box">Mert</div>
+                                    </div>
+                                    
+                                    <div class="dialog-input-group" style="margin-top: 10px;">
+                                        <label class="dialog-label">Telefon Numarası</label>
+                                        <div class="dialog-input-box">+90 (532) 123 45 67</div>
+                                    </div>
+                                    
+                                    <div class="dialog-actions-row">
+                                        <button class="dialog-btn cancel-btn" onclick="closeCohostCreateDialog()">Vazgeç</button>
+                                        <button class="dialog-btn confirm-btn" onclick="submitCohostCreateForm()">
+                                            Ekle
+                                            <!-- Ripple click for form submit -->
+                                            <div class="auto-tap-ripple" id="dialogSubmitRipple" style="width: 14px; height: 14px;"></div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Real App Bottom Sheet Mockup (Invited / Code sheet for Team Member Ece) -->
+                            <div class="mockup-bottom-sheet" id="inviteBottomSheet">
+                                <div class="sheet-scrim" onclick="closeInviteSheet()"></div>
+                                <div class="sheet-container">
+                                    <div class="sheet-drag-handle"></div>
+                                    <div class="sheet-content">
+                                        <div class="sheet-icon-circle">
+                                            <svg viewBox="0 0 24 24" class="heart-svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                        </div>
+                                        <h3 class="sheet-title">Ece</h3>
+                                        <p class="sheet-subtitle">Davet kodunu paylaş, katıldığında görevleri birlikte yönetin.</p>
+                                        <div class="sheet-code-card" onclick="copyInviteCode()">
+                                            <span class="sheet-code-text">DN-ECE-572</span>
+                                            <svg viewBox="0 0 24 24" class="copy-icon"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                        </div>
+                                        <button class="sheet-send-btn" onclick="sendInviteWhatsApp()">
+                                            <svg viewBox="0 0 24 24" class="link-icon"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                                            Davetiye Gönder
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Real App Bottom Sheet Mockup (Invited / Code sheet for Co-Host Mert) -->
+                            <div class="mockup-bottom-sheet" id="cohostBottomSheet">
+                                <div class="sheet-scrim" onclick="closeCohostSheet()"></div>
+                                <div class="sheet-container">
+                                    <div class="sheet-drag-handle"></div>
+                                    <div class="sheet-content">
+                                        <div class="sheet-icon-circle">
+                                            <svg viewBox="0 0 24 24" class="heart-svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                        </div>
+                                        <h3 class="sheet-title">Mert ortak yönetici olarak eklendi</h3>
+                                        <p class="sheet-subtitle">Davet kodunu paylaş, katıldığında etkinliği birlikte yönetin.</p>
+                                        <div class="sheet-code-card" onclick="copyCohostCode()">
+                                            <span class="sheet-code-text">DN-MERT-984</span>
+                                            <svg viewBox="0 0 24 24" class="copy-icon"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                        </div>
+                                        <button class="sheet-send-btn" onclick="sendCohostWhatsApp()">
+                                            <svg viewBox="0 0 24 24" class="link-icon"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                                            Davetiye Gönder
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mockup-toast" id="mockupToast">Davet kodu kopyalandı</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Only Mockup Visual -->
+                <div class="hero-visual mobile-phone-only">
+                    <div class="phone-frame interactive-phone retina-phone">
+                        <div class="phone-speaker"></div>
+                        <div class="phone-screen">
+                            <div class="phone-header">
+                                <span class="time">09:41</span>
+                                <span class="material-icons-round status-icon">signal_cellular_alt</span>
+                                <span class="material-icons-round status-icon">wifi</span>
+                                <span class="material-icons-round status-icon">battery_full</span>
+                            </div>
+                            <div class="phone-body">
+                                <div class="app-header">
+                                    <span class="back-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                                    </span>
+                                    <div class="app-title">Düğün Planlama</div>
+                                    <span class="calendar-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    </span>
+                                </div>
+                                <div class="app-content" style="background-color: #FAF6F3; flex: 1; padding: 12px; display: flex; flex-direction: column; gap: 12px;">
+                                    <div class="app-card summary-card" style="background: linear-gradient(135deg, rgba(212, 165, 165, 0.16) 0%, #ffffff 100%);">
+                                        <div class="summary-card-section">
+                                            <span class="section-title">Bütçe Özeti</span>
+                                            <div class="budget-stats-row">
+                                                <div class="budget-val-col"><span class="budget-val-label">Tahmini</span><span class="budget-val-amount">₺150.000</span></div>
+                                                <div class="budget-val-col"><span class="budget-val-label">Gerçekleşen</span><span class="budget-val-amount actual">₺92.000</span></div>
+                                            </div>
+                                            <div class="budget-progress-bar-wrapper"><div class="budget-progress-bar-fill" style="width: 61%"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Neden İmece Section -->
+        <section id="neden-imece" class="why-imece">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Neden İmece Usulü Düğün Planlama?</h2>
+                    <p class="section-subtitle">Geleneksel planlama yöntemlerinin getirdiği karmaşayı geride bırakın. Sevdiklerinizin desteğini modern teknolojiyle birleştirin.</p>
+                </div>
+                <div class="comparison-grid">
+                    <div class="comparison-card negative">
+                        <h3>Tek Başınıza Planlarken</h3>
+                        <ul>
+                            <li><span class="material-icons-round close-icon">close</span> Her detayı tek başınıza hatırlamak ve koordine etmek zorundasınız.</li>
+                            <li><span class="material-icons-round close-icon">close</span> Bütçe harcamalarını kontrol etmek zamanla karmaşık hale gelir.</li>
+                            <li><span class="material-icons-round close-icon">close</span> Sevdikleriniz yardım etmek ister ama ne yapacaklarını bilemezler.</li>
+                            <li><span class="material-icons-round close-icon">close</span> Düğün günü yaklaşırken plansız koşturmaca eğlencenin önüne geçer.</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card positive">
+                        <div class="badge gold-badge card-badge">ÖNERİLEN</div>
+                        <h3>İmece Düğün ile</h3>
+                        <ul>
+                            <li><span class="material-icons-round check-icon">check</span> Hazır şablonlarla ne yapacağınızı ilk günden itibaren bilirsiniz.</li>
+                            <li><span class="material-icons-round check-icon">check</span> Harcamaları kimin yaptığını (Gelin, Damat veya Aileler) belirleyerek bütçeyi şeffafça yönetirsiniz.</li>
+                            <li><span class="material-icons-round check-icon">check</span> Aile ve arkadaşlarınızı ekibine davet koduyla ekler, görevleri atarsınız.</li>
+                            <li><span class="material-icons-round check-icon">check</span> Hazırlıkları paylaştığınız için planlama sürecinin tadını çıkarırsınız.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Details Grid Section (Progressive Disclosure - iOS/macOS Drawer style) -->
+        <section id="detaylar" class="details-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Merak Edenler İçin Derinlemesine Detaylar</h2>
+                    <p class="section-subtitle">Uygulamamızın altyapısını ve teknik limitlerini şeffaf bir şekilde keşfedin. Bilgi almak istediğiniz konuya tıklayın.</p>
+                </div>
+                
+                <div class="details-grid">
+                    <!-- Card 1 -->
+                    <div class="details-card" onclick="openSpecDrawer('budget-spec')">
+                        <div class="details-card-icon"><span class="material-icons-round">account_balance_wallet</span></div>
+                        <h3>Bütçe & Harcama Detayları</h3>
+                        <p>Kategori bazlı limitasyonlar, para birimi seçenekleri ve harcama havuzları.</p>
+                        <span class="details-link">Detayları İncele <span class="material-icons-round">chevron_right</span></span>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="details-card" onclick="openSpecDrawer('tasks-spec')">
+                        <div class="details-card-icon"><span class="material-icons-round">task</span></div>
+                        <h3>Yapılacaklar Listesi & Görevler</h3>
+                        <p>Yapılacak görevleri sevdiklerinize kolayca atayın, hazırlıkları el birliğiyle tamamlayın.</p>
+                        <span class="details-link">Detayları İncele <span class="material-icons-round">chevron_right</span></span>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="details-card" onclick="openSpecDrawer('team-spec')">
+                        <div class="details-card-icon"><span class="material-icons-round">groups</span></div>
+                        <h3>İmece Ekip Rol Yetkileri</h3>
+                        <p>Düğün sahipleri, eşler ve yardıma gelenlerin hangi ekranları görebileceğini belirleyin.</p>
+                        <span class="details-link">Detayları İncele <span class="material-icons-round">chevron_right</span></span>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="details-card" onclick="openSpecDrawer('templates-spec')">
+                        <div class="details-card-icon"><span class="material-icons-round">auto_stories</span></div>
+                        <h3>Hazır Düğün Şablonları</h3>
+                        <p>Söz, nişan, kına ve düğün için uzmanlarca hazırlanan otomatik görev listeleri.</p>
+                        <span class="details-link">Detayları İncele <span class="material-icons-round">chevron_right</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- İnteraktif Paket Seçici (Akıllı Hesaplayıcı) -->
+        <section id="hesaplayici" class="interactive-calculator">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Hangi Plana İhtiyacınız Var?</h2>
+                    <p class="section-subtitle">Hazırlık ihtiyaçlarınızı belirleyin, sizin için en uygun planı tactile geri bildirimlerle anında önerelim.</p>
+                </div>
+                
+                <div class="calculator-container">
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <label for="eventCount">Planlayacağınız Toplam Etkinlik Sayısı: <span id="eventCountVal" class="gold-text">1</span></label>
+                            <input type="range" id="eventCount" min="1" max="5" value="1" oninput="calculatePlan()">
+                            <span class="input-hint">(Söz, Nişan, Kına, Düğün, Dış Chekim vb.)</span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="personCount">Yardım Edecek Maksimum Ekip Üyesi: <span id="personCountVal" class="gold-text">2</span></label>
+                            <input type="range" id="personCount" min="1" max="25" value="2" oninput="calculatePlan()">
+                            <span class="input-hint">(Görev atayıp takipleşeceğiniz aile ve arkadaşlar)</span>
+                        </div>
+                        
+                        <div class="input-group check-group">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="needBudget" checked onchange="calculatePlan()">
+                                <span class="checkmark"></span>
+                                Detaylı bütçe ve harcama takibi istiyorum
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-result" id="planResultBox">
+                        <div class="result-badge">ÖNERİLEN PLAN</div>
+                        <h3 id="recommendedPlanTitle">Tek Bir Organizasyon Paketi</h3>
+                        <div class="result-price" id="recommendedPlanPrice">199 ₺</div>
+                        <p id="recommendedPlanDesc">Seçtiğiniz tek bir Düğün, Nişan veya Kına hazırlığı için 6 ay geçerli, sınırsız kişi ve şablon erişimi sunan en ideal çözümdür.</p>
+                        <a href="#indirin" class="btn btn-primary btn-gold-effect">Uygulamayı İndir ve Başla</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Özellikler Grid (Özet Özellikler) -->
+        <section id="ozellikler" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Eksiksiz Bir Hazırlık İçin Her Detay Düşünüldü</h2>
+                    <p class="section-subtitle">Düğün ve nişan hazırlıklarında ihtiyacınız olan tüm yönetim araçları premium bir tasarımda birleşti.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">groups</span></div>
+                        <h3>İmece Ekibi (Ekibim)</h3>
+                        <p>Aile üyelerinizi, sağdıçlarınızı veya nedimelerinizi davet koduyla yönetim ekibinize dahil edin. Herkes kendi görevini görsün.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">account_balance_wallet</span></div>
+                        <h3>Akıllı Bütçe Yönetimi</h3>
+                        <p>Kategori bazlı harcama sınırları koyun, ödemeleri kimin yaptığını kaydedin. Kalan bütçenizi anlık grafiklerle izleyin.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">task</span></div>
+                        <h3>Gelişmiş Görev Takibi</h3>
+                        <p>Görevleri önem derecesine göre önceliklendirin, sorumlular atayın. Yorum alanı sayesinde görevler üzerinde tartışın.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">auto_stories</span></div>
+                        <h3>Hazır Şablon Kütüphanesi</h3>
+                        <p>Düğün veya nişan etkinlik türünüze göre, otomatik yapılacaklar listesini saniyeler içinde yükleyin.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">manage_accounts</span></div>
+                        <h3>Ortak Yönetici Yetkileri</h3>
+                        <p>Eşinizle birlikte aynı yetkilere sahip olun. İki taraflı bütçe ve görev yönetimini kusursuz bir senkronizasyonla sürdürün.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">notifications_active</span></div>
+                        <h3>Anlık Bildirimler</h3>
+                        <p>Görev durumları veya harcamalar güncellendiğinde anında bildirim alın, kontrolü elden bırakmayın.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fiyatlandırma / Paketler Section -->
+        <section id="paketler" class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Her Bütçeye Uygun Esnek Seçenekler</h2>
+                    <p class="section-subtitle">Temel araçlarla ücretsiz başlayın, sınırsız imece gücü için dilediğiniz zaman yükseltin.</p>
+                </div>
+                <div class="pricing-grid">
+                    <!-- Free Plan Card -->
+                    <div class="pricing-card" id="card-free">
+                        <div class="pricing-header">
+                            <h3>Ücretsiz Başlangıç</h3>
+                            <div class="price">0 ₺<span>/ ömür boyu</span></div>
+                            <p>Sade ve küçük hazırlıklar için ideal başlangıç.</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><span class="material-icons-round icon">done</span> 1 Aktif Hazırlık (Düğün veya Nişan)</li>
+                            <li><span class="material-icons-round icon">done</span> En Fazla 3 Ekip Üyesi</li>
+                            <li><span class="material-icons-round icon">done</span> En Fazla 1 Ortak Yönetici (Co-host)</li>
+                            <li><span class="material-icons-round icon">done</span> En Fazla 5 Farklı Kategori (Kategori başı 3 Görev)</li>
+                            <li><span class="material-icons-round icon">done</span> Hazır Şablon Kütüphanesi</li>
+                            <li class="disabled"><span class="material-icons-round icon">close</span> Detaylı Harcama & Bütçe Yönetimi</li>
+                            <li class="disabled"><span class="material-icons-round icon">close</span> Ekip İçi Gerçek Zamanlı Sohbet</li>
+                        </ul>
+                        <a href="#indirin" class="btn btn-outline btn-full">Ücretsiz İndir</a>
+                    </div>
+                    
+                    <!-- Single Event Premium Card -->
+                    <div class="pricing-card" id="card-single">
+                        <div class="pricing-header">
+                            <h3>Tek Bir Organizasyon Paketi</h3>
+                            <div class="price">199 ₺<span>/ 6 ay geçerli</span></div>
+                            <p>Tek bir Düğün, Nişan veya Kına hazırlığı için 6 ay boyunca sınırsız yönetim gücü.</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><span class="material-icons-round icon gold">done</span> 1 Adet Sınırsız Hazırlık (Düğün, Nişan veya Kına'dan biri)</li>
+                            <li><span class="material-icons-round icon gold">done</span> Sınırsız Ekip Üyesi ve Görev</li>
+                            <li><span class="material-icons-round icon gold">done</span> Hazır Şablonlar (19+ Görev Tek Dokunuşta)</li>
+                            <li><span class="material-icons-round icon gold">done</span> Detaylı Bütçe ve Harcama Takibi</li>
+                            <li><span class="material-icons-round icon gold">done</span> Ekip İçi Gerçek Zamanlı Sohbet</li>
+                            <li><span class="material-icons-round icon gold">done</span> Sınırsız Ortak Yönetici (Co-host)</li>
+                        </ul>
+                        <a href="#indirin" class="btn btn-outline btn-full">Seç ve İndir</a>
+                    </div>
+
+                    <!-- Season Pass Premium Card (Recommended) -->
+                    <div class="pricing-card premium-card" id="card-season">
+                        <div class="badge gold-badge card-badge">ÖNERİLEN</div>
+                        <div class="pricing-header">
+                            <h3>Tüm Hazırlıklar Paketi</h3>
+                            <div class="price">499 ₺<span>/ 1 yıllık erişim</span></div>
+                            <p>Söz, Nişan, Kına, Bekarlığa Veda ve Düğün — tüm organizasyonlarınızı kapsar.</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><span class="material-icons-round icon gold">done</span> 1 Yıl Sınırsız Hazırlık (Düğün, Nişan, Kına vb. bir arada)</li>
+                            <li><span class="material-icons-round icon gold">done</span> Tüm Etkinliklerde Sınırsız Ekip & Görev</li>
+                            <li><span class="material-icons-round icon gold">done</span> Hazır Şablonlar (19+ Görev Tek Dokunuşta)</li>
+                            <li><span class="material-icons-round icon gold">done</span> Gelişmiş Harcama Takibi & Analitikler</li>
+                            <li><span class="material-icons-round icon gold">done</span> Ekip İçi Gerçek Zamanlı Sohbet</li>
+                            <li><span class="material-icons-round icon gold">done</span> Sınırsız Ortak Yönetici (Co-host)</li>
+                        </ul>
+                        <a href="#indirin" class="btn btn-primary btn-full btn-gold-effect">Hemen Sahip Ol</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sıkça Sorulan Sorular (SSS - Interactive Accordion) -->
+        <section id="sss" class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Sıkça Sorulan Sorular</h2>
+                    <p class="section-subtitle">İmece Düğün ile ilgili merak ettiğiniz soruların cevapları.</p>
+                </div>
+                
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            İmece Düğün nasıl çalışır?
+                            <span class="material-icons-round faq-arrow">expand_more</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Uygulamayı indirdikten sonra ilk etkinliğinizi oluşturursunuz. Sistem size özel bir davet kodu üretir. Bu kodu aile üyelerinize ve arkadaşlarınıza gönderirsiniz. Onlar da uygulamayı indirip bu kodu girerek ekibinize katılır. Artık görevleri bölüşebilir ve bütçeyi birlikte yönetebilirsiniz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Uygulamada sadece düğün planlaması mı yapabilirim?
+                            <span class="material-icons-round faq-arrow">expand_more</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Hayır. Düğününüzün yanı sıra söz, nişan, kına gecesi veya bekarlığa veda gibi evliliğe giden yoldaki tüm farklı tatlı telaşlarınızı ve organizasyonlarınızı da kolayca planlayabilir ve yönetebilirsiniz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Davet kodunu kimlerle paylaşabilirim?
+                            <span class="material-icons-round faq-arrow">expand_more</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Davet kodunu düğün veya nişan hazırlığında size yardım etmesini istediğiniz herkesle paylaşabilirsiniz. Eşiniz, aile büyükleriniz, sağdıçlarınız, nedimelerinizi veya yakın arkadaşlarınız bu kodla ekibe dahil olup kendilerine atanan görevleri takip edebilirler.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Ödemeler tek seferlik mi, üyelik yenilenir mi?
+                            <span class="material-icons-round faq-arrow">expand_more</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Tek Etkinlik Paketi 6 ay geçerli, Düğün Sezonu Pass ise 1 yıllık erişim sağlayan bir süreli plandır. Süresi bitince otomatik olarak yenilenmezler. Premium süresi dolduğunda verileriniz silinmez, yalnızca yeni görev veya kişi ekleme haklarınız ücretsiz plan limitlerine geri döner.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Yardımcı ekip üyelerimin de ödeme yapması gerekir mi?
+                            <span class="material-icons-round faq-arrow">expand_more</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Hayır, kesinlikle gerekmez. Sadece etkinliği oluşturan ana yöneticinin (Host) premium pakete sahip olması yeterlidir. Davet kodunuzla ekibe katılan yardımcılar (Co-host ve yardımcılar) uygulamayı tamamen ücretsiz olarak indirip tüm özelliklerden yararlanabilirler.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="indirin" class="cta-bottom">
+            <div class="container cta-container">
+                <h2>Hayalinizdeki Düğünü Keyifle Planlayın</h2>
+                <p>Hemen şimdi mobil uygulamamızı indirin ve sevdiklerinizle birlikte imece usulü planlamanın keyfini çıkarın.</p>
+                
+                <!-- Bottom Store Badges -->
+                <div class="store-buttons central-store-buttons">
+                    <a href="https://apps.apple.com" target="_blank" class="store-badge-official app-store-official dark">
+                        <svg class="apple-svg" viewBox="0 0 16 16" width="22" height="22" fill="#ffffff">
+                            <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
+                        </svg>
+                        <div class="store-text">
+                            <span class="store-sub">Download on the</span>
+                            <span class="store-main">App Store</span>
+                        </div>
+                    </a>
+                    <a href="https://play.google.com" target="_blank" class="store-badge-official google-play-official dark">
+                        <svg class="play-svg" viewBox="0 0 466 511.98" width="22" height="22">
+                            <g>
+                                <path fill="#EA4335" fill-rule="nonzero" d="M199.9 237.8l-198.5 232.37c7.22,24.57 30.16,41.81 55.8,41.81 11.16,0 20.93,-2.79 29.3,-8.37l0 0 244.16 -139.46 -130.76 -126.35z"/>
+                                <path fill="#FBBC04" fill-rule="nonzero" d="M433.91 205.1l0 0 -104.65 -60 -111.61 110.22 113.01 108.83 104.64 -58.6c18.14,-9.77 30.7,-29.3 30.7,-50.23 -1.4,-20.93 -13.95,-40.46 -32.09,-50.22z"/>
+                                <path fill="#34A853" fill-rule="nonzero" d="M1.39 41.86c-1.39,4.18 -1.39,9.77 -1.39,15.34l0 397.64c0,5.57 0,9.76 1.4,15.34l216.27 -214.86 -216.28 -213.46z"/>
+                            </g>
+                        </svg>
+                        <div class="store-text">
+                            <span class="store-sub">GET IT ON</span>
+                            <span class="store-main">Google Play</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="material-icons-round gold-icon">favorite</span>
+                    <span class="logo-text">İmece Düğün</span>
+                </div>
+                <p>Sevdiklerinizle düğün ve nişan hazırlıklarını kolayca yönetmeniz için tasarlanmış premium mobil iş birliği platformu.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Hızlı Bağlantılar</h4>
+                <ul>
+                    <li><a href="#ozellikler">Özellikler</a></li>
+                    <li><a href="#detaylar">Detaylar</a></li>
+                    <li><a href="#hesaplayici">Fiyatlandırma</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Destek & İletişim</h4>
+                <p>Destek sorularınız ve geri bildirimleriniz için bize ulaşın.</p>
+                <a href="mailto:destek@imecedugun.com" class="email-link">destek@imecedugun.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 İmece Düğün. Tüm hakları saklıdır. Sevgiyle tasarlandı.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Progressive Disclosure Modals / Panels (Dynamic Mobile Bottom Sheets & Desktop Side Drawers) -->
+    <div class="modal-backdrop" id="modalBackdrop" onclick="closeSpecDrawer()"></div>
+
+    <!-- Spec Drawer 1: Bütçe -->
+    <div class="spec-drawer" id="budget-spec">
+        <div class="drawer-header">
+            <h3>Bütçe & Harcama Yönetimi</h3>
+            <button class="close-drawer-btn" onclick="closeSpecDrawer()"><span class="material-icons-round">close</span></button>
+        </div>
+        <div class="drawer-body">
+            <p class="spec-intro">Düğün bütçesini planlamak hazırlıkların en önemli adımıdır. İmece Düğün bu süreci eşler ve aileler için tamamen şeffaf, anlaşılır ve keyifli bir ortak hesap defterine dönüştürür.</p>
+            <div class="spec-section">
+                <h4>Bütçe Yönetim Özellikleri</h4>
+                <table class="spec-table">
+                    <tr><th>Harcama Ekleme</th><td>İstediğiniz kadar harcama kalemi ve kategorisi ekleyin (Premium)</td></tr>
+                    <tr><th>Döviz Desteği</th><td>TL, Dolar ve Euro ile harcamaları kaydedebilme</td></tr>
+                    <tr><th>Bütçe Kontrolü</th><td>Belirlediğiniz bütçeye ne kadar yaklaştığınızı gösteren ilerleme çubuğu</td></tr>
+                    <tr><th>Kolay Raporlama</th><td>Harcamalarınızın pastadaki payını gösteren anlaşılır grafikler</td></tr>
+                </table>
+            </div>
+            <div class="spec-section">
+                <h4>Nasıl Çalışır?</h4>
+                <p>Uygulamaya yeni bir harcama eklediğinizde (örneğin gelinlik veya salon kiralama), bunu kimin ödediğini seçersiniz. Eşiniz uygulamayı açtığı an bütçenin güncel halini kendi telefonunda görür. Belirlediğiniz harcama limitine yaklaştığınızda uygulama sizi uyararak bütçenizi aşmanızı engeller. Böylece sürpriz masraflarla karşılaşmazsınız.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spec Drawer 2: Görevler -->
+    <div class="spec-drawer" id="tasks-spec">
+        <div class="drawer-header">
+            <h3>Yapılacaklar Listesi & Görevler</h3>
+            <button class="close-drawer-btn" onclick="closeSpecDrawer()"><span class="material-icons-round">close</span></button>
+        </div>
+        <div class="drawer-body">
+            <p class="spec-intro">Yapılacaklar listesi düğün günü yaklaştıkça uzar gider. Görevleri kategorilere ayırarak düzenleyin, sorumlular atayarak takibini kolaylaştırın.</p>
+            <div class="spec-section">
+                <h4>Teknik Sınırlar & Özellikler</h4>
+                <table class="spec-table">
+                    <tr><th>Görev Limitleri</th><td>Ücretsiz planda 15, Premium planda sınırsız</td></tr>
+                    <tr><th>Görev Atama</th><td>Ekip üyelerine tek tıkla veya sürükleyerek görev atama</td></tr>
+                    <tr><th>Görev Durumları</th><td>Bekliyor, Yapılıyor, Yapıldı (İlerleyen süreçler)</td></tr>
+                    <tr><th>Analiz</th><td>Canlı dairesel görev ilerleme grafiği</td></tr>
+                </table>
+            </div>
+            <div class="spec-section">
+                <h4>Nasıl Çalışır?</h4>
+                <p>Bir iş paketi (örn: Fotoğrafçı Seçimi) oluşturursunuz. İçine görevleri (örn: Teklif al, kaparo yatır) eklersiniz. Ekip üyelerinden birine bu görevi atadığınızda, o kişiye anlık bildirim gider. Kişi görevi tamamladığında ilerleme grafiğiniz otomatik olarak güncellenir.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spec Drawer 3: Ekip Yetkileri -->
+    <div class="spec-drawer" id="team-spec">
+        <div class="drawer-header">
+            <h3>İmece Ekip Rol Yetkileri</h3>
+            <button class="close-drawer-btn" onclick="closeSpecDrawer()"><span class="material-icons-round">close</span></button>
+        </div>
+        <div class="drawer-body">
+            <p class="spec-intro">Hazırlıkları sadece çiftler yönetmez. Aileleri ve yakın arkadaşları ekibe dahil ederek görev havuzunu imece usulüne göre birlikte planlayın.</p>
+            <div class="spec-section">
+                <h4>Rol Yetki Matrisi</h4>
+                <table class="spec-table">
+                    <thead>
+                        <tr><th>Özellik</th><th>Gelin & Damat (Yönetici)</th><th>Eşiniz (Ortak Lider)</th><th>Yardımcı Aile & Arkadaşlar</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Bütçe Yönetimi</td><td>Evet</td><td>Evet</td><td>Hayır (Gizli)</td></tr>
+                        <tr><td>Görev Ekleme/Düzenleme</td><td>Evet</td><td>Evet</td><td>Sadece Kendi Görevi</td></tr>
+                        <tr><td>Ekibe Üye Davet Etme</td><td>Evet</td><td>Hayır</td><td>Hayır</td></tr>
+                        <tr><td>Hesap Detayları</td><td>Evet</td><td>Hayır</td><td>Hayır</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="spec-section">
+                <h4>Davet Kodu Nasıl Çalışır?</h4>
+                <p>Uygulamada düğün veya nişanınızı oluşturduktan sonra bir davet kodu alırsınız. Bu kodu sevdiklerinizle paylaştığınızda; onlar da ekibinize katılır, atadığınız görevleri kendi telefonlarından görerek size yardım etmeye başlarlar.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spec Drawer 4: Şablonlar -->
+    <div class="spec-drawer" id="templates-spec">
+        <div class="drawer-header">
+            <h3>Hazır Düğün Şablonları</h3>
+            <button class="close-drawer-btn" onclick="closeSpecDrawer()"><span class="material-icons-round">close</span></button>
+        </div>
+        <div class="drawer-body">
+            <p class="spec-intro">Düğün veya nişan hazırlarken nereden başlayacağınızı bilmiyorsanız, hazır uzman şablonlarımız tam size göre.</p>
+            <div class="spec-section">
+                <h4>Şablon Özellikleri</h4>
+                <table class="spec-table">
+                    <tr><th>Şablon Sayısı</th><td>Otomatik üretilen 19+ temel görev listesi</td></tr>
+                    <tr><th>Etkinlik Türleri</th><td>Söz, Nişan, Kına, Dalgıç/Dış Chekim ve Düğün</td></tr>
+                    <tr><th>Zaman Planlaması</th><td>Düğün tarihine göre otomatik tariylendirme</td></tr>
+                    <tr><th>Özelleştirme</th><td>Görevleri silme, adlandırma veya yeni görev ekleme</td></tr>
+                </table>
+            </div>
+            <div class="spec-section">
+                <h4>Nasıl Çalışır?</h4>
+                <p>Etkinlik oluşturma ekranında "Şablon Kullan" seçeneğini işaretlersiniz. Uzman organizatörler tarafından tasarlanmış, aylar öncesinden yapılması gereken hazırlık listesi saniyeler içinde görev panonuza yüklenir ve düğün tarihinize göre geri sayım sıralaması yapılır.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP Animation Framework Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Check window width for responsive degradation (down to tablet 768px wide)
+        const isDesktop = window.innerWidth >= 768;
+
+        // GSAP ScrollTrigger Animations (Only on Desktop/Wide Screens)
+        if (isDesktop) {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Create Master Timeline for Showcase Layout - Dynamic card focus dimming
+            const masterTl = gsap.timeline({ paused: true });
+
+            // Initial layout settings for mockups
+            gsap.set(["#inviteBottomSheet", "#cohostBottomSheet"], { pointerEvents: "none" });
+            gsap.set(["#inviteBottomSheet .sheet-scrim", "#cohostBottomSheet .sheet-scrim"], { opacity: 0 });
+            gsap.set(["#inviteBottomSheet .sheet-container", "#cohostBottomSheet .sheet-container"], { y: "100%" });
+            gsap.set("#cohostCreateDialog", { pointerEvents: "none", opacity: 0 });
+            gsap.set("#cohostCreateDialog .dialog-container", { scale: 0.8 });
+            gsap.set(["#eceTapRipple", "#heartTapRipple", "#dialogSubmitRipple"], { scale: 0, opacity: 0 });
+
+            // 0. Explicit reset to full opacity at starting scroll position
+            masterTl.to(["#mockup-team-section", "#mockup-budget-section", "#mockup-task-section", "#mockup-roles-list-section"], {
+                opacity: 1.0,
+                duration: 0.1
+            }, 0);
+
+            // 1. Hero Phase (0% to 25% progress)
+            masterTl.to("#heroContent", {
+                opacity: 0,
+                y: -100,
+                duration: 1
+            })
+            .to("#phoneMockup", {
+                rotationY: 0,
+                rotationX: 0,
+                scale: 1.15,
+                x: "-30%", // Shove left for Split Screen Showcase
+                duration: 1
+            }, 0)
+            // Initial focus on Slide 1: Bütçe
+            .to("#mockupScroller", {
+                y: "-260px", 
+                duration: 0.5
+            }, 0.5)
+            .to("#mockup-budget-section", {
+                borderColor: "rgba(201, 162, 39, 0.35)",
+                boxShadow: "0 0 20px rgba(201, 162, 39, 0.2)",
+                scale: 1.025,
+                opacity: 1.0,
+                duration: 0.3
+            }, 0.5)
+            .to(["#mockup-team-section", "#mockup-task-section", "#mockup-roles-list-section"], {
+                opacity: 0.3,
+                duration: 0.3
+            }, 0.5)
+            .to("#text-slide-1", {
+                display: "block",
+                opacity: 1,
+                y: 0,
+                duration: 0.5
+            }, 0.8);
+
+            // 2. Showcase Slide 1 -> Slide 2 (25% to 50% progress)
+            // Phase 2a: Focus on Donut Chart (Görev Özeti)
+            masterTl.to("#mockupScroller", {
+                y: "-90px", 
+                duration: 0.7
+            }, 1.5)
+            .to("#text-slide-1", { opacity: 0, y: -50, display: "none", duration: 0.3 }, 1.5)
+            .to("#text-slide-2", { display: "block", opacity: 1, y: 0, duration: 0.5 }, 1.8)
+            .to("#mockup-budget-section", {
+                borderColor: "transparent",
+                boxShadow: "none",
+                scale: 1.0,
+                opacity: 0.3,
+                duration: 0.4
+            }, 1.5)
+            .to("#mockup-task-section", {
+                borderColor: "rgba(201, 162, 39, 0.35)",
+                boxShadow: "0 0 20px rgba(201, 162, 39, 0.2)",
+                scale: 1.025,
+                opacity: 1.0,
+                duration: 0.4
+            }, 1.7)
+            .to(["#mockup-team-section", "#mockup-roles-list-section"], {
+                opacity: 0.3,
+                duration: 0.4
+            }, 1.5)
+            
+            // Phase 2b: Mid-Slide 2 scroll down to show role assignment cards (İş Paketleri)
+            .to("#mockupScroller", {
+                y: "-390px", 
+                duration: 0.7
+            }, 2.2)
+            .to("#mockup-task-section", {
+                borderColor: "transparent",
+                boxShadow: "none",
+                scale: 1.0,
+                opacity: 0.3,
+                duration: 0.4
+            }, 2.2)
+            .to("#mockup-roles-list-section", {
+                borderColor: "rgba(201, 162, 39, 0.35)",
+                boxShadow: "0 0 20px rgba(201, 162, 39, 0.2)",
+                scale: 1.025,
+                opacity: 1.0,
+                duration: 0.4
+            }, 2.4)
+            .to(["#mockup-team-section", "#mockup-budget-section"], {
+                opacity: 0.3,
+                duration: 0.4
+            }, 2.2)
+
+            // 3. Showcase Slide 2 -> Slide 2c (Davet & Kod Ekranı)
+            .to("#text-slide-2", { opacity: 0, y: -50, display: "none", duration: 0.3 }, 2.9)
+            .to("#text-slide-2c", { display: "block", opacity: 1, y: 0, duration: 0.5 }, 3.1)
+
+            // --- Ece Tap 1 ---
+            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "rgba(201, 162, 39, 0.4)", duration: 0.7 }, 3.6)
+            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 3.6)
+            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.7 }, 4.3)
+            .to("#eceTapRipple", { opacity: 0, duration: 0.7 }, 4.3)
+            .set("#eceTapRipple", { scale: 0 }, 5.0)
+
+            // --- Ece Tap 2 ---
+            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "rgba(201, 162, 39, 0.4)", duration: 0.7 }, 6.4)
+            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 6.4)
+            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.7 }, 7.1)
+            .to("#eceTapRipple", { opacity: 0, duration: 0.7 }, 7.1)
+            .set("#eceTapRipple", { scale: 0 }, 7.8)
+
+            // --- Ece Tap 3 ---
+            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "rgba(201, 162, 39, 0.4)", duration: 0.7 }, 9.2)
+            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 9.2)
+            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.7 }, 9.9)
+            .to("#eceTapRipple", { opacity: 0, duration: 0.7 }, 9.9)
+
+            // --- Ece Sheet Opens ---
+            .to("#inviteBottomSheet", { pointerEvents: "auto", duration: 0.02 }, 12.0)
+            .to("#inviteBottomSheet .sheet-scrim", { opacity: 1, duration: 0.6 }, 12.0)
+            .to("#inviteBottomSheet .sheet-container", { y: "0%", duration: 1.4, ease: "power2.out" }, 12.0)
+
+            // 4. Showcase Slide 2c -> Slide 3 (Ortak Yönetici)
+            // --- Ece Sheet Closes ---
+            .to("#inviteBottomSheet .sheet-container", { y: "100%", duration: 0.6 }, 13.4)
+            .to("#inviteBottomSheet .sheet-scrim", { opacity: 0, duration: 0.6 }, 13.4)
+            .to("#inviteBottomSheet", { pointerEvents: "none", duration: 0.02 }, 14.0)
+
+            // --- Scroll back to top & Focus team ---
+            .to("#mockupScroller", {
+                y: "0px", 
+                duration: 1.4
+            }, 13.4)
+            .to("#text-slide-2c", { opacity: 0, y: -50, display: "none", duration: 0.3 }, 13.4)
+            .to("#text-slide-3", { display: "block", opacity: 1, y: 0, duration: 0.5 }, 14.4)
+            .to("#mockup-roles-list-section", {
+                borderColor: "transparent",
+                boxShadow: "none",
+                scale: 1.0,
+                opacity: 0.3,
+                duration: 1.4
+            }, 13.4)
+            .to("#mockup-team-section", {
+                borderColor: "rgba(201, 162, 39, 0.35)",
+                boxShadow: "0 0 20px rgba(201, 162, 39, 0.2)",
+                scale: 1.025,
+                opacity: 1.0,
+                duration: 1.4
+            }, 14.4)
+            .to(["#mockup-budget-section", "#mockup-task-section", "#mockup-roles-list-section"], {
+                opacity: 0.3,
+                duration: 1.4
+            }, 13.4)
+
+            // --- Heart Tap 1 ---
+            .to(".cohost-heart-btn", { scale: 0.85, backgroundColor: "rgba(201, 162, 39, 0.25)", duration: 0.7 }, 17.2)
+            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 17.2)
+            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.7 }, 17.9)
+            .to("#heartTapRipple", { opacity: 0, duration: 0.7 }, 17.9)
+            .set("#heartTapRipple", { scale: 0 }, 18.6)
+
+            // --- Heart Tap 2 ---
+            .to(".cohost-heart-btn", { scale: 0.85, backgroundColor: "rgba(201, 162, 39, 0.25)", duration: 0.7 }, 20.0)
+            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 20.0)
+            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.7 }, 20.7)
+            .to("#heartTapRipple", { opacity: 0, duration: 0.7 }, 20.7)
+            .set("#heartTapRipple", { scale: 0 }, 21.4)
+
+            // --- Heart Tap 3 ---
+            .to(".cohost-heart-btn", { scale: 0.85, backgroundColor: "rgba(201, 162, 39, 0.25)", duration: 0.7 }, 22.8)
+            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 22.8)
+            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.7 }, 23.5)
+            .to("#heartTapRipple", { opacity: 0, duration: 0.7 }, 23.5)
+
+            // --- Dialog Opens (giving human reading time) ---
+            .to("#cohostCreateDialog", { pointerEvents: "auto", opacity: 1, duration: 0.6 }, 25.6)
+            .to("#cohostCreateDialog .dialog-container", { scale: 1, duration: 0.8, ease: "back.out(1.5)" }, 25.6)
+            .to({}, { duration: 1.4 }) // Hold dialog pre-filled details visual stage (1.4 seconds!)
+
+            // --- Confirm Button Tap ---
+            .to("#cohostCreateDialog .dialog-btn.confirm-btn", { scale: 0.95, backgroundColor: "#754B4B", duration: 0.7 }, 28.4)
+            .to("#dialogSubmitRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 28.4)
+            .to("#cohostCreateDialog .dialog-btn.confirm-btn", { scale: 1.0, backgroundColor: "", duration: 0.7 }, 29.1)
+            .to("#dialogSubmitRipple", { opacity: 0, duration: 0.7 }, 29.1)
+
+            // --- Dialog Closes & Mert Sheet Opens ---
+            .to("#cohostCreateDialog .dialog-container", { scale: 0.8, duration: 0.6 }, 31.2)
+            .to("#cohostCreateDialog", { opacity: 0, pointerEvents: "none", duration: 0.6 }, 31.2)
+            
+            .to("#cohostBottomSheet", { pointerEvents: "auto", duration: 0.02 }, 32.6)
+            .to("#cohostBottomSheet .sheet-scrim", { opacity: 1, duration: 0.6 }, 32.6)
+            .to("#cohostBottomSheet .sheet-container", { y: "0%", duration: 1.4, ease: "power2.out" }, 32.6)
+
+            // Slide 3 Hold (until Exit animation starts)
+            .to({}, { duration: 1.4 })
+
+            // 5. Fade out and Exit (90% to 100% progress)
+            .to("#phoneMockup", {
+                scale: 0.8,
+                opacity: 0,
+                y: 100,
+                duration: 1.4
+            }, 35.5)
+            .to("#text-slide-3", {
+                opacity: 0,
+                y: -50,
+                duration: 1.4
+            }, 35.5)
+            .to(["#mockup-team-section", "#mockup-budget-section", "#mockup-task-section", "#mockup-roles-list-section"], {
+                opacity: 1.0,
+                duration: 0.1
+            }, 35.5)
+
+            // 6. GPU-Accelerated Dynamic Dark Theme Shift
+            gsap.to("#darkOverlay", {
+                scrollTrigger: {
+                    trigger: "#hesaplayici",
+                    start: "top 80%",
+                    end: "top 30%", 
+                    scrub: 1
+                },
+                opacity: 1
+            });
+
+            // 7. Dynamic Class toggle for the entire remaining dark region of the page
+            ScrollTrigger.create({
+                trigger: "#hesaplayici",
+                start: "top 80%",
+                end: "max",
+                toggleClass: { targets: "body", className: "dark-active" }
+            });
+
+            // 8. Custom heartbeat pulsating effect toggle for co-host heart button icon
+            ScrollTrigger.create({
+                trigger: "#text-slide-3",
+                start: "top 60%",
+                end: "bottom 40%",
+                onEnter: () => document.getElementById("mockup-team-section").classList.add("heartbeat-active"),
+                onLeave: () => document.getElementById("mockup-team-section").classList.remove("heartbeat-active"),
+                onEnterBack: () => document.getElementById("mockup-team-section").classList.add("heartbeat-active"),
+                onLeaveBack: () => document.getElementById("mockup-team-section").classList.remove("heartbeat-active")
+            });
+
+            // Step controller setup for slide-by-slide Observer layout - Targeting EXACT completion times
+            const steps = [0, 1.3, 2.3, 2.9, 13.4, 34.0];
+            let currentIndex = 0;
+            let isAnimating = false;
+
+            function lockScroll() {
+                document.body.style.overflow = "hidden";
+                intentObserver.enable();
+            }
+
+            function unlockScroll() {
+                document.body.style.overflow = "";
+                intentObserver.disable();
+            }
+
+            // Pin showcase trigger (without scrub to lock intent per step)
+            const pinTrigger = ScrollTrigger.create({
+                trigger: "#hero-showcase-story",
+                start: "top top",
+                end: "+=400%",
+                pin: true,
+                scrub: false,
+                onEnter: () => {
+                    currentIndex = 0;
+                    goToStepDirect(0);
+                    lockScroll();
+                },
+                onEnterBack: () => {
+                    currentIndex = steps.length - 1;
+                    goToStepDirect(steps.length - 1);
+                    lockScroll();
+                },
+                onLeave: () => {
+                    unlockScroll();
+                },
+                onLeaveBack: () => {
+                    unlockScroll();
+                }
+            });
+
+            let taskCompletedState = false;
+
+            function completeMockupTask() {
+                if (taskCompletedState) return;
+                taskCompletedState = true;
+                
+                // 1. Change task badge to green done state
+                const badge = document.getElementById("task-status-badge");
+                if (badge) {
+                    badge.classList.remove("progress");
+                    badge.classList.add("done");
+                    badge.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                }
+                
+                // 2. Cross out task or make item look done
+                const taskItem = document.getElementById("mockup-task-to-complete");
+                if (taskItem) {
+                    taskItem.classList.remove("progress");
+                    taskItem.classList.add("done");
+                }
+                
+                // 3. Fill progress ring to 100%
+                const fillPath = document.querySelector("#mockup-progress-ring-1 .ring-fill");
+                if (fillPath) {
+                    gsap.to(fillPath, {
+                        attr: { "stroke-dasharray": "100, 100" },
+                        duration: 0.8,
+                        ease: "power2.out"
+                    });
+                }
+                
+                // 4. Fill heart inside ring
+                const heartSvg = document.querySelector("#ring-heart-1 svg");
+                if (heartSvg) {
+                    heartSvg.classList.remove("outline");
+                    heartSvg.classList.add("filled");
+                }
+                
+                // 5. Fire canvas confetti!
+                setTimeout(() => {
+                    if (window.confetti) {
+                        const rect = document.getElementById('phoneMockup').getBoundingClientRect();
+                        const x = (rect.left + rect.width / 2) / window.innerWidth;
+                        const y = (rect.top + rect.height / 2) / window.innerHeight;
+                        
+                        // Burst 1
+                        window.confetti({
+                            particleCount: 75,
+                            spread: 55,
+                            origin: { x, y }
+                        });
+                    }
+                }, 400);
+            }
+
+            function resetMockupTask() {
+                if (!taskCompletedState) return;
+                taskCompletedState = false;
+                
+                // 1. Reset task badge
+                const badge = document.getElementById("task-status-badge");
+                if (badge) {
+                    badge.classList.remove("done");
+                    badge.classList.add("progress");
+                    badge.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>';
+                }
+                
+                // 2. Reset task item
+                const taskItem = document.getElementById("mockup-task-to-complete");
+                if (taskItem) {
+                    taskItem.classList.remove("done");
+                    taskItem.classList.add("progress");
+                }
+                
+                // 3. Reset progress ring fill
+                const fillPath = document.querySelector("#mockup-progress-ring-1 .ring-fill");
+                if (fillPath) {
+                    gsap.set(fillPath, {
+                        attr: { "stroke-dasharray": "60, 100" }
+                    });
+                }
+                
+                // 4. Reset heart inside ring
+                const heartSvg = document.querySelector("#ring-heart-1 svg");
+                if (heartSvg) {
+                    heartSvg.classList.remove("filled");
+                    heartSvg.classList.add("outline");
+                }
+            }
+
+            function goToStepDirect(index) {
+                if (index < 0 || index >= steps.length) return;
+
+                // Sync task completed state instantly
+                if (index >= 3) {
+                    taskCompletedState = true;
+                    const badge = document.getElementById("task-status-badge");
+                    if (badge) {
+                        badge.classList.remove("progress");
+                        badge.classList.add("done");
+                        badge.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                    }
+                    const taskItem = document.getElementById("mockup-task-to-complete");
+                    if (taskItem) {
+                        taskItem.classList.remove("progress");
+                        taskItem.classList.add("done");
+                    }
+                    const fillPath = document.querySelector("#mockup-progress-ring-1 .ring-fill");
+                    if (fillPath) gsap.set(fillPath, { attr: { "stroke-dasharray": "100, 100" } });
+                    const heartSvg = document.querySelector("#ring-heart-1 svg");
+                    if (heartSvg) {
+                        heartSvg.classList.remove("outline");
+                        heartSvg.classList.add("filled");
+                    }
+                } else {
+                    taskCompletedState = false;
+                    const badge = document.getElementById("task-status-badge");
+                    if (badge) {
+                        badge.classList.remove("done");
+                        badge.classList.add("progress");
+                        badge.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>';
+                    }
+                    const taskItem = document.getElementById("mockup-task-to-complete");
+                    if (taskItem) {
+                        taskItem.classList.remove("done");
+                        taskItem.classList.add("progress");
+                    }
+                    const fillPath = document.querySelector("#mockup-progress-ring-1 .ring-fill");
+                    if (fillPath) gsap.set(fillPath, { attr: { "stroke-dasharray": "60, 100" } });
+                    const heartSvg = document.querySelector("#ring-heart-1 svg");
+                    if (heartSvg) {
+                        heartSvg.classList.remove("filled");
+                        heartSvg.classList.add("outline");
+                    }
+                }
+
+                gsap.killTweensOf(masterTl);
+                masterTl.time(steps[index]);
+                currentIndex = index;
+            }
+
+            function goToStep(index) {
+                if (index < 0 || index >= steps.length) return;
+                isAnimating = true;
+                
+                // Trigger task completion transitions on target step
+                if (index >= 3) {
+                    completeMockupTask();
+                } else {
+                    resetMockupTask();
+                }
+
+                // Proportional transition duration so animations play at a highly natural, human speed
+                const diff = Math.abs(steps[index] - steps[currentIndex]);
+                const duration = Math.min(Math.max(diff * 0.45, 0.85), 8.0);
+
+                gsap.killTweensOf(masterTl);
+                gsap.to(masterTl, {
+                    time: steps[index],
+                    duration: duration,
+                    ease: "power2.out",
+                    onComplete: () => {
+                        currentIndex = index;
+                        isAnimating = false;
+                    }
+                });
+            }
+
+            // Scroll intent Observer - locks vertical scroll and transitions slide-by-slide
+            const intentObserver = ScrollTrigger.observe({
+                type: "wheel,touch",
+                onUp: () => { 
+                    if (isAnimating) return;
+                    if (currentIndex > 0) {
+                        goToStep(currentIndex - 1);
+                    } else {
+                        // Exit upwards from pinned container
+                        unlockScroll();
+                        window.scrollTo({
+                            top: pinTrigger.start - 5,
+                            behavior: "smooth"
+                        });
+                    }
+                },
+                onDown: () => { 
+                    if (isAnimating) return;
+                    if (currentIndex < steps.length - 1) {
+                        goToStep(currentIndex + 1);
+                    } else {
+                        // Exit downwards from pinned container
+                        unlockScroll();
+                        window.scrollTo({
+                            top: pinTrigger.end + 5,
+                            behavior: "smooth"
+                        });
+                    }
+                },
+                tolerance: 15,
+                preventDefault: true
+            });
+            intentObserver.disable(); // Disabled on start
+        }
+
+        // Phone Mockup Interactive Data Swapper (Fallbacks / Mobile clicks)
+        function changeMockupData(type) {
+            const scroller = document.getElementById('mockupScroller');
+            if (type === 'music') {
+                scroller.style.transform = 'translateY(-90px)';
+            } else if (type === 'location') {
+                scroller.style.transform = 'translateY(0px)';
+            }
+        }
+
+        // Invite Modal Sheet controllers for co-hosts/team members
+        function openInviteSheet(event) {
+            if (event) event.stopPropagation();
+            const sheet = document.getElementById("inviteBottomSheet");
+            if (sheet) sheet.classList.add("active");
+        }
+
+        function closeInviteSheet() {
+            const sheet = document.getElementById("inviteBottomSheet");
+            if (sheet) sheet.classList.remove("active");
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("mockupToast");
+            if (toast) {
+                toast.innerText = message;
+                toast.classList.add("active");
+                setTimeout(() => {
+                    toast.classList.remove("active");
+                }, 2000);
+            }
+        }
+
+        function copyInviteCode() {
+            navigator.clipboard.writeText("DN-ECE-572").then(() => {
+                showToast("Davet kodu kopyalandı");
+            }).catch(() => {
+                showToast("Davet kodu kopyalandı");
+            });
+        }
+
+        function sendInviteWhatsApp() {
+            copyInviteCode();
+            setTimeout(() => {
+                closeInviteSheet();
+            }, 800);
+        }
+
+        // Co-Host Modal Sheet controllers for spouse/partner Mert
+        function openCohostSheet(event) {
+            if (event) event.stopPropagation();
+            const sheet = document.getElementById("cohostBottomSheet");
+            if (sheet) sheet.classList.add("active");
+        }
+
+        function closeCohostSheet() {
+            const sheet = document.getElementById("cohostBottomSheet");
+            if (sheet) sheet.classList.remove("active");
+        }
+
+        function copyCohostCode() {
+            navigator.clipboard.writeText("DN-MERT-984").then(() => {
+                showToast("Davet kodu kopyalandı");
+            }).catch(() => {
+                showToast("Davet kodu kopyalandı");
+            });
+        }
+
+        function sendCohostWhatsApp() {
+            copyCohostCode();
+            setTimeout(() => {
+                closeCohostSheet();
+            }, 800);
+        }
+
+        // Cohost Form Dialog Mockup controllers
+        function openCohostCreateDialog() {
+            const dialog = document.getElementById("cohostCreateDialog");
+            if (dialog) dialog.classList.add("active");
+        }
+
+        function closeCohostCreateDialog() {
+            const dialog = document.getElementById("cohostCreateDialog");
+            if (dialog) dialog.classList.remove("active");
+        }
+
+        function submitCohostCreateForm() {
+            closeCohostCreateDialog();
+            setTimeout(() => {
+                openCohostSheet();
+            }, 300);
+        }
+
+        // 3D Phone Tilt Effect (Desktop Hover Only, disable during scroll)
+        const phone = document.getElementById('phoneMockup');
+        if (window.innerWidth > 991) {
+            phone.addEventListener('mousemove', (e) => {
+                if (window.scrollY > 200) return; 
+                const rect = phone.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width/2;
+                const y = e.clientY - rect.top - rect.height/2;
+                
+                const tiltX = (y / rect.height) * -12;
+                const tiltY = (x / rect.width) * 12;
+                
+                phone.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            phone.addEventListener('mouseleave', () => {
+                if (window.scrollY > 200) return;
+                phone.style.transform = 'perspective(1000px) rotateX(8deg) rotateY(-8deg) scale3d(1, 1, 1)'; // Initial posture
+            });
+        }
+
+        // Progressive Disclosure Drawers Handler
+        function openSpecDrawer(drawerId) {
+            closeSpecDrawer();
+            
+            const backdrop = document.getElementById('modalBackdrop');
+            const drawer = document.getElementById(drawerId);
+            
+            backdrop.classList.add('active');
+            drawer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Interactive Pricing Plan Calculator
+        function calculatePlan() {
+            const events = parseInt(document.getElementById('eventCount').value);
+            const persons = parseInt(document.getElementById('personCount').value);
+            const needBudget = document.getElementById('needBudget').checked;
+            
+            document.getElementById('eventCountVal').innerText = events;
+            document.getElementById('personCountVal').innerText = persons;
+            
+            const title = document.getElementById('recommendedPlanTitle');
+            const price = document.getElementById('recommendedPlanPrice');
+            const desc = document.getElementById('recommendedPlanDesc');
+            const box = document.getElementById('planResultBox');
+            
+            let recommendedPlan = 'free';
+            let targetPrice = 0;
+            let targetTitle = 'Ücretsiz Başlangıç';
+            let targetDesc = 'Küçük çaplı organizasyonlar ve 3 kişiyi aşmayan ekipler için tamamen ücretsiz ideal plan.';
+            
+            if (events > 1) {
+                recommendedPlan = 'season';
+                targetPrice = 499;
+                targetTitle = 'Tüm Hazırlıklar Paketi';
+                targetDesc = 'Söz, Nişan, Kına, Bekarlığa Veda ve Düğün gibi 1 yıl içine yayılmış birden fazla hazırlık yapacak, en kapsamlı bütçe ve sınırsız ekip desteğine ihtiyaç duyan çiftler için en karlı seçenektir.';
+            } else if (persons > 3 || needBudget) {
+                recommendedPlan = 'single';
+                targetPrice = 199;
+                targetTitle = 'Tek Bir Organizasyon Paketi';
+                targetDesc = 'Seçtiğiniz tek bir Düğün, Nişan veya Kına hazırlığı için 6 ay geçerli; sınırsız kişi, görev ve bütçe erişimi sunan en ideal çözümdür.';
+            }
+
+            // Tactile feedback: scale bump
+            box.classList.add('tactile-bump');
+            setTimeout(() => box.classList.remove('tactile-bump'), 400);
+
+            // Remove pricing highlights
+            document.getElementById('card-free').classList.remove('active-recommend');
+            document.getElementById('card-single').classList.remove('active-recommend');
+            document.getElementById('card-season').classList.remove('active-recommend');
+
+            title.innerText = targetTitle;
+            desc.innerText = targetDesc;
+            
+            if (window.gsap) {
+                const currentPriceVal = parseInt(price.innerText) || 0;
+                const tempObj = { val: currentPriceVal };
+                gsap.to(tempObj, {
+                    val: targetPrice,
+                    duration: 0.6,
+                    snap: "val",
+                    ease: "power4.out",
+                    onUpdate: () => {
+                        price.innerText = tempObj.val + " ₺";
+                    }
+                });
+            } else {
+                price.innerText = targetPrice + " ₺";
+            }
+
+            if (recommendedPlan === 'free') {
+                document.getElementById('card-free').classList.add('active-recommend');
+            } else if (recommendedPlan === 'single') {
+                document.getElementById('card-single').classList.add('active-recommend');
+            } else {
+                document.getElementById('card-season').classList.add('active-recommend');
+            }
+        }
+
+        // FAQ Accordion Toggle
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            const isOpen = item.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(el => {
+                el.classList.remove('active');
+                el.querySelector('.faq-answer').style.maxHeight = null;
+            });
+            
+            if (!isOpen) {
+                item.classList.add('active');
+                const answer = item.querySelector('.faq-answer');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        }
+
+        function closeSpecDrawer() {
+            const backdrop = document.getElementById('modalBackdrop');
+            const drawers = document.querySelectorAll('.spec-drawer');
+            
+            backdrop.classList.remove('active');
+            drawers.forEach(drawer => drawer.classList.remove('active'));
+            document.body.style.overflow = 'auto';
+        }
+
+        // Thinner premium navbar on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 40) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
