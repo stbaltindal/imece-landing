@@ -792,15 +792,7 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- 3. Seçim: Bütçe -->
-                        <div class="calc-input-group inline-toggle-group" style="margin-top: 20px;">
-                            <label class="calc-label" style="font-size: 0.95rem; font-weight: 600; margin: 0; color: var(--text-main);">Detaylı bütçe ve harcama takibi istiyorum</label>
-                            <label class="switch">
-                                <input type="checkbox" id="needBudget" checked onchange="calculatePlan()">
-                                <span class="slider-round"></span>
-                            </label>
-                        </div>
+
                     </div>
                     
                     <div class="calculator-result" id="planResultBox">
@@ -887,7 +879,7 @@
                             <li><span class="material-icons-round icon">done</span> En Fazla 1 Ortak Yönetici (Co-host)</li>
                             <li><span class="material-icons-round icon">done</span> En Fazla 5 Farklı Kategori (Kategori başı 3 Görev)</li>
                             <li><span class="material-icons-round icon">done</span> Hazır Şablon Kütüphanesi</li>
-                            <li class="disabled"><span class="material-icons-round icon">close</span> Detaylı Harcama & Bütçe Yönetimi</li>
+                            <li><span class="material-icons-round icon">done</span> Harcama & Bütçe Takibi</li>
                             <li class="disabled"><span class="material-icons-round icon">close</span> Ekip İçi Gerçek Zamanlı Sohbet</li>
                         </ul>
                         <a href="#indirin" class="btn btn-outline btn-full">Ücretsiz İndir</a>
@@ -1824,7 +1816,6 @@
         function calculatePlan() {
             const events = selectedEventCount;
             const persons = selectedTeamSize;
-            const needBudget = document.getElementById('needBudget').checked;
             
             const title = document.getElementById('recommendedPlanTitle');
             const price = document.getElementById('recommendedPlanPrice');
@@ -1883,22 +1874,15 @@
                     </div>
                 `;
             } else if (activeEvents === 1) {
-                // 1 Event is free unless it exceeds team limits or requires budget tracking
-                if (persons > 3 || needBudget) {
+                // 1 Event is free unless it exceeds team limits
+                if (persons > 3) {
                     recommendedPlan = 'single';
                     targetPrice = 199;
                     targetTitle = 'Tek Bir Organizasyon Paketi';
                     targetPeriod = '/ 6 ay geçerli';
                     targetDesc = 'Seçtiğiniz tek bir hazırlık panosu (boş veya hazır şablon) için bütçe takibi ve sınırsız ekip üyesi, görev atama desteği sunan premium plan.';
                     targetBadge = 'TEKİL PREMİUM';
-                    
-                    if (needBudget && persons > 3) {
-                        targetReason = 'Geniş Ekip & Akıllı Bütçe Takibi İçin';
-                    } else if (needBudget) {
-                        targetReason = 'Gelişmiş Bütçe Raporlama İçin';
-                    } else {
-                        targetReason = 'Çoklu Görev & Ekip Yönetimi İçin';
-                    }
+                    targetReason = 'Geniş Ekip & Çoklu Görev Yönetimi İçin';
                     
                     featuresHtml = `
                         <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
