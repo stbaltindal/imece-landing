@@ -3346,16 +3346,37 @@ body.dark-active .app-header-mini {
     .story-container .showcase-slide-text {
         display: none !important;
     }
-    
     .mobile-interactive-showcase {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
-        padding: 40px var(--space-md);
+        padding: 20px var(--space-md);
         box-sizing: border-box;
         border-top: 1px solid var(--border-color);
         background-color: var(--surface);
+    }
+    
+    .mobile-mockup-wrap {
+        position: relative;
+        width: 280px;
+        height: 380px;
+        margin: 0 auto 10px auto;
+        overflow: hidden;
+    }
+    
+    #phoneMockupMobile {
+        width: 280px;
+        height: 550px;
+        border-width: 9px;
+        border-radius: 38px;
+        box-shadow: var(--shadow-medium);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scale(0.67);
+        transform-origin: top center;
+        pointer-events: auto;
     }
     
     /* Active step texts styles inside swiper */

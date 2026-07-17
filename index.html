@@ -449,15 +449,15 @@
             
             <!-- Mobile Only Interactive Showcase Section (Screen < 768px) -->
             <div class="mobile-interactive-showcase">
-                <div class="section-header" style="margin-bottom: 24px; text-align: center; width: 100%;">
-                    <div class="badge gold-badge" style="margin: 0 auto 10px auto; display: table;">NASIL ÇALIŞIR?</div>
-                    <h2 style="font-size: 1.8rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 8px 0;">Uygulama Akışını Keşfedin</h2>
-                    <p class="section-subtitle" style="font-size: 0.9rem; margin: 0; max-width: 100%;">Aşağıdaki butonları veya ekranı kullanarak İmece planlama sürecini adım adım simüle edin.</p>
+                <div class="section-header" style="margin-bottom: 16px; text-align: center; width: 100%;">
+                    <div class="badge gold-badge" style="margin: 0 auto 8px auto; display: table;">NASIL ÇALIŞIR?</div>
+                    <h2 style="font-size: 1.5rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 4px 0;">Uygulama Akışını Keşfedin</h2>
+                    <p class="section-subtitle" style="font-size: 0.8rem; margin: 0; max-width: 100%;">Butonları kullanarak İmece planlama sürecini adım adım canlandırın.</p>
                 </div>
                 
-                <!-- Swiper Phone Frame -->
-                <div class="mobile-mockup-wrap" style="position: relative; width: 280px; height: 550px; margin: 0 auto 20px auto;">
-                    <div class="phone-frame interactive-phone retina-phone" id="phoneMockupMobile" style="width: 280px; height: 550px; border-width: 9px; border-radius: 38px; box-shadow: var(--shadow-medium); position: absolute; top: 0; left: 0; pointer-events: auto;">
+                <!-- Swiper Phone Frame Wrap (Height limited to 370px to fit viewports) -->
+                <div class="mobile-mockup-wrap">
+                    <div class="phone-frame interactive-phone retina-phone" id="phoneMockupMobile">
                         <div class="phone-speaker" style="width: 50px; height: 4px; top: 6px;"></div>
                         <div class="phone-screen" style="border-radius: 30px;">
                             <div class="phone-header" style="height: 24px; font-size: 10px; padding: 0 16px;">
@@ -480,11 +480,13 @@
                                     <div class="app-dashboard-scroller" id="mockupScrollerMobile" style="padding: 12px; display: flex; flex-direction: column; gap: 12px; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);">
                                         
                                         <!-- 1) TeamPoolBar ("Ekibim") -->
-                                        <div class="team-pool-section" id="mockup-team-section-mobile" style="background: var(--surface); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color);">
+                                        <div class="team-pool-section" id="mockup-team-section-mobile" style="background: var(--surface); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); position: relative; transition: all 0.4s ease;">
                                             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px;">
                                                 <span style="font-size: 12px; font-weight: 700;">Ekibim</span>
-                                                <div class="cohost-heart-btn" id="cohostHeartBtnMobile" style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--gold-light); cursor: pointer; transition: transform 0.2s;">
-                                                    <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: var(--gold);"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                                <div class="cohost-heart-btn" id="cohostHeartBtnMobile" style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--gold-light); cursor: pointer; transition: transform 0.2s; position: relative;">
+                                                    <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: var(--gold);"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                                    <!-- Tap Ripple for Heart -->
+                                                    <div class="auto-tap-ripple" id="heartTapRippleMobile" style="width: 20px; height: 20px;"></div>
                                                 </div>
                                             </div>
                                             <div style="display: flex; gap: 10px;">
@@ -512,7 +514,7 @@
                                         <!-- 2) DashboardSummaryCard (Unified Budget & Task stats) -->
                                         <div class="app-card" style="background: linear-gradient(135deg, rgba(212, 165, 165, 0.12) 0%, #ffffff 100%); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 12px;">
                                             <!-- TaskStatsSection -->
-                                            <div id="mockup-task-section-mobile" style="display: flex; flex-direction: column; gap: 6px;">
+                                            <div id="mockup-task-section-mobile" style="display: flex; flex-direction: column; gap: 6px; border: 1px solid transparent; border-radius: 8px; padding: 4px; transition: all 0.4s ease;">
                                                 <span style="font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Görev Özeti</span>
                                                 <div style="display: flex; align-items: center; justify-content: space-between;">
                                                     <div style="width: 50px; height: 50px; border-radius: 50%; background: conic-gradient(var(--gold) 0% 66%, var(--border-color) 66% 100%); display: flex; align-items: center; justify-content: center;">
@@ -528,7 +530,7 @@
                                             <div style="height: 1px; background: var(--border-color); width: 100%;"></div>
                                             
                                             <!-- BudgetSummarySection -->
-                                            <div id="mockup-budget-section-mobile" style="display: flex; flex-direction: column; gap: 6px;">
+                                            <div id="mockup-budget-section-mobile" style="display: flex; flex-direction: column; gap: 6px; border: 1px solid transparent; border-radius: 8px; padding: 4px; transition: all 0.4s ease;">
                                                 <span style="font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Bütçe Özeti</span>
                                                 <div style="display: flex; justify-content: space-between; font-size: 10px;">
                                                     <div>
@@ -547,7 +549,7 @@
                                         </div>
                                         
                                         <!-- 3) RolesSection -->
-                                        <div class="roles-list-section" id="mockup-roles-list-section-mobile" style="background: var(--surface); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); text-align: left;">
+                                        <div class="roles-list-section" id="mockup-roles-list-section-mobile" style="background: var(--surface); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); text-align: left; transition: all 0.4s ease;">
                                             <span style="font-size: 12px; font-weight: 700; margin-bottom: 8px; display: block;">Yapılacaklar Listesi</span>
                                             <div class="mockup-role-card accent-pink" id="mockup-role-card-1-mobile" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; background: rgba(212,165,165,0.04); display: flex; flex-direction: column; gap: 8px;">
                                                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -563,12 +565,14 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="assignee-capsule-row" id="eceCapsuleRowMobile" style="display: flex; justify-content: space-between; align-items: center; background: var(--surface); border: 1px solid var(--border-color); border-radius: 15px; padding: 4px 8px; font-size: 10px;">
+                                                <div class="assignee-capsule-row" id="eceCapsuleRowMobile" style="display: flex; justify-content: space-between; align-items: center; background: var(--surface); border: 1px solid var(--border-color); border-radius: 15px; padding: 4px 8px; font-size: 10px; position: relative;">
                                                     <div style="display: flex; align-items: center; gap: 4px;">
                                                         <div style="width: 16px; height: 16px; border-radius: 50%; background: #EAD0D0; color: #754B4B; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700;">E</div>
                                                         <span>Ece</span>
                                                     </div>
                                                     <span style="color: var(--gold); font-weight: 700; font-size: 9px;">Davet Et</span>
+                                                    <!-- Tap Ripple for Ece Capsule -->
+                                                    <div class="auto-tap-ripple" id="eceTapRippleMobile" style="width: 20px; height: 20px;"></div>
                                                 </div>
                                                 
                                                 <div style="height: 1px; background: var(--border-color); width: 100%;"></div>
@@ -600,7 +604,11 @@
                                             </div>
                                             <div style="display: flex; gap: 6px;">
                                                 <button style="background: var(--border-color); border: none; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; flex: 1; color: var(--text-main);">İptal</button>
-                                                <button style="background: var(--gold); border: none; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; flex: 1; color: white;">Ekle</button>
+                                                <button id="cohostSubmitMobile" style="background: var(--gold); border: none; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; flex: 1; color: white; position: relative;">
+                                                    Ekle
+                                                    <!-- Tap Ripple for dialog Submit button -->
+                                                    <div class="auto-tap-ripple" id="dialogSubmitRippleMobile" style="width: 20px; height: 20px;"></div>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -631,42 +639,42 @@
                 </div>
                 
                 <!-- Swiper Navigation Controls -->
-                <div class="mobile-flow-controls" style="display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 16px;">
-                    <button class="flow-nav-btn prev" onclick="prevMobileStep()" style="background: var(--surface); border: 1px solid var(--border-color); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main);">
+                <div class="mobile-flow-controls" style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 8px;">
+                    <button class="flow-nav-btn prev" onclick="prevMobileStep()" style="background: var(--surface); border: 1px solid var(--border-color); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main); font-weight: bold;">
                         ←
                     </button>
-                    <div class="flow-indicators" style="display: flex; gap: 8px;">
+                    <div class="flow-indicators" style="display: flex; gap: 6px;">
                         <span class="flow-dot active" onclick="setMobileFlowStep(0)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
                         <span class="flow-dot" onclick="setMobileFlowStep(1)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
                         <span class="flow-dot" onclick="setMobileFlowStep(2)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
                         <span class="flow-dot" onclick="setMobileFlowStep(3)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
                     </div>
-                    <button class="flow-nav-btn next" onclick="nextMobileStep()" style="background: var(--surface); border: 1px solid var(--border-color); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main);">
+                    <button class="flow-nav-btn next" onclick="nextMobileStep()" style="background: var(--surface); border: 1px solid var(--border-color); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main); font-weight: bold;">
                         →
                     </button>
                 </div>
                 
                 <!-- Swiper Text Description Card -->
-                <div class="mobile-flow-text-card" style="width: 100%; max-width: 450px; min-height: 180px; position: relative; background: var(--surface); border: 1px solid var(--border-color); border-radius: 16px; padding: 20px; box-sizing: border-box; box-shadow: var(--shadow-soft);">
+                <div class="mobile-flow-text-card" style="width: 100%; max-width: 450px; min-height: 130px; position: relative; background: var(--surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 12px 16px; box-sizing: border-box; box-shadow: var(--shadow-soft);">
                     <div id="mobile-slide-text-0" class="mobile-slide-text active" style="opacity: 1; transition: opacity 0.4s ease; display: block; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 10px auto; display: table;">01 / BÜTÇE YÖNETİMİ</div>
-                        <h3 style="font-size: 1.25rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 8px 0; color: var(--text-main);">Her harcama gözünüzün önünde olsun.</h3>
-                        <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-light); margin: 0;">Kategori bazında bütçe limitleri koyun. Ödemeleri eşinizle veya ailelerinizle kimin gerçekleştirdiğine göre anlık olarak takip edin. Bütçe aşımında anında uyarılar alın.</p>
+                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">01 / BÜTÇE YÖNETİMİ</div>
+                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Her harcama gözünüzün önünde olsun.</h3>
+                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Kategori bazında bütçe limitleri koyun. Ödemeleri eşinizle veya ailelerinizle kimin gerçekleştirdiğine göre anlık olarak takip edin. Bütçe aşımında anında uyarılar alın.</p>
                     </div>
                     <div id="mobile-slide-text-1" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 10px auto; display: table;">02 / GÖREV DAĞITIMI</div>
-                        <h3 style="font-size: 1.25rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 8px 0; color: var(--text-main);">Hazırlıkları paylaşın, sürecin tadını çıkarın.</h3>
-                        <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-light); margin: 0;">Yapılacak her işi sorumlularına atayın. Görevlerin yapıldı, yapılıyor veya beklemede olma durumunu pasta grafiği üzerinden canlı olarak analiz edin.</p>
+                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">02 / GÖREV DAĞITIMI</div>
+                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Hazırlıkları paylaşın, sürecin tadını çıkarın.</h3>
+                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Yapılacak her işi sorumlularına atayın. Görevlerin yapıldı, yapılıyor veya beklemede olma durumunu pasta grafiği üzerinden canlı olarak analiz edin.</p>
                     </div>
                     <div id="mobile-slide-text-2" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 10px auto; display: table;">03 / KOLAY DAVET</div>
-                        <h3 style="font-size: 1.25rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 8px 0; color: var(--text-main);">Uygulamayı henüz yüklememiş arkadaşınıza bile görev atayın.</h3>
-                        <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-light); margin: 0;">Arkadaşınız henüz uygulamayı yüklememiş olsa dahi ona görevler atayabilir, hazırlıklara başlayabilirsiniz. Paylaşacağınız tek bir davet koduyla, uygulamayı indirdiği an tüm görevleri panosunda hazır olur.</p>
+                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">03 / KOLAY DAVET</div>
+                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Uygulamayı henüz yüklememiş arkadaşınıza bile görev atayın.</h3>
+                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Arkadaşınız henüz uygulamayı yüklememiş olsa dahi ona görevler atayabilir, hazırlıklara başlayabilirsiniz. Paylaşacağınız tek bir davet koduyla, uygulamayı indirdiği an tüm görevleri panosunda hazır olur.</p>
                     </div>
                     <div id="mobile-slide-text-3" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 10px auto; display: table;">04 / ORTAK YÖNETİCİ</div>
-                        <h3 style="font-size: 1.25rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 8px 0; color: var(--text-main);">Eşit yetkiyle, tam uyumla çalışın.</h3>
-                        <p style="font-size: 0.85rem; line-height: 1.5; color: var(--text-light); margin: 0;">Eşinizi ortak yönetici (Co-host) olarak ekleyin. Aynı ekranları görün, aynı yetkilerle bütçeyi yönetin; yapılacaklar bir bir tamamlanırken özel gününüzü kutlamanın keyfini çıkarın.</p>
+                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">04 / ORTAK YÖNETİCİ</div>
+                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Eşit yetkiyle, tam uyumla çalışın.</h3>
+                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Eşinizi ortak yönetici (Co-host) olarak ekleyin. Aynı ekranları görün, aynı yetkilerle bütçeyi yönetin; yapılacaklar bir bir tamamlanırken özel gününüzü kutlamanın keyfini çıkarın.</p>
                     </div>
                 </div>
             </div>
@@ -1977,14 +1985,14 @@
             
             currentMobileFlowStep = stepIndex;
             
-            // Update dots
+            // Update navigation dots
             const dots = document.querySelectorAll('.flow-dot');
             dots.forEach((dot, idx) => {
                 if (idx === stepIndex) dot.classList.add('active');
                 else dot.classList.remove('active');
             });
             
-            // Update text cards
+            // Update text slides
             const textSlides = document.querySelectorAll('.mobile-slide-text');
             textSlides.forEach((slide, idx) => {
                 if (idx === stepIndex) {
@@ -1998,7 +2006,7 @@
                 }
             });
             
-            // Reset dialog and sheets first
+            // Reset dialog, sheets, and ripples
             const inviteSheet = document.getElementById('inviteBottomSheetMobile');
             const cohostSheet = document.getElementById('cohostBottomSheetMobile');
             const cohostDialog = document.getElementById('cohostDialogMobile');
@@ -2008,54 +2016,120 @@
             cohostDialog.style.display = 'none';
             cohostDialog.style.opacity = '0';
             
+            // Reset ripples
+            gsap.set(["#eceTapRippleMobile", "#heartTapRippleMobile", "#dialogSubmitRippleMobile"], { scale: 0, opacity: 0 });
+            
             resetMockupTaskMobile();
             
             const scroller = document.getElementById('mockupScrollerMobile');
             
+            // Mobile mockups references
+            const teamSec = document.getElementById('mockup-team-section-mobile');
+            const budgetSec = document.getElementById('mockup-budget-section-mobile');
+            const taskSec = document.getElementById('mockup-task-section-mobile');
+            const rolesSec = document.getElementById('mockup-roles-list-section-mobile');
+            const allMobileSecs = [budgetSec, taskSec, rolesSec, teamSec];
+            
+            // Helper function to set focus styling (stage lights)
+            function highlightMobileSection(activeSec) {
+                allMobileSecs.forEach(sec => {
+                    if (sec === activeSec) {
+                        gsap.to(sec, {
+                            borderColor: "rgba(201, 162, 39, 0.4)",
+                            boxShadow: "0 0 12px rgba(201, 162, 39, 0.25)",
+                            scale: 1.03,
+                            opacity: 1.0,
+                            duration: 0.4
+                        });
+                    } else {
+                        gsap.to(sec, {
+                            borderColor: "rgba(0,0,0,0.05)",
+                            boxShadow: "none",
+                            scale: 1.0,
+                            opacity: 0.25,
+                            duration: 0.4
+                        });
+                    }
+                });
+            }
+
             if (stepIndex === 0) {
-                if (window.gsap) {
-                    gsap.to(scroller, { y: -195, duration: 0.6, ease: "power2.out" });
-                } else {
-                    scroller.style.transform = 'translateY(-195px)';
-                }
+                // Focus: Budget summary card
+                highlightMobileSection(budgetSec);
+                gsap.to(scroller, { y: -195, duration: 0.6, ease: "power2.out" });
+                
             } else if (stepIndex === 1) {
-                if (window.gsap) {
-                    gsap.to(scroller, { y: -125, duration: 0.6, ease: "power2.out" });
-                } else {
-                    scroller.style.transform = 'translateY(-125px)';
-                }
+                // Focus: Task stats donut
+                highlightMobileSection(taskSec);
+                gsap.to(scroller, { y: -125, duration: 0.6, ease: "power2.out" });
+                
             } else if (stepIndex === 2) {
-                if (window.gsap) {
-                    gsap.to(scroller, { y: -230, duration: 0.6, ease: "power2.out" });
-                } else {
-                    scroller.style.transform = 'translateY(-230px)';
-                }
+                // Focus: Task checklist and Ece invite button
+                highlightMobileSection(rolesSec);
+                gsap.to(scroller, { y: -230, duration: 0.6, ease: "power2.out" });
+                
+                // Play tap ripple on Ece capsule, then slide up bottom sheet
+                gsap.fromTo("#eceTapRippleMobile", 
+                    { scale: 0, opacity: 0.8 }, 
+                    { scale: 2.6, opacity: 0, duration: 1.0, ease: "power2.out", delay: 0.5 }
+                );
+                
                 setTimeout(() => {
                     if (currentMobileFlowStep === 2) {
                         inviteSheet.style.transform = 'translateY(0)';
                     }
-                }, 700);
-            } else if (stepIndex === 3) {
-                if (window.gsap) {
-                    gsap.to(scroller, { y: 0, duration: 0.6, ease: "power2.out" });
-                } else {
-                    scroller.style.transform = 'translateY(0px)';
-                }
+                }, 1000);
                 
+            } else if (stepIndex === 3) {
+                // Focus: Team section (co-host Mert add)
+                highlightMobileSection(teamSec);
+                gsap.to(scroller, { y: 0, duration: 0.6, ease: "power2.out" });
+                
+                // 1. Play heart tap ripple
+                gsap.fromTo("#heartTapRippleMobile", 
+                    { scale: 0, opacity: 0.8 }, 
+                    { scale: 2.6, opacity: 0, duration: 1.0, ease: "power2.out", delay: 0.4 }
+                );
+                
+                // 2. Open co-host dialog
                 setTimeout(() => {
                     if (currentMobileFlowStep === 3) {
                         cohostDialog.style.display = 'flex';
-                        setTimeout(() => { cohostDialog.style.opacity = '1'; }, 50);
+                        gsap.to(cohostDialog, { opacity: 1, duration: 0.3 });
                     }
-                }, 800);
+                }, 900);
                 
+                // 3. Play tap ripple on dialog 'Ekle' submit button
+                gsap.fromTo("#dialogSubmitRippleMobile", 
+                    { scale: 0, opacity: 0.8 }, 
+                    { scale: 2.6, opacity: 0, duration: 1.0, ease: "power2.out", delay: 1.8 }
+                );
+                
+                // 4. Submit, close dialog, complete task, slide up Mert sheet, fire confetti
                 setTimeout(() => {
                     if (currentMobileFlowStep === 3) {
-                        cohostDialog.style.opacity = '0';
-                        setTimeout(() => { cohostDialog.style.display = 'none'; }, 300);
+                        gsap.to(cohostDialog, { 
+                            opacity: 0, 
+                            duration: 0.3,
+                            onComplete: () => {
+                                cohostDialog.style.display = 'none';
+                            }
+                        });
                         
                         completeMockupTaskMobile();
                         cohostSheet.style.transform = 'translateY(0)';
+                        
+                        // FİRE CANVAS CONFETTİ
+                        if (window.confetti) {
+                            const rect = document.getElementById('phoneMockupMobile').getBoundingClientRect();
+                            const x = (rect.left + rect.width / 2) / window.innerWidth;
+                            const y = (rect.top + rect.height / 2) / window.innerHeight;
+                            window.confetti({
+                                particleCount: 70,
+                                spread: 60,
+                                origin: { x: x, y: y }
+                            });
+                        }
                     }
                 }, 2800);
             }
@@ -2109,7 +2183,6 @@
             }
         }
 
-        // Initialize mobile swiper with starting values
         function resetMockupTaskMobile() {
             if (!taskCompletedStateMobile) return;
             taskCompletedStateMobile = false;
