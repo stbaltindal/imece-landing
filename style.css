@@ -3351,7 +3351,7 @@ body.dark-active .app-header-mini {
         position: relative;
         width: 280px;
         margin: 0 auto 10px auto;
-        overflow: hidden;
+        overflow: visible !important;
         /* Default small screen sizes (under 360px viewport) */
         height: 302px;
     }
