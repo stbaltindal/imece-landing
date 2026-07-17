@@ -3353,7 +3353,7 @@ body.dark-active .app-header-mini {
         margin: 0 auto 10px auto;
         overflow: hidden;
         /* Default small screen sizes (under 360px viewport) */
-        height: 290px;
+        height: 302px;
     }
     
     #phoneMockupMobile {
@@ -3373,7 +3373,7 @@ body.dark-active .app-header-mini {
     /* Medium mobile screen sizes (viewport >= 360px) */
     @media (min-width: 360px) {
         .mobile-mockup-wrap {
-            height: 330px;
+            height: 349px;
         }
         #phoneMockupMobile {
             transform: scale(0.60);
@@ -3383,7 +3383,7 @@ body.dark-active .app-header-mini {
     /* Large mobile screen sizes (viewport >= 400px) */
     @media (min-width: 400px) {
         .mobile-mockup-wrap {
-            height: 375px;
+            height: 396px;
         }
         #phoneMockupMobile {
             transform: scale(0.68);
