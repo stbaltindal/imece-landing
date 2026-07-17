@@ -1863,46 +1863,41 @@
             const box = document.getElementById('planResultBox');
             const featuresList = document.getElementById('recommendedPlanFeatures');
             
+            // Treat 0 predefined ceremonies (blank event) as 1 event
+            const activeEvents = events === 0 ? 1 : events;
+            
             let recommendedPlan = 'free';
             let targetPrice = 0;
             let targetTitle = 'Ücretsiz Başlangıç';
             let targetPeriod = '/ ömür boyu';
-            let targetDesc = 'Küçük çaplı organizasyonlar ve 3 kişiyi aşmayan ekipler için tamamen ücretsiz ideal plan.';
+            let targetDesc = 'Tek bir boş pano veya hazır şablon ile başlayıp, 3 kişiyi aşmayan ekipler için tamamen ücretsiz plan.';
             
-            let featuresHtml = '';
+            let featuresHtml = `
+                <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>1 Adet Hazırlık Panosu (Boş veya Şablon)</span>
+                </div>
+                <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>En Fazla 3 Ekip Üyesi & 1 Ortak Yönetici</span>
+                </div>
+                <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>En Fazla 5 İş Paketi & 3 Atanmış Görev</span>
+                </div>
+            `;
             
-            if (events > 1) {
+            if (activeEvents > 1) {
                 recommendedPlan = 'season';
                 targetPrice = 499;
                 targetTitle = 'Tüm Hazırlıklar Paketi';
                 targetPeriod = '/ 1 yıl geçerli';
-                targetDesc = 'Söz, Nişan, Kına, Bekarlığa Veda ve Düğün gibi birden fazla hazırlık yapacak, en kapsamlı bütçe ve sınırsız ekip desteğine ihtiyaç duyan çiftler için en karlı seçenektir.';
+                targetDesc = 'Söz, Nişan, Kına ve Düğün gibi birden fazla hazırlık yapacak, en kapsamlı bütçe ve sınırsız ekip desteğine ihtiyaç duyan çiftler için en karlı premium seçenektir.';
                 
                 featuresHtml = `
                     <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         <span>Sınırsız Aktif Hazırlık (Söz, Kına, Düğün)</span>
-                    </div>
-                    <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <span>Sınırsız Ekip Üyesi ve Görev</span>
-                    </div>
-                    <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <span>Gelişmiş Bütçe Raporlama & Analiz</span>
-                    </div>
-                `;
-            } else if (persons > 3 || needBudget || events === 1) {
-                recommendedPlan = 'single';
-                targetPrice = 199;
-                targetTitle = 'Tek Bir Organizasyon Paketi';
-                targetPeriod = '/ 6 ay geçerli';
-                targetDesc = 'Seçtiğiniz tek bir Düğün, Nişan veya Kına hazırlığı için 6 ay geçerli; sınırsız kişi, görev ve bütçe erişimi sunan en ideal çözümdür.';
-                
-                featuresHtml = `
-                    <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <span>1 Adet Sınırsız Hazırlık (Düğün/Nişan/Kına)</span>
                     </div>
                     <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -1913,15 +1908,30 @@
                         <span>Detaylı Bütçe & Harcama Takibi</span>
                     </div>
                 `;
-            }
-
-            if (events === 0) {
-                // Fallback if no ceremonies are selected
-                targetTitle = 'Hazırlık Seçilmedi';
-                targetPrice = '--';
-                targetPeriod = '';
-                targetDesc = 'Uygulamayı kullanmaya başlamak için yukarıdan hazırlık yapacağınız en az bir tören şablonu seçmeniz gerekir. Seçim yapmadan devam edemezsiniz.';
-                featuresHtml = `<div style="font-size:0.85rem; color:var(--text-light); font-style:italic;">Lütfen yukarıdan en az 1 tören (Söz & Nişan, Kına, Düğün vb.) seçerek planınızı hesaplayın.</div>`;
+            } else if (activeEvents === 1) {
+                // 1 Event is free unless it exceeds team limits or requires budget tracking
+                if (persons > 3 || needBudget) {
+                    recommendedPlan = 'single';
+                    targetPrice = 199;
+                    targetTitle = 'Tek Bir Organizasyon Paketi';
+                    targetPeriod = '/ 6 ay geçerli';
+                    targetDesc = 'Seçtiğiniz tek bir hazırlık panosu (boş veya hazır şablon) için bütçe takibi ve sınırsız ekip üyesi, görev atama desteği sunan premium plan.';
+                    
+                    featuresHtml = `
+                        <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>1 Adet Sınırsız Hazırlık Panosu</span>
+                        </div>
+                        <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Sınırsız Ekip Üyesi & Görev Atama</span>
+                        </div>
+                        <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Detaylı Bütçe & Harcama Takibi</span>
+                        </div>
+                    `;
+                }
             }
 
             featuresList.innerHTML = featuresHtml;
@@ -1939,7 +1949,7 @@
             desc.innerText = targetDesc;
             period.innerText = targetPeriod;
             
-            if (window.gsap && events > 0) {
+            if (window.gsap) {
                 const currentPriceVal = parseInt(price.innerText) || 0;
                 const tempObj = { val: currentPriceVal };
                 gsap.to(tempObj, {
@@ -1955,14 +1965,12 @@
                 price.innerText = targetPrice + " ₺";
             }
 
-            if (events > 0) {
-                if (recommendedPlan === 'free') {
-                    document.getElementById('card-free').classList.add('active-recommend');
-                } else if (recommendedPlan === 'single') {
-                    document.getElementById('card-single').classList.add('active-recommend');
-                } else {
-                    document.getElementById('card-season').classList.add('active-recommend');
-                }
+            if (recommendedPlan === 'free') {
+                document.getElementById('card-free').classList.add('active-recommend');
+            } else if (recommendedPlan === 'single') {
+                document.getElementById('card-single').classList.add('active-recommend');
+            } else {
+                document.getElementById('card-season').classList.add('active-recommend');
             }
         }
 
