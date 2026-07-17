@@ -3335,3 +3335,78 @@ body.dark-active .app-header-mini {
     background-color: #0F0F10 !important;
     border-color: rgba(255, 255, 255, 0.08) !important;
 }
+
+/* Mobile Interactive Showcase Styles */
+.mobile-interactive-showcase {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    /* Hide desktop showcase step slides on mobile */
+    .story-container .showcase-slide-text {
+        display: none !important;
+    }
+    
+    .mobile-interactive-showcase {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 40px var(--space-md);
+        box-sizing: border-box;
+        border-top: 1px solid var(--border-color);
+        background-color: var(--surface);
+    }
+    
+    /* Active step texts styles inside swiper */
+    .mobile-slide-text {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    
+    .mobile-slide-text.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    .flow-dot {
+        background-color: rgba(29, 29, 31, 0.15) !important;
+    }
+    
+    .flow-dot.active {
+        background-color: var(--gold) !important;
+        transform: scale(1.2);
+    }
+    
+    /* Dark mode support */
+    body.dark-active .mobile-interactive-showcase {
+        border-top-color: rgba(255, 255, 255, 0.06);
+        background-color: #0B0B0C;
+    }
+    
+    body.dark-active .mobile-flow-text-card {
+        background-color: rgba(255, 255, 255, 0.02) !important;
+        border-color: rgba(255, 255, 255, 0.06) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+    }
+    
+    body.dark-active .flow-dot {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    body.dark-active .flow-dot.active {
+        background-color: var(--gold) !important;
+    }
+    
+    body.dark-active .flow-nav-btn {
+        background-color: rgba(255, 255, 255, 0.04) !important;
+        border-color: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+    }
+    
+    body.dark-active #phoneMockupMobile {
+        background-color: #0b0b0c !important;
+        border-color: rgba(255, 255, 255, 0.06) !important;
+    }
+}
