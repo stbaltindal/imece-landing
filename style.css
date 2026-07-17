@@ -3360,9 +3360,10 @@ body.dark-active .app-header-mini {
     .mobile-mockup-wrap {
         position: relative;
         width: 280px;
-        height: 380px;
         margin: 0 auto 10px auto;
         overflow: hidden;
+        /* Default small screen sizes (under 360px viewport) */
+        height: 290px;
     }
     
     #phoneMockupMobile {
@@ -3374,9 +3375,29 @@ body.dark-active .app-header-mini {
         position: absolute;
         top: 0;
         left: 0;
-        transform: scale(0.67);
+        transform: scale(0.52);
         transform-origin: top center;
         pointer-events: auto;
+    }
+    
+    /* Medium mobile screen sizes (viewport >= 360px) */
+    @media (min-width: 360px) {
+        .mobile-mockup-wrap {
+            height: 330px;
+        }
+        #phoneMockupMobile {
+            transform: scale(0.60);
+        }
+    }
+    
+    /* Large mobile screen sizes (viewport >= 400px) */
+    @media (min-width: 400px) {
+        .mobile-mockup-wrap {
+            height: 375px;
+        }
+        #phoneMockupMobile {
+            transform: scale(0.68);
+        }
     }
     
     /* Active step texts styles inside swiper */
