@@ -1917,11 +1917,11 @@
 
             if (events === 0) {
                 // Fallback if no ceremonies are selected
-                targetTitle = 'Lütfen Bir Tören Seçin';
-                targetPrice = 0;
+                targetTitle = 'Hazırlık Seçilmedi';
+                targetPrice = '--';
                 targetPeriod = '';
-                targetDesc = 'Uygulamayı kullanmaya başlamak için yukarıdan hazırlık yapacağınız en az bir töreni seçmelisiniz.';
-                featuresHtml = `<div style="font-size:0.85rem; color:var(--text-light); font-style:italic;">Henüz hiçbir tören seçilmedi.</div>`;
+                targetDesc = 'Uygulamayı kullanmaya başlamak için yukarıdan hazırlık yapacağınız en az bir tören şablonu seçmeniz gerekir. Seçim yapmadan devam edemezsiniz.';
+                featuresHtml = `<div style="font-size:0.85rem; color:var(--text-light); font-style:italic;">Lütfen yukarıdan en az 1 tören (Söz & Nişan, Kına, Düğün vb.) seçerek planınızı hesaplayın.</div>`;
             }
 
             featuresList.innerHTML = featuresHtml;
