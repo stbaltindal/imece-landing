@@ -196,8 +196,8 @@
         <p>Tebrikler, e-posta adresiniz başarıyla onaylandı. İmece Düğün ile hazırlıklarınızı sevdiklerinizle birlikte keyifle planlamaya hazırsınız.</p>
         
         <div class="btn-group">
-            <!-- Mobile app deep link redirection -->
-            <a href="imecedugun://login-callback" class="btn btn-primary">Uygulamadan Erişebilirsiniz</a>
+            <!-- Mobile app deep link redirection button -->
+            <button onclick="launchApp()" class="btn btn-primary" style="width:100%; border:none; font-family: var(--font-body);">Uygulamadan Erişebilirsiniz</button>
             <a href="index.html" class="btn btn-outline">Ana Sayfaya Dön</a>
         </div>
         
@@ -207,6 +207,39 @@
     </div>
 
     <script>
+        // Smart deep link fallback to App Store / Google Play
+        function launchApp() {
+            const deepLink = "imecedugun://login-callback";
+            const appStoreUrl = "https://apps.apple.com"; // Gerçek App Store linkiniz
+            const playStoreUrl = "https://play.google.com"; // Gerçek Google Play linkiniz
+            
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const isiOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+            const isAndroid = /android/i.test(userAgent);
+            
+            const start = Date.now();
+            
+            // Try opening custom URL scheme
+            window.location.href = deepLink;
+            
+            // Fallback timer if app is not installed
+            setTimeout(() => {
+                // If user switched away from page (app opened), do nothing
+                if (document.hidden || document.webkitHidden) return;
+                
+                // If still on page after 1.5 seconds, redirect to store or homepage download section
+                if (Date.now() - start < 2200) {
+                    if (isiOS) {
+                        window.location.href = appStoreUrl;
+                    } else if (isAndroid) {
+                        window.location.href = playStoreUrl;
+                    } else {
+                        window.location.href = "index.html#indirin";
+                    }
+                }
+            }, 1600);
+        }
+
         // Trigger confetti explosion on screen load
         window.addEventListener('load', () => {
             const duration = 2.5 * 1000;
