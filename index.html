@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=3.5">
+    <link rel="stylesheet" href="style.css?v=3.6">
 </head>
 <body>
 
@@ -877,7 +877,7 @@
 
                     <!-- Season Pass Premium Card (Recommended) -->
                     <div class="pricing-card premium-card" id="card-season">
-                        <div class="badge gold-badge card-badge">ÖNERİLEN</div>
+                        <div class="badge gold-badge card-badge">Çiftlerin Favorisi 🌸</div>
                         <div class="pricing-header">
                             <h3>Tüm Hazırlıklar Paketi</h3>
                             <div class="price">499 ₺<span>/ 1 yıllık erişim</span></div>
@@ -1887,10 +1887,18 @@
             box.classList.add('tactile-bump');
             setTimeout(() => box.classList.remove('tactile-bump'), 400);
 
-            // Remove pricing highlights
-            document.getElementById('card-free').classList.remove('active-recommend');
-            document.getElementById('card-single').classList.remove('active-recommend');
-            document.getElementById('card-season').classList.remove('active-recommend');
+            // Remove pricing highlights and attributes
+            const cardFree = document.getElementById('card-free');
+            const cardSingle = document.getElementById('card-single');
+            const cardSeason = document.getElementById('card-season');
+
+            cardFree.classList.remove('active-recommend');
+            cardSingle.classList.remove('active-recommend');
+            cardSeason.classList.remove('active-recommend');
+            
+            cardFree.removeAttribute('data-badge');
+            cardSingle.removeAttribute('data-badge');
+            cardSeason.removeAttribute('data-badge');
 
             title.innerText = targetTitle;
             desc.innerText = targetDesc;
@@ -1915,11 +1923,14 @@
             }
 
             if (recommendedPlan === 'free') {
-                document.getElementById('card-free').classList.add('active-recommend');
+                cardFree.classList.add('active-recommend');
+                cardFree.setAttribute('data-badge', 'Denemek Bedava! 🌟');
             } else if (recommendedPlan === 'single') {
-                document.getElementById('card-single').classList.add('active-recommend');
+                cardSingle.classList.add('active-recommend');
+                cardSingle.setAttribute('data-badge', 'Tam Size Göre! 🎯');
             } else {
-                document.getElementById('card-season').classList.add('active-recommend');
+                cardSeason.classList.add('active-recommend');
+                cardSeason.setAttribute('data-badge', 'En Aşk Dolu Paket! 💖');
             }
         }
 
