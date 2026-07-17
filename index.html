@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=3.1">
+    <link rel="stylesheet" href="style.css?v=3.2">
 </head>
 <body>
 
@@ -2064,20 +2064,26 @@
                 highlightMobileSection(rolesSec);
                 gsap.to(scroller, { y: -230, duration: 0.6, ease: "power2.out" });
                 
-                // Create a timeline for Ece tap simulation (3 taps)
+                // Create a timeline for Ece tap simulation (3 taps) - premium human speed
                 const eceTl = gsap.timeline();
                 eceTl.set("#eceTapRippleMobile", { scale: 0, opacity: 0, xPercent: -50, yPercent: -50 })
                      // Tap 1
-                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, 0.5)
-                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.2 })
+                     .to("#eceCapsuleRowMobile", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.4 }, 0.5)
+                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.8 }, 0.5)
+                     .to("#eceCapsuleRowMobile", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.3 })
+                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.4 }, "-=0.3")
                      .set("#eceTapRippleMobile", { scale: 0 })
                      // Tap 2
-                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, "+=0.2")
-                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.2 })
+                     .to("#eceCapsuleRowMobile", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.4 }, "+=0.5")
+                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.8 }, "-=0.4")
+                     .to("#eceCapsuleRowMobile", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.3 })
+                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.4 }, "-=0.3")
                      .set("#eceTapRippleMobile", { scale: 0 })
                      // Tap 3
-                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, "+=0.2")
-                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.2 })
+                     .to("#eceCapsuleRowMobile", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.4 }, "+=0.5")
+                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.8 }, "-=0.4")
+                     .to("#eceCapsuleRowMobile", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.3 })
+                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.4 }, "-=0.3")
                      .set("#eceTapRippleMobile", { scale: 0 })
                      // Open sheet
                      .add(() => {
@@ -2086,27 +2092,33 @@
                              gsap.to("#inviteScrimMobile", { opacity: 1, duration: 0.4 });
                              gsap.to("#inviteBottomSheetMobile .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" });
                          }
-                     }, "+=0.2");
+                     }, "+=0.4");
                 
             } else if (stepIndex === 3) {
                 // Focus: Team section (co-host Mert add)
                 highlightMobileSection(teamSec);
                 gsap.to(scroller, { y: 0, duration: 0.6, ease: "power2.out" });
                 
-                // Create a timeline for Mert co-host simulation (3 taps on heart + dialog submit)
+                // Create a timeline for Mert co-host simulation (3 taps on heart + dialog submit) - premium human speed
                 const mertTl = gsap.timeline();
                 mertTl.set("#heartTapRippleMobile", { scale: 0, opacity: 0, xPercent: -50, yPercent: -50 })
                       // Heart Tap 1
-                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, 0.5)
-                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.2 })
+                      .to("#cohostHeartBtnMobile", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.4 }, 0.5)
+                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.8 }, 0.5)
+                      .to("#cohostHeartBtnMobile", { scale: 1.0, backgroundColor: "", duration: 0.3 })
+                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.4 }, "-=0.3")
                       .set("#heartTapRippleMobile", { scale: 0 })
                       // Heart Tap 2
-                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, "+=0.2")
-                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.2 })
+                      .to("#cohostHeartBtnMobile", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.4 }, "+=0.5")
+                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.8 }, "-=0.4")
+                      .to("#cohostHeartBtnMobile", { scale: 1.0, backgroundColor: "", duration: 0.3 })
+                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.4 }, "-=0.3")
                       .set("#heartTapRippleMobile", { scale: 0 })
                       // Heart Tap 3
-                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, "+=0.2")
-                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.2 })
+                      .to("#cohostHeartBtnMobile", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.4 }, "+=0.5")
+                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.8 }, "-=0.4")
+                      .to("#cohostHeartBtnMobile", { scale: 1.0, backgroundColor: "", duration: 0.3 })
+                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.4 }, "-=0.3")
                       .set("#heartTapRippleMobile", { scale: 0 })
                       // Open dialog
                       .add(() => {
@@ -2114,11 +2126,13 @@
                               cohostDialog.style.display = 'flex';
                               gsap.to(cohostDialog, { opacity: 1, duration: 0.3 });
                           }
-                      }, "+=0.2")
+                      }, "+=0.4")
                       // Dialog Submit Button Tap (Ekle)
-                      .set("#dialogSubmitRippleMobile", { scale: 0, opacity: 0, xPercent: -50, yPercent: -50 }, "+=0.6")
-                      .to("#dialogSubmitRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 })
-                      .to("#dialogSubmitRippleMobile", { opacity: 0, duration: 0.2 })
+                      .set("#dialogSubmitRippleMobile", { scale: 0, opacity: 0, xPercent: -50, yPercent: -50 }, "+=0.8")
+                      .to("#cohostSubmitMobile", { scale: 0.93, backgroundColor: "#754B4B", duration: 0.4 })
+                      .to("#dialogSubmitRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.8 }, "-=0.4")
+                      .to("#cohostSubmitMobile", { scale: 1.0, backgroundColor: "", duration: 0.3 })
+                      .to("#dialogSubmitRippleMobile", { opacity: 0, duration: 0.4 }, "-=0.3")
                       .set("#dialogSubmitRippleMobile", { scale: 0 })
                       // Submit, close dialog, complete task, slide up Mert sheet, fire confetti
                       .add(() => {
@@ -2149,7 +2163,7 @@
                                   });
                               }
                           }
-                      }, "+=0.4");
+                      }, "+=0.5");
             }
         }
 
