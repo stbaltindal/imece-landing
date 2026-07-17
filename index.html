@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=3.0">
+    <link rel="stylesheet" href="style.css?v=3.1">
 </head>
 <body>
 
@@ -481,7 +481,7 @@
                                     <div class="app-dashboard-scroller" id="mockupScrollerMobile" style="padding: 12px; display: flex; flex-direction: column; gap: 12px; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);">
                                         
                                         <!-- 1) TeamPoolBar ("Ekibim") -->
-                                        <div class="team-pool-section" id="mockup-team-section-mobile" style="background: var(--surface); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); position: relative; transition: all 0.4s ease;">
+                                        <div class="team-pool-section" id="mockup-team-section-mobile" style="background: var(--surface); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); position: relative;">
                                             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px;">
                                                 <span style="font-size: 12px; font-weight: 700;">Ekibim</span>
                                                 <div class="cohost-heart-btn" id="cohostHeartBtnMobile" style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--gold-light); cursor: pointer; transition: transform 0.2s; position: relative;">
@@ -515,7 +515,7 @@
                                         <!-- 2) DashboardSummaryCard (Unified Budget & Task stats) -->
                                         <div class="app-card" style="background: linear-gradient(135deg, rgba(212, 165, 165, 0.12) 0%, #ffffff 100%); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 12px;">
                                             <!-- TaskStatsSection -->
-                                            <div id="mockup-task-section-mobile" style="display: flex; flex-direction: column; gap: 6px; border: 1px solid transparent; border-radius: 8px; padding: 4px; transition: all 0.4s ease;">
+                                            <div id="mockup-task-section-mobile" style="display: flex; flex-direction: column; gap: 6px; border: 1px solid transparent; border-radius: 8px; padding: 4px;">
                                                 <span style="font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Görev Özeti</span>
                                                 <div style="display: flex; align-items: center; justify-content: space-between;">
                                                     <div style="width: 50px; height: 50px; border-radius: 50%; background: conic-gradient(var(--gold) 0% 66%, var(--border-color) 66% 100%); display: flex; align-items: center; justify-content: center;">
@@ -531,7 +531,7 @@
                                             <div style="height: 1px; background: var(--border-color); width: 100%;"></div>
                                             
                                             <!-- BudgetSummarySection -->
-                                            <div id="mockup-budget-section-mobile" style="display: flex; flex-direction: column; gap: 6px; border: 1px solid transparent; border-radius: 8px; padding: 4px; transition: all 0.4s ease;">
+                                            <div id="mockup-budget-section-mobile" style="display: flex; flex-direction: column; gap: 6px; border: 1px solid transparent; border-radius: 8px; padding: 4px;">
                                                 <span style="font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Bütçe Özeti</span>
                                                 <div style="display: flex; justify-content: space-between; font-size: 10px;">
                                                     <div>
@@ -550,7 +550,7 @@
                                         </div>
                                         
                                         <!-- 3) RolesSection -->
-                                        <div class="roles-list-section" id="mockup-roles-list-section-mobile" style="background: var(--surface); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); text-align: left; transition: all 0.4s ease;">
+                                        <div class="roles-list-section" id="mockup-roles-list-section-mobile" style="background: var(--surface); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); text-align: left;">
                                             <span style="font-size: 12px; font-weight: 700; margin-bottom: 8px; display: block;">Yapılacaklar Listesi</span>
                                             <div class="mockup-role-card accent-pink" id="mockup-role-card-1-mobile" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; background: rgba(212,165,165,0.04); display: flex; flex-direction: column; gap: 8px;">
                                                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -2029,19 +2029,21 @@
                 allMobileSecs.forEach(sec => {
                     if (sec === activeSec) {
                         gsap.to(sec, {
-                            borderColor: "rgba(201, 162, 39, 0.4)",
-                            boxShadow: "0 0 12px rgba(201, 162, 39, 0.25)",
+                            borderColor: "var(--gold)",
+                            boxShadow: "0 0 15px rgba(197, 160, 89, 0.3)",
                             scale: 1.03,
                             opacity: 1.0,
-                            duration: 0.4
+                            duration: 0.4,
+                            ease: "power2.out"
                         });
                     } else {
                         gsap.to(sec, {
-                            borderColor: "rgba(0,0,0,0.05)",
+                            borderColor: sec.id.includes('budget') || sec.id.includes('task') ? "transparent" : "var(--border-color)",
                             boxShadow: "none",
                             scale: 1.0,
-                            opacity: 0.25,
-                            duration: 0.4
+                            opacity: 0.3,
+                            duration: 0.4,
+                            ease: "power2.out"
                         });
                     }
                 });
