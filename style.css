@@ -1129,22 +1129,19 @@ label,
     transform: scale(1.1);
 }
 
-/* Pulsating heartbeat animation when Slide 3 is active */
+/* Pulsating heartbeat animation when Slide 3 is active - Gentle box-shadow glow only to prevent scale conflicts with GSAP */
 .mockup-section-focus.heartbeat-active .cohost-heart-btn {
-    animation: heartbeat 1.2s infinite ease-in-out;
+    animation: heartbeat 2.0s infinite ease-in-out;
 }
 
 @keyframes heartbeat {
     0% {
-        transform: scale(1);
         box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.6), 0 0 4px rgba(201, 162, 39, 0.2);
     }
     50% {
-        transform: scale(1.15);
-        box-shadow: 0 0 0 12px rgba(201, 162, 39, 0), 0 0 12px rgba(201, 162, 39, 0.5);
+        box-shadow: 0 0 0 10px rgba(201, 162, 39, 0), 0 0 12px rgba(201, 162, 39, 0.5);
     }
     100% {
-        transform: scale(1);
         box-shadow: 0 0 0 0 rgba(201, 162, 39, 0), 0 0 4px rgba(201, 162, 39, 0.2);
     }
 }
