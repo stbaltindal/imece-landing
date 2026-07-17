@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=3.4">
+    <link rel="stylesheet" href="style.css?v=3.5">
 </head>
 <body>
 
@@ -1253,120 +1253,120 @@
             .to("#text-slide-2c", { display: "block", opacity: 1, y: 0, duration: 0.5 }, 3.1)
 
             // --- Ece Tap 1 ---
-            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "rgba(201, 162, 39, 0.4)", duration: 0.7 }, 3.6)
-            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 3.6)
-            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.7 }, 4.3)
-            .to("#eceTapRipple", { opacity: 0, duration: 0.7 }, 4.3)
-            .set("#eceTapRipple", { scale: 0 }, 5.0)
+            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.25 }, 3.8)
+            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 3.8)
+            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.15 }, 4.05)
+            .to("#eceTapRipple", { opacity: 0, duration: 0.25 }, 4.05)
+            .set("#eceTapRipple", { scale: 0 }, 4.3)
 
             // --- Ece Tap 2 ---
-            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "rgba(201, 162, 39, 0.4)", duration: 0.7 }, 6.4)
-            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 6.4)
-            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.7 }, 7.1)
-            .to("#eceTapRipple", { opacity: 0, duration: 0.7 }, 7.1)
-            .set("#eceTapRipple", { scale: 0 }, 7.8)
+            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.25 }, 4.6)
+            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 4.6)
+            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.15 }, 4.85)
+            .to("#eceTapRipple", { opacity: 0, duration: 0.25 }, 4.85)
+            .set("#eceTapRipple", { scale: 0 }, 5.1)
 
             // --- Ece Tap 3 ---
-            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "rgba(201, 162, 39, 0.4)", duration: 0.7 }, 9.2)
-            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 9.2)
-            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.7 }, 9.9)
-            .to("#eceTapRipple", { opacity: 0, duration: 0.7 }, 9.9)
+            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.25 }, 5.4)
+            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 5.4)
+            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.15 }, 5.65)
+            .to("#eceTapRipple", { opacity: 0, duration: 0.25 }, 5.65)
 
             // --- Ece Sheet Opens ---
-            .to("#inviteBottomSheet", { pointerEvents: "auto", duration: 0.02 }, 12.0)
-            .to("#inviteBottomSheet .sheet-scrim", { opacity: 1, duration: 0.6 }, 12.0)
-            .to("#inviteBottomSheet .sheet-container", { y: "0%", duration: 1.4, ease: "power2.out" }, 12.0)
+            .to("#inviteBottomSheet", { pointerEvents: "auto", duration: 0.02 }, 6.2)
+            .to("#inviteBottomSheet .sheet-scrim", { opacity: 1, duration: 0.4 }, 6.2)
+            .to("#inviteBottomSheet .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" }, 6.2)
 
             // 4. Showcase Slide 2c -> Slide 3 (Ortak Yönetici)
             // --- Ece Sheet Closes ---
-            .to("#inviteBottomSheet .sheet-container", { y: "100%", duration: 0.6 }, 13.4)
-            .to("#inviteBottomSheet .sheet-scrim", { opacity: 0, duration: 0.6 }, 13.4)
-            .to("#inviteBottomSheet", { pointerEvents: "none", duration: 0.02 }, 14.0)
+            .to("#inviteBottomSheet .sheet-container", { y: "100%", duration: 0.4 }, 7.5)
+            .to("#inviteBottomSheet .sheet-scrim", { opacity: 0, duration: 0.4 }, 7.5)
+            .to("#inviteBottomSheet", { pointerEvents: "none", duration: 0.02 }, 7.9)
 
             // --- Scroll back to top & Focus team ---
             .to("#mockupScroller", {
                 y: "0px", 
-                duration: 1.4
-            }, 13.4)
-            .to("#text-slide-2c", { opacity: 0, y: -50, display: "none", duration: 0.3 }, 13.4)
-            .to("#text-slide-3", { display: "block", opacity: 1, y: 0, duration: 0.5 }, 14.4)
+                duration: 0.8
+            }, 7.5)
+            .to("#text-slide-2c", { opacity: 0, y: -50, display: "none", duration: 0.3 }, 7.5)
+            .to("#text-slide-3", { display: "block", opacity: 1, y: 0, duration: 0.5 }, 8.3)
             .to("#mockup-roles-list-section", {
                 borderColor: "transparent",
                 boxShadow: "none",
                 scale: 1.0,
                 opacity: 0.3,
-                duration: 1.4
-            }, 13.4)
+                duration: 0.8
+            }, 7.5)
             .to("#mockup-team-section", {
-                borderColor: "rgba(201, 162, 39, 0.35)",
-                boxShadow: "0 0 20px rgba(201, 162, 39, 0.2)",
+                borderColor: "var(--gold)",
+                boxShadow: "0 0 15px rgba(197, 160, 89, 0.3)",
                 scale: 1.025,
                 opacity: 1.0,
-                duration: 1.4
-            }, 14.4)
+                duration: 0.8
+            }, 8.3)
             .to(["#mockup-budget-section", "#mockup-task-section", "#mockup-roles-list-section"], {
                 opacity: 0.3,
-                duration: 1.4
-            }, 13.4)
+                duration: 0.8
+            }, 7.5)
 
             // --- Heart Tap 1 ---
-            .to(".cohost-heart-btn", { scale: 0.85, backgroundColor: "rgba(201, 162, 39, 0.25)", duration: 0.7 }, 17.2)
-            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 17.2)
-            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.7 }, 17.9)
-            .to("#heartTapRipple", { opacity: 0, duration: 0.7 }, 17.9)
-            .set("#heartTapRipple", { scale: 0 }, 18.6)
+            .to(".cohost-heart-btn", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.25 }, 9.5)
+            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 9.5)
+            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.15 }, 9.75)
+            .to("#heartTapRipple", { opacity: 0, duration: 0.25 }, 9.75)
+            .set("#heartTapRipple", { scale: 0 }, 10.0)
 
             // --- Heart Tap 2 ---
-            .to(".cohost-heart-btn", { scale: 0.85, backgroundColor: "rgba(201, 162, 39, 0.25)", duration: 0.7 }, 20.0)
-            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 20.0)
-            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.7 }, 20.7)
-            .to("#heartTapRipple", { opacity: 0, duration: 0.7 }, 20.7)
-            .set("#heartTapRipple", { scale: 0 }, 21.4)
+            .to(".cohost-heart-btn", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.25 }, 10.3)
+            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 10.3)
+            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.15 }, 10.55)
+            .to("#heartTapRipple", { opacity: 0, duration: 0.25 }, 10.55)
+            .set("#heartTapRipple", { scale: 0 }, 10.8)
 
             // --- Heart Tap 3 ---
-            .to(".cohost-heart-btn", { scale: 0.85, backgroundColor: "rgba(201, 162, 39, 0.25)", duration: 0.7 }, 22.8)
-            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 22.8)
-            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.7 }, 23.5)
-            .to("#heartTapRipple", { opacity: 0, duration: 0.7 }, 23.5)
+            .to(".cohost-heart-btn", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.25 }, 11.1)
+            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 11.1)
+            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.15 }, 11.35)
+            .to("#heartTapRipple", { opacity: 0, duration: 0.25 }, 11.35)
 
             // --- Dialog Opens (giving human reading time) ---
-            .to("#cohostCreateDialog", { pointerEvents: "auto", opacity: 1, duration: 0.6 }, 25.6)
-            .to("#cohostCreateDialog .dialog-container", { scale: 1, duration: 0.8, ease: "back.out(1.5)" }, 25.6)
-            .to({}, { duration: 1.4 }) // Hold dialog pre-filled details visual stage (1.4 seconds!)
+            .to("#cohostCreateDialog", { pointerEvents: "auto", opacity: 1, duration: 0.3 }, 12.0)
+            .to("#cohostCreateDialog .dialog-container", { scale: 1, duration: 0.4, ease: "back.out(1.5)" }, 12.0)
+            .to({}, { duration: 1.0 }) // Hold dialog pre-filled details visual stage (1.0 seconds!)
 
             // --- Confirm Button Tap ---
-            .to("#cohostCreateDialog .dialog-btn.confirm-btn", { scale: 0.95, backgroundColor: "#754B4B", duration: 0.7 }, 28.4)
-            .to("#dialogSubmitRipple", { scale: 2.6, opacity: 0.6, duration: 1.4 }, 28.4)
-            .to("#cohostCreateDialog .dialog-btn.confirm-btn", { scale: 1.0, backgroundColor: "", duration: 0.7 }, 29.1)
-            .to("#dialogSubmitRipple", { opacity: 0, duration: 0.7 }, 29.1)
+            .to("#cohostCreateDialog .dialog-btn.confirm-btn", { scale: 0.93, backgroundColor: "#754B4B", duration: 0.25 }, 13.4)
+            .to("#dialogSubmitRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 13.4)
+            .to("#cohostCreateDialog .dialog-btn.confirm-btn", { scale: 1.0, backgroundColor: "", duration: 0.15 }, 13.65)
+            .to("#dialogSubmitRipple", { opacity: 0, duration: 0.25 }, 13.65)
 
             // --- Dialog Closes & Mert Sheet Opens ---
-            .to("#cohostCreateDialog .dialog-container", { scale: 0.8, duration: 0.6 }, 31.2)
-            .to("#cohostCreateDialog", { opacity: 0, pointerEvents: "none", duration: 0.6 }, 31.2)
+            .to("#cohostCreateDialog .dialog-container", { scale: 0.8, duration: 0.3 }, 14.3)
+            .to("#cohostCreateDialog", { opacity: 0, pointerEvents: "none", duration: 0.3 }, 14.3)
             
-            .to("#cohostBottomSheet", { pointerEvents: "auto", duration: 0.02 }, 32.6)
-            .to("#cohostBottomSheet .sheet-scrim", { opacity: 1, duration: 0.6 }, 32.6)
-            .to("#cohostBottomSheet .sheet-container", { y: "0%", duration: 1.4, ease: "power2.out" }, 32.6)
+            .to("#cohostBottomSheet", { pointerEvents: "auto", duration: 0.02 }, 15.0)
+            .to("#cohostBottomSheet .sheet-scrim", { opacity: 1, duration: 0.4 }, 15.0)
+            .to("#cohostBottomSheet .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" }, 15.0)
 
             // Slide 3 Hold (until Exit animation starts)
-            .to({}, { duration: 1.4 })
+            .to({}, { duration: 1.0 })
 
             // 5. Fade out and Exit (90% to 100% progress)
             .to("#phoneMockup", {
                 scale: 0.8,
                 opacity: 0,
                 y: 100,
-                duration: 1.4
-            }, 35.5)
+                duration: 1.0
+            }, 17.0)
             .to("#text-slide-3", {
                 opacity: 0,
                 y: -50,
-                duration: 1.4
-            }, 35.5)
+                duration: 1.0
+            }, 17.0)
             .to(["#mockup-team-section", "#mockup-budget-section", "#mockup-task-section", "#mockup-roles-list-section"], {
                 opacity: 1.0,
                 duration: 0.1
-            }, 35.5)
+            }, 17.0)
 
             // 6. GPU-Accelerated Dynamic Dark Theme Shift
             gsap.to("#darkOverlay", {
@@ -1399,7 +1399,7 @@
             });
 
             // Step controller setup for slide-by-slide Observer layout - Targeting EXACT completion times
-            const steps = [0, 1.3, 2.3, 2.9, 13.4, 34.0];
+            const steps = [0, 1.3, 2.3, 2.9, 7.5, 17.0];
             let currentIndex = 0;
             let isAnimating = false;
 
@@ -1584,7 +1584,7 @@
                 isAnimating = true;
                 
                 // Trigger task completion transitions on target step
-                if (index >= 3) {
+                if (index >= 5) {
                     completeMockupTask();
                 } else {
                     resetMockupTask();
@@ -1592,7 +1592,15 @@
 
                 // Proportional transition duration so animations play at a highly natural, human speed
                 const diff = Math.abs(steps[index] - steps[currentIndex]);
-                const duration = Math.min(Math.max(diff * 0.45, 0.85), 8.0);
+                
+                // For the interactive steps (index >= 4), play at 1:1 timeline speed (duration = diff) for maximum clarity.
+                // For smaller page transitions, cap at a comfortable duration.
+                let duration;
+                if (index >= 4 || currentIndex >= 4) {
+                    duration = diff; // 1:1 premium playback speed!
+                } else {
+                    duration = Math.min(Math.max(diff * 0.8, 0.85), 3.0);
+                }
 
                 gsap.killTweensOf(masterTl);
                 gsap.to(masterTl, {
