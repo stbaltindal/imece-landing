@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=2.9">
+    <link rel="stylesheet" href="style.css?v=3.0">
 </head>
 <body>
 
@@ -619,7 +619,7 @@
                             </div>
                             
                             <!-- Mobile Bottom Sheets inside Phone Frame -->
-                            <div class="mockup-bottom-sheet" id="inviteBottomSheetMobile" style="position: absolute; inset: 0; z-index: 95; pointer-events: none; overflow: hidden; display: none;">
+                            <div class="mockup-bottom-sheet" id="inviteBottomSheetMobile" style="position: absolute; inset: 0; z-index: 95; pointer-events: none; overflow: hidden;">
                                 <div class="sheet-scrim" id="inviteScrimMobile" style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; transition: opacity 0.3s; pointer-events: none;"></div>
                                 <div class="sheet-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--surface); border-top-left-radius: 14px; border-top-right-radius: 14px; box-shadow: 0 -3px 15px rgba(0,0,0,0.06); padding: 12px; border-top: 1px solid var(--border-color); text-align: center; transform: translateY(105%); z-index: 100;">
                                     <div style="width: 25px; height: 3px; background: var(--border-color); border-radius: 2px; margin: 0 auto 8px auto;"></div>
@@ -630,7 +630,7 @@
                                 </div>
                             </div>
                             
-                            <div class="mockup-bottom-sheet" id="cohostBottomSheetMobile" style="position: absolute; inset: 0; z-index: 95; pointer-events: none; overflow: hidden; display: none;">
+                            <div class="mockup-bottom-sheet" id="cohostBottomSheetMobile" style="position: absolute; inset: 0; z-index: 95; pointer-events: none; overflow: hidden;">
                                 <div class="sheet-scrim" id="cohostScrimMobile" style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; transition: opacity 0.3s; pointer-events: none;"></div>
                                 <div class="sheet-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--surface); border-top-left-radius: 14px; border-top-right-radius: 14px; box-shadow: 0 -3px 15px rgba(0,0,0,0.06); padding: 12px; border-top: 1px solid var(--border-color); text-align: center; transform: translateY(105%); z-index: 100;">
                                     <div style="width: 25px; height: 3px; background: var(--border-color); border-radius: 2px; margin: 0 auto 8px auto;"></div>
@@ -2001,9 +2001,7 @@
             ]);
             
             // Instantly hide sheets on reset
-            inviteSheet.style.display = 'none';
             inviteSheet.style.pointerEvents = 'none';
-            cohostSheet.style.display = 'none';
             cohostSheet.style.pointerEvents = 'none';
             
             gsap.set(["#inviteScrimMobile", "#cohostScrimMobile"], { opacity: 0 });
@@ -2082,7 +2080,6 @@
                      // Open sheet
                      .add(() => {
                          if (currentMobileFlowStep === 2) {
-                             inviteSheet.style.display = 'block';
                              inviteSheet.style.pointerEvents = 'auto';
                              gsap.to("#inviteScrimMobile", { opacity: 1, duration: 0.4 });
                              gsap.to("#inviteBottomSheetMobile .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" });
@@ -2134,7 +2131,6 @@
                               
                               completeMockupTaskMobile();
                               
-                              cohostSheet.style.display = 'block';
                               cohostSheet.style.pointerEvents = 'auto';
                               gsap.to("#cohostScrimMobile", { opacity: 1, duration: 0.4 });
                               gsap.to("#cohostBottomSheetMobile .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" });
