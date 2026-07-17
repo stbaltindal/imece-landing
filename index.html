@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=2.8">
+    <link rel="stylesheet" href="style.css?v=2.9">
 </head>
 <body>
 
@@ -621,7 +621,7 @@
                             <!-- Mobile Bottom Sheets inside Phone Frame -->
                             <div class="mockup-bottom-sheet" id="inviteBottomSheetMobile" style="position: absolute; inset: 0; z-index: 95; pointer-events: none; overflow: hidden; display: none;">
                                 <div class="sheet-scrim" id="inviteScrimMobile" style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; transition: opacity 0.3s; pointer-events: none;"></div>
-                                <div class="sheet-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--surface); border-top-left-radius: 14px; border-top-right-radius: 14px; box-shadow: 0 -3px 15px rgba(0,0,0,0.06); padding: 12px; border-top: 1px solid var(--border-color); text-align: center; transform: translateY(105%); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 100;">
+                                <div class="sheet-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--surface); border-top-left-radius: 14px; border-top-right-radius: 14px; box-shadow: 0 -3px 15px rgba(0,0,0,0.06); padding: 12px; border-top: 1px solid var(--border-color); text-align: center; transform: translateY(105%); z-index: 100;">
                                     <div style="width: 25px; height: 3px; background: var(--border-color); border-radius: 2px; margin: 0 auto 8px auto;"></div>
                                     <strong style="font-size: 12px; color: var(--text-main); display: block; margin-bottom: 2px;">Ece için Davet Kodu</strong>
                                     <p style="font-size: 9px; color: var(--text-light); margin: 0 0 8px 0;">Bu kodu paylaşarak ekibe katılmasını sağlayın.</p>
@@ -632,7 +632,7 @@
                             
                             <div class="mockup-bottom-sheet" id="cohostBottomSheetMobile" style="position: absolute; inset: 0; z-index: 95; pointer-events: none; overflow: hidden; display: none;">
                                 <div class="sheet-scrim" id="cohostScrimMobile" style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; transition: opacity 0.3s; pointer-events: none;"></div>
-                                <div class="sheet-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--surface); border-top-left-radius: 14px; border-top-right-radius: 14px; box-shadow: 0 -3px 15px rgba(0,0,0,0.06); padding: 12px; border-top: 1px solid var(--border-color); text-align: center; transform: translateY(105%); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 100;">
+                                <div class="sheet-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--surface); border-top-left-radius: 14px; border-top-right-radius: 14px; box-shadow: 0 -3px 15px rgba(0,0,0,0.06); padding: 12px; border-top: 1px solid var(--border-color); text-align: center; transform: translateY(105%); z-index: 100;">
                                     <div style="width: 25px; height: 3px; background: var(--border-color); border-radius: 2px; margin: 0 auto 8px auto;"></div>
                                     <strong style="font-size: 12px; color: var(--text-main); display: block; margin-bottom: 2px;">Mert ortak yönetici olarak eklendi</strong>
                                     <p style="font-size: 9px; color: var(--text-light); margin: 0 0 8px 0;">Eşinizle birlikte aynı yetkilerle hazırlıkları yönetin.</p>
@@ -1987,6 +1987,19 @@
             const cohostSheet = document.getElementById('cohostBottomSheetMobile');
             const cohostDialog = document.getElementById('cohostDialogMobile');
             
+            // Kill active tweens
+            gsap.killTweensOf([
+                "#eceTapRippleMobile", 
+                "#heartTapRippleMobile", 
+                "#dialogSubmitRippleMobile", 
+                "#inviteScrimMobile", 
+                "#cohostScrimMobile", 
+                "#inviteBottomSheetMobile .sheet-container", 
+                "#cohostBottomSheetMobile .sheet-container", 
+                "#cohostDialogMobile",
+                "#mockupScrollerMobile"
+            ]);
+            
             // Instantly hide sheets on reset
             inviteSheet.style.display = 'none';
             inviteSheet.style.pointerEvents = 'none';
@@ -2051,77 +2064,94 @@
                 highlightMobileSection(rolesSec);
                 gsap.to(scroller, { y: -230, duration: 0.6, ease: "power2.out" });
                 
-                // Play tap ripple on Ece capsule, then slide up bottom sheet
-                gsap.fromTo("#eceTapRippleMobile", 
-                    { scale: 0, opacity: 0.8 }, 
-                    { scale: 2.6, opacity: 0, duration: 1.0, ease: "power2.out", delay: 0.5 }
-                );
-                
-                setTimeout(() => {
-                    if (currentMobileFlowStep === 2) {
-                        inviteSheet.style.display = 'block';
-                        inviteSheet.style.pointerEvents = 'auto';
-                        gsap.to("#inviteScrimMobile", { opacity: 1, duration: 0.4 });
-                        gsap.to("#inviteBottomSheetMobile .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" });
-                    }
-                }, 1000);
+                // Create a timeline for Ece tap simulation (3 taps)
+                const eceTl = gsap.timeline();
+                eceTl.set("#eceTapRippleMobile", { scale: 0, opacity: 0, xPercent: -50, yPercent: -50 })
+                     // Tap 1
+                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, 0.5)
+                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.2 })
+                     .set("#eceTapRippleMobile", { scale: 0 })
+                     // Tap 2
+                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, "+=0.2")
+                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.2 })
+                     .set("#eceTapRippleMobile", { scale: 0 })
+                     // Tap 3
+                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, "+=0.2")
+                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.2 })
+                     .set("#eceTapRippleMobile", { scale: 0 })
+                     // Open sheet
+                     .call(() => {
+                         if (currentMobileFlowStep === 2) {
+                             inviteSheet.style.display = 'block';
+                             inviteSheet.style.pointerEvents = 'auto';
+                             gsap.to("#inviteScrimMobile", { opacity: 1, duration: 0.4 });
+                             gsap.to("#inviteBottomSheetMobile .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" });
+                         }
+                     }, null, "+=0.2");
                 
             } else if (stepIndex === 3) {
                 // Focus: Team section (co-host Mert add)
                 highlightMobileSection(teamSec);
                 gsap.to(scroller, { y: 0, duration: 0.6, ease: "power2.out" });
                 
-                // 1. Play heart tap ripple
-                gsap.fromTo("#heartTapRippleMobile", 
-                    { scale: 0, opacity: 0.8 }, 
-                    { scale: 2.6, opacity: 0, duration: 1.0, ease: "power2.out", delay: 0.4 }
-                );
-                
-                // 2. Open co-host dialog
-                setTimeout(() => {
-                    if (currentMobileFlowStep === 3) {
-                        cohostDialog.style.display = 'flex';
-                        gsap.to(cohostDialog, { opacity: 1, duration: 0.3 });
-                    }
-                }, 900);
-                
-                // 3. Play tap ripple on dialog 'Ekle' submit button
-                gsap.fromTo("#dialogSubmitRippleMobile", 
-                    { scale: 0, opacity: 0.8 }, 
-                    { scale: 2.6, opacity: 0, duration: 1.0, ease: "power2.out", delay: 1.8 }
-                );
-                
-                // 4. Submit, close dialog, complete task, slide up Mert sheet, fire confetti
-                setTimeout(() => {
-                    if (currentMobileFlowStep === 3) {
-                        gsap.to(cohostDialog, { 
-                            opacity: 0, 
-                            duration: 0.3,
-                            onComplete: () => {
-                                cohostDialog.style.display = 'none';
-                            }
-                        });
-                        
-                        completeMockupTaskMobile();
-                        
-                        cohostSheet.style.display = 'block';
-                        cohostSheet.style.pointerEvents = 'auto';
-                        gsap.to("#cohostScrimMobile", { opacity: 1, duration: 0.4 });
-                        gsap.to("#cohostBottomSheetMobile .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" });
-                        
-                        // FİRE CANVAS CONFETTİ
-                        if (window.confetti) {
-                            const rect = document.getElementById('phoneMockupMobile').getBoundingClientRect();
-                            const x = (rect.left + rect.width / 2) / window.innerWidth;
-                            const y = (rect.top + rect.height / 2) / window.innerHeight;
-                            window.confetti({
-                                particleCount: 70,
-                                spread: 60,
-                                origin: { x: x, y: y }
-                            });
-                        }
-                    }
-                }, 2800);
+                // Create a timeline for Mert co-host simulation (3 taps on heart + dialog submit)
+                const mertTl = gsap.timeline();
+                mertTl.set("#heartTapRippleMobile", { scale: 0, opacity: 0, xPercent: -50, yPercent: -50 })
+                      // Heart Tap 1
+                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, 0.5)
+                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.2 })
+                      .set("#heartTapRippleMobile", { scale: 0 })
+                      // Heart Tap 2
+                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, "+=0.2")
+                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.2 })
+                      .set("#heartTapRippleMobile", { scale: 0 })
+                      // Heart Tap 3
+                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 }, "+=0.2")
+                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.2 })
+                      .set("#heartTapRippleMobile", { scale: 0 })
+                      // Open dialog
+                      .call(() => {
+                          if (currentMobileFlowStep === 3) {
+                              cohostDialog.style.display = 'flex';
+                              gsap.to(cohostDialog, { opacity: 1, duration: 0.3 });
+                          }
+                      }, null, "+=0.2")
+                      // Dialog Submit Button Tap (Ekle)
+                      .set("#dialogSubmitRippleMobile", { scale: 0, opacity: 0, xPercent: -50, yPercent: -50 }, "+=0.6")
+                      .to("#dialogSubmitRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 })
+                      .to("#dialogSubmitRippleMobile", { opacity: 0, duration: 0.2 })
+                      .set("#dialogSubmitRippleMobile", { scale: 0 })
+                      // Submit, close dialog, complete task, slide up Mert sheet, fire confetti
+                      .call(() => {
+                          if (currentMobileFlowStep === 3) {
+                              gsap.to(cohostDialog, { 
+                                  opacity: 0, 
+                                  duration: 0.3,
+                                  onComplete: () => {
+                                      cohostDialog.style.display = 'none';
+                                  }
+                              });
+                              
+                              completeMockupTaskMobile();
+                              
+                              cohostSheet.style.display = 'block';
+                              cohostSheet.style.pointerEvents = 'auto';
+                              gsap.to("#cohostScrimMobile", { opacity: 1, duration: 0.4 });
+                              gsap.to("#cohostBottomSheetMobile .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" });
+                              
+                              // FİRE CANVAS CONFETTİ
+                              if (window.confetti) {
+                                  const rect = document.getElementById('phoneMockupMobile').getBoundingClientRect();
+                                  const x = (rect.left + rect.width / 2) / window.innerWidth;
+                                  const y = (rect.top + rect.height / 2) / window.innerHeight;
+                                  window.confetti({
+                                      particleCount: 70,
+                                      spread: 60,
+                                      origin: { x: x, y: y }
+                                  });
+                              }
+                          }
+                      }, null, "+=0.4");
             }
         }
 
