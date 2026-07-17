@@ -2080,14 +2080,14 @@
                      .to("#eceTapRippleMobile", { opacity: 0, duration: 0.2 })
                      .set("#eceTapRippleMobile", { scale: 0 })
                      // Open sheet
-                     .call(() => {
+                     .add(() => {
                          if (currentMobileFlowStep === 2) {
                              inviteSheet.style.display = 'block';
                              inviteSheet.style.pointerEvents = 'auto';
                              gsap.to("#inviteScrimMobile", { opacity: 1, duration: 0.4 });
                              gsap.to("#inviteBottomSheetMobile .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" });
                          }
-                     }, null, "+=0.2");
+                     }, "+=0.2");
                 
             } else if (stepIndex === 3) {
                 // Focus: Team section (co-host Mert add)
@@ -2110,19 +2110,19 @@
                       .to("#heartTapRippleMobile", { opacity: 0, duration: 0.2 })
                       .set("#heartTapRippleMobile", { scale: 0 })
                       // Open dialog
-                      .call(() => {
+                      .add(() => {
                           if (currentMobileFlowStep === 3) {
                               cohostDialog.style.display = 'flex';
                               gsap.to(cohostDialog, { opacity: 1, duration: 0.3 });
                           }
-                      }, null, "+=0.2")
+                      }, "+=0.2")
                       // Dialog Submit Button Tap (Ekle)
                       .set("#dialogSubmitRippleMobile", { scale: 0, opacity: 0, xPercent: -50, yPercent: -50 }, "+=0.6")
                       .to("#dialogSubmitRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.4 })
                       .to("#dialogSubmitRippleMobile", { opacity: 0, duration: 0.2 })
                       .set("#dialogSubmitRippleMobile", { scale: 0 })
                       // Submit, close dialog, complete task, slide up Mert sheet, fire confetti
-                      .call(() => {
+                      .add(() => {
                           if (currentMobileFlowStep === 3) {
                               gsap.to(cohostDialog, { 
                                   opacity: 0, 
@@ -2151,7 +2151,7 @@
                                   });
                               }
                           }
-                      }, null, "+=0.4");
+                      }, "+=0.4");
             }
         }
 
