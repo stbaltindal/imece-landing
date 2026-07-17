@@ -3365,7 +3365,7 @@ body.dark-active .app-header-mini {
         position: absolute;
         top: 0;
         left: 0;
-        transform: scale(0.52);
+        transform: scale(0.52) !important;
         transform-origin: top center;
         pointer-events: auto;
     }
@@ -3376,7 +3376,7 @@ body.dark-active .app-header-mini {
             height: 349px;
         }
         #phoneMockupMobile {
-            transform: scale(0.60);
+            transform: scale(0.60) !important;
         }
     }
     
@@ -3386,7 +3386,7 @@ body.dark-active .app-header-mini {
             height: 396px;
         }
         #phoneMockupMobile {
-            transform: scale(0.68);
+            transform: scale(0.68) !important;
         }
     }
     
