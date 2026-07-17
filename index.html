@@ -432,22 +432,12 @@
                                     <div class="app-card summary-card" style="background: linear-gradient(135deg, rgba(212, 165, 165, 0.16) 0%, #ffffff 100%);">
                                         <div class="summary-card-section">
                                             <span class="section-title">Bütçe Özeti</span>
-                                            <div class="budget-stats-row">
+<div class="budget-stats-row">
                                                 <div class="budget-val-col"><span class="budget-val-label">Tahmini</span><span class="budget-val-amount">₺150.000</span></div>
                                                 <div class="budget-val-col"><span class="budget-val-label">Gerçekleşen</span><span class="budget-val-amount actual">₺92.000</span></div>
                                             </div>
                                             <div class="budget-progress-bar-wrapper"><div class="budget-progress-bar-fill" style="width: 61%"></div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            
-            <!-- Mobile Only Interactive Showcase Section (Screen < 768px) -->
+                                               <!-- Mobile Only Interactive Showcase Section (Screen < 768px) -->
             <div class="mobile-interactive-showcase">
                 <div class="section-header" style="margin-bottom: 16px; text-align: center; width: 100%;">
                     <div class="badge gold-badge" style="margin: 0 auto 8px auto; display: table;">NASIL ÇALIŞIR?</div>
@@ -455,7 +445,47 @@
                     <p class="section-subtitle" style="font-size: 0.8rem; margin: 0; max-width: 100%;">Butonları kullanarak İmece planlama sürecini adım adım canlandırın.</p>
                 </div>
                 
-                <!-- Swiper Phone Frame Wrap (Height limited to 370px to fit viewports) -->
+                <!-- Swiper Navigation Controls placed ABOVE mockup -->
+                <div class="mobile-flow-controls" style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 12px; position: relative; z-index: 10;">
+                    <button class="flow-nav-btn prev" onclick="prevMobileStep()" style="background: var(--surface); border: 1px solid var(--border-color); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main); font-weight: bold;">
+                        ←
+                    </button>
+                    <div class="flow-indicators" style="display: flex; gap: 6px;">
+                        <span class="flow-dot active" onclick="setMobileFlowStep(0)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
+                        <span class="flow-dot" onclick="setMobileFlowStep(1)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
+                        <span class="flow-dot" onclick="setMobileFlowStep(2)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
+                        <span class="flow-dot" onclick="setMobileFlowStep(3)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
+                    </div>
+                    <button class="flow-nav-btn next" onclick="nextMobileStep()" style="background: var(--surface); border: 1px solid var(--border-color); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main); font-weight: bold;">
+                        →
+                    </button>
+                </div>
+                
+                <!-- Swiper Text Description Card placed ABOVE mockup -->
+                <div class="mobile-flow-text-card" style="width: 100%; max-width: 450px; min-height: 130px; position: relative; background: var(--surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 12px 16px; box-sizing: border-box; box-shadow: var(--shadow-soft); margin-bottom: 20px;">
+                    <div id="mobile-slide-text-0" class="mobile-slide-text active" style="opacity: 1; transition: opacity 0.4s ease; display: block; text-align: center;">
+                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">01 / BÜTÇE YÖNETİMİ</div>
+                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Her harcama gözünüzün önünde olsun.</h3>
+                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Kategori bazında bütçe limitleri koyun. Ödemeleri eşinizle veya ailelerinizle kimin gerçekleştirdiğine göre anlık olarak takip edin. Bütçe aşımında anında uyarılar alın.</p>
+                    </div>
+                    <div id="mobile-slide-text-1" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
+                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">02 / GÖREV DAĞITIMI</div>
+                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Hazırlıkları paylaşın, sürecin tadını çıkarın.</h3>
+                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Yapılacak her işi sorumlularına atayın. Görevlerin yapıldı, yapılıyor veya beklemede olma durumunu pasta grafiği üzerinden canlı olarak analiz edin.</p>
+                    </div>
+                    <div id="mobile-slide-text-2" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
+                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">03 / KOLAY DAVET</div>
+                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Uygulamayı henüz yüklememiş arkadaşınıza bile görev atayın.</h3>
+                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Arkadaşınız henüz uygulamayı yüklememiş olsa dahi ona görevler atayabilir, hazırlıklara başlayabilirsiniz. Paylaşacağınız tek bir davet koduyla, uygulamayı indirdiği an tüm görevleri panosunda hazır olur.</p>
+                    </div>
+                    <div id="mobile-slide-text-3" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
+                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">04 / ORTAK YÖNETİCİ</div>
+                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Eşit yetkiyle, tam uyumla çalışın.</h3>
+                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Eşinizi ortak yönetici (Co-host) olarak ekleyin. Aynı ekranları görün, aynı yetkilerle bütçeyi yönetin; yapılacaklar bir bir tamamlanırken özel gününüzü kutlamanın keyfini çıkarın.</p>
+                    </div>
+                </div>
+
+                <!-- Swiper Phone Frame Wrap (Height limited to 370px to fit viewports) placed at the bottom -->
                 <div class="mobile-mockup-wrap">
                     <div class="phone-frame interactive-phone retina-phone" id="phoneMockupMobile">
                         <div class="phone-speaker" style="width: 50px; height: 4px; top: 6px;"></div>
@@ -473,7 +503,7 @@
                                 <div class="app-header" style="height: 44px; padding: 0 12px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-color); background: var(--surface);">
                                     <span class="back-icon" style="font-size: 12px; cursor: pointer;">←</span>
                                     <div class="app-title" style="font-size: 13px; font-weight: 700;">Düğün Planlama</div>
-                                    <span class="calendar-icon" style="font-size: 12px;">📅</span>
+                                    <span class="calendar-icon material-icons-round" style="font-size: 14px; color: var(--text-light); line-height: 1;">calendar_today</span>
                                 </div>
                                 
                                 <div class="app-content-slider-wrapper" style="flex: 1; overflow: hidden; position: relative;">
@@ -497,14 +527,14 @@
                                                 <div class="avatar-chip" style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
                                                     <div style="width: 32px; height: 32px; border-radius: 50%; background: #C5A059; color: white; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; position: relative;">
                                                         M
-                                                        <div style="position: absolute; bottom: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: #4CD964; display: flex; align-items: center; justify-content: center; font-size: 8px; color: white;">✓</div>
+                                                        <div style="position: absolute; bottom: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: #4CD964; display: flex; align-items: center; justify-content: center; color: white; line-height: 1;"><span class="material-icons-round" style="font-size: 8px; display: block;">done</span></div>
                                                     </div>
                                                     <span style="font-size: 9px; color: var(--text-main); font-weight: 600;">Mert</span>
                                                 </div>
                                                 <div class="avatar-chip" style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
                                                     <div style="width: 32px; height: 32px; border-radius: 50%; background: #EAD0D0; color: #754B4B; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; position: relative;">
                                                         E
-                                                        <div style="position: absolute; bottom: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: #FFCC00; display: flex; align-items: center; justify-content: center; font-size: 8px; color: white;">🕒</div>
+                                                        <div style="position: absolute; bottom: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: #FFCC00; display: flex; align-items: center; justify-content: center; color: white; line-height: 1;"><span class="material-icons-round" style="font-size: 8px; display: block;">schedule</span></div>
                                                     </div>
                                                     <span style="font-size: 9px; color: var(--text-main); font-weight: 600;">Ece</span>
                                                 </div>
@@ -592,26 +622,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <!-- Mobile Dialog overlay inside Phone Frame -->
-                                    <div id="cohostDialogMobile" style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: none; align-items: center; justify-content: center; padding: 12px; z-index: 100; opacity: 0; transition: opacity 0.3s ease;">
-                                        <div style="background: var(--surface); border-radius: 12px; padding: 14px; width: 100%; box-shadow: 0 8px 24px rgba(0,0,0,0.15); text-align: center; border: 1px solid var(--border-color);">
-                                            <strong style="font-size: 12px; display: block; margin-bottom: 4px; color: var(--text-main);">Ortak Yönetici Ekle</strong>
-                                            <p style="font-size: 9px; color: var(--text-light); margin: 0 0 10px 0;">Eşinize tüm ekranları düzenleme yetkisi verin.</p>
-                                            <div style="text-align: left; margin-bottom: 10px;">
-                                                <div style="font-size: 8px; color: var(--text-light); font-weight: 600; margin-bottom: 2px;">KİŞİ ADI</div>
-                                                <div style="border: 1px solid var(--border-color); border-radius: 4px; padding: 5px; font-size: 10px; background: var(--bg-cream); color: var(--text-main);">Mert</div>
-                                            </div>
-                                            <div style="display: flex; gap: 6px;">
-                                                <button style="background: var(--border-color); border: none; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; flex: 1; color: var(--text-main);">İptal</button>
-                                                <button id="cohostSubmitMobile" style="background: var(--gold); border: none; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; flex: 1; color: white; position: relative;">
-                                                    Ekle
-                                                    <!-- Tap Ripple for dialog Submit button -->
-                                                    <div class="auto-tap-ripple" id="dialogSubmitRippleMobile" style="width: 20px; height: 20px;"></div>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             
@@ -657,55 +667,14 @@
                                     <p style="font-size: 9px; color: var(--text-light); margin: 0 0 8px 0;">Eşinizle birlikte aynı yetkilerle hazırlıkları yönetin.</p>
                                     <div style="background: var(--bg-cream); border: 1px dashed var(--gold); padding: 6px; border-radius: 4px; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">DN-MERT-984</div>
                                     <div style="background: var(--gold); color: white; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; cursor: pointer;">Kodu Kopyala</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    </div>
-                </div>
-                
-                <!-- Swiper Navigation Controls -->
-                <div class="mobile-flow-controls" style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 8px;">
-                    <button class="flow-nav-btn prev" onclick="prevMobileStep()" style="background: var(--surface); border: 1px solid var(--border-color); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main); font-weight: bold;">
-                        ←
-                    </button>
-                    <div class="flow-indicators" style="display: flex; gap: 6px;">
-                        <span class="flow-dot active" onclick="setMobileFlowStep(0)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
-                        <span class="flow-dot" onclick="setMobileFlowStep(1)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
-                        <span class="flow-dot" onclick="setMobileFlowStep(2)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
-                        <span class="flow-dot" onclick="setMobileFlowStep(3)" style="width: 8px; height: 8px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s;"></span>
-                    </div>
-                    <button class="flow-nav-btn next" onclick="nextMobileStep()" style="background: var(--surface); border: 1px solid var(--border-color); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main); font-weight: bold;">
-                        →
-                    </button>
-                </div>
-                
-                <!-- Swiper Text Description Card -->
-                <div class="mobile-flow-text-card" style="width: 100%; max-width: 450px; min-height: 130px; position: relative; background: var(--surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 12px 16px; box-sizing: border-box; box-shadow: var(--shadow-soft);">
-                    <div id="mobile-slide-text-0" class="mobile-slide-text active" style="opacity: 1; transition: opacity 0.4s ease; display: block; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">01 / BÜTÇE YÖNETİMİ</div>
-                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Her harcama gözünüzün önünde olsun.</h3>
-                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Kategori bazında bütçe limitleri koyun. Ödemeleri eşinizle veya ailelerinizle kimin gerçekleştirdiğine göre anlık olarak takip edin. Bütçe aşımında anında uyarılar alın.</p>
-                    </div>
-                    <div id="mobile-slide-text-1" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">02 / GÖREV DAĞITIMI</div>
-                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Hazırlıkları paylaşın, sürecin tadını çıkarın.</h3>
-                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Yapılacak her işi sorumlularına atayın. Görevlerin yapıldı, yapılıyor veya beklemede olma durumunu pasta grafiği üzerinden canlı olarak analiz edin.</p>
-                    </div>
-                    <div id="mobile-slide-text-2" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">03 / KOLAY DAVET</div>
-                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Uygulamayı henüz yüklememiş arkadaşınıza bile görev atayın.</h3>
-                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Arkadaşınız henüz uygulamayı yüklememiş olsa dahi ona görevler atayabilir, hazırlıklara başlayabilirsiniz. Paylaşacağınız tek bir davet koduyla, uygulamayı indirdiği an tüm görevleri panosunda hazır olur.</p>
-                    </div>
-                    <div id="mobile-slide-text-3" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">04 / ORTAK YÖNETİCİ</div>
-                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Eşit yetkiyle, tam uyumla çalışın.</h3>
-                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Eşinizi ortak yönetici (Co-host) olarak ekleyin. Aynı ekranları görün, aynı yetkilerle bütçeyi yönetin; yapılacaklar bir bir tamamlanırken özel gününüzü kutlamanın keyfini çıkarın.</p>
-                    </div>
-                </div>
-            </div>
-
+                                </div> <!-- Closes .sheet-container -->
+                            </div> <!-- Closes #cohostBottomSheetMobile -->
+                        </div> <!-- Closes .phone-screen -->
+                    </div> <!-- Closes #phoneMockupMobile -->
+                </div> <!-- Closes .mobile-mockup-wrap -->
+                <!-- Swiper bottom padding -->
+                <div style="height: 10px;"></div>
+            </div> <!-- Closes .mobile-interactive-showcase -->
         </section>
 
         <!-- Neden İmece Section -->
@@ -913,7 +882,7 @@
                             <p>Sade ve küçük hazırlıklar için ideal başlangıç.</p>
                         </div>
                         <ul class="pricing-features">
-                            <li><span class="material-icons-round icon">done</span> 1 Aktif Hazırlık (Düğün veya Nişan)</li>
+                            <li><span class="material-icons-round icon">done</span> 1 Aktif Hazırlık Panosu (Boş veya Hazır Şablon)</li>
                             <li><span class="material-icons-round icon">done</span> En Fazla 3 Ekip Üyesi</li>
                             <li><span class="material-icons-round icon">done</span> En Fazla 1 Ortak Yönetici (Co-host)</li>
                             <li><span class="material-icons-round icon">done</span> En Fazla 5 Farklı Kategori (Kategori başı 3 Görev)</li>
@@ -1872,7 +1841,7 @@
             let targetTitle = 'Ücretsiz Başlangıç';
             let targetPeriod = '/ ömür boyu';
             let targetDesc = 'Tek bir boş pano veya hazır şablon ile başlayıp, 3 kişiyi aşmayan ekipler için tamamen ücretsiz plan.';
-            let targetBadge = '🌱 BAŞLANGIÇ PLANI';
+            let targetBadge = 'BAŞLANGIÇ PLANI';
             let targetReason = 'Çekirdek Ekip & Temel Yönetim İçin';
             
             let featuresHtml = `
@@ -1896,7 +1865,7 @@
                 targetTitle = 'Tüm Hazırlıklar Paketi';
                 targetPeriod = '/ 1 yıl geçerli';
                 targetDesc = 'Söz, Nişan, Kına ve Düğün gibi birden fazla hazırlık yapacak, en kapsamlı bütçe ve sınırsız ekip desteğine ihtiyaç duyan çiftler için en karlı premium seçenektir.';
-                targetBadge = '👑 ÇOKLU ORGANİZASYON';
+                targetBadge = 'ÇOKLU ORGANİZASYON';
                 targetReason = activeEvents + ' Töreni Tek Çatı Altında Yönetmek İçin';
                 
                 featuresHtml = `
@@ -1921,7 +1890,7 @@
                     targetTitle = 'Tek Bir Organizasyon Paketi';
                     targetPeriod = '/ 6 ay geçerli';
                     targetDesc = 'Seçtiğiniz tek bir hazırlık panosu (boş veya hazır şablon) için bütçe takibi ve sınırsız ekip üyesi, görev atama desteği sunan premium plan.';
-                    targetBadge = '✨ TEKİL PREMİUM';
+                    targetBadge = 'TEKİL PREMİUM';
                     
                     if (needBudget && persons > 3) {
                         targetReason = 'Geniş Ekip & Akıllı Bütçe Takibi İçin';

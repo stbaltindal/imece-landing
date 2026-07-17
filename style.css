@@ -422,17 +422,7 @@ label,
 }
 
 .mobile-phone-only {
-    display: none;
-}
-
-@media (max-width: 767px) {
-    .mobile-phone-only {
-        display: flex;
-        justify-content: center;
-        margin-top: var(--space-xl);
-        width: 100%;
-        perspective: 1000px;
-    }
+    display: none !important;
 }
 
 /* absolute mockup container that is pinned dynamically by GSAP */
