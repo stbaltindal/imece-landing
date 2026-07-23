@@ -404,6 +404,7 @@
                 });
 
                 if (!response.ok) {
+                    console.error('RSVP fetch failed:', response.status, response.statusText);
                     showState('error');
                     return;
                 }
@@ -417,6 +418,7 @@
 
                 renderGuest(data[0]);
             } catch (err) {
+                console.error('RSVP load exception:', err);
                 showState('error');
             }
         }
@@ -444,11 +446,13 @@
                         : 'Yanıtın için teşekkürler, seni özleyeceğiz.';
                     els.thanksMsg.classList.add('show');
                 } else {
+                    console.error('RSVP update failed:', response.status);
                     els.thanksMsg.textContent = 'Güncellenemedi, lütfen tekrar dene.';
                     els.thanksMsg.style.color = 'var(--red)';
                     els.thanksMsg.classList.add('show');
                 }
             } catch (err) {
+                console.error('RSVP update exception:', err);
                 els.thanksMsg.textContent = 'Bağlantı sorunu, lütfen tekrar dene.';
                 els.thanksMsg.style.color = 'var(--red)';
                 els.thanksMsg.classList.add('show');
