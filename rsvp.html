@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Düğün davetinize katılım durumunuzu görüntüleyin ve güncelleyin.">
+    <title>Davet Durumu — İmece Düğün</title>
+
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Material+Icons+Round&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-champagne: #FAF8F6;
+            --text-main: #1D1D1F;
+            --text-muted: #515154;
+            --text-light: #86868B;
+            --gold: #C5A059;
+            --gold-light: #F4ECE1;
+            --green: #3A8558;
+            --green-light: #EAF5EE;
+            --red: #B84C4C;
+            --red-light: #FBEDED;
+            --gray: #6E6E73;
+            --gray-light: #F0F0F1;
+            --radius-lg: 16px;
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-champagne);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .rsvp-card {
+            background-color: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 44px 32px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+            border: 1px solid #EAE6E2;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardEntrance 0.6s ease forwards;
+        }
+
+        @keyframes cardEntrance {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .icon-wrapper {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--gold-light);
+        }
+
+        .icon-wrapper span {
+            color: var(--gold);
+            font-size: 2rem;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin: 0 0 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .event-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0 0 4px;
+        }
+
+        .party-size {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--gold);
+            background-color: var(--gold-light);
+            padding: 3px 10px;
+            border-radius: 50px;
+            margin-top: 8px;
+        }
+
+        p.lead {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin: 20px 0 28px;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin: 4px 0 28px;
+        }
+
+        .status-badge .material-icons-round {
+            font-size: 1.1rem;
+        }
+
+        .status-pending {
+            background-color: var(--gray-light);
+            color: var(--gray);
+        }
+
+        .status-confirmed {
+            background-color: var(--green-light);
+            color: var(--green);
+        }
+
+        .status-declined {
+            background-color: var(--red-light);
+            color: var(--red);
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 16px 28px;
+            font-size: 0.98rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 2px solid transparent;
+            width: 100%;
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-confirm {
+            background-color: var(--green);
+            color: #ffffff;
+            box-shadow: 0 8px 24px rgba(58, 133, 88, 0.2);
+        }
+
+        .btn-confirm:hover:not(:disabled) {
+            background-color: #2f6e48;
+            transform: translateY(-2px);
+        }
+
+        .btn-decline {
+            background-color: transparent;
+            color: var(--red);
+            border-color: var(--red);
+        }
+
+        .btn-decline:hover:not(:disabled) {
+            background-color: var(--red-light);
+            transform: translateY(-2px);
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 36px;
+            height: 36px;
+            margin: 12px auto 20px;
+            border: 3px solid var(--gold-light);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .footer-note {
+            margin-top: 32px;
+            font-size: 0.8rem;
+            color: #A1A1A5;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Confirmation toast after action */
+        .thanks-msg {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--green);
+            margin-top: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .thanks-msg.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 480px) {
+            .rsvp-card {
+                padding: 36px 22px;
+            }
+            h1 {
+                font-size: 1.45rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="rsvp-card" id="rsvpCard">
+
+        <!-- Loading State -->
+        <div id="stateLoading">
+            <div class="spinner"></div>
+            <p class="loading-text">Davetiniz yükleniyor...</p>
+        </div>
+
+        <!-- Invalid / Missing Token State -->
+        <div id="stateInvalid" class="hidden">
+            <div class="icon-wrapper">
+                <span class="material-icons-round">link_off</span>
+            </div>
+            <h1>Bağlantı Bulunamadı</h1>
+            <p class="lead">Bu bağlantı geçersiz veya süresi dolmuş olabilir. Davet sahibinden yeni bir bağlantı isteyebilirsin.</p>
+        </div>
+
+        <!-- Network / Server Error State -->
+        <div id="stateError" class="hidden">
+            <div class="icon-wrapper">
+                <span class="material-icons-round">wifi_off</span>
+            </div>
+            <h1>Bir Şeyler Ters Gitti</h1>
+            <p class="lead">Davet bilgilerine şu an ulaşılamıyor. Lütfen daha sonra tekrar dene.</p>
+            <button class="btn btn-confirm" id="retryBtn" style="width:100%;">Tekrar Dene</button>
+        </div>
+
+        <!-- Loaded Guest State -->
+        <div id="stateLoaded" class="hidden">
+            <div class="icon-wrapper">
+                <span class="material-icons-round">favorite</span>
+            </div>
+            <h1 id="guestName">—</h1>
+            <p class="event-meta" id="eventTitle">—</p>
+            <p class="event-meta" id="eventDate">—</p>
+            <span class="party-size hidden" id="partySize"></span>
+
+            <div>
+                <div id="statusBadge" class="status-badge status-pending">
+                    <span class="material-icons-round">schedule</span>
+                    <span id="statusLabel">Yanıt bekleniyor</span>
+                </div>
+            </div>
+
+            <p class="lead">Katılım durumunu aşağıdan güncelleyebilirsin. Fikrini değiştirirsen, dilediğin zaman tekrar seçim yapabilirsin.</p>
+
+            <div class="btn-group">
+                <button class="btn btn-confirm" id="confirmBtn">Katılıyorum</button>
+                <button class="btn btn-decline" id="declineBtn">Katılmıyorum</button>
+            </div>
+
+            <p class="thanks-msg" id="thanksMsg"></p>
+        </div>
+
+        <div class="footer-note">
+            © 2026 İmece Düğün. Tüm hakları saklıdır.
+        </div>
+    </div>
+
+    <script>
+        // Bu sayfa yalnizca URL'deki token'a ait davetlinin KENDİ bilgisini gösterir.
+        // get_guest_public_status RPC'si tasarım geregi sadece tek bir davetliye ait
+        // dar bir alan seti döner (ad, etkinlik, kişi sayısı, rsvp durumu).
+        // Baska davetli/host bilgisi asla dönmez ve BURADA da eklenmemelidir.
+        const SUPABASE_URL = 'https://zlpvypxlbkgfkohxenqa.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_ZtXozK5lQQMPauf_2Rr9Tg_0spREdFg';
+
+        const rpcHeaders = {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json'
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('t');
+
+        const els = {
+            loading: document.getElementById('stateLoading'),
+            invalid: document.getElementById('stateInvalid'),
+            error: document.getElementById('stateError'),
+            loaded: document.getElementById('stateLoaded'),
+            guestName: document.getElementById('guestName'),
+            eventTitle: document.getElementById('eventTitle'),
+            eventDate: document.getElementById('eventDate'),
+            partySize: document.getElementById('partySize'),
+            statusBadge: document.getElementById('statusBadge'),
+            statusLabel: document.getElementById('statusLabel'),
+            confirmBtn: document.getElementById('confirmBtn'),
+            declineBtn: document.getElementById('declineBtn'),
+            thanksMsg: document.getElementById('thanksMsg'),
+            retryBtn: document.getElementById('retryBtn')
+        };
+
+        function showState(name) {
+            ['loading', 'invalid', 'error', 'loaded'].forEach(key => {
+                els[key].classList.toggle('hidden', key !== name);
+            });
+        }
+
+        function formatEventDate(isoString) {
+            if (!isoString) return '';
+            const date = new Date(isoString);
+            if (isNaN(date.getTime())) return '';
+            return date.toLocaleDateString('tr-TR', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                weekday: 'long'
+            });
+        }
+
+        const STATUS_CONFIG = {
+            pending: { label: 'Yanıt bekleniyor', className: 'status-pending', icon: 'schedule' },
+            confirmed: { label: 'Katılıyor', className: 'status-confirmed', icon: 'check_circle' },
+            declined: { label: 'Katılmıyor', className: 'status-declined', icon: 'cancel' }
+        };
+
+        function renderStatus(status) {
+            const config = STATUS_CONFIG[status] || STATUS_CONFIG.pending;
+            els.statusBadge.className = `status-badge ${config.className}`;
+            els.statusLabel.textContent = config.label;
+            els.statusBadge.querySelector('.material-icons-round').textContent = config.icon;
+        }
+
+        function renderGuest(guest) {
+            els.guestName.textContent = guest.guest_name || 'Değerli Davetli';
+            els.eventTitle.textContent = guest.event_title || '';
+            els.eventDate.textContent = formatEventDate(guest.event_date);
+
+            if (guest.party_size && guest.party_size > 1) {
+                els.partySize.textContent = `+${guest.party_size - 1} kişi`;
+                els.partySize.classList.remove('hidden');
+            } else {
+                els.partySize.classList.add('hidden');
+            }
+
+            renderStatus(guest.rsvp_status || 'pending');
+            showState('loaded');
+        }
+
+        async function loadGuestStatus() {
+            if (!token) {
+                showState('invalid');
+                return;
+            }
+
+            showState('loading');
+
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_guest_public_status`, {
+                    method: 'POST',
+                    headers: rpcHeaders,
+                    body: JSON.stringify({ p_token: token })
+                });
+
+                if (!response.ok) {
+                    showState('error');
+                    return;
+                }
+
+                const data = await response.json();
+
+                if (!Array.isArray(data) || data.length === 0) {
+                    showState('invalid');
+                    return;
+                }
+
+                renderGuest(data[0]);
+            } catch (err) {
+                showState('error');
+            }
+        }
+
+        async function updateRsvp(status) {
+            if (!token) return;
+
+            els.confirmBtn.disabled = true;
+            els.declineBtn.disabled = true;
+            els.thanksMsg.classList.remove('show');
+
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/update_guest_rsvp_by_token`, {
+                    method: 'POST',
+                    headers: rpcHeaders,
+                    body: JSON.stringify({ p_token: token, p_status: status })
+                });
+
+                const success = response.ok && (await response.json()) === true;
+
+                if (success) {
+                    renderStatus(status);
+                    els.thanksMsg.textContent = status === 'confirmed'
+                        ? 'Katılımın için teşekkürler!'
+                        : 'Yanıtın için teşekkürler, seni özleyeceğiz.';
+                    els.thanksMsg.classList.add('show');
+                } else {
+                    els.thanksMsg.textContent = 'Güncellenemedi, lütfen tekrar dene.';
+                    els.thanksMsg.style.color = 'var(--red)';
+                    els.thanksMsg.classList.add('show');
+                }
+            } catch (err) {
+                els.thanksMsg.textContent = 'Bağlantı sorunu, lütfen tekrar dene.';
+                els.thanksMsg.style.color = 'var(--red)';
+                els.thanksMsg.classList.add('show');
+            } finally {
+                els.confirmBtn.disabled = false;
+                els.declineBtn.disabled = false;
+            }
+        }
+
+        els.confirmBtn.addEventListener('click', () => updateRsvp('confirmed'));
+        els.declineBtn.addEventListener('click', () => updateRsvp('declined'));
+        els.retryBtn.addEventListener('click', loadGuestStatus);
+
+        loadGuestStatus();
+    </script>
+</body>
+</html>
