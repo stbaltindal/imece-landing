@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Düğün davetinize katılım durumunuzu görüntüleyin ve güncelleyin.">
-    <title>Davet Durumu — İmece Düğün</title>
+    <meta name="description" content="Düğün davetiyesi katılım teyidi (RSVP) — İmece Düğün">
+    <title>Davetiye Katılım Teyidi — İmece Düğün</title>
 
     <!-- Google Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Material+Icons+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Material+Icons+Round&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-champagne: #FAF8F6;
-            --text-main: #1D1D1F;
-            --text-muted: #515154;
-            --text-light: #86868B;
-            --gold: #C5A059;
-            --gold-light: #F4ECE1;
-            --green: #3A8558;
-            --green-light: #EAF5EE;
-            --red: #B84C4C;
-            --red-light: #FBEDED;
-            --gray: #6E6E73;
-            --gray-light: #F0F0F1;
-            --radius-lg: 16px;
+            --bg-champagne: #FAF7F2;
+            --text-main: #1C1917;
+            --text-muted: #57534E;
+            --text-light: #8C857B;
+            --gold: #B8860B;
+            --gold-accent: #D4AF37;
+            --gold-light: #F9F3EA;
+            --gold-border: rgba(212, 175, 55, 0.35);
+            --green: #2E6F40;
+            --green-light: #EBF5EE;
+            --red: #A83838;
+            --red-light: #FDF2F2;
+            --gray: #78716C;
+            --gray-light: #F5F5F4;
+            --radius-lg: 24px;
             --font-body: 'Inter', sans-serif;
-            --font-heading: 'Playfair Display', serif;
+            --font-heading: 'Playfair Display', 'Cormorant Garamond', serif;
         }
 
         * {
@@ -36,6 +38,9 @@
 
         body {
             background-color: var(--bg-champagne);
+            background-image: 
+                radial-gradient(circle at 50% 0%, #F3E8DC 0%, transparent 65%),
+                radial-gradient(circle at 50% 100%, #F3E8DC 0%, transparent 65%);
             color: var(--text-main);
             font-family: var(--font-body);
             margin: 0;
@@ -43,21 +48,34 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 24px 16px;
         }
 
         .rsvp-card {
-            background-color: #ffffff;
+            background-color: #FFFFFF;
             border-radius: var(--radius-lg);
-            padding: 44px 32px;
+            padding: 48px 36px;
             max-width: 480px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
-            border: 1px solid #EAE6E2;
+            box-shadow: 
+                0 20px 60px rgba(28, 25, 23, 0.06),
+                0 2px 10px rgba(184, 134, 11, 0.08);
+            border: 1px solid var(--gold-border);
+            position: relative;
             transform: translateY(20px);
             opacity: 0;
-            animation: cardEntrance 0.6s ease forwards;
+            animation: cardEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Inner decorative gold border */
+        .rsvp-card::before {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border: 1px dashed var(--gold-border);
+            border-radius: calc(var(--radius-lg) - 8px);
+            pointer-events: none;
         }
 
         @keyframes cardEntrance {
@@ -67,83 +85,151 @@
             }
         }
 
-        .icon-wrapper {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 24px;
+        .emblem-wrapper {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background-color: var(--gold-light);
+            background: linear-gradient(135deg, var(--gold-light) 0%, #F3E7D5 100%);
+            border: 1px solid var(--gold-border);
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.12);
         }
 
-        .icon-wrapper span {
+        .emblem-wrapper span {
             color: var(--gold);
-            font-size: 2rem;
+            font-size: 2.2rem;
         }
 
-        h1 {
+        .invite-prefix {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--gold);
+            margin-bottom: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .guest-name {
             font-family: var(--font-heading);
-            font-size: 1.7rem;
+            font-size: 1.9rem;
             font-weight: 700;
-            margin: 0 0 8px;
+            margin: 0 0 12px;
+            color: var(--text-main);
+            line-height: 1.25;
             letter-spacing: -0.01em;
         }
 
-        .event-meta {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin: 0 0 4px;
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 12px 0 18px;
         }
 
-        .party-size {
-            display: inline-block;
-            font-size: 0.78rem;
-            font-weight: 600;
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            height: 1px;
+            width: 44px;
+            background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+        }
+
+        .divider-ornament span {
             color: var(--gold);
+            font-size: 0.85rem;
+        }
+
+        .event-card-box {
             background-color: var(--gold-light);
-            padding: 3px 10px;
-            border-radius: 50px;
-            margin-top: 8px;
+            border: 1px solid rgba(184, 134, 11, 0.22);
+            border-radius: 16px;
+            padding: 20px 20px;
+            margin: 16px 0 22px;
+            text-align: center;
         }
 
-        p.lead {
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .event-title {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0 0 8px;
+        }
+
+        .event-date-row {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.92rem;
+            font-weight: 500;
             color: var(--text-muted);
-            margin: 20px 0 28px;
         }
 
-        /* Status Badge */
-        .status-badge {
+        .event-date-row .material-icons-round {
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+
+        .party-chip {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
-            padding: 8px 16px;
+            color: var(--gold);
+            background-color: #FFFFFF;
+            border: 1px solid var(--gold-border);
+            padding: 6px 14px;
             border-radius: 50px;
-            margin: 4px 0 28px;
+            margin-top: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .invite-message {
+            font-size: 0.94rem;
+            line-height: 1.65;
+            color: var(--text-muted);
+            margin: 0 0 24px;
+        }
+
+        /* Status Badges */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
         }
 
         .status-badge .material-icons-round {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
         }
 
         .status-pending {
             background-color: var(--gray-light);
             color: var(--gray);
+            border: 1px solid #E7E5E4;
         }
 
         .status-confirmed {
             background-color: var(--green-light);
             color: var(--green);
+            border: 1px solid rgba(46, 111, 64, 0.2);
         }
 
         .status-declined {
             background-color: var(--red-light);
             color: var(--red);
+            border: 1px solid rgba(168, 56, 56, 0.2);
         }
 
         /* Buttons */
@@ -158,11 +244,15 @@
             font-size: 0.98rem;
             font-family: var(--font-body);
             font-weight: 600;
-            border-radius: 10px;
+            border-radius: 14px;
             cursor: pointer;
             transition: all 0.25s ease;
             border: 2px solid transparent;
             width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .btn:disabled {
@@ -171,32 +261,68 @@
         }
 
         .btn-confirm {
-            background-color: var(--green);
-            color: #ffffff;
-            box-shadow: 0 8px 24px rgba(58, 133, 88, 0.2);
+            background: linear-gradient(135deg, var(--green) 0%, #225431 100%);
+            color: #FFFFFF;
+            box-shadow: 0 8px 24px rgba(46, 111, 64, 0.25);
         }
 
         .btn-confirm:hover:not(:disabled) {
-            background-color: #2f6e48;
             transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(46, 111, 64, 0.35);
         }
 
         .btn-decline {
             background-color: transparent;
             color: var(--red);
-            border-color: var(--red);
+            border-color: rgba(168, 56, 56, 0.4);
         }
 
         .btn-decline:hover:not(:disabled) {
             background-color: var(--red-light);
+            border-color: var(--red);
             transform: translateY(-2px);
         }
 
-        /* Loading Spinner */
+        /* Toast Feedback */
+        .thanks-msg {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--green);
+            margin-top: 16px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.3s ease;
+        }
+
+        .thanks-msg.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-branding {
+            margin-top: 32px;
+            padding-top: 18px;
+            border-top: 1px solid #F0ECE6;
+            font-size: 0.78rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .footer-branding strong {
+            color: var(--gold);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
         .spinner {
-            width: 36px;
-            height: 36px;
-            margin: 12px auto 20px;
+            width: 40px;
+            height: 40px;
+            margin: 20px auto 20px;
             border: 3px solid var(--gold-light);
             border-top-color: var(--gold);
             border-radius: 50%;
@@ -207,41 +333,15 @@
             to { transform: rotate(360deg); }
         }
 
-        .loading-text {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .footer-note {
-            margin-top: 32px;
-            font-size: 0.8rem;
-            color: #A1A1A5;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        /* Confirmation toast after action */
-        .thanks-msg {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--green);
-            margin-top: 16px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .thanks-msg.show {
-            opacity: 1;
-        }
-
         @media (max-width: 480px) {
             .rsvp-card {
-                padding: 36px 22px;
+                padding: 38px 24px;
             }
-            h1 {
-                font-size: 1.45rem;
+            .guest-name {
+                font-size: 1.65rem;
+            }
+            .event-title {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -253,65 +353,85 @@
         <!-- Loading State -->
         <div id="stateLoading">
             <div class="spinner"></div>
-            <p class="loading-text">Davetiniz yükleniyor...</p>
+            <p style="font-size: 0.9rem; color: var(--text-light);">Davetiyeniz hazırlanıyor...</p>
         </div>
 
         <!-- Invalid / Missing Token State -->
         <div id="stateInvalid" class="hidden">
-            <div class="icon-wrapper">
-                <span class="material-icons-round">link_off</span>
+            <div class="emblem-wrapper">
+                <span class="material-icons-round">mark_email_unread</span>
             </div>
-            <h1>Bağlantı Bulunamadı</h1>
-            <p class="lead">Bu bağlantı geçersiz veya süresi dolmuş olabilir. Davet sahibinden yeni bir bağlantı isteyebilirsin.</p>
+            <div class="invite-prefix">Geçersiz Bağlantı</div>
+            <h1 class="guest-name">Davetiye Bulunamadı</h1>
+            <p class="invite-message">Bu davet bağlantısı geçerliliğini yitirmiş veya silinmiş olabilir. Lütfen davet sahibinden yeni bir bağlantı rica ediniz.</p>
         </div>
 
-        <!-- Network / Server Error State -->
+        <!-- Error State -->
         <div id="stateError" class="hidden">
-            <div class="icon-wrapper">
+            <div class="emblem-wrapper">
                 <span class="material-icons-round">wifi_off</span>
             </div>
-            <h1>Bir Şeyler Ters Gitti</h1>
-            <p class="lead">Davet bilgilerine şu an ulaşılamıyor. Lütfen daha sonra tekrar dene.</p>
-            <button class="btn btn-confirm" id="retryBtn" style="width:100%;">Tekrar Dene</button>
+            <div class="invite-prefix">Bağlantı Sorunu</div>
+            <h1 class="guest-name">Yüklenemedi</h1>
+            <p class="invite-message">Davet bilgilerine şu an ulaşılamıyor. Lütfen internet bağlantınızı kontrol edip tekrar deneyiniz.</p>
+            <button class="btn btn-confirm" id="retryBtn">Tekrar Dene</button>
         </div>
 
-        <!-- Loaded Guest State -->
+        <!-- Loaded State (Luxury Invitation View) -->
         <div id="stateLoaded" class="hidden">
-            <div class="icon-wrapper">
-                <span class="material-icons-round">favorite</span>
+            <div class="emblem-wrapper">
+                <span class="material-icons-round">auto_awesome</span>
             </div>
-            <h1 id="guestName">—</h1>
-            <p class="event-meta" id="eventTitle">—</p>
-            <p class="event-meta" id="eventDate">—</p>
-            <span class="party-size hidden" id="partySize"></span>
 
-            <div>
-                <div id="statusBadge" class="status-badge status-pending">
-                    <span class="material-icons-round">schedule</span>
-                    <span id="statusLabel">Yanıt bekleniyor</span>
+            <div class="invite-prefix">Sayın Davetlimiz</div>
+            <h1 class="guest-name" id="guestName">—</h1>
+
+            <div class="divider-ornament">
+                <span>✦</span>
+            </div>
+
+            <!-- Event Card Container -->
+            <div class="event-card-box">
+                <h2 class="event-title" id="eventTitle">—</h2>
+                <div class="event-date-row">
+                    <span class="material-icons-round">event</span>
+                    <span id="eventDate">—</span>
+                </div>
+                <div>
+                    <span class="party-chip hidden" id="partySize"></span>
                 </div>
             </div>
 
-            <p class="lead">Katılım durumunu aşağıdan güncelleyebilirsin. Fikrini değiştirirsen, dilediğin zaman tekrar seçim yapabilirsin.</p>
+            <p class="invite-message" id="inviteMessage">
+                Bu mutlu ve özel günümüzde sizleri de aramızda görmekten onur ve mutluluk duyacağız. Katılım durumunuzu aşağıdan bildirebilirsiniz.
+            </p>
+
+            <div id="statusBadge" class="status-badge status-pending">
+                <span class="material-icons-round">schedule</span>
+                <span id="statusLabel">Yanıt bekleniyor</span>
+            </div>
 
             <div class="btn-group">
-                <button class="btn btn-confirm" id="confirmBtn">Katılıyorum</button>
-                <button class="btn btn-decline" id="declineBtn">Katılmıyorum</button>
+                <button class="btn btn-confirm" id="confirmBtn">
+                    <span class="material-icons-round">check_circle</span>
+                    Katılıyorum
+                </button>
+                <button class="btn btn-decline" id="declineBtn">
+                    <span class="material-icons-round">highlight_off</span>
+                    Katılamıyorum
+                </button>
             </div>
 
             <p class="thanks-msg" id="thanksMsg"></p>
         </div>
 
-        <div class="footer-note">
-            © 2026 İmece Düğün. Tüm hakları saklıdır.
+        <div class="footer-branding">
+            <span>Dijital Davet Yönetimi</span>
+            <strong>• İmece Düğün</strong>
         </div>
     </div>
 
     <script>
-        // Bu sayfa yalnizca URL'deki token'a ait davetlinin KENDİ bilgisini gösterir.
-        // get_guest_public_status RPC'si tasarım geregi sadece tek bir davetliye ait
-        // dar bir alan seti döner (ad, etkinlik, kişi sayısı, rsvp durumu).
-        // Baska davetli/host bilgisi asla dönmez ve BURADA da eklenmemelidir.
         const SUPABASE_URL = 'https://zlpvypxlbkgfkohxenqa.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_ZtXozK5lQQMPauf_2Rr9Tg_0spREdFg';
 
@@ -360,9 +480,9 @@
         }
 
         const STATUS_CONFIG = {
-            pending: { label: 'Yanıt bekleniyor', className: 'status-pending', icon: 'schedule' },
-            confirmed: { label: 'Katılıyor', className: 'status-confirmed', icon: 'check_circle' },
-            declined: { label: 'Katılmıyor', className: 'status-declined', icon: 'cancel' }
+            pending: { label: 'Yanıtınız Bekleniyor', className: 'status-pending', icon: 'hourglass_empty' },
+            confirmed: { label: 'Katılacağınızı Bildirdiniz ✨', className: 'status-confirmed', icon: 'check_circle' },
+            declined: { label: 'Katılamayacağınızı Bildirdiniz', className: 'status-declined', icon: 'cancel' }
         };
 
         function renderStatus(status) {
@@ -373,15 +493,22 @@
         }
 
         function renderGuest(guest) {
-            els.guestName.textContent = guest.guest_name || 'Değerli Davetli';
-            els.eventTitle.textContent = guest.event_title || '';
-            els.eventDate.textContent = formatEventDate(guest.event_date);
+            els.guestName.textContent = guest.guest_name || 'Değerli Davetlimiz';
+            
+            // Event title
+            const eventTitleText = guest.event_title || 'Düğün Organizasyonu';
+            els.eventTitle.textContent = eventTitleText;
 
+            // Event Date
+            els.eventDate.textContent = formatEventDate(guest.event_date) || 'Tarih Belirtilmedi';
+
+            // Party size
             if (guest.party_size && guest.party_size > 1) {
-                els.partySize.textContent = `+${guest.party_size - 1} kişi`;
+                els.partySize.innerHTML = `<span class="material-icons-round" style="font-size: 15px;">group</span> Sizinle birlikte <strong>${guest.party_size} Kişilik Davetiye</strong>`;
                 els.partySize.classList.remove('hidden');
             } else {
-                els.partySize.classList.add('hidden');
+                els.partySize.innerHTML = `<span class="material-icons-round" style="font-size: 15px;">person</span> <strong>1 Kişilik Davetiye</strong>`;
+                els.partySize.classList.remove('hidden');
             }
 
             renderStatus(guest.rsvp_status || 'pending');
@@ -442,8 +569,9 @@
                 if (success) {
                     renderStatus(status);
                     els.thanksMsg.textContent = status === 'confirmed'
-                        ? 'Katılımın için teşekkürler!'
-                        : 'Yanıtın için teşekkürler, seni özleyeceğiz.';
+                        ? '✨ Katılım yanıtınız iletildi. Sizi aramızda görmek için sabırsızlanıyoruz!'
+                        : '🌸 Yanıtınız iletildi. Aramızda olamayacağınız için üzgünüz.';
+                    els.thanksMsg.style.color = status === 'confirmed' ? 'var(--green)' : 'var(--text-muted)';
                     els.thanksMsg.classList.add('show');
                 } else {
                     console.error('RSVP update failed:', response.status);
