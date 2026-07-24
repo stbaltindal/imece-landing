@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=11.0">
+    <link rel="stylesheet" href="style.css?v=12.0">
 </head>
 <body>
 
@@ -3607,10 +3607,23 @@
 
         function handleShowcaseScroll() {
             const section = document.getElementById('master-showcase');
+            const btnWrap = document.getElementById('pipelineWrap');
             if (!section) return;
 
             const rect = section.getBoundingClientRect();
             const sectionHeight = section.offsetHeight - window.innerHeight;
+
+            // Toggle floating pipeline button visibility when showcase section is on screen
+            if (btnWrap) {
+                if (rect.top <= window.innerHeight && rect.bottom >= 100) {
+                    btnWrap.style.opacity = '1';
+                    btnWrap.style.pointerEvents = 'auto';
+                } else {
+                    btnWrap.style.opacity = '0';
+                    btnWrap.style.pointerEvents = 'none';
+                }
+            }
+
             if (sectionHeight <= 0) return;
 
             // Calculate percentage scrolled within the section (0 to 1)

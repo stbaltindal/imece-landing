@@ -5423,13 +5423,15 @@ body.dark-active .app-header-mini {
     padding-bottom: 20px;
 }
 
-/* Floating Premium Pipeline Indicator */
+/* Floating Premium Pipeline Indicator (Fixed Viewport Position) */
 .showcase-pipeline-btn-wrap {
-    position: absolute;
-    bottom: 24px;
-    right: 24px;
-    z-index: 50;
-    transition: all 0.3s ease;
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .showcase-pipeline-btn {
