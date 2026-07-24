@@ -1529,12 +1529,24 @@ label,
     margin-bottom: 0;
 }
 
-/* Kriz & Cozum Grid */
+/* Kriz & Cozum Grid (8 Kart İçin 4-2-1 Kolon Düzeni) */
 .kriz-cozum-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
     margin-top: var(--space-3xl);
+}
+
+@media (max-width: 1200px) {
+    .kriz-cozum-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .kriz-cozum-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* 3D Flip Card Structure & Animation */
