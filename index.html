@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=8.0">
+    <link rel="stylesheet" href="style.css?v=8.5">
 </head>
 <body>
 
@@ -649,7 +649,7 @@
         </div> <!-- Closes .story-container -->
     </section>
 
-        <!-- Master Showcase: 4 Adımda Canlı İmece Deneyimi (Tabs & Auto-Play Stepper) -->
+        <!-- Master Showcase: 4 Adımda Canlı İmece Deneyimi (Tabs & Internal Panel Switcher) -->
         <section id="master-showcase" class="master-showcase-section">
             <div class="container">
                 <div class="section-header">
@@ -675,18 +675,21 @@
                     <button class="showcase-tab" id="tabBtn3" onclick="switchShowcaseTab(3)">
                         <div class="showcase-tab-progress" id="tabProgress3"></div>
                         <span class="tab-num">03</span>
-                        <span class="material-icons-round tab-icon">access_time</span>
-                        <span class="tab-label">Zaman Akışı</span>
+                        <span class="material-icons-round tab-icon">verified_user</span>
+                        <span class="tab-label">4 Özel Asistan</span>
                     </button>
                     <button class="showcase-tab" id="tabBtn4" onclick="switchShowcaseTab(4)">
                         <div class="showcase-tab-progress" id="tabProgress4"></div>
                         <span class="tab-num">04</span>
-                        <span class="material-icons-round tab-icon">verified_user</span>
-                        <span class="tab-label">4 Özel Asistan</span>
+                        <span class="material-icons-round tab-icon">sell</span>
+                        <span class="tab-label">Lüks Paketler</span>
                     </button>
                 </div>
-            </div>
-        </section>
+
+                <!-- Showcase Internal Panels Wrapper -->
+                <div class="showcase-panels-wrapper">
+                    <!-- Panel 1: 8 Flip Cards -->
+                    <div class="showcase-panel active" id="showcasePanel1">
         <section id="neden-imece" class="kriz-cozum-section">
             <div class="container">
                 <div class="section-header">
@@ -1393,8 +1396,104 @@
                 </div>
             </div>
         </section>
+    </div>
 
-        <!-- Modül: Düğün Günü Stresini Sıfırlayan 4 Özel Asistan -->
+    <!-- Panel 2: Canlı Davetiye Simülatörü -->
+    <div class="showcase-panel" id="showcasePanel2">
+        <!-- Modül 1: Canlı İnteraktif RSVP Simülatörü -->
+        <section id="interactive-rsvp-showcase" class="rsvp-showcase-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag gold">İnteraktif Deneyim</span>
+                    <h2>Davetlileriniz İçin Lüks Dijital Davetiye</h2>
+                    <p class="section-subtitle">Davetlileriniz hiçbir uygulama indirmeden kendilerine özel bağlantı ile davetiyelerini açar, katılım durumlarını tek tıkla bildirir.</p>
+                </div>
+
+                <div class="rsvp-sim-wrapper">
+                    <!-- Control Box (Sol/Üst) -->
+                    <div class="rsvp-sim-controls">
+                        <h3><span class="material-icons-round" style="color: var(--gold); vertical-align: middle; margin-right: 6px;">edit_note</span> Davetiyeyi Canlı Özelleştir</h3>
+                        <p class="sim-desc">Aşağıya davetli veya çift adını girerek davetiyenizin canlı önizlemesini test edin:</p>
+                        
+                        <div class="sim-input-group">
+                            <label for="simGuestInput">Davetli / Çift Adı</label>
+                            <input type="text" id="simGuestInput" value="Sayın Mehmet Güneşli" placeholder="Örn: Ayşe & Tolga" oninput="updateSimGuestName(this.value)">
+                        </div>
+
+                        <div class="sim-info-cards">
+                            <div class="sim-info-item">
+                                <span class="material-icons-round">done_all</span>
+                                <div>
+                                    <strong>Anlık Bildirim</strong>
+                                    <p>Davetliniz yanıt verdiğinde cebinize anında bildirim düşer.</p>
+                                </div>
+                            </div>
+                            <div class="sim-info-item">
+                                <span class="material-icons-round">shield</span>
+                                <div>
+                                    <strong>KVKK & Gizlilik Zırhı</strong>
+                                    <p>Sadece özel jeton (token) sahibi davetli kendi kartını görebilir.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sim-cta-wrap" style="margin-top: 20px;">
+                            <a href="#indirin" class="btn btn-primary btn-glow" style="width: 100%; text-align: center; justify-content: center;">
+                                <span class="material-icons-round">mark_email_read</span> Davetiyenizi Oluşturun
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- iPhone Simulator Frame (Sağ/Alt) -->
+                    <div class="rsvp-sim-frame-wrap">
+                        <div class="sim-phone-notch"></div>
+                        <div class="sim-screen-content">
+                            <!-- Header Bar -->
+                            <div class="sim-screen-header">
+                                <span class="sim-header-tag">İmece Lüks Dijital Davetiye</span>
+                            </div>
+
+                            <!-- Live Card Frame -->
+                            <div class="sim-invitation-card">
+                                <div class="sim-card-ornament">✦ 💍 ✦</div>
+                                <h4 class="sim-card-couples">Zeynep & Emre</h4>
+                                <p class="sim-card-intro">Düğün Törenimize Davetlisiniz</p>
+                                
+                                <div class="sim-guest-name-box">
+                                    <span class="sim-guest-label">Sayın Konuğumuz:</span>
+                                    <h5 class="sim-guest-name" id="simDynamicGuestName">Sayın Mehmet Güneşli</h5>
+                                </div>
+
+                                <div class="sim-event-details">
+                                    <p>📅 <strong>15 Eylül 2026 - 19:30</strong></p>
+                                    <p>📍 <strong>Çırağan Sarayı Düğün Salonu</strong></p>
+                                </div>
+
+                                <!-- Interactive Action Buttons inside simulator -->
+                                <div class="sim-actions-group">
+                                    <button class="sim-btn accept" onclick="triggerSimResponse('Katılıyorum 🎉')">
+                                        <span class="material-icons-round">check_circle</span> Katılıyorum
+                                    </button>
+                                    <button class="sim-btn decline" onclick="triggerSimResponse('Katılamıyorum 💔')">
+                                        <span class="material-icons-round">cancel</span> Katılamıyorum
+                                    </button>
+                                </div>
+
+                                <!-- Toast Response Feedback -->
+                                <div class="sim-toast-feedback" id="simToastFeedback">
+                                    <span class="material-icons-round">info</span>
+                                    <span id="simToastText">Yanıtınız ev sahibine iletildi!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Panel 3: 4 Özel Asistan & Akış -->
+    <div class="showcase-panel" id="showcasePanel3">
         <section id="ozel-asistanlar" class="asistan-section">
             <div class="container">
                 <div class="section-header">
@@ -1812,7 +1911,10 @@
                 </div>
             </div>
         </section>
+    </div>
 
+    <!-- Panel 4: Lüks Paketler & Fiyatlandırma -->
+    <div class="showcase-panel" id="showcasePanel4">
         <!-- İnteraktif Paket Seçici (Akıllı Hesaplayıcı) -->
         <section id="hesaplayici" class="interactive-calculator">
             <div class="container">
@@ -2001,6 +2103,10 @@
                 </div>
             </div>
         </section>
+    </div> <!-- Closes #showcasePanel4 -->
+</div> <!-- Closes .showcase-panels-wrapper -->
+</div> <!-- Closes #master-showcase .container -->
+</section> <!-- Closes #master-showcase -->
 
         <!-- Sıkça Sorulan Sorular (SSS - Interactive Accordion) -->
         <section id="sss" class="faq-section">
@@ -3488,7 +3594,7 @@
             }
         }
 
-        // 4. Master Showcase 4-Step Stepper JS Logic
+        // 4. Master Showcase 4-Step Stepper JS Logic (No Page Scroll Jumps)
         let showcaseCurrentTab = 1;
         let showcaseTimer = null;
         let showcaseIsPaused = false;
@@ -3498,23 +3604,23 @@
             for (let i = 1; i <= 4; i++) {
                 const btn = document.getElementById('tabBtn' + i);
                 const prog = document.getElementById('tabProgress' + i);
+                const panel = document.getElementById('showcasePanel' + i);
                 if (btn) btn.classList.remove('active');
                 if (prog) prog.style.width = '0%';
+                if (panel) {
+                    panel.classList.remove('active');
+                    panel.style.display = 'none';
+                }
             }
             const activeBtn = document.getElementById('tabBtn' + step);
+            const activeProg = document.getElementById('tabProgress' + step);
+            const activePanel = document.getElementById('showcasePanel' + step);
+
             if (activeBtn) activeBtn.classList.add('active');
-
-            // Smoothly scroll target section into focus
-            let targetSection = null;
-            if (step === 1) targetSection = document.getElementById('neden-imece');
-            if (step === 2) targetSection = document.getElementById('interactive-rsvp-showcase');
-            if (step === 3) targetSection = document.getElementById('ozel-asistanlar');
-            if (step === 4) targetSection = document.getElementById('paketler');
-
-            if (targetSection) {
-                const yOffset = -80; 
-                const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({top: y, behavior: 'smooth'});
+            if (activeProg) activeProg.style.width = '100%';
+            if (activePanel) {
+                activePanel.style.display = 'block';
+                setTimeout(() => activePanel.classList.add('active'), 20);
             }
             resetShowcaseTimer();
         }
@@ -3530,14 +3636,14 @@
 
         function resetShowcaseTimer() {
             if (showcaseTimer) clearInterval(showcaseTimer);
-            showcaseTimer = setInterval(autoPlayShowcaseTabs, 7000);
+            showcaseTimer = setInterval(autoPlayShowcaseTabs, 6000);
         }
 
         function pauseShowcaseTabs() { showcaseIsPaused = true; }
         function resumeShowcaseTabs() { showcaseIsPaused = false; }
 
         document.addEventListener('DOMContentLoaded', () => {
-            resetShowcaseTimer();
+            switchShowcaseTab(1);
         });
     </script>
 </body>
