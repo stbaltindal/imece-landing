@@ -369,7 +369,7 @@
         }
 
         /* Shared Wedding-Day Timeline */
-        /* Shared Wedding-Day Timeline (Centered Luxury UI) */
+        /* Shared Wedding-Day Timeline (Luxury Centered Dot Timeline UI) */
         .timeline-section {
             margin: 20px 0 28px;
             text-align: center;
@@ -381,13 +381,13 @@
             font-weight: 700;
             color: var(--text-main);
             text-align: center;
-            margin: 0 0 20px;
+            margin: 0 0 22px;
             letter-spacing: 0.02em;
         }
 
         .timeline {
             position: relative;
-            max-width: 320px;
+            max-width: 280px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -398,12 +398,12 @@
         .timeline::before {
             content: '';
             position: absolute;
-            top: 15px;
-            bottom: 20px;
+            top: 12px;
+            bottom: 22px;
             left: 50%;
             transform: translateX(-50%);
-            width: 2px;
-            border-left: 2px dashed rgba(201, 162, 39, 0.4);
+            width: 1px;
+            background: linear-gradient(180deg, var(--gold-border) 0%, rgba(201, 162, 39, 0.2) 100%);
             z-index: 1;
         }
 
@@ -427,40 +427,38 @@
             display: none !important;
         }
 
+        .timeline-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 0 3px var(--gold-light);
+            margin: 4px 0;
+            z-index: 3;
+        }
+
         .timeline-time {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            color: #8A6D1B;
-            background: #FAF6EF;
-            border: 1.5px solid rgba(201, 162, 39, 0.5);
-            padding: 4px 16px;
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            box-shadow: 0 3px 10px rgba(197, 160, 89, 0.15);
-            margin-bottom: 6px;
+            color: var(--gold);
+            letter-spacing: 0.03em;
+            margin-bottom: 1px;
         }
 
         .timeline-item-title {
-            font-size: 0.95rem;
+            font-size: 0.94rem;
             font-weight: 600;
             color: var(--text-main);
-            background: #FFFFFF;
-            padding: 4px 14px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(231, 215, 193, 0.6);
-            display: inline-block;
+            margin-top: 1px;
         }
 
         .timeline-location {
             font-size: 0.78rem;
             color: var(--text-muted);
-            margin-top: 4px;
+            margin-top: 3px;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 4px;
         }
 
@@ -759,6 +757,10 @@
                     <span class="material-icons-round">event</span>
                     <span id="eventDate">—</span>
                 </div>
+                <div class="event-date-row hidden" id="ceremonyRow">
+                    <span class="material-icons-round">event</span>
+                    <span id="ceremonyTime"></span>
+                </div>
                 <div class="event-date-row hidden" id="venueRow">
                     <span class="material-icons-round">place</span>
                     <a id="venueLink" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: underline;"></a>
@@ -980,6 +982,10 @@
                     timeEl.textContent = time;
                     item.appendChild(timeEl);
                 }
+
+                const dotEl = document.createElement('div');
+                dotEl.className = 'timeline-dot';
+                item.appendChild(dotEl);
 
                 const titleEl = document.createElement('div');
                 titleEl.className = 'timeline-item-title';
