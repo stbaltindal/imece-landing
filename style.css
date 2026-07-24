@@ -5337,34 +5337,55 @@ body.dark-active .app-header-mini {
     gap: 6px;
 }
 
+.map-location-title {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.map-buttons-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
 .map-btn {
     font-size: 0.68rem;
     background: rgba(201, 162, 39, 0.15);
     color: var(--gold-light);
-    padding: 4px 8px;
+    padding: 4px 10px;
     border-radius: 6px;
     font-weight: 600;
 }
 
 .mini-timeline-nodes {
     display: flex;
-    gap: 6px;
-    justify-content: space-between;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
 }
 
 .time-pill {
-    font-size: 0.68rem;
-    background: rgba(255, 255, 255, 0.06);
+    font-size: 0.72rem;
+    background: rgba(255, 255, 255, 0.08);
     color: var(--text-secondary);
-    padding: 4px 8px;
-    border-radius: 12px;
+    padding: 5px 12px;
+    border-radius: 14px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .time-pill.gold {
-    background: rgba(201, 162, 39, 0.2);
-    color: var(--gold);
-    border: 1px solid rgba(201, 162, 39, 0.3);
+    background: rgba(201, 162, 39, 0.22);
+    color: var(--gold-light);
+    border: 1px solid rgba(201, 162, 39, 0.4);
     font-weight: 700;
+    box-shadow: 0 0 10px rgba(201, 162, 39, 0.2);
 }
 
 /* Proposal & Approval Mockup */
