@@ -331,11 +331,11 @@ label,
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(250, 248, 246, 0.85);
+    background: rgba(14, 12, 12, 0.9);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid var(--border-color);
-    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(201, 162, 39, 0.25);
+    padding: 14px 0;
     transition: var(--transition-smooth);
 }
 
@@ -348,33 +348,35 @@ label,
 .logo {
     display: flex;
     align-items: center;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    color: var(--text-main);
+    color: #ffffff;
     font-family: var(--font-heading);
+    letter-spacing: 0.5px;
 }
 
 .gold-icon {
     color: var(--gold);
     margin-right: var(--space-xs);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 
 .nav-links {
     display: flex;
-    gap: var(--space-xl);
+    gap: 28px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-weight: 600;
-    font-size: 0.95rem;
-    transition: var(--transition-smooth);
+    font-size: 0.92rem;
+    transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--gold);
+    color: var(--gold-light);
+    text-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
 }
 
 .nav-cta {
