@@ -1549,7 +1549,7 @@ label,
 .flip-card {
     background-color: transparent;
     width: 100%;
-    height: 470px;
+    height: 480px;
     perspective: 1500px;
     cursor: pointer;
     outline: none;
@@ -1611,7 +1611,7 @@ label,
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: var(--radius-lg);
-    padding: var(--space-2xl);
+    padding: 22px 22px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -1622,6 +1622,7 @@ label,
     border: 1px solid rgba(201, 162, 39, 0.22);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
     transition: var(--transition-smooth);
+    overflow: hidden;
 }
 
 .flip-card-front {
@@ -4894,48 +4895,41 @@ body.dark-active .app-header-mini {
     100% { transform: rotate(360deg); }
 }
 
-/* Trigger Badge on Card Front */
+/* Trigger Badge on Card Front (Sade & Zarif) */
 .flip-trigger-badge {
     margin-top: auto;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    background: linear-gradient(135deg, rgba(201, 162, 39, 0.2) 0%, rgba(184, 134, 11, 0.3) 100%);
-    border: 1px solid var(--gold-border);
-    border-radius: 12px;
-    padding: 10px 16px;
-    color: #ffffff;
-    font-size: 0.82rem;
-    font-weight: 700;
+    align-self: center;
+    gap: 6px;
+    background: rgba(201, 162, 39, 0.1);
+    border: 1px dashed rgba(201, 162, 39, 0.35);
+    border-radius: 20px;
+    padding: 6px 14px;
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
 .flip-card:hover .flip-trigger-badge {
     background: var(--gold);
     color: #000000;
-    box-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
+    border-style: solid;
+    border-color: var(--gold);
+    box-shadow: 0 0 15px rgba(201, 162, 39, 0.4);
     transform: translateY(-2px);
 }
 
-.icon-touch {
-    font-size: 1.1rem;
-    color: var(--gold);
-}
-
-.flip-card:hover .icon-touch {
-    color: #000000;
-}
-
 .icon-arrow {
-    font-size: 1rem;
-    transition: transform 0.3s ease;
+    font-size: 0.95rem;
+    transition: transform 0.4s ease;
 }
 
 .flip-card:hover .icon-arrow {
-    transform: translateX(4px);
+    transform: rotate(180deg);
 }
 
 /* Back Footer Layout */
