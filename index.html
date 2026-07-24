@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=10.0">
+    <link rel="stylesheet" href="style.css?v=11.0">
 </head>
 <body>
 
@@ -3648,11 +3648,14 @@
             }
             const activeBtn = document.getElementById('tabBtn' + step);
             const activePanel = document.getElementById('showcasePanel' + step);
+            const wrapper = document.querySelector('.showcase-panels-wrapper');
+
             if (activeBtn) activeBtn.classList.add('active');
             if (activePanel) {
                 activePanel.style.display = 'block';
                 setTimeout(() => activePanel.classList.add('active'), 20);
             }
+            if (wrapper) wrapper.scrollTop = 0;
             updatePipelineButton(step);
         }
 
