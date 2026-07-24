@@ -5318,5 +5318,105 @@ body.dark-active .app-header-mini {
     border: 1px dashed rgba(201, 162, 39, 0.3);
 }
 
+/* ============================================================
+   MASTER SHOWCASE STEPPER TABS (4 ADIMDA CANLI İMECE DENEYİMİ)
+   ============================================================ */
+
+.master-showcase-section {
+    padding: 40px 0 20px 0;
+    background: radial-gradient(circle at 50% 100%, rgba(201, 162, 39, 0.08) 0%, transparent 60%);
+    position: relative;
+    z-index: 10;
+}
+
+.showcase-tabs-nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+}
+
+@media (max-width: 992px) {
+    .showcase-tabs-nav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .showcase-tabs-nav {
+        grid-template-columns: 1fr;
+    }
+}
+
+.showcase-tab {
+    position: relative;
+    background: rgba(22, 18, 18, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(201, 162, 39, 0.2);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    text-align: left;
+}
+
+.showcase-tab:hover {
+    border-color: rgba(201, 162, 39, 0.5);
+    background: rgba(30, 24, 24, 0.85);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201, 162, 39, 0.15);
+}
+
+.showcase-tab.active {
+    background: rgba(35, 28, 28, 0.95);
+    border-color: var(--gold);
+    box-shadow: 0 10px 30px rgba(201, 162, 39, 0.25);
+}
+
+.showcase-tab-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--gold) 0%, #F3E7D5 100%);
+    transition: width 0.3s ease;
+}
+
+.showcase-tab.active .showcase-tab-progress {
+    width: 100%;
+}
+
+.tab-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+    opacity: 0.8;
+}
+
+.tab-icon {
+    font-size: 1.4rem;
+    color: var(--gold-light);
+}
+
+.showcase-tab.active .tab-icon {
+    color: var(--gold);
+}
+
+.tab-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+}
+
+
 
 

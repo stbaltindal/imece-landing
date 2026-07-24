@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=7.0">
+    <link rel="stylesheet" href="style.css?v=8.0">
 </head>
 <body>
 
@@ -649,7 +649,44 @@
         </div> <!-- Closes .story-container -->
     </section>
 
-        <!-- Section 3: Neden İmece (4 Kritik Zorluk & Çözüm - 3D Flip Cards) -->
+        <!-- Master Showcase: 4 Adımda Canlı İmece Deneyimi (Tabs & Auto-Play Stepper) -->
+        <section id="master-showcase" class="master-showcase-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag gold">4 Adımda Canlı İmece Deneyimi</span>
+                    <h2>Uygulamanın Gücünü Sayfayı Kaydırmadan Keşfedin</h2>
+                    <p class="section-subtitle">Sekmeler arasında gezinin veya otomatiğe bırakın; 4 büyük çözümümüzü canlı test edin.</p>
+                </div>
+
+                <!-- Stepper Tab Navigation Bar -->
+                <div class="showcase-tabs-nav" id="showcaseNav" onmouseenter="pauseShowcaseTabs()" onmouseleave="resumeShowcaseTabs()">
+                    <button class="showcase-tab active" id="tabBtn1" onclick="switchShowcaseTab(1)">
+                        <div class="showcase-tab-progress" id="tabProgress1"></div>
+                        <span class="tab-num">01</span>
+                        <span class="material-icons-round tab-icon">view_carousel</span>
+                        <span class="tab-label">8 Kriz & Çözüm</span>
+                    </button>
+                    <button class="showcase-tab" id="tabBtn2" onclick="switchShowcaseTab(2)">
+                        <div class="showcase-tab-progress" id="tabProgress2"></div>
+                        <span class="tab-num">02</span>
+                        <span class="material-icons-round tab-icon">edit_note</span>
+                        <span class="tab-label">Canlı Davetiye</span>
+                    </button>
+                    <button class="showcase-tab" id="tabBtn3" onclick="switchShowcaseTab(3)">
+                        <div class="showcase-tab-progress" id="tabProgress3"></div>
+                        <span class="tab-num">03</span>
+                        <span class="material-icons-round tab-icon">access_time</span>
+                        <span class="tab-label">Zaman Akışı</span>
+                    </button>
+                    <button class="showcase-tab" id="tabBtn4" onclick="switchShowcaseTab(4)">
+                        <div class="showcase-tab-progress" id="tabProgress4"></div>
+                        <span class="tab-num">04</span>
+                        <span class="material-icons-round tab-icon">verified_user</span>
+                        <span class="tab-label">4 Özel Asistan</span>
+                    </button>
+                </div>
+            </div>
+        </section>
         <section id="neden-imece" class="kriz-cozum-section">
             <div class="container">
                 <div class="section-header">
@@ -3448,9 +3485,60 @@
                 title.textContent = '🥳 Bride-to-Be Beach & Spa Partisi';
                 desc.textContent = 'Mekan rezervasyonu yapıldı. Toplam Bütçe: 12.500 ₺. Nedimeler arasında 3 eşit taksitle bölündü. Sürpriz hediye seti hazırlandı!';
                 chips.innerHTML = '<span class="chip active">Mekan: Bodrum Beach Resort</span><span class="chip active">Bütçe: 12.500 ₺</span><span class="chip active">3 Nedime Atandı</span>';
-                box.classList.remove('bride-blurred');
             }
         }
+
+        // 4. Master Showcase 4-Step Stepper JS Logic
+        let showcaseCurrentTab = 1;
+        let showcaseTimer = null;
+        let showcaseIsPaused = false;
+
+        function switchShowcaseTab(step) {
+            showcaseCurrentTab = step;
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById('tabBtn' + i);
+                const prog = document.getElementById('tabProgress' + i);
+                if (btn) btn.classList.remove('active');
+                if (prog) prog.style.width = '0%';
+            }
+            const activeBtn = document.getElementById('tabBtn' + step);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            // Smoothly scroll target section into focus
+            let targetSection = null;
+            if (step === 1) targetSection = document.getElementById('neden-imece');
+            if (step === 2) targetSection = document.getElementById('interactive-rsvp-showcase');
+            if (step === 3) targetSection = document.getElementById('ozel-asistanlar');
+            if (step === 4) targetSection = document.getElementById('paketler');
+
+            if (targetSection) {
+                const yOffset = -80; 
+                const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({top: y, behavior: 'smooth'});
+            }
+            resetShowcaseTimer();
+        }
+
+        function autoPlayShowcaseTabs() {
+            if (showcaseIsPaused) return;
+            const currentProg = document.getElementById('tabProgress' + showcaseCurrentTab);
+            if (currentProg) currentProg.style.width = '100%';
+
+            showcaseCurrentTab = showcaseCurrentTab >= 4 ? 1 : showcaseCurrentTab + 1;
+            switchShowcaseTab(showcaseCurrentTab);
+        }
+
+        function resetShowcaseTimer() {
+            if (showcaseTimer) clearInterval(showcaseTimer);
+            showcaseTimer = setInterval(autoPlayShowcaseTabs, 7000);
+        }
+
+        function pauseShowcaseTabs() { showcaseIsPaused = true; }
+        function resumeShowcaseTabs() { showcaseIsPaused = false; }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            resetShowcaseTimer();
+        });
     </script>
 </body>
 </html>
