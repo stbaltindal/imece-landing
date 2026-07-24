@@ -5568,22 +5568,9 @@ body.dark-active .app-header-mini {
 .showcase-panels-wrapper {
     margin-top: 24px;
     position: relative;
-    max-height: calc(100vh - 210px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(201, 162, 39, 0.4) transparent;
-    padding-bottom: 30px;
-    -webkit-overflow-scrolling: touch;
-}
-
-.showcase-panels-wrapper::-webkit-scrollbar {
-    width: 6px;
-}
-
-.showcase-panels-wrapper::-webkit-scrollbar-thumb {
-    background: rgba(201, 162, 39, 0.4);
-    border-radius: 4px;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-bottom: 20px;
 }
 
 .showcase-panel {

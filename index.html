@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=14.0">
+    <link rel="stylesheet" href="style.css?v=15.0">
 </head>
 <body>
 
@@ -30,10 +30,9 @@
                 <span class="logo-text">İmece Düğün</span>
             </div>
             <nav class="nav-links">
-                <a href="#master-showcase" onclick="switchShowcaseTab(1)">8 Kriz & Çözüm</a>
-                <a href="#master-showcase" onclick="switchShowcaseTab(2)">Canlı Davetiye</a>
-                <a href="#master-showcase" onclick="switchShowcaseTab(3)">4 Özel Asistan</a>
-                <a href="#master-showcase" onclick="switchShowcaseTab(4)">Lüks Paketler</a>
+                <a href="#master-showcase">Canlı Deneyim</a>
+                <a href="#ozellikler">Özellikler & Detaylar</a>
+                <a href="#hesaplayici">Paket Seçici</a>
                 <a href="#sss">S.S.S.</a>
             </nav>
             <div class="nav-cta">
@@ -3627,9 +3626,9 @@
             if (!cards.length) return;
 
             const observerOptions = {
-                root: document.querySelector('.showcase-panels-wrapper'),
-                rootMargin: '-10% 0px -10% 0px',
-                threshold: 0.35
+                root: null, // Natural main window scroll canvas
+                rootMargin: '-15% 0px -15% 0px',
+                threshold: 0.3
             };
 
             const cardObserver = new IntersectionObserver((entries) => {
