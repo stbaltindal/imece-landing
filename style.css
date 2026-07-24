@@ -4865,3 +4865,110 @@ body.dark-active .app-header-mini {
         padding-bottom: 20px;
     }
 }
+
+/* ============================================================
+   FLIP CARD CLICKABILITY HINTS & TRIGGER BADGES
+   ============================================================ */
+
+.section-flip-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(184, 134, 11, 0.12);
+    border: 1px solid var(--gold-border);
+    padding: 8px 18px;
+    border-radius: 20px;
+    margin-top: 14px;
+    color: var(--gold-light);
+    font-size: 0.88rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gold-spin {
+    color: var(--gold);
+    animation: goldSpin 6s linear infinite;
+}
+
+@keyframes goldSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Trigger Badge on Card Front */
+.flip-trigger-badge {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.2) 0%, rgba(184, 134, 11, 0.3) 100%);
+    border: 1px solid var(--gold-border);
+    border-radius: 12px;
+    padding: 10px 16px;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.flip-card:hover .flip-trigger-badge {
+    background: var(--gold);
+    color: #000000;
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
+    transform: translateY(-2px);
+}
+
+.icon-touch {
+    font-size: 1.1rem;
+    color: var(--gold);
+}
+
+.flip-card:hover .icon-touch {
+    color: #000000;
+}
+
+.icon-arrow {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.flip-card:hover .icon-arrow {
+    transform: translateX(4px);
+}
+
+/* Back Footer Layout */
+.flip-back-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.flip-back-footer .card-cta-btn {
+    flex: 1;
+    margin-top: 0;
+}
+
+.flip-back-close {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.flip-back-close:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+}
+

@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=4.8">
+    <link rel="stylesheet" href="style.css?v=4.9">
 </head>
 <body>
 
@@ -649,12 +649,19 @@
         </div> <!-- Closes .story-container -->
     </section>
 
-        <!-- Neden İmece Section -->
-        <section id="neden-imece" class="why-imece">
+        <!-- Section 3: Neden İmece (4 Kritik Zorluk & Çözüm - 3D Flip Cards) -->
+        <section id="neden-imece" class="kriz-cozum-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Düğün Hazırlığının 4 Büyük Zorluğu ve İmece Çözümleri</h2>
-                    <p class="section-subtitle">Hazırlık sürecinde en sık karşılaşılan sorunları sade ve pratik çözümlerimizle geride bırakın.</p>
+                    <span class="section-tag gold">4 Kritik Zorluk & Çözüm</span>
+                    <h2>Düğün Hazırlığının Kaosuna Son Verin</h2>
+                    <p class="section-subtitle">Gelin ve damatların en çok zorlandığı 4 ana kriz ve İmece'nin sunduğu akıllı çözümler.</p>
+                    
+                    <!-- Flip Hint Banner -->
+                    <div class="section-flip-hint">
+                        <span class="material-icons-round gold-spin">flip_camera_android</span>
+                        <span>Çözümleri ve Mobil Ekranları Görmek İçin <strong>Kartların Üzerine Tıklayın</strong></span>
+                    </div>
                 </div>
                 
                 <div class="kriz-cozum-grid">
@@ -674,27 +681,32 @@
                                                     <path d="M16 10h.01"></path>
                                                 </svg>
                                             </div>
-                                            <span class="zorluk-tag">Zorluk</span>
+                                            <span class="zorluk-tag">Zorluk 1</span>
                                         </div>
-                                        <h3 class="card-title">WhatsApp gruplarında kaybolan detaylar</h3>
+                                        <h3 class="card-title">WhatsApp gruplarında kaybolan teklifler & detaylar</h3>
                                         
                                         <!-- Görsel: WhatsApp Diyaloğu -->
                                         <div class="mini-whatsapp-chat">
                                             <div class="chat-bubble left">
                                                 <span class="chat-name">Gelin 👰‍♀️</span>
-                                                Davetiye listesini bitirdin mi?
+                                                Mekan teklif belgesi kimdeydi?
                                             </div>
                                             <div class="chat-bubble right">
                                                 <span class="chat-name">Damat 🤵‍♂️</span>
-                                                Hangi liste? Ben Excel'deyim.
+                                                WhatsApp medyasında kaldı sanırım...
                                             </div>
                                             <div class="chat-bubble left">
-                                                <span class="chat-name">Kayınvalide 👵</span>
-                                                Bizim akrabaları eklemeyi unutmayın!
+                                                <span class="chat-name">Nedime 👭</span>
+                                                200 mesaj yukarıda kaldı bulamıyorum!
                                             </div>
                                         </div>
                                         
-                                        <p class="card-desc">Mesajlar, fotoğraflar ve hatırlatmalar akışta kaybolur. <strong class="highlight-gold">Kimin neyi yapacağı</strong> unutulur, stres artar.</p>
+                                        <p class="card-desc">5 farklı WhatsApp grubu, 200 okunmamış mesaj, kapora dekontları ve mekanı gösteren Reels videoları mesaj akışında <strong class="highlight-gold">kaybolur</strong>.</p>
+                                    </div>
+                                    <div class="flip-trigger-badge">
+                                        <span class="material-icons-round icon-touch">touch_app</span>
+                                        <span>Çözümü Gör & Kartı Çevir</span>
+                                        <span class="material-icons-round icon-arrow">swap_horiz</span>
                                     </div>
                                 </div>
                                 
@@ -709,13 +721,13 @@
                                             </div>
                                             <span class="cozum-tag">İmece Çözümü</span>
                                         </div>
-                                        <h3 class="card-title">Her işin kendi özel odası</h3>
+                                        <h3 class="card-title">Her tedarikçi ve iş için izole odalar</h3>
                                         
-                                        <!-- Görsel Mockup: Görev Sohbeti (Native iOS style) -->
+                                        <!-- Görsel Mockup: Görev Sohbeti -->
                                         <div class="mini-app-mockup">
                                             <div class="mockup-header">
                                                 <span class="material-icons-round" style="font-size: 11px;">chat_bubble</span>
-                                                <span>Fotoğrafçı Görev Detayı</span>
+                                                <span>Fotoğrafçı Görev Odası</span>
                                             </div>
                                             <div class="mockup-chat-stream">
                                                 <div class="mockup-chat-row left">
@@ -735,9 +747,14 @@
                                             </div>
                                         </div>
                                         
-                                        <p class="card-desc">Tüm görevler sorumlularıyla <strong class="highlight-gold">tek ekrandadır</strong>. Görevin detayına girerek sadece o konuya ait sohbet alanını kullanabilir, notlar ve dosyalar ekleyebilirsiniz.</p>
+                                        <p class="card-desc">Her görev ve tedarikçi (Mekan, Fotoğrafçı, Kuaför) için izole sohbet alanı. <strong class="highlight-gold">Tüm teklif ve notlar</strong> tek tıkla elinizin altındadır.</p>
                                     </div>
-                                    <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">İmece Odalarını Keşfet →</a>
+                                    <div class="flip-back-footer">
+                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">İmece Odalarını Keşfet →</a>
+                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
+                                            <span class="material-icons-round">replay</span> Ön Yüz
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -759,9 +776,9 @@
                                                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                                 </svg>
                                             </div>
-                                            <span class="zorluk-tag">Zorluk</span>
+                                            <span class="zorluk-tag">Zorluk 2</span>
                                         </div>
-                                        <h3 class="card-title">Bütün planlama yükünün tek kişiye kalması</h3>
+                                        <h3 class="card-title">Tüm hazırlık yükünün tek bir kişiye kalması</h3>
                                         
                                         <!-- Görsel: Adaletsiz Görev Listesi -->
                                         <div class="mini-todo-list">
@@ -775,11 +792,16 @@
                                             </div>
                                             <div class="mini-todo-item alert">
                                                 <span class="todo-uncheck"></span>
-                                                <span class="todo-text">Damatlık alımı (Damat 🤵‍♂️ - Gecikti!)</span>
+                                                <span class="todo-text">45 Ayrı Görev (Gelin 👰‍♀️ - Yalnız)</span>
                                             </div>
                                         </div>
                                         
-                                        <p class="card-desc">Tüm hazırlık stresi <strong class="highlight-gold">tek bir kişinin</strong> üzerine kalır. Sevdikleriniz yardım etmek istese de onlara iş atamak zordur.</p>
+                                        <p class="card-desc">Gelinin "Her şeyi ben mi takip edeceğim?" stresi. Sevdikleriniz yardım etmek istese de <strong class="highlight-gold">görev dağıtmak</strong> zordur.</p>
+                                    </div>
+                                    <div class="flip-trigger-badge">
+                                        <span class="material-icons-round icon-touch">touch_app</span>
+                                        <span>Çözümü Gör & Kartı Çevir</span>
+                                        <span class="material-icons-round icon-arrow">swap_horiz</span>
                                     </div>
                                 </div>
                                 
@@ -795,9 +817,9 @@
                                             </div>
                                             <span class="cozum-tag">İmece Çözümü</span>
                                         </div>
-                                        <h3 class="card-title">Keyifli bir el birliği</h3>
+                                        <h3 class="card-title">Çoklu atama ve teklif onay mekanizması</h3>
                                         
-                                        <!-- Görsel Mockup: Görev Dağılımı (Native iOS List style) -->
+                                        <!-- Görsel Mockup: Görev Dağılımı -->
                                         <div class="mini-app-mockup">
                                             <div class="mockup-header">
                                                 <span class="material-icons-round" style="font-size: 11px;">assignment_ind</span>
@@ -808,13 +830,13 @@
                                                     <span class="todo-title">Kuaför Rezervasyonu</span>
                                                     <div class="todo-meta">
                                                         <span class="mockup-user-chip gold">👰‍♀️ Gelin</span>
-                                                        <span class="todo-status done">Yapılacak</span>
+                                                        <span class="todo-status done">Yapıldı</span>
                                                     </div>
                                                 </div>
                                                 <div class="mockup-todo-row">
                                                     <span class="todo-title">Masa Düzeni & LCV</span>
                                                     <div class="todo-meta">
-                                                        <span class="mockup-user-chip pink">Ece</span>
+                                                        <span class="mockup-user-chip pink">Ece (Nedime)</span>
                                                         <span class="todo-status active">Devam</span>
                                                     </div>
                                                 </div>
@@ -828,9 +850,14 @@
                                             </div>
                                         </div>
                                         
-                                        <p class="card-desc">Hazırlıkları sevdiklerinizle paylaşarak süreci yorucu bir koşturmacadan <strong class="highlight-gold">keyifli bir imeceye</strong> dönüştürün. 'Yeni Kişi Ekle' ile davet kodunu gönderin.</p>
+                                        <p class="card-desc">**Çoklu Atama (Multi-Assignee)** ile işleri paylaşın. Sevdikleriniz "Bunu ben yapayım" diyerek görev önersin, siz <strong class="highlight-gold">tek tıkla onaylayın</strong>.</p>
                                     </div>
-                                    <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Hazırlıkları Bölüş →</a>
+                                    <div class="flip-back-footer">
+                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Hazırlıkları Bölüş →</a>
+                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
+                                            <span class="material-icons-round">replay</span> Ön Yüz
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -850,7 +877,7 @@
                                                     <line x1="2" y1="10" x2="22" y2="10"></line>
                                                 </svg>
                                             </div>
-                                            <span class="zorluk-tag">Zorluk</span>
+                                            <span class="zorluk-tag">Zorluk 3</span>
                                         </div>
                                         <h3 class="card-title">Bütçe hesaplarının kontrolden çıkması</h3>
                                         
@@ -864,11 +891,16 @@
                                                 <div class="budget-bar-fill"></div>
                                             </div>
                                             <div class="budget-warning">
-                                                <span class="material-icons-round" style="font-size: 13px;">warning</span> LİMİT AŞILDI!
+                                                <span class="material-icons-round" style="font-size: 13px;">warning</span> 150.000 ₺ LİMİT AŞILDI!
                                             </div>
                                         </div>
                                         
-                                        <p class="card-desc">Excel tablolarında veya defterlerde tutulan hesaplar zamanla karışır, harcamaların ne durumda olduğu <strong class="highlight-gold">belirsiz</strong> kalır.</p>
+                                        <p class="card-desc">Excel ve defterlerde tutulan ama kapora ödemeleri ve sürpriz harcamalarla sapan düğün hesabı ve <strong class="highlight-gold">düğün ertesi borç şoku</strong>.</p>
+                                    </div>
+                                    <div class="flip-trigger-badge">
+                                        <span class="material-icons-round icon-touch">touch_app</span>
+                                        <span>Çözümü Gör & Kartı Çevir</span>
+                                        <span class="material-icons-round icon-arrow">swap_horiz</span>
                                     </div>
                                 </div>
                                 
@@ -884,9 +916,9 @@
                                             </div>
                                             <span class="cozum-tag">İmece Çözümü</span>
                                         </div>
-                                        <h3 class="card-title">Tahmini ve gerçekleşen bütçe takibi</h3>
+                                        <h3 class="card-title">Tahmini vs. gerçekleşen bütçe canlı takibi</h3>
                                         
-                                        <!-- Görsel Mockup: Pozitif Bütçe Paneli (Native Wallet style) -->
+                                        <!-- Görsel Mockup: Pozitif Bütçe Paneli -->
                                         <div class="mini-app-mockup">
                                             <div class="mockup-header">
                                                 <span class="material-icons-round" style="font-size: 11px;">monetization_on</span>
@@ -907,9 +939,14 @@
                                             </div>
                                         </div>
                                         
-                                        <p class="card-desc">Hazırlıklar için bütçe limitleri koyup ödemeleri kaydederek <strong class="highlight-gold">bütçe aşımını</strong> önleyin. Her göreve tahmini ve gerçekleşen maliyetleri girmeniz yeterlidir.</p>
+                                        <p class="card-desc">Tahmini ve gerçekleşen maliyetleri kaydederek harcama havuzlarını canlı takip edin. Limit aşıldığında <strong class="highlight-gold">anında uyarı alın</strong>.</p>
                                     </div>
-                                    <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Bütçeni Yönetmeye Başla →</a>
+                                    <div class="flip-back-footer">
+                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Bütçeni Yönetmeye Başla →</a>
+                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
+                                            <span class="material-icons-round">replay</span> Ön Yüz
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -932,9 +969,9 @@
                                                     <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
                                                 </svg>
                                             </div>
-                                            <span class="zorluk-tag">Zorluk</span>
+                                            <span class="zorluk-tag">Zorluk 4</span>
                                         </div>
-                                        <h3 class="card-title">Sürpriz bekarlığa veda planlama zorluğu</h3>
+                                        <h3 class="card-title">Sürpriz Bride-to-Be partilerinin ifşa olması</h3>
                                         
                                         <!-- Görsel: Nedime Fısıldaşması -->
                                         <div class="mini-whatsapp-chat">
@@ -947,7 +984,12 @@
                                             </div>
                                         </div>
                                         
-                                        <p class="card-desc">Gelin veya damadın da olduğu ortak gruplarda sürpriz bir organizasyon planlamak imkansızdır, <strong class="highlight-gold">sürpriz kolayca bozulur</strong>.</p>
+                                        <p class="card-desc">Gelin/damadın olduğu grupta sürpriz planlanamaz; geline giden bir bildirimle <strong class="highlight-gold">sürpriz anında bozulur</strong>.</p>
+                                    </div>
+                                    <div class="flip-trigger-badge">
+                                        <span class="material-icons-round icon-touch">touch_app</span>
+                                        <span>Çözümü Gör & Kartı Çevir</span>
+                                        <span class="material-icons-round icon-arrow">swap_horiz</span>
                                     </div>
                                 </div>
                                 
@@ -963,9 +1005,9 @@
                                             </div>
                                             <span class="cozum-tag">İmece Çözümü</span>
                                         </div>
-                                        <h3 class="card-title">Sürpriz sahibinden gizlenen odalar</h3>
+                                        <h3 class="card-title">Gelin Koruması (Surprise Guard) teknolojisi</h3>
                                         
-                                        <!-- Görsel Mockup: Sürpriz Panel & Gelin Koruması (Native App style) -->
+                                        <!-- Görsel Mockup: Sürpriz Panel & Gelin Koruması -->
                                         <div class="mini-app-mockup">
                                             <div class="mockup-header">
                                                 <span class="material-icons-round" style="font-size: 11px;">security</span>
@@ -987,9 +1029,14 @@
                                             </div>
                                         </div>
                                         
-                                        <p class="card-desc">Sürpriz sahibinden <strong class="highlight-gold">tamamen saklanan</strong> özel odalar. Sevdiklerinizi, gelin veya damada bildirim gitmeden tek tıkla davet edebilirsiniz.</p>
+                                        <p class="card-desc">Veritabanı seviyesinde gelin/damattan <strong class="highlight-gold">gizlenen kilitli odalar</strong>. Geline bildirim gitmez, sürpriz %100 korunur.</p>
                                     </div>
-                                    <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Sürpriz Planı Başlat →</a>
+                                    <div class="flip-back-footer">
+                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Sürpriz Planı Başlat →</a>
+                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
+                                            <span class="material-icons-round">replay</span> Ön Yüz
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
