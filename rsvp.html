@@ -538,57 +538,101 @@
         }
 
         /* Shared Wedding-Day Timeline */
-        /* Shared Wedding-Day Timeline (Luxury Centered Dot Timeline UI) */
         .timeline-section {
-            margin: 20px 0 28px;
-            text-align: center;
+            margin: 4px 0 22px;
+            text-align: left;
+            background-color: var(--gold-light);
+            border: 1px solid var(--gold-border);
+            border-radius: 20px;
+            padding: 24px;
         }
 
         .timeline-title {
             font-family: var(--font-heading);
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--text-main);
             text-align: center;
-            margin: 0 0 22px;
-            letter-spacing: 0.02em;
+            margin: 0 0 10px;
+        }
+
+        .timeline-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 0 20px;
+        }
+
+        .timeline-divider::before,
+        .timeline-divider::after {
+            content: '';
+            height: 1px;
+            width: 40px;
+            background: var(--gold-border);
+        }
+
+        .timeline-divider span {
+            width: 8px;
+            height: 8px;
+            flex: none;
+            background: var(--gold-accent);
+            transform: rotate(45deg);
+            display: inline-block;
         }
 
         .timeline {
             position: relative;
-            max-width: 280px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Central connecting vertical line */
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 12px;
-            bottom: 22px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            background: linear-gradient(180deg, var(--gold-border) 0%, rgba(201, 162, 39, 0.2) 100%);
-            z-index: 1;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .timeline-item {
             position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-bottom: 20px;
-            width: 100%;
+            display: grid;
+            grid-template-columns: 54px 22px 1fr;
+            align-items: start;
+            padding-bottom: 20px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .timeline-item.tl-enter {
+            opacity: 0;
+            transform: translateY(6px);
         }
 
         .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 65px;
+            top: 17px;
+            bottom: -1px;
+            width: 1px;
+            background: var(--gold-border);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-time-col {
+            text-align: right;
+            padding-right: 8px;
+        }
+
+        .timeline-time {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--gold);
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
             margin-bottom: 0;
         }
 
@@ -597,43 +641,174 @@
         }
 
         .timeline-dot {
+            position: relative;
             width: 9px;
             height: 9px;
             border-radius: 50%;
             background: var(--gold);
             box-shadow: 0 0 0 3px var(--gold-light);
-            margin: 4px 0;
+            margin: 6px 0;
             z-index: 3;
         }
 
-        .timeline-time {
-            font-size: 0.78rem;
+        /* Connecting vertical line anchored directly to dot center */
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            top: -24px;
+            bottom: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1.5px;
+            background: linear-gradient(180deg, rgba(201, 162, 39, 0.45) 0%, rgba(201, 162, 39, 0.25) 100%);
+            z-index: -1;
+        }
+
+        .timeline-item:first-child .timeline-dot::before {
+            top: 50%;
+        }
+
+        .timeline-item:last-child .timeline-dot::before {
+            bottom: 50%;
+        }
+
+        .timeline-item.is-past {
+            opacity: 0.5;
+        }
+
+        .timeline-item.is-past .timeline-dot {
+            background: #fff;
+            border-color: var(--gold);
+        }
+
+        .timeline-item.is-current .timeline-dot {
+            background: var(--gold-accent);
+            animation: timelineDotPulse 2s ease-in-out infinite;
+        }
+
+        .timeline-item.is-current .timeline-item-title {
             font-weight: 700;
-            color: var(--gold);
-            letter-spacing: 0.03em;
-            margin-bottom: 1px;
+        }
+
+        @keyframes timelineDotPulse {
+            0%, 100% { box-shadow: 0 0 0 3px var(--gold-light); }
+            50% { box-shadow: 0 0 0 7px rgba(212, 175, 55, 0.18); }
+        }
+
+        .timeline-content {
+            padding-left: 4px;
         }
 
         .timeline-item-title {
-            font-size: 0.94rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--text-main);
-            margin-top: 1px;
         }
 
         .timeline-location {
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             margin-top: 3px;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            justify-content: center;
             gap: 4px;
         }
 
         .timeline-location .material-icons-round {
-            font-size: 0.95rem;
+            font-size: 14px;
             color: var(--text-light);
+        }
+
+        /* "Not shared yet" placeholder */
+        .timeline-placeholder {
+            text-align: center;
+            padding: 4px 0 0;
+        }
+
+        .timeline-placeholder-icon {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid var(--gold-border);
+            background-color: #FFFFFF;
+        }
+
+        .timeline-placeholder-icon .material-icons-round {
+            font-size: 1.4rem;
+            color: var(--gold);
+        }
+
+        .timeline-placeholder-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0 0 6px;
+        }
+
+        .timeline-placeholder-subtext {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0 0 22px;
+        }
+
+        .timeline-ghost {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            opacity: 0.35;
+        }
+
+        .timeline-ghost-row {
+            display: grid;
+            grid-template-columns: 54px 22px 1fr;
+            align-items: center;
+        }
+
+        .ghost-block {
+            height: 10px;
+            border-radius: 6px;
+            background: linear-gradient(90deg, var(--gray-light) 25%, #EDEAE4 37%, var(--gray-light) 63%);
+            background-size: 400% 100%;
+            animation: ghostShimmer 2s ease-in-out infinite;
+        }
+
+        .ghost-time {
+            width: 38px;
+            justify-self: end;
+        }
+
+        .ghost-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            justify-self: center;
+        }
+
+        .ghost-title {
+            width: 70%;
+        }
+
+        @keyframes ghostShimmer {
+            0% { background-position: 100% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .timeline-item {
+                transition: none;
+            }
+            .timeline-item.is-current .timeline-dot {
+                animation: none;
+            }
+            .ghost-block {
+                animation: none;
+            }
         }
 
         /* Web app invite (bottom of page) */
@@ -1103,12 +1278,15 @@
             eventTitle: document.getElementById('eventTitle'),
             coupleNames: document.getElementById('coupleNames'),
             eventDate: document.getElementById('eventDate'),
+            ceremonyRow: document.getElementById('ceremonyRow'),
+            ceremonyTime: document.getElementById('ceremonyTime'),
             venueRow: document.getElementById('venueRow'),
             venueNameText: document.getElementById('venueNameText'),
             venueLink: document.getElementById('venueLink'),
             partySize: document.getElementById('partySize'),
             timelineSection: document.getElementById('timelineSection'),
             timelineList: document.getElementById('timelineList'),
+            timelinePlaceholder: document.getElementById('timelinePlaceholder'),
             statusBadge: document.getElementById('statusBadge'),
             statusLabel: document.getElementById('statusLabel'),
             confirmBtn: document.getElementById('confirmBtn'),
@@ -1117,6 +1295,12 @@
             retryBtn: document.getElementById('retryBtn'),
             mealPrefSection: document.getElementById('mealPrefSection'),
             mealPrefBtns: Array.from(document.querySelectorAll('.meal-pref-btn')),
+            allergyNoteWrap: document.getElementById('allergyNoteWrap'),
+            allergyNoteInput: document.getElementById('allergyNoteInput'),
+            allergyNoteSaveBtn: document.getElementById('allergyNoteSaveBtn'),
+            allergyNoteCount: document.getElementById('allergyNoteCount'),
+            allergyNoteSuccess: document.getElementById('allergyNoteSuccess'),
+            allergyNoteError: document.getElementById('allergyNoteError'),
             appCta: document.getElementById('appCta'),
             appStoreLink: document.getElementById('appStoreLink'),
             playStoreLink: document.getElementById('playStoreLink'),
