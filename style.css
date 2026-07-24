@@ -1561,7 +1561,7 @@ label,
 .flip-card {
     background-color: transparent;
     width: 100%;
-    height: 480px;
+    height: 500px;
     perspective: 1500px;
     cursor: pointer;
     outline: none;
@@ -1623,7 +1623,7 @@ label,
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: var(--radius-lg);
-    padding: 22px 22px;
+    padding: 20px 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -1661,37 +1661,44 @@ label,
 
 .card-icon-header-row {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
 }
 
 .card-icon-wrapper {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
 }
 
-.card-icon-wrapper.zorluk-icon {
-    background: rgba(195, 106, 106, 0.1);
-    color: #C36A6A;
+.zorluk-icon {
+    background: rgba(184, 76, 76, 0.15);
+    border: 1px solid rgba(184, 76, 76, 0.3);
 }
 
-.card-icon-wrapper.cozum-icon {
-    background: rgba(201, 162, 39, 0.1);
-    color: var(--gold);
-}
-
-.card-icon-wrapper svg {
+.zorluk-icon svg {
     width: 20px;
     height: 20px;
+    stroke: #C36A6A;
+    stroke-width: 2;
     fill: none;
-    stroke: currentColor;
-    stroke-width: 2.2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+}
+
+.cozum-icon {
+    background: rgba(58, 133, 88, 0.15);
+    border: 1px solid rgba(58, 133, 88, 0.3);
+}
+
+.cozum-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: #5C9468;
+    stroke-width: 2;
+    fill: none;
 }
 
 .zorluk-tag {
@@ -1714,8 +1721,9 @@ label,
 
 .card-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 600;
+    line-height: 1.35;
     margin: 2px 0 6px 0;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
@@ -1729,9 +1737,10 @@ label,
 }
 
 .card-desc {
-    font-size: 0.92rem;
-    line-height: 1.55;
+    font-size: 0.85rem;
+    line-height: 1.45;
     color: #E5E5EA !important; /* Force readable cream color */
+    margin-top: 4px;
 }
 
 .flip-card-back .card-desc {
