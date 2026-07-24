@@ -1574,14 +1574,8 @@ label,
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    animation: gentle-wobble 8s ease-in-out infinite;
+    animation: none !important;
 }
-
-/* Stagger animations so they float naturally */
-.flip-card:nth-child(1) .flip-card-wobble { animation-delay: 0s; }
-.flip-card:nth-child(2) .flip-card-wobble { animation-delay: 1.8s; }
-.flip-card:nth-child(3) .flip-card-wobble { animation-delay: 3.6s; }
-.flip-card:nth-child(4) .flip-card-wobble { animation-delay: 5.4s; }
 
 /* Scale up on hover/focus */
 .flip-card:hover, .flip-card:focus-within {

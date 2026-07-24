@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=17.0">
+    <link rel="stylesheet" href="style.css?v=18.0">
 </head>
 <body>
 
@@ -3677,33 +3677,33 @@
             }
         }
 
-        // 8 Kriz & Çözüm Cards Scroll Tease Pipeline (Scrolls down -> teases solution -> resets to Front Sorun)
+        // 8 Kriz & Çözüm Cards One-Time Scroll Tease (Runs ONCE -> teases solution -> resets to Front Sorun)
         function initCardsScrollPipeline() {
             const cards = document.querySelectorAll('#neden-imece .flip-card');
             if (!cards.length) return;
 
             const observerOptions = {
                 root: null,
-                rootMargin: '-15% 0px -15% 0px',
-                threshold: 0.35
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0.4
             };
 
             const cardObserver = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     const card = entry.target;
-                    // If user manually clicked it, don't override manual user interaction
-                    if (card.dataset.userClicked === 'true') return;
+                    // Execute ONCE only, never repeat if already teased or user clicked!
+                    if (card.dataset.teased === 'true' || card.dataset.userClicked === 'true') return;
 
                     if (entry.isIntersecting) {
-                        // Tease flip to solution briefly, then smoothly return to front (Sorun)
+                        card.dataset.teased = 'true'; // Mark as executed ONCE
                         card.classList.add('scroll-teased');
+
+                        // Smoothly flip back to Front (Sorun) side after 1.4 seconds as it settles in center
                         setTimeout(() => {
                             if (card.dataset.userClicked !== 'true') {
                                 card.classList.remove('scroll-teased');
                             }
-                        }, 1800);
-                    } else {
-                        card.classList.remove('scroll-teased');
+                        }, 1400);
                     }
                 });
             }, observerOptions);
