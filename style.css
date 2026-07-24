@@ -4229,3 +4229,639 @@ body.dark-active .app-header-mini {
         border-color: rgba(255, 255, 255, 0.06) !important;
     }
 }
+
+/* ============================================================
+   NEW INTERACTIVE MODULES (RSVP Sim, Timeline, Surprise Guard, Templates)
+   ============================================================ */
+
+/* 1. RSVP Showcase Simulator */
+.rsvp-showcase-section {
+    padding: 100px 0;
+    background: linear-gradient(180deg, rgba(12, 12, 14, 0.8) 0%, rgba(20, 18, 15, 0.95) 100%);
+    border-top: 1px solid rgba(184, 134, 11, 0.15);
+    border-bottom: 1px solid rgba(184, 134, 11, 0.15);
+}
+
+.rsvp-sim-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.rsvp-sim-controls {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 36px;
+}
+
+.rsvp-sim-controls h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.sim-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+
+.sim-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.sim-input-group label {
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    font-weight: 600;
+}
+
+.sim-input-group input {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--gold-border);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.sim-input-group input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 15px rgba(201, 162, 39, 0.25);
+}
+
+.sim-info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sim-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 14px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sim-info-item span {
+    color: var(--gold);
+    font-size: 1.4rem;
+}
+
+.sim-info-item strong {
+    color: #ffffff;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.sim-info-item p {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    margin: 0;
+}
+
+/* Phone Simulator Frame */
+.rsvp-sim-phone-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.sim-phone-frame {
+    width: 340px;
+    background: #121214;
+    border: 2px solid var(--gold-border);
+    border-radius: 36px;
+    padding: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(184, 134, 11, 0.15);
+}
+
+.sim-phone-screen {
+    background: #0B0B0C;
+    border-radius: 24px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sim-rsvp-card {
+    text-align: center;
+    background: linear-gradient(145deg, rgba(28, 26, 22, 0.9) 0%, rgba(18, 17, 15, 0.95) 100%);
+    border: 1px solid var(--gold-border);
+    border-radius: 20px;
+    padding: 24px 16px;
+    box-shadow: inset 0 0 20px rgba(184, 134, 11, 0.08);
+}
+
+.sim-emblem {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--gold-light) 0%, #F3E7D5 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+}
+
+.sim-emblem span {
+    color: var(--gold);
+    font-size: 1.5rem;
+}
+
+.sim-prefix {
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--gold-light);
+    font-size: 0.85rem;
+}
+
+.sim-guest-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin: 4px 0 10px;
+}
+
+.sim-divider {
+    color: var(--gold);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.sim-event-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(184, 134, 11, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 14px;
+}
+
+.sim-event-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--gold-light);
+    display: block;
+}
+
+.sim-event-date {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.sim-party-badge {
+    font-size: 0.7rem;
+    color: #ffffff;
+    background: rgba(184, 134, 11, 0.15);
+    padding: 2px 8px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.sim-msg {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+.sim-status-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    transition: all 0.3s ease;
+}
+
+.sim-status-badge.pending {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+}
+
+.sim-status-badge.confirmed {
+    background: rgba(58, 133, 88, 0.2);
+    color: #82C38F;
+    border: 1px solid rgba(58, 133, 88, 0.4);
+}
+
+.sim-status-badge.declined {
+    background: rgba(184, 76, 76, 0.2);
+    color: #C36A6A;
+    border: 1px solid rgba(184, 76, 76, 0.4);
+}
+
+.sim-btn-group {
+    display: flex;
+    gap: 8px;
+}
+
+.sim-btn {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+
+.sim-btn.confirm {
+    background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+    color: #ffffff;
+}
+
+.sim-btn.confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+.sim-btn.decline {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sim-toast {
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+}
+
+.sim-toast.show {
+    opacity: 1;
+}
+
+/* 2. Timeline Showcase */
+.timeline-showcase-section {
+    padding: 100px 0;
+}
+
+.timeline-interactive-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.timeline-nodes {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-nodes::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    right: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.timeline-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.timeline-time {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #1A1A1D;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.timeline-title {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.timeline-node.active .timeline-dot {
+    background: var(--gold);
+    border-color: #ffffff;
+    box-shadow: 0 0 15px rgba(201, 162, 39, 0.6);
+    transform: scale(1.3);
+}
+
+.timeline-node.active .timeline-time,
+.timeline-node.active .timeline-title {
+    color: var(--gold-light);
+}
+
+.timeline-detail-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--gold-border);
+    border-radius: 20px;
+    padding: 28px;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+.timeline-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 16px;
+}
+
+.node-badge-time {
+    background: var(--gold);
+    color: #000000;
+    font-weight: 800;
+    font-size: 0.9rem;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.timeline-card-header h3 {
+    font-family: var(--font-heading);
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.timeline-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tl-info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.tl-info-row span.material-icons-round {
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+.tl-info-row.gold strong {
+    color: var(--gold-light);
+}
+
+/* 3. Surprise Guard Simulator */
+.surprise-sim-section {
+    padding: 100px 0;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.surprise-toggle-container {
+    max-width: 680px;
+    margin: 40px auto 0;
+}
+
+.surprise-toggle-btn-wrap {
+    display: flex;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 6px;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+.surprise-toggle-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.surprise-toggle-btn.active {
+    background: var(--gold);
+    color: #000000;
+    box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+}
+
+.surprise-card-view {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--gold-border);
+    border-radius: 24px;
+    padding: 32px;
+    backdrop-filter: blur(12px);
+}
+
+.surprise-status-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.surprise-status-badge.locked {
+    background: rgba(184, 76, 76, 0.2);
+    color: #E57373;
+    border: 1px solid rgba(184, 76, 76, 0.3);
+}
+
+.surprise-status-badge.unlocked {
+    background: rgba(58, 133, 88, 0.2);
+    color: #82C38F;
+    border: 1px solid rgba(58, 133, 88, 0.3);
+}
+
+.surprise-content-box {
+    transition: all 0.4s ease;
+}
+
+.surprise-content-box.bride-blurred {
+    filter: blur(4px);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.surprise-content-box h3 {
+    font-family: var(--font-heading);
+    color: #ffffff;
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+}
+
+.surprise-content-box p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.surprise-detail-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.surprise-detail-chips .chip {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.surprise-detail-chips .chip.active {
+    background: rgba(184, 134, 11, 0.15);
+    border-color: var(--gold-border);
+    color: var(--gold-light);
+}
+
+/* 4. Preset Templates Showcase */
+.templates-showcase-section {
+    padding: 100px 0;
+}
+
+.templates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.template-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: all 0.3s ease;
+}
+
+.template-card.featured {
+    background: linear-gradient(145deg, rgba(28, 26, 22, 0.9) 0%, rgba(18, 17, 15, 0.95) 100%);
+    border: 1px solid var(--gold-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(184, 134, 11, 0.15);
+    transform: translateY(-8px);
+}
+
+.template-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold-border);
+}
+
+.tpl-icon {
+    font-size: 2.5rem;
+}
+
+.template-card h3 {
+    font-family: var(--font-heading);
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.tpl-badge {
+    align-self: flex-start;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+}
+
+.tpl-badge.gold {
+    background: rgba(184, 134, 11, 0.2);
+    color: var(--gold-light);
+    border: 1px solid var(--gold-border);
+}
+
+.template-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.tpl-link {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: color 0.2s ease;
+}
+
+.tpl-link:hover {
+    color: var(--gold-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .rsvp-sim-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .templates-grid {
+        grid-template-columns: 1fr;
+    }
+    .timeline-nodes {
+        overflow-x: auto;
+        padding-bottom: 20px;
+    }
+}

@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=4.6">
+    <link rel="stylesheet" href="style.css?v=4.8">
 </head>
 <body>
 
@@ -993,6 +993,239 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modül 1: Canlı İnteraktif RSVP Simülatörü -->
+        <section id="interactive-rsvp-showcase" class="rsvp-showcase-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag gold">İnteraktif Deneyim</span>
+                    <h2>Davetlileriniz İçin Lüks Dijital Davetiye</h2>
+                    <p class="section-subtitle">Davetlileriniz hiçbir uygulama indirmeden kendilerine özel bağlantı ile davetiyelerini açar, katılım durumlarını tek tıkla bildirir.</p>
+                </div>
+
+                <div class="rsvp-sim-wrapper">
+                    <!-- Control Box (Sol/Üst) -->
+                    <div class="rsvp-sim-controls">
+                        <h3><span class="material-icons-round" style="color: var(--gold); vertical-align: middle; margin-right: 6px;">edit_note</span> Davetiyeyi Canlı Özelleştir</h3>
+                        <p class="sim-desc">Aşağıya davetli veya çift adını girerek davetiyenizin canlı önizlemesini test edin:</p>
+                        
+                        <div class="sim-input-group">
+                            <label for="simGuestInput">Davetli / Çift Adı</label>
+                            <input type="text" id="simGuestInput" value="Sayın Mehmet Güneşli" placeholder="Örn: Ayşe & Tolga" oninput="updateSimGuestName(this.value)">
+                        </div>
+
+                        <div class="sim-info-cards">
+                            <div class="sim-info-item">
+                                <span class="material-icons-round">done_all</span>
+                                <div>
+                                    <strong>Anlık Bildirim</strong>
+                                    <p>Davetliniz yanıt verdiğinde cebinize anında bildirim düşer.</p>
+                                </div>
+                            </div>
+                            <div class="sim-info-item">
+                                <span class="material-icons-round">groups</span>
+                                <div>
+                                    <strong>Kişi Sayısı Takibi</strong>
+                                    <p>Sizinle birlikte kaç kişinin geleceği otomatik hesaplanır.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Simulator Phone Screen (Sağ/Alt) -->
+                    <div class="rsvp-sim-phone-wrap">
+                        <div class="sim-phone-frame">
+                            <div class="sim-phone-screen">
+                                <div class="sim-rsvp-card">
+                                    <div class="sim-emblem">
+                                        <span class="material-icons-round">favorite</span>
+                                    </div>
+                                    <div class="sim-prefix">Sayın Davetlimiz</div>
+                                    <h4 class="sim-guest-title" id="simGuestDisplay">Sayın Mehmet Güneşli</h4>
+                                    
+                                    <div class="sim-divider"><span>✦</span></div>
+
+                                    <div class="sim-event-box">
+                                        <strong class="sim-event-title">Aylin & Burak Düğünü</strong>
+                                        <div class="sim-event-date">
+                                            <span class="material-icons-round">event</span> 31 Temmuz 2026, Cuma
+                                        </div>
+                                        <div class="sim-party-badge">👥 1 Kişilik Davetiye</div>
+                                    </div>
+
+                                    <p class="sim-msg">Bu mutlu günümüzde sizleri de aramızda görmekten onur duyarız.</p>
+
+                                    <div class="sim-status-badge pending" id="simStatusBadge">
+                                        <span class="material-icons-round">hourglass_empty</span>
+                                        <span id="simStatusText">Yanıtınız Bekleniyor</span>
+                                    </div>
+
+                                    <div class="sim-btn-group">
+                                        <button class="sim-btn confirm" onclick="triggerSimRsvp('confirmed')">
+                                            <span class="material-icons-round">check_circle</span> Katılıyorum
+                                        </button>
+                                        <button class="sim-btn decline" onclick="triggerSimRsvp('declined')">
+                                            <span class="material-icons-round">cancel</span> Katılamıyorum
+                                        </button>
+                                    </div>
+
+                                    <div class="sim-toast" id="simToast"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modül 2: Düğün Günü Akış Çizelgesi -->
+        <section id="wedding-timeline-showcase" class="timeline-showcase-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag gold">Zaman Çizelgesi</span>
+                    <h2>Düğün Günü Akışını Saat Saat Yönetin</h2>
+                    <p class="section-subtitle">Kuaförden gelin almaya, nikah töreninden pasta kesimine kadar tüm akışı dakika dakika planlayın, ekibinizle paylaşın.</p>
+                </div>
+
+                <div class="timeline-interactive-container">
+                    <div class="timeline-nodes">
+                        <!-- Node 1 -->
+                        <div class="timeline-node active" onclick="selectTimelineNode(this, '09:00', 'Kuaför & Gelin Hazırlığı', 'Gelin & Nedimeler', 'Kuaför salonunda makyaj ve saç hazırlıkları.', 'Giriş & Hazırlık Müzikleri')">
+                            <span class="timeline-time">09:00</span>
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-title">Kuaför & Hazırlık</span>
+                        </div>
+                        <!-- Node 2 -->
+                        <div class="timeline-node" onclick="selectTimelineNode(this, '13:30', 'Gelin Alma & Konvoy', 'Damat & Sağdıçlar', 'Evden gelin alma merasimi ve araç konvoyu.', 'Geleneksel Davul Zurna / Neşeli Akış')">
+                            <span class="timeline-time">13:30</span>
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-title">Gelin Alma</span>
+                        </div>
+                        <!-- Node 3 -->
+                        <div class="timeline-node" onclick="selectTimelineNode(this, '16:00', 'Dış Çekim & Fotoğraf', 'Fotoğrafçı & Çift', 'Plato ve açık alan fotoğraf çekimleri.', 'Akustik Romantik Fon')">
+                            <span class="timeline-time">16:00</span>
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-title">Fotoğraf Çekimi</span>
+                        </div>
+                        <!-- Node 4 -->
+                        <div class="timeline-node" onclick="selectTimelineNode(this, '19:30', 'Nikah Töreni & İlk Dans', 'Tüm Ekip & Çift', 'Salona görkemli giriş, nikah imzası ve ilk dans.', 'Çiftin Özel İlk Dans Şarkısı 🎵')">
+                            <span class="timeline-time">19:30</span>
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-title">Nikah & İlk Dans</span>
+                        </div>
+                        <!-- Node 5 -->
+                        <div class="timeline-node" onclick="selectTimelineNode(this, '21:30', 'Pasta Kesimi & Eğlence', 'Tüm Ekip', 'Şampanya patlatma, pasta kesimi ve kutlama.', 'Coşkulu Parti Listesi 🎉')">
+                            <span class="timeline-time">21:30</span>
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-title">Pasta & Eğlence</span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Card Detail -->
+                    <div class="timeline-detail-card" id="timelineDetailCard">
+                        <div class="timeline-card-header">
+                            <span class="node-badge-time" id="tlTime">09:00</span>
+                            <h3 id="tlTitle">Kuaför & Gelin Hazırlığı</h3>
+                        </div>
+                        <div class="timeline-card-body">
+                            <div class="tl-info-row">
+                                <span class="material-icons-round">person</span>
+                                <span>Sorumlu: <strong id="tlAssignee">Gelin & Nedimeler</strong></span>
+                            </div>
+                            <div class="tl-info-row">
+                                <span class="material-icons-round">description</span>
+                                <span id="tlDesc">Kuaför salonunda makyaj ve saç hazırlıkları.</span>
+                            </div>
+                            <div class="tl-info-row gold">
+                                <span class="material-icons-round">library_music</span>
+                                <span>Müzik & Playlist: <strong id="tlMusic">Giriş & Hazırlık Müzikleri</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modül 3: Gelin Koruması Simülatörü -->
+        <section id="surprise-guard-sim" class="surprise-sim-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag gold">Gizlilik Teknolojisi</span>
+                    <h2>Gelin Koruması (Surprise Guard) Simülatörü</h2>
+                    <p class="section-subtitle">Geline hissettirmeden sürpriz bir Bride-to-Be planlayın. Aşağıdaki butondan gelin ve nedime gözüyle arayüzün nasıl değiştiğini görün:</p>
+                </div>
+
+                <div class="surprise-toggle-container">
+                    <div class="surprise-toggle-btn-wrap">
+                        <button class="surprise-toggle-btn active" id="btnViewGelin" onclick="setSurpriseView('bride')">
+                            👰 Gelin Gözüyle Bak (Gizli)
+                        </button>
+                        <button class="surprise-toggle-btn" id="btnViewNedime" onclick="setSurpriseView('bridesmaid')">
+                            👭 Nedime Gözüyle Bak (Tam Erişim)
+                        </button>
+                    </div>
+
+                    <div class="surprise-card-view" id="surpriseCardView">
+                        <div class="surprise-view-header">
+                            <div class="surprise-status-badge locked" id="surpriseViewBadge">
+                                🛡️ Gelin Koruması Aktif — Bu Paket Sizden Gizlendi
+                            </div>
+                        </div>
+                        
+                        <div class="surprise-content-box bride-blurred" id="surpriseContentBox">
+                            <h3 id="surpriseViewTitle">🔒 Sürpriz Bride-to-Be Partisi (Kilitli)</h3>
+                            <p id="surpriseViewDesc">Bu organizasyonun bütçesi, mekanı ve sürpriz detayları gelin koruması algoritması ile gizlenmiştir. Geline hiçbir bildirim gitmez.</p>
+                            
+                            <div class="surprise-detail-chips" id="surpriseViewChips">
+                                <span class="chip">Mekan: 🔒 Saklı</span>
+                                <span class="chip">Bütçe: 🔒 Saklı</span>
+                                <span class="chip">Hediye Listesi: 🔒 Saklı</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modül 4: Hazır Tören Şablon Kataloğu -->
+        <section id="preset-templates-showcase" class="templates-showcase-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag gold">Hazır Şablonlar</span>
+                    <h2>Nereden Başlayacağım Diye Düşünmeyin</h2>
+                    <p class="section-subtitle">Uzman organizatörler tarafından hazırlanan hazır görev paketleri ile töreninizi tek tıkla başlatın.</p>
+                </div>
+
+                <div class="templates-grid">
+                    <!-- Template 1 -->
+                    <div class="template-card">
+                        <div class="tpl-icon">👰‍♀️</div>
+                        <h3>Bride-to-Be & Bekarlığa Veda</h3>
+                        <span class="tpl-badge">15 Hazır Görev</span>
+                        <p>Mekan süslemesi, bekarlığa veda pastası, nedime kostümleri ve sürpriz aktivite listesi hazır gelir.</p>
+                        <a href="#indirin" class="tpl-link">Şablonu İncele →</a>
+                    </div>
+
+                    <!-- Template 2 -->
+                    <div class="template-card featured">
+                        <div class="tpl-icon">💍</div>
+                        <h3>Eksiksiz Düğün Organizasyonu</h3>
+                        <span class="tpl-badge gold">45 Hazır Görev + Masa Planı</span>
+                        <p>Düğün mekanı, fotoğrafçı, gelinlik provası, LCV takibi ve bütçe planlaması eksiksiz kurulur.</p>
+                        <a href="#indirin" class="tpl-link gold">Şablonu İncele →</a>
+                    </div>
+
+                    <!-- Template 3 -->
+                    <div class="template-card">
+                        <div class="tpl-icon">🌸</div>
+                        <h3>Kına & Nişan Töreni</h3>
+                        <span class="tpl-badge">20 Hazır Görev</span>
+                        <p>Kına tahtı, hediyelikler, nişan tepsisi ve aile koordinasyon görevleri otomatik yüklenir.</p>
+                        <a href="#indirin" class="tpl-link">Şablonu İncele →</a>
                     </div>
                 </div>
             </div>
@@ -2617,18 +2850,91 @@
             card.classList.toggle('flipped');
         }
 
-        // Accessibility: Keyboard listener for flip cards (Enter and Space)
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.flip-card');
-            cards.forEach(card => {
-                card.addEventListener('keydown', (event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault(); // Prevent scrolling page with spacebar
-                        toggleFlipCard(card, event);
-                    }
-                });
-            });
-        });
+        // 1. Live RSVP Simulator Handlers
+        function updateSimGuestName(val) {
+            const display = document.getElementById('simGuestDisplay');
+            if (display) {
+                display.textContent = val.trim() || 'Sayın Davetlimiz';
+            }
+        }
+
+        function triggerSimRsvp(status) {
+            const badge = document.getElementById('simStatusBadge');
+            const statusText = document.getElementById('simStatusText');
+            const toast = document.getElementById('simToast');
+
+            if (status === 'confirmed') {
+                badge.className = 'sim-status-badge confirmed';
+                badge.querySelector('.material-icons-round').textContent = 'check_circle';
+                statusText.textContent = 'Katılacağınızı Bildirdiniz ✨';
+                toast.textContent = '✨ Katılım teyidiniz iletildi! (Host bildirim aldı)';
+                toast.style.color = '#3A8558';
+                toast.classList.add('show');
+            } else {
+                badge.className = 'sim-status-badge declined';
+                badge.querySelector('.material-icons-round').textContent = 'cancel';
+                statusText.textContent = 'Katılamayacağınızı Bildirdiniz';
+                toast.textContent = '🌸 Yanıtınız iletildi. Aramızda olamayacağınız için üzgünüz.';
+                toast.style.color = '#B84C4C';
+                toast.classList.add('show');
+            }
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3500);
+        }
+
+        // 2. Timeline Node Selector Handler
+        function selectTimelineNode(element, time, title, assignee, desc, music) {
+            document.querySelectorAll('.timeline-node').forEach(node => node.classList.remove('active'));
+            element.classList.add('active');
+
+            const card = document.getElementById('timelineDetailCard');
+            if (card) {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(8px)';
+                setTimeout(() => {
+                    document.getElementById('tlTime').textContent = time;
+                    document.getElementById('tlTitle').textContent = title;
+                    document.getElementById('tlAssignee').textContent = assignee;
+                    document.getElementById('tlDesc').textContent = desc;
+                    document.getElementById('tlMusic').textContent = music;
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 150);
+            }
+        }
+
+        // 3. Surprise Guard View Toggle Handler
+        function setSurpriseView(role) {
+            const btnBride = document.getElementById('btnViewGelin');
+            const btnBridesmaid = document.getElementById('btnViewNedime');
+            const badge = document.getElementById('surpriseViewBadge');
+            const title = document.getElementById('surpriseViewTitle');
+            const desc = document.getElementById('surpriseViewDesc');
+            const chips = document.getElementById('surpriseViewChips');
+            const box = document.getElementById('surpriseContentBox');
+
+            if (role === 'bride') {
+                btnBride.classList.add('active');
+                btnBridesmaid.classList.remove('active');
+                badge.className = 'surprise-status-badge locked';
+                badge.textContent = '🛡️ Gelin Koruması Aktif — Bu Paket Sizden Gizlendi';
+                title.textContent = '🔒 Sürpriz Bride-to-Be Partisi (Kilitli)';
+                desc.textContent = 'Bu organizasyonun bütçesi, mekanı ve sürpriz detayları gelin koruması algoritması ile gizlenmiştir. Geline hiçbir bildirim gitmez.';
+                chips.innerHTML = '<span class="chip">Mekan: 🔒 Saklı</span><span class="chip">Bütçe: 🔒 Saklı</span><span class="chip">Hediye Listesi: 🔒 Saklı</span>';
+                box.classList.add('bride-blurred');
+            } else {
+                btnBridesmaid.classList.add('active');
+                btnBride.classList.remove('active');
+                badge.className = 'surprise-status-badge unlocked';
+                badge.textContent = '👭 Nedime Görünümü — Tam Planlama Erişimi';
+                title.textContent = '🥳 Bride-to-Be Beach & Spa Partisi';
+                desc.textContent = 'Mekan rezervasyonu yapıldı. Toplam Bütçe: 12.500 ₺. Nedimeler arasında 3 eşit taksitle bölündü. Sürpriz hediye seti hazırlandı!';
+                chips.innerHTML = '<span class="chip active">Mekan: Bodrum Beach Resort</span><span class="chip active">Bütçe: 12.500 ₺</span><span class="chip active">3 Nedime Atandı</span>';
+                box.classList.remove('bride-blurred');
+            }
+        }
     </script>
 </body>
 </html>
