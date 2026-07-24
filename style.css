@@ -1563,7 +1563,7 @@ label,
 .flip-card {
     background-color: transparent;
     width: 100%;
-    height: 500px;
+    height: 480px;
     perspective: 1500px;
     cursor: pointer;
     outline: none;
@@ -1591,7 +1591,8 @@ label,
 /* Pause wobble animation on hover, focus, or when card is flipped */
 .flip-card:hover .flip-card-wobble,
 .flip-card:focus-within .flip-card-wobble,
-.flip-card.flipped .flip-card-wobble {
+.flip-card.flipped .flip-card-wobble,
+.flip-card.scroll-teased .flip-card-wobble {
     animation-play-state: paused;
 }
 
@@ -1612,8 +1613,9 @@ label,
     will-change: transform;
 }
 
-/* Flip state */
-.flip-card.flipped .flip-card-inner {
+/* Flip state & Scroll Tease state */
+.flip-card.flipped .flip-card-inner,
+.flip-card.scroll-teased .flip-card-inner {
     transform: rotateY(180deg);
 }
 
@@ -1625,8 +1627,9 @@ label,
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: var(--radius-lg);
-    padding: 20px 20px;
+    padding: 18px 20px;
     box-sizing: border-box;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

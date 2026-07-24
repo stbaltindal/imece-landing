@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=15.0">
+    <link rel="stylesheet" href="style.css?v=16.0">
 </head>
 <body>
 
@@ -3620,26 +3620,45 @@
             if (wrapper) wrapper.scrollTop = 0;
         }
 
-        // 8 Kriz & Çözüm Cards Scroll Pipeline Observer
+        // 8 Kriz & Çözüm Cards Scroll Tease Pipeline (Scrolls down -> teases solution -> resets to Front Sorun)
         function initCardsScrollPipeline() {
             const cards = document.querySelectorAll('#neden-imece .flip-card');
             if (!cards.length) return;
 
             const observerOptions = {
-                root: null, // Natural main window scroll canvas
+                root: null,
                 rootMargin: '-15% 0px -15% 0px',
-                threshold: 0.3
+                threshold: 0.35
             };
 
             const cardObserver = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
+                    const card = entry.target;
+                    // If user manually clicked it, don't override manual user interaction
+                    if (card.dataset.userClicked === 'true') return;
+
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('flipped');
+                        // Tease flip to solution briefly, then smoothly return to front (Sorun)
+                        card.classList.add('scroll-teased');
+                        setTimeout(() => {
+                            if (card.dataset.userClicked !== 'true') {
+                                card.classList.remove('scroll-teased');
+                            }
+                        }, 1800);
+                    } else {
+                        card.classList.remove('scroll-teased');
                     }
                 });
             }, observerOptions);
 
-            cards.forEach((card) => cardObserver.observe(card));
+            cards.forEach((card) => {
+                cardObserver.observe(card);
+                card.addEventListener('click', () => {
+                    card.dataset.userClicked = 'true';
+                    card.classList.remove('scroll-teased');
+                    card.classList.toggle('flipped');
+                });
+            });
         }
 
         document.addEventListener('DOMContentLoaded', () => {
