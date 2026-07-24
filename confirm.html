@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hesap onayı — İmece Düğün">
+    <title>Hesap Onayı — İmece Düğün</title>
+
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Material+Icons+Round&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-champagne: #FAF7F2;
+            --text-main: #1C1917;
+            --text-muted: #57534E;
+            --text-light: #8C857B;
+            --gold: #B8860B;
+            --gold-accent: #D4AF37;
+            --gold-light: #F9F3EA;
+            --gold-border: rgba(212, 175, 55, 0.35);
+            --green: #2E6F40;
+            --green-light: #EBF5EE;
+            --red: #A83838;
+            --red-light: #FDF2F2;
+            --gray: #78716C;
+            --gray-light: #F5F5F4;
+            --radius-lg: 24px;
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Playfair Display', 'Cormorant Garamond', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-champagne);
+            background-image:
+                radial-gradient(circle at 50% 0%, #F3E8DC 0%, transparent 65%),
+                radial-gradient(circle at 50% 100%, #F3E8DC 0%, transparent 65%);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
+
+        .confirm-card {
+            background-color: #FFFFFF;
+            border-radius: var(--radius-lg);
+            padding: 48px 36px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow:
+                0 20px 60px rgba(28, 25, 23, 0.06),
+                0 2px 10px rgba(184, 134, 11, 0.08);
+            border: 1px solid var(--gold-border);
+            position: relative;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Inner decorative gold border */
+        .confirm-card::before {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border: 1px dashed var(--gold-border);
+            border-radius: calc(var(--radius-lg) - 8px);
+            pointer-events: none;
+        }
+
+        @keyframes cardEntrance {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .emblem-wrapper {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light) 0%, #F3E7D5 100%);
+            border: 1px solid var(--gold-border);
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.12);
+        }
+
+        .emblem-wrapper.success {
+            background: linear-gradient(135deg, var(--green-light) 0%, #DCEEE1 100%);
+            border-color: rgba(46, 111, 64, 0.25);
+        }
+
+        .emblem-wrapper.warn {
+            background: linear-gradient(135deg, var(--red-light) 0%, #F8E3E3 100%);
+            border-color: rgba(168, 56, 56, 0.25);
+        }
+
+        .emblem-wrapper span {
+            color: var(--gold);
+            font-size: 2.2rem;
+        }
+
+        .emblem-wrapper.success span {
+            color: var(--green);
+        }
+
+        .emblem-wrapper.warn span {
+            color: var(--red);
+        }
+
+        .status-prefix {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--gold);
+            margin-bottom: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .status-title {
+            font-family: var(--font-heading);
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin: 0 0 12px;
+            color: var(--text-main);
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
+
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 12px 0 18px;
+        }
+
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            height: 1px;
+            width: 44px;
+            background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+        }
+
+        .divider-ornament span {
+            color: var(--gold);
+            font-size: 0.85rem;
+        }
+
+        .status-message {
+            font-size: 0.94rem;
+            line-height: 1.65;
+            color: var(--text-muted);
+            margin: 0 0 8px;
+        }
+
+        .status-hint {
+            font-size: 0.86rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin: 0 0 24px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            margin: 20px auto 20px;
+            border: 3px solid var(--gold-light);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .footer-branding {
+            margin-top: 32px;
+            padding-top: 18px;
+            border-top: 1px solid #F0ECE6;
+            font-size: 0.78rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .footer-branding strong {
+            color: var(--gold);
+        }
+
+        @media (max-width: 480px) {
+            .confirm-card {
+                padding: 38px 24px;
+            }
+            .status-title {
+                font-size: 1.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confirm-card" id="confirmCard">
+
+        <!-- Loading State -->
+        <div id="stateLoading">
+            <div class="spinner"></div>
+            <p style="font-size: 0.9rem; color: var(--text-light);">Bağlantı kontrol ediliyor...</p>
+        </div>
+
+        <!-- Success State -->
+        <div id="stateSuccess" class="hidden">
+            <div class="emblem-wrapper success">
+                <span class="material-icons-round">favorite</span>
+            </div>
+            <div class="status-prefix">Hoş geldin</div>
+            <h1 class="status-title">Hesabın onaylandı 🎉</h1>
+            <div class="divider-ornament"><span>✦</span></div>
+            <p class="status-message">Uygulamaya dönüp giriş yapabilirsin.</p>
+        </div>
+
+        <!-- Expired Link State -->
+        <div id="stateExpired" class="hidden">
+            <div class="emblem-wrapper warn">
+                <span class="material-icons-round">schedule</span>
+            </div>
+            <div class="status-prefix">Süre Doldu</div>
+            <h1 class="status-title">Bu onay bağlantısının süresi dolmuş.</h1>
+            <div class="divider-ornament"><span>✦</span></div>
+            <p class="status-message">Uygulamayı açıp giriş ekranından yeni bir onay e-postası isteyebilirsin.</p>
+        </div>
+
+        <!-- Generic Invalid State -->
+        <div id="stateInvalid" class="hidden">
+            <div class="emblem-wrapper warn">
+                <span class="material-icons-round">link_off</span>
+            </div>
+            <div class="status-prefix">Bağlantı Geçersiz</div>
+            <h1 class="status-title">Bu bağlantı kullanılamıyor.</h1>
+            <div class="divider-ornament"><span>✦</span></div>
+            <p class="status-message">Uygulamayı açıp giriş ekranından yeniden deneyebilirsin.</p>
+        </div>
+
+        <div class="footer-branding">
+            <span>Hesap Onayı</span>
+            <strong>• İmece Düğün</strong>
+        </div>
+    </div>
+
+    <script>
+        function parseParams() {
+            // Supabase, onay sonucunu bazen URL query'sinde (?...), bazen
+            // hash fragment'ında (#...) döner -- ikisini de birleştirip okuyoruz.
+            const search = new URLSearchParams(window.location.search);
+            const hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+            const get = (key) => search.get(key) || hash.get(key);
+            return {
+                error: get('error'),
+                errorCode: get('error_code'),
+                errorDescription: get('error_description'),
+                accessToken: get('access_token'),
+            };
+        }
+
+        function showState(name) {
+            ['stateLoading', 'stateSuccess', 'stateExpired', 'stateInvalid'].forEach((id) => {
+                document.getElementById(id).classList.toggle('hidden', id !== name);
+            });
+        }
+
+        function isExpiredError(params) {
+            const code = (params.errorCode || '').toLowerCase();
+            const description = (params.errorDescription || '').toLowerCase();
+            return code === 'otp_expired' || description.includes('expired');
+        }
+
+        function render() {
+            const params = parseParams();
+
+            if (params.error) {
+                showState(isExpiredError(params) ? 'stateExpired' : 'stateInvalid');
+                return;
+            }
+
+            // Hata yok: ya başarılı onay (access_token mevcut) ya da
+            // Supabase hiçbir hata parametresi göndermeden geldi -- her iki
+            // durumda da onay başarılı sayılır.
+            showState('stateSuccess');
+        }
+
+        render();
+    </script>
+</body>
+</html>

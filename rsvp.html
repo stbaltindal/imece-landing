@@ -175,6 +175,18 @@
             color: var(--gold);
         }
 
+        .event-date-row + .event-date-row {
+            margin-top: 8px;
+        }
+
+        .couple-names {
+            font-family: var(--font-heading);
+            font-style: italic;
+            color: var(--gold);
+            font-size: 0.95rem;
+            margin: 0 0 8px;
+        }
+
         .party-chip {
             display: inline-flex;
             align-items: center;
@@ -283,6 +295,63 @@
             transform: translateY(-2px);
         }
 
+        /* Meal Preference */
+        .meal-pref-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #F0ECE6;
+            text-align: center;
+        }
+
+        .meal-pref-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin: 0 0 12px;
+        }
+
+        .meal-pref-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .meal-pref-btn {
+            padding: 10px 12px;
+            font-size: 0.84rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            color: var(--text-muted);
+            background-color: var(--gray-light);
+            border: 1.5px solid #E7E5E4;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .meal-pref-btn .material-icons-round {
+            font-size: 1rem;
+        }
+
+        .meal-pref-btn:hover:not(:disabled) {
+            border-color: var(--gold-border);
+        }
+
+        .meal-pref-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .meal-pref-btn.selected {
+            background-color: var(--green-light);
+            color: var(--green);
+            border-color: rgba(46, 111, 64, 0.3);
+        }
+
         /* Toast Feedback */
         .thanks-msg {
             font-size: 0.92rem;
@@ -297,6 +366,167 @@
         .thanks-msg.show {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Shared Wedding-Day Timeline */
+        .timeline-section {
+            margin: 4px 0 22px;
+            text-align: left;
+        }
+
+        .timeline-title {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
+            margin: 0 0 16px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 4px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 26px;
+            padding-bottom: 18px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 0 3px var(--gold-light);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 16px;
+            bottom: -2px;
+            width: 1px;
+            background: linear-gradient(180deg, var(--gold-border), transparent);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-time {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.02em;
+            margin-bottom: 2px;
+        }
+
+        .timeline-item-title {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .timeline-location {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .timeline-location .material-icons-round {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Web app invite (bottom of page) */
+        .web-invite {
+            margin-top: 18px;
+            padding: 16px 18px;
+            text-align: center;
+            background-color: var(--gold-light);
+            border: 1px solid var(--gold-border);
+            border-radius: 14px;
+        }
+
+        .web-invite .material-icons-round {
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        .web-invite p {
+            margin: 0 0 6px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .web-invite p strong {
+            color: var(--gold);
+        }
+
+        .web-invite a {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .web-invite a:hover {
+            text-decoration: underline;
+        }
+
+        .app-cta {
+            margin-top: 28px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .app-cta > span {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .app-cta-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .app-cta-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-decoration: none;
+            border: 1px solid var(--gold-border);
+            border-radius: 50px;
+            padding: 6px 14px;
+        }
+
+        .app-cta-links a .material-icons-round {
+            font-size: 1rem;
+        }
+
+        .app-cta-links a:hover {
+            background-color: var(--gold-light);
         }
 
         .footer-branding {
@@ -393,13 +623,26 @@
             <!-- Event Card Container -->
             <div class="event-card-box">
                 <h2 class="event-title" id="eventTitle">—</h2>
+                <div id="coupleNames" class="couple-names hidden"></div>
                 <div class="event-date-row">
                     <span class="material-icons-round">event</span>
                     <span id="eventDate">—</span>
                 </div>
+                <div class="event-date-row hidden" id="venueRow">
+                    <span class="material-icons-round">place</span>
+                    <a id="venueLink" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: underline;"></a>
+                </div>
                 <div>
                     <span class="party-chip hidden" id="partySize"></span>
                 </div>
+            </div>
+
+            <div class="timeline-section hidden" id="timelineSection">
+                <div class="divider-ornament">
+                    <span>✦</span>
+                </div>
+                <h3 class="timeline-title">Düğün Akışı</h3>
+                <div class="timeline" id="timelineList"></div>
             </div>
 
             <p class="invite-message" id="inviteMessage">
@@ -423,17 +666,60 @@
             </div>
 
             <p class="thanks-msg" id="thanksMsg"></p>
+
+            <div class="meal-pref-section hidden" id="mealPrefSection">
+                <p class="meal-pref-label">Yemek tercihiniz</p>
+                <div class="meal-pref-group">
+                    <button class="meal-pref-btn" data-pref="regular" id="mealBtnRegular">
+                        <span class="material-icons-round">restaurant</span>
+                        Normal
+                    </button>
+                    <button class="meal-pref-btn" data-pref="vegetarian" id="mealBtnVegetarian">
+                        <span class="material-icons-round">eco</span>
+                        Vejetaryen
+                    </button>
+                    <button class="meal-pref-btn" data-pref="vegan" id="mealBtnVegan">
+                        <span class="material-icons-round">spa</span>
+                        Vegan
+                    </button>
+                    <button class="meal-pref-btn" data-pref="allergy" id="mealBtnAllergy">
+                        <span class="material-icons-round">warning_amber</span>
+                        Alerjim var
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-cta hidden" id="appCta">
+            <span>İmece Düğün uygulamasını da indirebilirsin</span>
+            <div class="app-cta-links">
+                <a id="appStoreLink" class="hidden" href="" target="_blank" rel="noopener">
+                    <span class="material-icons-round">phone_iphone</span> App Store
+                </a>
+                <a id="playStoreLink" class="hidden" href="" target="_blank" rel="noopener">
+                    <span class="material-icons-round">android</span> Google Play
+                </a>
+            </div>
         </div>
 
         <div class="footer-branding">
             <span>Dijital Davet Yönetimi</span>
             <strong>• İmece Düğün</strong>
         </div>
+
+        <div class="web-invite">
+            <span class="material-icons-round">auto_awesome</span>
+            <p>Bu davetiye <strong>İmece Düğün</strong> ile hazırlandı</p>
+            <a href="https://imecedugun.com" target="_blank" rel="noopener">Sen de etkinliğini kolayca yönet →</a>
+        </div>
     </div>
 
     <script>
         const SUPABASE_URL = 'https://zlpvypxlbkgfkohxenqa.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_ZtXozK5lQQMPauf_2Rr9Tg_0spREdFg';
+
+        const APP_STORE_URL = ''; // TODO: App Store linki hazır olunca doldurulacak
+        const PLAY_STORE_URL = ''; // TODO: Play Store linki hazır olunca doldurulacak
 
         const rpcHeaders = {
             'apikey': SUPABASE_ANON_KEY,
@@ -451,20 +737,53 @@
             loaded: document.getElementById('stateLoaded'),
             guestName: document.getElementById('guestName'),
             eventTitle: document.getElementById('eventTitle'),
+            coupleNames: document.getElementById('coupleNames'),
             eventDate: document.getElementById('eventDate'),
+            venueRow: document.getElementById('venueRow'),
+            venueLink: document.getElementById('venueLink'),
             partySize: document.getElementById('partySize'),
+            timelineSection: document.getElementById('timelineSection'),
+            timelineList: document.getElementById('timelineList'),
             statusBadge: document.getElementById('statusBadge'),
             statusLabel: document.getElementById('statusLabel'),
             confirmBtn: document.getElementById('confirmBtn'),
             declineBtn: document.getElementById('declineBtn'),
             thanksMsg: document.getElementById('thanksMsg'),
-            retryBtn: document.getElementById('retryBtn')
+            retryBtn: document.getElementById('retryBtn'),
+            mealPrefSection: document.getElementById('mealPrefSection'),
+            mealPrefBtns: Array.from(document.querySelectorAll('.meal-pref-btn')),
+            appCta: document.getElementById('appCta'),
+            appStoreLink: document.getElementById('appStoreLink'),
+            playStoreLink: document.getElementById('playStoreLink')
         };
+
+        // Guest data cache (used to sync meal-preference visibility across renders)
+        let currentGuest = null;
 
         function showState(name) {
             ['loading', 'invalid', 'error', 'loaded'].forEach(key => {
                 els[key].classList.toggle('hidden', key !== name);
             });
+        }
+
+        function setupAppCta() {
+            const hasAppStore = !!APP_STORE_URL;
+            const hasPlayStore = !!PLAY_STORE_URL;
+
+            if (!hasAppStore && !hasPlayStore) {
+                els.appCta.classList.add('hidden');
+                return;
+            }
+
+            if (hasAppStore) {
+                els.appStoreLink.href = APP_STORE_URL;
+                els.appStoreLink.classList.remove('hidden');
+            }
+            if (hasPlayStore) {
+                els.playStoreLink.href = PLAY_STORE_URL;
+                els.playStoreLink.classList.remove('hidden');
+            }
+            els.appCta.classList.remove('hidden');
         }
 
         function formatEventDate(isoString) {
@@ -477,6 +796,55 @@
                 year: 'numeric',
                 weekday: 'long'
             });
+        }
+
+        function formatStageTime(isoString) {
+            if (!isoString) return '';
+            const date = new Date(isoString);
+            if (isNaN(date.getTime())) return '';
+            return date.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+        }
+
+        function renderSharedStages(stages) {
+            els.timelineList.innerHTML = '';
+
+            if (!Array.isArray(stages) || stages.length === 0) {
+                els.timelineSection.classList.add('hidden');
+                return;
+            }
+
+            stages.forEach(stage => {
+                const item = document.createElement('div');
+                item.className = 'timeline-item';
+
+                const time = formatStageTime(stage.stage_time);
+                if (time) {
+                    const timeEl = document.createElement('div');
+                    timeEl.className = 'timeline-time';
+                    timeEl.textContent = time;
+                    item.appendChild(timeEl);
+                }
+
+                const titleEl = document.createElement('div');
+                titleEl.className = 'timeline-item-title';
+                titleEl.textContent = stage.title || '';
+                item.appendChild(titleEl);
+
+                if (stage.location) {
+                    const locEl = document.createElement('div');
+                    locEl.className = 'timeline-location';
+                    const icon = document.createElement('span');
+                    icon.className = 'material-icons-round';
+                    icon.textContent = 'place';
+                    locEl.appendChild(icon);
+                    locEl.appendChild(document.createTextNode(stage.location));
+                    item.appendChild(locEl);
+                }
+
+                els.timelineList.appendChild(item);
+            });
+
+            els.timelineSection.classList.remove('hidden');
         }
 
         const STATUS_CONFIG = {
@@ -492,15 +860,52 @@
             els.statusBadge.querySelector('.material-icons-round').textContent = config.icon;
         }
 
+        function renderMealPrefSection(guest, status) {
+            const shouldShow = guest.has_dinner === true && status === 'confirmed';
+            els.mealPrefSection.classList.toggle('hidden', !shouldShow);
+
+            if (!shouldShow) return;
+
+            els.mealPrefBtns.forEach(btn => {
+                btn.classList.toggle('selected', btn.dataset.pref === guest.meal_preference);
+            });
+        }
+
         function renderGuest(guest) {
+            currentGuest = guest;
+
             els.guestName.textContent = guest.guest_name || 'Değerli Davetlimiz';
-            
+
             // Event title
             const eventTitleText = guest.event_title || 'Düğün Organizasyonu';
             els.eventTitle.textContent = eventTitleText;
 
+            // Couple names (personalized subtitle)
+            if (guest.bride_name && guest.groom_name) {
+                els.coupleNames.textContent = `${guest.bride_name} & ${guest.groom_name}`;
+                els.coupleNames.classList.remove('hidden');
+            } else {
+                els.coupleNames.textContent = '';
+                els.coupleNames.classList.add('hidden');
+            }
+
             // Event Date
             els.eventDate.textContent = formatEventDate(guest.event_date) || 'Tarih Belirtilmedi';
+
+            // Ceremony venue (host's explicit location link wins over a
+            // Maps search built from the venue text -- keeps parity with
+            // the Flutter-side resolveVenueLink logic)
+            if (guest.ceremony_venue || guest.ceremony_location_url) {
+                els.venueLink.textContent = guest.ceremony_venue || 'Konumu Görüntüle';
+                els.venueLink.href = guest.ceremony_location_url
+                    ? guest.ceremony_location_url
+                    : 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(guest.ceremony_venue);
+                els.venueRow.classList.remove('hidden');
+            } else {
+                els.venueLink.textContent = '';
+                els.venueLink.href = '';
+                els.venueRow.classList.add('hidden');
+            }
 
             // Party size
             if (guest.party_size && guest.party_size > 1) {
@@ -511,7 +916,11 @@
                 els.partySize.classList.remove('hidden');
             }
 
-            renderStatus(guest.rsvp_status || 'pending');
+            renderSharedStages(guest.shared_stages);
+
+            const status = guest.rsvp_status || 'pending';
+            renderStatus(status);
+            renderMealPrefSection(guest, status);
             showState('loaded');
         }
 
@@ -568,6 +977,10 @@
 
                 if (success) {
                     renderStatus(status);
+                    if (currentGuest) {
+                        currentGuest.rsvp_status = status;
+                        renderMealPrefSection(currentGuest, status);
+                    }
                     els.thanksMsg.textContent = status === 'confirmed'
                         ? '✨ Katılım yanıtınız iletildi. Sizi aramızda görmek için sabırsızlanıyoruz!'
                         : '🌸 Yanıtınız iletildi. Aramızda olamayacağınız için üzgünüz.';
@@ -590,10 +1003,43 @@
             }
         }
 
+        async function updateMealPreference(preference) {
+            if (!token) return;
+
+            els.mealPrefBtns.forEach(btn => { btn.disabled = true; });
+
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/update_guest_meal_preference_by_token`, {
+                    method: 'POST',
+                    headers: rpcHeaders,
+                    body: JSON.stringify({ p_token: token, p_preference: preference })
+                });
+
+                const success = response.ok && (await response.json()) === true;
+
+                if (success) {
+                    if (currentGuest) currentGuest.meal_preference = preference;
+                    els.mealPrefBtns.forEach(btn => {
+                        btn.classList.toggle('selected', btn.dataset.pref === preference);
+                    });
+                } else {
+                    console.error('Meal preference update failed:', response.status);
+                }
+            } catch (err) {
+                console.error('Meal preference update exception:', err);
+            } finally {
+                els.mealPrefBtns.forEach(btn => { btn.disabled = false; });
+            }
+        }
+
         els.confirmBtn.addEventListener('click', () => updateRsvp('confirmed'));
         els.declineBtn.addEventListener('click', () => updateRsvp('declined'));
         els.retryBtn.addEventListener('click', loadGuestStatus);
+        els.mealPrefBtns.forEach(btn => {
+            btn.addEventListener('click', () => updateMealPreference(btn.dataset.pref));
+        });
 
+        setupAppCta();
         loadGuestStatus();
     </script>
 </body>
