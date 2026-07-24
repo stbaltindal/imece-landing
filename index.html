@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=12.0">
+    <link rel="stylesheet" href="style.css?v=13.0">
 </head>
 <body>
 
@@ -635,8 +635,7 @@
                                 <div class="sheet-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--surface); border-top-left-radius: 14px; border-top-right-radius: 14px; box-shadow: 0 -3px 15px rgba(0,0,0,0.06); padding: 12px; border-top: 1px solid var(--border-color); text-align: center; transform: translateY(105%); z-index: 100;">
                                     <div style="width: 25px; height: 3px; background: var(--border-color); border-radius: 2px; margin: 0 auto 8px auto;"></div>
                                     <strong style="font-size: 12px; color: var(--text-main); display: block; margin-bottom: 2px;">Mert ortak yönetici olarak eklendi</strong>
-                                    <p style="font-size: 9px; color: var(--text-light); margin: 0 0 8px 0;">Eşinizle birlikte aynı yetkilerle hazırlıkları yönetin.</p>
-                                    <div style="background: var(--bg-cream); border: 1px dashed var(--gold); padding: 6px; border-radius: 4px; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">DN-MERT-984</div>
+                        <div style="background: var(--bg-cream); border: 1px dashed var(--gold); padding: 6px; border-radius: 4px; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">DN-MERT-984</div>
                                     <div style="background: var(--gold); color: white; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; cursor: pointer;">Kodu Kopyala</div>
                                 </div> <!-- Closes .sheet-container -->
                             </div> <!-- Closes #cohostBottomSheetMobile -->
@@ -649,47 +648,40 @@
         </div> <!-- Closes .story-container -->
     </section>
 
-        <!-- Master Showcase: 4 Adımda Canlı İmece Deneyimi (Scroll-Driven Sticky Section) -->
-        <section id="master-showcase" class="master-showcase-sticky-section">
-            <div class="sticky-showcase-inner container">
+        <!-- Master Showcase: 4 Adımda Canlı İmece Deneyimi (Tıklamalı Lüks Sekme Paneli) -->
+        <section id="master-showcase" class="master-showcase-section">
+            <div class="container">
                 <div class="section-header">
                     <span class="section-tag gold">4 Adımda Canlı İmece Deneyimi</span>
-                    <h2>Siz Kaydırdıkça İlerleyen Canlı Çözüm Paneli</h2>
-                    <p class="section-subtitle">Aşağıya kaydırdıkça sekmeler sırayla açılır ve İmece'nin 4 büyük gücünü canlı test ettirir.</p>
+                    <h2>Tıklayarak Keşfedin: 4 Büyük Çözüm Paneli</h2>
+                    <p class="section-subtitle">Aşağıdaki parıldayan sekmelere tıklayarak canlı simülasyon ve özel asistanlarımızı test edin.</p>
                 </div>
 
                 <!-- Stepper Tab Navigation Bar -->
                 <div class="showcase-tabs-nav" id="showcaseNav">
-                    <button class="showcase-tab active" id="tabBtn1" onclick="scrollToShowcaseStep(1)">
+                    <button class="showcase-tab active" id="tabBtn1" onclick="switchShowcaseTab(1)">
                         <div class="showcase-tab-progress" id="tabProgress1"></div>
                         <span class="tab-num">01</span>
                         <span class="material-icons-round tab-icon">view_carousel</span>
                         <span class="tab-label">8 Kriz & Çözüm</span>
                     </button>
-                    <button class="showcase-tab" id="tabBtn2" onclick="scrollToShowcaseStep(2)">
+                    <button class="showcase-tab" id="tabBtn2" onclick="switchShowcaseTab(2)">
                         <div class="showcase-tab-progress" id="tabProgress2"></div>
                         <span class="tab-num">02</span>
                         <span class="material-icons-round tab-icon">edit_note</span>
                         <span class="tab-label">Canlı Davetiye</span>
                     </button>
-                    <button class="showcase-tab" id="tabBtn3" onclick="scrollToShowcaseStep(3)">
+                    <button class="showcase-tab" id="tabBtn3" onclick="switchShowcaseTab(3)">
                         <div class="showcase-tab-progress" id="tabProgress3"></div>
                         <span class="tab-num">03</span>
                         <span class="material-icons-round tab-icon">verified_user</span>
                         <span class="tab-label">4 Özel Asistan</span>
                     </button>
-                    <button class="showcase-tab" id="tabBtn4" onclick="scrollToShowcaseStep(4)">
+                    <button class="showcase-tab" id="tabBtn4" onclick="switchShowcaseTab(4)">
                         <div class="showcase-tab-progress" id="tabProgress4"></div>
                         <span class="tab-num">04</span>
                         <span class="material-icons-round tab-icon">sell</span>
                         <span class="tab-label">Lüks Paketler</span>
-                </div>
-
-                <!-- Floating Premium Pipeline Indicator Button -->
-                <div class="showcase-pipeline-btn-wrap" id="pipelineWrap">
-                    <button class="showcase-pipeline-btn" id="pipelineBtn" onclick="advanceToNextShowcaseStep()">
-                        <span id="pipelineBtnText">Sonraki Aşama: 02 Canlı Davetiye Simülatörü</span>
-                        <span class="material-icons-round pipeline-icon">arrow_downward</span>
                     </button>
                 </div>
 
@@ -3605,55 +3597,12 @@
         let currentScrollStep = 1;
         let pipelineIdleTimer = null;
 
-        function handleShowcaseScroll() {
-            const section = document.getElementById('master-showcase');
-            const btnWrap = document.getElementById('pipelineWrap');
-            if (!section) return;
-
-            const rect = section.getBoundingClientRect();
-            const sectionHeight = section.offsetHeight - window.innerHeight;
-
-            // Toggle floating pipeline button visibility when showcase section is on screen
-            if (btnWrap) {
-                if (rect.top <= window.innerHeight && rect.bottom >= 100) {
-                    btnWrap.style.opacity = '1';
-                    btnWrap.style.pointerEvents = 'auto';
-                } else {
-                    btnWrap.style.opacity = '0';
-                    btnWrap.style.pointerEvents = 'none';
-                }
-            }
-
-            if (sectionHeight <= 0) return;
-
-            // Calculate percentage scrolled within the section (0 to 1)
-            const scrolledRatio = Math.max(0, Math.min(1, -rect.top / sectionHeight));
-
-            let targetStep = 1;
-            if (scrolledRatio < 0.25) targetStep = 1;
-            else if (scrolledRatio < 0.50) targetStep = 2;
-            else if (scrolledRatio < 0.75) targetStep = 3;
-            else targetStep = 4;
-
-            const stepProgress = ((scrolledRatio % 0.25) / 0.25) * 100;
-            
-            if (targetStep !== currentScrollStep) {
-                setScrollStep(targetStep);
-            }
-
-            const activeProg = document.getElementById('tabProgress' + targetStep);
-            if (activeProg) activeProg.style.width = Math.min(100, Math.max(0, stepProgress)) + '%';
-            resetShowcaseIdleTimer();
-        }
-
-        function setScrollStep(step) {
-            currentScrollStep = step;
+        // 4. Master Showcase Tab Switcher Logic
+        function switchShowcaseTab(step) {
             for (let i = 1; i <= 4; i++) {
                 const btn = document.getElementById('tabBtn' + i);
-                const prog = document.getElementById('tabProgress' + i);
                 const panel = document.getElementById('showcasePanel' + i);
                 if (btn) btn.classList.remove('active');
-                if (prog && i !== step) prog.style.width = '0%';
                 if (panel) {
                     panel.classList.remove('active');
                     panel.style.display = 'none';
@@ -3669,52 +3618,33 @@
                 setTimeout(() => activePanel.classList.add('active'), 20);
             }
             if (wrapper) wrapper.scrollTop = 0;
-            updatePipelineButton(step);
         }
 
-        function updatePipelineButton(step) {
-            const btnText = document.getElementById('pipelineBtnText');
-            if (!btnText) return;
+        // 8 Kriz & Çözüm Cards Scroll Pipeline Observer
+        function initCardsScrollPipeline() {
+            const cards = document.querySelectorAll('#neden-imece .flip-card');
+            if (!cards.length) return;
 
-            const stepTitles = {
-                1: 'Aşama 02: Canlı Davetiye Simülatörü ↓',
-                2: 'Aşama 03: 4 Özel Asistan ↓',
-                3: 'Aşama 04: Lüks Paketler ↓',
-                4: 'Süreç Tamamlandı (Başa Dön ↑)'
+            const observerOptions = {
+                root: document.querySelector('.showcase-panels-wrapper'),
+                rootMargin: '-10% 0px -10% 0px',
+                threshold: 0.35
             };
 
-            btnText.textContent = stepTitles[step] || 'Sonraki Aşama ↓';
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('flipped');
+                    }
+                });
+            }, observerOptions);
+
+            cards.forEach((card) => cardObserver.observe(card));
         }
-
-        function advanceToNextShowcaseStep() {
-            const nextStep = currentScrollStep >= 4 ? 1 : currentScrollStep + 1;
-            scrollToShowcaseStep(nextStep);
-        }
-
-        function scrollToShowcaseStep(step) {
-            const section = document.getElementById('master-showcase');
-            if (!section) return;
-            const sectionHeight = section.offsetHeight - window.innerHeight;
-            const targetRatio = (step - 1) * 0.25 + 0.02;
-            const targetY = section.offsetTop + targetRatio * sectionHeight;
-            window.scrollTo({ top: targetY, behavior: 'smooth' });
-        }
-
-        function resetShowcaseIdleTimer() {
-            const btn = document.getElementById('pipelineBtn');
-            if (btn) btn.classList.remove('idle-pulse');
-            if (pipelineIdleTimer) clearTimeout(pipelineIdleTimer);
-
-            pipelineIdleTimer = setTimeout(() => {
-                const btn = document.getElementById('pipelineBtn');
-                if (btn) btn.classList.add('idle-pulse');
-            }, 3500); // 3.5 seconds idle prompt
-        }
-
-        window.addEventListener('scroll', handleShowcaseScroll, { passive: true });
 
         document.addEventListener('DOMContentLoaded', () => {
-            setScrollStep(1);
+            switchShowcaseTab(1);
+            setTimeout(initCardsScrollPipeline, 300);
         });
     </script>
 </body>

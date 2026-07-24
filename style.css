@@ -5423,40 +5423,21 @@ body.dark-active .app-header-mini {
     padding-bottom: 20px;
 }
 
-/* Floating Premium Pipeline Indicator (Fixed Viewport Position) */
-.showcase-pipeline-btn-wrap {
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    z-index: 9999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+/* Premium Tab Shimmer Pulse for Inactive Showcase Tabs */
+.showcase-tab:not(.active) {
+    animation: tab-gold-shimmer 3.5s infinite ease-in-out;
+    border-color: rgba(201, 162, 39, 0.3) !important;
 }
 
-.showcase-pipeline-btn {
-    background: rgba(24, 18, 18, 0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1.5px solid var(--gold);
-    border-radius: 30px;
-    padding: 12px 22px;
-    color: #ffffff;
-    font-size: 0.85rem;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(201, 162, 39, 0.3);
-    transition: all 0.3s ease;
-}
-
-.showcase-pipeline-btn:hover {
-    background: linear-gradient(135deg, var(--gold) 0%, #B8860B 100%);
-    color: #000000;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(201, 162, 39, 0.6);
+@keyframes tab-gold-shimmer {
+    0%, 100% {
+        box-shadow: 0 0 6px rgba(201, 162, 39, 0.15);
+        border-color: rgba(201, 162, 39, 0.25);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(201, 162, 39, 0.5), inset 0 0 12px rgba(201, 162, 39, 0.2);
+        border-color: rgba(201, 162, 39, 0.7);
+    }
 }
 
 .showcase-pipeline-btn.idle-pulse {
