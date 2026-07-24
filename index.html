@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=16.0">
+    <link rel="stylesheet" href="style.css?v=17.0">
 </head>
 <body>
 
@@ -2101,9 +2101,20 @@
                     </div>
                 </div>
             </div>
-        </section>
     </div> <!-- Closes #showcasePanel4 -->
 </div> <!-- Closes .showcase-panels-wrapper -->
+
+                <!-- Showcase Next Step Guided Tour Bar -->
+                <div class="showcase-next-step-bar" id="showcaseNextStepBar">
+                    <div class="next-step-info">
+                        <span class="step-indicator-badge" id="stepBadge">Adım 1 / 4</span>
+                        <span class="step-guide-text" id="stepGuideText">Gelin ve damatların en çok zorlandığı 8 ana kriz ve İmece çözümleri.</span>
+                    </div>
+                    <button class="showcase-next-step-btn" id="nextStepBtn" onclick="advanceShowcaseGuidedTour()">
+                        <span id="nextStepBtnLabel">Sonraki Aşama: 02 Canlı Davetiye Simülatörü</span>
+                        <span class="material-icons-round btn-arrow-icon">arrow_forward</span>
+                    </button>
+                </div>
 </div> <!-- Closes #master-showcase .container -->
 </section> <!-- Closes #master-showcase -->
 
@@ -3593,12 +3604,38 @@
             }
         }
 
-        // 4. Master Showcase Scroll-Driven Sticky Logic & Pipeline Indicator
-        let currentScrollStep = 1;
-        let pipelineIdleTimer = null;
+        // 4. Master Showcase Tab & Guided Tour Logic
+        let currentShowcaseStep = 1;
 
-        // 4. Master Showcase Tab Switcher Logic
+        const showcaseStepConfig = {
+            1: {
+                badge: 'Adım 1 / 4',
+                guide: 'Gelin ve damatların en çok zorlandığı 8 ana kriz ve İmece çözümleri.',
+                nextBtnLabel: 'Sonraki Aşama: 02 Canlı Davetiye Simülatörü',
+                nextStep: 2
+            },
+            2: {
+                badge: 'Adım 2 / 4',
+                guide: 'Katılım teyitlerini ve diyet tercihlerini iPhone üzerinde canlı test edin.',
+                nextBtnLabel: 'Sonraki Aşama: 03 Düğün Günü Asistanları',
+                nextStep: 3
+            },
+            3: {
+                badge: 'Adım 3 / 4',
+                guide: 'DJ Müzik, Garson PDF, Canlı Harita ve Host Onayı özel asistanları.',
+                nextBtnLabel: 'Sonraki Aşama: 04 Lüks Paketler & Fiyatlar',
+                nextStep: 4
+            },
+            4: {
+                badge: 'Adım 4 / 4',
+                guide: 'Düğününüz için en uygun lansman paketini seçin veya hesaplayın.',
+                nextBtnLabel: 'Süreç Başından Tekrar Başlat ↺',
+                nextStep: 1
+            }
+        };
+
         function switchShowcaseTab(step) {
+            currentShowcaseStep = step;
             for (let i = 1; i <= 4; i++) {
                 const btn = document.getElementById('tabBtn' + i);
                 const panel = document.getElementById('showcasePanel' + i);
@@ -3610,14 +3647,34 @@
             }
             const activeBtn = document.getElementById('tabBtn' + step);
             const activePanel = document.getElementById('showcasePanel' + step);
-            const wrapper = document.querySelector('.showcase-panels-wrapper');
 
             if (activeBtn) activeBtn.classList.add('active');
             if (activePanel) {
                 activePanel.style.display = 'block';
                 setTimeout(() => activePanel.classList.add('active'), 20);
             }
-            if (wrapper) wrapper.scrollTop = 0;
+
+            // Update Guided Tour Bar UI
+            const cfg = showcaseStepConfig[step];
+            if (cfg) {
+                const badge = document.getElementById('stepBadge');
+                const guide = document.getElementById('stepGuideText');
+                const btnLabel = document.getElementById('nextStepBtnLabel');
+                if (badge) badge.textContent = cfg.badge;
+                if (guide) guide.textContent = cfg.guide;
+                if (btnLabel) btnLabel.textContent = cfg.nextBtnLabel;
+            }
+        }
+
+        function advanceShowcaseGuidedTour() {
+            const cfg = showcaseStepConfig[currentShowcaseStep];
+            const targetStep = cfg ? cfg.nextStep : 1;
+            switchShowcaseTab(targetStep);
+
+            const section = document.getElementById('master-showcase');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         // 8 Kriz & Çözüm Cards Scroll Tease Pipeline (Scrolls down -> teases solution -> resets to Front Sorun)

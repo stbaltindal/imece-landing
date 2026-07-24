@@ -5589,6 +5589,86 @@ body.dark-active .app-header-mini {
     transform: translateY(0);
 }
 
+/* Showcase Guided Tour Next Step Bar */
+.showcase-next-step-bar {
+    margin-top: 36px;
+    background: rgba(24, 18, 18, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(201, 162, 39, 0.3);
+    border-radius: 20px;
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.next-step-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.step-indicator-badge {
+    background: rgba(201, 162, 39, 0.2);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.step-guide-text {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.showcase-next-step-btn {
+    background: linear-gradient(135deg, var(--gold) 0%, #B8860B 100%);
+    color: #000000;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(201, 162, 39, 0.35);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.showcase-next-step-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(201, 162, 39, 0.6);
+    background: linear-gradient(135deg, #F0E68C 0%, var(--gold) 100%);
+}
+
+@media (max-width: 768px) {
+    .showcase-next-step-bar {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 18px 18px;
+    }
+    .next-step-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .showcase-next-step-btn {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
 
 
 
