@@ -4477,22 +4477,28 @@ body.dark-active .app-header-mini {
 
 .sim-btn-group {
     display: flex;
-    gap: 8px;
+    gap: 6px;
 }
 
 .sim-btn {
     flex: 1;
+    min-width: 0;
     border: none;
-    padding: 10px;
+    padding: 9px 4px;
     border-radius: 10px;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 3px;
+    white-space: nowrap;
     transition: all 0.2s ease;
+}
+
+.sim-btn span.material-icons-round {
+    font-size: 14px;
 }
 
 .sim-btn.confirm {
