@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=8.5">
+    <link rel="stylesheet" href="style.css?v=9.5">
 </head>
 <body>
 
@@ -649,36 +649,36 @@
         </div> <!-- Closes .story-container -->
     </section>
 
-        <!-- Master Showcase: 4 Adımda Canlı İmece Deneyimi (Tabs & Internal Panel Switcher) -->
-        <section id="master-showcase" class="master-showcase-section">
-            <div class="container">
+        <!-- Master Showcase: 4 Adımda Canlı İmece Deneyimi (Scroll-Driven Sticky Section) -->
+        <section id="master-showcase" class="master-showcase-sticky-section">
+            <div class="sticky-showcase-inner container">
                 <div class="section-header">
                     <span class="section-tag gold">4 Adımda Canlı İmece Deneyimi</span>
-                    <h2>Uygulamanın Gücünü Sayfayı Kaydırmadan Keşfedin</h2>
-                    <p class="section-subtitle">Sekmeler arasında gezinin veya otomatiğe bırakın; 4 büyük çözümümüzü canlı test edin.</p>
+                    <h2>Siz Kaydırdıkça İlerleyen Canlı Çözüm Paneli</h2>
+                    <p class="section-subtitle">Aşağıya kaydırdıkça sekmeler sırayla açılır ve İmece'nin 4 büyük gücünü canlı test ettirir.</p>
                 </div>
 
                 <!-- Stepper Tab Navigation Bar -->
-                <div class="showcase-tabs-nav" id="showcaseNav" onmouseenter="pauseShowcaseTabs()" onmouseleave="resumeShowcaseTabs()">
-                    <button class="showcase-tab active" id="tabBtn1" onclick="switchShowcaseTab(1)">
+                <div class="showcase-tabs-nav" id="showcaseNav">
+                    <button class="showcase-tab active" id="tabBtn1" onclick="scrollToShowcaseStep(1)">
                         <div class="showcase-tab-progress" id="tabProgress1"></div>
                         <span class="tab-num">01</span>
                         <span class="material-icons-round tab-icon">view_carousel</span>
                         <span class="tab-label">8 Kriz & Çözüm</span>
                     </button>
-                    <button class="showcase-tab" id="tabBtn2" onclick="switchShowcaseTab(2)">
+                    <button class="showcase-tab" id="tabBtn2" onclick="scrollToShowcaseStep(2)">
                         <div class="showcase-tab-progress" id="tabProgress2"></div>
                         <span class="tab-num">02</span>
                         <span class="material-icons-round tab-icon">edit_note</span>
                         <span class="tab-label">Canlı Davetiye</span>
                     </button>
-                    <button class="showcase-tab" id="tabBtn3" onclick="switchShowcaseTab(3)">
+                    <button class="showcase-tab" id="tabBtn3" onclick="scrollToShowcaseStep(3)">
                         <div class="showcase-tab-progress" id="tabProgress3"></div>
                         <span class="tab-num">03</span>
                         <span class="material-icons-round tab-icon">verified_user</span>
                         <span class="tab-label">4 Özel Asistan</span>
                     </button>
-                    <button class="showcase-tab" id="tabBtn4" onclick="switchShowcaseTab(4)">
+                    <button class="showcase-tab" id="tabBtn4" onclick="scrollToShowcaseStep(4)">
                         <div class="showcase-tab-progress" id="tabProgress4"></div>
                         <span class="tab-num">04</span>
                         <span class="material-icons-round tab-icon">sell</span>
@@ -3594,56 +3594,71 @@
             }
         }
 
-        // 4. Master Showcase 4-Step Stepper JS Logic (No Page Scroll Jumps)
-        let showcaseCurrentTab = 1;
-        let showcaseTimer = null;
-        let showcaseIsPaused = false;
+        // 4. Master Showcase Scroll-Driven Sticky Logic
+        let currentScrollStep = 1;
 
-        function switchShowcaseTab(step) {
-            showcaseCurrentTab = step;
+        function handleShowcaseScroll() {
+            const section = document.getElementById('master-showcase');
+            if (!section) return;
+
+            const rect = section.getBoundingClientRect();
+            const sectionHeight = section.offsetHeight - window.innerHeight;
+            if (sectionHeight <= 0) return;
+
+            // Calculate percentage scrolled within the section (0 to 1)
+            const scrolledRatio = Math.max(0, Math.min(1, -rect.top / sectionHeight));
+
+            let targetStep = 1;
+            if (scrolledRatio < 0.25) targetStep = 1;
+            else if (scrolledRatio < 0.50) targetStep = 2;
+            else if (scrolledRatio < 0.75) targetStep = 3;
+            else targetStep = 4;
+
+            const stepProgress = ((scrolledRatio % 0.25) / 0.25) * 100;
+            
+            if (targetStep !== currentScrollStep) {
+                setScrollStep(targetStep);
+            }
+
+            const activeProg = document.getElementById('tabProgress' + targetStep);
+            if (activeProg) activeProg.style.width = Math.min(100, Math.max(0, stepProgress)) + '%';
+        }
+
+        function setScrollStep(step) {
+            currentScrollStep = step;
             for (let i = 1; i <= 4; i++) {
                 const btn = document.getElementById('tabBtn' + i);
                 const prog = document.getElementById('tabProgress' + i);
                 const panel = document.getElementById('showcasePanel' + i);
                 if (btn) btn.classList.remove('active');
-                if (prog) prog.style.width = '0%';
+                if (prog && i !== step) prog.style.width = '0%';
                 if (panel) {
                     panel.classList.remove('active');
                     panel.style.display = 'none';
                 }
             }
             const activeBtn = document.getElementById('tabBtn' + step);
-            const activeProg = document.getElementById('tabProgress' + step);
             const activePanel = document.getElementById('showcasePanel' + step);
-
             if (activeBtn) activeBtn.classList.add('active');
-            if (activeProg) activeProg.style.width = '100%';
             if (activePanel) {
                 activePanel.style.display = 'block';
                 setTimeout(() => activePanel.classList.add('active'), 20);
             }
-            resetShowcaseTimer();
         }
 
-        function autoPlayShowcaseTabs() {
-            if (showcaseIsPaused) return;
-            const currentProg = document.getElementById('tabProgress' + showcaseCurrentTab);
-            if (currentProg) currentProg.style.width = '100%';
-
-            showcaseCurrentTab = showcaseCurrentTab >= 4 ? 1 : showcaseCurrentTab + 1;
-            switchShowcaseTab(showcaseCurrentTab);
+        function scrollToShowcaseStep(step) {
+            const section = document.getElementById('master-showcase');
+            if (!section) return;
+            const sectionHeight = section.offsetHeight - window.innerHeight;
+            const targetRatio = (step - 1) * 0.25 + 0.02;
+            const targetY = section.offsetTop + targetRatio * sectionHeight;
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
         }
 
-        function resetShowcaseTimer() {
-            if (showcaseTimer) clearInterval(showcaseTimer);
-            showcaseTimer = setInterval(autoPlayShowcaseTabs, 6000);
-        }
-
-        function pauseShowcaseTabs() { showcaseIsPaused = true; }
-        function resumeShowcaseTabs() { showcaseIsPaused = false; }
+        window.addEventListener('scroll', handleShowcaseScroll, { passive: true });
 
         document.addEventListener('DOMContentLoaded', () => {
-            switchShowcaseTab(1);
+            setScrollStep(1);
         });
     </script>
 </body>
