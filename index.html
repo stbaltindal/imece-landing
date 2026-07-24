@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=9.5">
+    <link rel="stylesheet" href="style.css?v=10.0">
 </head>
 <body>
 
@@ -683,6 +683,13 @@
                         <span class="tab-num">04</span>
                         <span class="material-icons-round tab-icon">sell</span>
                         <span class="tab-label">Lüks Paketler</span>
+                </div>
+
+                <!-- Floating Premium Pipeline Indicator Button -->
+                <div class="showcase-pipeline-btn-wrap" id="pipelineWrap">
+                    <button class="showcase-pipeline-btn" id="pipelineBtn" onclick="advanceToNextShowcaseStep()">
+                        <span id="pipelineBtnText">Sonraki Aşama: 02 Canlı Davetiye Simülatörü</span>
+                        <span class="material-icons-round pipeline-icon">arrow_downward</span>
                     </button>
                 </div>
 
@@ -3594,8 +3601,9 @@
             }
         }
 
-        // 4. Master Showcase Scroll-Driven Sticky Logic
+        // 4. Master Showcase Scroll-Driven Sticky Logic & Pipeline Indicator
         let currentScrollStep = 1;
+        let pipelineIdleTimer = null;
 
         function handleShowcaseScroll() {
             const section = document.getElementById('master-showcase');
@@ -3622,6 +3630,7 @@
 
             const activeProg = document.getElementById('tabProgress' + targetStep);
             if (activeProg) activeProg.style.width = Math.min(100, Math.max(0, stepProgress)) + '%';
+            resetShowcaseIdleTimer();
         }
 
         function setScrollStep(step) {
@@ -3644,6 +3653,26 @@
                 activePanel.style.display = 'block';
                 setTimeout(() => activePanel.classList.add('active'), 20);
             }
+            updatePipelineButton(step);
+        }
+
+        function updatePipelineButton(step) {
+            const btnText = document.getElementById('pipelineBtnText');
+            if (!btnText) return;
+
+            const stepTitles = {
+                1: 'Aşama 02: Canlı Davetiye Simülatörü ↓',
+                2: 'Aşama 03: 4 Özel Asistan ↓',
+                3: 'Aşama 04: Lüks Paketler ↓',
+                4: 'Süreç Tamamlandı (Başa Dön ↑)'
+            };
+
+            btnText.textContent = stepTitles[step] || 'Sonraki Aşama ↓';
+        }
+
+        function advanceToNextShowcaseStep() {
+            const nextStep = currentScrollStep >= 4 ? 1 : currentScrollStep + 1;
+            scrollToShowcaseStep(nextStep);
         }
 
         function scrollToShowcaseStep(step) {
@@ -3653,6 +3682,17 @@
             const targetRatio = (step - 1) * 0.25 + 0.02;
             const targetY = section.offsetTop + targetRatio * sectionHeight;
             window.scrollTo({ top: targetY, behavior: 'smooth' });
+        }
+
+        function resetShowcaseIdleTimer() {
+            const btn = document.getElementById('pipelineBtn');
+            if (btn) btn.classList.remove('idle-pulse');
+            if (pipelineIdleTimer) clearTimeout(pipelineIdleTimer);
+
+            pipelineIdleTimer = setTimeout(() => {
+                const btn = document.getElementById('pipelineBtn');
+                if (btn) btn.classList.add('idle-pulse');
+            }, 3500); // 3.5 seconds idle prompt
         }
 
         window.addEventListener('scroll', handleShowcaseScroll, { passive: true });
