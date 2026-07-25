@@ -3513,9 +3513,11 @@
         // 3D Flip Card handlers
         function toggleFlipCard(card, event) {
             // Prevent flipping if clicked on CTA button
-            if (event.target.closest('.card-cta-btn')) {
+            if (event && event.target && event.target.closest('.card-cta-btn')) {
                 return;
             }
+            card.dataset.userClicked = 'true';
+            card.classList.remove('scroll-teased');
             card.classList.toggle('flipped');
         }
 
@@ -3710,11 +3712,6 @@
 
             cards.forEach((card) => {
                 cardObserver.observe(card);
-                card.addEventListener('click', () => {
-                    card.dataset.userClicked = 'true';
-                    card.classList.remove('scroll-teased');
-                    card.classList.toggle('flipped');
-                });
             });
         }
 
