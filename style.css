@@ -4529,6 +4529,11 @@ body.dark-active .app-header-mini {
 .sim-toast-feedback.show {
     display: flex;
 }
+
+.sim-event-box {
+    background: rgba(201, 162, 39, 0.08);
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    border-radius: 12px;
     padding: 12px;
     margin-bottom: 14px;
 }
