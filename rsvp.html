@@ -1357,34 +1357,91 @@
             return date.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
         }
 
+        function formatCeremonyTime(isoString) {
+            if (!isoString) return '';
+            const date = new Date(isoString);
+            if (isNaN(date.getTime())) return '';
+            return new Intl.DateTimeFormat('tr-TR', { dateStyle: 'full', timeStyle: 'short' }).format(date);
+        }
+
+        function animateTimelineEntrance() {
+            const items = Array.from(els.timelineList.children);
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (reduceMotion) {
+                items.forEach(item => item.classList.remove('tl-enter'));
+                return;
+            }
+
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    requestAnimationFrame(() => item.classList.remove('tl-enter'));
+                }, index * 60);
+            });
+        }
+
         function renderSharedStages(stages) {
             els.timelineList.innerHTML = '';
 
             if (!Array.isArray(stages) || stages.length === 0) {
-                els.timelineSection.classList.add('hidden');
+                els.timelineList.classList.add('hidden');
+                els.timelinePlaceholder.classList.remove('hidden');
+                els.timelineSection.classList.remove('hidden');
                 return;
             }
 
-            stages.forEach(stage => {
-                const item = document.createElement('div');
-                item.className = 'timeline-item';
+            els.timelinePlaceholder.classList.add('hidden');
+            els.timelineList.classList.remove('hidden');
 
-                const time = formatStageTime(stage.stage_time);
-                if (time) {
-                    const timeEl = document.createElement('div');
-                    timeEl.className = 'timeline-time';
-                    timeEl.textContent = time;
-                    item.appendChild(timeEl);
+            const now = new Date();
+            const parsedStages = stages.map(stage => {
+                const date = stage.stage_time ? new Date(stage.stage_time) : null;
+                const valid = !!(date && !isNaN(date.getTime()));
+                return {
+                    stage,
+                    date: valid ? date : null,
+                    isPast: valid ? date.getTime() < now.getTime() : false,
+                    isToday: valid ? date.toDateString() === now.toDateString() : false
+                };
+            });
+
+            let currentAssigned = false;
+
+            parsedStages.forEach(entry => {
+                const { stage, date, isPast, isToday } = entry;
+                const isCurrent = !currentAssigned && !isPast && isToday;
+                if (isCurrent) currentAssigned = true;
+
+                const item = document.createElement('li');
+                item.className = 'timeline-item tl-enter';
+                if (isPast) item.classList.add('is-past');
+                if (isCurrent) item.classList.add('is-current');
+
+                const timeCol = document.createElement('div');
+                timeCol.className = 'timeline-time-col';
+                if (date) {
+                    const timeTag = document.createElement('time');
+                    timeTag.dateTime = stage.stage_time;
+                    timeTag.className = 'timeline-time';
+                    timeTag.textContent = formatStageTime(stage.stage_time);
+                    timeCol.appendChild(timeTag);
                 }
+                item.appendChild(timeCol);
 
-                const dotEl = document.createElement('div');
+                const rail = document.createElement('div');
+                rail.className = 'timeline-rail';
+                const dotEl = document.createElement('span');
                 dotEl.className = 'timeline-dot';
-                item.appendChild(dotEl);
+                rail.appendChild(dotEl);
+                item.appendChild(rail);
+
+                const content = document.createElement('div');
+                content.className = 'timeline-content';
 
                 const titleEl = document.createElement('div');
                 titleEl.className = 'timeline-item-title';
                 titleEl.textContent = stage.title || '';
-                item.appendChild(titleEl);
+                content.appendChild(titleEl);
 
                 if (stage.location) {
                     const locEl = document.createElement('div');
@@ -1394,13 +1451,15 @@
                     icon.textContent = 'place';
                     locEl.appendChild(icon);
                     locEl.appendChild(document.createTextNode(stage.location));
-                    item.appendChild(locEl);
+                    content.appendChild(locEl);
                 }
 
+                item.appendChild(content);
                 els.timelineList.appendChild(item);
             });
 
             els.timelineSection.classList.remove('hidden');
+            animateTimelineEntrance();
         }
 
         const STATUS_CONFIG = {
@@ -1425,6 +1484,69 @@
             els.mealPrefBtns.forEach(btn => {
                 btn.classList.toggle('selected', btn.dataset.pref === guest.meal_preference);
             });
+
+            // Restore whatever the guest saved earlier. On first paint the box
+            // opens without the transition, otherwise it would slide in on
+            // every page load.
+            els.allergyNoteInput.value = guest.allergy_note || '';
+            updateAllergyCount();
+            setAllergyNoteOpen(guest.meal_preference === 'allergy', { instant: true });
+        }
+
+        let allergyNoteDebounce = null;
+        let allergySuccessTimer = null;
+
+        function setAllergyNoteOpen(open, { instant = false } = {}) {
+            if (instant) els.allergyNoteWrap.classList.add('instant');
+            els.allergyNoteWrap.classList.toggle('open', open);
+
+            if (instant) {
+                // Drop the no-transition flag only after the browser has
+                // applied the new height, so later toggles animate normally.
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => els.allergyNoteWrap.classList.remove('instant'));
+                });
+            }
+
+            if (!open) {
+                hideAllergyFeedback();
+                clearTimeout(allergyNoteDebounce);
+                allergyNoteDebounce = null;
+            }
+        }
+
+        function updateAllergyCount() {
+            const len = els.allergyNoteInput.value.length;
+            els.allergyNoteCount.textContent = `${len}/300`;
+            els.allergyNoteCount.classList.toggle('warn', len > 240 && len <= 290);
+            els.allergyNoteCount.classList.toggle('danger', len > 290);
+        }
+
+        function hideAllergyFeedback() {
+            els.allergyNoteSuccess.classList.remove('show');
+            els.allergyNoteError.classList.remove('show');
+        }
+
+        function showAllergySaved() {
+            els.allergyNoteError.classList.remove('show');
+            els.allergyNoteSuccess.classList.add('show');
+            clearTimeout(allergySuccessTimer);
+            allergySuccessTimer = setTimeout(() => {
+                els.allergyNoteSuccess.classList.remove('show');
+            }, 4000);
+        }
+
+        function saveAllergyNote() {
+            clearTimeout(allergyNoteDebounce);
+            allergyNoteDebounce = null;
+            // Keep the preference buttons interactive -- this is a note save,
+            // not a preference change.
+            return updateMealPreference('allergy', { silentButtons: true });
+        }
+
+        function queueAllergyNoteSave() {
+            clearTimeout(allergyNoteDebounce);
+            allergyNoteDebounce = setTimeout(saveAllergyNote, 700);
         }
 
         function renderGuest(guest) {
@@ -1447,6 +1569,18 @@
 
             // Event Date
             els.eventDate.textContent = formatEventDate(guest.event_date) || 'Tarih Belirtilmedi';
+
+            // Ceremony date & time ("Düğün Takvimi"). The RPC already returns
+            // null for all three ceremony fields when the host turns off
+            // share_ceremony_in_invite, so an empty value just hides the row.
+            const ceremonyTimeText = formatCeremonyTime(guest.ceremony_time);
+            if (ceremonyTimeText) {
+                els.ceremonyTime.textContent = ceremonyTimeText;
+                els.ceremonyRow.classList.remove('hidden');
+            } else {
+                els.ceremonyTime.textContent = '';
+                els.ceremonyRow.classList.add('hidden');
+            }
 
             // Ceremony venue (host's explicit location link wins over a
             // Maps search built from the venue text -- keeps parity with
@@ -1561,32 +1695,55 @@
             }
         }
 
-        async function updateMealPreference(preference) {
+        async function updateMealPreference(preference, { silentButtons = false } = {}) {
             if (!token) return;
 
-            els.mealPrefBtns.forEach(btn => { btn.disabled = true; });
+            // The note only travels with the 'allergy' choice -- the RPC clears
+            // allergy_note server-side for every other preference.
+            const allergyNote = preference === 'allergy'
+                ? els.allergyNoteInput.value.trim()
+                : null;
+
+            if (!silentButtons) els.mealPrefBtns.forEach(btn => { btn.disabled = true; });
+            els.allergyNoteSaveBtn.disabled = true;
+            hideAllergyFeedback();
 
             try {
                 const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/update_guest_meal_preference_by_token`, {
                     method: 'POST',
                     headers: rpcHeaders,
-                    body: JSON.stringify({ p_token: token, p_preference: preference })
+                    body: JSON.stringify({
+                        p_token: token,
+                        p_preference: preference,
+                        p_allergy_note: allergyNote
+                    })
                 });
 
                 const success = response.ok && (await response.json()) === true;
 
                 if (success) {
-                    if (currentGuest) currentGuest.meal_preference = preference;
+                    if (currentGuest) {
+                        currentGuest.meal_preference = preference;
+                        currentGuest.allergy_note = allergyNote;
+                    }
                     els.mealPrefBtns.forEach(btn => {
                         btn.classList.toggle('selected', btn.dataset.pref === preference);
                     });
+                    if (preference !== 'allergy') {
+                        els.allergyNoteInput.value = '';
+                        updateAllergyCount();
+                    }
+                    if (allergyNote) showAllergySaved();
                 } else {
                     console.error('Meal preference update failed:', response.status);
+                    els.allergyNoteError.classList.add('show');
                 }
             } catch (err) {
                 console.error('Meal preference update exception:', err);
+                els.allergyNoteError.classList.add('show');
             } finally {
                 els.mealPrefBtns.forEach(btn => { btn.disabled = false; });
+                els.allergyNoteSaveBtn.disabled = false;
             }
         }
 
@@ -1602,8 +1759,22 @@
         els.declineBtn.addEventListener('click', () => updateRsvp('declined'));
         els.retryBtn.addEventListener('click', loadGuestStatus);
         els.mealPrefBtns.forEach(btn => {
-            btn.addEventListener('click', () => updateMealPreference(btn.dataset.pref));
+            btn.addEventListener('click', () => {
+                const pref = btn.dataset.pref;
+                // Toggle the note box straight away so it never waits on the
+                // network round-trip.
+                setAllergyNoteOpen(pref === 'allergy');
+                if (pref === 'allergy') els.allergyNoteInput.focus();
+                updateMealPreference(pref);
+            });
         });
+
+        els.allergyNoteInput.addEventListener('input', () => {
+            updateAllergyCount();
+            hideAllergyFeedback();
+            queueAllergyNoteSave();
+        });
+        els.allergyNoteSaveBtn.addEventListener('click', saveAllergyNote);
 
         els.privacyLinkBtn.addEventListener('click', openPrivacyModal);
         els.privacyModalClose.addEventListener('click', closePrivacyModal);
