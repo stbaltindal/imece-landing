@@ -17,7 +17,7 @@
     <!-- Stylesheet with Cache Buster -->
     <link rel="stylesheet" href="style.css?v=20.0">
 </head>
-<body class="dark-active">
+<body>
 
     <!-- GPU-Accelerated Dark Transition Layer -->
     <div class="dark-overlay" id="darkOverlay"></div>
@@ -2345,8 +2345,24 @@
                 duration: 0.1
             }, 17.0)
 
-            // 6. Default Dark Theme - Lock dark-active on body
-            document.body.classList.add('dark-active');
+            // 6. GPU-Accelerated Dynamic Dark Theme Shift
+            gsap.to("#darkOverlay", {
+                scrollTrigger: {
+                    trigger: "#hesaplayici",
+                    start: "top 80%",
+                    end: "top 30%", 
+                    scrub: 1
+                },
+                opacity: 1
+            });
+
+            // 7. Dynamic Class toggle for the entire remaining dark region of the page
+            ScrollTrigger.create({
+                trigger: "#hesaplayici",
+                start: "top 80%",
+                end: "max",
+                toggleClass: { targets: "body", className: "dark-active" }
+            });
 
             // 8. Custom heartbeat pulsating effect toggle for co-host heart button icon
             ScrollTrigger.create({
