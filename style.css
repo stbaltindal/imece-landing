@@ -4394,30 +4394,54 @@ body.dark-active .app-header-mini {
     box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.1);
 }
 
-/* Exact 100% Faithful Replica of Live rsvp.html Invitation Page (Matching User Image 2 Screenshot) */
-.sim-screen-content {
+/* Isolated Iframe Simulator Preview (Guarantees 100% Faithful Replica of rsvp.html) */
+.sim-phone-screen {
     width: 100% !important;
     height: 100% !important;
-    max-height: 600px !important;
-    background-color: #FFFFFF !important;
+    min-height: 570px !important;
+    max-height: 590px !important;
+    background-color: #FAF7F2 !important;
     border-radius: 38px !important;
-    padding: 24px 12px !important;
-    box-sizing: border-box !important;
-    overflow-y: auto !important;
-    scrollbar-width: thin !important;
-    scrollbar-color: rgba(197, 155, 39, 0.4) transparent !important;
-    border-left: 2px dashed rgba(197, 155, 39, 0.3) !important;
-    border-right: 2px dashed rgba(197, 155, 39, 0.3) !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: relative !important;
 }
 
-.rsvp-card-real {
+.sim-iframe-preview {
     width: 100% !important;
-    font-family: 'Inter', sans-serif !important;
-    color: #1C1917 !important;
-    text-align: center !important;
+    height: 100% !important;
+    min-height: 570px !important;
+    border: none !important;
+    border-radius: 36px !important;
+    display: block !important;
+    background: #FAF7F2 !important;
 }
 
-.rsvp-header-real {
+.sim-phone-actions {
+    margin-top: 14px;
+    text-align: center;
+}
+
+.sim-open-live-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #B8860B 0%, #9A6E00 100%);
+    color: #FFFFFF !important;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(184, 134, 11, 0.3);
+    transition: all 0.25s ease;
+}
+
+.sim-open-live-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(184, 134, 11, 0.4);
+}
     margin-bottom: 16px !important;
 }
 

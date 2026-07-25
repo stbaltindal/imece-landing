@@ -1447,116 +1447,14 @@
                     <div class="rsvp-sim-phone-wrap">
                         <div class="sim-phone-frame">
                             <div class="sim-phone-notch"></div>
-                            <div class="sim-phone-screen sim-screen-content">
-                                <div class="rsvp-card-real">
-                                    
-                                    <!-- Header Section -->
-                                    <div class="rsvp-header-real">
-                                        <span class="rsvp-prefix-real">Sayın Davetlimiz</span>
-                                        <h3 class="rsvp-guest-name-real" id="simGuestDisplay">Mehmet</h3>
-                                        <div class="rsvp-diamond-divider">
-                                            <span>◆</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Event Details Box 1 -->
-                                    <div class="rsvp-box-real">
-                                        <h4 class="rsvp-venue-name-real">Masel Düğün Evi</h4>
-                                        <div class="rsvp-couple-subtitle-real">Kısmet & Furkan</div>
-                                        <div class="rsvp-date-row-real">
-                                            <span class="material-icons-round">event</span> 31 Temmuz 2026 Cuma
-                                        </div>
-                                        <div class="rsvp-date-row-real">
-                                            <span class="material-icons-round">schedule</span> 31 Temmuz 2026 Cuma 22:38
-                                        </div>
-
-                                        <!-- Inner Location Navigation Box -->
-                                        <div class="rsvp-location-inner-real">
-                                            <div class="rsvp-location-address-real">
-                                                <span class="material-icons-round">place</span>
-                                                <strong>Regaip Sokağı</strong>
-                                            </div>
-                                            <a href="https://maps.google.com" target="_blank" class="rsvp-map-btn-real" onclick="event.preventDefault(); showSimToast('📍 Haritaya yönlendiriliyorsunuz...');">
-                                                <span class="material-icons-round">near_me</span> Haritada Aç & Yol Tarifi Al ↗
-                                            </a>
-                                        </div>
-
-                                        <div class="rsvp-party-chip-real">
-                                            <span class="material-icons-round">person</span> 1 Kişilik Davetiye
-                                        </div>
-                                    </div>
-
-                                    <!-- Interactive Decision & Preferences Section -->
-                                    <div class="rsvp-interactive-section-real">
-                                        <div class="sim-status-badge pending" id="simStatusBadge">
-                                            <span class="material-icons-round">hourglass_empty</span>
-                                            <span id="simStatusText">Yanıtınız Bekleniyor</span>
-                                        </div>
-
-                                        <div class="sim-btn-group">
-                                            <button class="sim-btn confirm" onclick="triggerSimRsvp('confirmed')">
-                                                <span class="material-icons-round">check_circle</span> Katılıyorum
-                                            </button>
-                                            <button class="sim-btn decline" onclick="triggerSimRsvp('declined')">
-                                                <span class="material-icons-round">cancel</span> Katılamıyorum
-                                            </button>
-                                        </div>
-
-                                        <div class="sim-meal-section">
-                                            <div class="sim-section-header">
-                                                <span class="material-icons-round">restaurant</span>
-                                                <strong>Yemek & Diyet Tercihi</strong>
-                                            </div>
-                                            <div class="sim-meal-chips">
-                                                <button class="sim-meal-chip active" onclick="selectSimMeal(this, 'Et Menü')">🥩 Et Menü</button>
-                                                <button class="sim-meal-chip" onclick="selectSimMeal(this, 'Vejetaryen')">🥗 Vejetaryen</button>
-                                                <button class="sim-meal-chip" onclick="selectSimMeal(this, 'Alerjen / Özel')">⚠️ Alerjen / Özel</button>
-                                            </div>
-                                            <div class="sim-allergy-wrap" id="simAllergyWrap">
-                                                <textarea class="sim-allergy-input" id="simAllergyInput" placeholder="Alerjen veya özel diyet notunuzu girin (Örn: Glutensiz / Fıstık alerjisi)..."></textarea>
-                                                <button class="sim-allergy-save-btn" onclick="saveSimAllergy()">Notu Kaydet</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Düğün Akışı Box 2 -->
-                                    <div class="rsvp-box-real rsvp-timeline-box-real">
-                                        <h4 class="rsvp-box-title-real">Düğün Akışı</h4>
-                                        <div class="rsvp-diamond-divider">
-                                            <span>◆</span>
-                                        </div>
-
-                                        <div class="rsvp-timeline-list-real">
-                                            <div class="rsvp-tl-item-real">
-                                                <span class="rsvp-tl-time-real">18:38</span>
-                                                <span class="rsvp-tl-desc-real">Gelin Hazırlığı</span>
-                                            </div>
-                                            <div class="rsvp-tl-item-real">
-                                                <span class="rsvp-tl-time-real">19:38</span>
-                                                <span class="rsvp-tl-desc-real">Damat Hazırlığı</span>
-                                            </div>
-                                            <div class="rsvp-tl-item-real">
-                                                <span class="rsvp-tl-time-real">21:08</span>
-                                                <span class="rsvp-tl-desc-real">Gelin Alma</span>
-                                            </div>
-                                            <div class="rsvp-tl-item-real">
-                                                <span class="rsvp-tl-time-real">21:38</span>
-                                                <span class="rsvp-tl-desc-real">Araba Konvoyu Kalkışı</span>
-                                            </div>
-                                            <div class="rsvp-tl-item-real">
-                                                <span class="rsvp-tl-time-real">22:08</span>
-                                                <span class="rsvp-tl-desc-real">Salona Varış</span>
-                                            </div>
-                                            <div class="rsvp-tl-item-real">
-                                                <span class="rsvp-tl-time-real">22:38</span>
-                                                <span class="rsvp-tl-desc-real">Nikah Töreni</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="sim-toast" id="simToast"></div>
-                                </div>
+                            <div class="sim-phone-screen">
+                                <iframe src="rsvp.html" title="Canlı Davetiye Önizlemesi" class="sim-iframe-preview" loading="eager"></iframe>
                             </div>
+                        </div>
+                        <div class="sim-phone-actions">
+                            <a href="rsvp.html" target="_blank" class="sim-open-live-btn">
+                                <span>🌐 Canlı Davetiyeyi Tam Ekran Aç ↗</span>
+                            </a>
                         </div>
                     </div>
                 </div>
