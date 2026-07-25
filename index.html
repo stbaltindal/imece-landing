@@ -3247,14 +3247,22 @@
         calculatePlan();
         setMobileFlowStep(0);
 
-        // 3D Flip Card handlers
+        // 3D Flip Card handlers & Global Tease Disabler
+        let globalSolutionDiscovered = false;
+
         function toggleFlipCard(card, event) {
             // Prevent flipping if clicked on CTA button
             if (event && event.target && event.target.closest('.card-cta-btn')) {
                 return;
             }
-            card.dataset.userClicked = 'true';
-            card.classList.remove('scroll-teased');
+
+            // If user clicked any card even ONCE, disable future scroll teasers globally!
+            globalSolutionDiscovered = true;
+            document.querySelectorAll('#neden-imece .flip-card').forEach(c => {
+                c.dataset.userClicked = 'true';
+                c.classList.remove('scroll-teased');
+            });
+
             card.classList.toggle('flipped');
         }
 
@@ -3299,43 +3307,22 @@
         }
 
         function saveSimAllergy() {
-            const val = document.getElementById('simAllergyInput')?.value.trim();
+            const input = document.getElementById('simAllergyInput');
+            const val = input ? input.value.trim() : '';
             if (val) {
-                showSimToast(`✓ Alerji notunuz kaydedildi!`);
+                showSimToast(`⚠️ Özel Diyet Notu Kaydedildi: "${val}"`);
             } else {
-                showSimToast(`⚠️ Lütfen alerji veya diyet notunuzu yazın.`);
+                showSimToast(`⚠️ Lütfen diyet veya alerjen notunuzu girin.`);
             }
         }
 
         function showSimToast(msg) {
             const toast = document.getElementById('simToast');
-            if (!toast) return;
-            toast.textContent = msg;
-            toast.style.color = 'var(--gold-light)';
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        // 2. Timeline Node Selector Handler
-        function selectTimelineNode(element, time, title, assignee, desc, music) {
-            document.querySelectorAll('.timeline-node').forEach(node => node.classList.remove('active'));
-            element.classList.add('active');
-
-            const card = document.getElementById('timelineDetailCard');
-            if (card) {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(8px)';
+            if (toast) {
+                toast.textContent = msg;
+                toast.style.color = 'var(--gold-dark)';
+                toast.classList.add('show');
                 setTimeout(() => {
-                    document.getElementById('tlTime').textContent = time;
-                    document.getElementById('tlTitle').textContent = title;
-                    document.getElementById('tlAssignee').textContent = assignee;
-                    document.getElementById('tlDesc').textContent = desc;
-                    document.getElementById('tlMusic').textContent = music;
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 150);
             }
         }
 
