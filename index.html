@@ -3323,6 +3323,8 @@
                 toast.style.color = 'var(--gold-dark)';
                 toast.classList.add('show');
                 setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
             }
         }
 
@@ -3443,8 +3445,8 @@
             const cardObserver = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     const card = entry.target;
-                    // Execute ONCE only, never repeat if already teased or user clicked!
-                    if (card.dataset.teased === 'true' || card.dataset.userClicked === 'true') return;
+                    // Execute ONCE only, never repeat if already teased or user clicked or any card was clicked globally!
+                    if (card.dataset.teased === 'true' || card.dataset.userClicked === 'true' || globalSolutionDiscovered) return;
 
                     if (entry.isIntersecting) {
                         card.dataset.teased = 'true'; // Mark as executed ONCE
