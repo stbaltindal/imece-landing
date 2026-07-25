@@ -75,8 +75,8 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: var(--bg-cream);
-    color: var(--text-main);
+    background-color: #0B0B0C;
+    color: #ECEAE9;
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
