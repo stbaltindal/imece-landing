@@ -1405,7 +1405,7 @@
                 <div class="section-header">
                     <span class="section-tag gold">İnteraktif Deneyim</span>
                     <h2>Davetlileriniz İçin Lüks Dijital Davetiye</h2>
-                    <p class="section-subtitle">Davetlileriniz hiçbir uygulama indirmeden kendilerine özel bağlantı ile davetiyelerini açar, katılım durumlarını tek tıkla bildirir.</p>
+                    <p class="section-subtitle">Davetlileriniz hiçbir uygulama indirmeden kendilerine özel bağlantı ile davetiyelerini açar, katılım durumlarını ve yemek tercihlerini tek tıkla bildirir.</p>
                 </div>
 
                 <div class="rsvp-sim-wrapper">
@@ -1423,15 +1423,15 @@
                             <div class="sim-info-item">
                                 <span class="material-icons-round">done_all</span>
                                 <div>
-                                    <strong>Anlık Bildirim</strong>
-                                    <p>Davetliniz yanıt verdiğinde cebinize anında bildirim düşer.</p>
+                                    <strong>Anlık Bildirim & Lojistik Takip</strong>
+                                    <p>Davetliniz katılım ve diyet yanıtı verdiğinde cebinize anında bildirim düşer.</p>
                                 </div>
                             </div>
                             <div class="sim-info-item">
                                 <span class="material-icons-round">shield</span>
                                 <div>
                                     <strong>KVKK & Gizlilik Zırhı</strong>
-                                    <p>Sadece özel jeton (token) sahibi davetli kendi kartını görebilir.</p>
+                                    <p>Sadece özel jeton (token) sahibi davetli kendi kartını ve yanıtlarını görebilir.</p>
                                 </div>
                             </div>
                         </div>
@@ -1443,45 +1443,98 @@
                         </div>
                     </div>
 
-                    <!-- iPhone Simulator Frame (Sağ/Alt) -->
-                    <div class="rsvp-sim-frame-wrap">
-                        <div class="sim-phone-notch"></div>
-                        <div class="sim-screen-content">
-                            <!-- Header Bar -->
-                            <div class="sim-screen-header">
-                                <span class="sim-header-tag">İmece Lüks Dijital Davetiye</span>
-                            </div>
+                    <!-- Live Simulator Phone Screen (Sağ/Alt) -->
+                    <div class="rsvp-sim-phone-wrap">
+                        <div class="sim-phone-frame">
+                            <div class="sim-phone-notch"></div>
+                            <div class="sim-phone-screen sim-screen-content">
+                                <div class="sim-rsvp-card">
+                                    <div class="sim-emblem">
+                                        <span class="material-icons-round">favorite</span>
+                                    </div>
+                                    <div class="sim-prefix">Sayın Davetlimiz</div>
+                                    <h4 class="sim-guest-title" id="simGuestDisplay">Sayın Mehmet Güneşli</h4>
+                                    
+                                    <div class="sim-divider"><span>✦</span></div>
 
-                            <!-- Live Card Frame -->
-                            <div class="sim-invitation-card">
-                                <div class="sim-card-ornament">✦ 💍 ✦</div>
-                                <h4 class="sim-card-couples">Zeynep & Emre</h4>
-                                <p class="sim-card-intro">Düğün Törenimize Davetlisiniz</p>
-                                
-                                <div class="sim-guest-name-box">
-                                    <span class="sim-guest-label">Sayın Konuğumuz:</span>
-                                    <h5 class="sim-guest-name" id="simDynamicGuestName">Sayın Mehmet Güneşli</h5>
-                                </div>
+                                    <div class="sim-event-box">
+                                        <strong class="sim-event-title">Aylin & Burak Düğünü</strong>
+                                        <div class="sim-event-date">
+                                            <span class="material-icons-round">event</span> 31 Temmuz 2026, Cuma
+                                        </div>
+                                        <div class="sim-party-badge">👥 2 Kişilik Davetiye</div>
+                                    </div>
 
-                                <div class="sim-event-details">
-                                    <p>📅 <strong>15 Eylül 2026 - 19:30</strong></p>
-                                    <p>📍 <strong>Çırağan Sarayı Düğün Salonu</strong></p>
-                                </div>
+                                    <!-- Location & Map Navigation Card -->
+                                    <div class="sim-location-card">
+                                        <div class="sim-location-title">
+                                            <span class="material-icons-round">place</span>
+                                            <span>Masel Düğün Evi — Çankaya</span>
+                                        </div>
+                                        <a href="https://maps.google.com" target="_blank" class="sim-map-btn" onclick="event.preventDefault(); showSimToast('📍 Haritaya yönlendiriliyorsunuz...');">
+                                            <span>Haritada Aç & Yol Tarifi Al ↗</span>
+                                        </a>
+                                    </div>
 
-                                <!-- Interactive Action Buttons inside simulator -->
-                                <div class="sim-actions-group">
-                                    <button class="sim-btn accept" onclick="triggerSimResponse('Katılıyorum 🎉')">
-                                        <span class="material-icons-round">check_circle</span> Katılıyorum
-                                    </button>
-                                    <button class="sim-btn decline" onclick="triggerSimResponse('Katılamıyorum 💔')">
-                                        <span class="material-icons-round">cancel</span> Katılamıyorum
-                                    </button>
-                                </div>
+                                    <p class="sim-msg">Bu mutlu günümüzde sizleri de aramızda görmekten onur duyarız.</p>
 
-                                <!-- Toast Response Feedback -->
-                                <div class="sim-toast-feedback" id="simToastFeedback">
-                                    <span class="material-icons-round">info</span>
-                                    <span id="simToastText">Yanıtınız ev sahibine iletildi!</span>
+                                    <div class="sim-status-badge pending" id="simStatusBadge">
+                                        <span class="material-icons-round">hourglass_empty</span>
+                                        <span id="simStatusText">Yanıtınız Bekleniyor</span>
+                                    </div>
+
+                                    <div class="sim-btn-group">
+                                        <button class="sim-btn confirm" onclick="triggerSimRsvp('confirmed')">
+                                            <span class="material-icons-round">check_circle</span> Katılıyorum
+                                        </button>
+                                        <button class="sim-btn decline" onclick="triggerSimRsvp('declined')">
+                                            <span class="material-icons-round">cancel</span> Katılamıyorum
+                                        </button>
+                                    </div>
+
+                                    <!-- Meal & Allergy Preference Section -->
+                                    <div class="sim-meal-section">
+                                        <div class="sim-section-header">
+                                            <span class="material-icons-round">restaurant</span>
+                                            <strong>Yemek & Diyet Tercihi</strong>
+                                        </div>
+                                        <div class="sim-meal-chips">
+                                            <button class="sim-meal-chip active" onclick="selectSimMeal(this, 'Et Menü')">🥩 Et Menü</button>
+                                            <button class="sim-meal-chip" onclick="selectSimMeal(this, 'Vejetaryen')">🥗 Vejetaryen</button>
+                                            <button class="sim-meal-chip" onclick="selectSimMeal(this, 'Alerjen / Özel')">⚠️ Alerjen / Özel</button>
+                                        </div>
+                                        <div class="sim-allergy-wrap" id="simAllergyWrap">
+                                            <textarea class="sim-allergy-input" id="simAllergyInput" placeholder="Alerjen veya özel diyet notunuzu girin (Örn: Glutensiz / Fıstık alerjisi)..."></textarea>
+                                            <button class="sim-allergy-save-btn" onclick="saveSimAllergy()">Notu Kaydet</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Mini Timeline Section -->
+                                    <div class="sim-timeline-box">
+                                        <div class="sim-section-header">
+                                            <span class="material-icons-round">schedule</span>
+                                            <strong>Düğün Akışı</strong>
+                                        </div>
+                                        <div class="sim-mini-timeline">
+                                            <div class="sim-tl-item">
+                                                <span class="sim-tl-time">18:38</span>
+                                                <div class="sim-tl-dot"></div>
+                                                <span class="sim-tl-text">Gelin Hazırlığı</span>
+                                            </div>
+                                            <div class="sim-tl-item">
+                                                <span class="sim-tl-time">21:38</span>
+                                                <div class="sim-tl-dot"></div>
+                                                <span class="sim-tl-text">Nikah Töreni & İlk Dans</span>
+                                            </div>
+                                            <div class="sim-tl-item">
+                                                <span class="sim-tl-time">00:08</span>
+                                                <div class="sim-tl-dot"></div>
+                                                <span class="sim-tl-text">Düğün Yemeği & Eğlence</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sim-toast" id="simToast"></div>
                                 </div>
                             </div>
                         </div>
@@ -1508,404 +1561,88 @@
                             <div class="asistan-icon-wrap">
                                 <span class="material-icons-round">queue_music</span>
                             </div>
-                            <span class="asistan-tag">Müzik & Eğlence</span>
+                            <h3>DJ & Orkestra Müzik Asistanı</h3>
                         </div>
-                        <h3>DJ & Orkestra Müzik Asistanı</h3>
-                        <p class="asistan-desc">Giriş müziği, ilk dans ve pasta kesimi şarkılarınızı oluşturun. Spotify/YouTube linkleriyle tek tıkla DJ'e WhatsApp akış mesajı olarak gönderin.</p>
-                        
-                        <!-- Görsel Mockup: Müzik Asistanı -->
-                        <div class="mini-app-mockup asistan-mockup">
-                            <div class="mockup-header">
-                                <span class="material-icons-round" style="font-size: 11px;">graphic_eq</span>
-                                <span>DJ & Orkestra Şarkı Akışı</span>
-                            </div>
-                            <div class="mini-music-list">
-                                <div class="music-row active">
-                                    <span class="music-badge">1. Dans</span>
-                                    <span class="music-title">Ayla Çelik - Bağdat 🎵</span>
-                                    <span class="music-link-icon">Spotify ↗</span>
+                        <p class="asistan-desc">Giriş müziği, ilk dans, pasta kesimi ve halay müziklerini ayrı ayrı kategorize edin. DJ için anında hazır liste üretin.</p>
+                        <div class="asistan-preview-box">
+                            <div class="music-track-item active">
+                                <span class="material-icons-round">play_circle</span>
+                                <div>
+                                    <strong>İlk Dans:</strong> Yalın - Meleklerin Sözü Var
                                 </div>
-                                <div class="music-row">
-                                    <span class="music-badge gold">Pasta</span>
-                                    <span class="music-title">Bruno Mars - Marry You 🎂</span>
-                                    <span class="music-link-icon">YouTube ↗</span>
-                                </div>
+                                <span class="track-badge">03:45</span>
                             </div>
-                            <div class="mockup-action-bar">
-                                <span class="action-whatsapp-btn">
-                                    <span class="material-icons-round">send</span> DJ'e WhatsApp ile Gönder
-                                </span>
+                            <div class="music-track-item">
+                                <span class="material-icons-round">music_note</span>
+                                <div>
+                                    <strong>Pasta Çıkışı:</strong> Coldplay - A Sky Full of Stars
+                                </div>
+                                <span class="track-badge">04:12</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Asistan 2: Davetli Diyet & Garson PDF Raporu -->
+                    <!-- Asistan 2: Davetli Diyet & Alerjen PDF Raporu -->
                     <div class="asistan-card">
                         <div class="asistan-card-header">
                             <div class="asistan-icon-wrap">
-                                <span class="material-icons-round">restaurant_menu</span>
+                                <span class="material-icons-round">picture_as_pdf</span>
                             </div>
-                            <span class="asistan-tag">İkram & Menü</span>
+                            <h3>Garson & Diyet PDF Raporu</h3>
                         </div>
-                        <h3>Davetli Diyet & Garson PDF Raporu</h3>
-                        <p class="asistan-desc">Misafirleriniz RSVP linkinden Vejetaryen, Vegan veya Alerjen tercihlerini seçer. Masa numarasıyla eşleşen şef garson PDF çıktısını anında alın.</p>
-                        
-                        <!-- Görsel Mockup: Diyet & PDF Raporu -->
-                        <div class="mini-app-mockup asistan-mockup">
-                            <div class="mockup-header">
-                                <span class="material-icons-round" style="font-size: 11px;">picture_as_pdf</span>
-                                <span>Şef Garson Menü Raporu</span>
+                        <p class="asistan-desc">Vejetaryen, vegan, çocuk ve alerjen menü sayısı otomatik hesaplanır. Düğün günü şef ve garson ekibine tek tıkla iletin.</p>
+                        <div class="asistan-preview-box diet-summary">
+                            <div class="diet-badge-row">
+                                <span class="diet-chip">🥩 Et: 142 Kişi</span>
+                                <span class="diet-chip vegan">🥗 Vejetaryen: 18 Kişi</span>
+                                <span class="diet-chip allergy">⚠️ Glutensiz / Alerjen: 4 Kişi</span>
                             </div>
-                            <div class="mini-diet-stats">
-                                <div class="diet-chip veg">🥗 6 Vejetaryen (Masa 2, 4)</div>
-                                <div class="diet-chip vgn">🌱 3 Vegan (Masa 5)</div>
-                                <div class="diet-chip alg">⚠️ 1 Gluten Alerjisi</div>
-                            </div>
-                            <div class="mockup-action-bar">
-                                <span class="action-pdf-btn">
-                                    <span class="material-icons-round">download</span> Garson PDF Çıktısı Al
-                                </span>
+                            <div class="pdf-export-demo">
+                                <span class="material-icons-round">download</span> Mutfak PDF Çıktısı Al
                             </div>
                         </div>
                     </div>
 
-                    <!-- Asistan 3: Davetli Canlı Harita & Zaman Akışı -->
+                    <!-- Asistan 3: Düğün Akışı & Canlı Harita -->
                     <div class="asistan-card">
                         <div class="asistan-card-header">
                             <div class="asistan-icon-wrap">
-                                <span class="material-icons-round">alt_route</span>
+                                <span class="material-icons-round">map</span>
                             </div>
-                            <span class="asistan-tag">Davetli Deneyimi</span>
+                            <h3>Canlı Harita & Akış Rehberi</h3>
                         </div>
-                        <h3>Davetli Canlı Harita & Zaman Akışı</h3>
-                        <p class="asistan-desc">Davetlileriniz uygulama indirmeden düğün saatlik akışını (19:00 Kokteyl, 20:00 Dans) ve tören alanının canlı Google/Apple Maps rotasını görür.</p>
-                        
-                        <!-- Görsel Mockup: Harita & Akış -->
-                        <div class="mini-app-mockup asistan-mockup">
-                            <div class="mockup-header">
-                                <span class="material-icons-round" style="font-size: 11px;">location_on</span>
-                                <span>Davetli Web Paneli</span>
+                        <p class="asistan-desc">Davetlileriniz nikah saatini, salon konumunu, otopark detayını ve saat saat düğün programını harita üstünden canlı görür.</p>
+                        <div class="asistan-preview-box map-preview">
+                            <div class="mini-map-pin">
+                                📍 <strong>Bodrum Beach Hall</strong> — Nikah Töreni (19:30)
                             </div>
-                            <div class="mini-map-box">
-                                <div class="map-location-title">📍 Çırağan Sarayı Düğün Salonu</div>
-                                <div class="map-buttons-row">
-                                    <span class="map-btn">Google Maps ↗</span>
-                                    <span class="map-btn">Apple Maps ↗</span>
-                                </div>
-                            </div>
-                            <div class="mini-timeline-nodes">
-                                <span class="time-pill">19:00 Kokteyl</span>
-                                <span class="time-pill gold">20:00 İlk Dans</span>
-                                <span class="time-pill">22:00 Pasta</span>
+                            <div class="map-action-btn">
+                                <span class="material-icons-round">near_me</span> Haritada Rota Başlat
                             </div>
                         </div>
                     </div>
 
-                    <!-- Asistan 4: Görev Teklifleri & Host Onay Zırhı -->
+                    <!-- Asistan 4: Görev Teklifi & Host Onay Zırhı -->
                     <div class="asistan-card">
                         <div class="asistan-card-header">
                             <div class="asistan-icon-wrap">
                                 <span class="material-icons-round">verified_user</span>
                             </div>
-                            <span class="asistan-tag">İmece Yardımlaşma</span>
+                            <h3>Görev Teklifi & Host Onay Zırhı</h3>
                         </div>
-                        <h3>Görev Teklifleri & Host Onay Zırhı</h3>
-                        <p class="asistan-desc">Sevdikleriniz "Bu işi ben üstleneyim" diyerek görev teklif eder. Gelin & Damat onay verene kadar hiçbir görev kapatılamaz, kontrol sizdedir.</p>
-                        
-                        <!-- Görsel Mockup: Görev Teklifi & Onay -->
-                        <div class="mini-app-mockup asistan-mockup">
-                            <div class="mockup-header">
-                                <span class="material-icons-round" style="font-size: 11px;">how_to_reg</span>
-                                <span>Görev Onay & Teklif Paneli</span>
-                            </div>
-                            <div class="mini-proposal-box">
-                                <div class="proposal-row">
-                                    <div class="proposal-text">
-                                        <strong>Merve (Nedime):</strong> "Gelinlik kılıfı görevini ben üstlenmek istiyorum."
-                                    </div>
-                                    <div class="proposal-actions">
-                                        <span class="proposal-btn approve">Onayla ✓</span>
-                                    </div>
+                        <p class="asistan-desc">Yardımcı yöneticiler (sağdıç/nedime) yeni görev teklif edebilir ama çift onaylamadan ana plana eklenmez. Karışıklık sıfırlanır.</p>
+                        <div class="asistan-preview-box proposal-preview">
+                            <div class="proposal-card">
+                                <div class="proposal-info">
+                                    <span class="proposal-sender">Nedime Elif Teklif Etti:</span>
+                                    <strong>"Fotoğrafçı Kapora Ödemesi"</strong>
                                 </div>
-                                <div class="host-approval-status">
-                                    🛡️ <strong>Host Koruması:</strong> Çift onayı olmadan görev kapatılamaz.
+                                <div class="proposal-actions">
+                                    <span class="btn-approve">✓ Onayla</span>
+                                    <span class="btn-reject">✕ Reddet</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Modül 1: Canlı İnteraktif RSVP Simülatörü -->
-        <section id="interactive-rsvp-showcase" class="rsvp-showcase-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag gold">İnteraktif Deneyim</span>
-                    <h2>Davetlileriniz İçin Lüks Dijital Davetiye</h2>
-                    <p class="section-subtitle">Davetlileriniz hiçbir uygulama indirmeden kendilerine özel bağlantı ile davetiyelerini açar, katılım durumlarını tek tıkla bildirir.</p>
-                </div>
-
-                <div class="rsvp-sim-wrapper">
-                    <!-- Control Box (Sol/Üst) -->
-                    <div class="rsvp-sim-controls">
-                        <h3><span class="material-icons-round" style="color: var(--gold); vertical-align: middle; margin-right: 6px;">edit_note</span> Davetiyeyi Canlı Özelleştir</h3>
-                        <p class="sim-desc">Aşağıya davetli veya çift adını girerek davetiyenizin canlı önizlemesini test edin:</p>
-                        
-                        <div class="sim-input-group">
-                            <label for="simGuestInput">Davetli / Çift Adı</label>
-                            <input type="text" id="simGuestInput" value="Sayın Mehmet Güneşli" placeholder="Örn: Ayşe & Tolga" oninput="updateSimGuestName(this.value)">
-                        </div>
-
-                        <div class="sim-info-cards">
-                            <div class="sim-info-item">
-                                <span class="material-icons-round">done_all</span>
-                                <div>
-                                    <strong>Anlık Bildirim</strong>
-                                    <p>Davetliniz yanıt verdiğinde cebinize anında bildirim düşer.</p>
-                                </div>
-                            </div>
-                            <div class="sim-info-item">
-                                <span class="material-icons-round">groups</span>
-                                <div>
-                                    <strong>Kişi Sayısı Takibi</strong>
-                                    <p>Sizinle birlikte kaç kişinin geleceği otomatik hesaplanır.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Live Simulator Phone Screen (Sağ/Alt) -->
-                    <div class="rsvp-sim-phone-wrap">
-                        <div class="sim-phone-frame">
-                            <div class="sim-phone-screen">
-                                <div class="sim-rsvp-card">
-                                    <div class="sim-emblem">
-                                        <span class="material-icons-round">favorite</span>
-                                    </div>
-                                    <div class="sim-prefix">Sayın Davetlimiz</div>
-                                    <h4 class="sim-guest-title" id="simGuestDisplay">Sayın Mehmet Güneşli</h4>
-                                    
-                                    <div class="sim-divider"><span>✦</span></div>
-
-                                    <div class="sim-event-box">
-                                        <strong class="sim-event-title">Aylin & Burak Düğünü</strong>
-                                        <div class="sim-event-date">
-                                            <span class="material-icons-round">event</span> 31 Temmuz 2026, Cuma
-                                        </div>
-                                        <div class="sim-party-badge">👥 1 Kişilik Davetiye</div>
-                                    </div>
-
-                                    <p class="sim-msg">Bu mutlu günümüzde sizleri de aramızda görmekten onur duyarız.</p>
-
-                                    <div class="sim-status-badge pending" id="simStatusBadge">
-                                        <span class="material-icons-round">hourglass_empty</span>
-                                        <span id="simStatusText">Yanıtınız Bekleniyor</span>
-                                    </div>
-
-                                    <div class="sim-btn-group">
-                                        <button class="sim-btn confirm" onclick="triggerSimRsvp('confirmed')">
-                                            <span class="material-icons-round">check_circle</span> Katılıyorum
-                                        </button>
-                                        <button class="sim-btn decline" onclick="triggerSimRsvp('declined')">
-                                            <span class="material-icons-round">cancel</span> Katılamıyorum
-                                        </button>
-                                    </div>
-
-                                    <div class="sim-toast" id="simToast"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Modül 2: Düğün Günü Akış Çizelgesi -->
-        <section id="wedding-timeline-showcase" class="timeline-showcase-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag gold">Zaman Çizelgesi</span>
-                    <h2>Düğün Günü Akışını Saat Saat Yönetin</h2>
-                    <p class="section-subtitle">Kuaförden gelin almaya, nikah töreninden pasta kesimine kadar tüm akışı dakika dakika planlayın, ekibinizle paylaşın.</p>
-                </div>
-
-                <div class="timeline-interactive-container">
-                    <div class="timeline-nodes">
-                        <!-- Node 1 -->
-                        <div class="timeline-node active" onclick="selectTimelineNode(this, '09:00', 'Kuaför & Gelin Hazırlığı', 'Gelin & Nedimeler', 'Kuaför salonunda makyaj ve saç hazırlıkları.', 'Giriş & Hazırlık Müzikleri')">
-                            <span class="timeline-time">09:00</span>
-                            <div class="timeline-dot"></div>
-                            <span class="timeline-title">Kuaför & Hazırlık</span>
-                        </div>
-                        <!-- Node 2 -->
-                        <div class="timeline-node" onclick="selectTimelineNode(this, '13:30', 'Gelin Alma & Konvoy', 'Damat & Sağdıçlar', 'Evden gelin alma merasimi ve araç konvoyu.', 'Geleneksel Davul Zurna / Neşeli Akış')">
-                            <span class="timeline-time">13:30</span>
-                            <div class="timeline-dot"></div>
-                            <span class="timeline-title">Gelin Alma</span>
-                        </div>
-                        <!-- Node 3 -->
-                        <div class="timeline-node" onclick="selectTimelineNode(this, '16:00', 'Dış Çekim & Fotoğraf', 'Fotoğrafçı & Çift', 'Plato ve açık alan fotoğraf çekimleri.', 'Akustik Romantik Fon')">
-                            <span class="timeline-time">16:00</span>
-                            <div class="timeline-dot"></div>
-                            <span class="timeline-title">Fotoğraf Çekimi</span>
-                        </div>
-                        <!-- Node 4 -->
-                        <div class="timeline-node" onclick="selectTimelineNode(this, '19:30', 'Nikah Töreni & İlk Dans', 'Tüm Ekip & Çift', 'Salona görkemli giriş, nikah imzası ve ilk dans.', 'Çiftin Özel İlk Dans Şarkısı 🎵')">
-                            <span class="timeline-time">19:30</span>
-                            <div class="timeline-dot"></div>
-                            <span class="timeline-title">Nikah & İlk Dans</span>
-                        </div>
-                        <!-- Node 5 -->
-                        <div class="timeline-node" onclick="selectTimelineNode(this, '21:30', 'Pasta Kesimi & Eğlence', 'Tüm Ekip', 'Şampanya patlatma, pasta kesimi ve kutlama.', 'Coşkulu Parti Listesi 🎉')">
-                            <span class="timeline-time">21:30</span>
-                            <div class="timeline-dot"></div>
-                            <span class="timeline-title">Pasta & Eğlence</span>
-                        </div>
-                    </div>
-
-                    <!-- Dynamic Card Detail -->
-                    <div class="timeline-detail-card" id="timelineDetailCard">
-                        <div class="timeline-card-header">
-                            <span class="node-badge-time" id="tlTime">09:00</span>
-                            <h3 id="tlTitle">Kuaför & Gelin Hazırlığı</h3>
-                        </div>
-                        <div class="timeline-card-body">
-                            <div class="tl-info-row">
-                                <span class="material-icons-round">person</span>
-                                <span>Sorumlu: <strong id="tlAssignee">Gelin & Nedimeler</strong></span>
-                            </div>
-                            <div class="tl-info-row">
-                                <span class="material-icons-round">description</span>
-                                <span id="tlDesc">Kuaför salonunda makyaj ve saç hazırlıkları.</span>
-                            </div>
-                            <div class="tl-info-row gold">
-                                <span class="material-icons-round">library_music</span>
-                                <span>Müzik & Playlist: <strong id="tlMusic">Giriş & Hazırlık Müzikleri</strong></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Modül 3: Gelin Koruması Simülatörü -->
-        <section id="surprise-guard-sim" class="surprise-sim-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag gold">Gizlilik Teknolojisi</span>
-                    <h2>Gelin Koruması (Surprise Guard) Simülatörü</h2>
-                    <p class="section-subtitle">Geline hissettirmeden sürpriz bir Bride-to-Be planlayın. Aşağıdaki butondan gelin ve nedime gözüyle arayüzün nasıl değiştiğini görün:</p>
-                </div>
-
-                <div class="surprise-toggle-container">
-                    <div class="surprise-toggle-btn-wrap">
-                        <button class="surprise-toggle-btn active" id="btnViewGelin" onclick="setSurpriseView('bride')">
-                            👰 Gelin Gözüyle Bak (Gizli)
-                        </button>
-                        <button class="surprise-toggle-btn" id="btnViewNedime" onclick="setSurpriseView('bridesmaid')">
-                            👭 Nedime Gözüyle Bak (Tam Erişim)
-                        </button>
-                    </div>
-
-                    <div class="surprise-card-view" id="surpriseCardView">
-                        <div class="surprise-view-header">
-                            <div class="surprise-status-badge locked" id="surpriseViewBadge">
-                                🛡️ Gelin Koruması Aktif — Bu Paket Sizden Gizlendi
-                            </div>
-                        </div>
-                        
-                        <div class="surprise-content-box bride-blurred" id="surpriseContentBox">
-                            <h3 id="surpriseViewTitle">🔒 Sürpriz Bride-to-Be Partisi (Kilitli)</h3>
-                            <p id="surpriseViewDesc">Bu organizasyonun bütçesi, mekanı ve sürpriz detayları gelin koruması algoritması ile gizlenmiştir. Geline hiçbir bildirim gitmez.</p>
-                            
-                            <div class="surprise-detail-chips" id="surpriseViewChips">
-                                <span class="chip">Mekan: 🔒 Saklı</span>
-                                <span class="chip">Bütçe: 🔒 Saklı</span>
-                                <span class="chip">Hediye Listesi: 🔒 Saklı</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Modül 4: Hazır Tören Şablon Kataloğu -->
-        <section id="preset-templates-showcase" class="templates-showcase-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag gold">Hazır Şablonlar</span>
-                    <h2>Nereden Başlayacağım Diye Düşünmeyin</h2>
-                    <p class="section-subtitle">Uzman organizatörler tarafından hazırlanan hazır görev paketleri ile töreninizi tek tıkla başlatın.</p>
-                </div>
-
-                <div class="templates-grid">
-                    <!-- Template 1 -->
-                    <div class="template-card">
-                        <div class="tpl-icon">👰‍♀️</div>
-                        <h3>Bride-to-Be & Bekarlığa Veda</h3>
-                        <span class="tpl-badge">15 Hazır Görev</span>
-                        <p>Mekan süslemesi, bekarlığa veda pastası, nedime kostümleri ve sürpriz aktivite listesi hazır gelir.</p>
-                        <a href="#indirin" class="tpl-link">Şablonu İncele →</a>
-                    </div>
-
-                    <!-- Template 2 -->
-                    <div class="template-card featured">
-                        <div class="tpl-icon">💍</div>
-                        <h3>Eksiksiz Düğün Organizasyonu</h3>
-                        <span class="tpl-badge gold">45 Hazır Görev + Masa Planı</span>
-                        <p>Düğün mekanı, fotoğrafçı, gelinlik provası, LCV takibi ve bütçe planlaması eksiksiz kurulur.</p>
-                        <a href="#indirin" class="tpl-link gold">Şablonu İncele →</a>
-                    </div>
-
-                    <!-- Template 3 -->
-                    <div class="template-card">
-                        <div class="tpl-icon">🌸</div>
-                        <h3>Kına & Nişan Töreni</h3>
-                        <span class="tpl-badge">20 Hazır Görev</span>
-                        <p>Kına tahtı, hediyelikler, nişan tepsisi ve aile koordinasyon görevleri otomatik yüklenir.</p>
-                        <a href="#indirin" class="tpl-link">Şablonu İncele →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Details Grid Section (Progressive Disclosure - iOS/macOS Drawer style) -->
-        <section id="detaylar" class="details-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Merak Edenler İçin Derinlemesine Detaylar</h2>
-                    <p class="section-subtitle">Uygulamamızın altyapısını ve teknik limitlerini şeffaf bir şekilde keşfedin. Bilgi almak istediğiniz konuya tıklayın.</p>
-                </div>
-                
-                <div class="details-grid">
-                    <!-- Card 1 -->
-                    <div class="details-card" onclick="openSpecDrawer('budget-spec')">
-                        <div class="details-card-icon"><span class="material-icons-round">account_balance_wallet</span></div>
-                        <h3>Bütçe & Harcama Detayları</h3>
-                        <p>Kategori bazlı limitasyonlar, para birimi seçenekleri ve harcama havuzları.</p>
-                        <span class="details-link">Detayları İncele <span class="material-icons-round">chevron_right</span></span>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="details-card" onclick="openSpecDrawer('tasks-spec')">
-                        <div class="details-card-icon"><span class="material-icons-round">task</span></div>
-                        <h3>Yapılacaklar Listesi & Görevler</h3>
-                        <p>Yapılacak görevleri sevdiklerinize kolayca atayın, hazırlıkları el birliğiyle tamamlayın.</p>
-                        <span class="details-link">Detayları İncele <span class="material-icons-round">chevron_right</span></span>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="details-card" onclick="openSpecDrawer('team-spec')">
-                        <div class="details-card-icon"><span class="material-icons-round">groups</span></div>
-                        <h3>İmece Ekip Rol Yetkileri</h3>
-                        <p>Düğün sahipleri, eşler ve yardıma gelenlerin hangi ekranları görebileceğini belirleyin.</p>
-                        <span class="details-link">Detayları İncele <span class="material-icons-round">chevron_right</span></span>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="details-card" onclick="openSpecDrawer('templates-spec')">
-                        <div class="details-card-icon"><span class="material-icons-round">auto_stories</span></div>
-                        <h3>Hazır Düğün Şablonları</h3>
-                        <p>Söz, nişan, kına ve düğün için uzmanlarca hazırlanan otomatik görev listeleri.</p>
-                        <span class="details-link">Detayları İncele <span class="material-icons-round">chevron_right</span></span>
                     </div>
                 </div>
             </div>
@@ -3553,6 +3290,32 @@
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 3500);
+        }
+
+        function selectSimMeal(btn, mealName) {
+            document.querySelectorAll('.sim-meal-chip').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            showSimToast(`🍽️ ${mealName} tercihiniz seçildi!`);
+        }
+
+        function saveSimAllergy() {
+            const val = document.getElementById('simAllergyInput')?.value.trim();
+            if (val) {
+                showSimToast(`✓ Alerji notunuz kaydedildi!`);
+            } else {
+                showSimToast(`⚠️ Lütfen alerji veya diyet notunuzu yazın.`);
+            }
+        }
+
+        function showSimToast(msg) {
+            const toast = document.getElementById('simToast');
+            if (!toast) return;
+            toast.textContent = msg;
+            toast.style.color = 'var(--gold-light)';
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
         }
 
         // 2. Timeline Node Selector Handler
