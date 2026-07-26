@@ -911,66 +911,70 @@
             background-color: var(--gold-light);
         }
 
-        /* Ultra-Compact Luxury Card-Footer Brand Hallmark */
+        /* Clean Horizontal Card-Footer Brand Hallmark */
         .card-footer-branding {
-            margin-top: 20px;
-            padding-top: 14px;
-            border-top: 1px dashed rgba(212, 175, 55, 0.3);
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(212, 175, 55, 0.22);
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 4px;
-            text-align: center;
+            justify-content: space-between;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .footer-brand-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .card-footer-seal {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             object-fit: contain;
             filter: drop-shadow(0 2px 6px rgba(184, 134, 11, 0.25));
             transition: transform 0.3s ease;
         }
 
         .card-footer-branding:hover .card-footer-seal {
-            transform: scale(1.08) rotate(4deg);
+            transform: scale(1.1) rotate(4deg);
         }
 
         .card-footer-info {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 1px;
+            text-align: left;
+        }
+
+        .card-brand-title {
+            font-family: var(--font-heading);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1.25;
+            letter-spacing: 0.01em;
         }
 
         .card-brand-slogan {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-main);
-            line-height: 1.25;
-        }
-
-        .card-brand-name {
-            font-size: 0.68rem;
+            font-size: 0.74rem;
             color: var(--text-muted);
-            letter-spacing: 0.02em;
+            line-height: 1.25;
         }
 
         .card-brand-link {
             display: inline-flex;
             align-items: center;
-            gap: 3px;
-            margin-top: 2px;
-            padding: 4px 12px;
+            gap: 4px;
+            padding: 6px 14px;
             background-color: var(--gold-light);
             border: 1px solid var(--gold-border);
             border-radius: 50px;
-            font-size: 0.72rem;
+            font-size: 0.76rem;
             font-weight: 600;
             color: var(--gold);
             text-decoration: none;
+            white-space: nowrap;
             transition: all 0.25s ease;
         }
 
@@ -978,6 +982,7 @@
             background-color: var(--gold);
             color: #FFFFFF;
             border-color: var(--gold);
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.2);
         }
 
         .hidden {
@@ -1322,12 +1327,14 @@
             </div>
         </div>
 
-        <!-- Card Footer Brand Hallmark -->
+        <!-- Card Footer Brand Hallmark (Clean Horizontal Layout) -->
         <div class="card-footer-branding">
-            <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Altın Mühür" class="card-footer-seal">
-            <div class="card-footer-info">
-                <span class="card-brand-slogan">"Siz de En Özel Gününüzü Altın Mühürle Taçlandırın"</span>
-                <span class="card-brand-name">İmece Düğün • Dijital Organizasyon Platformu</span>
+            <div class="footer-brand-left">
+                <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Altın Mühür" class="card-footer-seal">
+                <div class="card-footer-info">
+                    <span class="card-brand-title">İmece Düğün</span>
+                    <span class="card-brand-slogan">En Özel Günüze Altın Mühür</span>
+                </div>
             </div>
             <a href="https://imecedugun.com" target="_blank" rel="noopener" class="card-brand-link">
                 <span>İnceleyin</span> ↗
