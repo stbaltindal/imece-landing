@@ -362,11 +362,14 @@ label,
 }
 
 .nav-brand-logo {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    margin-right: 10px;
-    vertical-align: middle;
+    width: 32px !important;
+    height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
+    object-fit: contain !important;
+    margin-right: 10px !important;
+    vertical-align: middle !important;
+    flex-shrink: 0 !important;
     filter: drop-shadow(0 2px 6px rgba(197, 155, 39, 0.4));
     transition: transform 0.3s ease;
 }
