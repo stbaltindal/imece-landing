@@ -5695,6 +5695,85 @@ body.dark-active .app-header-mini {
     .showcase-next-step-btn {
         justify-content: center;
         width: 100%;
+}
+
+/* Hero Section Gold Wax Seal Brand Badge */
+.hero-brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 18px 6px 8px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.14) 0%, rgba(255, 248, 230, 0.08) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.38);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin-bottom: 22px;
+    box-shadow: 
+        0 4px 16px rgba(184, 134, 11, 0.12),
+        0 1px 4px rgba(0, 0, 0, 0.04);
+    transition: all 0.35s ease;
+}
+
+.hero-brand-badge:hover {
+    border-color: rgba(212, 175, 55, 0.65);
+    box-shadow: 
+        0 8px 24px rgba(184, 134, 11, 0.2),
+        0 2px 8px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
+}
+
+.hero-seal-img {
+    width: 42px;
+    height: 42px;
+    max-width: 42px;
+    max-height: 42px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(184, 134, 11, 0.35));
+    transition: transform 0.35s ease;
+}
+
+.hero-brand-badge:hover .hero-seal-img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.hero-badge-title {
+    font-family: var(--font-heading);
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+}
+
+.hero-badge-sep {
+    font-size: 0.75rem;
+    color: rgba(212, 175, 55, 0.5);
+}
+
+.hero-badge-subtitle {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+    .hero-brand-badge {
+        padding: 5px 14px 5px 6px;
+        gap: 6px;
+        margin-bottom: 16px;
+    }
+    .hero-seal-img {
+        width: 34px;
+        height: 34px;
+        max-width: 34px;
+        max-height: 34px;
+    }
+    .hero-badge-title {
+        font-size: 0.78rem;
+    }
+    .hero-badge-subtitle {
+        font-size: 0.66rem;
     }
 }
 
