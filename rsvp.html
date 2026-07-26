@@ -396,53 +396,72 @@
             margin-top: 14px;
         }
 
-        /* Interactive Venue Location Card & Navigation Button */
-        .venue-location-card {
-            background: linear-gradient(135deg, #FAF6EF 0%, #FFFDF9 100%);
-            border: 1px solid rgba(201, 162, 39, 0.35);
-            border-radius: 12px;
-            padding: 10px 14px;
-            margin: 10px auto;
-            width: fit-content;
-            max-width: 270px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(201, 162, 39, 0.06);
+        /* Unified Event Info & Luxury Venue Capsule */
+        .event-info-list {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 10px;
+            margin-top: 12px;
         }
 
-        .venue-name-title {
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            line-height: 1.25;
-        }
-
-        .venue-name-title .material-icons-round {
-            color: var(--gold);
-            font-size: 1.1rem;
-        }
-
-        .venue-map-nav-btn {
+        .event-info-item {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 7px;
+            font-size: 0.93rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        .event-info-item .material-icons-round {
+            font-size: 1.15rem;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .event-info-item.venue-item {
+            flex-wrap: wrap;
+            margin-top: 4px;
+            padding: 8px 16px;
+            background: rgba(212, 175, 55, 0.09);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            border-radius: 20px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .venue-name-span {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .venue-map-badge-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             background: linear-gradient(135deg, var(--gold) 0%, #A8841B 100%);
             color: #FFFFFF !important;
             text-decoration: none !important;
-            padding: 6px 14px;
-            border-radius: 16px;
-            font-size: 0.78rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.76rem;
             font-weight: 700;
-            box-shadow: 0 3px 8px rgba(168, 132, 27, 0.2);
+            margin-left: 2px;
+            box-shadow: 0 2px 6px rgba(168, 132, 27, 0.22);
             transition: all 0.2s ease;
+        }
+
+        .venue-map-badge-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(168, 132, 27, 0.35);
+        }
+
+        .venue-map-badge-btn .material-icons-round {
+            color: #FFFFFF !important;
+            font-size: 0.85rem !important;
         }
 
         .venue-map-nav-btn:hover {
@@ -1217,23 +1236,23 @@
             <div class="event-card-box">
                 <h2 class="event-title" id="eventTitle">—</h2>
                 <div id="coupleNames" class="couple-names hidden"></div>
-                <div class="event-date-row">
-                    <span class="material-icons-round">event</span>
-                    <span id="eventDate">—</span>
-                </div>
-                <div class="event-date-row hidden" id="ceremonyRow">
-                    <span class="material-icons-round">schedule</span>
-                    <span>Tören Saati: <strong id="ceremonyTime"></strong></span>
-                </div>
-                <div class="venue-location-card hidden" id="venueRow">
-                    <div class="venue-name-title">
-                        <span class="material-icons-round">place</span>
-                        <span id="venueNameText">—</span>
+                <div class="event-info-list">
+                    <div class="event-info-item">
+                        <span class="material-icons-round">event</span>
+                        <span id="eventDate">—</span>
                     </div>
-                    <a id="venueLink" target="_blank" rel="noopener" class="venue-map-nav-btn">
-                        <span class="material-icons-round" style="font-size: 16px;">near_me</span>
-                        <span>Yol Tarifi Al</span>
-                    </a>
+                    <div class="event-info-item hidden" id="ceremonyRow">
+                        <span class="material-icons-round">schedule</span>
+                        <span>Tören Saati: <strong id="ceremonyTime"></strong></span>
+                    </div>
+                    <div class="event-info-item venue-item hidden" id="venueRow">
+                        <span class="material-icons-round">place</span>
+                        <span id="venueNameText" class="venue-name-span">—</span>
+                        <a id="venueLink" target="_blank" rel="noopener" class="venue-map-badge-btn">
+                            <span class="material-icons-round">near_me</span>
+                            <span>Yol Tarifi</span>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <span class="party-chip hidden" id="partySize"></span>
