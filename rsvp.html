@@ -903,20 +903,64 @@
             background-color: var(--gold-light);
         }
 
-        .footer-branding {
+        /* Professional Brand Seal Stamp & Footer Hallmark */
+        .footer-branding-stamp {
             margin-top: 32px;
-            padding-top: 18px;
-            border-top: 1px solid #F0ECE6;
-            font-size: 0.78rem;
-            color: var(--text-light);
+            padding: 18px 16px 12px;
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
+            text-align: center;
         }
 
-        .footer-branding strong {
+        .footer-seal-img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(184, 134, 11, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .footer-branding-stamp:hover .footer-seal-img {
+            transform: scale(1.08) rotate(4deg);
+        }
+
+        .footer-stamp-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .stamp-powered {
+            font-size: 0.72rem;
+            color: var(--text-light);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .stamp-brand strong {
             color: var(--gold);
+            font-weight: 700;
+        }
+
+        .footer-brand-link {
+            display: inline-block;
+            margin-top: 4px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-brand-link:hover {
+            text-decoration: underline;
+            color: var(--gold-accent);
         }
 
         .hidden {
@@ -1097,8 +1141,8 @@
 
         <!-- Loaded State (Luxury Invitation View) -->
         <div id="stateLoaded" class="hidden">
-            <div class="emblem-wrapper brand-emblem-seal">
-                <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Logo Mühürü" class="emblem-brand-img">
+            <div class="emblem-wrapper">
+                <span class="material-icons-round">favorite</span>
             </div>
 
             <div class="invite-prefix">Sayın Davetlimiz</div>
@@ -1241,15 +1285,13 @@
             </div>
         </div>
 
-        <div class="footer-branding">
-            <span>Dijital Davet Yönetimi</span>
-            <strong>• İmece Düğün</strong>
-        </div>
-
-        <div class="web-invite">
-            <span class="material-icons-round">auto_awesome</span>
-            <p>Bu davetiye <strong>İmece Düğün</strong> ile hazırlandı</p>
-            <a href="https://imecedugun.com" target="_blank" rel="noopener">Sen de etkinliğini kolayca yönet →</a>
+        <div class="footer-branding-stamp">
+            <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Mühür" class="footer-seal-img">
+            <div class="footer-stamp-text">
+                <span class="stamp-powered">Bu özel davetiye</span>
+                <span class="stamp-brand"><strong>İmece Düğün</strong> Dijital Platformu ile hazırlandı</span>
+            </div>
+            <a href="https://imecedugun.com" target="_blank" rel="noopener" class="footer-brand-link">Sen de Etkinliğini Kolayca Yönet ↗</a>
         </div>
     </div>
 
