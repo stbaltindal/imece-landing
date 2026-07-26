@@ -44,17 +44,25 @@
 
         body {
             background-color: var(--bg-champagne);
-            background-image: 
-                radial-gradient(circle at 50% 0%, #F3E8DC 0%, transparent 65%),
-                radial-gradient(circle at 50% 100%, #F3E8DC 0%, transparent 65%);
             color: var(--text-main);
             font-family: var(--font-body);
             margin: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 24px 16px;
+            padding: 32px 16px;
+            box-sizing: border-box;
+        }
+
+        .rsvp-page-wrapper {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
         }
 
         .rsvp-card {
@@ -1158,7 +1166,8 @@
 </head>
 <body>
 
-    <div class="rsvp-card" id="rsvpCard">
+    <div class="rsvp-page-wrapper">
+        <div class="rsvp-card" id="rsvpCard">
 
         <!-- Loading State -->
         <div id="stateLoading">
@@ -1348,6 +1357,7 @@
             <span>İnceleyin</span> ↗
         </a>
     </footer>
+</div>
 
     <!-- KVKK Aydınlatma Metni Modal -->
     <div class="privacy-modal-overlay hidden" id="privacyModalOverlay">
