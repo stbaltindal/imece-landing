@@ -911,88 +911,70 @@
             background-color: var(--gold-light);
         }
 
-        /* Outer Page-Level Luxury Brand Footer (Kart Dışı Sayfa İmzası) */
-        .page-footer-branding {
-            margin: 20px auto 10px;
-            width: 100%;
-            max-width: 480px;
+        /* Luxury Card-Footer Brand Hallmark (Ana Kart İçi İletişim & İmza) */
+        .card-footer-branding {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            padding: 12px 18px;
-            background: rgba(250, 247, 242, 0.88);
-            border: 1px solid rgba(212, 175, 55, 0.28);
-            border-radius: 50px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
-            transition: all 0.35s ease;
-            box-sizing: border-box;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
         }
 
-        .page-footer-branding:hover {
-            border-color: rgba(212, 175, 55, 0.55);
-            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.14);
-            transform: translateY(-1px);
-        }
-
-        .footer-brand-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .page-footer-seal {
-            width: 38px;
-            height: 38px;
+        .card-footer-seal {
+            width: 48px;
+            height: 48px;
             object-fit: contain;
-            filter: drop-shadow(0 2px 8px rgba(184, 134, 11, 0.3));
+            filter: drop-shadow(0 2px 8px rgba(184, 134, 11, 0.25));
             transition: transform 0.35s ease;
         }
 
-        .page-footer-branding:hover .page-footer-seal {
-            transform: scale(1.1) rotate(5deg);
+        .card-footer-branding:hover .card-footer-seal {
+            transform: scale(1.08) rotate(4deg);
         }
 
-        .page-footer-info {
+        .card-footer-info {
             display: flex;
             flex-direction: column;
-            text-align: left;
+            align-items: center;
+            gap: 2px;
         }
 
-        .footer-brand-title {
-            font-family: var(--font-heading);
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--gold);
-            line-height: 1.25;
+        .card-brand-slogan {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1.35;
+        }
+
+        .card-brand-name {
+            font-size: 0.76rem;
+            color: var(--text-muted);
             letter-spacing: 0.02em;
         }
 
-        .footer-brand-desc {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            line-height: 1.25;
-        }
-
-        .page-footer-link {
+        .card-brand-link {
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            padding: 7px 15px;
+            margin-top: 4px;
+            padding: 6px 16px;
             background-color: var(--gold-light);
             border: 1px solid var(--gold-border);
             border-radius: 50px;
-            font-size: 0.76rem;
+            font-size: 0.78rem;
             font-weight: 600;
             color: var(--gold);
             text-decoration: none;
-            white-space: nowrap;
             transition: all 0.25s ease;
-            box-shadow: 0 2px 6px rgba(184, 134, 11, 0.06);
         }
 
-        .page-footer-link:hover {
+        .card-brand-link:hover {
             background-color: var(--gold);
             color: #FFFFFF;
             border-color: var(--gold);
@@ -1166,8 +1148,7 @@
 </head>
 <body>
 
-    <div class="rsvp-page-wrapper">
-        <div class="rsvp-card" id="rsvpCard">
+    <div class="rsvp-card" id="rsvpCard">
 
         <!-- Loading State -->
         <div id="stateLoading">
@@ -1342,22 +1323,18 @@
             </div>
         </div>
 
-    </div>
-
-    <!-- Outer Page-Level Footer (Dış Çerçeve Marka İmzası) -->
-    <footer class="page-footer-branding">
-        <div class="footer-brand-container">
-            <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Altın Mühür" class="page-footer-seal">
-            <div class="page-footer-info">
-                <span class="footer-brand-title">İmece Düğün</span>
-                <span class="footer-brand-desc">En Özel Günüze Altın Mühür</span>
+        <!-- Card Footer Brand Hallmark -->
+        <div class="card-footer-branding">
+            <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Altın Mühür" class="card-footer-seal">
+            <div class="card-footer-info">
+                <span class="card-brand-slogan">"Siz de En Özel Gününüzü Altın Mühürle Taçlandırın"</span>
+                <span class="card-brand-name">İmece Düğün • Dijital Organizasyon Platformu</span>
             </div>
+            <a href="https://imecedugun.com" target="_blank" rel="noopener" class="card-brand-link">
+                <span>İnceleyin</span> ↗
+            </a>
         </div>
-        <a href="https://imecedugun.com" target="_blank" rel="noopener" class="page-footer-link">
-            <span>İnceleyin</span> ↗
-        </a>
-    </footer>
-</div>
+    </div>
 
     <!-- KVKK Aydınlatma Metni Modal -->
     <div class="privacy-modal-overlay hidden" id="privacyModalOverlay">
