@@ -911,10 +911,10 @@
             background-color: var(--gold-light);
         }
 
-        /* Luxury Floating Pill Hallmark inside Card */
-        .card-footer-branding {
+        /* Luxury Floating Pill Hallmark inside Card (Discreet Signature Link) */
+        a.card-footer-branding {
             margin-top: 28px;
-            padding: 10px 16px;
+            padding: 10px 18px;
             background: linear-gradient(135deg, #FAF6EF 0%, #FFFDF9 100%);
             border: 1px solid rgba(212, 175, 55, 0.35);
             border-radius: 50px;
@@ -926,14 +926,16 @@
             justify-content: space-between;
             gap: 12px;
             text-align: left;
+            text-decoration: none;
             transition: all 0.35s ease;
             box-sizing: border-box;
+            cursor: pointer;
         }
 
-        .card-footer-branding:hover {
-            border-color: rgba(212, 175, 55, 0.6);
+        a.card-footer-branding:hover {
+            border-color: rgba(212, 175, 55, 0.65);
             box-shadow: 
-                0 8px 24px rgba(184, 134, 11, 0.16),
+                0 8px 24px rgba(184, 134, 11, 0.18),
                 0 2px 8px rgba(28, 25, 23, 0.04);
             transform: translateY(-1px);
         }
@@ -952,7 +954,7 @@
             transition: transform 0.35s ease;
         }
 
-        .card-footer-branding:hover .card-footer-seal {
+        a.card-footer-branding:hover .card-footer-seal {
             transform: scale(1.1) rotate(5deg);
         }
 
@@ -972,33 +974,33 @@
         }
 
         .card-brand-slogan {
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             color: var(--text-muted);
             line-height: 1.25;
         }
 
-        .card-brand-link {
+        .card-brand-arrow {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            padding: 6px 14px;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
             background-color: #FFFFFF;
             border: 1px solid rgba(212, 175, 55, 0.35);
-            border-radius: 50px;
+            border-radius: 50%;
             font-size: 0.76rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--gold);
-            text-decoration: none;
-            white-space: nowrap;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
             box-shadow: 0 2px 6px rgba(184, 134, 11, 0.06);
         }
 
-        .card-brand-link:hover {
+        a.card-footer-branding:hover .card-brand-arrow {
             background-color: var(--gold);
             color: #FFFFFF;
             border-color: var(--gold);
-            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.25);
+            transform: translate(2px, -2px);
+            box-shadow: 0 4px 10px rgba(184, 134, 11, 0.3);
         }
 
         .hidden {
@@ -1343,19 +1345,17 @@
             </div>
         </div>
 
-        <!-- Card Footer Brand Hallmark (Clean Horizontal Layout) -->
-        <div class="card-footer-branding">
+        <!-- Card Footer Brand Hallmark (Discreet Prestige Signature) -->
+        <a href="https://imecedugun.com" target="_blank" rel="noopener" class="card-footer-branding" title="İmece Düğün — Dijital Davetiye Altyapısı">
             <div class="footer-brand-left">
                 <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Altın Mühür" class="card-footer-seal">
                 <div class="card-footer-info">
                     <span class="card-brand-title">İmece Düğün</span>
-                    <span class="card-brand-slogan">En Özel Günüze Altın Mühür</span>
+                    <span class="card-brand-slogan">Dijital Davetiye Altyapısı</span>
                 </div>
             </div>
-            <a href="https://imecedugun.com" target="_blank" rel="noopener" class="card-brand-link">
-                <span>İnceleyin</span> ↗
-            </a>
-        </div>
+            <span class="card-brand-arrow">↗</span>
+        </a>
     </div>
 
     <!-- KVKK Aydınlatma Metni Modal -->
