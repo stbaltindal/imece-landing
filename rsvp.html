@@ -903,127 +903,92 @@
             background-color: var(--gold-light);
         }
 
-        /* Minimalist Luxury Brand Seal Stamp & Interactive Hallmark */
-        .footer-branding-stamp {
-            margin-top: 38px;
-            padding: 24px 20px 20px;
-            background: linear-gradient(145deg, rgba(250, 246, 239, 0.9) 0%, rgba(255, 253, 249, 0.95) 100%);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 24px;
-            box-shadow: 
-                0 10px 30px rgba(28, 25, 23, 0.04),
-                0 2px 8px rgba(184, 134, 11, 0.06);
+        /* Outer Page-Level Luxury Brand Footer (Kart Dışı Sayfa İmzası) */
+        .page-footer-branding {
+            margin: 20px auto 10px;
+            width: 100%;
+            max-width: 480px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-align: center;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                        border-color 0.4s ease,
-                        box-shadow 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            justify-content: space-between;
+            padding: 12px 18px;
+            background: rgba(250, 247, 242, 0.88);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            border-radius: 50px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
+            transition: all 0.35s ease;
+            box-sizing: border-box;
         }
 
-        .footer-branding-stamp:hover {
-            transform: translateY(-2px);
+        .page-footer-branding:hover {
             border-color: rgba(212, 175, 55, 0.55);
-            box-shadow: 
-                0 14px 36px rgba(184, 134, 11, 0.14),
-                0 4px 12px rgba(28, 25, 23, 0.06);
+            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.14);
+            transform: translateY(-1px);
         }
 
-        .seal-glow-wrap {
-            position: relative;
-            display: inline-flex;
+        .footer-brand-container {
+            display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 12px;
         }
 
-        .seal-glow-wrap::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0) 70%);
-            opacity: 0.6;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            pointer-events: none;
-        }
-
-        .footer-branding-stamp:hover .seal-glow-wrap::after {
-            opacity: 1;
-            transform: scale(1.15);
-        }
-
-        .footer-seal-img {
-            width: 64px;
-            height: 64px;
+        .page-footer-seal {
+            width: 38px;
+            height: 38px;
             object-fit: contain;
-            filter: drop-shadow(0 4px 14px rgba(184, 134, 11, 0.3));
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            z-index: 1;
+            filter: drop-shadow(0 2px 8px rgba(184, 134, 11, 0.3));
+            transition: transform 0.35s ease;
         }
 
-        .footer-branding-stamp:hover .footer-seal-img {
-            transform: scale(1.08) rotate(4deg);
+        .page-footer-branding:hover .page-footer-seal {
+            transform: scale(1.1) rotate(5deg);
         }
 
-        .footer-stamp-text {
+        .page-footer-info {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 3px;
+            text-align: left;
         }
 
-        .stamp-slogan {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-main);
-            letter-spacing: 0.01em;
-        }
-
-        .stamp-powered {
-            font-size: 0.78rem;
-            color: var(--text-muted);
+        .footer-brand-title {
+            font-family: var(--font-heading);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1.25;
             letter-spacing: 0.02em;
         }
 
-        .footer-brand-btn {
+        .footer-brand-desc {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            line-height: 1.25;
+        }
+
+        .page-footer-link {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            margin-top: 4px;
-            padding: 9px 20px;
-            background: linear-gradient(135deg, #FAF7F2 0%, #FFFFFF 100%);
-            border: 1px solid rgba(212, 175, 55, 0.4);
+            gap: 4px;
+            padding: 7px 15px;
+            background-color: var(--gold-light);
+            border: 1px solid var(--gold-border);
             border-radius: 50px;
-            font-size: 0.84rem;
+            font-size: 0.76rem;
             font-weight: 600;
             color: var(--gold);
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(184, 134, 11, 0.08);
+            white-space: nowrap;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 6px rgba(184, 134, 11, 0.06);
         }
 
-        .footer-brand-btn .btn-arrow {
-            transition: transform 0.3s ease;
-        }
-
-        .footer-brand-btn:hover {
-            background: linear-gradient(135deg, var(--gold) 0%, #9A6F00 100%);
+        .page-footer-link:hover {
+            background-color: var(--gold);
             color: #FFFFFF;
             border-color: var(--gold);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 18px rgba(184, 134, 11, 0.32);
-        }
-
-        .footer-brand-btn:hover .btn-arrow {
-            transform: translate(2px, -2px);
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.25);
         }
 
         .hidden {
@@ -1348,20 +1313,21 @@
             </div>
         </div>
 
-        <div class="footer-branding-stamp">
-            <div class="seal-glow-wrap">
-                <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Altın Mühür" class="footer-seal-img">
-            </div>
-            <div class="footer-stamp-text">
-                <span class="stamp-slogan">"En Özel Günüze Altın Mühür"</span>
-                <span class="stamp-powered">İmece Düğün • Dijital Organizasyon Platformu</span>
-            </div>
-            <a href="https://imecedugun.com" target="_blank" rel="noopener" class="footer-brand-btn">
-                <span>Özel Gününüzü Planlayın</span>
-                <span class="btn-arrow">↗</span>
-            </a>
-        </div>
     </div>
+
+    <!-- Outer Page-Level Footer (Dış Çerçeve Marka İmzası) -->
+    <footer class="page-footer-branding">
+        <div class="footer-brand-container">
+            <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Altın Mühür" class="page-footer-seal">
+            <div class="page-footer-info">
+                <span class="footer-brand-title">İmece Düğün</span>
+                <span class="footer-brand-desc">Dijital Organizasyon Platformu • En Özel Günüze Altın Mühür</span>
+            </div>
+        </div>
+        <a href="https://imecedugun.com" target="_blank" rel="noopener" class="page-footer-link">
+            <span>Siz de Planlayın</span> ↗
+        </a>
+    </footer>
 
     <!-- KVKK Aydınlatma Metni Modal -->
     <div class="privacy-modal-overlay hidden" id="privacyModalOverlay">
