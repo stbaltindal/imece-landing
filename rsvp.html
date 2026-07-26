@@ -903,64 +903,93 @@
             background-color: var(--gold-light);
         }
 
-        /* Professional Brand Seal Stamp & Footer Hallmark */
+        /* Professional Brand Seal Stamp & Slogan Card */
         .footer-branding-stamp {
-            margin-top: 32px;
-            padding: 18px 16px 12px;
-            border-top: 1px solid rgba(212, 175, 55, 0.25);
+            margin-top: 36px;
+            padding: 24px 20px;
+            background: linear-gradient(135deg, #FAF6EF 0%, #FFFDF9 100%);
+            border: 1.5px solid rgba(212, 175, 55, 0.35);
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.12);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 12px;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .footer-branding-stamp:hover {
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 12px 32px rgba(184, 134, 11, 0.18);
         }
 
         .footer-seal-img {
-            width: 44px;
-            height: 44px;
+            width: 72px;
+            height: 72px;
             object-fit: contain;
-            filter: drop-shadow(0 2px 8px rgba(184, 134, 11, 0.3));
-            transition: transform 0.3s ease;
+            filter: drop-shadow(0 4px 14px rgba(184, 134, 11, 0.35));
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .footer-branding-stamp:hover .footer-seal-img {
-            transform: scale(1.08) rotate(4deg);
+            transform: scale(1.1) rotate(5deg);
         }
 
         .footer-stamp-text {
             display: flex;
             flex-direction: column;
-            gap: 2px;
-            font-size: 0.78rem;
-            color: var(--text-muted);
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stamp-brand-name {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: 0.14em;
+        }
+
+        .stamp-slogan {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 2px 0 4px;
         }
 
         .stamp-powered {
-            font-size: 0.72rem;
-            color: var(--text-light);
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
 
-        .stamp-brand strong {
-            color: var(--gold);
-            font-weight: 700;
-        }
-
-        .footer-brand-link {
-            display: inline-block;
-            margin-top: 4px;
-            font-size: 0.78rem;
+        .footer-brand-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+            padding: 9px 20px;
+            background-color: var(--gold-light);
+            border: 1px solid var(--gold-border);
+            border-radius: 50px;
+            font-size: 0.84rem;
             font-weight: 600;
             color: var(--gold);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(184, 134, 11, 0.08);
         }
 
-        .footer-brand-link:hover {
-            text-decoration: underline;
-            color: var(--gold-accent);
+        .footer-brand-btn:hover {
+            background-color: var(--gold);
+            color: #FFFFFF;
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(184, 134, 11, 0.3);
         }
 
         .hidden {
@@ -1286,12 +1315,15 @@
         </div>
 
         <div class="footer-branding-stamp">
-            <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Mühür" class="footer-seal-img">
+            <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Altın Mühür" class="footer-seal-img">
             <div class="footer-stamp-text">
-                <span class="stamp-powered">Bu özel davetiye</span>
-                <span class="stamp-brand"><strong>İmece Düğün</strong> Dijital Platformu ile hazırlandı</span>
+                <span class="stamp-brand-name">İMECE DÜĞÜN</span>
+                <span class="stamp-slogan">"En Özel Günüze Altın Mühür"</span>
+                <span class="stamp-powered">Bu özel davetiye İmece Düğün Dijital Platformu ile hazırlandı</span>
             </div>
-            <a href="https://imecedugun.com" target="_blank" rel="noopener" class="footer-brand-link">Sen de Etkinliğini Kolayca Yönet ↗</a>
+            <a href="https://imecedugun.com" target="_blank" rel="noopener" class="footer-brand-btn">
+                <span>Sen de Etkinliğine Mühür Vur</span> ↗
+            </a>
         </div>
     </div>
 
