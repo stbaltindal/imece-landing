@@ -911,16 +911,31 @@
             background-color: var(--gold-light);
         }
 
-        /* Clean Horizontal Card-Footer Brand Hallmark */
+        /* Luxury Floating Pill Hallmark inside Card */
         .card-footer-branding {
-            margin-top: 24px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(212, 175, 55, 0.22);
+            margin-top: 28px;
+            padding: 10px 16px;
+            background: linear-gradient(135deg, #FAF6EF 0%, #FFFDF9 100%);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 50px;
+            box-shadow: 
+                0 4px 16px rgba(184, 134, 11, 0.08),
+                0 1px 4px rgba(28, 25, 23, 0.03);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
+            gap: 12px;
             text-align: left;
+            transition: all 0.35s ease;
+            box-sizing: border-box;
+        }
+
+        .card-footer-branding:hover {
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 
+                0 8px 24px rgba(184, 134, 11, 0.16),
+                0 2px 8px rgba(28, 25, 23, 0.04);
+            transform: translateY(-1px);
         }
 
         .footer-brand-left {
@@ -933,12 +948,12 @@
             width: 36px;
             height: 36px;
             object-fit: contain;
-            filter: drop-shadow(0 2px 6px rgba(184, 134, 11, 0.25));
-            transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 6px rgba(184, 134, 11, 0.3));
+            transition: transform 0.35s ease;
         }
 
         .card-footer-branding:hover .card-footer-seal {
-            transform: scale(1.1) rotate(4deg);
+            transform: scale(1.1) rotate(5deg);
         }
 
         .card-footer-info {
@@ -967,8 +982,8 @@
             align-items: center;
             gap: 4px;
             padding: 6px 14px;
-            background-color: var(--gold-light);
-            border: 1px solid var(--gold-border);
+            background-color: #FFFFFF;
+            border: 1px solid rgba(212, 175, 55, 0.35);
             border-radius: 50px;
             font-size: 0.76rem;
             font-weight: 600;
@@ -976,13 +991,14 @@
             text-decoration: none;
             white-space: nowrap;
             transition: all 0.25s ease;
+            box-shadow: 0 2px 6px rgba(184, 134, 11, 0.06);
         }
 
         .card-brand-link:hover {
             background-color: var(--gold);
             color: #FFFFFF;
             border-color: var(--gold);
-            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.2);
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.25);
         }
 
         .hidden {
