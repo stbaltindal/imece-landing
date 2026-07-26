@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Düğün davetiyesi katılım teyidi (RSVP) — İmece Düğün">
-    <title>İmece Düğün — Dijital Davetiye</title>
+    <title>İmece Düğün</title>
 
     <!-- Google Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,21 +92,30 @@
         }
 
         .emblem-wrapper {
-            width: 72px;
-            height: 72px;
+            width: 76px;
+            height: 76px;
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--gold-light) 0%, #F3E7D5 100%);
-            border: 1px solid var(--gold-border);
-            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.12);
+            border: 1.5px solid var(--gold-border);
+            box-shadow: 0 6px 18px rgba(184, 134, 11, 0.16);
+            padding: 4px;
+            box-sizing: border-box;
         }
 
         .emblem-wrapper span {
             color: var(--gold);
             font-size: 2.2rem;
+        }
+
+        .emblem-brand-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 6px rgba(197, 155, 39, 0.35));
         }
 
         .invite-prefix {
@@ -1088,8 +1097,8 @@
 
         <!-- Loaded State (Luxury Invitation View) -->
         <div id="stateLoaded" class="hidden">
-            <div class="emblem-wrapper">
-                <span class="material-icons-round">favorite</span>
+            <div class="emblem-wrapper brand-emblem-seal">
+                <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Logo Mühürü" class="emblem-brand-img">
             </div>
 
             <div class="invite-prefix">Sayın Davetlimiz</div>
