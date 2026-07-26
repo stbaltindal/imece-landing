@@ -1221,8 +1221,8 @@
                     <span id="eventDate">—</span>
                 </div>
                 <div class="event-date-row hidden" id="ceremonyRow">
-                    <span class="material-icons-round">event</span>
-                    <span id="ceremonyTime"></span>
+                    <span class="material-icons-round">schedule</span>
+                    <span>Tören Saati: <strong id="ceremonyTime"></strong></span>
                 </div>
                 <div class="venue-location-card hidden" id="venueRow">
                     <div class="venue-name-title">
@@ -1371,7 +1371,7 @@
                 <p><strong>Veri sorumlusu:</strong> Bu verilerin işlenmesinden İmece Düğün, davet sahibi ile birlikte veri sorumlusu sıfatıyla sorumludur. İmece Düğün, davetiyenin dijital olarak iletilmesi ve yanıtların toplanması için teknik altyapıyı sağlar; yanıtınız doğrudan davet sahibiyle paylaşılır.</p>
                 <p><strong>Saklama süresi:</strong> Verileriniz, etkinliğin gerçekleşmesini takiben makul bir süre boyunca saklanır ve bu sürenin sonunda silinir veya anonim hale getirilir.</p>
                 <p><strong>Haklarınız:</strong> 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun (KVKK) 11. maddesi uyarınca; verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, eksik veya yanlış işlenmişse düzeltilmesini isteme, kanuni şartlar çerçevesinde silinmesini veya yok edilmesini isteme ve bu işlemlerin ilgililere bildirilmesini isteme hakkına sahipsiniz.</p>
-                <p><strong>İletişim:</strong> Haklarınızı kullanmak veya sorularınız için <a href="mailto:stbaltindal@gmail.com">stbaltindal@gmail.com</a> adresinden bize ulaşabilirsiniz.</p>
+                <p><strong>İletişim:</strong> Haklarınızı kullanmak veya sorularınız için <a href="mailto:destek@imecedugun.com">destek@imecedugun.com</a> adresinden bize ulaşabilirsiniz.</p>
             </div>
         </div>
     </div>
@@ -1484,7 +1484,7 @@
             if (!isoString) return '';
             const date = new Date(isoString);
             if (isNaN(date.getTime())) return '';
-            return new Intl.DateTimeFormat('tr-TR', { dateStyle: 'full', timeStyle: 'short' }).format(date);
+            return date.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
         }
 
         function animateTimelineEntrance() {
