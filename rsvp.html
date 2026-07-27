@@ -891,28 +891,93 @@
             text-decoration: underline;
         }
 
-        .app-cta {
-            margin-top: 20px;
+        /* Unified Luxury Signature Hallmark Card */
+        .card-footer-hallmark {
+            margin-top: 24px;
             padding: 12px 18px;
-            background: linear-gradient(135deg, rgba(250, 246, 239, 0.7) 0%, rgba(255, 253, 249, 0.9) 100%);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 18px;
-            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.08);
-            text-align: center;
+            background: linear-gradient(135deg, #FAF6EF 0%, #FFFDF9 100%);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 20px;
+            box-shadow: 
+                0 4px 18px rgba(184, 134, 11, 0.09),
+                0 1px 4px rgba(28, 25, 23, 0.03);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             max-width: 320px;
             margin-left: auto;
             margin-right: auto;
             box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .card-footer-hallmark:hover {
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 
+                0 8px 24px rgba(184, 134, 11, 0.16),
+                0 2px 8px rgba(28, 25, 23, 0.04);
+            transform: translateY(-1px);
+        }
+
+        .hallmark-brand-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none !important;
+            cursor: pointer;
+        }
+
+        .card-footer-seal {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 6px rgba(184, 134, 11, 0.3));
+            transition: transform 0.35s ease;
+        }
+
+        .hallmark-brand-row:hover .card-footer-seal {
+            transform: scale(1.08) rotate(4deg);
+        }
+
+        .card-footer-info {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .card-brand-title {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1.2;
+            letter-spacing: 0.01em;
+        }
+
+        .card-brand-slogan {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            line-height: 1.2;
+        }
+
+        .app-cta {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            border-top: 1px dashed rgba(212, 175, 55, 0.28);
+            padding-top: 8px;
+            margin-top: 2px;
+        }
+
+        .app-cta.hidden {
+            display: none !important;
         }
 
         .app-cta-label {
-            font-size: 0.76rem;
+            font-size: 0.73rem;
             font-weight: 600;
             color: var(--text-main);
             letter-spacing: 0.01em;
@@ -929,94 +994,26 @@
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            font-size: 0.74rem;
+            font-size: 0.73rem;
             font-weight: 700;
             color: #FFFFFF !important;
             text-decoration: none !important;
             background: linear-gradient(135deg, var(--gold) 0%, #A8841B 100%);
             border: none;
-            border-radius: 16px;
+            border-radius: 14px;
             padding: 5px 14px;
             box-shadow: 0 2px 8px rgba(168, 132, 27, 0.22);
             transition: all 0.2s ease;
         }
 
         .app-cta-links a .material-icons-round {
-            font-size: 0.9rem !important;
+            font-size: 0.88rem !important;
             color: #FFFFFF !important;
         }
 
         .app-cta-links a:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 14px rgba(168, 132, 27, 0.35);
-        }
-
-        /* Luxury Floating Pill Hallmark inside Card (Discreet Signature Link) */
-        a.card-footer-branding {
-            margin-top: 28px;
-            padding: 10px 18px;
-            background: linear-gradient(135deg, #FAF6EF 0%, #FFFDF9 100%);
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            border-radius: 50px;
-            box-shadow: 
-                0 4px 16px rgba(184, 134, 11, 0.08),
-                0 1px 4px rgba(28, 25, 23, 0.03);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            text-align: left;
-            text-decoration: none;
-            transition: all 0.35s ease;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-
-        a.card-footer-branding:hover {
-            border-color: rgba(212, 175, 55, 0.65);
-            box-shadow: 
-                0 8px 24px rgba(184, 134, 11, 0.18),
-                0 2px 8px rgba(28, 25, 23, 0.04);
-            transform: translateY(-1px);
-        }
-
-        .footer-brand-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .card-footer-seal {
-            width: 36px;
-            height: 36px;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 6px rgba(184, 134, 11, 0.3));
-            transition: transform 0.35s ease;
-        }
-
-        a.card-footer-branding:hover .card-footer-seal {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .card-footer-info {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        .card-brand-title {
-            font-family: var(--font-heading);
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--gold);
-            line-height: 1.25;
-            letter-spacing: 0.01em;
-        }
-
-        .card-brand-slogan {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            line-height: 1.25;
         }
 
         .card-brand-arrow {
@@ -1370,29 +1367,27 @@
             </div>
         </div>
 
-        <div class="app-cta hidden" id="appCta">
-            <span class="app-cta-label">Kendi düğününü planlamak ister misin?</span>
-            <div class="app-cta-links">
-                <a id="appStoreLink" class="hidden" href="" target="_blank" rel="noopener">
-                    <span class="material-icons-round">phone_iphone</span> App Store
-                </a>
-                <a id="playStoreLink" class="hidden" href="" target="_blank" rel="noopener">
-                    <span class="material-icons-round">android</span> Google Play
-                </a>
-            </div>
-        </div>
-
-        <!-- Card Footer Brand Hallmark (Discreet Prestige Signature) -->
-        <a href="https://imecedugun.com" target="_blank" rel="noopener" class="card-footer-branding" title="İmece Düğün — En Özel Günüze Altın Mühür">
-            <div class="footer-brand-left">
+        <!-- Unified Luxury Signature Hallmark -->
+        <div class="card-footer-hallmark">
+            <a href="https://imecedugun.com" target="_blank" rel="noopener" class="hallmark-brand-row" title="İmece Düğün — En Özel Günüze Altın Mühür">
                 <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Altın Mühür" class="card-footer-seal">
                 <div class="card-footer-info">
                     <span class="card-brand-title">İmece Düğün</span>
-                    <span class="card-brand-slogan">En Özel Günüze Altın Mühür</span>
+                    <span class="card-brand-slogan">En Özel Günüze Altın Mühür ↗</span>
+                </div>
+            </a>
+            <div class="app-cta hidden" id="appCta">
+                <span class="app-cta-label">Kendi düğününü planlamak ister misin?</span>
+                <div class="app-cta-links">
+                    <a id="appStoreLink" class="hidden" href="" target="_blank" rel="noopener">
+                        <span class="material-icons-round">phone_iphone</span> App Store
+                    </a>
+                    <a id="playStoreLink" class="hidden" href="" target="_blank" rel="noopener">
+                        <span class="material-icons-round">android</span> Google Play
+                    </a>
                 </div>
             </div>
-            <span class="card-brand-arrow">↗</span>
-        </a>
+        </div>
     </div>
 
     <!-- KVKK Aydınlatma Metni Modal -->
