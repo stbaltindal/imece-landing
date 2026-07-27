@@ -5600,13 +5600,81 @@ body.dark-active .app-header-mini {
 
 @media (max-width: 992px) {
     .showcase-tabs-nav {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
+    #master-showcase .section-header {
+        margin-bottom: 14px;
+        text-align: center;
+    }
+    #master-showcase .section-subtitle {
+        display: none !important;
+    }
+    #neden-imece .section-header {
+        display: none !important;
+    }
     .showcase-tabs-nav {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 4px !important;
+        margin-top: 14px !important;
+        background: rgba(18, 14, 14, 0.75);
+        border: 1px solid rgba(201, 162, 39, 0.25);
+        border-radius: 18px;
+        padding: 5px;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    .showcase-tab {
+        padding: 8px 3px !important;
+        border-radius: 14px !important;
+        border: none !important;
+        background: transparent !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 2px !important;
+        text-align: center !important;
+        box-shadow: none !important;
+        min-height: 52px;
+    }
+    .showcase-tab.active {
+        background: linear-gradient(135deg, var(--gold) 0%, #A8841B 100%) !important;
+        box-shadow: 0 4px 15px rgba(201, 162, 39, 0.35) !important;
+    }
+    .showcase-tab .tab-num {
+        font-size: 0.68rem !important;
+        opacity: 0.9;
+        margin: 0 !important;
+    }
+    .showcase-tab.active .tab-num {
+        color: #000000 !important;
+        font-weight: 800 !important;
+    }
+    .showcase-tab .tab-icon {
+        font-size: 1.15rem !important;
+        margin: 0 !important;
+    }
+    .showcase-tab.active .tab-icon {
+        color: #000000 !important;
+    }
+    .showcase-tab .tab-label {
+        font-size: 0.62rem !important;
+        line-height: 1.1 !important;
+        font-weight: 700 !important;
+        color: rgba(255, 255, 255, 0.85);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    .showcase-tab.active .tab-label {
+        color: #000000 !important;
+    }
+    .showcase-tab-progress {
+        display: none !important;
     }
 }
 
