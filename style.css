@@ -3438,9 +3438,36 @@ footer {
     }
 }
 
+.btn-text-mobile {
+    display: none;
+}
+
 @media (max-width: 767px) {
+    .btn-text-desktop {
+        display: none !important;
+    }
+    .btn-text-mobile {
+        display: inline !important;
+    }
     .navbar {
-        padding: var(--space-sm) 0;
+        padding: 10px 0;
+    }
+    .logo-text {
+        font-size: 1.05rem !important;
+    }
+    .nav-brand-logo {
+        width: 26px !important;
+        height: 26px !important;
+        margin-right: 6px !important;
+    }
+    .navbar .nav-cta .btn {
+        padding: 6px 14px !important;
+        font-size: 0.76rem !important;
+        font-weight: 700 !important;
+        border-radius: 20px !important;
+        letter-spacing: 0.02em !important;
+        box-shadow: 0 3px 10px rgba(184, 134, 11, 0.22) !important;
+        line-height: 1.2 !important;
     }
     
     .nav-links {
