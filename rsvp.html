@@ -892,43 +892,52 @@
         }
 
         .app-cta {
-            margin-top: 28px;
+            margin-top: 18px;
             text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
         }
 
-        .app-cta > span {
-            display: block;
-            margin-bottom: 8px;
+        .app-cta-label {
+            font-size: 0.73rem;
+            font-weight: 500;
+            color: var(--text-light);
+            letter-spacing: 0.02em;
         }
 
         .app-cta-links {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .app-cta-links a {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            font-size: 0.78rem;
+            gap: 5px;
+            font-size: 0.72rem;
             font-weight: 600;
             color: var(--gold);
             text-decoration: none;
-            border: 1px solid var(--gold-border);
-            border-radius: 50px;
-            padding: 6px 14px;
+            background: rgba(212, 175, 55, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 4px 12px;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .app-cta-links a .material-icons-round {
-            font-size: 1rem;
+            font-size: 0.88rem;
         }
 
         .app-cta-links a:hover {
             background-color: var(--gold-light);
+            border-color: var(--gold);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(184, 134, 11, 0.12);
         }
 
         /* Luxury Floating Pill Hallmark inside Card (Discreet Signature Link) */
@@ -1351,10 +1360,7 @@
         </div>
 
         <div class="app-cta hidden" id="appCta">
-            <!-- Not: bu davetiyeye cevabın burada, web'de kaydedilir -- uygulama
-                 bir davet kodu/giriş gerektirmez, sadece kendi etkinliğini
-                 planlamak isteyenler için cross-sell'dir. -->
-            <span>Sen de bir düğün/nişan planlıyorsan İmece Düğün uygulamasını indirebilirsin</span>
+            <span class="app-cta-label">Kendi düğününü planlamak ister misin?</span>
             <div class="app-cta-links">
                 <a id="appStoreLink" class="hidden" href="" target="_blank" rel="noopener">
                     <span class="material-icons-round">phone_iphone</span> App Store
