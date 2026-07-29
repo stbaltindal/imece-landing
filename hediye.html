@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Sana özel İmece Düğün hediye kodunu görüntüle ve kullan.">
-    <title>Sana Bir Hediye Geldi! — İmece Düğün</title>
+    <!-- SEO & WhatsApp / Social Sharing Meta Tags -->
+    <meta name="description" content="Sana özel gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıkla. 🎁💌">
+    <meta property="og:title" content="🎁 Sana Özel Bir Sürpriz Var! — İmece Düğün">
+    <meta property="og:description" content="Sana gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıkla. 💌">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://imecedugun.com/hediye.html">
+    <meta property="og:image" content="https://imecedugun.com/assets/icons/apple-touch-icon-solid.png">
+    <meta property="og:site_name" content="İmece Düğün">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🎁 Sana Özel Bir Sürpriz Var! — İmece Düğün">
+    <meta name="twitter:description" content="Sana gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıkla. 💌">
+    <title>🎁 Sana Bir Hediye Geldi! — İmece Düğün</title>
 
     <!-- Google Fonts: Playfair Display, Cormorant Garamond, Dancing Script, Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -748,8 +758,10 @@
                 const cleanMessage = (personalMessage && personalMessage.trim() !== '') ? personalMessage.trim() : null;
 
                 if (cleanSender) {
+                    document.title = `🎁 ${cleanSender}'den Sana Bir Hediye var! — İmece Düğün`;
                     cardSubtitle.innerText = `${cleanSender} sana düğün ve organizasyon sürecinde kullanabileceğin özel bir hediye gönderdi.`;
                 } else {
+                    document.title = "🎁 Sana Bir Hediye Geldi! — İmece Düğün";
                     cardSubtitle.innerText = "Düğün ve organizasyon sürecinde kullanabileceğin özel hediye kodun hazır.";
                 }
 
