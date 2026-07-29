@@ -243,6 +243,59 @@
             fill: var(--gold);
         }
 
+        /* Personal Message Quote Box */
+        .sender-message-card {
+            background: linear-gradient(135deg, #FFFDF9 0%, #FAF3EA 100%);
+            border: 1px solid rgba(184, 134, 11, 0.28);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            margin: 16px 0 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 14px rgba(184, 134, 11, 0.08);
+        }
+
+        .sender-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-italic);
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .sender-tag svg {
+            width: 15px;
+            height: 15px;
+            fill: var(--gold);
+        }
+
+        .quote-box {
+            position: relative;
+            padding: 0 16px;
+        }
+
+        .quote-mark {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--gold-accent);
+            line-height: 0;
+            vertical-align: -0.4em;
+            opacity: 0.7;
+        }
+
+        .quote-text {
+            font-family: var(--font-italic);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            line-height: 1.45;
+            display: inline;
+        }
+
         .card-subtitle {
             font-size: 0.95rem;
             color: var(--text-muted);
@@ -250,18 +303,7 @@
             margin-bottom: 24px;
         }
 
-        /* ==========================================================================
-           GIFT CODE BOX (WITH CODE)
-           ========================================================================== */
-        .event-card-box {
-            background-color: var(--gold-light);
-            border: 1px solid rgba(184, 134, 11, 0.25);
-            border-radius: var(--radius-md);
-            padding: 22px 20px 20px 20px;
-            margin: 16px 0 24px;
-            text-align: center;
-            position: relative;
-        }
+
 
         .gift-tag-label {
             font-size: 0.72rem;
@@ -522,6 +564,19 @@
 
             <p class="card-subtitle" id="cardSubtitle">Düğün ve organizasyon sürecinde kullanabileceğin özel hediye kodun hazır.</p>
 
+            <!-- PERSONAL SENDER MESSAGE CARD -->
+            <div id="senderMessageCard" class="sender-message-card hidden">
+                <div class="sender-tag">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span id="senderNameText">Ahmet'ten Sana Bir Not Var</span>
+                </div>
+                <div class="quote-box">
+                    <span class="quote-mark">“</span>
+                    <p class="quote-text" id="senderMessageText">Yeni hayatınızda sonsuz mutluluklar dilerim!</p>
+                    <span class="quote-mark">”</span>
+                </div>
+            </div>
+
             <!-- CODE PRESENT VIEW -->
             <div id="codeBox" class="event-card-box">
                 <span class="gift-tag-label">HEDİYE KODUNUZ</span>
@@ -645,6 +700,8 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const giftCode = getQueryParam('kod');
+            const senderName = getQueryParam('gonderen') || getQueryParam('from') || getQueryParam('sender') || getQueryParam('gond');
+            const personalMessage = getQueryParam('mesaj') || getQueryParam('note') || getQueryParam('message');
 
             const cardPrefix = document.getElementById('cardPrefix');
             const cardTitle = document.getElementById('cardTitle');
@@ -655,6 +712,10 @@
             const ctaHeading = document.getElementById('ctaHeading');
             const ctaSubtext = document.getElementById('ctaSubtext');
 
+            const senderMessageCard = document.getElementById('senderMessageCard');
+            const senderNameText = document.getElementById('senderNameText');
+            const senderMessageText = document.getElementById('senderMessageText');
+
             if (giftCode && giftCode.trim() !== '') {
                 const cleanCode = giftCode.trim().toUpperCase();
                 codeText.innerText = cleanCode;
@@ -663,11 +724,34 @@
 
                 cardPrefix.innerText = "Özel Davet & Hediye";
                 cardTitle.innerText = "Sana Bir Hediye Geldi!";
-                cardSubtitle.innerText = "Düğün ve organizasyon sürecinde kullanabileceğin özel hediye kodun hazır.";
+
+                // Check sender and message
+                if (senderName && senderName.trim() !== '') {
+                    const cleanSender = senderName.trim();
+                    cardSubtitle.innerText = `${cleanSender} sana düğün ve organizasyon sürecinde kullanabileceğin özel bir hediye gönderdi.`;
+                    
+                    if (personalMessage && personalMessage.trim() !== '') {
+                        senderNameText.innerText = `${cleanSender}'den Sana Bir Not Var:`;
+                        senderMessageText.innerText = personalMessage.trim();
+                        senderMessageCard.classList.remove('hidden');
+                    } else {
+                        senderMessageCard.classList.add('hidden');
+                    }
+                } else if (personalMessage && personalMessage.trim() !== '') {
+                    cardSubtitle.innerText = "Düğün ve organizasyon sürecinde kullanabileceğin özel hediye kodun hazır.";
+                    senderNameText.innerText = "Sana Bir Not Var:";
+                    senderMessageText.innerText = personalMessage.trim();
+                    senderMessageCard.classList.remove('hidden');
+                } else {
+                    cardSubtitle.innerText = "Düğün ve organizasyon sürecinde kullanabileceğin özel hediye kodun hazır.";
+                    senderMessageCard.classList.add('hidden');
+                }
+
                 ctaHeading.innerText = "Hediyeni Kullanmak İçin Uygulamayı Aç";
                 ctaSubtext.innerText = "İmece Düğün uygulamasını indirerek hediye kodunu hesabına tanımlayabilirsin.";
             } else {
                 codeBox.classList.add('hidden');
+                senderMessageCard.classList.add('hidden');
                 noCodeBox.classList.remove('hidden');
 
                 cardPrefix.innerText = "Planlama & Organizasyon";
