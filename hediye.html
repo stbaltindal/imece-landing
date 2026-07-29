@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Sana özel İmece Düğün hediye kodunu görüntüle ve kullan.">
+    <title>Sana Bir Hediye Geldi! — İmece Düğün</title>
+
+    <!-- Google Fonts: Playfair Display, Cormorant Garamond, Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/icons/favicon.png?v=2.0" type="image/png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon.png?v=2.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-solid.png?v=2.0">
+
+    <style>
+        :root {
+            --bg-champagne: #FAF7F2;
+            --text-main: #1C1917;
+            --text-muted: #57534E;
+            --text-light: #8C857B;
+            --gold: #B8860B;
+            --gold-accent: #D4AF37;
+            --gold-light: #F9F3EA;
+            --gold-border: rgba(184, 134, 11, 0.28);
+            --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            --gold-gradient-hover: linear-gradient(135deg, #E0BD47 0%, #C59313 100%);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --font-italic: 'Cormorant Garamond', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-champagne);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 50% 100%, rgba(249, 243, 234, 0.8) 0%, transparent 50%);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 36px 16px 24px 16px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glow & Floating Gold Particles */
+        .particles-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: var(--gold-accent);
+            opacity: 0.35;
+            animation: floatParticle 8s infinite ease-in-out;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
+            50% { transform: translateY(-28px) scale(1.3); opacity: 0.6; }
+        }
+
+        /* Page Container */
+        .page-wrapper {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Logo & Brand */
+        .brand-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            margin-bottom: 24px;
+        }
+
+        .brand-icon-box {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light) 0%, #F3E7D5 100%);
+            border: 1px solid var(--gold-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.12);
+        }
+
+        .brand-icon-box svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--gold);
+        }
+
+        .brand-name {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        /* Main Luxury Card */
+        .gift-card {
+            background-color: #FFFFFF;
+            border-radius: var(--radius-lg);
+            padding: 44px 32px 36px 32px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 
+                0 20px 60px rgba(28, 25, 23, 0.06),
+                0 2px 10px rgba(184, 134, 11, 0.08);
+            border: 1px solid var(--gold-border);
+            position: relative;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Inner dashed gold border */
+        .gift-card::before {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border: 1px dashed var(--gold-border);
+            border-radius: calc(var(--radius-lg) - 8px);
+            pointer-events: none;
+        }
+
+        @keyframes cardEntrance {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Emblem / Wax Seal Motif */
+        .emblem-wrapper {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light) 0%, #F3E7D5 100%);
+            border: 1.5px solid var(--gold-border);
+            box-shadow: 0 6px 18px rgba(184, 134, 11, 0.16);
+            padding: 4px;
+            position: relative;
+        }
+
+        .emblem-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1px solid var(--gold-border);
+            opacity: 0.6;
+            animation: pulseRing 3s infinite ease-in-out;
+        }
+
+        @keyframes pulseRing {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.06); opacity: 0.8; }
+        }
+
+        .emblem-wrapper svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--gold);
+        }
+
+        /* Titles & Italics */
+        .card-prefix {
+            font-family: var(--font-italic);
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--gold);
+            margin-bottom: 4px;
+            letter-spacing: 0.03em;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.95rem;
+            font-weight: 700;
+            margin: 0 0 12px;
+            color: var(--text-main);
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
+
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 14px 0 20px;
+        }
+
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            height: 1px;
+            width: 48px;
+            background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+        }
+
+        .divider-ornament svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--gold);
+        }
+
+        .card-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 24px;
+        }
+
+        /* ==========================================================================
+           GIFT CODE BOX (WITH CODE)
+           ========================================================================== */
+        .event-card-box {
+            background-color: var(--gold-light);
+            border: 1px solid rgba(184, 134, 11, 0.25);
+            border-radius: var(--radius-md);
+            padding: 22px 20px 20px 20px;
+            margin: 16px 0 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .gift-tag-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .gift-code-text {
+            font-family: var(--font-heading);
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+            user-select: all;
+            -webkit-user-select: all;
+            word-break: break-all;
+        }
+
+        /* Copy Button */
+        .btn-copy {
+            width: 100%;
+            height: 48px;
+            border: none;
+            border-radius: var(--radius-sm);
+            background: var(--gold-gradient);
+            color: #FFFFFF;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(184, 134, 11, 0.22);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-copy:hover {
+            background: var(--gold-gradient-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 22px rgba(184, 134, 11, 0.32);
+        }
+
+        .btn-copy:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 8px rgba(184, 134, 11, 0.2);
+        }
+
+        .btn-copy.copied {
+            background: #2E6F40 !important;
+            box-shadow: 0 6px 18px rgba(46, 111, 64, 0.25) !important;
+        }
+
+        .btn-copy svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.2s ease;
+        }
+
+        /* ==========================================================================
+           FALLBACK BOX (NO CODE)
+           ========================================================================== */
+        .no-code-box {
+            background-color: var(--gold-light);
+            border: 1px solid rgba(184, 134, 11, 0.22);
+            border-radius: var(--radius-md);
+            padding: 24px 20px;
+            margin: 16px 0 24px;
+            text-align: center;
+        }
+
+        .no-code-title {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .no-code-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* CTA & Store Buttons */
+        .cta-section {
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .cta-heading {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .cta-subtext {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.45;
+        }
+
+        .store-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .btn-store {
+            width: 100%;
+            height: 50px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: all 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-app-store {
+            background-color: #1C1917;
+            color: #FFFFFF;
+            box-shadow: 0 4px 14px rgba(28, 25, 23, 0.15);
+        }
+
+        .btn-app-store:hover {
+            background-color: #292524;
+            transform: translateY(-1px);
+        }
+
+        .btn-google-play {
+            background-color: #FFFFFF;
+            color: #1C1917;
+            border: 1px solid #E7E5E4;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .btn-google-play:hover {
+            background-color: #F5F5F4;
+            border-color: #D6D3D1;
+            transform: translateY(-1px);
+        }
+
+        .btn-store svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Toast Feedback */
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background-color: var(--text-main);
+            color: #FFFFFF;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .site-footer span {
+            font-family: var(--font-italic);
+            font-style: italic;
+            color: var(--gold);
+            font-size: 0.95rem;
+        }
+
+        /* Helper Utility */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Sparks -->
+    <div class="particles-bg">
+        <div class="particle" style="top: 12%; left: 18%; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 38%; right: 15%; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 68%; left: 12%; animation-delay: 4s;"></div>
+        <div class="particle" style="top: 85%; right: 22%; animation-delay: 6s;"></div>
+    </div>
+
+    <div class="page-wrapper">
+
+        <!-- Brand Header -->
+        <a href="https://imecedugun.com" class="brand-header">
+            <div class="brand-icon-box">
+                <!-- Golden Heart/Rings SVG -->
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <span class="brand-name">İmece Düğün</span>
+        </a>
+
+        <!-- Main Card -->
+        <main class="gift-card">
+
+            <!-- Emblem Motif -->
+            <div class="emblem-wrapper">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+            </div>
+
+            <!-- Prefix & Main Heading -->
+            <div class="card-prefix" id="cardPrefix">Özel Davet & Hediye</div>
+            <h1 class="card-title" id="cardTitle">Sana Bir Hediye Geldi!</h1>
+
+            <!-- Ornamental Line -->
+            <div class="divider-ornament">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/>
+                </svg>
+            </div>
+
+            <p class="card-subtitle" id="cardSubtitle">Düğün ve organizasyon sürecinde kullanabileceğin özel hediye kodun hazır.</p>
+
+            <!-- CODE PRESENT VIEW -->
+            <div id="codeBox" class="event-card-box">
+                <span class="gift-tag-label">HEDİYE KODUNUZ</span>
+                <div class="gift-code-text" id="codeText">------</div>
+
+                <button class="btn-copy" id="copyBtn" onclick="copyCode()">
+                    <svg id="copyIcon" viewBox="0 0 24 24">
+                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                    <span id="btnText">Kodu Kopyala</span>
+                </button>
+            </div>
+
+            <!-- NO CODE FALLBACK VIEW -->
+            <div id="noCodeBox" class="no-code-box hidden">
+                <h2 class="no-code-title">İmece Düğün’e Hoş Geldiniz</h2>
+                <p class="no-code-desc">Düğün, nişan ve tüm özel günlerinizi sevdiklerinizle birlikte kolayca planlayın, bütçenizi ve görevlerinizi yönetin.</p>
+            </div>
+
+            <!-- CTA & App Download Section -->
+            <div class="cta-section">
+                <div class="cta-heading" id="ctaHeading">Hediyeni Kullanmak İçin Uygulamayı Aç</div>
+                <div class="cta-subtext" id="ctaSubtext">İmece Düğün uygulamasını indirerek hediye kodunu hesabına tanımlayabilirsin.</div>
+
+                <div class="store-buttons">
+                    <a href="https://apps.apple.com/app/id6794826834" class="btn-store btn-app-store" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 384 512" fill="currentColor">
+                            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-12 69.5-34.3z"/>
+                        </svg>
+                        App Store'dan İndir
+                    </a>
+
+                    <a href="https://play.google.com/store/apps" class="btn-store btn-google-play" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 512 512">
+                            <path fill="#410593" d="M7.2 14.2c-2.8 3-4.4 7.6-4.4 13.5v456.6c0 5.9 1.6 10.5 4.4 13.5l1.4 1.3 255.4-255.4V241.6L8.6 12.9l-1.4 1.3z"/>
+                            <path fill="#048bfe" d="M347.1 327.9l-83.1-83.1v-2.4l83.1-83.1 1.9 1.1 98.4 55.9c28.1 15.9 28.1 42 0 58l-98.4 55.9-1.9 1.7z"/>
+                            <path fill="#00d775" d="M264 242.4L7.2 499.2c4.7 4.9 12.4 5.6 21.1.7l318.8-181.2-83.1-76.3z"/>
+                            <path fill="#ff3a44" d="M264 242.4l83.1-76.3L28.3 14.9C19.6 10 11.9 10.7 7.2 15.6L264 242.4z"/>
+                        </svg>
+                        Google Play'den İndir
+                    </a>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>İmece Düğün — <span>Sevgiyle hazırlandı.</span></p>
+        </footer>
+
+    </div>
+
+    <!-- Toast Component -->
+    <div id="toast" class="toast">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Hediye kodu panoya kopyalandı!</span>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            if (msg) toast.querySelector('span').innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        function copyCode() {
+            const codeText = document.getElementById('codeText').innerText.trim();
+            const copyBtn = document.getElementById('copyBtn');
+            const btnText = document.getElementById('btnText');
+            const copyIcon = document.getElementById('copyIcon');
+
+            if (!codeText || codeText === '------') return;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(codeText).then(onSuccess).catch(fallbackCopy);
+            } else {
+                fallbackCopy();
+            }
+
+            function fallbackCopy() {
+                const el = document.createElement('textarea');
+                el.value = codeText;
+                el.style.position = 'fixed';
+                el.style.opacity = '0';
+                document.body.appendChild(el);
+                el.select();
+                try {
+                    document.execCommand('copy');
+                    onSuccess();
+                } catch (e) {
+                    console.error('Copy error:', e);
+                }
+                document.body.removeChild(el);
+            }
+
+            function onSuccess() {
+                copyBtn.classList.add('copied');
+                btnText.innerText = 'Kopyalandı ✓';
+                copyIcon.innerHTML = '<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>';
+
+                showToast('Hediye kodu panoya kopyalandı!');
+
+                setTimeout(() => {
+                    copyBtn.classList.remove('copied');
+                    btnText.innerText = 'Kodu Kopyala';
+                    copyIcon.innerHTML = '<path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>';
+                }, 2500);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const giftCode = getQueryParam('kod');
+
+            const cardPrefix = document.getElementById('cardPrefix');
+            const cardTitle = document.getElementById('cardTitle');
+            const cardSubtitle = document.getElementById('cardSubtitle');
+            const codeBox = document.getElementById('codeBox');
+            const noCodeBox = document.getElementById('noCodeBox');
+            const codeText = document.getElementById('codeText');
+            const ctaHeading = document.getElementById('ctaHeading');
+            const ctaSubtext = document.getElementById('ctaSubtext');
+
+            if (giftCode && giftCode.trim() !== '') {
+                const cleanCode = giftCode.trim().toUpperCase();
+                codeText.innerText = cleanCode;
+                codeBox.classList.remove('hidden');
+                noCodeBox.classList.add('hidden');
+
+                cardPrefix.innerText = "Özel Davet & Hediye";
+                cardTitle.innerText = "Sana Bir Hediye Geldi!";
+                cardSubtitle.innerText = "Düğün ve organizasyon sürecinde kullanabileceğin özel hediye kodun hazır.";
+                ctaHeading.innerText = "Hediyeni Kullanmak İçin Uygulamayı Aç";
+                ctaSubtext.innerText = "İmece Düğün uygulamasını indirerek hediye kodunu hesabına tanımlayabilirsin.";
+            } else {
+                codeBox.classList.add('hidden');
+                noCodeBox.classList.remove('hidden');
+
+                cardPrefix.innerText = "Planlama & Organizasyon";
+                cardTitle.innerText = "İmece Düğün’e Hoş Geldiniz";
+                cardSubtitle.innerText = "Düğün ve nişan organizasyonlarınızı sevdiklerinizle birlikte imece usulü planlayın.";
+                ctaHeading.innerText = "İmece Düğün Uygulamasını İndirin";
+                ctaSubtext.innerText = "Tüm görevlerinizi, bütçenizi ve davetlilerinizi tek bir yerden yönetmek için uygulamayı hemen indirin.";
+            }
+        });
+    </script>
+</body>
+</html>
