@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-solid.png?v=2.0">
 
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=26.0">
+    <link rel="stylesheet" href="style.css?v=27.0">
 </head>
 <body>
 
@@ -159,7 +159,7 @@
                                     <div class="app-dashboard-scroller" id="mockupScroller">
                                         
                                         <!-- 1) TeamPoolBar ("Ekibim") -->
-                                        <div class="team-pool-section mockup-section-focus" id="mockup-team-section" onclick="if(currentIndex !== 5) goToStep(5)">
+                                        <div class="team-pool-section mockup-section-focus" id="mockup-team-section" onclick="jumpStory(5)">
                                             <div class="team-pool-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                                                 <span class="team-title">Ekibim</span>
                                                 <div class="cohost-heart-btn" title="Ortak Yönetici Ekle" onclick="openCohostCreateDialog()">
@@ -190,7 +190,7 @@
                                         <div class="app-card dashboard-summary-card-gradient">
                                             
                                             <!-- TaskStatsSection -->
-                                            <div class="task-stats-section-layout mockup-section-focus" id="mockup-task-section" onclick="if(currentIndex !== 2) goToStep(2)">
+                                            <div class="task-stats-section-layout mockup-section-focus" id="mockup-task-section" onclick="jumpStory(2)">
                                                 <span class="section-title-large">Görev Özeti</span>
                                                 <div class="task-stats-row">
                                                     <div class="donut-chart-container">
@@ -211,7 +211,7 @@
                                             <div class="card-divider" style="margin: 16px 0;"></div>
                                             
                                             <!-- BudgetSummarySection -->
-                                            <div class="budget-summary-section-layout mockup-section-focus" id="mockup-budget-section" onclick="if(currentIndex !== 1) goToStep(1)">
+                                            <div class="budget-summary-section-layout mockup-section-focus" id="mockup-budget-section" onclick="jumpStory(1)">
                                                 <span class="section-title-large">Bütçe Özeti</span>
                                                 <div class="budget-stats-row">
                                                     <div class="budget-val-col">
@@ -231,7 +231,7 @@
                                         </div>
                                         
                                         <!-- 3) RolesSection ("İş Paketleri") -->
-                                        <div class="roles-list-section mockup-section-focus" id="mockup-roles-list-section" onclick="if(currentIndex !== 3) goToStep(3)">
+                                        <div class="roles-list-section mockup-section-focus" id="mockup-roles-list-section" onclick="jumpStory(3)">
                                             <span class="team-title" style="margin-bottom: 12px; display: block;">Yapılacaklar Listesi</span>
                                             <div class="mockup-role-cards-container">
                                                 <!-- Role Card 1: Mekan & Nikah (Ece is Assigned but unverified/pending) -->
@@ -673,6 +673,7 @@
                 <span class="hero-hud-dot"></span>
                 <span class="hero-hud-dot"></span>
             </div>
+            <span class="hero-hud-hint">Kaydırdıkça hızlanır</span>
             <button type="button" class="hero-hud-skip" id="heroHudSkip" onclick="skipHeroStory()">
                 <span>Hikâyeyi atla</span>
                 <span class="material-icons-round">south</span>
@@ -2906,13 +2907,14 @@
             const steps = [0, 1.3, 2.3, 2.9, 7.5, 17.0];
             let currentIndex = 0;
             let isAnimating = false;
-            // Trackpad tek dokunusta onlarca wheel olayi + momentum kuyrugu
-            // uretir. Ayni jestin devami olan olaylari yutmak icin son olay
-            // zamanini, adim gecisi bitene kadar da kilit suresini tutuyoruz.
-            let lastWheelTs = 0;
-            let stepLockUntil = 0;
-            const GESTURE_GAP_MS = 220;   // bu araliktan kisa olan olaylar ayni jest
-            const STEP_SETTLE_MS = 260;   // gecis bitiminden sonraki sakinlesme payi
+
+            // Hikaye kendi akisinda oynar; kaydirma adim atlatmaz, sadece
+            // hizlandirir. Boylece trackpad momentumu adim kacirtmaz.
+            const STORY_BASE_SCALE = 2.0;   // pasif izleme hizi (~8.5 sn)
+            const STORY_BOOST_SCALE = 6.0;  // kaydirirken
+            const BOOST_DECAY_MS = 420;     // son darbeden sonra normale donus
+            let boostDecayTimer = null;
+            let storyFinished = false;
 
             // Not: body.overflow kilidi bilerek kullanilmiyor -- scrollbar kaybolunca
             // sayfa yatayda ziplyor. Tekerlek/dokunus zaten observer'da
@@ -2922,7 +2924,7 @@
                 const hud = document.getElementById("heroStoryHud");
                 if (hud) hud.setAttribute("aria-hidden", "false");
                 intentObserver.enable();
-                updateHeroHud(currentIndex);
+                updateHeroHudByTime();
             }
 
             function unlockScroll() {
@@ -2942,8 +2944,7 @@
 
             // Hikayeyi atla: kilidi birak, pinli alanin altina gec.
             window.skipHeroStory = function () {
-                unlockScroll();
-                window.scrollTo({ top: pinTrigger.end + 5, behavior: "smooth" });
+                finishStory(1);
             };
 
             document.addEventListener("keydown", (e) => {
@@ -2960,14 +2961,16 @@
                 pin: true,
                 scrub: false,
                 onEnter: () => {
-                    currentIndex = 0;
-                    goToStepDirect(0);
-                    lockScroll();
+                    startStory();
                 },
                 onEnterBack: () => {
-                    currentIndex = steps.length - 1;
-                    goToStepDirect(steps.length - 1);
-                    lockScroll();
+                    // Asagidan yukari donuste hikayeyi tekrar oynatmiyoruz:
+                    // ziyaretci sayfayi terk ediyor, onu tutmak sinir bozucu.
+                    storyFinished = true;
+                    masterTl.pause();
+                    masterTl.time(masterTl.duration());
+                    updateHeroHudByTime();
+                    unlockScroll();
                 },
                 onLeave: () => {
                     unlockScroll();
@@ -3119,84 +3122,111 @@
                 updateHeroHud(index);
             }
 
-            function goToStep(index) {
-                if (index < 0 || index >= steps.length) return;
-                isAnimating = true;
-                
-                // Trigger task completion transitions on target step
-                if (index >= 5) {
+            // --- Hikaye akis kontrolu -------------------------------------
+            function stepIndexForTime(t) {
+                let idx = 0;
+                for (let i = 0; i < steps.length; i++) {
+                    if (t >= steps[i] - 0.01) idx = i;
+                }
+                return idx;
+            }
+
+            function updateHeroHudByTime() {
+                updateHeroHud(stepIndexForTime(masterTl.time()));
+            }
+
+            function syncMockupTaskState() {
+                if (masterTl.time() >= steps[3]) {
                     completeMockupTask();
                 } else {
                     resetMockupTask();
                 }
+            }
 
-                // Zaman cizelgesindeki bazi araliklar 9 saniyeyi buluyor (ayni
-                // dokunus animasyonu ucer kez tekrarlaniyor). 1:1 oynatinca
-                // ziyaretci saniyelerce kilitli kaliyordu; oran + tavan ile
-                // hicbir adim 1.5 saniyeyi asmiyor.
-                const diff = Math.abs(steps[index] - steps[currentIndex]);
-                const duration = Math.min(Math.max(diff * 0.34, 0.5), 1.5);
-                stepLockUntil = performance.now() + duration * 1000 + STEP_SETTLE_MS;
-
-                updateHeroHud(index);
-
+            function startStory() {
+                storyFinished = false;
                 gsap.killTweensOf(masterTl);
-                gsap.to(masterTl, {
-                    time: steps[index],
-                    duration: duration,
-                    ease: "power2.inOut",
-                    onComplete: () => {
-                        currentIndex = index;
-                        isAnimating = false;
-                    }
+                masterTl.pause(0);
+                masterTl.timeScale(STORY_BASE_SCALE);
+                resetMockupTask();
+                updateHeroHud(0);
+                lockScroll();
+                masterTl.play();
+            }
+
+            function finishStory(direction) {
+                if (storyFinished) return;
+                storyFinished = true;
+                gsap.killTweensOf(masterTl);
+                masterTl.pause();
+                unlockScroll();
+                window.scrollTo({
+                    top: direction < 0 ? Math.max(pinTrigger.start - 5, 0) : pinTrigger.end + 5,
+                    behavior: "smooth"
                 });
             }
+
+            // Kaydirma adim atlatmaz: oynatma hizini gecici olarak yukseltir.
+            function boostStory() {
+                if (storyFinished) return;
+                gsap.killTweensOf(masterTl);
+                masterTl.timeScale(STORY_BOOST_SCALE);
+                if (!masterTl.isActive()) masterTl.play();
+                clearTimeout(boostDecayTimer);
+                boostDecayTimer = setTimeout(() => {
+                    if (storyFinished) return;
+                    gsap.to(masterTl, { timeScale: STORY_BASE_SCALE, duration: 0.5, ease: "power2.out" });
+                }, BOOST_DECAY_MS);
+            }
+
+            // Mockup icindeki bolume tiklaninca hikayeyi o ana tasi.
+            window.jumpStory = function (index) {
+                if (storyFinished || index < 0 || index >= steps.length) return;
+                gsap.killTweensOf(masterTl);
+                masterTl.pause();
+                gsap.to(masterTl, {
+                    time: steps[index],
+                    duration: 0.55,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        masterTl.timeScale(STORY_BASE_SCALE);
+                        masterTl.play();
+                    }
+                });
+            };
+
+            masterTl.eventCallback("onUpdate", () => {
+                updateHeroHudByTime();
+                syncMockupTaskState();
+            });
+
+            masterTl.eventCallback("onComplete", () => {
+                finishStory(1);
+            });
 
             // Tek bir trackpad darbesi = tek adim. Momentum kuyrugundaki olaylar
             // ayni jestin devami sayilip yutulur; gecis bitmeden yeni adim
             // kabul edilmez.
-            function acceptGesture() {
-                const now = performance.now();
-                const continuesGesture = now - lastWheelTs < GESTURE_GAP_MS;
-                lastWheelTs = now;
-                if (continuesGesture) return false;
-                if (isAnimating || now < stepLockUntil) return false;
-                return true;
-            }
-
             // Scroll intent Observer - locks vertical scroll and transitions slide-by-slide
             const intentObserver = ScrollTrigger.observe({
                 type: "wheel,touch",
-                onUp: () => { 
-                    if (!acceptGesture()) return;
-                    if (currentIndex > 0) {
-                        goToStep(currentIndex - 1);
-                    } else {
-                        // Exit upwards from pinned container
-                        unlockScroll();
-                        window.scrollTo({
-                            top: pinTrigger.start - 5,
-                            behavior: "smooth"
-                        });
-                    }
+                // Yukari darbe: hikayeyi geri sarmak yerine akistan cikar.
+                onUp: () => {
+                    finishStory(-1);
                 },
-                onDown: () => { 
-                    if (!acceptGesture()) return;
-                    if (currentIndex < steps.length - 1) {
-                        goToStep(currentIndex + 1);
-                    } else {
-                        // Exit downwards from pinned container
-                        unlockScroll();
-                        window.scrollTo({
-                            top: pinTrigger.end + 5,
-                            behavior: "smooth"
-                        });
-                    }
+                // Asagi darbe: adim atlatmaz, akisi hizlandirir.
+                onDown: () => {
+                    boostStory();
                 },
-                tolerance: 45,
+                tolerance: 30,
                 preventDefault: true
             });
             intentObserver.disable(); // Disabled on start
+        }
+
+        // Masaustu disi yuklemelerde mockup tiklamalari sessiz kalsin.
+        if (typeof window.jumpStory !== "function") {
+            window.jumpStory = function () {};
         }
 
         // Phone Mockup Interactive Data Swapper (Fallbacks / Mobile clicks)

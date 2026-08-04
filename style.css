@@ -7659,3 +7659,15 @@ html.hero-story-active .hero-story-hud {
 .navbar.navbar-scrolled .logo-text {
     color: var(--text-main);
 }
+
+.hero-hud-hint {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--text-light);
+    white-space: nowrap;
+    padding-right: 2px;
+}
+
+@media (max-width: 900px) {
+    .hero-hud-hint { display: none; }
+}
