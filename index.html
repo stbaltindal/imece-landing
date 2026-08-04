@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-solid.png?v=2.0">
 
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=28.0">
+    <link rel="stylesheet" href="style.css?v=29.0">
 </head>
 <body>
 
@@ -2915,8 +2915,14 @@
             const SEG_TARGET_SEC = 1.8;   // her asamanin hedef suresi
             const SEG_MIN_SCALE = 1.2;
             const SEG_MAX_SCALE = 5.0;
-            const SEG_BOOST_FACTOR = 3.0; // darbe gelince hiz carpani
-            const BOOST_DECAY_MS = 380;   // son darbeden sonra normale donus
+            const SEG_BOOST_STEP = 1.8;   // her yeni harekette hiz carpani
+            const SEG_BOOST_MAX = 6.0;    // taban hizin en fazla bu kati
+            const BOOST_DECAY_MS = 520;   // hareket bitince normale donus
+            // Trackpad'de parmak kalkana ve momentum sonene kadar akan tum
+            // wheel olaylari TEK hareket sayilir: son olaydan bu araliktan
+            // fazla sessizlik gecmedikce yeni hareket baslamis olmaz.
+            const GESTURE_GAP_MS = 200;
+            let lastWheelTs = 0;
             let boostDecayTimer = null;
             let storyFinished = false;
             let segIndex = 0;
@@ -3202,25 +3208,39 @@
                 awaitingImpulse = false;
                 segBaseScale = segmentScale(segIndex);
                 clearTimeout(boostDecayTimer);
+                lastWheelTs = performance.now();
                 gsap.killTweensOf(masterTl);
                 masterTl.timeScale(segBaseScale);
                 masterTl.play();
                 setHudWaiting(false);
             }
 
-            // Asagi darbe: asama bekliyorsa baslatir, oynuyorsa hizlandirir.
+            // Bir hareketin devami mi, yoksa yeni bir hareket mi? Momentum
+            // kuyrugu son olay zamanini tazeledigi icin, parmak kalkip
+            // momentum sonmeden yeni hareket sayilmaz.
+            function isNewGesture() {
+                const now = performance.now();
+                const isNew = now - lastWheelTs > GESTURE_GAP_MS;
+                lastWheelTs = now;
+                return isNew;
+            }
+
+            // Asagi hareket: asama bekliyorsa baslatir, oynuyorsa bir kademe
+            // hizlandirir. Tek hareket = tek kademe.
             function impulseForward() {
                 if (storyFinished) return;
                 if (awaitingImpulse) {
                     playSegment();
                     return;
                 }
+                const current = masterTl.timeScale();
+                const next = Math.min(current * SEG_BOOST_STEP, segBaseScale * SEG_BOOST_MAX);
                 gsap.killTweensOf(masterTl);
-                masterTl.timeScale(segBaseScale * SEG_BOOST_FACTOR);
+                masterTl.timeScale(next);
                 clearTimeout(boostDecayTimer);
                 boostDecayTimer = setTimeout(() => {
                     if (storyFinished || awaitingImpulse) return;
-                    gsap.to(masterTl, { timeScale: segBaseScale, duration: 0.4, ease: "power2.out" });
+                    gsap.to(masterTl, { timeScale: segBaseScale, duration: 0.45, ease: "power2.out" });
                 }, BOOST_DECAY_MS);
             }
 
@@ -3289,9 +3309,11 @@
             const intentObserver = ScrollTrigger.observe({
                 type: "wheel,touch",
                 onUp: () => {
+                    if (!isNewGesture()) return;
                     impulseBack();
                 },
                 onDown: () => {
+                    if (!isNewGesture()) return;
                     impulseForward();
                 },
                 tolerance: 30,
