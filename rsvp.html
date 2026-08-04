@@ -376,6 +376,87 @@
         }
 
         /* Allergy free-text note */
+        /* Migration 072: alerji artik bagimsiz bir anahtar, menu secenegi degil. */
+        .allergy-toggle-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(29, 29, 31, 0.12);
+            background: #fff;
+            font-family: inherit;
+            text-align: left;
+            cursor: pointer;
+            transition: border-color .25s ease, background-color .25s ease, box-shadow .25s ease;
+        }
+
+        .allergy-toggle-btn:hover:not(:disabled) {
+            border-color: rgba(197, 160, 89, .55);
+        }
+
+        .allergy-toggle-icon {
+            font-size: 20px;
+            color: #B3453F;
+            flex-shrink: 0;
+        }
+
+        .allergy-toggle-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .allergy-toggle-text strong {
+            font-size: .92rem;
+            color: #1D1D1F;
+        }
+
+        .allergy-toggle-text small {
+            font-size: .74rem;
+            line-height: 1.4;
+            color: #6E6E73;
+        }
+
+        .allergy-toggle-switch {
+            flex-shrink: 0;
+            width: 42px;
+            height: 24px;
+            border-radius: 50px;
+            background: rgba(29, 29, 31, .16);
+            position: relative;
+            transition: background-color .25s ease;
+        }
+
+        .allergy-toggle-switch i {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+            transition: transform .25s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .allergy-toggle-btn.selected {
+            border-color: #B3453F;
+            background: rgba(179, 69, 63, .07);
+        }
+
+        .allergy-toggle-btn.selected .allergy-toggle-switch {
+            background: #B3453F;
+        }
+
+        .allergy-toggle-btn.selected .allergy-toggle-switch i {
+            transform: translateX(18px);
+        }
+
         .allergy-note-wrap {
             max-height: 0;
             opacity: 0;
@@ -1347,11 +1428,16 @@
                         <span class="material-icons-round">spa</span>
                         Vegan
                     </button>
-                    <button class="meal-pref-btn" data-pref="allergy" id="mealBtnAllergy">
-                        <span class="material-icons-round">warning_amber</span>
-                        Alerjim var
-                    </button>
                 </div>
+
+                <button type="button" class="allergy-toggle-btn" id="allergyToggleBtn" aria-pressed="false">
+                    <span class="material-icons-round allergy-toggle-icon">warning_amber</span>
+                    <span class="allergy-toggle-text">
+                        <strong>Alerjim var</strong>
+                        <small>Menü tercihinizden ayrıdır, ikisini birlikte seçebilirsiniz.</small>
+                    </span>
+                    <span class="allergy-toggle-switch" aria-hidden="true"><i></i></span>
+                </button>
 
                 <div class="allergy-note-wrap" id="allergyNoteWrap">
                     <textarea id="allergyNoteInput" class="allergy-note-textarea" maxlength="300" rows="2" placeholder="Örn. fındık, deniz ürünleri, glutensiz"></textarea>
@@ -1450,6 +1536,7 @@
             retryBtn: document.getElementById('retryBtn'),
             mealPrefSection: document.getElementById('mealPrefSection'),
             mealPrefBtns: Array.from(document.querySelectorAll('.meal-pref-btn')),
+            allergyToggleBtn: document.getElementById('allergyToggleBtn'),
             allergyNoteWrap: document.getElementById('allergyNoteWrap'),
             allergyNoteInput: document.getElementById('allergyNoteInput'),
             allergyNoteSaveBtn: document.getElementById('allergyNoteSaveBtn'),
@@ -1642,16 +1729,37 @@
 
             if (!shouldShow) return;
 
-            els.mealPrefBtns.forEach(btn => {
-                btn.classList.toggle('selected', btn.dataset.pref === guest.meal_preference);
-            });
+            // Migration 072: alerji artik menu secenegi degil, bagimsiz bayrak.
+            // Eski kayitlarda meal_preference 'allergy' olabilir; RPC bunu
+            // 'regular' + has_allergy olarak dondurur, yine de burada da
+            // savunma amacli normalize ediyoruz.
+            const legacyAllergy = guest.meal_preference === 'allergy';
+            currentPreference = legacyAllergy ? 'regular' : (guest.meal_preference || null);
+            currentHasAllergy = guest.has_allergy === true || legacyAllergy;
+
+            applyMealSelection(currentPreference);
+            setAllergyToggle(currentHasAllergy);
 
             // Restore whatever the guest saved earlier. On first paint the box
             // opens without the transition, otherwise it would slide in on
             // every page load.
             els.allergyNoteInput.value = guest.allergy_note || '';
             updateAllergyCount();
-            setAllergyNoteOpen(guest.meal_preference === 'allergy', { instant: true });
+            setAllergyNoteOpen(currentHasAllergy, { instant: true });
+        }
+
+        let currentPreference = null;
+        let currentHasAllergy = false;
+
+        function applyMealSelection(preference) {
+            els.mealPrefBtns.forEach(btn => {
+                btn.classList.toggle('selected', btn.dataset.pref === preference);
+            });
+        }
+
+        function setAllergyToggle(on) {
+            els.allergyToggleBtn.classList.toggle('selected', on);
+            els.allergyToggleBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
         }
 
         let allergyNoteDebounce = null;
@@ -1702,7 +1810,7 @@
             allergyNoteDebounce = null;
             // Keep the preference buttons interactive -- this is a note save,
             // not a preference change.
-            return updateMealPreference('allergy', { silentButtons: true });
+            return saveMealState({ silentButtons: true });
         }
 
         function queueAllergyNoteSave() {
@@ -1856,12 +1964,20 @@
             }
         }
 
-        async function updateMealPreference(preference, { silentButtons = false } = {}) {
+        // Menu tercihi ve alerji bayragi tek RPC ile birlikte yazilir
+        // (migration 072). Ikisi bagimsiz oldugu icin her cagri ikisinin de
+        // guncel halini gonderir.
+        async function saveMealState({ preference, hasAllergy, silentButtons = false } = {}) {
             if (!token) return;
 
-            // The note only travels with the 'allergy' choice -- the RPC clears
-            // allergy_note server-side for every other preference.
-            const allergyNote = preference === 'allergy'
+            // Davetli menu secmeden once alerjiyi isaretlerse menuyu 'regular'
+            // kabul ediyoruz: RPC bos tercih kabul etmiyor.
+            const nextPreference = preference ?? currentPreference ?? 'regular';
+            const nextHasAllergy = hasAllergy ?? currentHasAllergy;
+
+            // Not yalnizca bayrak acikken tasinir; sunucu da kapaliyken
+            // allergy_note alanini temizler.
+            const allergyNote = nextHasAllergy
                 ? els.allergyNoteInput.value.trim()
                 : null;
 
@@ -1875,22 +1991,25 @@
                     headers: rpcHeaders,
                     body: JSON.stringify({
                         p_token: token,
-                        p_preference: preference,
-                        p_allergy_note: allergyNote
+                        p_preference: nextPreference,
+                        p_allergy_note: allergyNote,
+                        p_has_allergy: nextHasAllergy
                     })
                 });
 
                 const success = response.ok && (await response.json()) === true;
 
                 if (success) {
+                    currentPreference = nextPreference;
+                    currentHasAllergy = nextHasAllergy;
                     if (currentGuest) {
-                        currentGuest.meal_preference = preference;
+                        currentGuest.meal_preference = nextPreference;
+                        currentGuest.has_allergy = nextHasAllergy;
                         currentGuest.allergy_note = allergyNote;
                     }
-                    els.mealPrefBtns.forEach(btn => {
-                        btn.classList.toggle('selected', btn.dataset.pref === preference);
-                    });
-                    if (preference !== 'allergy') {
+                    applyMealSelection(nextPreference);
+                    setAllergyToggle(nextHasAllergy);
+                    if (!nextHasAllergy) {
                         els.allergyNoteInput.value = '';
                         updateAllergyCount();
                     }
@@ -1922,12 +2041,18 @@
         els.mealPrefBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const pref = btn.dataset.pref;
-                // Toggle the note box straight away so it never waits on the
-                // network round-trip.
-                setAllergyNoteOpen(pref === 'allergy');
-                if (pref === 'allergy') els.allergyNoteInput.focus();
-                updateMealPreference(pref);
+                // Secim aninda gorunsun, agi bekletmesin.
+                applyMealSelection(pref);
+                saveMealState({ preference: pref });
             });
+        });
+
+        els.allergyToggleBtn.addEventListener('click', () => {
+            const next = !els.allergyToggleBtn.classList.contains('selected');
+            setAllergyToggle(next);
+            setAllergyNoteOpen(next);
+            if (next) els.allergyNoteInput.focus();
+            saveMealState({ hasAllergy: next });
         });
 
         els.allergyNoteInput.addEventListener('input', () => {

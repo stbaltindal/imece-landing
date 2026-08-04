@@ -7689,3 +7689,63 @@ html.hero-story-active .hero-story-hud {
 @media (prefers-reduced-motion: reduce) {
     .hero-story-hud.awaiting .hero-hud-dot.active { animation: none; }
 }
+
+/* Davetiye önizlemesi: alerji menü tercihinden bağımsız anahtar */
+.sim-allergy-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 7px 10px;
+    border-radius: 9px;
+    border: 1px solid rgba(29, 29, 31, 0.12);
+    background: #fff;
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #55555A;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.sim-allergy-switch {
+    position: relative;
+    flex-shrink: 0;
+    width: 30px;
+    height: 17px;
+    border-radius: 50px;
+    background: rgba(29, 29, 31, 0.18);
+    transition: background-color 0.25s ease;
+}
+
+.sim-allergy-switch i {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.sim-allergy-toggle.active {
+    border-color: #B3453F;
+    background: rgba(179, 69, 63, 0.07);
+    color: #8E3A35;
+}
+
+.sim-allergy-toggle.active .sim-allergy-switch {
+    background: #B3453F;
+}
+
+.sim-allergy-toggle.active .sim-allergy-switch i {
+    transform: translateX(13px);
+}
+
+body.dark-active .sim-allergy-toggle {
+    color: #55555A;
+}

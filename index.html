@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-solid.png?v=2.0">
 
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=30.0">
+    <link rel="stylesheet" href="style.css?v=31.0">
 </head>
 <body>
 
@@ -1841,13 +1841,13 @@
                             <span class="asistan-tag">Mutfak &amp; Servis</span>
                         </div>
                         <h3>Kaç vejetaryen, kimde alerji var?</h3>
-                        <p class="asistan-desc">Yemekli etkinliklerde davetli, katılımını onayladıktan sonra kendi davetiye linkinden menü tercihini işaretler: Normal, Vejetaryen, Vegan ya da “Alerjim var” deyip notunu yazar. Uygulama sayıları toplar; listeyi WhatsApp ya da PDF olarak şefe iletirsiniz.</p>
+                        <p class="asistan-desc">Yemekli etkinliklerde davetli, katılımını onayladıktan sonra kendi davetiye linkinden menüsünü seçer: Normal, Vejetaryen ya da Vegan. Alerji ayrı bir anahtar — vegan olup fındık alerjisi olan davetli ikisini birden bildirir. Uygulama sayıları toplar; listeyi WhatsApp ya da PDF olarak şefe iletirsiniz.</p>
                         <div class="asistan-mockup">
                             <div class="mini-diet-stats">
                                 <span class="diet-chip">🍽️ Normal · 142</span>
                                 <span class="diet-chip veg">🥗 Vejetaryen · 18</span>
                                 <span class="diet-chip vgn">🌱 Vegan · 6</span>
-                                <span class="diet-chip alg">⚠️ Alerjim var · 4</span>
+                                <span class="diet-chip alg">⚠️ Alerji bildirimi · 4</span>
                             </div>
                             <div class="asistan-mock-note">“Fındık, deniz ürünleri” gibi notlar davetli adıyla listeye işlenir.</div>
                             <span class="action-map-btn"><span class="material-icons-round">picture_as_pdf</span> Mutfak listesini gönder</span>
@@ -2139,8 +2139,11 @@
                                             <button type="button" class="sim-meal-chip active" onclick="selectSimMeal(this, 'Normal menü')">🍽️ Normal</button>
                                             <button type="button" class="sim-meal-chip" onclick="selectSimMeal(this, 'Vejetaryen menü')">🥗 Vejetaryen</button>
                                             <button type="button" class="sim-meal-chip" onclick="selectSimMeal(this, 'Vegan menü')">🌱 Vegan</button>
-                                            <button type="button" class="sim-meal-chip" data-allergy="1" onclick="selectSimMeal(this, 'Alerji bildirimi')">⚠️ Alerjim var</button>
                                         </div>
+                                        <button type="button" class="sim-allergy-toggle" id="simAllergyToggle" onclick="toggleSimAllergy(this)">
+                                            <span>⚠️ Alerjim var</span>
+                                            <span class="sim-allergy-switch"><i></i></span>
+                                        </button>
                                         <div class="sim-allergy-row" id="simAllergyRow" hidden>
                                             <input type="text" id="simAllergyInput" placeholder="Örn. fındık, deniz ürünleri" maxlength="60">
                                             <button type="button" onclick="saveSimAllergy()">Kaydet</button>
@@ -4064,9 +4067,15 @@
         function selectSimMeal(btn, mealName) {
             document.querySelectorAll('.sim-meal-chip').forEach(c => c.classList.remove('active'));
             btn.classList.add('active');
-            const row = document.getElementById('simAllergyRow');
-            if (row) row.hidden = btn.dataset.allergy !== '1';
             showSimToast(`🍽️ ${mealName} tercihiniz seçildi!`);
+        }
+
+        // Alerji menü tercihinden bağımsız: ikisi birlikte işaretlenebilir.
+        function toggleSimAllergy(btn) {
+            const on = btn.classList.toggle('active');
+            const row = document.getElementById('simAllergyRow');
+            if (row) row.hidden = !on;
+            showSimToast(on ? '⚠️ Alerji bildiriminiz eklendi' : 'Alerji bildirimi kaldırıldı');
         }
 
         function saveSimAllergy() {
