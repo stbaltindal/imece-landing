@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-solid.png?v=2.0">
 
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=23.0">
+    <link rel="stylesheet" href="style.css?v=25.0">
 </head>
 <body>
 
@@ -67,7 +67,7 @@
                         <h1>Düğünü zorlaştıran hazırlık değil, <span class="text-gold-gradient">her şeyi tek başınıza taşımak.</span></h1>
                         <p class="hero-lead">Kim ne ödedi, hangi iş kimde, teklif hangi mesajda kaldı… İmece Düğün hazırlığın tamamını sevdiklerinizle paylaşılabilir hale getirir. Herkes ne yapacağını bilir, siz günün tadını çıkarırsınız.</p>
                         <a href="#tanidik" class="hero-scroll-hint">
-                            <span>Yaşadığınız 8 sorunu tanıyoruz</span>
+                            <span>Yaşadığınız 14 sorunu tanıyoruz</span>
                             <span class="material-icons-round">south</span>
                         </a>
                         
@@ -662,6 +662,22 @@
                 <div style="height: 10px;"></div>
             </div> <!-- Closes .mobile-interactive-showcase -->
         </div> <!-- Closes .story-container -->
+
+        <!-- Hikaye HUD: ilerleme + cikis (yalnizca masaustu pinli akista gorunur) -->
+        <div class="hero-story-hud" id="heroStoryHud" aria-hidden="true">
+            <div class="hero-hud-dots" id="heroHudDots">
+                <span class="hero-hud-dot active"></span>
+                <span class="hero-hud-dot"></span>
+                <span class="hero-hud-dot"></span>
+                <span class="hero-hud-dot"></span>
+                <span class="hero-hud-dot"></span>
+                <span class="hero-hud-dot"></span>
+            </div>
+            <button type="button" class="hero-hud-skip" id="heroHudSkip" onclick="skipHeroStory()">
+                <span>Hikâyeyi atla</span>
+                <span class="material-icons-round">south</span>
+            </button>
+        </div>
     </section>
 
         <!-- Master Showcase: 4 Adımda Canlı İmece Deneyimi (Tıklamalı Lüks Sekme Paneli) -->
@@ -676,7 +692,7 @@
 
                 <div class="pain-check-layout">
                     <div class="pain-check-list" id="painCheckList" role="group" aria-label="Tanıdık gelen sorunlar">
-                        <button type="button" class="pain-item" data-target="cozum-sablon" data-solution="6 hazır şablon, 260+ görev tek dokunuşta" aria-pressed="false" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-bossayfa" data-solution="6 hazır şablon, 260+ görev tek dokunuşta" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Nereden başlayacağımızı bile bilmiyoruz; liste yapmaya oturup bırakıyoruz.”</span>
@@ -704,7 +720,7 @@
                                 <span class="pain-meta">Kontrolden çıkan bütçe</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-target="interactive-rsvp-showcase" data-solution="Kişiye özel davetiye linki & anlık katılım bildirimi" aria-pressed="false" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-katilim" data-solution="Kişiye özel davetiye linki & anlık katılım bildirimi" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Düğüne bir hafta kaldı, kaç kişi geleceğini hâlâ bilmiyoruz.”</span>
@@ -718,14 +734,14 @@
                                 <span class="pain-meta">Dağınık yemek ve alerji bilgisi</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-target="cozum-onay" data-solution="Tamamlama onayı: görev sizin onayınızla kapanır" aria-pressed="false" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-tamamlama" data-solution="Tamamlama onayı: görev sizin onayınızla kapanır" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“‘Hallettim’ dedi ama yapılmamış; düğün haftası ortaya çıktı.”</span>
                                 <span class="pain-meta">Takip edilemeyen ‘tamam’ sözü</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-target="cozum-skorboard" data-solution="Ekip skorboardu: emeği görünür yapar" aria-pressed="false" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-emek" data-solution="Ekip skorboardu: emeği görünür yapar" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Grupta ‘ben varım’ diyen çok; işi bitiren hep aynı üç kişi.”</span>
@@ -805,7 +821,7 @@
         <section id="neden-imece" class="kriz-cozum-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag gold">8 Kritik Zorluk & Çözüm</span>
+                    <span class="section-tag gold">12 Kritik Zorluk & Çözüm</span>
                     <h2>Her sorunun karşısında <span class="text-gold-gradient">çalışan bir ekran var</span></h2>
                     <p class="section-subtitle">Kartın üstüne dokunun: solda yaşadığınız kaosu, arkasında uygulamadaki gerçek çözümü görün.</p>
                 </div>
@@ -1505,6 +1521,275 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Kart 9: Nereden başlayacağını bilememe -->
+                    <div class="flip-card" id="cozum-bossayfa" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Nereden başlayacağını bilememe kartını döndürmek için tıklayın">
+                        <div class="flip-card-wobble">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="card-content-top">
+                                        <div class="card-icon-header-row">
+                                            <div class="card-icon-wrapper zorluk-icon">
+                                                <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4z"></path></svg>
+                                            </div>
+                                            <span class="zorluk-tag">Zorluk 9</span>
+                                        </div>
+                                        <h3 class="card-title">Boş listeye bakıp hazırlığı erteleme</h3>
+                                        <div class="mini-todo-list">
+                                            <div class="mini-todo-item alert">
+                                                <span class="todo-uncheck"></span>
+                                                <span class="todo-text">Yapılacaklar (0 madde)</span>
+                                            </div>
+                                            <div class="mini-todo-item alert">
+                                                <span class="todo-uncheck"></span>
+                                                <span class="todo-text">“Yarın otururuz” — 3 haftadır</span>
+                                            </div>
+                                        </div>
+                                        <p class="card-desc">Nereden başlanacağı belli olmayınca liste hiç açılmaz. Hazırlık, <strong class="highlight-gold">akla geldikçe</strong> koşturmacaya döner.</p>
+                                    </div>
+                                    <div class="flip-trigger-badge">
+                                        <span>Çözümü Gör</span>
+                                        <span class="material-icons-round icon-arrow">rotate_right</span>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="card-content-top">
+                                        <div class="card-icon-header-row">
+                                            <div class="card-icon-wrapper cozum-icon">
+                                                <svg viewBox="0 0 24 24"><path d="M9 11H3v10h6zM21 3h-6v18h6zM15 7H9v14h6z"></path></svg>
+                                            </div>
+                                            <span class="cozum-tag">İmece Çözümü</span>
+                                        </div>
+                                        <h3 class="card-title">6 hazır şablon, 260+ görev tek dokunuşta</h3>
+                                        <div class="mini-app-mockup">
+                                            <div class="mockup-header">
+                                                <span class="material-icons-round" style="font-size: 11px;">auto_stories</span>
+                                                <span>Hazır Şablonlar</span>
+                                            </div>
+                                            <div class="mockup-todo-list">
+                                                <div class="mockup-todo-row">
+                                                    <span class="todo-title">Düğün Organizasyonu</span>
+                                                    <div class="todo-meta"><span class="mockup-user-chip gold">Yüklendi</span></div>
+                                                </div>
+                                                <div class="mockup-todo-row">
+                                                    <span class="todo-title">Söz · Nişan · Kına · Bride · Balayı</span>
+                                                    <div class="todo-meta"><span class="todo-status active">Hazır</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="card-desc">Etkinlik türünü seçin; sıralı görev listesi ve tarihler saniyeler içinde kurulsun. Dilerseniz <strong class="highlight-gold">boş başlayıp</strong> kendi listenizi yazın.</p>
+                                    </div>
+                                    <div class="flip-back-footer">
+                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Şablonu Yükle →</a>
+                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
+                                            <span class="material-icons-round">replay</span> Ön Yüz
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Kart 10: Kaç kişi geleceğinin bilinmemesi -->
+                    <div class="flip-card" id="cozum-katilim" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Kaç kişi geleceğinin bilinmemesi kartını döndürmek için tıklayın">
+                        <div class="flip-card-wobble">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="card-content-top">
+                                        <div class="card-icon-header-row">
+                                            <div class="card-icon-wrapper zorluk-icon">
+                                                <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                            </div>
+                                            <span class="zorluk-tag">Zorluk 10</span>
+                                        </div>
+                                        <h3 class="card-title">Toplanamayan katılım teyidi</h3>
+                                        <div class="mini-whatsapp-chat">
+                                            <div class="chat-bubble left">
+                                                <span class="chat-name">Gelin 👰‍♀️</span>
+                                                Teyzeler geliyor mu, kaç kişi?
+                                            </div>
+                                            <div class="chat-bubble left">
+                                                <span class="chat-name">Anne 💐</span>
+                                                Bir arayıp sorayım…
+                                            </div>
+                                        </div>
+                                        <p class="card-desc">Salona kaç kuver söyleneceği son güne kalır. Tek tek aranarak alınan cevaplar <strong class="highlight-gold">hiçbir yerde toplanmaz</strong>.</p>
+                                    </div>
+                                    <div class="flip-trigger-badge">
+                                        <span>Çözümü Gör</span>
+                                        <span class="material-icons-round icon-arrow">rotate_right</span>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="card-content-top">
+                                        <div class="card-icon-header-row">
+                                            <div class="card-icon-wrapper cozum-icon">
+                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                            </div>
+                                            <span class="cozum-tag">İmece Çözümü</span>
+                                        </div>
+                                        <h3 class="card-title">Kişiye özel davetiye linki & anlık teyit</h3>
+                                        <div class="mini-app-mockup">
+                                            <div class="mockup-header">
+                                                <span class="material-icons-round" style="font-size: 11px;">how_to_reg</span>
+                                                <span>Katılım Özeti</span>
+                                            </div>
+                                            <div class="mockup-todo-list">
+                                                <div class="mockup-todo-row">
+                                                    <span class="todo-title">Katılıyor</span>
+                                                    <div class="todo-meta"><span class="todo-status done">128 kişi</span></div>
+                                                </div>
+                                                <div class="mockup-todo-row">
+                                                    <span class="todo-title">Yanıt bekleyen</span>
+                                                    <div class="todo-meta"><span class="todo-status active">34 kişi</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="card-desc">Her davetliye özel bağlantı gider; uygulama indirmeden yanıtlar. Yanıt geldiği anda <strong class="highlight-gold">cebinize bildirim düşer</strong>.</p>
+                                    </div>
+                                    <div class="flip-back-footer">
+                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Davetiyeni Oluştur →</a>
+                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
+                                            <span class="material-icons-round">replay</span> Ön Yüz
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Kart 11: Yapıldı denen ama yapılmayan işler -->
+                    <div class="flip-card" id="cozum-tamamlama" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Yapıldı denen ama yapılmayan işler kartını döndürmek için tıklayın">
+                        <div class="flip-card-wobble">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="card-content-top">
+                                        <div class="card-icon-header-row">
+                                            <div class="card-icon-wrapper zorluk-icon">
+                                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                            </div>
+                                            <span class="zorluk-tag">Zorluk 11</span>
+                                        </div>
+                                        <h3 class="card-title">“Hallettim” denip yapılmayan işler</h3>
+                                        <div class="mini-todo-list">
+                                            <div class="mini-todo-item">
+                                                <span class="todo-check">✓</span>
+                                                <span class="todo-text">Çiçekçi kaporası — “tamam” 👍</span>
+                                            </div>
+                                            <div class="mini-todo-item alert">
+                                                <span class="todo-uncheck"></span>
+                                                <span class="todo-text">Düğüne 5 gün kala: ödenmemiş</span>
+                                            </div>
+                                        </div>
+                                        <p class="card-desc">Sözlü “hallettim” hiçbir yerde kayıtlı değildir. Eksik iş <strong class="highlight-gold">en kötü anda</strong> ortaya çıkar.</p>
+                                    </div>
+                                    <div class="flip-trigger-badge">
+                                        <span>Çözümü Gör</span>
+                                        <span class="material-icons-round icon-arrow">rotate_right</span>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="card-content-top">
+                                        <div class="card-icon-header-row">
+                                            <div class="card-icon-wrapper cozum-icon">
+                                                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                            </div>
+                                            <span class="cozum-tag">İmece Çözümü</span>
+                                        </div>
+                                        <h3 class="card-title">Tamamlama onayı: görev sizin onayınızla kapanır</h3>
+                                        <div class="mini-app-mockup">
+                                            <div class="mockup-header">
+                                                <span class="material-icons-round" style="font-size: 11px;">verified</span>
+                                                <span>Onay Bekleyen</span>
+                                            </div>
+                                            <div class="mockup-todo-list">
+                                                <div class="mockup-todo-row">
+                                                    <span class="todo-title">Çiçekçi kaporası</span>
+                                                    <div class="todo-meta"><span class="mockup-user-chip gold">Mert</span><span class="todo-status active">Onay bekliyor</span></div>
+                                                </div>
+                                                <div class="mockup-todo-row">
+                                                    <span class="todo-title">Davetiye baskısı</span>
+                                                    <div class="todo-meta"><span class="todo-status done">Onaylandı</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="card-desc">Görevli “Yaptım” der, iş siz onaylayınca kapanır. Kuralı etkinlik bazında açar, <strong class="highlight-gold">istediğiniz an kapatırsınız</strong>.</p>
+                                    </div>
+                                    <div class="flip-back-footer">
+                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Onay Kuralını Gör →</a>
+                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
+                                            <span class="material-icons-round">replay</span> Ön Yüz
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Kart 12: Kimin ne kadar çalıştığının görünmemesi -->
+                    <div class="flip-card" id="cozum-emek" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Kimin ne kadar çalıştığının görünmemesi kartını döndürmek için tıklayın">
+                        <div class="flip-card-wobble">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="card-content-top">
+                                        <div class="card-icon-header-row">
+                                            <div class="card-icon-wrapper zorluk-icon">
+                                                <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"></path><path d="M17 5h3a3 3 0 0 1-3 3M7 5H4a3 3 0 0 0 3 3"></path></svg>
+                                            </div>
+                                            <span class="zorluk-tag">Zorluk 12</span>
+                                        </div>
+                                        <h3 class="card-title">Görünmeyen emek, sessiz kırgınlık</h3>
+                                        <div class="mini-whatsapp-chat">
+                                            <div class="chat-bubble left">
+                                                <span class="chat-name">Nedime 👭</span>
+                                                Ben varım, ne gerekirse yaparım!
+                                            </div>
+                                            <div class="chat-bubble left">
+                                                <span class="chat-name">Gelin 👰‍♀️</span>
+                                                (üç haftadır koşturan hep aynı üç kişi)
+                                            </div>
+                                        </div>
+                                        <p class="card-desc">Emek görünmeyince hem teşekkür edilecek kişi kaybolur hem de <strong class="highlight-gold">kimin boşta olduğu</strong> anlaşılmaz.</p>
+                                    </div>
+                                    <div class="flip-trigger-badge">
+                                        <span>Çözümü Gör</span>
+                                        <span class="material-icons-round icon-arrow">rotate_right</span>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="card-content-top">
+                                        <div class="card-icon-header-row">
+                                            <div class="card-icon-wrapper cozum-icon">
+                                                <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"></path><path d="M17 5h3a3 3 0 0 1-3 3M7 5H4a3 3 0 0 0 3 3"></path></svg>
+                                            </div>
+                                            <span class="cozum-tag">İmece Çözümü</span>
+                                        </div>
+                                        <h3 class="card-title">Ekip skorboardu: emeği görünür yapar</h3>
+                                        <div class="mini-app-mockup">
+                                            <div class="mockup-header">
+                                                <span class="material-icons-round" style="font-size: 11px;">emoji_events</span>
+                                                <span>Ekip Skorboardu</span>
+                                            </div>
+                                            <div class="mockup-todo-list">
+                                                <div class="mockup-todo-row">
+                                                    <span class="todo-title">1. Ece (Nedime)</span>
+                                                    <div class="todo-meta"><span class="todo-status done">%92</span></div>
+                                                </div>
+                                                <div class="mockup-todo-row">
+                                                    <span class="todo-title">2. Mert (Sağdıç)</span>
+                                                    <div class="todo-meta"><span class="todo-status active">%74</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="card-desc">Kim kaç görevi tamamladı, tek listede. Sıralamayı herkes görür; <strong class="highlight-gold">yardım istemek zorunda kalmadan</strong> işler ilerler.</p>
+                                    </div>
+                                    <div class="flip-back-footer">
+                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Skorboardu Gör →</a>
+                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
+                                            <span class="material-icons-round">replay</span> Ön Yüz
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1554,16 +1839,16 @@
                             <span class="asistan-icon-wrap"><span class="material-icons-round">restaurant</span></span>
                             <span class="asistan-tag">Mutfak &amp; Servis</span>
                         </div>
-                        <h3>Kaç vejetaryen, kaç alerji?</h3>
-                        <p class="asistan-desc">Davetliler menü tercihini ve alerji notunu kendi davetiye linkinden yazar. Uygulama sayıları toplar; listeyi WhatsApp ya da PDF olarak doğrudan şefe iletirsiniz.</p>
+                        <h3>Kaç vejetaryen, kimde alerji var?</h3>
+                        <p class="asistan-desc">Yemekli etkinliklerde davetli, katılımını onayladıktan sonra kendi davetiye linkinden menü tercihini işaretler: Normal, Vejetaryen, Vegan ya da “Alerjim var” deyip notunu yazar. Uygulama sayıları toplar; listeyi WhatsApp ya da PDF olarak şefe iletirsiniz.</p>
                         <div class="asistan-mockup">
                             <div class="mini-diet-stats">
-                                <span class="diet-chip">🥩 Et · 142</span>
+                                <span class="diet-chip">🍽️ Normal · 142</span>
                                 <span class="diet-chip veg">🥗 Vejetaryen · 18</span>
                                 <span class="diet-chip vgn">🌱 Vegan · 6</span>
-                                <span class="diet-chip alg">⚠️ Alerji notu · 4</span>
+                                <span class="diet-chip alg">⚠️ Alerjim var · 4</span>
                             </div>
-                            <div class="asistan-mock-note">“Fındık alerjisi — Selin Y.” gibi notlar listeye ad ad işlenir.</div>
+                            <div class="asistan-mock-note">“Fındık, deniz ürünleri” gibi notlar davetli adıyla listeye işlenir.</div>
                             <span class="action-map-btn"><span class="material-icons-round">picture_as_pdf</span> Mutfak listesini gönder</span>
                         </div>
                     </article>
@@ -1850,12 +2135,13 @@
                                     <div class="sim-meal-block">
                                         <span class="sim-block-label">Menü tercihiniz</span>
                                         <div class="sim-meal-chips">
-                                            <button type="button" class="sim-meal-chip active" onclick="selectSimMeal(this, 'Et menüsü')">🥩 Et</button>
+                                            <button type="button" class="sim-meal-chip active" onclick="selectSimMeal(this, 'Normal menü')">🍽️ Normal</button>
                                             <button type="button" class="sim-meal-chip" onclick="selectSimMeal(this, 'Vejetaryen menü')">🥗 Vejetaryen</button>
-                                            <button type="button" class="sim-meal-chip" onclick="selectSimMeal(this, 'Çocuk menüsü')">🧒 Çocuk</button>
+                                            <button type="button" class="sim-meal-chip" onclick="selectSimMeal(this, 'Vegan menü')">🌱 Vegan</button>
+                                            <button type="button" class="sim-meal-chip" data-allergy="1" onclick="selectSimMeal(this, 'Alerji bildirimi')">⚠️ Alerjim var</button>
                                         </div>
-                                        <div class="sim-allergy-row">
-                                            <input type="text" id="simAllergyInput" placeholder="Alerjen / diyet notu" maxlength="60">
+                                        <div class="sim-allergy-row" id="simAllergyRow" hidden>
+                                            <input type="text" id="simAllergyInput" placeholder="Örn. fındık, deniz ürünleri" maxlength="60">
                                             <button type="button" onclick="saveSimAllergy()">Kaydet</button>
                                         </div>
                                     </div>
@@ -1966,7 +2252,7 @@
                         <h3>Gelişmiş Görev Takibi</h3>
                         <p>Görevleri önem derecesine göre önceliklendirin, sorumlular atayın. Yorum alanı sayesinde görevler üzerinde tartışın.</p>
                     </div>
-                    <div class="feature-card" id="cozum-sablon">
+                    <div class="feature-card" id="ozellik-sablon">
                         <div class="feature-icon-wrapper"><span class="material-icons-round">auto_stories</span></div>
                         <h3>Hazır Şablon Kütüphanesi</h3>
                         <p>Düğün veya nişan etkinlik türünüze göre, otomatik yapılacaklar listesini saniyeler içinde yükleyin.</p>
@@ -2620,16 +2906,45 @@
             const steps = [0, 1.3, 2.3, 2.9, 7.5, 17.0];
             let currentIndex = 0;
             let isAnimating = false;
+            let pendingIntent = 0;
 
+            // Not: body.overflow kilidi bilerek kullanilmiyor -- scrollbar kaybolunca
+            // sayfa yatayda ziplyor. Tekerlek/dokunus zaten observer'da
+            // preventDefault ile tutuluyor, klavye ise kasitli kacis kapisi.
             function lockScroll() {
-                document.body.style.overflow = "hidden";
+                document.documentElement.classList.add("hero-story-active");
+                const hud = document.getElementById("heroStoryHud");
+                if (hud) hud.setAttribute("aria-hidden", "false");
                 intentObserver.enable();
+                updateHeroHud(currentIndex);
             }
 
             function unlockScroll() {
-                document.body.style.overflow = "";
+                document.documentElement.classList.remove("hero-story-active");
+                const hud = document.getElementById("heroStoryHud");
+                if (hud) hud.setAttribute("aria-hidden", "true");
                 intentObserver.disable();
             }
+
+            function updateHeroHud(index) {
+                const dots = document.querySelectorAll("#heroHudDots .hero-hud-dot");
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle("active", i === index);
+                    dot.classList.toggle("seen", i < index);
+                });
+            }
+
+            // Hikayeyi atla: kilidi birak, pinli alanin altina gec.
+            window.skipHeroStory = function () {
+                unlockScroll();
+                window.scrollTo({ top: pinTrigger.end + 5, behavior: "smooth" });
+            };
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && document.documentElement.classList.contains("hero-story-active")) {
+                    window.skipHeroStory();
+                }
+            });
 
             // Pin showcase trigger (without scrub to lock intent per step)
             const pinTrigger = ScrollTrigger.create({
@@ -2795,6 +3110,7 @@
                 gsap.killTweensOf(masterTl);
                 masterTl.time(steps[index]);
                 currentIndex = index;
+                updateHeroHud(index);
             }
 
             function goToStep(index) {
@@ -2808,26 +3124,29 @@
                     resetMockupTask();
                 }
 
-                // Proportional transition duration so animations play at a highly natural, human speed
+                // Zaman cizelgesindeki bazi araliklar 9 saniyeyi buluyor (ayni
+                // dokunus animasyonu ucer kez tekrarlaniyor). 1:1 oynatinca
+                // ziyaretci saniyelerce kilitli kaliyordu; oran + tavan ile
+                // hicbir adim 1.5 saniyeyi asmiyor.
                 const diff = Math.abs(steps[index] - steps[currentIndex]);
-                
-                // For the interactive steps (index >= 4), play at 1:1 timeline speed (duration = diff) for maximum clarity.
-                // For smaller page transitions, cap at a comfortable duration.
-                let duration;
-                if (index >= 4 || currentIndex >= 4) {
-                    duration = diff; // 1:1 premium playback speed!
-                } else {
-                    duration = Math.min(Math.max(diff * 0.8, 0.85), 3.0);
-                }
+                const duration = Math.min(Math.max(diff * 0.34, 0.5), 1.5);
+
+                updateHeroHud(index);
 
                 gsap.killTweensOf(masterTl);
                 gsap.to(masterTl, {
                     time: steps[index],
                     duration: duration,
-                    ease: "power2.out",
+                    ease: "power2.inOut",
                     onComplete: () => {
                         currentIndex = index;
                         isAnimating = false;
+                        // Animasyon sirasinda gelen kaydirma niyetini yut yerine uygula.
+                        if (pendingIntent !== 0) {
+                            const dir = pendingIntent;
+                            pendingIntent = 0;
+                            goToStep(currentIndex + dir);
+                        }
                     }
                 });
             }
@@ -2836,11 +3155,12 @@
             const intentObserver = ScrollTrigger.observe({
                 type: "wheel,touch",
                 onUp: () => { 
-                    if (isAnimating) return;
+                    if (isAnimating) { pendingIntent = -1; return; }
                     if (currentIndex > 0) {
                         goToStep(currentIndex - 1);
                     } else {
                         // Exit upwards from pinned container
+                        pendingIntent = 0;
                         unlockScroll();
                         window.scrollTo({
                             top: pinTrigger.start - 5,
@@ -2849,11 +3169,12 @@
                     }
                 },
                 onDown: () => { 
-                    if (isAnimating) return;
+                    if (isAnimating) { pendingIntent = 1; return; }
                     if (currentIndex < steps.length - 1) {
                         goToStep(currentIndex + 1);
                     } else {
                         // Exit downwards from pinned container
+                        pendingIntent = 0;
                         unlockScroll();
                         window.scrollTo({
                             top: pinTrigger.end + 5,
@@ -3544,6 +3865,8 @@
         function selectSimMeal(btn, mealName) {
             document.querySelectorAll('.sim-meal-chip').forEach(c => c.classList.remove('active'));
             btn.classList.add('active');
+            const row = document.getElementById('simAllergyRow');
+            if (row) row.hidden = btn.dataset.allergy !== '1';
             showSimToast(`🍽️ ${mealName} tercihiniz seçildi!`);
         }
 

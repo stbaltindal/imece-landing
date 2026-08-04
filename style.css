@@ -22,6 +22,9 @@
     --text-main: #1D1D1F;                /* Apple Deep Charcoal */
     --text-muted: #6E6E73;
     --text-light: #86868B;
+    /* Koyu yuzeylerde ikincil metin (navbar, rsvp/timeline/sablon kartlari).
+       Onceden hic tanimlanmamisti: renk devralinip okunmaz hale geliyordu. */
+    --text-secondary: #B4AEAB;
     
     --border-color: rgba(29, 29, 31, 0.08);
     --shadow-soft: 0 12px 32px rgba(29, 29, 31, 0.04);
@@ -7551,4 +7554,108 @@ body.dark-active .sim-block-label {
     border-radius: var(--radius-lg);
     position: relative;
     z-index: 12;
+}
+
+/* ============================================================
+   HERO HİKÂYE HUD — ilerleme göstergesi ve çıkış kapısı
+   ============================================================ */
+
+.hero-story-hud {
+    position: fixed;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%) translateY(10px);
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 9px 10px 9px 18px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(197, 160, 89, 0.32);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    box-shadow: 0 12px 34px rgba(29, 29, 31, 0.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+html.hero-story-active .hero-story-hud {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.hero-hud-dots {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.hero-hud-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50px;
+    background: rgba(29, 29, 31, 0.16);
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s ease;
+}
+
+.hero-hud-dot.seen {
+    background: rgba(197, 160, 89, 0.5);
+}
+
+.hero-hud-dot.active {
+    width: 22px;
+    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+}
+
+.hero-hud-skip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 14px;
+    border-radius: 50px;
+    border: 1px solid rgba(29, 29, 31, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.hero-hud-skip:hover {
+    border-color: var(--gold);
+    color: var(--text-main);
+    transform: translateY(-1px);
+}
+
+.hero-hud-skip .material-icons-round {
+    font-size: 15px;
+    color: var(--gold);
+}
+
+@media (max-width: 767px) {
+    .hero-story-hud { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-story-hud { transition: none; }
+}
+
+
+/* Navbar acik zemine gecince menu linkleri de koyulasir */
+.navbar.navbar-scrolled .nav-links a {
+    color: var(--text-muted);
+}
+
+.navbar.navbar-scrolled .nav-links a:hover {
+    color: var(--text-main);
+    text-shadow: none;
+}
+
+.navbar.navbar-scrolled .logo-text {
+    color: var(--text-main);
 }
