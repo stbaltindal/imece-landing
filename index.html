@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-solid.png?v=2.0">
 
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=21.0">
+    <link rel="stylesheet" href="style.css?v=22.0">
 </head>
 <body>
 
@@ -671,65 +671,107 @@
                 <div class="section-header">
                     <span class="section-tag gold">✦ ÖNCE ŞUNU KONUŞALIM</span>
                     <h2>Bunlardan kaçı size <span class="text-gold-gradient">tanıdık geliyor?</span></h2>
-                    <p class="section-subtitle">Yaşadığınız ya da yaşamaktan korktuğunuz cümlelere dokunun. Seçtiğiniz her sorun için İmece'nin cevabını hemen yanında göstereceğiz.</p>
+                    <p class="section-subtitle">Hepsi gerçek çiftlerden dinlediğimiz cümleler ve hepsinin uygulamada çalışan bir karşılığı var. Size tanıdık gelenlere dokunun; çözümü hemen yanında çıksın.</p>
                 </div>
 
                 <div class="pain-check-layout">
                     <div class="pain-check-list" id="painCheckList" role="group" aria-label="Tanıdık gelen sorunlar">
-                        <button type="button" class="pain-item" data-card="1" data-solution="Her tedarikçi için izole görev odası" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-sablon" data-solution="6 hazır şablon, 260+ görev tek dokunuşta" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
-                                <span class="pain-quote">“Mekan teklifi kimdeydi? 200 mesaj yukarıda kaldı, bulamıyorum.”</span>
-                                <span class="pain-meta">WhatsApp grubunda kaybolan belgeler</span>
+                                <span class="pain-quote">“Nereden başlayacağımızı bile bilmiyoruz; liste yapmaya oturup bırakıyoruz.”</span>
+                                <span class="pain-meta">Boş sayfa korkusu</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-card="2" data-solution="Çoklu atama & görev öneri paneli" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-yuk" data-solution="Çoklu atama & görev öneri paneli" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Herkes ‘ne yapabilirim?’ diye soruyor ama sonunda hepsini yine ben yapıyorum.”</span>
                                 <span class="pain-meta">Tüm yükün tek kişide toplanması</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-card="3" data-solution="Tahmini vs. gerçekleşen bütçe canlı takibi" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-whatsapp" data-solution="Her tedarikçi için izole görev odası" aria-pressed="false" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Mekan teklifi kimdeydi? 200 mesaj yukarıda kaldı, bulamıyorum.”</span>
+                                <span class="pain-meta">WhatsApp grubunda kaybolan belgeler</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-target="cozum-butce" data-solution="Tahmini vs. gerçekleşen bütçe canlı takibi" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Kapora kimden çıktı, ne kadar harcadık… kimse tam olarak bilmiyor.”</span>
                                 <span class="pain-meta">Kontrolden çıkan bütçe</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-card="4" data-solution="Gelin Koruması (Surprise Guard)" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="interactive-rsvp-showcase" data-solution="Kişiye özel davetiye linki & anlık katılım bildirimi" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
-                                <span class="pain-quote">“Sürpriz partiyi konuşurken gelin ekrana bakarsa her şey biter.”</span>
-                                <span class="pain-meta">İfşa olan Bride-to-Be sürprizi</span>
+                                <span class="pain-quote">“Düğüne bir hafta kaldı, kaç kişi geleceğini hâlâ bilmiyoruz.”</span>
+                                <span class="pain-meta">Toplanamayan katılım teyidi</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-card="5" data-solution="İnteraktif masa planı & menü takibi" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-diyet" data-solution="Menü tercihi, alerji notu ve mutfak listesi" aria-pressed="false" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Kaç vejetaryen var, kimin alerjisi var? Mutfağa ne söyleyeceğiz?”</span>
+                                <span class="pain-meta">Dağınık yemek ve alerji bilgisi</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-target="cozum-onay" data-solution="Tamamlama onayı: görev sizin onayınızla kapanır" aria-pressed="false" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“‘Hallettim’ dedi ama yapılmamış; düğün haftası ortaya çıktı.”</span>
+                                <span class="pain-meta">Takip edilemeyen ‘tamam’ sözü</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-target="cozum-skorboard" data-solution="Ekip skorboardu: kim ne kadar tamamladı" aria-pressed="false" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Bir kısmı canla başla çalışıyor, bir kısmı hiç ilgilenmiyor; kimse görmüyor.”</span>
+                                <span class="pain-meta">Görünmeyen emek dağılımı</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-target="cozum-muzik" data-solution="Kategorili müzik listeleri, tek dokunuşta DJ'e" aria-pressed="false" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“DJ ne çalacak? Herkesin isteği ayrı, listeyi kimse toparlamıyor.”</span>
+                                <span class="pain-meta">Toparlanamayan müzik istekleri</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-target="cozum-masa" data-solution="İnteraktif masa planı & menü takibi" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Hangi akraba kiminle aynı masada oturamaz, defterde takip ediyoruz.”</span>
                                 <span class="pain-meta">Masa düzeni ve protokol çilesi</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-card="6" data-solution="Düğün günü canlı akış programı" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-akis" data-solution="Düğün günü canlı akış programı" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Gelin arabası gecikti, pasta da kaydı; kimse bir sonraki adımı bilmiyor.”</span>
                                 <span class="pain-meta">Düğün günü zaman kayması</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-card="7" data-solution="Otomatik takvim kaydırma (Shift Dates)" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-takvim" data-solution="Otomatik takvim kaydırma (Shift Dates)" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Tarih iki hafta ertelendi, bütün listeyi baştan yazmam gerekti.”</span>
                                 <span class="pain-meta">Ertelemede bozulan takvim</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-card="8" data-solution="Ortak Yönetici (Co-Host) bağımsız yetki" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-cohost" data-solution="Ortak Yönetici (Co-Host) bağımsız yetki" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Eşim de görsün diye hesabımın şifresini paylaşmak zorunda kaldım.”</span>
                                 <span class="pain-meta">Tek hesabı paylaşma karmaşası</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-target="cozum-surpriz" data-solution="Gelin Koruması (Surprise Guard)" aria-pressed="false" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Sürpriz partiyi konuşurken gelin ekrana bakarsa her şey biter.”</span>
+                                <span class="pain-meta">İfşa olan Bride-to-Be sürprizi</span>
                             </span>
                         </button>
                     </div>
@@ -742,7 +784,7 @@
                             </svg>
                             <div class="pain-gauge-center">
                                 <span class="pain-score-num" id="painScoreNum">0</span>
-                                <span class="pain-score-den">/ 8</span>
+                                <span class="pain-score-den" id="painScoreDen">/ 14</span>
                             </div>
                         </div>
                         <div class="pain-result-body">
@@ -770,7 +812,7 @@
 
                 <div class="kriz-cozum-grid">
                     <!-- Kart 1: WhatsApp Karmaşası -->
-                    <div class="flip-card" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="WhatsApp Karmaşası kartını döndürmek için tıklayın">
+                    <div class="flip-card" id="cozum-whatsapp" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="WhatsApp Karmaşası kartını döndürmek için tıklayın">
                         <div class="flip-card-wobble">
                             <div class="flip-card-inner">
                                 <!-- Ön Yüz -->
@@ -860,7 +902,7 @@
                     </div>
 
                     <!-- Kart 2: Yalnız Kalma Yükü -->
-                    <div class="flip-card" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Bütün planlama yükünün tek kişiye kalması kartını döndürmek için tıklayın">
+                    <div class="flip-card" id="cozum-yuk" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Bütün planlama yükünün tek kişiye kalması kartını döndürmek için tıklayın">
                         <div class="flip-card-wobble">
                             <div class="flip-card-inner">
                                 <!-- Ön Yüz -->
@@ -951,7 +993,7 @@
                     </div>
 
                     <!-- Kart 3: Bütçe Hesaplarındaki Karışıklık -->
-                    <div class="flip-card" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Bütçe hesaplarının kontrolden çıkması kartını döndürmek için tıklayın">
+                    <div class="flip-card" id="cozum-butce" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Bütçe hesaplarının kontrolden çıkması kartını döndürmek için tıklayın">
                         <div class="flip-card-wobble">
                             <div class="flip-card-inner">
                                 <!-- Ön Yüz -->
@@ -1039,7 +1081,7 @@
                     </div>
 
                     <!-- Kart 4: Sürpriz Partiler -->
-                    <div class="flip-card" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Sürpriz bekarlığa veda planlama zorluğu kartını döndürmek için tıklayın">
+                    <div class="flip-card" id="cozum-surpriz" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Sürpriz bekarlığa veda planlama zorluğu kartını döndürmek için tıklayın">
                         <div class="flip-card-wobble">
                             <div class="flip-card-inner">
                                 <!-- Ön Yüz -->
@@ -1127,7 +1169,7 @@
                         </div>
                     </div>
                     <!-- Kart 5: Masa Düzeni & Protokol Çilesi -->
-                    <div class="flip-card" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Masa Düzeni kartını döndürmek için tıklayın">
+                    <div class="flip-card" id="cozum-masa" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Masa Düzeni kartını döndürmek için tıklayın">
                         <div class="flip-card-wobble">
                             <div class="flip-card-inner">
                                 <!-- Ön Yüz -->
@@ -1215,7 +1257,7 @@
                     </div>
 
                     <!-- Kart 6: Düğün Günü Zaman Kayması -->
-                    <div class="flip-card" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Düğün Günü Zaman Kayması kartını döndürmek için tıklayın">
+                    <div class="flip-card" id="cozum-akis" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Düğün Günü Zaman Kayması kartını döndürmek için tıklayın">
                         <div class="flip-card-wobble">
                             <div class="flip-card-inner">
                                 <!-- Ön Yüz -->
@@ -1300,7 +1342,7 @@
                     </div>
 
                     <!-- Kart 7: Düğün Tarihi Değişimi -->
-                    <div class="flip-card" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Düğün Tarihi Değişimi kartını döndürmek için tıklayın">
+                    <div class="flip-card" id="cozum-takvim" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Düğün Tarihi Değişimi kartını döndürmek için tıklayın">
                         <div class="flip-card-wobble">
                             <div class="flip-card-inner">
                                 <!-- Ön Yüz -->
@@ -1384,7 +1426,7 @@
                     </div>
 
                     <!-- Kart 8: Aileler Arası Yetki & Şifre Karmaşası -->
-                    <div class="flip-card" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Aileler Arası Yetki kartını döndürmek için tıklayın">
+                    <div class="flip-card" id="cozum-cohost" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Aileler Arası Yetki kartını döndürmek için tıklayın">
                         <div class="flip-card-wobble">
                             <div class="flip-card-inner">
                                 <!-- Ön Yüz -->
@@ -1471,101 +1513,107 @@
         <section id="ozel-asistanlar" class="asistan-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag gold">Ayrışan Teknolojiler</span>
-                    <h2>Düğün Günü Stresini Sıfırlayan 4 Özel Asistan</h2>
-                    <p class="section-subtitle">Sadece görev takibi değil; müzik akışından davetli diyet raporlarına kadar organizasyonunuzun tüm detaylarını yöneten akıllı araçlar.</p>
+                    <span class="section-tag gold">DÜĞÜN GÜNÜ ASİSTANLARI</span>
+                    <h2>O gün kimse size <span class="text-gold-gradient">soru sormasın</span></h2>
+                    <p class="section-subtitle">DJ'in, mutfağın, şoförün ve ekibin ihtiyaç duyduğu bilgi hazır bekliyor. Siz gelin ve damat olmaya odaklanın.</p>
                 </div>
 
                 <div class="asistan-grid">
-                    <!-- Asistan 1: DJ & Orkestra Müzik Asistanı -->
-                    <div class="asistan-card">
+                    <!-- 01 — Müzik -->
+                    <article class="asistan-card" id="cozum-muzik">
+                        <span class="asistan-ordinal">01</span>
                         <div class="asistan-card-header">
-                            <div class="asistan-icon-wrap">
-                                <span class="material-icons-round">queue_music</span>
-                            </div>
-                            <h3>DJ & Orkestra Müzik Asistanı</h3>
+                            <span class="asistan-icon-wrap"><span class="material-icons-round">queue_music</span></span>
+                            <span class="asistan-tag">DJ &amp; Orkestra</span>
                         </div>
-                        <p class="asistan-desc">Giriş müziği, ilk dans, pasta kesimi ve halay müziklerini ayrı ayrı kategorize edin. DJ için anında hazır liste üretin.</p>
-                        <div class="asistan-preview-box">
-                            <div class="music-track-item active">
-                                <span class="material-icons-round">play_circle</span>
-                                <div>
-                                    <strong>İlk Dans:</strong> Yalın - Meleklerin Sözü Var
+                        <h3>Müzik listesi, DJ'in cebinde</h3>
+                        <p class="asistan-desc">Giriş, ilk dans, pasta ve halay için ayrı listeler açın; şarkıları Spotify, YouTube veya Apple Music bağlantısıyla ekleyin. Tek dokunuşla tüm listeyi DJ'e gönderin.</p>
+                        <div class="asistan-mockup">
+                            <div class="mini-music-list">
+                                <div class="music-row active">
+                                    <span class="music-title">İlk Dans</span>
+                                    <span class="music-meta"><span class="music-badge">4 şarkı</span><span class="music-link-icon material-icons-round">link</span></span>
                                 </div>
-                                <span class="track-badge">03:45</span>
-                            </div>
-                            <div class="music-track-item">
-                                <span class="material-icons-round">music_note</span>
-                                <div>
-                                    <strong>Pasta Çıkışı:</strong> Coldplay - A Sky Full of Stars
+                                <div class="music-row">
+                                    <span class="music-title">Halay &amp; Oyun Havaları</span>
+                                    <span class="music-meta"><span class="music-badge">18 şarkı</span><span class="music-link-icon material-icons-round">link</span></span>
                                 </div>
-                                <span class="track-badge">04:12</span>
+                                <div class="music-row">
+                                    <span class="music-title">Pasta Çıkışı</span>
+                                    <span class="music-meta"><span class="music-badge">2 şarkı</span></span>
+                                </div>
                             </div>
+                            <span class="action-map-btn"><span class="material-icons-round">ios_share</span> Tümünü Paylaş</span>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Asistan 2: Davetli Diyet & Alerjen PDF Raporu -->
-                    <div class="asistan-card">
+                    <!-- 02 — Diyet -->
+                    <article class="asistan-card" id="cozum-diyet">
+                        <span class="asistan-ordinal">02</span>
                         <div class="asistan-card-header">
-                            <div class="asistan-icon-wrap">
-                                <span class="material-icons-round">picture_as_pdf</span>
-                            </div>
-                            <h3>Garson & Diyet PDF Raporu</h3>
+                            <span class="asistan-icon-wrap"><span class="material-icons-round">restaurant</span></span>
+                            <span class="asistan-tag">Mutfak &amp; Servis</span>
                         </div>
-                        <p class="asistan-desc">Vejetaryen, vegan, çocuk ve alerjen menü sayısı otomatik hesaplanır. Düğün günü şef ve garson ekibine tek tıkla iletin.</p>
-                        <div class="asistan-preview-box diet-summary">
-                            <div class="diet-badge-row">
-                                <span class="diet-chip">🥩 Et: 142 Kişi</span>
-                                <span class="diet-chip vegan">🥗 Vejetaryen: 18 Kişi</span>
-                                <span class="diet-chip allergy">⚠️ Glutensiz / Alerjen: 4 Kişi</span>
+                        <h3>Kaç vejetaryen, kaç alerji?</h3>
+                        <p class="asistan-desc">Davetliler menü tercihini ve alerji notunu kendi davetiye linkinden yazar. Uygulama sayıları toplar; listeyi WhatsApp ya da PDF olarak doğrudan şefe iletirsiniz.</p>
+                        <div class="asistan-mockup">
+                            <div class="mini-diet-stats">
+                                <span class="diet-chip">🥩 Et · 142</span>
+                                <span class="diet-chip veg">🥗 Vejetaryen · 18</span>
+                                <span class="diet-chip vgn">🌱 Vegan · 6</span>
+                                <span class="diet-chip alg">⚠️ Alerji notu · 4</span>
                             </div>
-                            <div class="pdf-export-demo">
-                                <span class="material-icons-round">download</span> Mutfak PDF Çıktısı Al
-                            </div>
+                            <div class="asistan-mock-note">“Fındık alerjisi — Selin Y.” gibi notlar listeye ad ad işlenir.</div>
+                            <span class="action-map-btn"><span class="material-icons-round">picture_as_pdf</span> Mutfak listesini gönder</span>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Asistan 3: Düğün Akışı & Canlı Harita -->
-                    <div class="asistan-card">
+                    <!-- 03 — Harita & akış -->
+                    <article class="asistan-card" id="cozum-harita">
+                        <span class="asistan-ordinal">03</span>
                         <div class="asistan-card-header">
-                            <div class="asistan-icon-wrap">
-                                <span class="material-icons-round">map</span>
-                            </div>
-                            <h3>Canlı Harita & Akış Rehberi</h3>
+                            <span class="asistan-icon-wrap"><span class="material-icons-round">near_me</span></span>
+                            <span class="asistan-tag">Davetli Rehberi</span>
                         </div>
-                        <p class="asistan-desc">Davetlileriniz nikah saatini, salon konumunu, otopark detayını ve saat saat düğün programını harita üstünden canlı görür.</p>
-                        <div class="asistan-preview-box map-preview">
-                            <div class="mini-map-pin">
-                                📍 <strong>Bodrum Beach Hall</strong> — Nikah Töreni (19:30)
+                        <h3>“Neredesiniz, saat kaçta?” bitiyor</h3>
+                        <p class="asistan-desc">Salon konumu, nikah saati ve davetliye açtığınız program davetiyenin içinde. Tek dokunuşla harita uygulamasında rota başlar; telefonunuz susar.</p>
+                        <div class="asistan-mockup">
+                            <div class="mini-map-box">
+                                <span class="material-icons-round map-pin-icon">place</span>
+                                <div class="map-box-text">
+                                    <strong>Bodrum Beach Hall</strong>
+                                    <span>Nikah töreni · 16:00</span>
+                                </div>
                             </div>
-                            <div class="map-action-btn">
-                                <span class="material-icons-round">near_me</span> Haritada Rota Başlat
+                            <div class="mini-stage-rows">
+                                <div class="stage-row"><b>19:00</b> Yemek servisi</div>
+                                <div class="stage-row"><b>21:15</b> İlk dans</div>
                             </div>
+                            <span class="action-map-btn"><span class="material-icons-round">directions</span> Haritada rota başlat</span>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Asistan 4: Görev Teklifi & Host Onay Zırhı -->
-                    <div class="asistan-card">
+                    <!-- 04 — Görev teklifi -->
+                    <article class="asistan-card" id="cozum-teklif">
+                        <span class="asistan-ordinal">04</span>
                         <div class="asistan-card-header">
-                            <div class="asistan-icon-wrap">
-                                <span class="material-icons-round">verified_user</span>
-                            </div>
-                            <h3>Görev Teklifi & Host Onay Zırhı</h3>
+                            <span class="asistan-icon-wrap"><span class="material-icons-round">how_to_reg</span></span>
+                            <span class="asistan-tag">Host Onay Zırhı</span>
                         </div>
-                        <p class="asistan-desc">Yardımcı yöneticiler (sağdıç/nedime) yeni görev teklif edebilir ama çift onaylamadan ana plana eklenmez. Karışıklık sıfırlanır.</p>
-                        <div class="asistan-preview-box proposal-preview">
+                        <h3>Ekip fikir üretsin, plan sizde kalsın</h3>
+                        <p class="asistan-desc">Sağdıç ve nedimeler yeni görev teklif edebilir; siz onaylamadan ana plana girmez. Yardım kapısı açık kalır, kontrol elinizden çıkmaz.</p>
+                        <div class="asistan-mockup">
                             <div class="proposal-card">
-                                <div class="proposal-info">
-                                    <span class="proposal-sender">Nedime Elif Teklif Etti:</span>
-                                    <strong>"Fotoğrafçı Kapora Ödemesi"</strong>
-                                </div>
+                                <span class="proposal-sender">Nedime Elif teklif etti</span>
+                                <strong class="proposal-title">“Fotoğrafçı kapora ödemesi”</strong>
                                 <div class="proposal-actions">
-                                    <span class="btn-approve">✓ Onayla</span>
-                                    <span class="btn-reject">✕ Reddet</span>
+                                    <span class="btn-approve"><span class="material-icons-round">check</span> Onayla</span>
+                                    <span class="btn-reject"><span class="material-icons-round">close</span> Reddet</span>
                                 </div>
                             </div>
+                            <div class="asistan-mock-note">Onaylanan teklif göreve dönüşür, sorumlusu ve tarihi sizde kalır.</div>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1581,7 +1629,7 @@
 
                 <div class="gunici-grid">
                     <!-- 1. Ekip Skorboardu -->
-                    <article class="gunici-card">
+                    <article class="gunici-card" id="cozum-skorboard">
                         <div class="gunici-head">
                             <span class="gunici-icon"><span class="material-icons-round">emoji_events</span></span>
                             <div>
@@ -1616,7 +1664,7 @@
                     </article>
 
                     <!-- 2. Tamamlama Onayı -->
-                    <article class="gunici-card">
+                    <article class="gunici-card" id="cozum-onay">
                         <div class="gunici-head">
                             <span class="gunici-icon"><span class="material-icons-round">verified</span></span>
                             <div>
@@ -1641,7 +1689,7 @@
                     </article>
 
                     <!-- 3. Düğün Günü Akışı -->
-                    <article class="gunici-card">
+                    <article class="gunici-card" id="cozum-gunakis">
                         <div class="gunici-head">
                             <span class="gunici-icon"><span class="material-icons-round">schedule</span></span>
                             <div>
@@ -1659,7 +1707,7 @@
                     </article>
 
                     <!-- 4. Oturma Düzeni -->
-                    <article class="gunici-card">
+                    <article class="gunici-card" id="cozum-oturma">
                         <div class="gunici-head">
                             <span class="gunici-icon"><span class="material-icons-round">table_restaurant</span></span>
                             <div>
@@ -1682,7 +1730,7 @@
                     </article>
 
                     <!-- 5. Hediye Et -->
-                    <article class="gunici-card">
+                    <article class="gunici-card" id="cozum-hediye">
                         <div class="gunici-head">
                             <span class="gunici-icon"><span class="material-icons-round">card_giftcard</span></span>
                             <div>
@@ -1703,7 +1751,7 @@
                     </article>
 
                     <!-- 6. Güvenli Ekip -->
-                    <article class="gunici-card">
+                    <article class="gunici-card" id="cozum-guvenlik">
                         <div class="gunici-head">
                             <span class="gunici-icon"><span class="material-icons-round">security</span></span>
                             <div>
@@ -1918,7 +1966,7 @@
                         <h3>Gelişmiş Görev Takibi</h3>
                         <p>Görevleri önem derecesine göre önceliklendirin, sorumlular atayın. Yorum alanı sayesinde görevler üzerinde tartışın.</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card" id="cozum-sablon">
                         <div class="feature-icon-wrapper"><span class="material-icons-round">auto_stories</span></div>
                         <h3>Hazır Şablon Kütüphanesi</h3>
                         <p>Düğün veya nişan etkinlik türünüze göre, otomatik yapılacaklar listesini saniyeler içinde yükleyin.</p>
@@ -3556,25 +3604,25 @@
 
         const painTiers = [
             {
-                max: 0,
+                ratio: 0,
                 tag: 'HENÜZ SEÇİM YOK',
                 title: 'Yukarıdaki cümlelere dokunun',
                 desc: 'Her cümle, gerçek çiftlerden dinlediğimiz bir hazırlık sorunu. Size tanıdık gelenleri işaretleyin; hangi çözümün sizin için yazıldığını burada görün.'
             },
             {
-                max: 2,
+                ratio: 0.2,
                 tag: 'TANIDIK GELDİ',
                 title: 'Bu kadarı bile keyfi kaçırmaya yeter',
                 desc: 'İşaretlediğiniz maddelerin her birinin uygulamada bire bir karşılığı olan bir ekranı var. Hangisi olduğunu aşağıda görün.'
             },
             {
-                max: 5,
+                ratio: 0.5,
                 tag: 'KLASİK TABLO',
                 title: 'Çiftlerin çoğu tam burada takılıyor',
                 desc: 'Bu maddeler tek tek küçük görünür; bir araya gelince hazırlığı işe çevirir. İyisi: hepsinin cevabı aynı uygulamada.'
             },
             {
-                max: 8,
+                ratio: 1,
                 tag: 'AĞIR YÜK',
                 title: 'Bunu tek başınıza taşımayın',
                 desc: 'Bu tabloyla hazırlık keyif olmaktan çıkar. İmece ekibinizi kurun, yükü paylaşın; işaretlediğiniz her sorunun çözümü sizi aşağıda bekliyor.'
@@ -3593,19 +3641,24 @@
 
         function updatePainResult() {
             const items = Array.from(document.querySelectorAll('#painCheckList .pain-item'));
+            const total = items.length || 1;
             const chosen = items.filter(item => item.classList.contains('checked'));
             const count = chosen.length;
+
+            const den = document.getElementById('painScoreDen');
+            if (den) den.textContent = '/ ' + total;
 
             const fill = document.getElementById('painGaugeFill');
             if (fill) {
                 fill.style.strokeDasharray = PAIN_GAUGE_CIRCUMFERENCE;
-                fill.style.strokeDashoffset = PAIN_GAUGE_CIRCUMFERENCE * (1 - count / 8);
+                fill.style.strokeDashoffset = PAIN_GAUGE_CIRCUMFERENCE * (1 - count / total);
             }
 
             const num = document.getElementById('painScoreNum');
             if (num) num.textContent = count;
 
-            const tier = painTiers.find(t => count <= t.max) || painTiers[painTiers.length - 1];
+            const ratio = count / total;
+            const tier = painTiers.find(t => (count === 0 ? t.ratio === 0 : ratio <= t.ratio && t.ratio > 0)) || painTiers[painTiers.length - 1];
             const tagEl = document.getElementById('painResultTag');
             const titleEl = document.getElementById('painResultTitle');
             const descEl = document.getElementById('painResultDesc');
@@ -3619,9 +3672,9 @@
             const list = document.getElementById('painSolutionList');
             if (list) {
                 list.innerHTML = chosen.map(item => {
-                    const idx = item.dataset.card;
+                    const target = item.dataset.target;
                     const solution = item.dataset.solution;
-                    return '<button type="button" class="pain-solution-row" onclick="revealSolution(' + idx + ')">' +
+                    return '<button type="button" class="pain-solution-row" onclick="revealSolution(\'' + target + '\')">' +
                         '<span class="material-icons-round pain-solution-check">check_circle</span>' +
                         '<span class="pain-solution-name">' + solution + '</span>' +
                         '<span class="material-icons-round pain-solution-arrow">arrow_forward</span>' +
@@ -3640,33 +3693,40 @@
             }
         }
 
-        // Seçilen sorunun çözüm kartına götürür ve kartı çözüm yüzüne çevirir.
-        function revealSolution(cardIndex) {
-            const cards = getFlipCards();
-            const card = cards[cardIndex - 1];
-            if (!card) return;
+        // Seçilen sorunun çözüm yüzeyine götürür; hedef bir çevrilebilir kartsa
+        // çözüm yüzüne çevirir, değilse kısa bir vurgu darbesi uygular.
+        function revealSolution(targetId) {
+            const target = document.getElementById(targetId);
+            if (!target) return;
 
+            const cards = getFlipCards();
             globalSolutionDiscovered = true;
             cards.forEach(c => {
                 c.dataset.userClicked = 'true';
-                c.classList.remove('scroll-teased', 'pain-highlight');
-                c.classList.remove('flipped');
+                c.classList.remove('scroll-teased', 'pain-highlight', 'flipped');
             });
+            document.querySelectorAll('.solution-highlight').forEach(el => el.classList.remove('solution-highlight'));
 
-            const y = card.getBoundingClientRect().top + window.scrollY - (window.innerHeight / 2) + (card.offsetHeight / 2);
+            const rect = target.getBoundingClientRect();
+            const y = rect.top + window.scrollY - (window.innerHeight / 2) + (Math.min(rect.height, window.innerHeight * 0.8) / 2);
             window.scrollTo({ top: Math.max(y, 0), behavior: 'smooth' });
 
             setTimeout(() => {
-                card.classList.add('flipped', 'pain-highlight');
-                setTimeout(() => card.classList.remove('pain-highlight'), 2200);
-            }, 520);
+                if (target.classList.contains('flip-card')) {
+                    target.classList.add('flipped', 'pain-highlight');
+                    setTimeout(() => target.classList.remove('pain-highlight'), 2200);
+                } else {
+                    target.classList.add('solution-highlight');
+                    setTimeout(() => target.classList.remove('solution-highlight'), 2400);
+                }
+            }, 560);
         }
 
         function revealFirstSolution(event) {
             const first = document.querySelector('#painCheckList .pain-item.checked');
             if (!first) return true; // seçim yoksa normal ankor davranışı
             if (event) event.preventDefault();
-            revealSolution(parseInt(first.dataset.card, 10));
+            revealSolution(first.dataset.target);
             return false;
         }
 

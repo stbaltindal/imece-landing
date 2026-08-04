@@ -7292,3 +7292,263 @@ body.dark-active .sim-invite .sim-meal-chip {
 body.dark-active .sim-block-label {
     color: #8E8E93 !important;
 }
+
+/* ============================================================
+   DÜĞÜN GÜNÜ ASİSTANLARI — kart içi görsel katman
+   ============================================================ */
+
+.asistan-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.asistan-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 22px;
+    right: 22px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.55) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.asistan-card:hover::before { opacity: 1; }
+
+.asistan-ordinal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: var(--font-heading);
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(212, 175, 55, 0.09);
+    pointer-events: none;
+    user-select: none;
+}
+
+.asistan-card-header {
+    justify-content: flex-start !important;
+    gap: 12px;
+}
+
+.asistan-icon-wrap .material-icons-round { font-size: 22px; }
+
+.asistan-tag {
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.66rem !important;
+    color: #E8D9B8 !important;
+}
+
+.asistan-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+}
+
+.asistan-desc {
+    color: #B4AEAB;
+    margin-bottom: 18px;
+}
+
+.asistan-mockup {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    background: rgba(8, 8, 9, 0.72);
+    border-radius: 14px;
+    padding: 13px;
+}
+
+.asistan-mock-note {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: #8E8983;
+    font-style: italic;
+}
+
+/* Müzik */
+.mini-music-list { margin: 0; }
+
+.music-row {
+    gap: 10px;
+    border: 1px solid transparent;
+}
+
+.music-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.music-link-icon {
+    font-size: 13px !important;
+    color: #7FB98C;
+}
+
+/* Diyet */
+.mini-diet-stats { margin: 0; }
+
+.diet-chip {
+    background: rgba(255, 255, 255, 0.06);
+    color: #E4DFD8;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* Harita & akış */
+.mini-map-box {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 9px 10px;
+}
+
+.map-pin-icon {
+    font-size: 18px !important;
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.map-box-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+}
+
+.map-box-text strong {
+    font-size: 0.8rem;
+    color: #ffffff;
+}
+
+.map-box-text span {
+    font-size: 0.72rem;
+    color: #A8A3A0;
+}
+
+.mini-stage-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stage-row {
+    font-size: 0.74rem;
+    color: #B4AEAB;
+    padding: 5px 9px;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.stage-row b { color: var(--gold); margin-right: 6px; }
+
+.action-map-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: rgba(212, 175, 55, 0.13);
+    border: 1px solid rgba(212, 175, 55, 0.32);
+    color: #EBD9A8;
+    box-sizing: border-box;
+}
+
+.action-whatsapp-btn,
+.action-pdf-btn,
+.action-map-btn {
+    margin-top: 2px;
+    box-sizing: border-box;
+}
+
+.action-whatsapp-btn .material-icons-round,
+.action-pdf-btn .material-icons-round,
+.action-map-btn .material-icons-round {
+    font-size: 15px;
+}
+
+/* Görev teklifi */
+.proposal-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 11px 12px;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.proposal-sender {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.proposal-title {
+    font-size: 0.86rem;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.proposal-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+}
+
+.btn-approve,
+.btn-reject {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 7px 6px;
+    border-radius: 8px;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.btn-approve .material-icons-round,
+.btn-reject .material-icons-round { font-size: 15px; }
+
+.btn-approve {
+    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+    color: #1A1509;
+}
+
+.btn-reject {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #B4AEAB;
+}
+
+@media (max-width: 767px) {
+    .asistan-grid { gap: var(--space-md); }
+    .asistan-card { padding: var(--space-lg); }
+    .asistan-ordinal { font-size: 2.8rem; top: 8px; right: 14px; }
+    .asistan-card h3 { font-size: 1.14rem; }
+}
+
+/* Çevrilebilir olmayan çözüm yüzeylerinde vurgu darbesi */
+.solution-highlight {
+    animation: painCardPulse 2.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: var(--radius-lg);
+    position: relative;
+    z-index: 12;
+}
