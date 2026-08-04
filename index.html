@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-solid.png?v=2.0">
 
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=29.0">
+    <link rel="stylesheet" href="style.css?v=30.0">
 </head>
 <body>
 
@@ -2981,6 +2981,7 @@
                     // Asagidan yukari donuste hikayeyi tekrar oynatmiyoruz:
                     // ziyaretci sayfayi terk ediyor, onu tutmak sinir bozucu.
                     storyFinished = true;
+                    restoreHeroVisuals();
                     masterTl.pause();
                     masterTl.time(masterTl.duration());
                     segIndex = 5;
@@ -3141,9 +3142,10 @@
             // Asama sinirlari: steps[] uzerine zaman cizelgesinin sonu (cikis
             // animasyonu) da bir asama olarak eklenir -> 6 asama, 6 nokta.
             function buildStoryMarks() {
+                // Zaman cizelgesinin kendi fade-out'u (17.0 sonrasi) bilerek
+                // disarida birakildi: kapanisi runExitChoreography yonetiyor,
+                // boylece "atla" ile dogal bitis ayni vedayi paylasiyor.
                 storyMarks = steps.slice();
-                const total = masterTl.duration();
-                if (total > storyMarks[storyMarks.length - 1] + 0.05) storyMarks.push(total);
                 return storyMarks;
             }
 
@@ -3160,7 +3162,15 @@
                 const hud = document.getElementById("heroStoryHud");
                 if (hud) hud.classList.toggle("awaiting", waiting);
                 const hint = document.getElementById("heroHudHint");
-                if (hint) hint.textContent = waiting ? "Devam etmek için kaydırın" : "Kaydırdıkça hızlanır";
+                if (hint) {
+                    if (!waiting) {
+                        hint.textContent = "Kaydırdıkça hızlanır";
+                    } else {
+                        hint.textContent = segIndex >= segmentCount()
+                            ? "Devam etmek için kaydırın · hikâye tamam"
+                            : "Devam etmek için kaydırın";
+                    }
+                }
             }
 
             function syncMockupTaskState() {
@@ -3174,6 +3184,7 @@
             function startStory() {
                 storyFinished = false;
                 buildStoryMarks();
+                restoreHeroVisuals();
                 gsap.killTweensOf(masterTl);
                 masterTl.pause(0);
                 segIndex = 0;
@@ -3184,6 +3195,45 @@
                 setHudWaiting(true);
             }
 
+            const STORY_EXIT_TARGETS = [
+                "#text-slide-1",
+                "#text-slide-2",
+                "#text-slide-2c",
+                "#text-slide-3",
+                "#heroContent"
+            ];
+
+            // Telefonun aniden kaybolmasi yerine olculu bir veda: kart hafifce
+            // yukselip odaktan cikar, metin yukari suzulur, HUD soner. Sayfa
+            // kaydirmasi fade bitmeden basliyor ki gecis kesintisiz hissedilsin.
+            function runExitChoreography(onHandoff) {
+                const tl = gsap.timeline({ defaults: { overwrite: "auto" } });
+                tl.to("#heroStoryHud", { opacity: 0, y: 10, duration: 0.28, ease: "power2.in" }, 0)
+                  .to("#phoneMockup", {
+                      scale: 0.93,
+                      y: -22,
+                      opacity: 0,
+                      filter: "blur(7px)",
+                      duration: 0.62,
+                      ease: "power2.inOut"
+                  }, 0)
+                  .to(STORY_EXIT_TARGETS, {
+                      opacity: 0,
+                      y: -26,
+                      duration: 0.5,
+                      ease: "power2.in"
+                  }, 0.04)
+                  .add(() => { if (onHandoff) onHandoff(); }, 0.34);
+                return tl;
+            }
+
+            function restoreHeroVisuals() {
+                gsap.killTweensOf(["#phoneMockup", "#heroStoryHud", ...STORY_EXIT_TARGETS]);
+                gsap.set("#phoneMockup", { clearProps: "opacity,filter,scale,y" });
+                gsap.set(STORY_EXIT_TARGETS, { clearProps: "opacity,y" });
+                gsap.set("#heroStoryHud", { clearProps: "opacity,y" });
+            }
+
             function finishStory(direction) {
                 if (storyFinished) return;
                 storyFinished = true;
@@ -3191,16 +3241,30 @@
                 gsap.killTweensOf(masterTl);
                 masterTl.pause();
                 setHudWaiting(false);
-                unlockScroll();
-                window.scrollTo({
-                    top: direction < 0 ? Math.max(pinTrigger.start - 5, 0) : pinTrigger.end + 5,
-                    behavior: "smooth"
-                });
+
+                const scrollOut = () => {
+                    unlockScroll();
+                    window.scrollTo({
+                        top: direction < 0 ? Math.max(pinTrigger.start - 5, 0) : pinTrigger.end + 5,
+                        behavior: "smooth"
+                    });
+                };
+
+                if (direction < 0) {
+                    // Yukari cikista sahneyi bozmuyoruz: ziyaretci hikayeye
+                    // geri donebilir, telefon oldugu gibi kalsin.
+                    gsap.to("#heroStoryHud", { opacity: 0, y: 10, duration: 0.22, ease: "power2.in" });
+                    scrollOut();
+                    return;
+                }
+
+                runExitChoreography(scrollOut);
             }
 
             // Bekleyen asamayi baslatir.
             function playSegment() {
                 if (storyFinished) return;
+                // Tum asamalar bitti: son hareket vedayi baslatir.
                 if (segIndex >= segmentCount()) {
                     finishStory(1);
                     return;
@@ -3297,11 +3361,7 @@
                     segIndex += 1;
                     awaitingImpulse = true;
                     updateHeroHud(Math.min(segIndex, 5));
-                    if (segIndex >= segmentCount()) {
-                        finishStory(1);
-                    } else {
-                        setHudWaiting(true);
-                    }
+                    setHudWaiting(true);
                 }
             });
 
