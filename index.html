@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-solid.png?v=2.0">
 
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=20.0">
+    <link rel="stylesheet" href="style.css?v=21.0">
 </head>
 <body>
 
@@ -36,9 +36,10 @@
                 <span class="logo-text">İmece Düğün</span>
             </div>
             <nav class="nav-links">
-                <a href="#master-showcase">Canlı Deneyim</a>
-                <a href="#ozellikler">Özellikler & Detaylar</a>
-                <a href="#hesaplayici">Paket Seçici</a>
+                <a href="#tanidik">Tanıdık Gelenler</a>
+                <a href="#neden-imece">Çözümler</a>
+                <a href="#gun-ici">Düğün Günü</a>
+                <a href="#hesaplayici">Paketler</a>
                 <a href="#sss">S.S.S.</a>
             </nav>
             <div class="nav-cta">
@@ -63,8 +64,12 @@
                             <span class="hero-badge-sep">•</span>
                             <span class="hero-badge-subtitle">PREMIUM MOBİL UYGULAMA</span>
                         </div>
-                        <h1>Düğününüzü Birlikte Planlayın, Keyifle Hazırlanın.</h1>
-                        <p class="hero-lead">WhatsApp gruplarında kaybolan listeleri ve bütçe hesaplama stresini geride bırakın. Sevdiklerinizi davet edin, hazırlıkları el birliğiyle yönetin.</p>
+                        <h1>Düğünü zorlaştıran hazırlık değil, <span class="text-gold-gradient">her şeyi tek başınıza taşımak.</span></h1>
+                        <p class="hero-lead">Kim ne ödedi, hangi iş kimde, teklif hangi mesajda kaldı… İmece Düğün hazırlığın tamamını sevdiklerinizle paylaşılabilir hale getirir. Herkes ne yapacağını bilir, siz günün tadını çıkarırsınız.</p>
+                        <a href="#tanidik" class="hero-scroll-hint">
+                            <span>Yaşadığınız 8 sorunu tanıyoruz</span>
+                            <span class="material-icons-round">south</span>
+                        </a>
                         
                         <!-- Official App Store & Google Play Store Badges -->
                         <div class="hero-actions store-buttons">
@@ -660,53 +665,109 @@
     </section>
 
         <!-- Master Showcase: 4 Adımda Canlı İmece Deneyimi (Tıklamalı Lüks Sekme Paneli) -->
-        <section id="master-showcase" class="master-showcase-section">
+        <!-- Empati Modülü: Tanıdık Gelenler -->
+        <section id="tanidik" class="pain-check-section">
             <div class="container">
-            <div class="showcase-header-card">
-                <span class="section-tag gold">✦ 4 ADIMDA CANLI İMECE DENEYİMİ</span>
-                <h2>Tıklayarak Keşfedin: <span class="text-gold-gradient">4 Büyük Çözüm Paneli</span></h2>
-            </div>
-
-                <!-- Stepper Tab Navigation Bar -->
-                <div class="showcase-tabs-nav" id="showcaseNav">
-                    <button class="showcase-tab active" id="tabBtn1" onclick="switchShowcaseTab(1)">
-                        <div class="showcase-tab-progress" id="tabProgress1"></div>
-                        <span class="tab-num">01</span>
-                        <span class="material-icons-round tab-icon">view_carousel</span>
-                        <span class="tab-label">8 Kriz & Çözüm</span>
-                    </button>
-                    <button class="showcase-tab" id="tabBtn2" onclick="switchShowcaseTab(2)">
-                        <div class="showcase-tab-progress" id="tabProgress2"></div>
-                        <span class="tab-num">02</span>
-                        <span class="material-icons-round tab-icon">edit_note</span>
-                        <span class="tab-label">Canlı Davetiye</span>
-                    </button>
-                    <button class="showcase-tab" id="tabBtn3" onclick="switchShowcaseTab(3)">
-                        <div class="showcase-tab-progress" id="tabProgress3"></div>
-                        <span class="tab-num">03</span>
-                        <span class="material-icons-round tab-icon">verified_user</span>
-                        <span class="tab-label">4 Özel Asistan</span>
-                    </button>
-                    <button class="showcase-tab" id="tabBtn4" onclick="switchShowcaseTab(4)">
-                        <div class="showcase-tab-progress" id="tabProgress4"></div>
-                        <span class="tab-num">04</span>
-                        <span class="material-icons-round tab-icon">sell</span>
-                        <span class="tab-label">Lüks Paketler</span>
-                    </button>
+                <div class="section-header">
+                    <span class="section-tag gold">✦ ÖNCE ŞUNU KONUŞALIM</span>
+                    <h2>Bunlardan kaçı size <span class="text-gold-gradient">tanıdık geliyor?</span></h2>
+                    <p class="section-subtitle">Yaşadığınız ya da yaşamaktan korktuğunuz cümlelere dokunun. Seçtiğiniz her sorun için İmece'nin cevabını hemen yanında göstereceğiz.</p>
                 </div>
 
-                <!-- Showcase Internal Panels Wrapper -->
-                <div class="showcase-panels-wrapper">
-                    <!-- Panel 1: 8 Flip Cards -->
-                    <div class="showcase-panel active" id="showcasePanel1">
+                <div class="pain-check-layout">
+                    <div class="pain-check-list" id="painCheckList" role="group" aria-label="Tanıdık gelen sorunlar">
+                        <button type="button" class="pain-item" data-card="1" data-solution="Her tedarikçi için izole görev odası" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Mekan teklifi kimdeydi? 200 mesaj yukarıda kaldı, bulamıyorum.”</span>
+                                <span class="pain-meta">WhatsApp grubunda kaybolan belgeler</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-card="2" data-solution="Çoklu atama & görev öneri paneli" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Herkes ‘ne yapabilirim?’ diye soruyor ama sonunda hepsini yine ben yapıyorum.”</span>
+                                <span class="pain-meta">Tüm yükün tek kişide toplanması</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-card="3" data-solution="Tahmini vs. gerçekleşen bütçe canlı takibi" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Kapora kimden çıktı, ne kadar harcadık… kimse tam olarak bilmiyor.”</span>
+                                <span class="pain-meta">Kontrolden çıkan bütçe</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-card="4" data-solution="Gelin Koruması (Surprise Guard)" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Sürpriz partiyi konuşurken gelin ekrana bakarsa her şey biter.”</span>
+                                <span class="pain-meta">İfşa olan Bride-to-Be sürprizi</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-card="5" data-solution="İnteraktif masa planı & menü takibi" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Hangi akraba kiminle aynı masada oturamaz, defterde takip ediyoruz.”</span>
+                                <span class="pain-meta">Masa düzeni ve protokol çilesi</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-card="6" data-solution="Düğün günü canlı akış programı" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Gelin arabası gecikti, pasta da kaydı; kimse bir sonraki adımı bilmiyor.”</span>
+                                <span class="pain-meta">Düğün günü zaman kayması</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-card="7" data-solution="Otomatik takvim kaydırma (Shift Dates)" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Tarih iki hafta ertelendi, bütün listeyi baştan yazmam gerekti.”</span>
+                                <span class="pain-meta">Ertelemede bozulan takvim</span>
+                            </span>
+                        </button>
+                        <button type="button" class="pain-item" data-card="8" data-solution="Ortak Yönetici (Co-Host) bağımsız yetki" onclick="togglePain(this)">
+                            <span class="pain-box"><span class="material-icons-round">check</span></span>
+                            <span class="pain-body">
+                                <span class="pain-quote">“Eşim de görsün diye hesabımın şifresini paylaşmak zorunda kaldım.”</span>
+                                <span class="pain-meta">Tek hesabı paylaşma karmaşası</span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <aside class="pain-result-card" id="painResultCard">
+                        <div class="pain-gauge-wrap">
+                            <svg class="pain-gauge" viewBox="0 0 120 120" aria-hidden="true">
+                                <circle class="pain-gauge-track" cx="60" cy="60" r="52"></circle>
+                                <circle class="pain-gauge-fill" id="painGaugeFill" cx="60" cy="60" r="52"></circle>
+                            </svg>
+                            <div class="pain-gauge-center">
+                                <span class="pain-score-num" id="painScoreNum">0</span>
+                                <span class="pain-score-den">/ 8</span>
+                            </div>
+                        </div>
+                        <div class="pain-result-body">
+                            <span class="pain-result-tag" id="painResultTag">HENÜZ SEÇİM YOK</span>
+                            <h3 id="painResultTitle">Yukarıdaki cümlelere dokunun</h3>
+                            <p id="painResultDesc">Her cümle, gerçek çiftlerden dinlediğimiz bir hazırlık sorunu. Size tanıdık gelenleri işaretleyin; hangi çözümün sizin için yazıldığını burada görün.</p>
+                            <div class="pain-solution-list" id="painSolutionList"></div>
+                            <a href="#neden-imece" class="btn btn-primary btn-gold-effect pain-result-cta" id="painResultCta" onclick="return revealFirstSolution(event)">
+                                <span>Çözümleri sırayla gör</span>
+                                <span class="material-icons-round">arrow_forward</span>
+                            </a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
         <section id="neden-imece" class="kriz-cozum-section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag gold">8 Kritik Zorluk & Çözüm</span>
-                    <h2>Düğün Hazırlığının Kaosuna Son Verin</h2>
-                    <p class="section-subtitle">Gelin ve damatların en çok zorlandığı 8 ana kriz ve İmece'nin sunduğu akıllı çözümler.</p>
+                    <h2>Her sorunun karşısında <span class="text-gold-gradient">çalışan bir ekran var</span></h2>
+                    <p class="section-subtitle">Kartın üstüne dokunun: solda yaşadığınız kaosu, arkasında uygulamadaki gerçek çözümü görün.</p>
                 </div>
-                
+
                 <div class="kriz-cozum-grid">
                     <!-- Kart 1: WhatsApp Karmaşası -->
                     <div class="flip-card" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="WhatsApp Karmaşası kartını döndürmek için tıklayın">
@@ -1405,75 +1466,8 @@
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- Panel 2: Canlı Davetiye Simülatörü -->
-    <div class="showcase-panel" id="showcasePanel2">
-        <!-- Modül 1: Canlı İnteraktif RSVP Simülatörü -->
-        <section id="interactive-rsvp-showcase" class="rsvp-showcase-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag gold">İnteraktif Deneyim</span>
-                    <h2>Davetlileriniz İçin Lüks Dijital Davetiye</h2>
-                    <p class="section-subtitle">Davetlileriniz hiçbir uygulama indirmeden kendilerine özel bağlantı ile davetiyelerini açar, katılım durumlarını ve yemek tercihlerini tek tıkla bildirir.</p>
-                </div>
 
-                <div class="rsvp-sim-wrapper">
-                    <!-- Control Box (Sol/Üst) -->
-                    <div class="rsvp-sim-controls">
-                        <h3><span class="material-icons-round" style="color: var(--gold); vertical-align: middle; margin-right: 6px;">edit_note</span> Davetiyeyi Canlı Özelleştir</h3>
-                        <p class="sim-desc">Aşağıya davetli veya çift adını girerek davetiyenizin canlı önizlemesini test edin:</p>
-                        
-                        <div class="sim-input-group">
-                            <label for="simGuestInput">Davetli / Çift Adı</label>
-                            <input type="text" id="simGuestInput" value="Sayın Mehmet Güneşli" placeholder="Örn: Ayşe & Tolga" oninput="updateSimGuestName(this.value)">
-                        </div>
-
-                        <div class="sim-info-cards">
-                            <div class="sim-info-item">
-                                <span class="material-icons-round">done_all</span>
-                                <div>
-                                    <strong>Anlık Bildirim & Lojistik Takip</strong>
-                                    <p>Davetliniz katılım ve diyet yanıtı verdiğinde cebinize anında bildirim düşer.</p>
-                                </div>
-                            </div>
-                            <div class="sim-info-item">
-                                <span class="material-icons-round">shield</span>
-                                <div>
-                                    <strong>KVKK & Gizlilik Zırhı</strong>
-                                    <p>Sadece özel jeton (token) sahibi davetli kendi kartını ve yanıtlarını görebilir.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="sim-cta-wrap" style="margin-top: 20px;">
-                            <a href="#indirin" class="btn btn-primary btn-glow" style="width: 100%; text-align: center; justify-content: center;">
-                                <span class="material-icons-round">mark_email_read</span> Davetiyenizi Oluşturun
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Live Simulator Phone Screen (Sağ/Alt) -->
-                    <div class="rsvp-sim-phone-wrap">
-                        <div class="sim-phone-frame">
-                            <div class="sim-phone-notch"></div>
-                            <div class="sim-phone-screen">
-                                <iframe src="rsvp.html" title="Canlı Davetiye Önizlemesi" class="sim-iframe-preview" loading="eager"></iframe>
-                            </div>
-                        </div>
-                        <div class="sim-phone-actions">
-                            <a href="rsvp.html" target="_blank" class="sim-open-live-btn">
-                                <span>🌐 Canlı Davetiyeyi Tam Ekran Aç ↗</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Panel 3: 4 Özel Asistan & Akış -->
-    <div class="showcase-panel" id="showcasePanel3">
         <section id="ozel-asistanlar" class="asistan-section">
             <div class="container">
                 <div class="section-header">
@@ -1575,10 +1569,264 @@
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- Panel 4: Lüks Paketler & Fiyatlandırma -->
-    <div class="showcase-panel" id="showcasePanel4">
+        <!-- Uygulamanın Son Sürümündeki Yenilikler -->
+        <section id="gun-ici" class="gunici-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag gold">SON SÜRÜMDE GELENLER</span>
+                    <h2>Hazırlık bitince <span class="text-gold-gradient">iş asıl orada başlıyor</span></h2>
+                    <p class="section-subtitle">Düğün gününün kendisi, ekibin motivasyonu ve herkesin güvenliği için uygulamaya eklenen altı yeni yüzey.</p>
+                </div>
+
+                <div class="gunici-grid">
+                    <!-- 1. Ekip Skorboardu -->
+                    <article class="gunici-card">
+                        <div class="gunici-head">
+                            <span class="gunici-icon"><span class="material-icons-round">emoji_events</span></span>
+                            <div>
+                                <h3>Ekip Skorboardu</h3>
+                                <span class="gunici-kicker">Yardım isteme derdi biter</span>
+                            </div>
+                        </div>
+                        <p class="gunici-desc">Kimin kaç görevi tamamladığı tek listede. Sıralamayı herkes görür; hem host hem ekip üyesi kendi sırasını takip eder. Yardım istemek zorunda kalmadan işler ilerler.</p>
+                        <div class="gunici-mock scoreboard-mock">
+                            <div class="sb-row">
+                                <span class="sb-rank gold">1</span>
+                                <span class="sb-avatar pink">E</span>
+                                <span class="sb-name">Ece <em>(Nedime)</em></span>
+                                <span class="sb-bar"><i style="width: 92%"></i></span>
+                                <span class="sb-pct">92%</span>
+                            </div>
+                            <div class="sb-row">
+                                <span class="sb-rank">2</span>
+                                <span class="sb-avatar gold">M</span>
+                                <span class="sb-name">Mert <em>(Sağdıç)</em></span>
+                                <span class="sb-bar"><i style="width: 74%"></i></span>
+                                <span class="sb-pct">74%</span>
+                            </div>
+                            <div class="sb-row me">
+                                <span class="sb-rank">3</span>
+                                <span class="sb-avatar rose">S</span>
+                                <span class="sb-name">Siz <em>(Gelin)</em></span>
+                                <span class="sb-bar"><i style="width: 61%"></i></span>
+                                <span class="sb-pct">61%</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 2. Tamamlama Onayı -->
+                    <article class="gunici-card">
+                        <div class="gunici-head">
+                            <span class="gunici-icon"><span class="material-icons-round">verified</span></span>
+                            <div>
+                                <h3>Tamamlama Onayı</h3>
+                                <span class="gunici-kicker">Kuralı siz koyarsınız</span>
+                            </div>
+                        </div>
+                        <p class="gunici-desc">Görevliler işi doğrudan mı kapatsın, yoksa siz onaylayınca mı tamamlansın? Kuralı etkinlik bazında seçin, istediğiniz an değiştirin — hatta sadece belirli görevler için onay isteyin.</p>
+                        <div class="gunici-mock approve-mock" id="approveMock">
+                            <div class="approve-switch" role="group" aria-label="Tamamlama onayı modu">
+                                <button type="button" class="approve-opt active" onclick="setApproveMode(this, 'on')">Her görevde onay</button>
+                                <button type="button" class="approve-opt" onclick="setApproveMode(this, 'off')">Onay gerekmesin</button>
+                            </div>
+                            <div class="approve-preview" id="approvePreview">
+                                <span class="material-icons-round">hourglass_top</span>
+                                <div>
+                                    <strong>“Çiçekçi kaporası” — Onay bekliyor</strong>
+                                    <span>Mert “Yaptım” dedi. Siz onaylayınca tamamlanacak.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 3. Düğün Günü Akışı -->
+                    <article class="gunici-card">
+                        <div class="gunici-head">
+                            <span class="gunici-icon"><span class="material-icons-round">schedule</span></span>
+                            <div>
+                                <h3>Düğün Günü Akışı</h3>
+                                <span class="gunici-kicker">Saat saat, herkes aynı sayfada</span>
+                            </div>
+                        </div>
+                        <p class="gunici-desc">Gelin hazırlığından ilk dansa kadar günü aşamalara bölün. Hangi aşamanın davetliye açık, hangisinin sadece ekibe özel olduğunu tek dokunuşla belirleyin. Geri sayım herkesin ekranında akar.</p>
+                        <div class="gunici-mock timeline-mock">
+                            <div class="tl-countdown"><span class="material-icons-round">timer</span> 2 gün 4 sa sonra</div>
+                            <div class="tl-item done"><span class="tl-time">09:30</span><span class="tl-name">Gelin hazırlığı</span><span class="tl-tag hidden-tag">Ekibe özel</span></div>
+                            <div class="tl-item now"><span class="tl-time">16:00</span><span class="tl-name">Nikah töreni</span><span class="tl-tag">Davetiyede</span></div>
+                            <div class="tl-item"><span class="tl-time">21:15</span><span class="tl-name">İlk dans</span><span class="tl-tag">Davetiyede</span></div>
+                        </div>
+                    </article>
+
+                    <!-- 4. Oturma Düzeni -->
+                    <article class="gunici-card">
+                        <div class="gunici-head">
+                            <span class="gunici-icon"><span class="material-icons-round">table_restaurant</span></span>
+                            <div>
+                                <h3>Oturma Düzeni</h3>
+                                <span class="gunici-kicker">Defter yerine canlı plan</span>
+                            </div>
+                        </div>
+                        <p class="gunici-desc">Masaları oluşturun, davetlileri sürükleyip yerleştirin. “Atanmamış davetliler” listesi siz herkesi bir masaya oturtana kadar önünüzde durur — düğün sabahı kimse açıkta kalmaz.</p>
+                        <div class="gunici-mock seating-mock">
+                            <div class="seat-tables">
+                                <div class="seat-table full"><span>Masa 1</span><em>8/8</em></div>
+                                <div class="seat-table"><span>Masa 2</span><em>6/8</em></div>
+                                <div class="seat-table"><span>Masa 3</span><em>3/8</em></div>
+                            </div>
+                            <div class="seat-unassigned">
+                                <span class="material-icons-round">person_search</span>
+                                Atanmamış davetliler: <strong>4 kişi</strong>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 5. Hediye Et -->
+                    <article class="gunici-card">
+                        <div class="gunici-head">
+                            <span class="gunici-icon"><span class="material-icons-round">card_giftcard</span></span>
+                            <div>
+                                <h3>Premium'u Hediye Edin</h3>
+                                <span class="gunici-kicker">Nişan hediyesi olarak</span>
+                            </div>
+                        </div>
+                        <p class="gunici-desc">Evlenecek arkadaşınıza paketi siz alın. Uygulama 15 haneli bir hediye kodu üretir, siz linki gönderirsiniz; onlar kodu girdiği anda premium açılır. Kullanılmadığını “Hediyelerim” ekranından takip edersiniz.</p>
+                        <div class="gunici-mock gift-mock">
+                            <div class="gift-code-row">
+                                <span class="gift-code" id="giftCodeDemo">A7K9M-3PX2R-8QW5T</span>
+                                <button type="button" class="gift-copy-btn" onclick="copyGiftDemoCode()">
+                                    <span class="material-icons-round">content_copy</span> Kopyala
+                                </button>
+                            </div>
+                            <div class="gift-status"><span class="gift-dot"></span> Henüz kullanılmadı · Ece'ye gönderildi</div>
+                        </div>
+                    </article>
+
+                    <!-- 6. Güvenli Ekip -->
+                    <article class="gunici-card">
+                        <div class="gunici-head">
+                            <span class="gunici-icon"><span class="material-icons-round">security</span></span>
+                            <div>
+                                <h3>Güvenli Ekip Ortamı</h3>
+                                <span class="gunici-kicker">Rahatsız edildiğinizde</span>
+                            </div>
+                        </div>
+                        <p class="gunici-desc">Her mesaj ve yorumda şikayet ve engelleme seçeneği var. Engellediğiniz kişinin içeriklerini görmezsiniz, size yazamaz. Etkinlik sahibiyseniz aynı adımda ekipten de çıkarabilirsiniz. Bildirimler 24 saat içinde incelenir.</p>
+                        <div class="gunici-mock safety-mock">
+                            <div class="safety-menu">
+                                <div class="safety-opt"><span class="material-icons-round">flag</span> Şikayet et</div>
+                                <div class="safety-opt danger"><span class="material-icons-round">block</span> Kullanıcıyı engelle</div>
+                            </div>
+                            <div class="safety-note"><span class="material-icons-round">verified_user</span> Bildiriminiz 24 saat içinde incelenir.</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Canlı İnteraktif RSVP Simülatörü -->
+        <section id="interactive-rsvp-showcase" class="rsvp-showcase-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag gold">İnteraktif Deneyim</span>
+                    <h2>Davetlileriniz İçin Lüks Dijital Davetiye</h2>
+                    <p class="section-subtitle">Davetlileriniz hiçbir uygulama indirmeden kendilerine özel bağlantı ile davetiyelerini açar, katılım durumlarını ve yemek tercihlerini tek tıkla bildirir.</p>
+                </div>
+
+                <div class="rsvp-sim-wrapper">
+                    <!-- Control Box (Sol/Üst) -->
+                    <div class="rsvp-sim-controls">
+                        <h3><span class="material-icons-round" style="color: var(--gold); vertical-align: middle; margin-right: 6px;">edit_note</span> Davetiyeyi Canlı Özelleştir</h3>
+                        <p class="sim-desc">Aşağıya davetli veya çift adını girerek davetiyenizin canlı önizlemesini test edin:</p>
+                        
+                        <div class="sim-input-group">
+                            <label for="simGuestInput">Davetli / Çift Adı</label>
+                            <input type="text" id="simGuestInput" value="Sayın Mehmet Güneşli" placeholder="Örn: Ayşe & Tolga" oninput="updateSimGuestName(this.value)">
+                        </div>
+
+                        <div class="sim-info-cards">
+                            <div class="sim-info-item">
+                                <span class="material-icons-round">done_all</span>
+                                <div>
+                                    <strong>Anlık Bildirim & Lojistik Takip</strong>
+                                    <p>Davetliniz katılım ve diyet yanıtı verdiğinde cebinize anında bildirim düşer.</p>
+                                </div>
+                            </div>
+                            <div class="sim-info-item">
+                                <span class="material-icons-round">shield</span>
+                                <div>
+                                    <strong>KVKK & Gizlilik Zırhı</strong>
+                                    <p>Sadece özel jeton (token) sahibi davetli kendi kartını ve yanıtlarını görebilir.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sim-cta-wrap" style="margin-top: 20px;">
+                            <a href="#indirin" class="btn btn-primary btn-glow" style="width: 100%; text-align: center; justify-content: center;">
+                                <span class="material-icons-round">mark_email_read</span> Davetiyenizi Oluşturun
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Live Simulator Phone Screen (Sağ/Alt) -->
+                    <div class="rsvp-sim-phone-wrap">
+                        <div class="sim-phone-frame">
+                            <div class="sim-phone-notch"></div>
+                            <div class="sim-phone-screen">
+                                <div class="sim-invite">
+                                    <img src="assets/img/logo_wax_seal_transparent.png" alt="" class="sim-invite-seal" width="46" height="46">
+                                    <p class="sim-invite-prefix">Davetlimizsiniz</p>
+                                    <h4 class="sim-guest-name" id="simGuestDisplay">Sayın Mehmet Güneşli</h4>
+                                    <div class="sim-couple">Ayşe &amp; Tolga</div>
+                                    <div class="sim-invite-meta">12 Eylül 2026 · Cumartesi</div>
+                                    <div class="sim-venue">
+                                        <span class="material-icons-round">place</span> Bodrum Beach Hall
+                                    </div>
+
+                                    <div class="sim-timeline">
+                                        <div class="sim-tl-row"><span class="sim-tl-dot"></span><span class="sim-tl-text"><b>16:00</b> Nikah töreni</span></div>
+                                        <div class="sim-tl-row"><span class="sim-tl-dot"></span><span class="sim-tl-text"><b>19:00</b> Yemek servisi</span></div>
+                                        <div class="sim-tl-row"><span class="sim-tl-dot"></span><span class="sim-tl-text"><b>21:15</b> İlk dans</span></div>
+                                    </div>
+
+                                    <div class="sim-status-badge pending" id="simStatusBadge">
+                                        <span class="material-icons-round">schedule</span>
+                                        <span id="simStatusText">Yanıtınız bekleniyor</span>
+                                    </div>
+
+                                    <div class="sim-rsvp-actions">
+                                        <button type="button" class="sim-btn yes" onclick="triggerSimRsvp('confirmed')">Katılıyorum</button>
+                                        <button type="button" class="sim-btn no" onclick="triggerSimRsvp('declined')">Katılamıyorum</button>
+                                    </div>
+
+                                    <div class="sim-meal-block">
+                                        <span class="sim-block-label">Menü tercihiniz</span>
+                                        <div class="sim-meal-chips">
+                                            <button type="button" class="sim-meal-chip active" onclick="selectSimMeal(this, 'Et menüsü')">🥩 Et</button>
+                                            <button type="button" class="sim-meal-chip" onclick="selectSimMeal(this, 'Vejetaryen menü')">🥗 Vejetaryen</button>
+                                            <button type="button" class="sim-meal-chip" onclick="selectSimMeal(this, 'Çocuk menüsü')">🧒 Çocuk</button>
+                                        </div>
+                                        <div class="sim-allergy-row">
+                                            <input type="text" id="simAllergyInput" placeholder="Alerjen / diyet notu" maxlength="60">
+                                            <button type="button" onclick="saveSimAllergy()">Kaydet</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="sim-toast" id="simToast"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sim-phone-actions">
+                            <span class="sim-phone-hint">
+                                <span class="material-icons-round">touch_app</span>
+                                Bu ekran canlı: adı değiştirin, yanıt verin, menü seçin.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- İnteraktif Paket Seçici (Akıllı Hesaplayıcı) -->
         <section id="hesaplayici" class="interactive-calculator">
             <div class="container">
@@ -1735,7 +1983,7 @@
                         <ul class="pricing-features">
                             <li><span class="material-icons-round icon gold">done</span> 1 Adet Sınırsız Hazırlık (Düğün, Nişan veya Kına'dan biri)</li>
                             <li><span class="material-icons-round icon gold">done</span> Sınırsız Ekip Üyesi ve Görev</li>
-                            <li><span class="material-icons-round icon gold">done</span> Hazır Şablonlar (19+ Görev Tek Dokunuşta)</li>
+                            <li><span class="material-icons-round icon gold">done</span> 6 Hazır Şablon (Söz, Nişan, Kına, Düğün, Bride, Balayı)</li>
                             <li><span class="material-icons-round icon gold">done</span> Detaylı Bütçe ve Harcama Takibi</li>
                             <li><span class="material-icons-round icon gold">done</span> Ekip İçi Gerçek Zamanlı Sohbet</li>
                             <li><span class="material-icons-round icon gold">done</span> Sınırsız Ortak Yönetici (Co-host)</li>
@@ -1757,7 +2005,7 @@
                         <ul class="pricing-features">
                             <li><span class="material-icons-round icon gold">done</span> 1 Yıl Sınırsız Hazırlık (Düğün, Nişan, Kına vb. bir arada)</li>
                             <li><span class="material-icons-round icon gold">done</span> Tüm Etkinliklerde Sınırsız Ekip & Görev</li>
-                            <li><span class="material-icons-round icon gold">done</span> Hazır Şablonlar (19+ Görev Tek Dokunuşta)</li>
+                            <li><span class="material-icons-round icon gold">done</span> 6 Hazır Şablon (Söz, Nişan, Kına, Düğün, Bride, Balayı)</li>
                             <li><span class="material-icons-round icon gold">done</span> Gelişmiş Harcama Takibi & Analitikler</li>
                             <li><span class="material-icons-round icon gold">done</span> Ekip İçi Gerçek Zamanlı Sohbet</li>
                             <li><span class="material-icons-round icon gold">done</span> Sınırsız Ortak Yönetici (Co-host)</li>
@@ -1766,22 +2014,7 @@
                     </div>
                 </div>
             </div>
-    </div> <!-- Closes #showcasePanel4 -->
-</div> <!-- Closes .showcase-panels-wrapper -->
-
-                <!-- Showcase Next Step Guided Tour Bar -->
-                <div class="showcase-next-step-bar" id="showcaseNextStepBar">
-                    <div class="next-step-info">
-                        <span class="step-indicator-badge" id="stepBadge">Adım 1 / 4</span>
-                        <span class="step-guide-text" id="stepGuideText">Gelin ve damatların en çok zorlandığı 8 ana kriz ve İmece çözümleri.</span>
-                    </div>
-                    <button class="showcase-next-step-btn" id="nextStepBtn" onclick="advanceShowcaseGuidedTour()">
-                        <span id="nextStepBtnLabel">Sonraki: 02 Davetiye Simülatörü</span>
-                        <span class="material-icons-round btn-arrow-icon">arrow_forward</span>
-                    </button>
-                </div>
-</div> <!-- Closes #master-showcase .container -->
-</section> <!-- Closes #master-showcase -->
+        </section> <!-- Closes #paketler -->
 
         <!-- Sıkça Sorulan Sorular (SSS - Interactive Accordion) -->
         <section id="sss" class="faq-section">
@@ -1851,6 +2084,36 @@
                             <p>Hayır, kesinlikle gerekmez. Sadece etkinliği oluşturan ana yöneticinin (Host) premium pakete sahip olması yeterlidir. Davet kodunuzla ekibe katılan yardımcılar (Co-host ve yardımcılar) uygulamayı tamamen ücretsiz olarak indirip tüm özelliklerden yararlanabilirler.</p>
                         </div>
                     </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Premium paketi arkadaşıma hediye edebilir miyim?
+                            <span class="material-icons-round faq-arrow">expand_more</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Evet. Uygulamadan hediye paketini satın aldığınızda size 15 haneli bir hediye kodu üretilir. Kodu veya hazır paylaşım linkini arkadaşınıza gönderirsiniz; onlar uygulamada kodu girdiği anda premium hakları hesaplarına tanımlanır. Kodun kullanılıp kullanılmadığını "Hediyelerim" ekranından takip edebilirsiniz.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Ekipteki biri rahatsız edici davranırsa ne yapabilirim?
+                            <span class="material-icons-round faq-arrow">expand_more</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Her mesaj ve yorumda şikayet ve engelleme seçeneği bulunur. Engellediğiniz kişinin mesaj ve yorumlarını görmezsiniz, size yazamaz; kendisi etkinlikte kalmaya devam eder. Etkinlik sahibiyseniz aynı adımda kişiyi ekipten tamamen de çıkarabilirsiniz. Şikayetler 24 saat içinde incelenir. Engellediğiniz kişileri ayarlardaki "Engellenen Kişiler" ekranından yönetebilirsiniz.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Görevlerin tamamlandığını nasıl kontrol ederim?
+                            <span class="material-icons-round faq-arrow">expand_more</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Etkinlik bazında bir kural seçersiniz: görevliler işi doğrudan tamamlayabilir, ya da "Yaptım" dediklerinde görev sizin onayınızla kapanır. Dilerseniz yalnızca belirli görevler için onay isteyin. Kuralı hazırlık sürerken istediğiniz an değiştirebilirsiniz; kimin neyi tamamladığı her durumda kayıtta kalır.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1903,9 +2166,11 @@
             <div class="footer-links">
                 <h4>Hızlı Bağlantılar</h4>
                 <ul>
+                    <li><a href="#tanidik">Tanıdık Gelenler</a></li>
+                    <li><a href="#neden-imece">8 Zorluk & Çözüm</a></li>
+                    <li><a href="#gun-ici">Düğün Günü</a></li>
                     <li><a href="#ozellikler">Özellikler</a></li>
-                    <li><a href="#detaylar">Detaylar</a></li>
-                    <li><a href="#hesaplayici">Fiyatlandırma</a></li>
+                    <li><a href="#paketler">Fiyatlandırma</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
@@ -2276,9 +2541,9 @@
             // 6. GPU-Accelerated Dynamic Dark Theme Shift
             gsap.to("#darkOverlay", {
                 scrollTrigger: {
-                    trigger: "#hesaplayici",
-                    start: "top 80%",
-                    end: "top 30%", 
+                    trigger: "#neden-imece",
+                    start: "top 78%",
+                    end: "top 28%",
                     scrub: 1
                 },
                 opacity: 1
@@ -2286,8 +2551,8 @@
 
             // 7. Dynamic Class toggle for the entire remaining dark region of the page
             ScrollTrigger.create({
-                trigger: "#hesaplayici",
-                start: "top 80%",
+                trigger: "#neden-imece",
+                start: "top 78%",
                 end: "max",
                 toggleClass: { targets: "body", className: "dark-active" }
             });
@@ -3248,7 +3513,7 @@
             const toast = document.getElementById('simToast');
             if (toast) {
                 toast.textContent = msg;
-                toast.style.color = 'var(--gold-dark)';
+                toast.style.color = '#8A6C25';
                 toast.classList.add('show');
                 setTimeout(() => {
                     toast.classList.remove('show');
@@ -3286,76 +3551,152 @@
             }
         }
 
-        // 4. Master Showcase Tab & Guided Tour Logic
-        let currentShowcaseStep = 1;
+        // 4. Empati Modülü: "Bunlardan kaçı size tanıdık geliyor?"
+        const PAIN_GAUGE_CIRCUMFERENCE = 2 * Math.PI * 52;
 
-        const showcaseStepConfig = {
-            1: {
-                badge: 'Adım 1 / 4',
-                guide: 'Gelin ve damatların en çok zorlandığı 8 ana kriz ve İmece çözümleri.',
-                nextBtnLabel: 'Sonraki: 02 Davetiye Simülatörü',
-                nextStep: 2
+        const painTiers = [
+            {
+                max: 0,
+                tag: 'HENÜZ SEÇİM YOK',
+                title: 'Yukarıdaki cümlelere dokunun',
+                desc: 'Her cümle, gerçek çiftlerden dinlediğimiz bir hazırlık sorunu. Size tanıdık gelenleri işaretleyin; hangi çözümün sizin için yazıldığını burada görün.'
             },
-            2: {
-                badge: 'Adım 2 / 4',
-                guide: 'Katılım teyitlerini ve diyet tercihlerini iPhone üzerinde canlı test edin.',
-                nextBtnLabel: 'Sonraki: 03 Düğün Asistanları',
-                nextStep: 3
+            {
+                max: 2,
+                tag: 'TANIDIK GELDİ',
+                title: 'Bu kadarı bile keyfi kaçırmaya yeter',
+                desc: 'İşaretlediğiniz maddelerin her birinin uygulamada bire bir karşılığı olan bir ekranı var. Hangisi olduğunu aşağıda görün.'
             },
-            3: {
-                badge: 'Adım 3 / 4',
-                guide: 'DJ Müzik, Garson PDF, Canlı Harita ve Host Onayı özel asistanları.',
-                nextBtnLabel: 'Sonraki: 04 Paketler & Fiyatlar',
-                nextStep: 4
+            {
+                max: 5,
+                tag: 'KLASİK TABLO',
+                title: 'Çiftlerin çoğu tam burada takılıyor',
+                desc: 'Bu maddeler tek tek küçük görünür; bir araya gelince hazırlığı işe çevirir. İyisi: hepsinin cevabı aynı uygulamada.'
             },
-            4: {
-                badge: 'Adım 4 / 4',
-                guide: 'Düğününüz için en uygun lansman paketini seçin veya hesaplayın.',
-                nextBtnLabel: 'Baştan Başlat ↺',
-                nextStep: 1
+            {
+                max: 8,
+                tag: 'AĞIR YÜK',
+                title: 'Bunu tek başınıza taşımayın',
+                desc: 'Bu tabloyla hazırlık keyif olmaktan çıkar. İmece ekibinizi kurun, yükü paylaşın; işaretlediğiniz her sorunun çözümü sizi aşağıda bekliyor.'
             }
-        };
+        ];
 
-        function switchShowcaseTab(step) {
-            currentShowcaseStep = step;
-            for (let i = 1; i <= 4; i++) {
-                const btn = document.getElementById('tabBtn' + i);
-                const panel = document.getElementById('showcasePanel' + i);
-                if (btn) btn.classList.remove('active');
-                if (panel) {
-                    panel.classList.remove('active');
-                    panel.style.display = 'none';
+        function getFlipCards() {
+            return document.querySelectorAll('#neden-imece .flip-card');
+        }
+
+        function togglePain(btn) {
+            const isChecked = btn.classList.toggle('checked');
+            btn.setAttribute('aria-pressed', isChecked ? 'true' : 'false');
+            updatePainResult();
+        }
+
+        function updatePainResult() {
+            const items = Array.from(document.querySelectorAll('#painCheckList .pain-item'));
+            const chosen = items.filter(item => item.classList.contains('checked'));
+            const count = chosen.length;
+
+            const fill = document.getElementById('painGaugeFill');
+            if (fill) {
+                fill.style.strokeDasharray = PAIN_GAUGE_CIRCUMFERENCE;
+                fill.style.strokeDashoffset = PAIN_GAUGE_CIRCUMFERENCE * (1 - count / 8);
+            }
+
+            const num = document.getElementById('painScoreNum');
+            if (num) num.textContent = count;
+
+            const tier = painTiers.find(t => count <= t.max) || painTiers[painTiers.length - 1];
+            const tagEl = document.getElementById('painResultTag');
+            const titleEl = document.getElementById('painResultTitle');
+            const descEl = document.getElementById('painResultDesc');
+            if (tagEl) tagEl.textContent = tier.tag;
+            if (titleEl) titleEl.textContent = tier.title;
+            if (descEl) descEl.textContent = tier.desc;
+
+            const card = document.getElementById('painResultCard');
+            if (card) card.classList.toggle('has-selection', count > 0);
+
+            const list = document.getElementById('painSolutionList');
+            if (list) {
+                list.innerHTML = chosen.map(item => {
+                    const idx = item.dataset.card;
+                    const solution = item.dataset.solution;
+                    return '<button type="button" class="pain-solution-row" onclick="revealSolution(' + idx + ')">' +
+                        '<span class="material-icons-round pain-solution-check">check_circle</span>' +
+                        '<span class="pain-solution-name">' + solution + '</span>' +
+                        '<span class="material-icons-round pain-solution-arrow">arrow_forward</span>' +
+                        '</button>';
+                }).join('');
+            }
+
+            const cta = document.getElementById('painResultCta');
+            if (cta) {
+                const label = cta.querySelector('span:first-child');
+                if (label) {
+                    label.textContent = count > 0
+                        ? 'Seçtiğim ' + count + ' sorunun çözümünü gör'
+                        : 'Tüm çözümleri gör';
                 }
-            }
-            const activeBtn = document.getElementById('tabBtn' + step);
-            const activePanel = document.getElementById('showcasePanel' + step);
-
-            if (activeBtn) activeBtn.classList.add('active');
-            if (activePanel) {
-                activePanel.style.display = 'block';
-                setTimeout(() => activePanel.classList.add('active'), 20);
-            }
-
-            // Update Guided Tour Bar UI
-            const cfg = showcaseStepConfig[step];
-            if (cfg) {
-                const badge = document.getElementById('stepBadge');
-                const guide = document.getElementById('stepGuideText');
-                const btnLabel = document.getElementById('nextStepBtnLabel');
-                if (badge) badge.textContent = cfg.badge;
-                if (guide) guide.textContent = cfg.guide;
-                if (btnLabel) btnLabel.textContent = cfg.nextBtnLabel;
             }
         }
 
-        function advanceShowcaseGuidedTour() {
-            const cfg = showcaseStepConfig[currentShowcaseStep];
-            const targetStep = cfg ? cfg.nextStep : 1;
-            switchShowcaseTab(targetStep);
+        // Seçilen sorunun çözüm kartına götürür ve kartı çözüm yüzüne çevirir.
+        function revealSolution(cardIndex) {
+            const cards = getFlipCards();
+            const card = cards[cardIndex - 1];
+            if (!card) return;
 
-            const section = document.getElementById('master-showcase');
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            globalSolutionDiscovered = true;
+            cards.forEach(c => {
+                c.dataset.userClicked = 'true';
+                c.classList.remove('scroll-teased', 'pain-highlight');
+                c.classList.remove('flipped');
+            });
+
+            const y = card.getBoundingClientRect().top + window.scrollY - (window.innerHeight / 2) + (card.offsetHeight / 2);
+            window.scrollTo({ top: Math.max(y, 0), behavior: 'smooth' });
+
+            setTimeout(() => {
+                card.classList.add('flipped', 'pain-highlight');
+                setTimeout(() => card.classList.remove('pain-highlight'), 2200);
+            }, 520);
+        }
+
+        function revealFirstSolution(event) {
+            const first = document.querySelector('#painCheckList .pain-item.checked');
+            if (!first) return true; // seçim yoksa normal ankor davranışı
+            if (event) event.preventDefault();
+            revealSolution(parseInt(first.dataset.card, 10));
+            return false;
+        }
+
+        // "Tamamlama Onayı" mini demo
+        function setApproveMode(btn, mode) {
+            document.querySelectorAll('#approveMock .approve-opt').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const preview = document.getElementById('approvePreview');
+            if (!preview) return;
+            if (mode === 'on') {
+                preview.classList.remove('direct');
+                preview.innerHTML = '<span class="material-icons-round">hourglass_top</span><div>' +
+                    '<strong>“Çiçekçi kaporası” — Onay bekliyor</strong>' +
+                    '<span>Mert “Yaptım” dedi. Siz onaylayınca tamamlanacak.</span></div>';
+            } else {
+                preview.classList.add('direct');
+                preview.innerHTML = '<span class="material-icons-round">task_alt</span><div>' +
+                    '<strong>“Çiçekçi kaporası” — Tamamlandı</strong>' +
+                    '<span>Mert tamamladı. Kimin tamamladığı kayıtta kalır.</span></div>';
+            }
+        }
+
+        function copyGiftDemoCode() {
+            const el = document.getElementById('giftCodeDemo');
+            if (!el) return;
+            const text = el.textContent.trim();
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => showToast('Hediye kodu kopyalandı'));
+            } else {
+                showToast('Hediye kodu: ' + text);
             }
         }
 
@@ -3396,7 +3737,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            switchShowcaseTab(1);
+            updatePainResult();
             setTimeout(initCardsScrollPipeline, 300);
         });
     </script>
