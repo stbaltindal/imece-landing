@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-solid.png?v=2.0">
 
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=27.0">
+    <link rel="stylesheet" href="style.css?v=28.0">
 </head>
 <body>
 
@@ -673,7 +673,7 @@
                 <span class="hero-hud-dot"></span>
                 <span class="hero-hud-dot"></span>
             </div>
-            <span class="hero-hud-hint">Kaydırdıkça hızlanır</span>
+            <span class="hero-hud-hint" id="heroHudHint">Devam etmek için kaydırın</span>
             <button type="button" class="hero-hud-skip" id="heroHudSkip" onclick="skipHeroStory()">
                 <span>Hikâyeyi atla</span>
                 <span class="material-icons-round">south</span>
@@ -2908,13 +2908,21 @@
             let currentIndex = 0;
             let isAnimating = false;
 
-            // Hikaye kendi akisinda oynar; kaydirma adim atlatmaz, sadece
-            // hizlandirir. Boylece trackpad momentumu adim kacirtmaz.
-            const STORY_BASE_SCALE = 2.0;   // pasif izleme hizi (~8.5 sn)
-            const STORY_BOOST_SCALE = 6.0;  // kaydirirken
-            const BOOST_DECAY_MS = 420;     // son darbeden sonra normale donus
+            // Hikaye asamalara bolunmustur. Her asamanin basinda akis durur ve
+            // kaydirma darbesi bekler; darbe gelince o asama kendi sabit
+            // hizinda oynar. Asama oynarken gelen ek darbeler yalnizca hizi
+            // artirir -- hicbir darbe asama atlatmaz.
+            const SEG_TARGET_SEC = 1.8;   // her asamanin hedef suresi
+            const SEG_MIN_SCALE = 1.2;
+            const SEG_MAX_SCALE = 5.0;
+            const SEG_BOOST_FACTOR = 3.0; // darbe gelince hiz carpani
+            const BOOST_DECAY_MS = 380;   // son darbeden sonra normale donus
             let boostDecayTimer = null;
             let storyFinished = false;
+            let segIndex = 0;
+            let segBaseScale = 1;
+            let awaitingImpulse = true;
+            let storyMarks = [];
 
             // Not: body.overflow kilidi bilerek kullanilmiyor -- scrollbar kaybolunca
             // sayfa yatayda ziplyor. Tekerlek/dokunus zaten observer'da
@@ -2969,6 +2977,7 @@
                     storyFinished = true;
                     masterTl.pause();
                     masterTl.time(masterTl.duration());
+                    segIndex = 5;
                     updateHeroHudByTime();
                     unlockScroll();
                 },
@@ -3123,16 +3132,29 @@
             }
 
             // --- Hikaye akis kontrolu -------------------------------------
-            function stepIndexForTime(t) {
-                let idx = 0;
-                for (let i = 0; i < steps.length; i++) {
-                    if (t >= steps[i] - 0.01) idx = i;
-                }
-                return idx;
+            // Asama sinirlari: steps[] uzerine zaman cizelgesinin sonu (cikis
+            // animasyonu) da bir asama olarak eklenir -> 6 asama, 6 nokta.
+            function buildStoryMarks() {
+                storyMarks = steps.slice();
+                const total = masterTl.duration();
+                if (total > storyMarks[storyMarks.length - 1] + 0.05) storyMarks.push(total);
+                return storyMarks;
             }
 
-            function updateHeroHudByTime() {
-                updateHeroHud(stepIndexForTime(masterTl.time()));
+            function segmentCount() {
+                return Math.max(storyMarks.length - 1, 1);
+            }
+
+            function segmentScale(i) {
+                const diff = Math.abs(storyMarks[i + 1] - storyMarks[i]);
+                return Math.min(Math.max(diff / SEG_TARGET_SEC, SEG_MIN_SCALE), SEG_MAX_SCALE);
+            }
+
+            function setHudWaiting(waiting) {
+                const hud = document.getElementById("heroStoryHud");
+                if (hud) hud.classList.toggle("awaiting", waiting);
+                const hint = document.getElementById("heroHudHint");
+                if (hint) hint.textContent = waiting ? "Devam etmek için kaydırın" : "Kaydırdıkça hızlanır";
             }
 
             function syncMockupTaskState() {
@@ -3145,20 +3167,24 @@
 
             function startStory() {
                 storyFinished = false;
+                buildStoryMarks();
                 gsap.killTweensOf(masterTl);
                 masterTl.pause(0);
-                masterTl.timeScale(STORY_BASE_SCALE);
+                segIndex = 0;
+                awaitingImpulse = true;
                 resetMockupTask();
                 updateHeroHud(0);
                 lockScroll();
-                masterTl.play();
+                setHudWaiting(true);
             }
 
             function finishStory(direction) {
                 if (storyFinished) return;
                 storyFinished = true;
+                clearTimeout(boostDecayTimer);
                 gsap.killTweensOf(masterTl);
                 masterTl.pause();
+                setHudWaiting(false);
                 unlockScroll();
                 window.scrollTo({
                     top: direction < 0 ? Math.max(pinTrigger.start - 5, 0) : pinTrigger.end + 5,
@@ -3166,57 +3192,107 @@
                 });
             }
 
-            // Kaydirma adim atlatmaz: oynatma hizini gecici olarak yukseltir.
-            function boostStory() {
+            // Bekleyen asamayi baslatir.
+            function playSegment() {
                 if (storyFinished) return;
+                if (segIndex >= segmentCount()) {
+                    finishStory(1);
+                    return;
+                }
+                awaitingImpulse = false;
+                segBaseScale = segmentScale(segIndex);
+                clearTimeout(boostDecayTimer);
                 gsap.killTweensOf(masterTl);
-                masterTl.timeScale(STORY_BOOST_SCALE);
-                if (!masterTl.isActive()) masterTl.play();
+                masterTl.timeScale(segBaseScale);
+                masterTl.play();
+                setHudWaiting(false);
+            }
+
+            // Asagi darbe: asama bekliyorsa baslatir, oynuyorsa hizlandirir.
+            function impulseForward() {
+                if (storyFinished) return;
+                if (awaitingImpulse) {
+                    playSegment();
+                    return;
+                }
+                gsap.killTweensOf(masterTl);
+                masterTl.timeScale(segBaseScale * SEG_BOOST_FACTOR);
                 clearTimeout(boostDecayTimer);
                 boostDecayTimer = setTimeout(() => {
-                    if (storyFinished) return;
-                    gsap.to(masterTl, { timeScale: STORY_BASE_SCALE, duration: 0.5, ease: "power2.out" });
+                    if (storyFinished || awaitingImpulse) return;
+                    gsap.to(masterTl, { timeScale: segBaseScale, duration: 0.4, ease: "power2.out" });
                 }, BOOST_DECAY_MS);
             }
 
-            // Mockup icindeki bolume tiklaninca hikayeyi o ana tasi.
+            // Yukari darbe: ilk asamada bekliyorsa akistan cikar, degilse bir
+            // onceki asamanin basina doner.
+            function impulseBack() {
+                if (storyFinished) return;
+                if (segIndex === 0) {
+                    finishStory(-1);
+                    return;
+                }
+                clearTimeout(boostDecayTimer);
+                gsap.killTweensOf(masterTl);
+                segIndex -= 1;
+                awaitingImpulse = true;
+                masterTl.pause(storyMarks[segIndex]);
+                updateHeroHud(segIndex);
+                syncMockupTaskState();
+                setHudWaiting(true);
+            }
+
+            function updateHeroHudByTime() {
+                updateHeroHud(Math.min(segIndex, 5));
+            }
+
+            // Mockup icindeki bolume tiklaninca hikayeyi o asamaya tasi.
             window.jumpStory = function (index) {
                 if (storyFinished || index < 0 || index >= steps.length) return;
+                clearTimeout(boostDecayTimer);
                 gsap.killTweensOf(masterTl);
                 masterTl.pause();
                 gsap.to(masterTl, {
                     time: steps[index],
-                    duration: 0.55,
+                    duration: 0.5,
                     ease: "power2.inOut",
                     onComplete: () => {
-                        masterTl.timeScale(STORY_BASE_SCALE);
-                        masterTl.play();
+                        segIndex = index;
+                        awaitingImpulse = true;
+                        updateHeroHud(segIndex);
+                        setHudWaiting(true);
                     }
                 });
             };
 
+            // Asama sinirinda dur ve yeni darbe bekle.
             masterTl.eventCallback("onUpdate", () => {
-                updateHeroHudByTime();
                 syncMockupTaskState();
+                if (storyFinished || awaitingImpulse || !storyMarks.length) return;
+                const edge = storyMarks[segIndex + 1];
+                if (edge !== undefined && masterTl.time() >= edge - 0.001) {
+                    clearTimeout(boostDecayTimer);
+                    gsap.killTweensOf(masterTl);
+                    masterTl.pause(edge);
+                    segIndex += 1;
+                    awaitingImpulse = true;
+                    updateHeroHud(Math.min(segIndex, 5));
+                    if (segIndex >= segmentCount()) {
+                        finishStory(1);
+                    } else {
+                        setHudWaiting(true);
+                    }
+                }
             });
 
-            masterTl.eventCallback("onComplete", () => {
-                finishStory(1);
-            });
-
-            // Tek bir trackpad darbesi = tek adim. Momentum kuyrugundaki olaylar
-            // ayni jestin devami sayilip yutulur; gecis bitmeden yeni adim
-            // kabul edilmez.
             // Scroll intent Observer - locks vertical scroll and transitions slide-by-slide
             const intentObserver = ScrollTrigger.observe({
                 type: "wheel,touch",
-                // Yukari darbe: hikayeyi geri sarmak yerine akistan cikar.
                 onUp: () => {
-                    finishStory(-1);
+                    impulseBack();
                 },
-                // Asagi darbe: adim atlatmaz, akisi hizlandirir.
                 onDown: () => {
-                    boostStory();
+                    impulseForward();
                 },
                 tolerance: 30,
                 preventDefault: true

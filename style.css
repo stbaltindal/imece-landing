@@ -7671,3 +7671,21 @@ html.hero-story-active .hero-story-hud {
 @media (max-width: 900px) {
     .hero-hud-hint { display: none; }
 }
+
+/* Asama basinda darbe beklerken aktif nokta nabiz atar */
+.hero-story-hud.awaiting .hero-hud-dot.active {
+    animation: heroHudPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes heroHudPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.55); }
+    55% { box-shadow: 0 0 0 6px rgba(197, 160, 89, 0); }
+}
+
+.hero-story-hud.awaiting .hero-hud-hint {
+    color: var(--gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-story-hud.awaiting .hero-hud-dot.active { animation: none; }
+}
