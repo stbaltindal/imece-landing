@@ -7,7 +7,11 @@
     /* Fonts */
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    
+    /* index.html ve asistan-card h3, --font-heading yerine bu adlarla cagiriyordu.
+       Onceden hic tanimlanmamislardi: Playfair Display sessizce fallback fonta duseriyordu. */
+    --font-header: var(--font-heading);
+    --font-title: var(--font-heading);
+
     /* Colors (HSL & Premium Apple Harmony) */
     --primary: hsl(0, 36%, 74%);         /* Pastel Rose: #D4A5A5 */
     --primary-dark: hsl(0, 30%, 60%);
@@ -158,7 +162,7 @@ label,
 
 .gold-badge {
     background-color: var(--rose-gold-tint);
-    color: var(--gold);
+    color: #7A5A20;                      /* --gold #C5A059 rose-gold-tint uzerinde 2.10:1 idi; bu koyu ton 5.41:1 */
     border: 1px solid rgba(197, 160, 89, 0.2);
 }
 
@@ -180,7 +184,7 @@ label,
 
 .btn-primary {
     background-color: var(--gold);
-    color: #fff;
+    color: var(--text-main);
     box-shadow: 0 8px 24px rgba(197, 160, 89, 0.2);
 }
 
@@ -2337,6 +2341,24 @@ label,
     .budget-warning {
         animation: none !important;
     }
+    .mockup-section-focus.heartbeat-active .cohost-heart-btn {
+        animation: none;
+    }
+    .logo:hover .gold-icon {
+        animation: none;
+    }
+    .gold-spin {
+        animation: none;
+    }
+    .showcase-tab:not(.active) {
+        animation: none;
+    }
+    .showcase-pipeline-btn.idle-pulse {
+        animation: none;
+    }
+    .hero-scroll-hint .material-icons-round {
+        animation: none;
+    }
 }
 
 @media (max-width: 767px) {
@@ -3072,6 +3094,11 @@ input[type="range"]::-webkit-slider-thumb:hover {
     color: var(--gold);
 }
 
+.faq-question:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+}
+
 .faq-arrow {
     color: var(--text-light);
     transition: transform 0.3s ease;
@@ -3245,11 +3272,19 @@ footer {
     z-index: 10;
 }
 
+/* 4. sutun: yasal linkler (KVKK / Kullanim Kosullari / EULA).
+   Onceden landing'den yasal sayfalara hic link yoktu. */
 .footer-container {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: var(--space-3xl);
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: var(--space-2xl);
     padding-bottom: var(--space-3xl);
+}
+
+@media (max-width: 991px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .footer-brand {
@@ -4063,6 +4098,11 @@ body.dark-active .details-card p {
     transform: translateY(-1px);
 }
 
+.ceremony-tag:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+}
+
 .ceremony-tag.active {
     background-color: var(--gold);
     border-color: var(--gold);
@@ -4075,6 +4115,14 @@ body.dark-active .details-card p {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-xs);
+}
+
+/* Klavye odagi: bu iki yuzey role="button" + tabindex="0" ile klavyeye
+   acildi, gorunur odak halkasi olmadan kullanilamaz kalirdi. */
+.team-card:focus-visible,
+.sheet-code-card:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
 }
 
 .team-card {
@@ -7222,6 +7270,11 @@ body.dark-active .safety-opt.danger {
 .sim-allergy-row input:focus {
     outline: none;
     border-color: #C5A059;
+}
+
+.sim-allergy-row input:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
 }
 
 .sim-allergy-row button {

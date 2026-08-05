@@ -125,9 +125,12 @@
             display: inline-block;
         }
 
+        /* Altin zemin uzerinde koyu metin: beyaz metin 2.46:1 ile WCAG AA'yi
+           saglamiyordu. Koyu metin 6.85:1, hover tonu 5.72:1 veriyor.
+           style.css'teki .btn-primary ile ayni yaklasim. */
         .btn-primary {
             background-color: var(--gold);
-            color: #ffffff;
+            color: var(--text-main);
             border: 2px solid transparent;
             box-shadow: 0 8px 24px rgba(197, 160, 89, 0.2);
             position: relative;
@@ -206,7 +209,7 @@
             <a href="index.html" class="btn btn-primary" style="width:100%; border:none; font-family: var(--font-body); box-sizing: border-box; text-align:center;">Ana Sayfaya Dön</a>
         </div>
 
-        <p class="app-return-note">Uygulaman zaten telefonundaysa uygulamayı açıp e-posta adresin ve şifrenle giriş yapabilirsin.</p>
+        <p class="app-return-note">Uygulamanız zaten telefonunuzdaysa uygulamayı açıp e-posta adresiniz ve şifrenizle giriş yapabilirsiniz.</p>
 
         <div class="footer-note">
             © 2026 İmece Düğün. Tüm hakları saklıdır.

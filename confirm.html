@@ -193,6 +193,41 @@
             to { transform: rotate(360deg); }
         }
 
+        .btn-group {
+            margin-top: 8px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            font-family: var(--font-body);
+        }
+
+        /* Altin zemin uzerinde koyu metin: beyaz metin 3.25:1 ile WCAG AA'yi
+           saglamiyordu. Koyu metin 5.17:1, hover tonu 6.35:1 veriyor.
+           style.css'teki .btn-primary ile ayni yaklasim. */
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--text-main);
+            border: none;
+            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #C9971A;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(184, 134, 11, 0.3);
+        }
+
         .footer-branding {
             margin-top: 32px;
             padding-top: 18px;
@@ -234,10 +269,10 @@
             <div class="emblem-wrapper success">
                 <span class="material-icons-round">favorite</span>
             </div>
-            <div class="status-prefix">Hoş geldin</div>
-            <h1 class="status-title">Hesabın onaylandı 🎉</h1>
+            <div class="status-prefix">Hoş Geldiniz</div>
+            <h1 class="status-title">Hesabınız onaylandı 🎉</h1>
             <div class="divider-ornament"><span>✦</span></div>
-            <p class="status-message">Uygulamaya dönüp giriş yapabilirsin.</p>
+            <p class="status-message">Uygulamaya dönüp giriş yapabilirsiniz.</p>
         </div>
 
         <!-- Expired Link State -->
@@ -248,7 +283,7 @@
             <div class="status-prefix">Süre Doldu</div>
             <h1 class="status-title">Bu onay bağlantısının süresi dolmuş.</h1>
             <div class="divider-ornament"><span>✦</span></div>
-            <p class="status-message">Uygulamayı açıp giriş ekranından yeni bir onay e-postası isteyebilirsin.</p>
+            <p class="status-message">Uygulamayı açıp giriş ekranından yeni bir onay e-postası isteyebilirsiniz.</p>
         </div>
 
         <!-- Generic Invalid State -->
@@ -259,7 +294,11 @@
             <div class="status-prefix">Bağlantı Geçersiz</div>
             <h1 class="status-title">Bu bağlantı kullanılamıyor.</h1>
             <div class="divider-ornament"><span>✦</span></div>
-            <p class="status-message">Uygulamayı açıp giriş ekranından yeniden deneyebilirsin.</p>
+            <p class="status-message">Uygulamayı açıp giriş ekranından yeniden deneyebilirsiniz.</p>
+        </div>
+
+        <div class="btn-group">
+            <a href="index.html" class="btn btn-primary">Ana Sayfaya Dön</a>
         </div>
 
         <div class="footer-branding">

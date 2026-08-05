@@ -2,19 +2,19 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO & WhatsApp / Social Sharing Meta Tags -->
-    <meta name="description" content="Sana özel gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıkla. 🎁💌">
-    <meta property="og:title" content="🎁 Sana Özel Bir Sürpriz Var! — İmece Düğün">
-    <meta property="og:description" content="Sana gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıkla. 💌">
+    <meta name="description" content="Size özel gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıklayın. 🎁💌">
+    <meta property="og:title" content="🎁 Size Özel Bir Sürpriz Var! — İmece Düğün">
+    <meta property="og:description" content="Size gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıklayın. 💌">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://imecedugun.com/hediye.html">
     <meta property="og:image" content="https://imecedugun.com/assets/icons/apple-touch-icon-solid.png">
     <meta property="og:site_name" content="İmece Düğün">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="🎁 Sana Özel Bir Sürpriz Var! — İmece Düğün">
-    <meta name="twitter:description" content="Sana gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıkla. 💌">
-    <title>🎁 Sana Bir Hediye Geldi! — İmece Düğün</title>
+    <meta name="twitter:title" content="🎁 Size Özel Bir Sürpriz Var! — İmece Düğün">
+    <meta name="twitter:description" content="Size gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıklayın. 💌">
+    <title>🎁 Size Bir Hediye Geldi! — İmece Düğün</title>
 
     <!-- Google Fonts: Playfair Display, Cormorant Garamond, Dancing Script, Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -583,7 +583,7 @@
 
             <!-- Prefix & Main Heading -->
             <div class="card-prefix" id="cardPrefix">Özel Davet & Hediye</div>
-            <h1 class="card-title" id="cardTitle">Sana Bir Hediye Geldi!</h1>
+            <h1 class="card-title" id="cardTitle">Size Bir Hediye Geldi!</h1>
 
             <!-- Ornamental Line -->
             <div class="divider-ornament">
@@ -592,7 +592,7 @@
                 </svg>
             </div>
 
-            <p class="card-subtitle" id="cardSubtitle">Düğün ve organizasyon sürecinde kullanabileceğin özel hediye kodun hazır.</p>
+            <p class="card-subtitle" id="cardSubtitle">Düğün ve organizasyon sürecinde kullanabileceğiniz özel hediye kodunuz hazır.</p>
 
             <!-- PERSONAL HANDWRITTEN WEDDING NOTE CARD -->
             <div id="senderMessageCard" class="sender-message-card hidden">
@@ -627,8 +627,8 @@
 
             <!-- CTA & App Download Section -->
             <div class="cta-section">
-                <div class="cta-heading" id="ctaHeading">Hediyeni Kullanmak İçin Uygulamayı Aç</div>
-                <div class="cta-subtext" id="ctaSubtext">İmece Düğün uygulamasını indirerek hediye kodunu hesabına tanımlayabilirsin.</div>
+                <div class="cta-heading" id="ctaHeading">Hediyenizi Kullanmak İçin Uygulamayı Açın</div>
+                <div class="cta-subtext" id="ctaSubtext">İmece Düğün uygulamasını indirerek hediye kodunu hesabınıza tanımlayabilirsiniz.</div>
 
                 <div class="store-buttons">
                     <a href="https://apps.apple.com/app/id6794826834" class="btn-store btn-app-store" target="_blank" rel="noopener">
@@ -752,17 +752,17 @@
                 noCodeBox.classList.add('hidden');
 
                 cardPrefix.innerText = "Özel Davet & Hediye";
-                cardTitle.innerText = "Sana Bir Hediye Geldi!";
+                cardTitle.innerText = "Size Bir Hediye Geldi!";
 
                 const cleanSender = (senderName && senderName.trim() !== '') ? senderName.trim() : null;
                 const cleanMessage = (personalMessage && personalMessage.trim() !== '') ? personalMessage.trim() : null;
 
                 if (cleanSender) {
-                    document.title = `🎁 ${cleanSender}'den Sana Bir Hediye var! — İmece Düğün`;
-                    cardSubtitle.innerText = `${cleanSender} sana düğün ve organizasyon sürecinde kullanabileceğin özel bir hediye gönderdi.`;
+                    document.title = `🎁 ${cleanSender}'den Size Bir Hediye var! — İmece Düğün`;
+                    cardSubtitle.innerText = `${cleanSender} size düğün ve organizasyon sürecinde kullanabileceğiniz özel bir hediye gönderdi.`;
                 } else {
-                    document.title = "🎁 Sana Bir Hediye Geldi! — İmece Düğün";
-                    cardSubtitle.innerText = "Düğün ve organizasyon sürecinde kullanabileceğin özel hediye kodun hazır.";
+                    document.title = "🎁 Size Bir Hediye Geldi! — İmece Düğün";
+                    cardSubtitle.innerText = "Düğün ve organizasyon sürecinde kullanabileceğiniz özel hediye kodunuz hazır.";
                 }
 
                 if (cleanMessage) {
@@ -778,8 +778,8 @@
                     senderMessageCard.classList.add('hidden');
                 }
 
-                ctaHeading.innerText = "Hediyeni Kullanmak İçin Uygulamayı Aç";
-                ctaSubtext.innerText = "İmece Düğün uygulamasını indirerek hediye kodunu hesabına tanımlayabilirsin.";
+                ctaHeading.innerText = "Hediyenizi Kullanmak İçin Uygulamayı Açın";
+                ctaSubtext.innerText = "İmece Düğün uygulamasını indirerek hediye kodunu hesabınıza tanımlayabilirsiniz.";
             } else {
                 codeBox.classList.add('hidden');
                 senderMessageCard.classList.add('hidden');
