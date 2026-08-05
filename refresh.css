@@ -711,6 +711,14 @@ body:not(.dark-active) .kriz-rail-btn {
         box-shadow 0.4s ease,
         padding 0.4s var(--ease-out-expo);
 }
+/* Logo artik <div> degil <a> (sayfa basina donuyor). style.css'te global bir
+   `a { text-decoration: none }` kurali yok ve .logo kendi kuralinda da
+   tanimlamiyordu; bag haline gelince tarayici varsayilani alt cizgi bastı. */
+a.logo,
+a.logo:hover {
+    text-decoration: none;
+}
+
 .nav-links a {
     position: relative;
     transition: color 0.28s ease;
