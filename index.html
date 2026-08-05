@@ -24,8 +24,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- Material Icons. display=swap: ikon fontu inerken metin gizli kalmasin. -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round&display=swap" rel="stylesheet">
     
     <!-- Favicon & App Icons (Cache Busted) -->
     <link rel="shortcut icon" href="assets/icons/favicon.png?v=2.0" type="image/png">
@@ -37,8 +37,111 @@
     <link rel="stylesheet" href="style.css?v=32.0">
     <!-- Refresh Layer: gece paleti, sadelestirme, kaydirma etkilesimleri -->
     <link rel="stylesheet" href="refresh.css?v=1.0">
+
+    <!-- Yapilandirilmis veri. aggregateRating/reviewCount bilerek YOK:
+         gercek degerlendirme verisi olmadan eklemek Google politikasini ihlal eder. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "İmece Düğün",
+      "url": "https://imecedugun.com",
+      "logo": "https://imecedugun.com/assets/icons/apple-touch-icon-solid.png",
+      "description": "Düğün, nişan ve kına hazırlıklarını sevdiklerinizle birlikte yönetmenizi sağlayan mobil organizasyon platformu.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "destek@imecedugun.com",
+        "availableLanguage": ["tr"]
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "İmece Düğün",
+      "operatingSystem": "iOS",
+      "applicationCategory": "LifestyleApplication",
+      "url": "https://apps.apple.com/tr/app/id6794826834",
+      "installUrl": "https://apps.apple.com/tr/app/id6794826834",
+      "inLanguage": "tr",
+      "publisher": { "@type": "Organization", "name": "İmece Düğün" },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Tek Bir Organizasyon Paketi",
+          "price": "199.99",
+          "priceCurrency": "TRY",
+          "category": "subscription"
+        },
+        {
+          "@type": "Offer",
+          "name": "Tüm Hazırlıklar Paketi",
+          "price": "499.99",
+          "priceCurrency": "TRY",
+          "category": "subscription"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "İmece Düğün nasıl çalışır?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Uygulamayı indirdikten sonra ilk etkinliğinizi oluşturursunuz. Sistem size özel bir davet kodu üretir. Bu kodu aile üyelerinize ve arkadaşlarınıza gönderirsiniz. Onlar da uygulamayı indirip bu kodu girerek ekibinize katılır. Artık görevleri bölüşebilir ve bütçeyi birlikte yönetebilirsiniz." }
+        },
+        {
+          "@type": "Question",
+          "name": "Uygulamada sadece düğün planlaması mı yapabilirim?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Hayır. Düğününüzün yanı sıra söz, nişan, kına gecesi veya bekarlığa veda gibi evliliğe giden yoldaki tüm farklı tatlı telaşlarınızı ve organizasyonlarınızı da kolayca planlayabilir ve yönetebilirsiniz." }
+        },
+        {
+          "@type": "Question",
+          "name": "Nedimeler için Bekarlığa Veda / Bride planı nasıl yapılır?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Bekarlığa Veda (Bride-to-be) hazırlığı yapacak olan nedimelerden biri uygulamada yeni bir hazırlık oluşturarak \"Bekarlığa Veda / Bride\" şablonunu seçer. Ardından davet kodunu diğer nedime arkadaşlarıyla paylaşarak onları da panoya dahil eder. Böylece süslemeler, mekan rezervasyonu, sürprizler ve bütçe planlaması gelin görmeden nedimeler arasında gizlice organize edilebilir, görevler ve ödemeler kolayca paylaştırılır." }
+        },
+        {
+          "@type": "Question",
+          "name": "Davet kodunu kimlerle paylaşabilirim?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Davet kodunu düğün veya nişan hazırlığında size yardım etmesini istediğiniz herkesle paylaşabilirsiniz. Eşiniz, aile büyükleriniz, sağdıçlarınız, nedimelerinizi veya yakın arkadaşlarınız bu kodla ekibe dahil olup kendilerine atanan görevleri takip edebilirler." }
+        },
+        {
+          "@type": "Question",
+          "name": "Ödemeler tek seferlik mi, üyelik yenilenir mi?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tek Bir Organizasyon Paketi 180 gün, Tüm Hazırlıklar Paketi ise 365 gün premium erişim sağlar. Her iki plan da otomatik yenilenen aboneliktir: dönem bitiminden en az 24 saat önce iptal etmezseniz aynı süre için yeniden tahsilat yapılır. Aboneliğinizi Ayarlar > Apple Kimliği > Abonelikler bölümünden istediğiniz zaman iptal edebilirsiniz. Premium süresi dolduğunda verileriniz silinmez; mevcut kişi ve görevleriniz görünür kalır, yalnızca yeni ekleme hakkınız ücretsiz plan limitlerine döner." }
+        },
+        {
+          "@type": "Question",
+          "name": "Yardımcı ekip üyelerimin de ödeme yapması gerekir mi?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Hayır, kesinlikle gerekmez. Sadece etkinliği oluşturan ana yöneticinin (Host) premium pakete sahip olması yeterlidir. Davet kodunuzla ekibe katılan yardımcılar (Co-host ve yardımcılar) uygulamayı tamamen ücretsiz olarak indirip tüm özelliklerden yararlanabilirler." }
+        },
+        {
+          "@type": "Question",
+          "name": "Premium paketi arkadaşıma hediye edebilir miyim?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Evet. Uygulamadan hediye paketini satın aldığınızda size 15 haneli bir hediye kodu üretilir. Kodu veya hazır paylaşım linkini arkadaşınıza gönderirsiniz; onlar uygulamada kodu girdiği anda premium hakları hesaplarına tanımlanır. Kodun kullanılıp kullanılmadığını \"Hediyelerim\" ekranından takip edebilirsiniz." }
+        },
+        {
+          "@type": "Question",
+          "name": "Ekipteki biri rahatsız edici davranırsa ne yapabilirim?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Her mesaj ve yorumda şikayet ve engelleme seçeneği bulunur. Engellediğiniz kişinin mesaj ve yorumlarını görmezsiniz, size yazamaz; kendisi etkinlikte kalmaya devam eder. Etkinlik sahibiyseniz aynı adımda kişiyi ekipten tamamen de çıkarabilirsiniz. Şikayetler 24 saat içinde incelenir. Engellediğiniz kişileri ayarlardaki \"Engellenen Kişiler\" ekranından yönetebilirsiniz." }
+        },
+        {
+          "@type": "Question",
+          "name": "Görevlerin tamamlandığını nasıl kontrol ederim?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Etkinlik bazında bir kural seçersiniz: görevliler işi doğrudan tamamlayabilir, ya da \"Yaptım\" dediklerinde görev sizin onayınızla kapanır. Dilerseniz yalnızca belirli görevler için onay isteyin. Kuralı hazırlık sürerken istediğiniz an değiştirebilirsiniz; kimin neyi tamamladığı her durumda kayıtta kalır." }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
+
+    <a class="skip-link" href="#anaicerik">İçeriğe geç</a>
 
     <!-- GPU-Accelerated Dark Transition Layer -->
     <div class="dark-overlay" id="darkOverlay"></div>
@@ -46,24 +149,45 @@
     <!-- Header / Navbar -->
     <header class="navbar">
         <div class="container nav-container">
-            <div class="logo">
+            <a class="logo" href="#" aria-label="İmece Düğün — sayfa başına dön">
                 <img src="assets/img/logo_wax_seal_96.png" decoding="async" alt="İmece Düğün Mühür Logo" width="32" height="32" style="width: 32px; height: 32px; max-width: 32px; max-height: 32px; object-fit: contain; vertical-align: middle; margin-right: 10px; flex-shrink: 0;" class="nav-brand-logo">
                 <span class="logo-text">İmece Düğün</span>
-            </div>
+            </a>
             <nav class="nav-links">
                 <a href="#tanidik">Tanıdık Gelenler</a>
                 <a href="#neden-imece">Çözümler</a>
                 <a href="#gun-ici">Düğün Günü</a>
-                <a href="#hesaplayici">Paketler</a>
+                <a href="#hesaplayici">Plan Seçici</a>
+                <a href="#paketler">Fiyatlandırma</a>
                 <a href="#sss">S.S.S.</a>
             </nav>
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="navDrawer">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
             <div class="nav-cta">
                 <a href="#indirin" class="btn btn-primary btn-gold-effect nav-download-btn">Uygulamayı İndir</a>
             </div>
         </div>
     </header>
 
-    <main>
+    <!-- Cekmece bilerek <header> DISINDA: .navbar'in backdrop-filter'i
+         position:fixed icin iceren blok yaratiyor, iceride kalirsa cekmece
+         navbar kutusuna hapsoluyor. -->
+    <div class="nav-drawer" id="navDrawer" hidden>
+        <div class="nav-drawer-scrim" data-nav-close></div>
+        <nav class="nav-drawer-panel" aria-label="Mobil menü">
+            <a href="#tanidik" data-nav-close>Tanıdık Gelenler</a>
+            <a href="#neden-imece" data-nav-close>Çözümler</a>
+            <a href="#gun-ici" data-nav-close>Düğün Günü</a>
+            <a href="#hesaplayici" data-nav-close>Plan Seçici</a>
+            <a href="#paketler" data-nav-close>Fiyatlandırma</a>
+            <a href="#sss" data-nav-close>S.S.S.</a>
+            <a href="#indirin" class="btn btn-primary nav-drawer-cta" data-nav-close>Uygulamayı İndir</a>
+        </nav>
+    </div>
+
+    <main id="anaicerik">
         <!-- Unified Pinned Section for Hero + Showcase Story -->
         <section id="hero-showcase-story" class="unified-story-section">
             <div class="container story-container">
@@ -97,7 +221,7 @@
                                     <span class="store-main">App Store</span>
                                 </div>
                             </a>
-                            <a href="https://play.google.com" target="_blank" rel="noopener" class="store-badge-official google-play-official">
+                            <span class="store-badge-official google-play-official is-soon" role="note" aria-label="Google Play'de yakında">
                                 <svg class="play-svg" viewBox="0 0 466 511.98" width="22" height="22">
                                     <g>
                                         <path fill="#EA4335" fill-rule="nonzero" d="M199.9 237.8l-198.5 232.37c7.22,24.57 30.16,41.81 55.8,41.81 11.16,0 20.93,-2.79 29.3,-8.37l0 0 244.16 -139.46 -130.76 -126.35z"/>
@@ -107,10 +231,10 @@
                                     </g>
                                 </svg>
                                 <div class="store-text">
-                                    <span class="store-sub">GET IT ON</span>
+                                    <span class="store-sub">YAKINDA</span>
                                     <span class="store-main">Google Play</span>
                                 </div>
-                            </a>
+                            </span>
                         </div>
                     </div>
                     
@@ -433,7 +557,7 @@
                                 </div>
                             </div>
                             
-                            <div class="mockup-toast" id="mockupToast">Davet kodu kopyalandı</div>
+                            <div class="mockup-toast" id="mockupToast" role="status" aria-live="polite">Davet kodu kopyalandı</div>
                         </div>
                     </div>
                 </div>
@@ -708,7 +832,7 @@
 
                 <div class="pain-check-layout">
                     <div class="pain-check-list" id="painCheckList" role="group" aria-label="Tanıdık gelen sorunlar">
-                        <button type="button" class="pain-item" data-target="cozum-bossayfa" data-solution="6 hazır şablon, 260+ görev tek dokunuşta" aria-pressed="false" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-bossayfa" data-solution="6 hazır şablon, 250+ görev tek dokunuşta" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Nereden başlayacağımızı bile bilmiyoruz; liste yapmaya oturup bırakıyoruz.”</span>
@@ -750,14 +874,14 @@
                                 <span class="pain-meta">Dağınık yemek ve alerji bilgisi</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-target="cozum-tamamlama" data-solution="Tamamlama onayı: görev sizin onayınızla kapanır" aria-pressed="false" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-onay" data-solution="Tamamlama onayı: görev sizin onayınızla kapanır" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“‘Hallettim’ dedi ama yapılmamış; düğün haftası ortaya çıktı.”</span>
                                 <span class="pain-meta">Takip edilemeyen ‘tamam’ sözü</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-target="cozum-emek" data-solution="Ekip skorboardu: emeği görünür yapar" aria-pressed="false" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-skorboard" data-solution="Ekip skorboardu: emeği görünür yapar" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Grupta ‘ben varım’ diyen çok; işi bitiren hep aynı üç kişi.”</span>
@@ -771,14 +895,14 @@
                                 <span class="pain-meta">Toparlanamayan müzik istekleri</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-target="cozum-masa" data-solution="İnteraktif masa planı & menü takibi" aria-pressed="false" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-oturma" data-solution="İnteraktif masa planı & menü takibi" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Hangi akraba kiminle aynı masada oturamaz, defterde takip ediyoruz.”</span>
                                 <span class="pain-meta">Masa düzeni ve protokol çilesi</span>
                             </span>
                         </button>
-                        <button type="button" class="pain-item" data-target="cozum-akis" data-solution="Düğün günü canlı akış programı" aria-pressed="false" onclick="togglePain(this)">
+                        <button type="button" class="pain-item" data-target="cozum-gunakis" data-solution="Düğün günü canlı akış programı" aria-pressed="false" onclick="togglePain(this)">
                             <span class="pain-box"><span class="material-icons-round">check</span></span>
                             <span class="pain-body">
                                 <span class="pain-quote">“Gelin arabası gecikti, pasta da kaydı; kimse bir sonraki adımı bilmiyor.”</span>
@@ -819,7 +943,7 @@
                                 <span class="pain-score-den" id="painScoreDen">/ 14</span>
                             </div>
                         </div>
-                        <div class="pain-result-body">
+                        <div class="pain-result-body" aria-live="polite">
                             <span class="pain-result-tag" id="painResultTag">HENÜZ SEÇİM YOK</span>
                             <h3 id="painResultTitle">Yukarıdaki cümlelere dokunun</h3>
                             <p id="painResultDesc">Her cümle, gerçek çiftlerden dinlediğimiz bir hazırlık sorunu. Size tanıdık gelenleri işaretleyin; hangi çözümün sizin için yazıldığını burada görün.</p>
@@ -837,7 +961,7 @@
         <section id="neden-imece" class="kriz-cozum-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag gold">12 Kritik Zorluk & Çözüm</span>
+                    <span class="section-tag gold">8 Kritik Zorluk & Çözüm</span>
                     <h2>Her sorunun karşısında <span class="text-gold-gradient">çalışan bir ekran var</span></h2>
                     <p class="section-subtitle">Kartın üstüne dokunun: solda yaşadığınız kaosu, arkasında uygulamadaki gerçek çözümü görün.</p>
                 </div>
@@ -1200,179 +1324,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Kart 5: Masa Düzeni & Protokol Çilesi -->
-                    <div class="flip-card" id="cozum-masa" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Masa Düzeni kartını döndürmek için tıklayın">
-                        <div class="flip-card-wobble">
-                            <div class="flip-card-inner">
-                                <!-- Ön Yüz -->
-                                <div class="flip-card-front">
-                                    <div class="card-content-top">
-                                        <div class="card-icon-header-row">
-                                            <div class="card-icon-wrapper zorluk-icon">
-                                                <svg viewBox="0 0 24 24">
-                                                    <circle cx="12" cy="12" r="9"></circle>
-                                                    <path d="M12 8v8M8 12h8"></path>
-                                                </svg>
-                                            </div>
-                                            <span class="zorluk-tag">Zorluk 5</span>
-                                        </div>
-                                        <h3 class="card-title">Masa düzeni & protokol çilesi</h3>
-                                        
-                                        <!-- Görsel: Karmaşık Masa Şeması -->
-                                        <div class="mini-todo-list">
-                                            <div class="mini-todo-item alert">
-                                                <span class="todo-uncheck"></span>
-                                                <span class="todo-text">Masa 3: Küs Akrabalar (Çakışma!)</span>
-                                            </div>
-                                            <div class="mini-todo-item alert">
-                                                <span class="todo-uncheck"></span>
-                                                <span class="todo-text">Vejetaryen Sayısı: Belirsiz 🥗</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <p class="card-desc">Kim kimin yanında oturacak stresi ve garsonlara vejetaryen/alerjen menüleri iletmedeki büyük <strong class="highlight-gold">organizasyon kaosu</strong>.</p>
-                                    </div>
-                                    <div class="flip-trigger-badge">
-                                        <span>Çözümü Gör</span>
-                                        <span class="material-icons-round icon-arrow">rotate_right</span>
-                                    </div>
-                                </div>
-                                
-                                <!-- Arka Yüz -->
-                                <div class="flip-card-back">
-                                    <div class="card-content-top">
-                                        <div class="card-icon-header-row">
-                                            <div class="card-icon-wrapper cozum-icon">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                                                </svg>
-                                            </div>
-                                            <span class="cozum-tag">İmece Çözümü</span>
-                                        </div>
-                                        <h3 class="card-title">İnteraktif masa planı & menü takibi</h3>
-                                        
-                                        <!-- Görsel Mockup: Masa Düzeni -->
-                                        <div class="mini-app-mockup">
-                                            <div class="mockup-header">
-                                                <span class="material-icons-round" style="font-size: 11px;">table_restaurant</span>
-                                                <span>Masa Oturma Düzeni</span>
-                                            </div>
-                                            <div class="mockup-todo-list">
-                                                <div class="mockup-todo-row">
-                                                    <span class="todo-title">Masa 1: Aile & Protokol</span>
-                                                    <div class="todo-meta">
-                                                        <span class="mockup-user-chip gold">8 Kişi</span>
-                                                        <span class="todo-status done">Dolu</span>
-                                                    </div>
-                                                </div>
-                                                <div class="mockup-todo-row">
-                                                    <span class="todo-title">Masa 2: Lise Arkadaşları</span>
-                                                    <div class="todo-meta">
-                                                        <span class="mockup-user-chip pink">🥗 2 Vejetaryen</span>
-                                                        <span class="todo-status active">Tamam</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <p class="card-desc">Masaları dilediğiniz gibi oluşturun, davetlileri oturtun. Vejetaryen menü tercihlerini tek tıkla <strong class="highlight-gold">garson PDF çıktısı</strong> haline getirin.</p>
-                                    </div>
-                                    <div class="flip-back-footer">
-                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Masaları Düzenle →</a>
-                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
-                                            <span class="material-icons-round">replay</span> Ön Yüz
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Kart 6: Düğün Günü Zaman Kayması -->
-                    <div class="flip-card" id="cozum-akis" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Düğün Günü Zaman Kayması kartını döndürmek için tıklayın">
-                        <div class="flip-card-wobble">
-                            <div class="flip-card-inner">
-                                <!-- Ön Yüz -->
-                                <div class="flip-card-front">
-                                    <div class="card-content-top">
-                                        <div class="card-icon-header-row">
-                                            <div class="card-icon-wrapper zorluk-icon">
-                                                <svg viewBox="0 0 24 24">
-                                                    <circle cx="12" cy="12" r="10"></circle>
-                                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                                </svg>
-                                            </div>
-                                            <span class="zorluk-tag">Zorluk 6</span>
-                                        </div>
-                                        <h3 class="card-title">Düğün günü zaman kayması & gecikmeler</h3>
-                                        
-                                        <!-- Görsel: Zaman Kayması Uyarısı -->
-                                        <div class="mini-budget-visual">
-                                            <div class="budget-bar-header">
-                                                <span>Kuaför Programı</span>
-                                                <span class="budget-pct text-red">+45 Dk Gecikme</span>
-                                            </div>
-                                            <div class="budget-warning">
-                                                <span class="material-icons-round" style="font-size: 13px;">schedule</span> NİKAH SAATİ RİSKTE!
-                                            </div>
-                                        </div>
-                                        
-                                        <p class="card-desc">Kuaförün uzaması, gelin almada konvoyun gecikmesi ve nikah saatine ucu ucuna yetişmeye çalışırken yaşanan <strong class="highlight-gold">büyük panik</strong>.</p>
-                                    </div>
-                                    <div class="flip-trigger-badge">
-                                        <span>Çözümü Gör</span>
-                                        <span class="material-icons-round icon-arrow">rotate_right</span>
-                                    </div>
-                                </div>
-                                
-                                <!-- Arka Yüz -->
-                                <div class="flip-card-back">
-                                    <div class="card-content-top">
-                                        <div class="card-icon-header-row">
-                                            <div class="card-icon-wrapper cozum-icon">
-                                                <svg viewBox="0 0 24 24">
-                                                    <path d="M12 2v20M2 12h20"></path>
-                                                </svg>
-                                            </div>
-                                            <span class="cozum-tag">İmece Çözümü</span>
-                                        </div>
-                                        <h3 class="card-title">Düğün günü canlı akış programı</h3>
-                                        
-                                        <!-- Görsel Mockup: Akış Programı -->
-                                        <div class="mini-app-mockup">
-                                            <div class="mockup-header">
-                                                <span class="material-icons-round" style="font-size: 11px;">access_time</span>
-                                                <span>Düğün Günü Zaman Çizelgesi</span>
-                                            </div>
-                                            <div class="mockup-todo-list">
-                                                <div class="mockup-todo-row">
-                                                    <span class="todo-title">09:00 Kuaför & Makyaj</span>
-                                                    <span class="todo-status done">Tamam</span>
-                                                </div>
-                                                <div class="mockup-todo-row">
-                                                    <span class="todo-title">13:30 Gelin Alma & Konvoy</span>
-                                                    <span class="todo-status active">Canlı Akış</span>
-                                                </div>
-                                                <div class="mockup-todo-row">
-                                                    <span class="todo-title">19:30 Nikah & İlk Dans</span>
-                                                    <span class="todo-status delay">Planlandı</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <p class="card-desc">Gelin alma, kuaför, nikah ve pasta saat saat dökülür. Tüm ekip (şoför, nedimeler, fotoğrafçı) aynı <strong class="highlight-gold">canlı akışı</strong> takip eder.</p>
-                                    </div>
-                                    <div class="flip-back-footer">
-                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Akışı Planla →</a>
-                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
-                                            <span class="material-icons-round">replay</span> Ön Yüz
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Kart 7: Düğün Tarihi Değişimi -->
                     <div class="flip-card" id="cozum-takvim" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Düğün Tarihi Değişimi kartını döndürmek için tıklayın">
                         <div class="flip-card-wobble">
@@ -1576,7 +1527,7 @@
                                             </div>
                                             <span class="cozum-tag">İmece Çözümü</span>
                                         </div>
-                                        <h3 class="card-title">6 hazır şablon, 260+ görev tek dokunuşta</h3>
+                                        <h3 class="card-title">6 hazır şablon, 250+ görev tek dokunuşta</h3>
                                         <div class="mini-app-mockup">
                                             <div class="mockup-header">
                                                 <span class="material-icons-round" style="font-size: 11px;">auto_stories</span>
@@ -1664,140 +1615,6 @@
                                     </div>
                                     <div class="flip-back-footer">
                                         <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Davetiyeni Oluştur →</a>
-                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
-                                            <span class="material-icons-round">replay</span> Ön Yüz
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Kart 11: Yapıldı denen ama yapılmayan işler -->
-                    <div class="flip-card" id="cozum-tamamlama" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Yapıldı denen ama yapılmayan işler kartını döndürmek için tıklayın">
-                        <div class="flip-card-wobble">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <div class="card-content-top">
-                                        <div class="card-icon-header-row">
-                                            <div class="card-icon-wrapper zorluk-icon">
-                                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                            </div>
-                                            <span class="zorluk-tag">Zorluk 11</span>
-                                        </div>
-                                        <h3 class="card-title">“Hallettim” denip yapılmayan işler</h3>
-                                        <div class="mini-todo-list">
-                                            <div class="mini-todo-item">
-                                                <span class="todo-check">✓</span>
-                                                <span class="todo-text">Çiçekçi kaporası — “tamam” 👍</span>
-                                            </div>
-                                            <div class="mini-todo-item alert">
-                                                <span class="todo-uncheck"></span>
-                                                <span class="todo-text">Düğüne 5 gün kala: ödenmemiş</span>
-                                            </div>
-                                        </div>
-                                        <p class="card-desc">Sözlü “hallettim” hiçbir yerde kayıtlı değildir. Eksik iş <strong class="highlight-gold">en kötü anda</strong> ortaya çıkar.</p>
-                                    </div>
-                                    <div class="flip-trigger-badge">
-                                        <span>Çözümü Gör</span>
-                                        <span class="material-icons-round icon-arrow">rotate_right</span>
-                                    </div>
-                                </div>
-                                <div class="flip-card-back">
-                                    <div class="card-content-top">
-                                        <div class="card-icon-header-row">
-                                            <div class="card-icon-wrapper cozum-icon">
-                                                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                                            </div>
-                                            <span class="cozum-tag">İmece Çözümü</span>
-                                        </div>
-                                        <h3 class="card-title">Tamamlama onayı: görev sizin onayınızla kapanır</h3>
-                                        <div class="mini-app-mockup">
-                                            <div class="mockup-header">
-                                                <span class="material-icons-round" style="font-size: 11px;">verified</span>
-                                                <span>Onay Bekleyen</span>
-                                            </div>
-                                            <div class="mockup-todo-list">
-                                                <div class="mockup-todo-row">
-                                                    <span class="todo-title">Çiçekçi kaporası</span>
-                                                    <div class="todo-meta"><span class="mockup-user-chip gold">Mert</span><span class="todo-status active">Onay bekliyor</span></div>
-                                                </div>
-                                                <div class="mockup-todo-row">
-                                                    <span class="todo-title">Davetiye baskısı</span>
-                                                    <div class="todo-meta"><span class="todo-status done">Onaylandı</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="card-desc">Görevli “Yaptım” der, iş siz onaylayınca kapanır. Kuralı etkinlik bazında açar, <strong class="highlight-gold">istediğiniz an kapatırsınız</strong>.</p>
-                                    </div>
-                                    <div class="flip-back-footer">
-                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Onay Kuralını Gör →</a>
-                                        <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
-                                            <span class="material-icons-round">replay</span> Ön Yüz
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Kart 12: Kimin ne kadar çalıştığının görünmemesi -->
-                    <div class="flip-card" id="cozum-emek" onclick="toggleFlipCard(this, event)" tabindex="0" role="button" aria-label="Kimin ne kadar çalıştığının görünmemesi kartını döndürmek için tıklayın">
-                        <div class="flip-card-wobble">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <div class="card-content-top">
-                                        <div class="card-icon-header-row">
-                                            <div class="card-icon-wrapper zorluk-icon">
-                                                <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"></path><path d="M17 5h3a3 3 0 0 1-3 3M7 5H4a3 3 0 0 0 3 3"></path></svg>
-                                            </div>
-                                            <span class="zorluk-tag">Zorluk 12</span>
-                                        </div>
-                                        <h3 class="card-title">Görünmeyen emek, sessiz kırgınlık</h3>
-                                        <div class="mini-whatsapp-chat">
-                                            <div class="chat-bubble left">
-                                                <span class="chat-name">Nedime 👭</span>
-                                                Ben varım, ne gerekirse yaparım!
-                                            </div>
-                                            <div class="chat-bubble left">
-                                                <span class="chat-name">Gelin 👰‍♀️</span>
-                                                (üç haftadır koşturan hep aynı üç kişi)
-                                            </div>
-                                        </div>
-                                        <p class="card-desc">Emek görünmeyince hem teşekkür edilecek kişi kaybolur hem de <strong class="highlight-gold">kimin boşta olduğu</strong> anlaşılmaz.</p>
-                                    </div>
-                                    <div class="flip-trigger-badge">
-                                        <span>Çözümü Gör</span>
-                                        <span class="material-icons-round icon-arrow">rotate_right</span>
-                                    </div>
-                                </div>
-                                <div class="flip-card-back">
-                                    <div class="card-content-top">
-                                        <div class="card-icon-header-row">
-                                            <div class="card-icon-wrapper cozum-icon">
-                                                <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"></path><path d="M17 5h3a3 3 0 0 1-3 3M7 5H4a3 3 0 0 0 3 3"></path></svg>
-                                            </div>
-                                            <span class="cozum-tag">İmece Çözümü</span>
-                                        </div>
-                                        <h3 class="card-title">Ekip skorboardu: emeği görünür yapar</h3>
-                                        <div class="mini-app-mockup">
-                                            <div class="mockup-header">
-                                                <span class="material-icons-round" style="font-size: 11px;">emoji_events</span>
-                                                <span>Ekip Skorboardu</span>
-                                            </div>
-                                            <div class="mockup-todo-list">
-                                                <div class="mockup-todo-row">
-                                                    <span class="todo-title">1. Ece (Nedime)</span>
-                                                    <div class="todo-meta"><span class="todo-status done">%92</span></div>
-                                                </div>
-                                                <div class="mockup-todo-row">
-                                                    <span class="todo-title">2. Mert (Sağdıç)</span>
-                                                    <div class="todo-meta"><span class="todo-status active">%74</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="card-desc">Kim kaç görevi tamamladı, tek listede. Sıralamayı herkes görür; <strong class="highlight-gold">yardım istemek zorunda kalmadan</strong> işler ilerler.</p>
-                                    </div>
-                                    <div class="flip-back-footer">
-                                        <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Skorboardu Gör →</a>
                                         <span class="flip-back-close" onclick="event.stopPropagation(); toggleFlipCard(this.closest('.flip-card'), event)">
                                             <span class="material-icons-round">replay</span> Ön Yüz
                                         </span>
@@ -2165,7 +1982,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="sim-toast" id="simToast"></div>
+                                    <div class="sim-toast" id="simToast" role="status" aria-live="polite"></div>
                                 </div>
                             </div>
                         </div>
@@ -2227,7 +2044,7 @@
 
                     </div>
                     
-                    <div class="calculator-result" id="planResultBox">
+                    <div class="calculator-result" id="planResultBox" aria-live="polite">
                         <div class="result-badge" id="recommendedPlanBadge">ÖNERİLEN PLAN</div>
                         <div id="recommendedPlanReason" style="font-size: 0.8rem; font-weight: 600; color: var(--gold-text); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; margin-bottom: 8px;"></div>
                         <h3 id="recommendedPlanTitle">Tek Bir Organizasyon Paketi</h3>
@@ -2291,6 +2108,48 @@
         </section>
 
         <!-- Fiyatlandırma / Paketler Section -->
+        <!-- Kurucu notu: fiyat karsilasmasindan hemen once guven halkasi.
+             Gercek degerlendirme verisi olmadigi icin bilerek sayi/puan/yorum
+             iddiasi YOK; dogrulanabilir taahhutler (24 saat, ucretsiz ekip,
+             veri silinmez) ve dogrudan iletisim kanali var. -->
+        <section id="kurucu" class="founder-section">
+            <div class="container">
+                <article class="founder-card">
+                    <div class="founder-quote-mark" aria-hidden="true">&#8220;</div>
+                    <blockquote class="founder-quote">
+                        <p>Bu uygulamayı önce kendi hazırlığımız için yazdık. Elektronik tabloların, unutulan kaporaların ve “ben hallederim” deyip herkesin yükünü tek başına taşıyan o bir kişinin yorgunluğunu bizzat yaşadık.</p>
+                        <p>Sizden gelen her mesajı ben okuyorum. Eksik bulduğunuz bir şey varsa yazın — İmece Düğün’ün bugünkü hâli, bu tür mesajlarla şekillendi.</p>
+                    </blockquote>
+                    <!-- <footer> DEGIL: style.css'te ciplak `footer` secicisiyle
+                         yazilmis site alt bilgisi stilleri bu kutuyu ele geciriyor. -->
+                    <div class="founder-meta">
+                        <span class="founder-sign">Burak Altındal</span>
+                        <span class="founder-role">Kurucu &amp; Geliştirici · İmece Düğün</span>
+                    </div>
+
+                    <ul class="founder-promises">
+                        <li>
+                            <span class="material-icons-round" aria-hidden="true">schedule</span>
+                            <span><b>24 saat içinde yanıt.</b> Destek ve şikayet bildirimleri en geç bir gün içinde değerlendirilir.</span>
+                        </li>
+                        <li>
+                            <span class="material-icons-round" aria-hidden="true">group</span>
+                            <span><b>Ekibiniz hiç ödemez.</b> Yalnızca hazırlığı kuran kişinin paketi yeterli; davet kodunuzla gelen herkes ücretsiz.</span>
+                        </li>
+                        <li>
+                            <span class="material-icons-round" aria-hidden="true">lock</span>
+                            <span><b>Süre biterse veriniz silinmez.</b> Kişi ve görevleriniz görünür kalır, yalnızca yeni ekleme hakkı ücretsiz limitlere döner.</span>
+                        </li>
+                    </ul>
+
+                    <a class="founder-mail" href="mailto:destek@imecedugun.com">
+                        <span class="material-icons-round" aria-hidden="true">mail</span>
+                        destek@imecedugun.com
+                    </a>
+                </article>
+            </div>
+        </section>
+
         <section id="paketler" class="pricing">
             <div class="container">
                 <div class="section-header">
@@ -2379,91 +2238,91 @@
                 
                 <div class="faq-accordion">
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-1">
                             İmece Düğün nasıl çalışır?
                             <span class="material-icons-round faq-arrow">expand_more</span>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faq-answer-1">
                             <p>Uygulamayı indirdikten sonra ilk etkinliğinizi oluşturursunuz. Sistem size özel bir davet kodu üretir. Bu kodu aile üyelerinize ve arkadaşlarınıza gönderirsiniz. Onlar da uygulamayı indirip bu kodu girerek ekibinize katılır. Artık görevleri bölüşebilir ve bütçeyi birlikte yönetebilirsiniz.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-2">
                             Uygulamada sadece düğün planlaması mı yapabilirim?
                             <span class="material-icons-round faq-arrow">expand_more</span>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faq-answer-2">
                             <p>Hayır. Düğününüzün yanı sıra söz, nişan, kına gecesi veya bekarlığa veda gibi evliliğe giden yoldaki tüm farklı tatlı telaşlarınızı ve organizasyonlarınızı da kolayca planlayabilir ve yönetebilirsiniz.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-3">
                             Nedimeler için Bekarlığa Veda / Bride planı nasıl yapılır?
                             <span class="material-icons-round faq-arrow">expand_more</span>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faq-answer-3">
                             <p>Bekarlığa Veda (Bride-to-be) hazırlığı yapacak olan nedimelerden biri uygulamada yeni bir hazırlık oluşturarak "Bekarlığa Veda / Bride" şablonunu seçer. Ardından davet kodunu diğer nedime arkadaşlarıyla paylaşarak onları da panoya dahil eder. Böylece süslemeler, mekan rezervasyonu, sürprizler ve bütçe planlaması gelin görmeden nedimeler arasında gizlice organize edilebilir, görevler ve ödemeler kolayca paylaştırılır.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-4">
                             Davet kodunu kimlerle paylaşabilirim?
                             <span class="material-icons-round faq-arrow">expand_more</span>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faq-answer-4">
                             <p>Davet kodunu düğün veya nişan hazırlığında size yardım etmesini istediğiniz herkesle paylaşabilirsiniz. Eşiniz, aile büyükleriniz, sağdıçlarınız, nedimelerinizi veya yakın arkadaşlarınız bu kodla ekibe dahil olup kendilerine atanan görevleri takip edebilirler.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-5">
                             Ödemeler tek seferlik mi, üyelik yenilenir mi?
                             <span class="material-icons-round faq-arrow">expand_more</span>
                         </button>
-                        <div class="faq-answer">
-                            <p>Tek Etkinlik Paketi 180 gün, Düğün Sezonu Pass ise 365 gün premium erişim sağlar. Her iki plan da otomatik yenilenen aboneliktir: dönem bitiminden en az 24 saat önce iptal etmezseniz aynı süre için yeniden tahsilat yapılır. Aboneliğinizi Ayarlar &gt; Apple Kimliği &gt; Abonelikler bölümünden istediğiniz zaman iptal edebilirsiniz. Premium süresi dolduğunda verileriniz silinmez; mevcut kişi ve görevleriniz görünür kalır, yalnızca yeni ekleme hakkınız ücretsiz plan limitlerine döner.</p>
+                        <div class="faq-answer" id="faq-answer-5">
+                            <p>Tek Bir Organizasyon Paketi 180 gün, Tüm Hazırlıklar Paketi ise 365 gün premium erişim sağlar. Her iki plan da otomatik yenilenen aboneliktir: dönem bitiminden en az 24 saat önce iptal etmezseniz aynı süre için yeniden tahsilat yapılır. Aboneliğinizi Ayarlar &gt; Apple Kimliği &gt; Abonelikler bölümünden istediğiniz zaman iptal edebilirsiniz. Premium süresi dolduğunda verileriniz silinmez; mevcut kişi ve görevleriniz görünür kalır, yalnızca yeni ekleme hakkınız ücretsiz plan limitlerine döner.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-6">
                             Yardımcı ekip üyelerimin de ödeme yapması gerekir mi?
                             <span class="material-icons-round faq-arrow">expand_more</span>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faq-answer-6">
                             <p>Hayır, kesinlikle gerekmez. Sadece etkinliği oluşturan ana yöneticinin (Host) premium pakete sahip olması yeterlidir. Davet kodunuzla ekibe katılan yardımcılar (Co-host ve yardımcılar) uygulamayı tamamen ücretsiz olarak indirip tüm özelliklerden yararlanabilirler.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-7">
                             Premium paketi arkadaşıma hediye edebilir miyim?
                             <span class="material-icons-round faq-arrow">expand_more</span>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faq-answer-7">
                             <p>Evet. Uygulamadan hediye paketini satın aldığınızda size 15 haneli bir hediye kodu üretilir. Kodu veya hazır paylaşım linkini arkadaşınıza gönderirsiniz; onlar uygulamada kodu girdiği anda premium hakları hesaplarına tanımlanır. Kodun kullanılıp kullanılmadığını "Hediyelerim" ekranından takip edebilirsiniz.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-8">
                             Ekipteki biri rahatsız edici davranırsa ne yapabilirim?
                             <span class="material-icons-round faq-arrow">expand_more</span>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faq-answer-8">
                             <p>Her mesaj ve yorumda şikayet ve engelleme seçeneği bulunur. Engellediğiniz kişinin mesaj ve yorumlarını görmezsiniz, size yazamaz; kendisi etkinlikte kalmaya devam eder. Etkinlik sahibiyseniz aynı adımda kişiyi ekipten tamamen de çıkarabilirsiniz. Şikayetler 24 saat içinde incelenir. Engellediğiniz kişileri ayarlardaki "Engellenen Kişiler" ekranından yönetebilirsiniz.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-9">
                             Görevlerin tamamlandığını nasıl kontrol ederim?
                             <span class="material-icons-round faq-arrow">expand_more</span>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faq-answer-9">
                             <p>Etkinlik bazında bir kural seçersiniz: görevliler işi doğrudan tamamlayabilir, ya da "Yaptım" dediklerinde görev sizin onayınızla kapanır. Dilerseniz yalnızca belirli görevler için onay isteyin. Kuralı hazırlık sürerken istediğiniz an değiştirebilirsiniz; kimin neyi tamamladığı her durumda kayıtta kalır.</p>
                         </div>
                     </div>
@@ -2488,7 +2347,7 @@
                             <span class="store-main">App Store</span>
                         </div>
                     </a>
-                    <a href="https://play.google.com" target="_blank" rel="noopener" class="store-badge-official google-play-official dark">
+                    <span class="store-badge-official google-play-official dark is-soon" role="note" aria-label="Google Play'de yakında">
                         <svg class="play-svg" viewBox="0 0 466 511.98" width="22" height="22">
                             <g>
                                 <path fill="#EA4335" fill-rule="nonzero" d="M199.9 237.8l-198.5 232.37c7.22,24.57 30.16,41.81 55.8,41.81 11.16,0 20.93,-2.79 29.3,-8.37l0 0 244.16 -139.46 -130.76 -126.35z"/>
@@ -2497,10 +2356,10 @@
                             </g>
                         </svg>
                         <div class="store-text">
-                            <span class="store-sub">GET IT ON</span>
+                            <span class="store-sub">YAKINDA</span>
                             <span class="store-main">Google Play</span>
                         </div>
-                    </a>
+                    </span>
                 </div>
             </div>
         </section>
@@ -2520,10 +2379,11 @@
                 <h4>Hızlı Bağlantılar</h4>
                 <ul>
                     <li><a href="#tanidik">Tanıdık Gelenler</a></li>
-                    <li><a href="#neden-imece">12 Zorluk & Çözüm</a></li>
+                    <li><a href="#neden-imece">Çözümler</a></li>
                     <li><a href="#gun-ici">Düğün Günü</a></li>
-                    <li><a href="#ozellikler">Özellikler</a></li>
+                    <li><a href="#hesaplayici">Plan Seçici</a></li>
                     <li><a href="#paketler">Fiyatlandırma</a></li>
+                    <li><a href="#sss">S.S.S.</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -2638,7 +2498,7 @@
             <div class="spec-section">
                 <h4>Şablon Özellikleri</h4>
                 <table class="spec-table">
-                    <tr><th>Şablon Sayısı</th><td>Otomatik üretilen 19+ temel görev listesi</td></tr>
+                    <tr><th>Şablon Sayısı</th><td>6 şablonda toplam 250+ hazır görev</td></tr>
                     <tr><th>Etkinlik Türleri</th><td>Söz, Nişan, Kına, Dış Çekim, Düğün ve Nedimeler için <strong>Bekarlığa Veda / Bride-to-be</strong></td></tr>
                     <tr><th>Zaman Planlaması</th><td>Düğün veya parti tarihine göre otomatik tarihlendirme</td></tr>
                     <tr><th>Özelleştirme</th><td>Görevleri silme, adlandırma veya yeni görev ekleme</td></tr>
@@ -2664,7 +2524,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <!-- Canvas Confetti CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <!-- Ilk boyamada gerekmiyor; yalnizca kullanici etkilesiminde calisiyor. -->
+    <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
     <!-- Interactive Scripts -->
     <script>
@@ -3759,16 +3620,20 @@
         function toggleFaq(btn) {
             const item = btn.parentElement;
             const isOpen = item.classList.contains('active');
-            
+
             document.querySelectorAll('.faq-item').forEach(el => {
                 el.classList.remove('active');
                 el.querySelector('.faq-answer').style.maxHeight = null;
+                // Akordeon tek acilir: kapatilan her basligin durumu da duyurulmali.
+                const q = el.querySelector('.faq-question');
+                if (q) q.setAttribute('aria-expanded', 'false');
             });
-            
+
             if (!isOpen) {
                 item.classList.add('active');
                 const answer = item.querySelector('.faq-answer');
                 answer.style.maxHeight = answer.scrollHeight + 'px';
+                btn.setAttribute('aria-expanded', 'true');
             }
         }
 

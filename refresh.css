@@ -21,7 +21,15 @@
 
     --n-text: #F3F1EE;
     --n-text-muted: #A6A2A8;
-    --n-text-faint: #6F6C75;
+    /* Onceki deger #6F6C75, --n-2/--n-0/--n-3 zeminlerine karsi 3.33-3.89:1
+       veriyordu; 11-13px kucuk etiketlerde kullanildigi icin WCAG AA'nin
+       4.5:1 esigini (buyuk metin istisnasi gecerli degil) gecmiyordu.
+       #8E8B95 ile (python3, WCAG bagil parlaklik formulu):
+         --n-0 (#08080A) -> 5.98:1
+         --n-2 (#131318) -> 5.54:1
+         --n-3 (#1B1B21) -> 5.12:1
+       Ucu de 4.5:1'in uzerinde. */
+    --n-text-faint: #8E8B95;
 
     /* Tek bir altin aksan. Kartlarda dolgu/kenarlik olarak degil,
        CTA ve tek kelimelik vurgularda kullanilir. */
@@ -408,6 +416,13 @@ button:focus-visible,
     .btn-primary::after {
         display: none;
     }
+    /* Cekmece ve basa don butonu: acilis/kapanis aninda olsun, kayarak degil. */
+    .nav-drawer-scrim,
+    .nav-drawer-panel,
+    .nav-toggle-bar,
+    .to-top {
+        transition: none !important;
+    }
 }
 
 /* --------------------------------------------------------------------------
@@ -755,6 +770,153 @@ body.dark-active .faq-question {
 }
 
 /* --------------------------------------------------------------------------
+   12b. Kurucu notu — fiyat oncesi guven halkasi
+   Sayfada hicbir sosyal kanit yoktu. Gercek puan/yorum verisi olmadigi icin
+   uydurma rakam yerine imzali bir not ve dogrulanabilir taahhutler var.
+   -------------------------------------------------------------------------- */
+.founder-section {
+    padding-top: var(--sec-pad);
+    padding-bottom: 0;
+}
+
+.founder-card {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(32px, 5vw, 56px);
+    border-radius: 24px;
+    border: 1px solid var(--n-line);
+    background-color: var(--n-2);
+}
+body:not(.dark-active) .founder-card {
+    border-color: var(--border-color);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Dev tirnak: dekor, ekran okuyucudan gizli, metnin arkasinda. */
+.founder-quote-mark {
+    position: absolute;
+    top: 4px;
+    left: clamp(20px, 4vw, 40px);
+    font-family: var(--font-heading);
+    font-size: 7rem;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.14;
+    pointer-events: none;
+    user-select: none;
+}
+
+.founder-quote {
+    position: relative;
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 0.95rem + 0.7vw, 1.45rem);
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+}
+.founder-quote p + p {
+    margin-top: 16px;
+}
+body.dark-active .founder-quote {
+    color: var(--n-text);
+}
+
+.founder-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--n-line);
+}
+body:not(.dark-active) .founder-meta {
+    border-top-color: var(--border-color);
+}
+.founder-sign {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+.founder-role {
+    font-size: 0.8125rem;
+    color: var(--n-text-faint);
+}
+body:not(.dark-active) .founder-role {
+    color: var(--text-light);
+}
+
+.founder-promises {
+    list-style: none;
+    margin: 30px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+}
+.founder-promises li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--n-text-muted);
+}
+body:not(.dark-active) .founder-promises li {
+    color: var(--text-muted);
+}
+.founder-promises b {
+    color: var(--n-text);
+    font-weight: 600;
+}
+body:not(.dark-active) .founder-promises b {
+    color: var(--text-main);
+}
+.founder-promises .material-icons-round {
+    font-size: 20px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.founder-mail {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--n-line-strong);
+    color: var(--accent);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.28s var(--ease-spring);
+}
+body:not(.dark-active) .founder-mail {
+    border-color: rgba(29, 29, 31, 0.16);
+    color: var(--gold-text);
+}
+.founder-mail:hover {
+    border-color: var(--accent);
+    background: rgba(217, 180, 106, 0.08);
+}
+.founder-mail:active {
+    transform: scale(0.975);
+}
+.founder-mail .material-icons-round {
+    font-size: 18px;
+}
+
+@media (max-width: 767px) {
+    .founder-quote-mark {
+        font-size: 5rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
    12. Kapanis CTA — sayfanin en belirgin dugmesi
    -------------------------------------------------------------------------- */
 .cta-bottom .cta-container {
@@ -765,4 +927,253 @@ body.dark-active .faq-question {
 .cta-bottom .central-store-buttons {
     margin-top: 34px;
     justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   13. Mobil navigasyon cekmecesi
+   .nav-links 767px altinda zaten display:none (style.css). Onun yerine
+   sagdan kayan tam ekran bir cekmece; hamburger <-> capraz gecisi transform
+   ile, layout tetiklemeden.
+   -------------------------------------------------------------------------- */
+.nav-toggle {
+    display: none;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--n-line-strong);
+    border-radius: 12px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+@media (max-width: 767px) {
+    .nav-toggle {
+        display: inline-flex;
+    }
+}
+.nav-toggle-bar {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 50%;
+    height: 2px;
+    background: var(--n-text);
+    border-radius: 2px;
+    transform: translateY(-4px);
+    transition: transform 0.35s var(--ease-out-expo);
+}
+.nav-toggle-bar:nth-child(2) {
+    transform: translateY(3px);
+}
+/* Capraz: iki cubuk ortada bulusup zit yonde donuyor. Yalnizca transform
+   degisiyor, boylece gecis GPU'da kalir. */
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+    transform: translateY(0) rotate(-45deg);
+}
+
+/* Cekmece: tam ekran katman. .navbar z-index:1000 oldugu icin daha dusuk
+   bir deger (ör. 120) cekmeceyi navbar'in ARKASINDA birakir — ust seritte
+   navbar'in kendi (opak/blur) zemini cekmecenin uzerini kapatir. Bu yuzden
+   navbar'in ustunde kaliyor. */
+.nav-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 1010;
+}
+/* [hidden] normalde UA stilinden display:none alir; asagida display atayan
+   bir kural yok ama guvenlik agi olarak aciktan yaziliyor. */
+.nav-drawer[hidden] {
+    display: none;
+}
+
+.nav-drawer-scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 4, 6, 0.68);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-out-expo);
+}
+.nav-drawer.is-open .nav-drawer-scrim {
+    opacity: 1;
+}
+
+.nav-drawer-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: min(86vw, 360px);
+    background: var(--n-1);
+    border-left: 1px solid var(--n-line);
+    box-shadow: -24px 0 60px rgba(0, 0, 0, 0.4);
+    padding: calc(20px + env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) calc(20px + env(safe-area-inset-bottom)) 20px;
+    overflow-y: auto;
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.45s var(--ease-out-expo);
+}
+.nav-drawer.is-open .nav-drawer-panel {
+    transform: translate3d(0, 0, 0);
+}
+
+.nav-drawer-panel a:not(.nav-drawer-cta) {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    color: var(--n-text);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.98rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--n-line);
+    transition: color 0.25s ease;
+}
+.nav-drawer-panel a:not(.nav-drawer-cta):hover,
+.nav-drawer-panel a:not(.nav-drawer-cta):focus-visible {
+    color: var(--accent);
+}
+.nav-drawer-cta {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   14. Okuma ilerleme cubugu
+   navbar'in altina yaslanan ince cizgi. width degil transform: scaleX
+   kullaniliyor ki her scroll frame'inde layout tetiklenmesin.
+   -------------------------------------------------------------------------- */
+.read-progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: transparent;
+    pointer-events: none;
+}
+.read-progress i {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: var(--accent);
+    transform-origin: left;
+    transform: scaleX(0);
+    /* Kasitli olarak transition yok: bu bir gosterge, sus degil — oran
+       her zaman gercek scroll konumunu birebir yansitmali. */
+}
+
+/* --------------------------------------------------------------------------
+   15. Scroll-spy — aktif bolum vurgusu
+   -------------------------------------------------------------------------- */
+.nav-links a[aria-current="true"] {
+    color: var(--accent);
+}
+.nav-links a[aria-current="true"]::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.nav-drawer-panel a[aria-current="true"] {
+    color: var(--accent);
+    background: rgba(217, 180, 106, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   16. "Basa don" butonu
+   -------------------------------------------------------------------------- */
+.to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 95;
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--n-2);
+    border: 1px solid var(--n-line-strong);
+    color: var(--accent);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(14px);
+    pointer-events: none;
+    transition:
+        opacity 0.3s var(--ease-out-expo),
+        transform 0.3s var(--ease-out-expo),
+        bottom 0.3s ease;
+}
+.to-top.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+@media (hover: hover) and (pointer: fine) {
+    .to-top:hover {
+        border-color: var(--accent);
+    }
+}
+.to-top:active {
+    transform: scale(0.94);
+}
+/* Mobilde .sticky-cta cubugu ayni koseyi kullaniyor; ustune biner.
+   Cubugun yaklasik yuksekligi (~68px) + guvenli alan kadar pay birakiliyor. */
+@media (max-width: 767px) {
+    .to-top {
+        right: 16px;
+        bottom: calc(84px + env(safe-area-inset-bottom));
+    }
+}
+
+/* --------------------------------------------------------------------------
+   17. "Yakinda" rozeti — Google Play
+   Urun henuz yayinda degil; rozet olu degil "beklemede" hissi vermeli.
+   -------------------------------------------------------------------------- */
+.store-badge-official.is-soon {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+    .store-badge-official.is-soon:hover {
+        transform: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+}
+.store-badge-official.is-soon .store-sub {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 0.56rem;
+}
+
+/* --------------------------------------------------------------------------
+   18. Klavye erisilebilirligi — icerige atla baglantisi
+   -------------------------------------------------------------------------- */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 200;
+    padding: 12px 20px;
+    background: var(--n-2);
+    border: 1px solid var(--accent);
+    border-radius: 0 0 10px 0;
+    color: var(--n-text);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+.skip-link:focus {
+    left: 0;
 }

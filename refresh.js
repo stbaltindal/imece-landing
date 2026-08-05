@@ -74,6 +74,7 @@
         ".calculator-container",
         ".features .section-header",
         ".feature-card",
+        ".founder-card",
         ".pricing .section-header",
         ".pricing-card",
         ".faq-section .section-header",
@@ -306,11 +307,245 @@
         }
     }
 
+    /* ----------------------------------------------------------------------
+       6. Mobil navigasyon cekmecesi
+       index.html'de zaten var olan #navToggle / #navDrawer markup'ini
+       kablolar: ac/kapa, govde kilidi, odak tuzagi, disari tiklama/Escape/
+       resize ile kapanma.
+       ---------------------------------------------------------------------- */
+    function initNavDrawer() {
+        var toggle = document.getElementById("navToggle");
+        var drawer = document.getElementById("navDrawer");
+        if (!toggle || !drawer) return;
+
+        var panel = drawer.querySelector(".nav-drawer-panel");
+        var scrim = drawer.querySelector(".nav-drawer-scrim");
+        var closers = Array.prototype.slice.call(drawer.querySelectorAll("[data-nav-close]"));
+        var lockedOverflow = null;
+        var isOpen = false;
+
+        function focusableItems() {
+            if (!panel) return [];
+            return Array.prototype.slice.call(
+                panel.querySelectorAll('a[href], button:not([disabled])')
+            );
+        }
+
+        function trapFocus(e) {
+            if (e.key !== "Tab") return;
+            var items = focusableItems();
+            if (!items.length) return;
+            var first = items[0];
+            var last = items[items.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+
+        function onKeydown(e) {
+            if (e.key === "Escape") {
+                close();
+            } else {
+                trapFocus(e);
+            }
+        }
+
+        function onResize() {
+            if (isOpen && window.innerWidth >= 768) close();
+        }
+
+        function open() {
+            if (isOpen) return;
+            isOpen = true;
+            drawer.removeAttribute("hidden");
+            // Bir sonraki frame'de sinif eklenir; aksi halde hidden -> is-open
+            // ayni frame'de olur ve gecis calismaz (baslangic durumu boyanmaz).
+            window.requestAnimationFrame(function () {
+                drawer.classList.add("is-open");
+            });
+            toggle.setAttribute("aria-expanded", "true");
+            toggle.setAttribute("aria-label", "Menüyü kapat");
+
+            lockedOverflow = document.body.style.overflow;
+            document.body.style.overflow = "hidden";
+
+            document.addEventListener("keydown", onKeydown);
+            window.addEventListener("resize", onResize);
+
+            var items = focusableItems();
+            if (items.length) items[0].focus();
+        }
+
+        function close() {
+            if (!isOpen) return;
+            isOpen = false;
+            drawer.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.setAttribute("aria-label", "Menüyü aç");
+
+            document.body.style.overflow = lockedOverflow || "";
+            lockedOverflow = null;
+
+            document.removeEventListener("keydown", onKeydown);
+            window.removeEventListener("resize", onResize);
+
+            var finished = false;
+            function hide() {
+                if (finished) return;
+                finished = true;
+                drawer.setAttribute("hidden", "");
+            }
+            if (panel && !reduceMotion) {
+                panel.addEventListener("transitionend", hide, { once: true });
+                window.setTimeout(hide, 400);
+            } else {
+                hide();
+            }
+
+            toggle.focus();
+        }
+
+        toggle.addEventListener("click", function () {
+            if (isOpen) close(); else open();
+        });
+
+        closers.forEach(function (el) {
+            el.addEventListener("click", function () {
+                // Ankor linkleri: once cekmece kapansin, sonra kaydirma olsun —
+                // govde kilitliyken (overflow:hidden) ankor kaydirmasi calismaz.
+                close();
+            });
+        });
+        if (scrim) {
+            scrim.addEventListener("click", close);
+        }
+    }
+
+    /* ----------------------------------------------------------------------
+       7. Okuma ilerleme cubugu
+       navbar'in altina ince bir cizgi ekler; scaleX ile kaydirma oranini
+       gosterir. rAF ile throttle edilir, width degil transform yazilir.
+       ---------------------------------------------------------------------- */
+    function initReadProgress() {
+        var navbar = document.querySelector(".navbar");
+        if (!navbar) return;
+
+        var wrap = document.createElement("div");
+        wrap.className = "read-progress";
+        wrap.setAttribute("aria-hidden", "true");
+        wrap.innerHTML = "<i></i>";
+        navbar.appendChild(wrap);
+
+        var bar = wrap.querySelector("i");
+        var ticking = false;
+
+        function update() {
+            ticking = false;
+            var max = document.documentElement.scrollHeight - window.innerHeight;
+            var ratio = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+            bar.style.transform = "scaleX(" + ratio + ")";
+        }
+
+        window.addEventListener("scroll", function () {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(update);
+        }, { passive: true });
+        window.addEventListener("resize", function () {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(update);
+        });
+
+        update();
+    }
+
+    /* ----------------------------------------------------------------------
+       8. Scroll-spy — aktif bolum vurgusu
+       Gorunur bolume karsilik gelen nav linkine (hem ust menu hem cekmece)
+       aria-current="true" ekler.
+       ---------------------------------------------------------------------- */
+    var SPY_SECTIONS = ["tanidik", "neden-imece", "gun-ici", "hesaplayici", "paketler", "sss"];
+
+    function initScrollSpy() {
+        if (!("IntersectionObserver" in window)) return;
+
+        var sections = SPY_SECTIONS
+            .map(function (id) { return document.getElementById(id); })
+            .filter(Boolean);
+        if (!sections.length) return;
+
+        function linksFor(id) {
+            return Array.prototype.slice.call(
+                document.querySelectorAll('.nav-links a[href="#' + id + '"], .nav-drawer-panel a[href="#' + id + '"]')
+            );
+        }
+
+        function setActive(id) {
+            SPY_SECTIONS.forEach(function (sid) {
+                linksFor(sid).forEach(function (a) {
+                    if (sid === id) {
+                        a.setAttribute("aria-current", "true");
+                    } else {
+                        a.removeAttribute("aria-current");
+                    }
+                });
+            });
+        }
+
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) setActive(entry.target.id);
+            });
+        }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+
+        sections.forEach(function (el) { io.observe(el); });
+    }
+
+    /* ----------------------------------------------------------------------
+       9. "Basa don" butonu
+       ---------------------------------------------------------------------- */
+    function initToTop() {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "to-top";
+        btn.setAttribute("aria-label", "Sayfa başına dön");
+        btn.innerHTML = '<span class="material-icons-round" aria-hidden="true">arrow_upward</span>';
+        document.body.appendChild(btn);
+
+        var visible = false;
+        function apply() {
+            var next = window.scrollY > window.innerHeight * 2;
+            if (next !== visible) {
+                visible = next;
+                btn.classList.toggle("is-visible", visible);
+            }
+        }
+
+        window.addEventListener("scroll", function () {
+            window.requestAnimationFrame(apply);
+        }, { passive: true });
+
+        btn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+        });
+
+        apply();
+    }
+
     ready(function () {
         initNightTheme();
         initPainCollapse();
         initKrizRail();
         initStickyCta();
+        initNavDrawer();
+        initReadProgress();
+        initScrollSpy();
+        initToTop();
         // Reveal en sona: ray/liste DOM'u yerine oturduktan sonra baglanir.
         initReveal();
     });

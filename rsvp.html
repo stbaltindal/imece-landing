@@ -1100,6 +1100,18 @@
             box-shadow: 0 4px 14px rgba(168, 132, 27, 0.35);
         }
 
+        .legal-footer-link {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--text-light);
+        }
+
+        .legal-footer-link a {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
         .card-brand-arrow {
             display: inline-flex;
             align-items: center;
@@ -1477,6 +1489,8 @@
                 </div>
             </div>
         </div>
+
+        <p class="legal-footer-link"><a href="/gizlilik.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a></p>
     </div>
 
     <!-- KVKK Aydınlatma Metni Modal -->
@@ -1501,8 +1515,8 @@
         const SUPABASE_URL = 'https://zlpvypxlbkgfkohxenqa.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_ZtXozK5lQQMPauf_2Rr9Tg_0spREdFg';
 
-        const APP_STORE_URL = ''; // TODO: App Store linki hazır olunca doldurulacak
-        const PLAY_STORE_URL = ''; // TODO: Play Store linki hazır olunca doldurulacak
+        const APP_STORE_URL = 'https://apps.apple.com/tr/app/id6794826834';
+        const PLAY_STORE_URL = ''; // Android/Google Play'de henüz yayında değil
 
         const rpcHeaders = {
             'apikey': SUPABASE_ANON_KEY,
