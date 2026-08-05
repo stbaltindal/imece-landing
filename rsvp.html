@@ -24,6 +24,9 @@
             --text-muted: #6E6E73;
             --text-light: #8C857B;
             --gold: #C5A059;
+            /* Metin olarak kullanilan altin: --gold beyaz zeminde 2.46:1,
+               bu ton 6.34:1. Zemin/ikon kullanimlari --gold ile devam ediyor. */
+            --gold-text: #7A5A20;
             --gold-accent: #D4AF37;
             --gold-light: #F9F3EA;
             --gold-border: rgba(212, 175, 55, 0.35);
@@ -130,7 +133,7 @@
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-size: 1.25rem;
-            color: var(--gold);
+            color: var(--gold-text);
             margin-bottom: 4px;
             letter-spacing: 0.04em;
         }
@@ -205,7 +208,7 @@
         .couple-names {
             font-family: var(--font-heading);
             font-style: italic;
-            color: var(--gold);
+            color: var(--gold-text);
             font-size: 0.95rem;
             margin: 0 0 8px;
         }
@@ -216,7 +219,7 @@
             gap: 6px;
             font-size: 0.82rem;
             font-weight: 600;
-            color: var(--gold);
+            color: var(--gold-text);
             background-color: #FFFFFF;
             border: 1px solid var(--gold-border);
             padding: 6px 14px;
@@ -581,7 +584,7 @@
             font-family: var(--font-body);
             font-size: 0.8rem;
             font-weight: 600;
-            color: var(--gold);
+            color: var(--gold-text);
             background-color: var(--gold-light);
             border: 1px solid var(--gold-border);
             border-radius: 10px;
@@ -607,7 +610,7 @@
         }
 
         .allergy-note-count.warn {
-            color: var(--gold);
+            color: var(--gold-text);
         }
 
         .allergy-note-count.danger {
@@ -754,7 +757,7 @@
         .timeline-time {
             font-size: 0.78rem;
             font-weight: 600;
-            color: var(--gold);
+            color: var(--gold-text);
             font-variant-numeric: tabular-nums;
             white-space: nowrap;
             margin-bottom: 0;
@@ -958,13 +961,13 @@
         }
 
         .web-invite p strong {
-            color: var(--gold);
+            color: var(--gold-text);
         }
 
         .web-invite a {
             font-size: 0.82rem;
             font-weight: 600;
-            color: var(--gold);
+            color: var(--gold-text);
             text-decoration: none;
         }
 
@@ -1031,7 +1034,7 @@
             font-family: var(--font-heading);
             font-size: 0.9rem;
             font-weight: 700;
-            color: var(--gold);
+            color: var(--gold-text);
             line-height: 1.2;
             letter-spacing: 0.01em;
         }
@@ -1156,7 +1159,7 @@
             margin: 0;
             font: inherit;
             font-weight: 600;
-            color: var(--gold);
+            color: var(--gold-text);
             text-decoration: underline;
             text-underline-offset: 2px;
             cursor: pointer;
@@ -1241,7 +1244,7 @@
         }
 
         .privacy-modal-body a {
-            color: var(--gold);
+            color: var(--gold-text);
             font-weight: 600;
             text-decoration: underline;
         }

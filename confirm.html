@@ -18,6 +18,9 @@
             --text-muted: #6E6E73;
             --text-light: #8C857B;
             --gold: #C5A059;
+            /* Metin olarak kullanilan altin: --gold beyaz zeminde 2.46:1,
+               bu ton 6.34:1. Zemin/ikon kullanimlari --gold ile devam ediyor. */
+            --gold-text: #7A5A20;
             --gold-accent: #D4AF37;
             --gold-light: #F9F3EA;
             --gold-border: rgba(212, 175, 55, 0.35);
@@ -125,7 +128,7 @@
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-size: 1.25rem;
-            color: var(--gold);
+            color: var(--gold-text);
             margin-bottom: 4px;
             letter-spacing: 0.04em;
         }
@@ -241,7 +244,7 @@
         }
 
         .footer-branding strong {
-            color: var(--gold);
+            color: var(--gold-text);
         }
 
         @media (max-width: 480px) {

@@ -16,7 +16,11 @@
     --primary: hsl(0, 36%, 74%);         /* Pastel Rose: #D4A5A5 */
     --primary-dark: hsl(0, 30%, 60%);
     --primary-light: hsl(0, 35%, 96%);
-    --gold: #C5A059;                     /* Premium Champagne Gold for interactive states */
+    --gold: #C5A059;
+    /* Metin olarak kullanilan altin. --gold beyaz zeminde 2.46:1 veriyordu
+       (WCAG AA 4.5:1 ister); bu koyu ton 6.34:1. Zemin/dolgu/ikon
+       kullanimlarinda --gold aynen korunuyor. */
+    --gold-text: #7A5A20;                     /* Premium Champagne Gold for interactive states */
     --gold-light: #F4ECE1;
     /* Denetimde --gold disinda tespit edilen tekrarlanan altin tonlari:
        hardcoded hex'ler yerine kullanim baglamina gore adlandirilmis token'lar. */
@@ -1413,7 +1417,7 @@ label,
 }
 
 .budget-val-amount.actual {
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .budget-progress-bar-wrapper {
@@ -1523,7 +1527,7 @@ label,
 }
 
 .comparison-card.positive h3 {
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .comparison-card.positive::before {
@@ -1764,7 +1768,7 @@ label,
     font-family: 'Inter', sans-serif;
     font-size: 0.72rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--gold-text);
     text-transform: uppercase;
     letter-spacing: 1.2px;
 }
@@ -1783,7 +1787,7 @@ label,
 }
 
 .flip-card-back .card-title {
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .card-desc {
@@ -1844,7 +1848,7 @@ label,
 
 .chat-bubble.system {
     background: rgba(201, 162, 39, 0.08);
-    color: var(--gold);
+    color: var(--gold-text);
     align-self: center;
     max-width: 100%;
     font-size: 0.72rem;
@@ -2029,7 +2033,7 @@ label,
     gap: 6px;
     font-size: 0.65rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--gold-text);
     text-transform: uppercase;
     letter-spacing: 0.8px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -2117,7 +2121,7 @@ label,
 }
 
 .mockup-bubble.right .mockup-chat-name {
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 /* Task Allocation Mockup (Native App style) */
@@ -2187,7 +2191,7 @@ label,
 
 .todo-status.active {
     background: rgba(201, 162, 39, 0.15);
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .todo-status.delay {
@@ -2320,7 +2324,7 @@ label,
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--gold);
+    color: var(--gold-text);
     background: rgba(201, 162, 39, 0.06);
     border: 1px solid rgba(201, 162, 39, 0.4);
     border-radius: var(--radius-sm);
@@ -2542,7 +2546,7 @@ label,
 .details-link {
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--gold-text);
     display: flex;
     align-items: center;
     gap: 4px;
@@ -2780,7 +2784,7 @@ label,
 }
 
 .gold-text {
-    color: var(--gold);
+    color: var(--gold-text);
     font-weight: 700;
     font-size: 1.25rem;
     margin-left: 4px;
@@ -2898,7 +2902,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     display: inline-block;
     padding: 4px 10px;
     background-color: var(--gold-light);
-    color: var(--gold);
+    color: var(--gold-text);
     font-size: 0.7rem;
     font-weight: 700;
     border-radius: 20px;
@@ -2916,7 +2920,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     font-family: var(--font-heading);
     font-size: 2.8rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--gold-text);
     margin-bottom: var(--space-sm);
 }
 
@@ -3121,7 +3125,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 .faq-question:hover {
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .faq-question:focus-visible {
@@ -3360,7 +3364,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .footer-contact p {
@@ -3380,7 +3384,7 @@ footer {
 }
 
 .email-link:hover {
-    color: var(--gold);
+    color: var(--gold-text);
     border-bottom-color: transparent;
 }
 
@@ -4200,7 +4204,7 @@ body.dark-active .details-card p {
 }
 
 .team-card.active span {
-    color: var(--gold);
+    color: var(--gold-text);
     transform: scale(1.1);
 }
 
@@ -4516,7 +4520,7 @@ body.dark-active .app-header-mini {
 }
 
 .sim-info-item span {
-    color: var(--gold);
+    color: var(--gold-text);
     font-size: 1.4rem;
 }
 
@@ -5128,7 +5132,7 @@ body.dark-active .app-header-mini {
 }
 
 .tpl-link {
-    color: var(--gold);
+    color: var(--gold-text);
     font-weight: 700;
     font-size: 0.9rem;
     text-decoration: none;
@@ -5425,7 +5429,7 @@ body.dark-active .app-header-mini {
 .music-badge {
     font-size: 0.65rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .music-badge.gold {
@@ -5591,7 +5595,7 @@ body.dark-active .app-header-mini {
 
 .host-approval-status {
     font-size: 0.7rem;
-    color: var(--gold);
+    color: var(--gold-text);
     background: rgba(201, 162, 39, 0.1);
     padding: 6px;
     border-radius: 6px;
@@ -5718,7 +5722,7 @@ body.dark-active .app-header-mini {
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(255, 248, 230, 0.25) 100%);
     border: 1px solid rgba(212, 175, 55, 0.4);
     border-radius: 50px;
-    color: var(--gold);
+    color: var(--gold-text);
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -5875,7 +5879,7 @@ body.dark-active .app-header-mini {
     font-family: 'Playfair Display', serif;
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--gold-text);
     opacity: 0.8;
 }
 
@@ -6041,7 +6045,7 @@ body.dark-active .app-header-mini {
     font-size: 0.86rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .hero-badge-sep {
@@ -6326,7 +6330,7 @@ body.dark-active .app-header-mini {
     font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 0.12em;
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .pain-result-body h3 {
@@ -6534,7 +6538,7 @@ body.dark-active .app-header-mini {
     font-weight: 700;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .gunici-desc {
@@ -6758,7 +6762,7 @@ body.dark-active .app-header-mini {
 
 .tl-time {
     font-weight: 800;
-    color: var(--gold);
+    color: var(--gold-text);
     width: 40px;
     flex-shrink: 0;
 }
@@ -7533,7 +7537,7 @@ body.dark-active .sim-block-label {
     background: rgba(255, 255, 255, 0.035);
 }
 
-.stage-row b { color: var(--gold); margin-right: 6px; }
+.stage-row b { color: var(--gold-text); margin-right: 6px; }
 
 .action-map-btn {
     display: inline-flex;
@@ -7580,7 +7584,7 @@ body.dark-active .sim-block-label {
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .proposal-title {
@@ -7765,7 +7769,7 @@ html.hero-story-active .hero-story-hud {
 }
 
 .hero-story-hud.awaiting .hero-hud-hint {
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 @media (prefers-reduced-motion: reduce) {

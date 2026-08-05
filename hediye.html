@@ -33,6 +33,9 @@
             --text-muted: #6E6E73;
             --text-light: #8C857B;
             --gold: #C5A059;
+            /* Metin olarak kullanilan altin: --gold beyaz zeminde 2.46:1,
+               bu ton 6.34:1. Zemin/ikon kullanimlari --gold ile devam ediyor. */
+            --gold-text: #7A5A20;
             --gold-accent: #D4AF37;
             --gold-light: #F9F3EA;
             --gold-border: rgba(184, 134, 11, 0.28);
@@ -217,7 +220,7 @@
             font-family: var(--font-italic);
             font-style: italic;
             font-size: 1.25rem;
-            color: var(--gold);
+            color: var(--gold-text);
             margin-bottom: 4px;
             letter-spacing: 0.03em;
         }
@@ -286,7 +289,7 @@
             font-style: italic;
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--gold);
+            color: var(--gold-text);
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -319,7 +322,7 @@
             font-family: var(--font-italic);
             font-style: italic;
             font-size: 1.05rem;
-            color: var(--gold);
+            color: var(--gold-text);
             font-weight: 600;
             text-align: right;
             margin-top: 4px;
@@ -340,7 +343,7 @@
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--gold-text);
             margin-bottom: 8px;
             display: block;
         }
@@ -538,7 +541,7 @@
         .site-footer span {
             font-family: var(--font-italic);
             font-style: italic;
-            color: var(--gold);
+            color: var(--gold-text);
             font-size: 0.95rem;
         }
 
