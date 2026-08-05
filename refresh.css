@@ -1,0 +1,768 @@
+/* ==========================================================================
+   İmece Düğün — Refresh Layer
+   style.css'in ustune biner. Amac: premium gece paleti, gorsel sadelestirme,
+   kaydirma tetikli mikro-etkilesimler, dokunmatik oncelikli yogunluk yonetimi.
+   Bu dosya bilerek ayri tutuldu: geri almak icin tek <link> silmek yeterli.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Gece yuzey olcegi & hareket egrileri
+   -------------------------------------------------------------------------- */
+:root {
+    /* Gece katmanlari: her basamak bir yukseklik seviyesi. Altin artik
+       kenarlik degil, yalnizca vurgu. */
+    --n-0: #08080A;   /* sayfa zemini */
+    --n-1: #0D0D10;   /* alternatif bolum */
+    --n-2: #131318;   /* kart */
+    --n-3: #1B1B21;   /* yukseltilmis kart / hover */
+
+    --n-line: rgba(255, 255, 255, 0.08);
+    --n-line-strong: rgba(255, 255, 255, 0.16);
+
+    --n-text: #F3F1EE;
+    --n-text-muted: #A6A2A8;
+    --n-text-faint: #6F6C75;
+
+    /* Tek bir altin aksan. Kartlarda dolgu/kenarlik olarak degil,
+       CTA ve tek kelimelik vurgularda kullanilir. */
+    --accent: #D9B46A;
+    --accent-deep: #B08A3C;
+
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.30, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Bolum ritmi: negatif alan burada uretiliyor. */
+    --sec-pad: clamp(72px, 7.5vw, 124px);
+    --stack-lg: clamp(40px, 5vw, 72px);
+}
+
+.dark-overlay {
+    background-color: var(--n-0);
+    /* Mobil/reduced-motion yolunda JS scrub yok; gecis CSS'e birakildi. */
+    transition: opacity 0.6s ease;
+}
+.dark-overlay.is-on {
+    opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   2. Tipografi hiyerarsisi
+   Playfair yalnizca buyuk anlatim basliklarinda kalir. Kart basliklari
+   Inter'e cekilir: 12 kartin ust uste serif olmasi gurultunun yarisiydi.
+   -------------------------------------------------------------------------- */
+h3,
+h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: -0.021em;
+    line-height: 1.3;
+}
+
+/* style.css bu basliklara daha ozgul secicilerle Playfair veriyor;
+   kart baslikları burada tek tek Inter'e cekiliyor. */
+.card-title,
+.asistan-card h3,
+.gunici-head h3,
+.feature-card h3,
+.details-card h3,
+.template-card h3,
+.timeline-card-header h3,
+.surprise-content-box h3,
+.rsvp-sim-controls h3,
+.calculator-result h3,
+.comparison-card h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: -0.021em;
+}
+
+/* Anlatim rolundeki h3'ler serif kalir. */
+.section-header h3,
+.pain-result-body h3,
+.cta-container h3,
+.pricing-header h3 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+}
+
+h2 {
+    line-height: 1.15;
+}
+
+.section-header {
+    max-width: 62ch;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--stack-lg);
+}
+
+.section-subtitle {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    max-width: 58ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Bolum etiketi: dolgulu altin rozet yerine ince harf araligi.
+   Sayfada 9 tane vardi; hepsi ayni anda dikkat cekiyordu. */
+.section-tag,
+.section-tag.gold {
+    background: none !important;
+    border: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    color: var(--n-text-faint) !important;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 18px;
+}
+body:not(.dark-active) .section-tag,
+body:not(.dark-active) .section-tag.gold {
+    color: var(--text-light) !important;
+}
+
+/* Altin gradyan basliklar: gradyan yerine duz aksan.
+   Gradyan metin alt satirlarda kirpiliyor ve okunurlugu dusuruyordu. */
+body.dark-active .text-gold-gradient {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: currentColor !important;
+    color: var(--accent) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Bolum ritmi — nefes alani
+   -------------------------------------------------------------------------- */
+.pain-check-section,
+.kriz-cozum-section,
+.asistan-section,
+.gunici-section,
+.rsvp-showcase-section,
+.interactive-calculator,
+.features,
+.pricing,
+.faq-section,
+.cta-bottom {
+    padding-top: var(--sec-pad);
+    padding-bottom: var(--sec-pad);
+}
+
+/* Gece bolumleri arasinda sessiz bir zemin farki: cizgi cekmeden ayirir. */
+body.dark-active .asistan-section,
+body.dark-active .features,
+body.dark-active .faq-section {
+    background-color: rgba(255, 255, 255, 0.014);
+}
+
+/* --------------------------------------------------------------------------
+   4. Gece yuzeyleri — altin kenarliklarin temizligi
+   -------------------------------------------------------------------------- */
+body.dark-active .flip-card-front,
+body.dark-active .flip-card-back,
+body.dark-active .asistan-card,
+body.dark-active .gunici-card,
+body.dark-active .details-card,
+body.dark-active .feature-card,
+body.dark-active .pricing-card,
+body.dark-active .calculator-container,
+body.dark-active .calculator-result,
+body.dark-active .comparison-card {
+    background-color: var(--n-2) !important;
+    background-image: none !important;
+    border: 1px solid var(--n-line) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+    transition:
+        transform 0.45s var(--ease-out-expo),
+        border-color 0.45s ease,
+        box-shadow 0.45s ease,
+        background-color 0.45s ease;
+}
+
+body.dark-active .flip-card-front,
+body.dark-active .flip-card-back {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Kart ici mockup panelleri: bir alt basamak, kenarlik yok. */
+body.dark-active .asistan-mockup,
+body.dark-active .gunici-mock,
+body.dark-active .card-mockup,
+body.dark-active .mini-mockup {
+    background-color: rgba(255, 255, 255, 0.035) !important;
+    border-color: var(--n-line) !important;
+    box-shadow: none !important;
+}
+
+/* Hesaplayici sonuc karti: metin renkleri satir ici stille acik zemine
+   gore yazilmisti; koyu yuzeyde okunmuyordu. */
+body.dark-active .calculator-result .plan-features-list > div,
+body.dark-active .calculator-result .plan-features-list span {
+    color: var(--n-text) !important;
+}
+body.dark-active .calculator-result .price-period,
+body.dark-active .calculator-result #recommendedPlanPeriod {
+    color: var(--n-text-faint) !important;
+}
+body.dark-active .calculator-result #recommendedPlanDesc {
+    color: var(--n-text-muted) !important;
+}
+body.dark-active .calculator-result .plan-features-list {
+    border-top-color: var(--n-line) !important;
+}
+body.dark-active .result-badge {
+    background: rgba(217, 180, 106, 0.12) !important;
+    border: 1px solid rgba(217, 180, 106, 0.28) !important;
+    color: var(--accent) !important;
+    box-shadow: none !important;
+}
+
+/* Altin ikon kutulari: dolgu yerine ince cerceve. */
+body.dark-active .asistan-icon-wrap,
+body.dark-active .gunici-icon,
+body.dark-active .card-icon-wrapper,
+body.dark-active .feature-icon-wrapper,
+body.dark-active .details-card-icon {
+    background: rgba(217, 180, 106, 0.10) !important;
+    border: 1px solid rgba(217, 180, 106, 0.20) !important;
+    box-shadow: none !important;
+    color: var(--accent) !important;
+}
+body.dark-active .asistan-icon-wrap .material-icons-round,
+body.dark-active .gunici-icon .material-icons-round,
+body.dark-active .feature-icon-wrapper .material-icons-round,
+body.dark-active .details-card-icon .material-icons-round {
+    color: var(--accent) !important;
+}
+
+/* Sira numaralari / kickerlar: bilgi degil dekor. Geri cekiliyor. */
+body.dark-active .asistan-ordinal {
+    color: rgba(255, 255, 255, 0.045) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.045) !important;
+    background: none !important;
+}
+body.dark-active .asistan-tag,
+body.dark-active .gunici-kicker {
+    background: none !important;
+    border: 0 !important;
+    padding: 0 !important;
+    color: var(--n-text-faint) !important;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+body.dark-active .asistan-desc,
+body.dark-active .gunici-desc,
+body.dark-active .flip-card-front p,
+body.dark-active .flip-card-back p {
+    color: var(--n-text-muted) !important;
+}
+
+/* Govde metnindeki altin ic vurgular: gece zemininde satir satir
+   altin kelime okumayi yoruyordu. Beyaz + agirlik yeterli. */
+body.dark-active .asistan-desc strong,
+body.dark-active .gunici-desc strong,
+body.dark-active .flip-card-back p strong,
+body.dark-active .flip-card-front p strong {
+    color: var(--n-text) !important;
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   5. Mikro-etkilesimler
+   -------------------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+    body.dark-active .asistan-card:hover,
+    body.dark-active .gunici-card:hover,
+    body.dark-active .feature-card:hover,
+    body.dark-active .details-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--n-line-strong) !important;
+        background-color: var(--n-3) !important;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45) !important;
+    }
+}
+
+/* Butonlar: tek bir basma/parlama dili. */
+.btn {
+    border-radius: 12px;
+    transition:
+        transform 0.28s var(--ease-spring),
+        box-shadow 0.28s ease,
+        background-color 0.28s ease,
+        color 0.28s ease;
+    will-change: transform;
+}
+.btn:active {
+    transform: scale(0.975);
+}
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+/* Isik suzulmesi: yalnizca hover'da, tek gecis. */
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 35%,
+        rgba(255, 255, 255, 0.35) 50%,
+        transparent 65%
+    );
+    transform: translateX(-120%);
+    pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(176, 138, 60, 0.35);
+    }
+    .btn-primary:hover::after {
+        transform: translateX(120%);
+        transition: transform 0.75s var(--ease-out-expo);
+    }
+}
+
+/* Klavye odagi: gece zemininde gorunur tek bir halka. */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
+/* Magaza rozetleri */
+.store-badge-official {
+    transition:
+        transform 0.28s var(--ease-spring),
+        box-shadow 0.28s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+    .store-badge-official:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+    }
+}
+.store-badge-official:active {
+    transform: scale(0.97);
+}
+
+/* --------------------------------------------------------------------------
+   6. Kaydirma tetikli goruntuleme
+   IntersectionObserver .is-in ekler. Yalnizca opacity + transform:
+   layout tetiklemez, telefonlarda da 60fps kalir.
+   -------------------------------------------------------------------------- */
+[data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+    transition:
+        opacity 0.7s var(--ease-out-expo),
+        transform 0.7s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+[data-reveal].is-in {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+/* Animasyon bitince will-change birakilir. */
+[data-reveal].is-settled {
+    will-change: auto;
+    transition: none;
+}
+
+/* Dekoratif derinlik: destekleyen tarayicilarda kaydirma zaman cizgisi,
+   digerlerinde hicbir sey olmaz (progressive enhancement). */
+@supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+        .asistan-mockup,
+        .gunici-mock {
+            animation: refresh-parallax linear both;
+            animation-timeline: view();
+            animation-range: entry 15% cover 70%;
+        }
+        @keyframes refresh-parallax {
+            from { transform: translate3d(0, 18px, 0); }
+            to   { transform: translate3d(0, -14px, 0); }
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .btn-primary::after {
+        display: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   7. Yogunluk — "Tanidik gelenler" listesi katlanir
+   14 madde bir anda ekrani doldurmuyor; 6 gorunur, gerisi istege bagli.
+   -------------------------------------------------------------------------- */
+.pain-check-list.is-collapsed .pain-item[data-overflow] {
+    display: none;
+}
+
+.pain-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 14px;
+    padding: 14px 20px;
+    background: transparent;
+    border: 1px dashed var(--n-line-strong);
+    border-radius: 14px;
+    color: var(--n-text-muted);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition:
+        border-color 0.3s ease,
+        color 0.3s ease,
+        background-color 0.3s ease;
+}
+body:not(.dark-active) .pain-more {
+    border-color: rgba(29, 29, 31, 0.18);
+    color: var(--text-muted);
+}
+.pain-more:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(217, 180, 106, 0.06);
+}
+.pain-more .material-icons-round {
+    font-size: 1.15rem;
+    transition: transform 0.35s var(--ease-out-expo);
+}
+.pain-check-list:not(.is-collapsed) + .pain-more .material-icons-round,
+.pain-more[aria-expanded="true"] .material-icons-round {
+    transform: rotate(180deg);
+}
+
+body.dark-active .pain-item {
+    background-color: var(--n-2) !important;
+    border: 1px solid var(--n-line) !important;
+    box-shadow: none !important;
+}
+body.dark-active .pain-item .pain-quote {
+    color: var(--n-text) !important;
+}
+body.dark-active .pain-item .pain-meta {
+    color: var(--n-text-faint) !important;
+}
+body.dark-active .pain-item.checked {
+    background-color: rgba(217, 180, 106, 0.09) !important;
+    border-color: rgba(217, 180, 106, 0.38) !important;
+}
+body.dark-active .pain-result-card {
+    background-color: var(--n-2) !important;
+    border: 1px solid var(--n-line) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+body.dark-active .pain-result-body p,
+body.dark-active .pain-solution-name {
+    color: var(--n-text-muted) !important;
+}
+/* Sonuc karti artik koyu: sayac ve halka acik zemin icin ayarlanmisti. */
+body.dark-active .pain-score-num {
+    color: var(--n-text) !important;
+}
+body.dark-active .pain-score-den {
+    color: var(--n-text-faint) !important;
+}
+body.dark-active .pain-gauge-track {
+    stroke: rgba(255, 255, 255, 0.10);
+}
+body.dark-active .pain-gauge-fill {
+    stroke: var(--accent);
+}
+body.dark-active .pain-solution-check,
+body.dark-active .pain-solution-arrow {
+    color: var(--accent) !important;
+}
+body.dark-active .pain-result-tag {
+    color: var(--n-text-faint) !important;
+}
+body.dark-active .pain-solution-row {
+    background: rgba(255, 255, 255, 0.035) !important;
+    border-color: var(--n-line) !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. Yogunluk — 12 cozum karti yatay galeri
+   Uc satirlik izgara yerine tek satirlik, kaydirma-yapisan bir ray.
+   Mobilde parmakla, masaustunde ok tuslari/duglemelerle gezilir.
+   -------------------------------------------------------------------------- */
+.kriz-rail {
+    position: relative;
+    margin-top: var(--stack-lg);
+}
+
+.kriz-cozum-grid {
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 20px;
+    margin-top: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 4px;
+    padding: 6px 4px 22px;
+    /* Kenarlarda kirpilma sinyali: daha fazlasi oldugunu soyler. */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+.kriz-cozum-grid::-webkit-scrollbar {
+    display: none;
+}
+.kriz-cozum-grid > .flip-card {
+    flex: 0 0 clamp(272px, 25vw, 340px);
+    scroll-snap-align: start;
+    height: 470px;
+}
+
+/* Ray kontrolleri */
+.kriz-rail-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-bottom: 18px;
+}
+.kriz-rail-btn {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--n-line-strong);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s var(--ease-spring),
+        opacity 0.3s ease;
+}
+body:not(.dark-active) .kriz-rail-btn {
+    border-color: rgba(29, 29, 31, 0.16);
+}
+.kriz-rail-btn:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+.kriz-rail-btn:active:not(:disabled) {
+    transform: scale(0.92);
+}
+.kriz-rail-btn:disabled {
+    opacity: 0.28;
+    cursor: default;
+}
+
+.kriz-rail-progress {
+    flex: 1;
+    height: 2px;
+    background: var(--n-line);
+    border-radius: 2px;
+    overflow: hidden;
+    max-width: 260px;
+    margin-right: auto;
+}
+.kriz-rail-progress i {
+    display: block;
+    height: 100%;
+    width: 18%;
+    background: var(--accent);
+    border-radius: 2px;
+    transform-origin: left;
+    transition: width 0.25s ease, transform 0.25s ease;
+}
+
+.kriz-rail-hint {
+    font-size: 0.8125rem;
+    color: var(--n-text-faint);
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 767px) {
+    .kriz-rail-nav {
+        justify-content: space-between;
+    }
+    .kriz-rail-btn {
+        display: none;
+    }
+    .kriz-cozum-grid {
+        gap: 14px;
+        padding-left: max(4px, env(safe-area-inset-left));
+    }
+    .kriz-cozum-grid > .flip-card {
+        flex: 0 0 84vw;
+        height: 500px;
+    }
+}
+
+/* Ray icinde 3D salinim gereksiz: yatay kaydirmada titreme yapiyordu. */
+.kriz-cozum-grid .flip-card-wobble {
+    animation: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   9. Sabit mobil CTA — donusum
+   Kahraman alandan sonra beliren, ayak bolumunde geri cekilen indirme cubugu.
+   -------------------------------------------------------------------------- */
+.sticky-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(10, 10, 12, 0.82);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-top: 1px solid var(--n-line);
+    transform: translate3d(0, 110%, 0);
+    transition: transform 0.5s var(--ease-out-expo);
+    will-change: transform;
+}
+.sticky-cta.is-visible {
+    transform: translate3d(0, 0, 0);
+}
+.sticky-cta-copy {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+    min-width: 0;
+}
+.sticky-cta-copy b {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--n-text);
+}
+.sticky-cta-copy span {
+    font-size: 0.75rem;
+    color: var(--n-text-faint);
+}
+.sticky-cta .btn {
+    margin-left: auto;
+    flex-shrink: 0;
+    padding: 12px 22px;
+    font-size: 0.9rem;
+}
+@media (min-width: 768px) {
+    .sticky-cta {
+        display: none;
+    }
+}
+
+/* Sabit cubuk sayfayi kapatmasin. */
+@media (max-width: 767px) {
+    body.has-sticky-cta footer {
+        padding-bottom: 96px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   10. Navbar — kaydirmada incelen, CTA'si one cikan
+   -------------------------------------------------------------------------- */
+.navbar {
+    transition:
+        background-color 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        padding 0.4s var(--ease-out-expo);
+}
+.nav-links a {
+    position: relative;
+    transition: color 0.28s ease;
+}
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s var(--ease-out-expo);
+}
+@media (hover: hover) and (pointer: fine) {
+    .nav-links a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+.nav-download-btn {
+    box-shadow: 0 6px 20px rgba(176, 138, 60, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   11. Fiyatlandirma & SSS sadelestirme
+   -------------------------------------------------------------------------- */
+/* Sol sutun, sagdaki uzun sonuc kartina gore ortalaniyordu; ust bosluk
+   forma degil hicbir seye hizalaniyordu. */
+.calculator-container {
+    align-items: start;
+}
+
+/* "199 ₺ / 6 ay geçerli" ikinci satira kaciyordu. Yalnizca genis ekranda:
+   dar ekranda nowrap satiri karttan tasiriyor. */
+@media (min-width: 768px) {
+    .result-price-row,
+    .pricing-header .price {
+        white-space: nowrap;
+    }
+}
+body.dark-active .pricing-card.featured,
+body.dark-active .pricing-card.popular {
+    border-color: rgba(217, 180, 106, 0.45) !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5) !important;
+}
+body.dark-active .faq-item {
+    border-bottom-color: var(--n-line) !important;
+}
+body.dark-active .faq-question {
+    transition: color 0.28s ease;
+}
+.faq-answer p {
+    max-width: 68ch;
+}
+
+/* --------------------------------------------------------------------------
+   12. Kapanis CTA — sayfanin en belirgin dugmesi
+   -------------------------------------------------------------------------- */
+.cta-bottom .cta-container {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+.cta-bottom .central-store-buttons {
+    margin-top: 34px;
+    justify-content: center;
+}
