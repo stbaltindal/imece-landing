@@ -278,8 +278,10 @@
         var bar = document.createElement("div");
         bar.className = "sticky-cta";
         bar.innerHTML =
-            '<span class="sticky-cta-copy"><b>İmece Düğün</b><span>Ücretsiz başlayın</span></span>' +
-            '<a class="btn btn-primary" href="https://apps.apple.com/tr/app/id6794826834" target="_blank" rel="noopener">Uygulamayı İndir</a>';
+            // Urun henuz hicbir magazada degil: cubuk indirme degil haber verme
+            // vaat ediyor ve sayfa icindeki kapanis bolumune goturuyor.
+            '<span class="sticky-cta-copy"><b>İmece Düğün</b><span>Yayına hazırlanıyor</span></span>' +
+            '<a class="btn btn-primary" href="#indirin">Çıkınca haber ver</a>';
 
         footer.parentNode.insertBefore(bar, footer);
         document.body.classList.add("has-sticky-cta");

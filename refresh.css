@@ -791,7 +791,10 @@ body.dark-active .faq-question {
    .gunici-* siniflari yeniden kullaniliyor; tek fark sag sutundaki etiketler.
    .sb-pct yuzde degeri icin dar ayarliydi, "Bekliyor"/"Bildirim" bolunuyordu.
    -------------------------------------------------------------------------- */
-#detaylar .sb-pct {
+/* Kapsam bilerek bolum degil mock tipi: ceyiz karti #detaylar'dan cozum
+   rayina tasindi, bolume bagli secici orada calismiyordu. Skorboard mock'u
+   disarida birakiliyor -- orada deger bir yuzde, dar kolon dogru. */
+.gunici-mock:not(.scoreboard-mock) .sb-pct {
     width: auto;
     min-width: 62px;
     white-space: nowrap;
@@ -800,10 +803,10 @@ body.dark-active .faq-question {
     letter-spacing: 0.02em;
     color: var(--n-text-faint);
 }
-#detaylar .sb-name {
+.gunici-mock:not(.scoreboard-mock) .sb-name {
     min-width: 0;
 }
-#detaylar .sb-avatar {
+.gunici-mock .sb-avatar {
     flex-shrink: 0;
 }
 
