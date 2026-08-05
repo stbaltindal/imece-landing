@@ -18,6 +18,15 @@
     --primary-light: hsl(0, 35%, 96%);
     --gold: #C5A059;                     /* Premium Champagne Gold for interactive states */
     --gold-light: #F4ECE1;
+    /* Denetimde --gold disinda tespit edilen tekrarlanan altin tonlari:
+       hardcoded hex'ler yerine kullanim baglamina gore adlandirilmis token'lar. */
+    --gold-bright: #D4AF37;              /* Parlak vurgu - gradyan baslangici (cozum/showcase ikonlari) */
+    --gold-deep: #AA7C11;                /* Koyu vurgu - gradyan sonu, --gold-bright ile eslesir */
+    --gold-bronze: #B8860B;              /* Bronz ton - alternatif gradyan sonu (canli izleme/next-step butonlari) */
+    --gold-accent: #C9A227;              /* Aksan rengi - metin/stroke ve gradyan baslangici */
+    --gold-warm: #C59B27;                /* Sicak altin - RSVP simulasyon karti metin/kenarlik/arka plan */
+    --gold-mustard: #C98A3D;             /* Hardal tonu - "bekliyor" durum rozetleri/simgeleri */
+    --gold-pale: #F3E7D5;                /* Soluk altin - ince vurgu tonlari (muzik rozeti, sekme ilerleme cubugu) */
     --rose-gold-tint: #F7EAEA;           /* Rose Gold strictly for structural card backgrounds/underlay tints */
     
     --bg-cream: #FAF8F6;                 /* Warm Apple Cream/Champagne */
@@ -59,6 +68,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     background-color: #0B0B0C;
     opacity: 0;
     pointer-events: none;
@@ -86,6 +96,9 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    /* Uzun Turkce kelimeler dar ekranda tasmasin. hyphens kullanilmadi:
+       Turkce heceleme tarayicilarda guvenilir degil. */
+    overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.01em; /* Inter body kerning */
     transition: color 0.5s ease;
@@ -101,13 +114,16 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size: 3.2rem;
+    /* 480px'te 2.4rem, 1200px'te 3.2rem; eski breakpoint yamasinin
+       iki ucunu da koruyor. */
+    font-size: clamp(2.4rem, 1.867rem + 1.778vw, 3.2rem);
     letter-spacing: -0.005em; /* Clean Serif kerning */
     margin-bottom: var(--space-md);
 }
 
 h2 {
-    font-size: 2.4rem;
+    /* 480px'te 1.95rem, 1200px'te 2.4rem. */
+    font-size: clamp(1.95rem, 1.65rem + 1vw, 2.4rem);
     letter-spacing: -0.005em;
     margin-bottom: var(--space-md);
 }
@@ -845,7 +861,7 @@ label,
 /* Pending state: Light gold background, dark gold hourglass icon */
 .mockup-status-chip.compact.pending {
     background-color: #FBEAD2;
-    color: #C98A3D;
+    color: var(--gold-mustard);
 }
 .mockup-status-chip.compact.pending svg {
     width: 100%;
@@ -927,7 +943,7 @@ label,
 }
 
 .avatar-badge.pending {
-    background-color: #C98A3D !important;
+    background-color: var(--gold-mustard) !important;
 }
 
 .avatar-badge span {
@@ -980,7 +996,7 @@ label,
 }
 
 .assignee-avatar-wrapper.pending-border {
-    border-color: #C98A3D;
+    border-color: var(--gold-mustard);
 }
 
 .assignee-avatar-mini {
@@ -1029,7 +1045,7 @@ label,
     justify-content: center;
     padding: 0 8px;
     cursor: pointer;
-    color: #C98A3D;
+    color: var(--gold-mustard);
 }
 
 .capsule-send-btn .send-icon {
@@ -1055,6 +1071,7 @@ label,
 .unified-story-section {
     position: relative;
     height: 100vh;
+    height: 100dvh;
     width: 100%;
     overflow: hidden;
     background-color: transparent;
@@ -1601,17 +1618,27 @@ label,
     animation: none !important;
 }
 
-/* Scale up on hover/focus */
-.flip-card:hover, .flip-card:focus-within {
+/* Scale up on focus (keyboard) */
+.flip-card:focus-within {
     transform: scale(1.03);
 }
 
-/* Pause wobble animation on hover, focus, or when card is flipped */
-.flip-card:hover .flip-card-wobble,
+/* Pause wobble animation on focus, or when card is flipped */
 .flip-card:focus-within .flip-card-wobble,
 .flip-card.flipped .flip-card-wobble,
 .flip-card.scroll-teased .flip-card-wobble {
     animation-play-state: paused;
+}
+
+/* Hover-only variants (mouse/trackpad): avoids "sticky hover" on touch,
+   where the card is already flipped/paused via tap (see .flipped/.scroll-teased above). */
+@media (hover: hover) and (pointer: fine) {
+    .flip-card:hover {
+        transform: scale(1.03);
+    }
+    .flip-card:hover .flip-card-wobble {
+        animation-play-state: paused;
+    }
 }
 
 /* Keyboard accessibility outline */
@@ -1949,7 +1976,7 @@ label,
 .budget-bar-fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(to right, #C9A227, #C36A6A);
+    background: linear-gradient(to right, var(--gold-accent), #C36A6A);
     border-radius: 3px;
     animation: fillBudget 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     animation-delay: 0.6s;
@@ -2562,6 +2589,7 @@ label,
         right: 0;
         width: 460px;
         height: 100vh;
+        height: 100dvh;
         transform: translateX(100%);
         border-left: 1px solid rgba(29, 29, 31, 0.08);
     }
@@ -2573,9 +2601,11 @@ label,
         left: 0;
         right: 0;
         height: 75vh;
+        height: 75dvh;
         width: 100%;
         border-radius: var(--radius-lg) var(--radius-lg) 0 0;
         transform: translateY(100%);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
     }
 }
 
@@ -3453,9 +3483,7 @@ footer {
         padding: 0 var(--space-md);
     }
     
-    h1 { font-size: 2.4rem; }
-    h2 { font-size: 1.95rem; }
-    
+
     .hero-container {
         grid-template-columns: 1fr;
         gap: var(--space-2xl);
@@ -3597,7 +3625,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #C9A227;
+    color: var(--gold-accent);
     margin-bottom: 12px;
 }
 
@@ -3647,7 +3675,7 @@ footer {
 .sheet-code-text {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #C9A227;
+    color: var(--gold-accent);
     letter-spacing: 0.5px;
 }
 
@@ -3655,7 +3683,7 @@ footer {
     width: 14px;
     height: 14px;
     fill: none;
-    stroke: #C9A227;
+    stroke: var(--gold-accent);
     stroke-width: 2.5px;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -4578,7 +4606,7 @@ body.dark-active .app-header-mini {
     justify-content: center !important;
     gap: 8px !important;
     padding: 12px 24px !important;
-    background: linear-gradient(135deg, #B8860B 0%, #9A6E00 100%) !important;
+    background: linear-gradient(135deg, var(--gold-bronze) 0%, #9A6E00 100%) !important;
     color: #FFFFFF !important;
     font-weight: 700 !important;
     font-size: 0.88rem !important;
@@ -4597,7 +4625,7 @@ body.dark-active .app-header-mini {
     font-family: 'Cormorant Garamond', serif !important;
     font-style: italic !important;
     font-size: 1.15rem !important;
-    color: #C59B27 !important;
+    color: var(--gold-warm) !important;
     display: block !important;
     margin-bottom: 2px !important;
 }
@@ -4628,7 +4656,7 @@ body.dark-active .app-header-mini {
 }
 
 .rsvp-diamond-divider span {
-    color: #C59B27 !important;
+    color: var(--gold-warm) !important;
     font-size: 0.65rem !important;
 }
 
@@ -4653,7 +4681,7 @@ body.dark-active .app-header-mini {
     font-family: 'Cormorant Garamond', serif !important;
     font-style: italic !important;
     font-size: 1.05rem !important;
-    color: #C59B27 !important;
+    color: var(--gold-warm) !important;
     margin-bottom: 10px !important;
 }
 
@@ -4669,7 +4697,7 @@ body.dark-active .app-header-mini {
 }
 
 .rsvp-date-row-real span.material-icons-round {
-    color: #C59B27 !important;
+    color: var(--gold-warm) !important;
     font-size: 0.95rem !important;
 }
 
@@ -4695,7 +4723,7 @@ body.dark-active .app-header-mini {
 }
 
 .rsvp-location-address-real span.material-icons-round {
-    color: #C59B27 !important;
+    color: var(--gold-warm) !important;
     font-size: 1.1rem !important;
 }
 
@@ -4704,7 +4732,7 @@ body.dark-active .app-header-mini {
     align-items: center !important;
     justify-content: center !important;
     gap: 6px !important;
-    background: #C59B27 !important;
+    background: var(--gold-warm) !important;
     color: #FFFFFF !important;
     text-decoration: none !important;
     padding: 8px 16px !important;
@@ -4722,7 +4750,7 @@ body.dark-active .app-header-mini {
     gap: 6px !important;
     font-size: 0.78rem !important;
     font-weight: 600 !important;
-    color: #C59B27 !important;
+    color: var(--gold-warm) !important;
     background-color: #FFFFFF !important;
     border: 1.5px solid rgba(197, 155, 39, 0.5) !important;
     padding: 6px 16px !important;
@@ -4743,7 +4771,7 @@ body.dark-active .app-header-mini {
 }
 
 .rsvp-timeline-list-real {
-    border-left: 2px solid #C59B27 !important;
+    border-left: 2px solid var(--gold-warm) !important;
     padding-left: 14px !important;
     margin-left: 24px !important;
     text-align: left !important;
@@ -4762,7 +4790,7 @@ body.dark-active .app-header-mini {
 
 .rsvp-tl-time-real {
     font-weight: 700 !important;
-    color: #C59B27 !important;
+    color: var(--gold-warm) !important;
     min-width: 42px !important;
 }
 
@@ -5272,7 +5300,7 @@ body.dark-active .app-header-mini {
 }
 
 .discount-badge.gold {
-    background: linear-gradient(135deg, var(--gold) 0%, #D4AF37 100%);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
     color: #000000;
     border: none;
     box-shadow: 0 2px 10px rgba(201, 162, 39, 0.4);
@@ -5401,7 +5429,7 @@ body.dark-active .app-header-mini {
 }
 
 .music-badge.gold {
-    color: #F3E7D5;
+    color: var(--gold-pale);
 }
 
 .music-title {
@@ -5434,7 +5462,7 @@ body.dark-active .app-header-mini {
 }
 
 .action-pdf-btn {
-    background: linear-gradient(135deg, #C9A227 0%, #B8860B 100%);
+    background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-bronze) 100%);
     color: #000000;
 }
 
@@ -5700,7 +5728,7 @@ body.dark-active .app-header-mini {
 }
 
 .text-gold-gradient {
-    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -5835,7 +5863,7 @@ body.dark-active .app-header-mini {
     left: 0;
     height: 3px;
     width: 0%;
-    background: linear-gradient(90deg, var(--gold) 0%, #F3E7D5 100%);
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-pale) 100%);
     transition: width 0.3s ease;
 }
 
@@ -5929,7 +5957,7 @@ body.dark-active .app-header-mini {
 }
 
 .showcase-next-step-btn {
-    background: linear-gradient(135deg, var(--gold) 0%, #B8860B 100%);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bronze) 100%);
     color: #000000;
     border: none;
     border-radius: 30px;
@@ -6174,7 +6202,7 @@ body.dark-active .app-header-mini {
 }
 
 .pain-item.checked .pain-box {
-    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
     border-color: transparent;
 }
 
@@ -6557,7 +6585,7 @@ body.dark-active .app-header-mini {
 }
 
 .sb-rank.gold {
-    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
     color: #fff;
 }
 
@@ -6607,7 +6635,7 @@ body.dark-active .app-header-mini {
     display: block;
     height: 100%;
     border-radius: 50px;
-    background: linear-gradient(90deg, #D4AF37 0%, #C98686 100%);
+    background: linear-gradient(90deg, var(--gold-bright) 0%, #C98686 100%);
 }
 
 .sb-pct {
@@ -6698,7 +6726,7 @@ body.dark-active .app-header-mini {
     align-self: flex-start;
     padding: 4px 10px;
     border-radius: 50px;
-    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
     color: #fff;
     font-size: 0.72rem;
     font-weight: 700;
@@ -6835,7 +6863,7 @@ body.dark-active .app-header-mini {
     padding: 9px 12px;
     border: none;
     border-radius: 9px;
-    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
     color: #fff;
     font-family: inherit;
     font-size: 0.76rem;
@@ -7094,7 +7122,7 @@ body.dark-active .safety-opt.danger {
     font-style: italic;
     font-size: 1.5rem;
     line-height: 1.2;
-    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -7193,7 +7221,7 @@ body.dark-active .safety-opt.danger {
 }
 
 .sim-btn.yes {
-    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
     color: #fff;
     box-shadow: 0 5px 14px rgba(184, 134, 11, 0.28);
 }
@@ -7584,7 +7612,7 @@ body.dark-active .sim-block-label {
 .btn-reject .material-icons-round { font-size: 15px; }
 
 .btn-approve {
-    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
     color: #1A1509;
 }
 
@@ -7617,6 +7645,7 @@ body.dark-active .sim-block-label {
     position: fixed;
     left: 50%;
     bottom: 26px;
+    bottom: calc(26px + env(safe-area-inset-bottom, 0px));
     transform: translateX(-50%) translateY(10px);
     z-index: 60;
     display: flex;
@@ -7660,7 +7689,7 @@ html.hero-story-active .hero-story-hud {
 
 .hero-hud-dot.active {
     width: 22px;
-    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
 }
 
 .hero-hud-skip {
