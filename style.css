@@ -6004,6 +6004,11 @@ body.dark-active .app-header-mini {
 .hero-brand-badge {
     display: inline-flex;
     align-items: center;
+    /* Rozet metni uzun; dar ekranda kirpilmak yerine sarsin.
+       body'de overflow-x:hidden oldugu icin tasma sessizce kesilirdi. */
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
     gap: 10px;
     padding: 6px 18px 6px 8px;
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.14) 0%, rgba(255, 248, 230, 0.08) 100%);
