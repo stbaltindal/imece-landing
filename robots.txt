@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /rsvp.html
+Disallow: /success.html
+Disallow: /confirm.html
+
+Sitemap: https://imecedugun.com/sitemap.xml

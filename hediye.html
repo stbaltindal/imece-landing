@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO & WhatsApp / Social Sharing Meta Tags -->
     <meta name="description" content="Size özel gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıklayın. 🎁💌">
+    <link rel="canonical" href="https://imecedugun.com/hediye.html">
     <meta property="og:title" content="🎁 Size Özel Bir Sürpriz Var! — İmece Düğün">
     <meta property="og:description" content="Size gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıklayın. 💌">
     <meta property="og:type" content="website">
@@ -14,6 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="🎁 Size Özel Bir Sürpriz Var! — İmece Düğün">
     <meta name="twitter:description" content="Size gönderilen hediye mesajını ve sürprizi görüntülemek için hemen tıklayın. 💌">
+    <meta name="twitter:image" content="https://imecedugun.com/assets/icons/apple-touch-icon-solid.png">
     <title>🎁 Size Bir Hediye Geldi! — İmece Düğün</title>
 
     <!-- Google Fonts: Playfair Display, Cormorant Garamond, Dancing Script, Inter -->
@@ -496,6 +498,12 @@
             transform: translateY(-1px);
         }
 
+        .btn-store.is-soon {
+            opacity: 0.55;
+            cursor: default;
+            pointer-events: none;
+        }
+
         .btn-store svg {
             width: 20px;
             height: 20px;
@@ -641,15 +649,15 @@
                         App Store'dan İndir
                     </a>
 
-                    <a href="https://play.google.com/store/apps" class="btn-store btn-google-play" target="_blank" rel="noopener">
+                    <span class="btn-store btn-google-play is-soon" role="note" aria-label="Google Play'de yakında">
                         <svg viewBox="0 0 512 512">
                             <path fill="#410593" d="M7.2 14.2c-2.8 3-4.4 7.6-4.4 13.5v456.6c0 5.9 1.6 10.5 4.4 13.5l1.4 1.3 255.4-255.4V241.6L8.6 12.9l-1.4 1.3z"/>
                             <path fill="#048bfe" d="M347.1 327.9l-83.1-83.1v-2.4l83.1-83.1 1.9 1.1 98.4 55.9c28.1 15.9 28.1 42 0 58l-98.4 55.9-1.9 1.7z"/>
                             <path fill="#00d775" d="M264 242.4L7.2 499.2c4.7 4.9 12.4 5.6 21.1.7l318.8-181.2-83.1-76.3z"/>
                             <path fill="#ff3a44" d="M264 242.4l83.1-76.3L28.3 14.9C19.6 10 11.9 10.7 7.2 15.6L264 242.4z"/>
                         </svg>
-                        Google Play'den İndir
-                    </a>
+                        YAKINDA
+                    </span>
                 </div>
             </div>
 

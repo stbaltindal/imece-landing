@@ -134,6 +134,16 @@
           "@type": "Question",
           "name": "Görevlerin tamamlandığını nasıl kontrol ederim?",
           "acceptedAnswer": { "@type": "Answer", "text": "Etkinlik bazında bir kural seçersiniz: görevliler işi doğrudan tamamlayabilir, ya da \"Yaptım\" dediklerinde görev sizin onayınızla kapanır. Dilerseniz yalnızca belirli görevler için onay isteyin. Kuralı hazırlık sürerken istediğiniz an değiştirebilirsiniz; kimin neyi tamamladığı her durumda kayıtta kalır." }
+        },
+        {
+          "@type": "Question",
+          "name": "Android sürümü var mı?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Şu an yalnızca iOS'ta yayındayız; uygulama iPhone ve iPad'de çalışır. Android sürümü üzerinde çalışıyoruz ancak henüz bir yayın tarihi vermiyoruz. Davetlileriniz katılım ve menü yanıtını vermek için uygulama indirmek zorunda değil — kendilerine özel davetiye bağlantısını herhangi bir telefonun tarayıcısında açıp yanıtlayabilirler. Yalnızca hazırlık ekibine görev alarak katılmak için uygulama gerekir." }
+        },
+        {
+          "@type": "Question",
+          "name": "Verilerim nerede tutuluyor, kimler görebiliyor?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Veriler Supabase altyapısında saklanır; sunucular yurt dışında bulunabilir. Her hazırlığın verisi satır bazlı güvenlik kurallarıyla ayrılır: bir etkinliğin bütçesini, görevlerini ve davetli listesini yalnızca o etkinliğin ekibi görebilir. Davetliler ise yalnızca kendilerine gönderilen jetonla açılan kendi davetiye kartını ve yanıtını görür. Alerji notu gibi hassas veriler yalnızca ikram planlaması amacıyla ve o amaç sürdüğü sürece tutulur. Hesabınızı uygulamadan silebilirsiniz; yasal saklama yükümlülüğü olanlar dışındaki kişisel verileriniz makul süre içinde silinir veya anonimleştirilir." }
         }
       ]
     }
@@ -1890,6 +1900,108 @@
             </div>
         </section>
 
+        <!-- Uygulamada var olup sayfada hic anlatilmayan uc yuzey.
+             Bilerek .gunici-* siniflari kullaniliyor: gece paleti, hover ve
+             kaydirma animasyonu bu siniflara zaten bagli, yeni CSS gerekmiyor. -->
+        <section id="detaylar" class="gunici-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag gold">AZ KONUŞULAN ÜÇ YÜZEY</span>
+                    <h2>Hazırlık düğünle bitmiyor, <span class="text-gold-gradient">uygulama da bitirmiyor</span></h2>
+                    <p class="section-subtitle">Çeyizden ev dizmeye, tedarikçiye uzatacağınız listeden görev altındaki konuşmaya kadar — hazırlığın az konuşulan ama en çok vakit alan parçaları.</p>
+                </div>
+
+                <div class="gunici-grid">
+                    <!-- 1. Çeyiz & Ev Dizme -->
+                    <article class="gunici-card" id="cozum-ceyiz">
+                        <div class="gunici-head">
+                            <span class="gunici-icon"><span class="material-icons-round">checkroom</span></span>
+                            <div>
+                                <h3>Çeyiz ve Ev Dizme Listeleri</h3>
+                                <span class="gunici-kicker">118 hazır kalem, 13 kategori</span>
+                            </div>
+                        </div>
+                        <p class="gunici-desc">Düğün hazırlığından ayrı, kendi ekranında iki liste: Çeyiz Listesi ve Ev Dizme Listesi. Mobilyadan beyaz eşyaya, mutfak gereçlerinden aydınlatmaya kadar hazır kalemleri işaretleyerek başlayın; kendi maddelerinizi ekleyin. Neyin alındığı, neyin beklediği tek yerde.</p>
+                        <div class="gunici-mock">
+                            <div class="sb-row">
+                                <span class="sb-avatar gold">✓</span>
+                                <span class="sb-name">Çamaşır makinesi <em>(Beyaz Eşya)</em></span>
+                                <span class="sb-pct">Alındı</span>
+                            </div>
+                            <div class="sb-row">
+                                <span class="sb-avatar rose">✓</span>
+                                <span class="sb-name">Yemek takımı <em>(Mutfak)</em></span>
+                                <span class="sb-pct">Alındı</span>
+                            </div>
+                            <div class="sb-row me">
+                                <span class="sb-avatar pink">·</span>
+                                <span class="sb-name">Perde <em>(Salon)</em></span>
+                                <span class="sb-pct">Bekliyor</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 2. PDF çıktıları -->
+                    <article class="gunici-card" id="cozum-pdf">
+                        <div class="gunici-head">
+                            <span class="gunici-icon"><span class="material-icons-round">picture_as_pdf</span></span>
+                            <div>
+                                <h3>Tedarikçiye Uzatılacak PDF</h3>
+                                <span class="gunici-kicker">Üç liste, markalı çıktı</span>
+                            </div>
+                        </div>
+                        <p class="gunici-desc">Davetli listesi, oturma planı ve düğün günü akışı tek dokunuşla PDF olur. Türkçe karakterler bozulmaz, her sayfada logonuz ve tarih bulunur. Salona, şoföre ya da fotoğrafçıya “şunu bir yollayın” dendiğinde ekran görüntüsü aramazsınız.</p>
+                        <div class="gunici-mock">
+                            <div class="sb-row">
+                                <span class="sb-avatar gold">1</span>
+                                <span class="sb-name">Davetli Listesi</span>
+                                <span class="sb-pct">PDF</span>
+                            </div>
+                            <div class="sb-row">
+                                <span class="sb-avatar rose">2</span>
+                                <span class="sb-name">Oturma Planı</span>
+                                <span class="sb-pct">PDF</span>
+                            </div>
+                            <div class="sb-row">
+                                <span class="sb-avatar pink">3</span>
+                                <span class="sb-name">Düğün Günü Akışı</span>
+                                <span class="sb-pct">PDF</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 3. Görev yorumları & bildirimler -->
+                    <article class="gunici-card" id="cozum-mesaj">
+                        <div class="gunici-head">
+                            <span class="gunici-icon"><span class="material-icons-round">forum</span></span>
+                            <div>
+                                <h3>Konuşma Görevin Altında</h3>
+                                <span class="gunici-kicker">Mesajlar ve bildirimler ayrı</span>
+                            </div>
+                        </div>
+                        <p class="gunici-desc">Her görevin kendi yorum akışı var; “hangi mesajda konuşmuştuk” sorusu ortadan kalkar. Gelen kutusu ikiye ayrılır: <strong>Mesajlar</strong> görevlere yazılan yorumları, <strong>Bildirimler</strong> tamamlanan görev ve katılan davetli gibi olayları toplar. Hepsini tek dokunuşla okundu işaretleyin.</p>
+                        <div class="gunici-mock">
+                            <div class="sb-row">
+                                <span class="sb-avatar pink">E</span>
+                                <span class="sb-name">Ece <em>· “Çiçekçi fiyatı düştü”</em></span>
+                                <span class="sb-pct">Mesaj</span>
+                            </div>
+                            <div class="sb-row">
+                                <span class="sb-avatar gold">✓</span>
+                                <span class="sb-name">Mert “Nikah şekeri” görevini tamamladı</span>
+                                <span class="sb-pct">Bildirim</span>
+                            </div>
+                            <div class="sb-row me">
+                                <span class="sb-avatar rose">+</span>
+                                <span class="sb-name">3 davetli katılımını onayladı</span>
+                                <span class="sb-pct">Bildirim</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- Canlı İnteraktif RSVP Simülatörü -->
         <section id="interactive-rsvp-showcase" class="rsvp-showcase-section">
             <div class="container">
@@ -2081,7 +2193,7 @@
                     <div class="feature-card">
                         <div class="feature-icon-wrapper"><span class="material-icons-round">account_balance_wallet</span></div>
                         <h3>Akıllı Bütçe Yönetimi</h3>
-                        <p>Kategori bazlı harcama sınırları koyun, ödemeleri kimin yaptığını kaydedin. Kalan bütçenizi anlık grafiklerle izleyin.</p>
+                        <p>Her ödemenin yanında kimin ödediği yazar. Düğün bitince “kim ne kadar koydu” tartışması değil, hazır bir döküm olur.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon-wrapper"><span class="material-icons-round">task</span></div>
@@ -2096,7 +2208,7 @@
                     <div class="feature-card">
                         <div class="feature-icon-wrapper"><span class="material-icons-round">manage_accounts</span></div>
                         <h3>Ortak Yönetici Yetkileri</h3>
-                        <p>Eşinizle birlikte aynı yetkilere sahip olun. İki taraflı bütçe ve görev yönetimini kusursuz bir senkronizasyonla sürdürün.</p>
+                        <p>Ortak yönetici de davet gönderebilir, görev atayabilir, bütçe kalemi düzenleyebilir. Siz uygun değilken hazırlık durmaz.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon-wrapper"><span class="material-icons-round">notifications_active</span></div>
@@ -2324,6 +2436,24 @@
                         </button>
                         <div class="faq-answer" id="faq-answer-9">
                             <p>Etkinlik bazında bir kural seçersiniz: görevliler işi doğrudan tamamlayabilir, ya da "Yaptım" dediklerinde görev sizin onayınızla kapanır. Dilerseniz yalnızca belirli görevler için onay isteyin. Kuralı hazırlık sürerken istediğiniz an değiştirebilirsiniz; kimin neyi tamamladığı her durumda kayıtta kalır.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-10">
+                            Android sürümü var mı?
+                            <span class="material-icons-round faq-arrow">expand_more</span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-10">
+                            <p>Şu an yalnızca iOS'ta yayındayız; uygulama iPhone ve iPad'de çalışır. Android sürümü üzerinde çalışıyoruz ancak henüz bir yayın tarihi vermiyoruz. Ekibinizde Android kullanan varsa şunu bilin: davetlileriniz katılım ve menü yanıtını vermek için uygulama indirmek zorunda değil — kendilerine özel davetiye bağlantısını herhangi bir telefonun tarayıcısında açıp yanıtlayabilirler. Yalnızca hazırlık ekibine görev alarak katılmak için uygulama gerekir.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-11">
+                            Verilerim nerede tutuluyor, kimler görebiliyor?
+                            <span class="material-icons-round faq-arrow">expand_more</span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-11">
+                            <p>Veriler Supabase altyapısında saklanır; sunucular yurt dışında bulunabilir. Her hazırlığın verisi satır bazlı güvenlik kurallarıyla ayrılır: bir etkinliğin bütçesini, görevlerini ve davetli listesini yalnızca o etkinliğin ekibi görebilir. Davetliler ise yalnızca kendilerine gönderilen jetonla açılan kendi davetiye kartını ve yanıtını görür; başka davetlilerin bilgilerine erişemez. Alerji notu gibi hassas veriler yalnızca ikram planlaması amacıyla ve o amaç sürdüğü sürece tutulur. Hesabınızı uygulamadan silebilirsiniz; yasal saklama yükümlülüğü olanlar dışındaki kişisel verileriniz makul süre içinde silinir veya anonimleştirilir. Ayrıntılar için <a href="gizlilik.html">KVKK Aydınlatma Metni</a>.</p>
                         </div>
                     </div>
                 </div>
