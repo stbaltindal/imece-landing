@@ -770,6 +770,15 @@ body.dark-active .faq-question {
 }
 
 /* --------------------------------------------------------------------------
+   11c. Alt bilgi — marka bloğu
+   -------------------------------------------------------------------------- */
+.footer-platform {
+    margin-top: 10px;
+    font-size: 0.8125rem;
+    color: var(--n-text-faint);
+}
+
+/* --------------------------------------------------------------------------
    11b. "Az konusulan uc yuzey" bolumu
    .gunici-* siniflari yeniden kullaniliyor; tek fark sag sutundaki etiketler.
    .sb-pct yuzde degeri icin dar ayarliydi, "Bekliyor"/"Bildirim" bolunuyordu.
