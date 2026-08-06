@@ -829,8 +829,7 @@
         </div>
     </section>
 
-        <!-- Master Showcase: 4 Adımda Canlı İmece Deneyimi (Tıklamalı Lüks Sekme Paneli) -->
-        <!-- Empati Modülü: Tanıdık Gelenler -->
+<!-- Empati Modülü: Tanıdık Gelenler -->
         <section id="tanidik" class="pain-check-section">
             <div class="container">
                 <div class="section-header">
@@ -967,7 +966,7 @@
             </div>
         </section>
 
-        <section id="neden-imece" class="kriz-cozum-section">
+<section id="neden-imece" class="kriz-cozum-section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag gold">12 zorluk, 12 çözüm</span>
@@ -1898,8 +1897,114 @@
             </div>
         </section>
 
+<!-- Canlı İnteraktif RSVP Simülatörü -->
+        <section id="interactive-rsvp-showcase" class="rsvp-showcase-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag gold">İnteraktif Deneyim</span>
+                    <h2>Davetiyeniz, davetlinizin telefonunda açılsın</h2>
+                    <p class="section-subtitle">Davetlileriniz hiçbir uygulama indirmeden kendilerine özel bağlantı ile davetiyelerini açar, katılım durumlarını ve yemek tercihlerini tek tıkla bildirir.</p>
+                </div>
 
-        <section id="ozel-asistanlar" class="asistan-section">
+                <div class="rsvp-sim-wrapper">
+                    <!-- Control Box (Sol/Üst) -->
+                    <div class="rsvp-sim-controls">
+                        <h3><span class="material-icons-round" style="color: var(--gold); vertical-align: middle; margin-right: 6px;">edit_note</span> Davetiyeyi Canlı Özelleştir</h3>
+                        <p class="sim-desc">Aşağıya davetli veya çift adını girerek davetiyenizin canlı önizlemesini test edin:</p>
+                        
+                        <div class="sim-input-group">
+                            <label for="simGuestInput">Davetli / Çift Adı</label>
+                            <input type="text" id="simGuestInput" value="Sayın Mehmet Güneşli" placeholder="Örn: Ayşe & Tolga" oninput="updateSimGuestName(this.value)">
+                        </div>
+
+                        <div class="sim-info-cards">
+                            <div class="sim-info-item">
+                                <span class="material-icons-round">done_all</span>
+                                <div>
+                                    <strong>Anlık Bildirim & Lojistik Takip</strong>
+                                    <p>Davetliniz katılım ve diyet yanıtı verdiğinde cebinize anında bildirim düşer.</p>
+                                </div>
+                            </div>
+                            <div class="sim-info-item">
+                                <span class="material-icons-round">shield</span>
+                                <div>
+                                    <strong>KVKK & Gizlilik Zırhı</strong>
+                                    <p>Sadece özel jeton (token) sahibi davetli kendi kartını ve yanıtlarını görebilir.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sim-cta-wrap" style="margin-top: 20px;">
+                            <a href="#indirin" class="btn btn-primary btn-glow" style="width: 100%; text-align: center; justify-content: center;">
+                                <span class="material-icons-round">mark_email_read</span> Davetiyenizi Oluşturun
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Live Simulator Phone Screen (Sağ/Alt) -->
+                    <div class="rsvp-sim-phone-wrap">
+                        <div class="sim-phone-frame">
+                            <div class="sim-phone-notch"></div>
+                            <div class="sim-phone-screen">
+                                <div class="sim-invite">
+                                    <img src="assets/img/logo_wax_seal_96.png" decoding="async" alt="" class="sim-invite-seal" width="46" height="46">
+                                    <p class="sim-invite-prefix">Davetlimizsiniz</p>
+                                    <h4 class="sim-guest-name" id="simGuestDisplay">Sayın Mehmet Güneşli</h4>
+                                    <div class="sim-couple">Ayşe &amp; Tolga</div>
+                                    <div class="sim-invite-meta">12 Eylül 2026 · Cumartesi</div>
+                                    <div class="sim-venue">
+                                        <span class="material-icons-round">place</span> Bodrum Beach Hall
+                                    </div>
+
+                                    <div class="sim-timeline">
+                                        <div class="sim-tl-row"><span class="sim-tl-dot"></span><span class="sim-tl-text"><b>16:00</b> Nikah töreni</span></div>
+                                        <div class="sim-tl-row"><span class="sim-tl-dot"></span><span class="sim-tl-text"><b>19:00</b> Yemek servisi</span></div>
+                                        <div class="sim-tl-row"><span class="sim-tl-dot"></span><span class="sim-tl-text"><b>21:15</b> İlk dans</span></div>
+                                    </div>
+
+                                    <div class="sim-status-badge pending" id="simStatusBadge">
+                                        <span class="material-icons-round">schedule</span>
+                                        <span id="simStatusText">Yanıtınız bekleniyor</span>
+                                    </div>
+
+                                    <div class="sim-rsvp-actions">
+                                        <button type="button" class="sim-btn yes" onclick="triggerSimRsvp('confirmed')">Katılıyorum</button>
+                                        <button type="button" class="sim-btn no" onclick="triggerSimRsvp('declined')">Katılamıyorum</button>
+                                    </div>
+
+                                    <div class="sim-meal-block">
+                                        <span class="sim-block-label">Menü tercihiniz</span>
+                                        <div class="sim-meal-chips">
+                                            <button type="button" class="sim-meal-chip active" onclick="selectSimMeal(this, 'Normal menü')">🍽️ Normal</button>
+                                            <button type="button" class="sim-meal-chip" onclick="selectSimMeal(this, 'Vejetaryen menü')">🥗 Vejetaryen</button>
+                                            <button type="button" class="sim-meal-chip" onclick="selectSimMeal(this, 'Vegan menü')">🌱 Vegan</button>
+                                        </div>
+                                        <button type="button" class="sim-allergy-toggle" id="simAllergyToggle" onclick="toggleSimAllergy(this)">
+                                            <span>⚠️ Alerjim var</span>
+                                            <span class="sim-allergy-switch"><i></i></span>
+                                        </button>
+                                        <div class="sim-allergy-row" id="simAllergyRow" hidden>
+                                            <input type="text" id="simAllergyInput" placeholder="Örn. fındık, deniz ürünleri" maxlength="60">
+                                            <button type="button" onclick="saveSimAllergy()">Kaydet</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="sim-toast" id="simToast" role="status" aria-live="polite"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sim-phone-actions">
+                            <span class="sim-phone-hint">
+                                <span class="material-icons-round">touch_app</span>
+                                Bu ekran canlı: adı değiştirin, yanıt verin, menü seçin.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="ozel-asistanlar" class="asistan-section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag gold">Düğün günü</span>
@@ -2010,7 +2115,7 @@
             </div>
         </section>
 
-        <!-- Uygulamanın Son Sürümündeki Yenilikler -->
+<!-- Uygulamanın Son Sürümündeki Yenilikler -->
         <section id="gun-ici" class="gunici-section">
             <div class="container">
                 <div class="section-header">
@@ -2172,7 +2277,7 @@
             </div>
         </section>
 
-        <!-- Uygulamada var olup sayfada hic anlatilmayan uc yuzey.
+<!-- Uygulamada var olup sayfada hic anlatilmayan uc yuzey.
              Bilerek .gunici-* siniflari kullaniliyor: gece paleti, hover ve
              kaydirma animasyonu bu siniflara zaten bagli, yeni CSS gerekmiyor. -->
         <section id="detaylar" class="gunici-section">
@@ -2247,114 +2352,49 @@
             </div>
         </section>
 
-        <!-- Canlı İnteraktif RSVP Simülatörü -->
-        <section id="interactive-rsvp-showcase" class="rsvp-showcase-section">
+<!-- Özellikler Grid (Özet Özellikler) -->
+        <section id="ozellikler" class="features">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag gold">İnteraktif Deneyim</span>
-                    <h2>Davetiyeniz, davetlinizin telefonunda açılsın</h2>
-                    <p class="section-subtitle">Davetlileriniz hiçbir uygulama indirmeden kendilerine özel bağlantı ile davetiyelerini açar, katılım durumlarını ve yemek tercihlerini tek tıkla bildirir.</p>
+                    <h2>Hazırlığın tamamı tek uygulamada</h2>
+                    <p class="section-subtitle">Bütçeden davetliye, görevden takvime kadar ayrı yerlerde tuttuğunuz her şey aynı ekranda.</p>
                 </div>
-
-                <div class="rsvp-sim-wrapper">
-                    <!-- Control Box (Sol/Üst) -->
-                    <div class="rsvp-sim-controls">
-                        <h3><span class="material-icons-round" style="color: var(--gold); vertical-align: middle; margin-right: 6px;">edit_note</span> Davetiyeyi Canlı Özelleştir</h3>
-                        <p class="sim-desc">Aşağıya davetli veya çift adını girerek davetiyenizin canlı önizlemesini test edin:</p>
-                        
-                        <div class="sim-input-group">
-                            <label for="simGuestInput">Davetli / Çift Adı</label>
-                            <input type="text" id="simGuestInput" value="Sayın Mehmet Güneşli" placeholder="Örn: Ayşe & Tolga" oninput="updateSimGuestName(this.value)">
-                        </div>
-
-                        <div class="sim-info-cards">
-                            <div class="sim-info-item">
-                                <span class="material-icons-round">done_all</span>
-                                <div>
-                                    <strong>Anlık Bildirim & Lojistik Takip</strong>
-                                    <p>Davetliniz katılım ve diyet yanıtı verdiğinde cebinize anında bildirim düşer.</p>
-                                </div>
-                            </div>
-                            <div class="sim-info-item">
-                                <span class="material-icons-round">shield</span>
-                                <div>
-                                    <strong>KVKK & Gizlilik Zırhı</strong>
-                                    <p>Sadece özel jeton (token) sahibi davetli kendi kartını ve yanıtlarını görebilir.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="sim-cta-wrap" style="margin-top: 20px;">
-                            <a href="#indirin" class="btn btn-primary btn-glow" style="width: 100%; text-align: center; justify-content: center;">
-                                <span class="material-icons-round">mark_email_read</span> Davetiyenizi Oluşturun
-                            </a>
-                        </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">groups</span></div>
+                        <h3>İmece Ekibi (Ekibim)</h3>
+                        <p>Aile üyelerinizi, sağdıçlarınızı veya nedimelerinizi davet koduyla yönetim ekibinize dahil edin. Herkes kendi görevini görsün.</p>
                     </div>
-
-                    <!-- Live Simulator Phone Screen (Sağ/Alt) -->
-                    <div class="rsvp-sim-phone-wrap">
-                        <div class="sim-phone-frame">
-                            <div class="sim-phone-notch"></div>
-                            <div class="sim-phone-screen">
-                                <div class="sim-invite">
-                                    <img src="assets/img/logo_wax_seal_96.png" decoding="async" alt="" class="sim-invite-seal" width="46" height="46">
-                                    <p class="sim-invite-prefix">Davetlimizsiniz</p>
-                                    <h4 class="sim-guest-name" id="simGuestDisplay">Sayın Mehmet Güneşli</h4>
-                                    <div class="sim-couple">Ayşe &amp; Tolga</div>
-                                    <div class="sim-invite-meta">12 Eylül 2026 · Cumartesi</div>
-                                    <div class="sim-venue">
-                                        <span class="material-icons-round">place</span> Bodrum Beach Hall
-                                    </div>
-
-                                    <div class="sim-timeline">
-                                        <div class="sim-tl-row"><span class="sim-tl-dot"></span><span class="sim-tl-text"><b>16:00</b> Nikah töreni</span></div>
-                                        <div class="sim-tl-row"><span class="sim-tl-dot"></span><span class="sim-tl-text"><b>19:00</b> Yemek servisi</span></div>
-                                        <div class="sim-tl-row"><span class="sim-tl-dot"></span><span class="sim-tl-text"><b>21:15</b> İlk dans</span></div>
-                                    </div>
-
-                                    <div class="sim-status-badge pending" id="simStatusBadge">
-                                        <span class="material-icons-round">schedule</span>
-                                        <span id="simStatusText">Yanıtınız bekleniyor</span>
-                                    </div>
-
-                                    <div class="sim-rsvp-actions">
-                                        <button type="button" class="sim-btn yes" onclick="triggerSimRsvp('confirmed')">Katılıyorum</button>
-                                        <button type="button" class="sim-btn no" onclick="triggerSimRsvp('declined')">Katılamıyorum</button>
-                                    </div>
-
-                                    <div class="sim-meal-block">
-                                        <span class="sim-block-label">Menü tercihiniz</span>
-                                        <div class="sim-meal-chips">
-                                            <button type="button" class="sim-meal-chip active" onclick="selectSimMeal(this, 'Normal menü')">🍽️ Normal</button>
-                                            <button type="button" class="sim-meal-chip" onclick="selectSimMeal(this, 'Vejetaryen menü')">🥗 Vejetaryen</button>
-                                            <button type="button" class="sim-meal-chip" onclick="selectSimMeal(this, 'Vegan menü')">🌱 Vegan</button>
-                                        </div>
-                                        <button type="button" class="sim-allergy-toggle" id="simAllergyToggle" onclick="toggleSimAllergy(this)">
-                                            <span>⚠️ Alerjim var</span>
-                                            <span class="sim-allergy-switch"><i></i></span>
-                                        </button>
-                                        <div class="sim-allergy-row" id="simAllergyRow" hidden>
-                                            <input type="text" id="simAllergyInput" placeholder="Örn. fındık, deniz ürünleri" maxlength="60">
-                                            <button type="button" onclick="saveSimAllergy()">Kaydet</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="sim-toast" id="simToast" role="status" aria-live="polite"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sim-phone-actions">
-                            <span class="sim-phone-hint">
-                                <span class="material-icons-round">touch_app</span>
-                                Bu ekran canlı: adı değiştirin, yanıt verin, menü seçin.
-                            </span>
-                        </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">account_balance_wallet</span></div>
+                        <h3>Akıllı Bütçe Yönetimi</h3>
+                        <p>Her ödemenin yanında kimin ödediği yazar. Düğün bitince “kim ne kadar koydu” tartışması değil, hazır bir döküm olur.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">task</span></div>
+                        <h3>Gelişmiş Görev Takibi</h3>
+                        <p>Görevleri önem derecesine göre önceliklendirin, sorumlular atayın. Yorum alanı sayesinde görevler üzerinde tartışın.</p>
+                    </div>
+                    <div class="feature-card" id="ozellik-sablon">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">auto_stories</span></div>
+                        <h3>Hazır Şablon Kütüphanesi</h3>
+                        <p>Düğün veya nişan etkinlik türünüze göre, otomatik yapılacaklar listesini saniyeler içinde yükleyin.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">manage_accounts</span></div>
+                        <h3>Ortak Yönetici Yetkileri</h3>
+                        <p>Ortak yönetici de davet gönderebilir, görev atayabilir, bütçe kalemi düzenleyebilir. Siz uygun değilken hazırlık durmaz.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper"><span class="material-icons-round">notifications_active</span></div>
+                        <h3>Anlık Bildirimler</h3>
+                        <p>Görev durumları veya harcamalar güncellendiğinde anında bildirim alın, kontrolü elden bırakmayın.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- İnteraktif Paket Seçici (Akıllı Hesaplayıcı) -->
+<!-- İnteraktif Paket Seçici (Akıllı Hesaplayıcı) -->
         <section id="hesaplayici" class="interactive-calculator">
             <div class="container">
                 <div class="section-header">
@@ -2422,50 +2462,7 @@
             </div>
         </section>
 
-        <!-- Özellikler Grid (Özet Özellikler) -->
-        <section id="ozellikler" class="features">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Hazırlığın tamamı tek uygulamada</h2>
-                    <p class="section-subtitle">Bütçeden davetliye, görevden takvime kadar ayrı yerlerde tuttuğunuz her şey aynı ekranda.</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper"><span class="material-icons-round">groups</span></div>
-                        <h3>İmece Ekibi (Ekibim)</h3>
-                        <p>Aile üyelerinizi, sağdıçlarınızı veya nedimelerinizi davet koduyla yönetim ekibinize dahil edin. Herkes kendi görevini görsün.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper"><span class="material-icons-round">account_balance_wallet</span></div>
-                        <h3>Akıllı Bütçe Yönetimi</h3>
-                        <p>Her ödemenin yanında kimin ödediği yazar. Düğün bitince “kim ne kadar koydu” tartışması değil, hazır bir döküm olur.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper"><span class="material-icons-round">task</span></div>
-                        <h3>Gelişmiş Görev Takibi</h3>
-                        <p>Görevleri önem derecesine göre önceliklendirin, sorumlular atayın. Yorum alanı sayesinde görevler üzerinde tartışın.</p>
-                    </div>
-                    <div class="feature-card" id="ozellik-sablon">
-                        <div class="feature-icon-wrapper"><span class="material-icons-round">auto_stories</span></div>
-                        <h3>Hazır Şablon Kütüphanesi</h3>
-                        <p>Düğün veya nişan etkinlik türünüze göre, otomatik yapılacaklar listesini saniyeler içinde yükleyin.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper"><span class="material-icons-round">manage_accounts</span></div>
-                        <h3>Ortak Yönetici Yetkileri</h3>
-                        <p>Ortak yönetici de davet gönderebilir, görev atayabilir, bütçe kalemi düzenleyebilir. Siz uygun değilken hazırlık durmaz.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon-wrapper"><span class="material-icons-round">notifications_active</span></div>
-                        <h3>Anlık Bildirimler</h3>
-                        <p>Görev durumları veya harcamalar güncellendiğinde anında bildirim alın, kontrolü elden bırakmayın.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Fiyatlandırma / Paketler Section -->
-        <!-- Kurucu notu: fiyat karsilasmasindan hemen once guven halkasi.
+<!-- Kurucu notu: fiyat karsilasmasindan hemen once guven halkasi.
              Gercek degerlendirme verisi olmadigi icin bilerek sayi/puan/yorum
              iddiasi YOK; dogrulanabilir taahhutler (24 saat, ucretsiz ekip,
              veri silinmez) ve dogrudan iletisim kanali var. -->
@@ -2507,7 +2504,7 @@
             </div>
         </section>
 
-        <section id="paketler" class="pricing">
+<section id="paketler" class="pricing">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag gold">Fiyatlandırma & Paketler</span>
@@ -2583,9 +2580,9 @@
                     </div>
                 </div>
             </div>
-        </section> <!-- Closes #paketler -->
+        </section>
 
-        <!-- Sıkça Sorulan Sorular (SSS - Interactive Accordion) -->
+<!-- Sıkça Sorulan Sorular (SSS - Interactive Accordion) -->
         <section id="sss" class="faq-section">
             <div class="container">
                 <div class="section-header">
@@ -2705,7 +2702,7 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
+<!-- CTA Section -->
         <section id="indirin" class="cta-bottom">
             <div class="container cta-container">
                 <h2>Çıktığı gün ilk siz haberdar olun</h2>
