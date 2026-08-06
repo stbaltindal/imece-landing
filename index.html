@@ -1904,7 +1904,7 @@
                 <div class="section-header">
                     <span class="section-tag gold">Düğün günü</span>
                     <h2>O gün kimse size <span class="text-gold-gradient">soru sormasın</span></h2>
-                    <p class="section-subtitle">DJ'in, mutfağın ve şoförün ihtiyaç duyduğu bilgi o gün hazır bekliyor. Siz gelin ve damat olmaya odaklanın.</p>
+                    <p class="section-subtitle">DJ'in, mutfağın ve davetlinin ihtiyaç duyduğu bilgi o gün hazır bekliyor; kime ulaşacaksanız numarası elinizin altında. Siz gelin ve damat olmaya odaklanın.</p>
                 </div>
 
                 <div class="asistan-grid">
@@ -1982,7 +1982,30 @@
                         </div>
                     </article>
 
-                    
+                    <!-- 04 — Davetliye tek dokunusla ulasma.
+                         Dogrulama: contact_launcher.dart (tel: ve wa.me) + guest.phone -->
+                    <article class="asistan-card" id="cozum-iletisim">
+                        <span class="asistan-ordinal">04</span>
+                        <div class="asistan-card-header">
+                            <span class="asistan-icon-wrap"><span class="material-icons-round">call</span></span>
+                            <span class="asistan-tag">Tek Dokunuş</span>
+                        </div>
+                        <h3>Kime ulaşacaksanız numara aramayın</h3>
+                        <p class="asistan-desc">Davetli kartındaki numaraya dokunun; telefon açılır ya da WhatsApp mesajı hazır gelir. Rehberde isim aramaya, numarayı kopyalayıp yapıştırmaya gerek kalmaz.</p>
+                        <div class="asistan-mockup">
+                            <div class="mini-map-box">
+                                <span class="material-icons-round map-pin-icon">person</span>
+                                <div class="map-box-text">
+                                    <strong>Ayşe Yılmaz</strong>
+                                    <span>Katılıyor · 2 kişi · Masa 4</span>
+                                </div>
+                            </div>
+                            <div class="mini-stage-rows">
+                                <div class="stage-row"><b>Not</b> Kızıyla birlikte gelecek</div>
+                            </div>
+                            <span class="action-map-btn"><span class="material-icons-round">chat</span> Ara veya WhatsApp'tan yaz</span>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1993,7 +2016,7 @@
                 <div class="section-header">
                     <span class="section-tag gold">Düğün günü ve sonrası</span>
                     <h2>Hazırlık bitince <span class="text-gold-gradient">iş asıl orada başlıyor</span></h2>
-                    <p class="section-subtitle">Düğün gününün kendisi, hediye etme ve ekip güvenliği için eklenen dört ekran.</p>
+                    <p class="section-subtitle">Günün akışı, işin paylaşılması, harcamanın göreve bağlanması ve ekip güvenliği için altı ekran.</p>
                 </div>
 
                 <div class="gunici-grid">
@@ -2079,6 +2102,70 @@
                                 <div class="safety-opt danger"><span class="material-icons-round">block</span> Kullanıcıyı engelle</div>
                             </div>
                             <div class="safety-note"><span class="material-icons-round">verified_user</span> Bildiriminiz 24 saat içinde incelenir.</div>
+                        </div>
+                    </article>
+
+                    <!-- 5. Gorev/paket ustlenme.
+                         Dogrulama: guest_tasks_tab.dart ("Ustlenebileceginiz isler",
+                         "Sahipsiz bir gorevi ustlenmek icin dokunun; ekip kimin
+                         sorumlu oldugunu gorur"), claimable_task_card.dart ("Gorevi
+                         ustlen"), claimable_role_card.dart ("Paketi ustlen"). -->
+                    <article class="gunici-card" id="cozum-ustlen">
+                        <div class="gunici-head">
+                            <span class="gunici-icon"><span class="material-icons-round">pan_tool_alt</span></span>
+                            <div>
+                                <h3>Üstlenilecek İşler</h3>
+                                <span class="gunici-kicker">Sahipsiz iş kalmasın</span>
+                            </div>
+                        </div>
+                        <p class="gunici-desc">Kimseye atanmamış görevler ekibe açık bir havuzda durur. Ekip üyesi beğendiği işi “Üstlen” diyerek kendi üstüne alır; kimin sorumlu olduğunu herkes görür. Tek tek görev yerine bir iş paketinin tamamı da üstlenilebilir — paketteki bütün görevler o kişiye geçer.</p>
+                        <div class="gunici-mock">
+                            <div class="sb-row">
+                                <span class="sb-avatar gold">✓</span>
+                                <span class="sb-name">Nikah şekeri siparişi <em>(Ece üstlendi)</em></span>
+                                <span class="sb-pct">Üstlenildi</span>
+                            </div>
+                            <div class="sb-row">
+                                <span class="sb-avatar pink">·</span>
+                                <span class="sb-name">Çiçek İşleri <em>(paket · 6 görev)</em></span>
+                                <span class="sb-pct">Sahipsiz</span>
+                            </div>
+                            <div class="sb-row me">
+                                <span class="sb-avatar rose">·</span>
+                                <span class="sb-name">Gelin arabası süslemesi</span>
+                                <span class="sb-pct">Sahipsiz</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 6. Gorev basina maliyet.
+                         Dogrulama: task_cost_screen.dart ("Tahmini maliyet",
+                         "Gerceklesen maliyet", "Etkinlik toplami: Tahmini ..."). -->
+                    <article class="gunici-card" id="cozum-maliyet">
+                        <div class="gunici-head">
+                            <span class="gunici-icon"><span class="material-icons-round">receipt_long</span></span>
+                            <div>
+                                <h3>Görev Başına Maliyet</h3>
+                                <span class="gunici-kicker">Bütçe görevden besleniyor</span>
+                            </div>
+                        </div>
+                        <p class="gunici-desc">Her görevin kendi tahmini ve gerçekleşen maliyeti var. Rakamı görevin içinde girersiniz, etkinlik bütçesi kendiliğinden güncellenir. Hangi işin tahmini aştığı ayrı bir tabloya bakmadan, görevin üstünde görünür.</p>
+                        <div class="gunici-mock">
+                            <div class="sb-row">
+                                <span class="sb-avatar gold">₺</span>
+                                <span class="sb-name">Fotoğrafçı kaporası <em>(tahmini 8.000)</em></span>
+                                <span class="sb-pct">8.000</span>
+                            </div>
+                            <div class="sb-row me">
+                                <span class="sb-avatar rose">₺</span>
+                                <span class="sb-name">Çiçek süsleme <em>(tahmini 6.000)</em></span>
+                                <span class="sb-pct">7.400</span>
+                            </div>
+                            <div class="sb-row">
+                                <span class="sb-avatar pink">·</span>
+                                <span class="sb-name">Nikah şekeri <em>(tahmini 3.500)</em></span>
+                                <span class="sb-pct">Bekliyor</span>
+                            </div>
                         </div>
                     </article>
                 </div>

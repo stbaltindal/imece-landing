@@ -803,8 +803,18 @@ body.dark-active .faq-question {
     letter-spacing: 0.02em;
     color: var(--n-text-faint);
 }
+/* style.css .sb-name'e width:96px + nowrap + ellipsis veriyor; skorboardda
+   yaninda bir ilerleme cubugu oldugu icin dogru. Cubugu olmayan mocklarda
+   ayni kural isimleri kirpiyordu ("Nikah sekeri s..."). Burada isim kalan
+   alani alsin ve gerekirse alt satira sarsin. */
 .gunici-mock:not(.scoreboard-mock) .sb-name {
+    width: auto;
+    flex: 1 1 auto;
     min-width: 0;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.35;
 }
 .gunici-mock .sb-avatar {
     flex-shrink: 0;
@@ -817,8 +827,15 @@ body.dark-active .faq-question {
    bosluk kaldi. auto-fit ile kart sayisi degistiginde duzen kendini toparlar.
    -------------------------------------------------------------------------- */
 @media (min-width: 992px) {
+    /* Varsayilan iki kolon: cift sayida kartta (su an 4) dengeli 2x2 verir ve
+       :has() desteklemeyen tarayicilarda da dogru kalir. */
     .asistan-grid {
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Miktar sorgusu: son cocuk ayni zamanda 3. cocuksa izgarada tam 3 kart
+       vardir; o durumda iki kolon yarim satir bosluk birakiyordu. */
+    .asistan-grid:has(> :last-child:nth-child(3)) {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
