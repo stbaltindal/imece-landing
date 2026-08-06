@@ -811,6 +811,18 @@ body.dark-active .faq-question {
 }
 
 /* --------------------------------------------------------------------------
+   11d. Asistan izgarasi kart sayisindan bagimsiz olsun
+   style.css'te repeat(2, 1fr) sabitti. "Gorev teklifi" karti cozum rayina
+   tasininca bolum 4'ten 3 karta dustu ve iki kolonlu izgarada yarim satir
+   bosluk kaldi. auto-fit ile kart sayisi degistiginde duzen kendini toparlar.
+   -------------------------------------------------------------------------- */
+@media (min-width: 992px) {
+    .asistan-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+
+/* --------------------------------------------------------------------------
    12b. Kurucu notu — fiyat oncesi guven halkasi
    Sayfada hicbir sosyal kanit yoktu. Gercek puan/yorum verisi olmadigi icin
    uydurma rakam yerine imzali bir not ve dogrulanabilir taahhutler var.
