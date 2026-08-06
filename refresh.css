@@ -840,6 +840,54 @@ body.dark-active .faq-question {
 }
 
 /* --------------------------------------------------------------------------
+   11e. --gold-text koyu yuzeylerde okunmuyordu
+   #7A5A20 tonu ACIK zemin icin secilmisti (beyaz uzerinde 6.34:1). Kartlar
+   geceye gecince ayni ton --n-2 (#131318) uzerinde 2.92:1'e dustu; 44.8px
+   fiyat rakami dahil 32 oge WCAG AA'nin altinda kaldi.
+
+   Token bilerek body'de degil, KOYU KAPSAYICILARDA eziliyor: telefon
+   mockup'larinin krem ekranlarinda #7A5A20 dogru tonun ta kendisi, oralarda
+   bozulmamali. Olcum (python3, WCAG bagil parlaklik):
+     #7A5A20 -> #131318 = 2.92:1  (AA'nin altinda)
+     #D9B46A -> #131318 = 9.42:1
+   -------------------------------------------------------------------------- */
+body.dark-active .flip-card-front,
+body.dark-active .flip-card-back,
+body.dark-active .asistan-card,
+body.dark-active .gunici-card,
+body.dark-active .feature-card,
+body.dark-active .details-card,
+body.dark-active .pricing-card,
+body.dark-active .calculator-container,
+body.dark-active .calculator-result {
+    --gold-text: #D9B46A;
+}
+
+/* Fiyat rakami: endustri standardi hizalama.
+   lining/tabular rakamlar Playfair'in eski-stil figurlerini engeller ve
+   basamaklar sabit genislikte hizalanir; negatif harf araligi buyuk
+   puntoda rakamlari toparlar. */
+.result-price,
+.pricing-card .price,
+.calculator-result .result-price {
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "lnum" 1, "tnum" 1;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+/* Para birimi ve donem, rakamin yaninda ikincil kalsin. */
+.result-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+body.dark-active .result-price-row .price-period,
+body.dark-active #recommendedPlanPeriod {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
    12b. Kurucu notu — fiyat oncesi guven halkasi
    Sayfada hicbir sosyal kanit yoktu. Gercek puan/yorum verisi olmadigi icin
    uydurma rakam yerine imzali bir not ve dogrulanabilir taahhutler var.
