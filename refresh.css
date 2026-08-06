@@ -484,9 +484,24 @@ body.dark-active .pain-item .pain-quote {
 body.dark-active .pain-item .pain-meta {
     color: var(--n-text-faint) !important;
 }
+/* style.css:6185 isaretli maddeye `background` KISAYOLU ile krem bir gradyan
+   veriyor (#FFFDF8 -> --rose-gold-tint). Kisayol background-image'i de
+   yazdigi icin buradaki background-color ezmesi gradyanin ALTINDA kaliyordu:
+   madde isaretlenince zemin krem oluyor, ustundeki beyaz metin okunmuyordu.
+   Gradyani acikca kapatmak sart. */
 body.dark-active .pain-item.checked {
-    background-color: rgba(217, 180, 106, 0.09) !important;
-    border-color: rgba(217, 180, 106, 0.38) !important;
+    background-image: none !important;
+    background-color: rgba(217, 180, 106, 0.12) !important;
+    border-color: rgba(217, 180, 106, 0.45) !important;
+    box-shadow: none !important;
+}
+body.dark-active .pain-item.checked .pain-quote {
+    color: var(--n-text) !important;
+}
+/* style.css isaretli maddenin alt basligina --primary-dark (pastel gul)
+   veriyor; acik zeminde dogru, koyu zeminde okunmuyor. */
+body.dark-active .pain-item.checked .pain-meta {
+    color: var(--accent) !important;
 }
 body.dark-active .pain-result-card {
     background-color: var(--n-2) !important;
