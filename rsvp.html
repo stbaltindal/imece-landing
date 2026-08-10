@@ -240,6 +240,175 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
         }
 
+        /* Kisi sayisi degisiklik talebi (migration 074) -- davetli kontenjani
+           dogrudan degistiremez, talep cifte gider. Sayfanin altin/kapsul
+           dilini izler; ayri bir renk ailesi ACILMAZ. */
+        .party-request {
+            margin-top: 10px;
+        }
+
+        .party-request-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 6px;
+            border-radius: 8px;
+            transition: color 160ms ease;
+        }
+
+        .party-request-toggle:hover {
+            color: var(--gold-text);
+        }
+
+        .party-request-toggle .material-icons-round {
+            font-size: 1rem;
+        }
+
+        .party-request-wrap {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+            transition: max-height 220ms cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 220ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .party-request-wrap.open {
+            max-height: 260px;
+            opacity: 1;
+            pointer-events: auto;
+            margin-top: 10px;
+        }
+
+        .party-request-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin: 0 0 10px;
+        }
+
+        .party-stepper {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: #FFFFFF;
+            border: 1px solid var(--gold-border);
+            border-radius: 50px;
+            padding: 5px 8px;
+        }
+
+        .party-stepper-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--gold-text);
+            transition: background 160ms ease, opacity 160ms ease;
+        }
+
+        .party-stepper-btn:hover:not(:disabled) {
+            background: rgba(212, 175, 55, 0.24);
+        }
+
+        .party-stepper-btn:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .party-stepper-btn .material-icons-round {
+            font-size: 1.15rem;
+        }
+
+        .party-stepper-value {
+            min-width: 56px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .party-request-send {
+            display: block;
+            width: 100%;
+            margin-top: 12px;
+            padding: 10px 16px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            background: linear-gradient(135deg, var(--gold) 0%, #A8841B 100%);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: opacity 160ms ease;
+        }
+
+        .party-request-send:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        .party-request-hint {
+            font-size: 0.74rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 8px 0 0;
+        }
+
+        .party-request-error {
+            display: none;
+            font-size: 0.76rem;
+            color: var(--red);
+            margin: 8px 0 0;
+        }
+
+        .party-request-error.show {
+            display: block;
+        }
+
+        .party-request-pending {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+            padding: 8px 14px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--gold-text);
+            background: rgba(212, 175, 55, 0.09);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            border-radius: 20px;
+        }
+
+        .party-request-pending .material-icons-round {
+            font-size: 1rem;
+        }
+
+        .party-request-cancel {
+            font-family: var(--font-body);
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 0 2px;
+        }
+
         .invite-message {
             font-size: 0.94rem;
             line-height: 1.65;
@@ -1381,6 +1550,37 @@
                 </div>
                 <div>
                     <span class="party-chip hidden" id="partySize"></span>
+                    <!-- Kisi sayisi degisiklik talebi (migration 074).
+                         Davetli party_size'i DOGRUDAN degistiremez: salon
+                         kapasitesi ve oturma duzeni cifte ait bir karar.
+                         Buradan giden sey bir TALEP; onaylanana kadar
+                         davetiye aynen kalir. -->
+                    <div class="party-request hidden" id="partyRequestBlock">
+                        <button type="button" class="party-request-toggle" id="partyRequestToggle">
+                            <span class="material-icons-round">group_add</span>
+                            <span>Kişi sayısı değişikliği iste</span>
+                        </button>
+                        <div class="party-request-wrap" id="partyRequestWrap">
+                            <p class="party-request-label">Kaç kişi katılacaksınız?</p>
+                            <div class="party-stepper">
+                                <button type="button" class="party-stepper-btn" id="partyMinus" aria-label="Azalt">
+                                    <span class="material-icons-round">remove</span>
+                                </button>
+                                <span class="party-stepper-value" id="partyStepperValue">1</span>
+                                <button type="button" class="party-stepper-btn" id="partyPlus" aria-label="Artır">
+                                    <span class="material-icons-round">add</span>
+                                </button>
+                            </div>
+                            <button type="button" class="party-request-send" id="partyRequestSend">Talebi Gönder</button>
+                            <p class="party-request-hint">Talebiniz çiftin onayına gönderilir. Onaylanınca davetiyeniz güncellenir.</p>
+                            <p class="party-request-error" id="partyRequestError">Gönderilemedi, tekrar dener misin?</p>
+                        </div>
+                        <div class="party-request-pending hidden" id="partyRequestPending">
+                            <span class="material-icons-round">hourglass_top</span>
+                            <span><strong id="partyRequestPendingValue"></strong> kişilik talebiniz iletildi, onay bekliyor.</span>
+                            <button type="button" class="party-request-cancel" id="partyRequestCancel">İptal et</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1556,6 +1756,17 @@
             venueNameText: document.getElementById('venueNameText'),
             venueLink: document.getElementById('venueLink'),
             partySize: document.getElementById('partySize'),
+            partyRequestBlock: document.getElementById('partyRequestBlock'),
+            partyRequestToggle: document.getElementById('partyRequestToggle'),
+            partyRequestWrap: document.getElementById('partyRequestWrap'),
+            partyStepperValue: document.getElementById('partyStepperValue'),
+            partyMinus: document.getElementById('partyMinus'),
+            partyPlus: document.getElementById('partyPlus'),
+            partyRequestSend: document.getElementById('partyRequestSend'),
+            partyRequestError: document.getElementById('partyRequestError'),
+            partyRequestPending: document.getElementById('partyRequestPending'),
+            partyRequestPendingValue: document.getElementById('partyRequestPendingValue'),
+            partyRequestCancel: document.getElementById('partyRequestCancel'),
             timelineSection: document.getElementById('timelineSection'),
             timelineList: document.getElementById('timelineList'),
             timelinePlaceholder: document.getElementById('timelinePlaceholder'),
@@ -1782,6 +1993,92 @@
         let currentPreference = null;
         let currentHasAllergy = false;
 
+        // --- Kisi sayisi degisiklik talebi (migration 074) ---------------
+        // Sunucu 1..50 arasini kabul ediyor; ayni sinir burada da uygulanir
+        // ki kullanici reddedilecek bir deger gonderemesin. Istemci
+        // dogrulamasi guvenlik DEGIL, sadece nezaket -- karar sunucuda.
+        const MIN_PARTY_SIZE = 1;
+        const MAX_PARTY_SIZE = 50;
+        let stepperValue = 1;
+
+        function renderPartyRequest(guest) {
+            const current = guest.party_size || 1;
+            const requested = guest.requested_party_size;
+            const isPending = requested != null && requested !== current;
+
+            els.partyRequestBlock.classList.remove('hidden');
+
+            if (isPending) {
+                // Bekleyen talep varken form kapali durur: davetli ayni anda
+                // iki farkli sayi talep edemesin, once mevcut talebi iptal
+                // etsin.
+                els.partyRequestPendingValue.textContent = requested;
+                els.partyRequestPending.classList.remove('hidden');
+                els.partyRequestToggle.classList.add('hidden');
+                els.partyRequestWrap.classList.remove('open');
+                return;
+            }
+
+            els.partyRequestPending.classList.add('hidden');
+            els.partyRequestToggle.classList.remove('hidden');
+            stepperValue = current;
+            renderStepper();
+        }
+
+        function renderStepper() {
+            els.partyStepperValue.textContent = `${stepperValue} kişi`;
+            els.partyMinus.disabled = stepperValue <= MIN_PARTY_SIZE;
+            els.partyPlus.disabled = stepperValue >= MAX_PARTY_SIZE;
+            // Mevcut sayinin aynisi talep degildir -- sunucu da bu durumda
+            // talebi temizliyor, buton bosuna aktif gorunmesin.
+            const current = (currentGuest && currentGuest.party_size) || 1;
+            els.partyRequestSend.disabled = stepperValue === current;
+        }
+
+        function stepParty(delta) {
+            const next = stepperValue + delta;
+            if (next < MIN_PARTY_SIZE || next > MAX_PARTY_SIZE) return;
+            stepperValue = next;
+            els.partyRequestError.classList.remove('show');
+            renderStepper();
+        }
+
+        // p_party_size mevcut sayiya esitse sunucu talebi TEMIZLER -- "iptal
+        // et" de bu yolu kullanir, ayri bir RPC'ye gerek yok.
+        async function sendPartyRequest(value) {
+            if (!token) return;
+            els.partyRequestSend.disabled = true;
+            els.partyRequestCancel.disabled = true;
+            els.partyRequestError.classList.remove('show');
+
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/request_guest_party_size_by_token`, {
+                    method: 'POST',
+                    headers: rpcHeaders,
+                    body: JSON.stringify({ p_token: token, p_party_size: value })
+                });
+
+                const success = response.ok && (await response.json()) === true;
+                if (!success) {
+                    console.error('Party size request failed:', response.status);
+                    els.partyRequestError.classList.add('show');
+                    return;
+                }
+
+                if (currentGuest) {
+                    const current = currentGuest.party_size || 1;
+                    currentGuest.requested_party_size = value === current ? null : value;
+                    renderPartyRequest(currentGuest);
+                }
+            } catch (err) {
+                console.error('Party size request exception:', err);
+                els.partyRequestError.classList.add('show');
+            } finally {
+                els.partyRequestCancel.disabled = false;
+                renderStepper();
+            }
+        }
+
         function applyMealSelection(preference) {
             els.mealPrefBtns.forEach(btn => {
                 btn.classList.toggle('selected', btn.dataset.pref === preference);
@@ -1911,6 +2208,13 @@
             renderSharedStages(guest.shared_stages);
 
             const status = guest.rsvp_status || 'pending';
+            // "Katılmıyorum" diyen davetliye kişi sayısı sormak anlamsız --
+            // bölüm yalnız bekleyen/katılan davetliye açılır.
+            if (status === 'declined') {
+                els.partyRequestBlock.classList.add('hidden');
+            } else {
+                renderPartyRequest(guest);
+            }
             renderStatus(status);
             renderMealPrefSection(guest, status);
             showState('loaded');
@@ -1972,6 +2276,14 @@
                     if (currentGuest) {
                         currentGuest.rsvp_status = status;
                         renderMealPrefSection(currentGuest, status);
+                        // Yanit sayfa acikken degisebilir: "katilmiyorum"a
+                        // gecen davetliden kisi sayisi istemek anlamsiz,
+                        // geri donerse bolum yeniden acilir.
+                        if (status === 'declined') {
+                            els.partyRequestBlock.classList.add('hidden');
+                        } else {
+                            renderPartyRequest(currentGuest);
+                        }
                     }
                     els.thanksMsg.textContent = status === 'confirmed'
                         ? '✨ Katılım yanıtınız iletildi. Sizi aramızda görmek için sabırsızlanıyoruz!'
@@ -2069,6 +2381,20 @@
         els.confirmBtn.addEventListener('click', () => updateRsvp('confirmed'));
         els.declineBtn.addEventListener('click', () => updateRsvp('declined'));
         els.retryBtn.addEventListener('click', loadGuestStatus);
+
+        els.partyRequestToggle.addEventListener('click', () => {
+            const isOpen = els.partyRequestWrap.classList.toggle('open');
+            if (isOpen) renderStepper();
+        });
+        els.partyMinus.addEventListener('click', () => stepParty(-1));
+        els.partyPlus.addEventListener('click', () => stepParty(1));
+        els.partyRequestSend.addEventListener('click', () => sendPartyRequest(stepperValue));
+        // Iptal, mevcut kontenjani talep ederek yapilir; sunucu esitlikte
+        // talebi siler (bkz. request_guest_party_size_by_token).
+        els.partyRequestCancel.addEventListener('click', () => {
+            const current = (currentGuest && currentGuest.party_size) || 1;
+            sendPartyRequest(current);
+        });
         els.mealPrefBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const pref = btn.dataset.pref;
