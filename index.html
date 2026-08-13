@@ -121,11 +121,6 @@
         },
         {
           "@type": "Question",
-          "name": "Premium paketi arkadaşıma hediye edebilir miyim?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Evet. Uygulamadan hediye paketini satın aldığınızda size 15 haneli bir hediye kodu üretilir. Kodu veya hazır paylaşım linkini arkadaşınıza gönderirsiniz; onlar uygulamada kodu girdiği anda premium hakları hesaplarına tanımlanır. Kodun kullanılıp kullanılmadığını “Hediyelerim” ekranından takip edebilirsiniz." }
-        },
-        {
-          "@type": "Question",
           "name": "Ekipteki biri rahatsız edici davranırsa ne yapabilirim?",
           "acceptedAnswer": { "@type": "Answer", "text": "Her mesaj ve yorumda şikayet ve engelleme seçeneği bulunur. Engellediğiniz kişinin mesaj ve yorumlarını görmezsiniz, size yazamaz; kendisi etkinlikte kalmaya devam eder. Etkinlik sahibiyseniz aynı adımda kişiyi ekipten tamamen de çıkarabilirsiniz. Şikayetler 24 saat içinde incelenir. Engellediğiniz kişileri ayarlardaki “Engellenen Kişiler” ekranından yönetebilirsiniz." }
         },
@@ -2170,28 +2165,7 @@
                         </div>
                     </article>
 
-                    <!-- 5. Hediye Et -->
-                    <article class="gunici-card" id="cozum-hediye">
-                        <div class="gunici-head">
-                            <span class="gunici-icon"><span class="material-icons-round">card_giftcard</span></span>
-                            <div>
-                                <h3>Premium'u Hediye Edin</h3>
-                                <span class="gunici-kicker">Nişan hediyesi olarak</span>
-                            </div>
-                        </div>
-                        <p class="gunici-desc">Evlenecek arkadaşınıza paketi siz alın. Uygulama 15 haneli bir hediye kodu üretir, siz linki gönderirsiniz; onlar kodu girdiği anda premium açılır. Kullanılmadığını “Hediyelerim” ekranından takip edersiniz.</p>
-                        <div class="gunici-mock gift-mock">
-                            <div class="gift-code-row">
-                                <span class="gift-code" id="giftCodeDemo">A7K9M-3PX2R-8QW5T</span>
-                                <button type="button" class="gift-copy-btn" onclick="copyGiftDemoCode()">
-                                    <span class="material-icons-round">content_copy</span> Kopyala
-                                </button>
-                            </div>
-                            <div class="gift-status"><span class="gift-dot"></span> Henüz kullanılmadı · Ece'ye gönderildi</div>
-                        </div>
-                    </article>
-
-                    <!-- 6. Güvenli Ekip -->
+                    <!-- 5. Güvenli Ekip -->
                     <article class="gunici-card" id="cozum-guvenlik">
                         <div class="gunici-head">
                             <span class="gunici-icon"><span class="material-icons-round">security</span></span>
@@ -2648,16 +2622,6 @@
                         </button>
                         <div class="faq-answer" id="faq-answer-6">
                             <p>Hayır, kesinlikle gerekmez. Sadece etkinliği oluşturan ana yöneticinin (Host) premium pakete sahip olması yeterlidir. Davet kodunuzla ekibe katılan yardımcılar (Co-host ve yardımcılar) uygulamayı tamamen ücretsiz olarak indirip tüm özelliklerden yararlanabilirler.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-7">
-                            Premium paketi arkadaşıma hediye edebilir miyim?
-                            <span class="material-icons-round faq-arrow">expand_more</span>
-                        </button>
-                        <div class="faq-answer" id="faq-answer-7">
-                            <p>Evet. Uygulamadan hediye paketini satın aldığınızda size 15 haneli bir hediye kodu üretilir. Kodu veya hazır paylaşım linkini arkadaşınıza gönderirsiniz; onlar uygulamada kodu girdiği anda premium hakları hesaplarına tanımlanır. Kodun kullanılıp kullanılmadığını “Hediyelerim” ekranından takip edebilirsiniz.</p>
                         </div>
                     </div>
 
@@ -4606,16 +4570,6 @@
             }
         }
 
-        function copyGiftDemoCode() {
-            const el = document.getElementById('giftCodeDemo');
-            if (!el) return;
-            const text = el.textContent.trim();
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(text).then(() => showToast('Hediye kodu kopyalandı'));
-            } else {
-                showToast('Hediye kodu: ' + text);
-            }
-        }
 
         // 8 Kriz & Çözüm Cards One-Time Scroll Tease (Runs ONCE -> teases solution -> resets to Front Sorun)
         function initCardsScrollPipeline() {
