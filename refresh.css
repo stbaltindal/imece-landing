@@ -1327,3 +1327,19 @@ body:not(.dark-active) .founder-mail {
 .skip-link:focus {
     left: 0;
 }
+
+/* --------------------------------------------------------------------------
+   19. Masaüstü QR Kod Kartı (Post-Launch)
+   -------------------------------------------------------------------------- */
+.desktop-qr-box {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.desktop-qr-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212, 175, 55, 0.15) !important;
+}
+@media (max-width: 768px) {
+    .desktop-qr-box {
+        display: none !important;
+    }
+}
