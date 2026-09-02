@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2026 Düğün Bütçesi ve Masraf Hesaplama Rehberi: Düğün harcamalarının altın oranları, interaktif bütçe bölüştürücü simülatörü ve kapora planlama tüyoları.">
+    <meta name="keywords" content="düğün bütçesi hesaplama, düğün masrafları 2026, düğün maliyeti kalemleri, düğün bütçe tablosu, kapora takip, düğün masrafı ne kadar">
+    <title>Düğün Bütçesi &amp; Masraf Hesaplama Rehberi (2026) — İmece Düğün</title>
+    <link rel="canonical" href="https://imecedugun.com/rehber/dugun-butcesi.html">
+
+    <!-- Social & Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Düğün Bütçesi &amp; Masraf Hesaplama Rehberi (2026) — İmece Düğün">
+    <meta property="og:description" content="Düğün harcamalarının altın oranları ve canlı bütçe bölüştürücü simülatörü. Masraflarınızı önceden planlayın.">
+    <meta property="og:url" content="https://imecedugun.com/rehber/dugun-butcesi.html">
+    <meta property="og:image" content="https://imecedugun.com/assets/icons/apple-touch-icon-solid.png">
+    <meta property="og:site_name" content="İmece Düğün">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Düğün Bütçesi &amp; Masraf Hesaplama Rehberi (2026) — İmece Düğün">
+    <meta name="twitter:description" content="Düğün harcamalarının altın oranları ve canlı bütçe bölüştürücü simülatörü. Masraflarınızı önceden planlayın.">
+    <meta name="twitter:image" content="https://imecedugun.com/assets/icons/apple-touch-icon-solid.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon-solid.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../style.css?v=32.0">
+    <link rel="stylesheet" href="../refresh.css?v=1.0">
+
+    <style>
+        .guide-article {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 20px 60px;
+        }
+        .breadcrumb-nav {
+            padding: 20px 0 10px;
+            font-size: 0.85rem;
+            color: var(--n-muted, #9a9aa2);
+        }
+        .breadcrumb-nav a {
+            color: var(--gold, #C5A059);
+            text-decoration: none;
+        }
+        .guide-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .guide-title {
+            font-family: var(--font-header, 'Playfair Display', serif);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            color: #fff;
+            margin: 16px 0;
+            line-height: 1.25;
+        }
+        .guide-lead {
+            font-size: 1.05rem;
+            color: var(--n-muted, #9a9aa2);
+            line-height: 1.7;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        /* Budget Calculator Card */
+        .budget-calc-card {
+            background: var(--n-2, #131318);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 32px;
+            margin: 32px 0 48px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .calc-input-group {
+            margin-bottom: 28px;
+        }
+        .calc-label {
+            display: block;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .calc-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+        .calc-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--gold, #C5A059);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+        }
+        .budget-display-amount {
+            font-family: var(--font-header, 'Playfair Display', serif);
+            font-size: 2.2rem;
+            color: var(--gold, #C5A059);
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        .budget-breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .breakdown-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .breakdown-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .breakdown-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        .breakdown-pct {
+            font-size: 0.8rem;
+            color: var(--gold, #C5A059);
+            font-weight: 700;
+            background: rgba(212, 175, 55, 0.12);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+        .breakdown-val {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 4px;
+        }
+
+        /* App Bridge Banner */
+        .app-bridge-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(19, 19, 24, 0.95) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 20px;
+            padding: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            margin: 48px 0;
+            flex-wrap: wrap;
+        }
+        .app-bridge-text h4 {
+            font-family: var(--font-header, 'Playfair Display', serif);
+            color: #fff;
+            font-size: 1.35rem;
+            margin: 0 0 8px;
+        }
+        .app-bridge-text p {
+            color: var(--n-muted, #9a9aa2);
+            font-size: 0.92rem;
+            margin: 0;
+            line-height: 1.5;
+            max-width: 480px;
+        }
+    </style>
+
+    <!-- Schema.org Article & Breadcrumb -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "2026 Düğün Bütçesi ve Masraf Hesaplama Rehberi",
+      "description": "Düğün harcamalarının altın oranları, interaktif masraf simülatörü ve bütçe aşımını önleme tüyoları.",
+      "image": "https://imecedugun.com/assets/icons/apple-touch-icon-solid.png",
+      "author": {
+        "@type": "Organization",
+        "name": "İmece Düğün"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "İmece Düğün"
+      },
+      "datePublished": "2026-09-02",
+      "dateModified": "2026-09-02"
+    }
+    </script>
+</head>
+<body class="has-sticky-cta dark-active">
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a class="logo" href="https://imecedugun.com/" aria-label="İmece Düğün — Ana Sayfa">
+                <img src="../assets/img/logo_wax_seal_96.png" alt="İmece Düğün Logo" width="32" height="32" style="width: 32px; height: 32px; object-fit: contain; margin-right: 10px;">
+                <span class="logo-text">İmece Düğün</span>
+            </a>
+            <nav class="nav-links">
+                <a href="https://imecedugun.com/#tanidik">Tanıdık Gelenler</a>
+                <a href="https://imecedugun.com/#neden-imece">Çözümler</a>
+                <a href="index.html" style="color: var(--gold, #C5A059);">Rehberler</a>
+                <a href="https://imecedugun.com/#paketler">Fiyatlandırma</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="btn btn-primary btn-gold-effect nav-download-btn">
+                    <svg class="apple-svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true">
+                        <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
+                    </svg>
+                    App Store'dan İndir
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="anaicerik" class="guide-article">
+        <div class="breadcrumb-nav">
+            <a href="https://imecedugun.com/">Ana Sayfa</a> &gt; <a href="index.html">Rehberler</a> &gt; <span>Düğün Bütçesi</span>
+        </div>
+
+        <header class="guide-header">
+            <div class="hero-brand-badge" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <span class="hero-badge-title">İNTERAKTİF FİNANS ARACI</span>
+            </div>
+            <h1 class="guide-title">2026 Düğün Bütçesi ve <br><span class="text-gold-gradient">Masraf Hesaplama Rehberi</span></h1>
+            <p class="guide-lead">
+                Düğün bütçesi kontrol altına alınmadığında sürpriz harcamalarla %30-40 oranında aşılabilir. Sektör standardı altın oranları kullanarak toplam bütçenizi aşağıdaki kaydırıcıdan belirleyin ve harcama havuzlarınızı canlı olarak görün.
+            </p>
+        </header>
+
+        <!-- Interactive Budget Calculator Card -->
+        <section class="budget-calc-card">
+            <div class="calc-input-group">
+                <label for="budgetSlider" class="calc-label">Toplam Düğün Bütçenizi Belirleyin</label>
+                <input type="range" id="budgetSlider" class="calc-slider" min="100000" max="2000000" step="25000" value="450000" oninput="calculateBudget(this.value)">
+                <div class="budget-display-amount" id="budgetDisplay">₺450.000</div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
+                <h4 style="color: #fff; margin: 0 0 16px; font-size: 1.1rem;">Önerilen İdeal Bütçe Dağılımı (Altın Oranlar)</h4>
+                
+                <div class="budget-breakdown-grid" id="breakdownGrid">
+                    <!-- Dynamic Breakdown Items -->
+                </div>
+            </div>
+        </section>
+
+        <!-- App Bridge Banner -->
+        <section class="app-bridge-box">
+            <div class="app-bridge-text">
+                <h4>Tahmini ve Gerçekleşen Bütçeyi Eşinizle Yönetin</h4>
+                <p>Kimin ne kadar kapora ödediğini kaydedin, kategori limitini aşınca anında bildirim alın. İmece Düğün ile bütçe krizlerini sıfıra indirin.</p>
+            </div>
+            <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="btn btn-primary btn-gold-effect" style="padding: 12px 24px; font-size: 0.95rem; white-space: nowrap;">
+                <svg class="apple-svg" viewBox="0 0 16 16" width="18" height="18" fill="currentColor" style="margin-right: 6px;" aria-hidden="true">
+                    <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
+                </svg>
+                App Store'da Canlı Bütçe Yönetimi
+            </a>
+        </section>
+
+        <!-- Editorial Content Section -->
+        <article style="color: #ccc; line-height: 1.8; font-size: 1rem; margin-top: 40px;">
+            <h2 style="font-family: var(--font-header, 'Playfair Display', serif); color: #fff; font-size: 1.6rem; margin: 32px 0 16px;">Düğün Bütçesini Yönetirken Dikkat Edilmesi Gereken 4 Kural</h2>
+            
+            <h3 style="color: var(--gold, #C5A059); font-size: 1.2rem; margin: 20px 0 8px;">1. %6'lık "Beklenmeyen Masraflar" Havuzunu Asla Dağıtmayın</h3>
+            <p>Bahşişler, son dakika kuaför rötuşları, davetli sayısındaki sürpriz artışlar veya transfer masrafları genellikle ana bütçede unutulur. Toplam bütçenizin en az %6'sını "yedek acil havuz" olarak tutun.</p>
+
+            <h3 style="color: var(--gold, #C5A059); font-size: 1.2rem; margin: 20px 0 8px;">2. Kapora ve Kalan Ödemeleri Tarihlere Bağlayın</h3>
+            <p>Birçok tedarikçi sözleşme anında %30 kapora, düğünden bir hafta önce kalan bakiyeyi talep eder. Tüm ödeme vadelerini tek bir ortak takvimde görmezseniz aynı haftaya denk gelen 4-5 büyük ödeme nakit akışınızı kilitleyebilir.</p>
+
+            <h3 style="color: var(--gold, #C5A059); font-size: 1.2rem; margin: 20px 0 8px;">3. Gelin ve Damat Tarafının Masraf Dağılımında Şeffaflık</h3>
+            <p>Hangi tarafın hangi kalemi üstlendiği önceden netleşmeli ve ortak panoda görünür olmalıdır. İmece Düğün uygulaması çoklu bütçe havuzu desteği ile iki tarafın da gönül rahatlığıyla harcamalarını kaydetmesini sağlar.</p>
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="../assets/img/logo_wax_seal_96.png" alt="" width="28" height="28" style="width: 28px; height: 28px; object-fit: contain; margin-right: 10px;">
+                    <span class="logo-text">İmece Düğün</span>
+                </div>
+                <p class="footer-slogan">En Özel Gününüze Altın Mühür.</p>
+                <div class="footer-legal-copy">&copy; 2026 İmece Düğün. Tüm hakları saklıdır.</div>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <span class="footer-heading">Rehberler</span>
+                    <a href="ceyiz-listesi.html">Çeyiz Listesi</a>
+                    <a href="dugun-butcesi.html">Düğün Bütçesi</a>
+                    <a href="nedime-ve-bride-to-be.html">Nedime &amp; Bride</a>
+                    <a href="dugun-gunu-akisi.html">Düğün Günü Akışı</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-heading">Bağlantılar</span>
+                    <a href="https://imecedugun.com/">Ana Sayfa</a>
+                    <a href="../gizlilik.html">Gizlilik</a>
+                    <a href="../kosullar.html">Koşullar</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Budget Calculator Script -->
+    <script>
+        const categories = [
+            { name: "Mekan & Yemek / İkram", pct: 0.40, icon: "🏛️" },
+            { name: "Gelinlik, Damatlık & Kuaför", pct: 0.12, icon: "👗" },
+            { name: "Fotoğraf & Video Çekimi", pct: 0.10, icon: "📸" },
+            { name: "Müzik, DJ & Orkestra", pct: 0.08, icon: "🎵" },
+            { name: "Çiçek & Konsept Dekorasyon", pct: 0.08, icon: "💐" },
+            { name: "Alyans & Takı Masrafları", pct: 0.12, icon: "💍" },
+            { name: "Davetiye & Nikah Şekeri", pct: 0.04, icon: "💌" },
+            { name: "Beklenmeyen Acil Havuz", pct: 0.06, icon: "🛡️" }
+        ];
+
+        function formatCurrency(num) {
+            return "₺" + num.toLocaleString('tr-TR');
+        }
+
+        function calculateBudget(amount) {
+            const total = parseInt(amount, 10);
+            document.getElementById('budgetDisplay').innerText = formatCurrency(total);
+
+            const grid = document.getElementById('breakdownGrid');
+            grid.innerHTML = categories.map(cat => {
+                const val = Math.round(total * cat.pct);
+                return `
+                    <div class="breakdown-item">
+                        <div class="breakdown-header">
+                            <span class="breakdown-title">${cat.icon} ${cat.name}</span>
+                            <span class="breakdown-pct">%${Math.round(cat.pct * 100)}</span>
+                        </div>
+                        <div class="breakdown-val">${formatCurrency(val)}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Init
+        calculateBudget(450000);
+    </script>
+</body>
+</html>
