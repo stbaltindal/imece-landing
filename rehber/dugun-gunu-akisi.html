@@ -37,51 +37,54 @@
 
     <style>
         .guide-article {
-            max-width: 900px;
+            max-width: 920px;
             margin: 0 auto;
-            padding: 100px 20px 60px;
+            padding: 110px 20px 70px;
         }
         .breadcrumb-nav {
-            padding: 20px 0 10px;
-            font-size: 0.85rem;
-            color: var(--n-muted, #9a9aa2);
+            padding: 24px 0 12px;
+            font-size: 0.9rem;
+            color: #B5B5BE;
         }
         .breadcrumb-nav a {
-            color: var(--gold, #C5A059);
+            color: #ECC880;
             text-decoration: none;
+            font-weight: 500;
         }
         .guide-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 44px;
         }
         .guide-title {
             font-family: var(--font-header, 'Playfair Display', serif);
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            color: #fff;
+            font-size: clamp(2.1rem, 3.8vw, 3rem);
+            color: #FFFFFF;
             margin: 16px 0;
             line-height: 1.25;
+            letter-spacing: -0.01em;
         }
         .guide-lead {
-            font-size: 1.05rem;
-            color: var(--n-muted, #9a9aa2);
-            line-height: 1.7;
-            max-width: 760px;
+            font-size: 1.1rem;
+            color: #E2E2E8;
+            line-height: 1.75;
+            max-width: 780px;
             margin: 0 auto;
         }
 
         /* Timeline Box */
         .timeline-card {
-            background: var(--n-2, #131318);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 20px;
-            padding: 32px;
-            margin: 32px 0 48px;
+            background: #121218;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 22px;
+            padding: 36px;
+            margin: 36px 0 52px;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
         }
         .time-row {
             display: flex;
-            gap: 20px;
+            gap: 22px;
             position: relative;
-            padding-bottom: 28px;
+            padding-bottom: 30px;
         }
         .time-row:last-child {
             padding-bottom: 0;
@@ -89,71 +92,79 @@
         .time-row::before {
             content: '';
             position: absolute;
-            left: 58px;
-            top: 32px;
+            left: 63px;
+            top: 34px;
             bottom: 0;
             width: 2px;
-            background: rgba(212, 175, 55, 0.25);
+            background: rgba(212, 175, 55, 0.35);
         }
         .time-row:last-child::before {
             display: none;
         }
         .time-badge {
-            width: 118px;
+            width: 128px;
             font-weight: 700;
-            color: var(--gold, #C5A059);
-            font-size: 0.95rem;
+            color: #ECC880;
+            font-size: 0.96rem;
             flex-shrink: 0;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         .time-dot {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            background: var(--gold, #C5A059);
+            background: linear-gradient(135deg, #ECC880, #D4AF37);
             border: 2px solid #08080A;
-            box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
             flex-shrink: 0;
         }
         .time-content {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
-            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 18px 22px;
             flex-grow: 1;
+            transition: all 0.25s ease;
+        }
+        .time-content:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(212, 175, 55, 0.4);
         }
         .time-content-title {
-            color: #fff;
-            font-size: 1.05rem;
+            color: #FFFFFF;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
         }
         .scope-tag {
-            font-size: 0.72rem;
-            font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 8px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .scope-tag.team {
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--gold, #C5A059);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.18);
+            color: #ECC880;
+            border: 1px solid rgba(212, 175, 55, 0.4);
         }
         .scope-tag.guest {
-            background: rgba(76, 217, 100, 0.15);
+            background: rgba(76, 217, 100, 0.18);
             color: #4cd964;
-            border: 1px solid rgba(76, 217, 100, 0.3);
+            border: 1px solid rgba(76, 217, 100, 0.4);
         }
         .time-content-desc {
-            color: var(--n-muted, #9a9aa2);
-            font-size: 0.9rem;
-            line-height: 1.5;
+            color: #E2E2E8;
+            font-size: 0.94rem;
+            line-height: 1.65;
             margin: 0;
         }
 
