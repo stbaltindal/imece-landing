@@ -9,32 +9,32 @@
    1. Gece yuzey olcegi & hareket egrileri
    -------------------------------------------------------------------------- */
 :root {
-    /* Gece katmanlari: her basamak bir yukseklik seviyesi. Altin artik
-       kenarlik degil, yalnizca vurgu. */
-    --n-0: #08080A;   /* sayfa zemini */
-    --n-1: #0D0D10;   /* alternatif bolum */
-    --n-2: #131318;   /* kart */
+    /* Gece katmanlari: her basamak bir yukseklik seviyesi. */
+    --n-0: #08080A;   /* saf derin siyah sayfa zemini */
+    --n-1: #0D0D10;   /* alternatif bolum zemini */
+    --n-2: #131318;   /* kart zemini */
     --n-3: #1B1B21;   /* yukseltilmis kart / hover */
 
-    --n-line: rgba(255, 255, 255, 0.08);
-    --n-line-strong: rgba(255, 255, 255, 0.16);
+    --n-line: rgba(255, 255, 255, 0.1);
+    --n-line-strong: rgba(255, 255, 255, 0.2);
 
-    --n-text: #F3F1EE;
-    --n-text-muted: #A6A2A8;
-    /* Onceki deger #6F6C75, --n-2/--n-0/--n-3 zeminlerine karsi 3.33-3.89:1
-       veriyordu; 11-13px kucuk etiketlerde kullanildigi icin WCAG AA'nin
-       4.5:1 esigini (buyuk metin istisnasi gecerli degil) gecmiyordu.
-       #8E8B95 ile (python3, WCAG bagil parlaklik formulu):
-         --n-0 (#08080A) -> 5.98:1
-         --n-2 (#131318) -> 5.54:1
-         --n-3 (#1B1B21) -> 5.12:1
-       Ucu de 4.5:1'in uzerinde. */
-    --n-text-faint: #8E8B95;
+    --n-text: #FFFFFF;
+    --n-text-muted: #E2E2E8;
+    --n-text-faint: #B5B5BE;
+
+    /* style.css degiskenlerini karanlik moda zorla */
+    --bg-cream: #08080A;
+    --surface: #131318;
+    --text-main: #FFFFFF;
+    --text-muted: #E2E2E8;
+    --text-light: #B5B5BE;
+    --text-secondary: #E2E2E8;
+    --border-color: rgba(255, 255, 255, 0.12);
 
     /* Tek bir altin aksan. Kartlarda dolgu/kenarlik olarak degil,
        CTA ve tek kelimelik vurgularda kullanilir. */
-    --accent: #D9B46A;
-    --accent-deep: #B08A3C;
+    --accent: #ECC880;
+    --accent-deep: #D4AF37;
 
     --ease-out-expo: cubic-bezier(0.16, 1, 0.30, 1);
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -42,6 +42,13 @@
     /* Bolum ritmi: negatif alan burada uretiliyor. */
     --sec-pad: clamp(72px, 7.5vw, 124px);
     --stack-lg: clamp(40px, 5vw, 72px);
+}
+
+html,
+body,
+body.dark-active {
+    background-color: #08080A !important;
+    color: #FFFFFF !important;
 }
 
 .dark-overlay {
