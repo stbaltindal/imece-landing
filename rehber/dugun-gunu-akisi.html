@@ -351,6 +351,21 @@
         <!-- Timeline Schedule Section -->
         <section class="timeline-card">
             
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <div>
+                    <span style="color: #ECC880; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Düğün Konseptinizi Seçin</span>
+                    <div style="display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap;">
+                        <button type="button" class="cat-pill active" id="modeAksam" onclick="setTimelineMode('aksam')">Akşam Yemekli (19:30)</button>
+                        <button type="button" class="cat-pill" id="modeKir" onclick="setTimelineMode('kir')">Kır &amp; Kokteyl (18:30)</button>
+                        <button type="button" class="cat-pill" id="modeGunduz" onclick="setTimelineMode('gunduz')">Öğlen Nikahı (14:00)</button>
+                    </div>
+                </div>
+                <button type="button" id="copyTimelineBtn" onclick="copyTimelineSchedule()" class="btn" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.5); color: #ECC880; padding: 10px 18px; border-radius: 12px; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 600;">
+                    <span class="material-icons-round" style="font-size: 18px;">content_copy</span> Programı Ekiple Paylaş
+                </button>
+            </div>
+
+            <div id="timelineRowsContainer">
             <div class="time-row">
                 <div class="time-badge"><span class="time-dot"></span>09:00 - 13:30</div>
                 <div class="time-content">
@@ -439,6 +454,7 @@
                 </div>
             </div>
 
+            </div>
         </section>
 
         <!-- App Bridge Banner -->
@@ -504,6 +520,94 @@
     </footer>
 
     <script>
+    const timelineData = {
+        aksam: [
+            { time: "09:00 - 13:30", title: "Gelin & Damat Hazırlığı & Kuaför", tag: "Ekibe Özel", tagClass: "team", desc: "Saç, makyaj ve nedimelerin hazırlığı. Fotoğrafçının kuaföre gelişi ve hazırlık detay çekimleri." },
+            { time: "14:00 - 15:30", title: "Gelin Alma & İlk Bakış (First Look)", tag: "Ekibe Özel", tagClass: "team", desc: "Damat tarafının gelin evine gelişi, davul-zurna veya bando eşliğinde gelin alma merasimi ve duygusal ilk karşılaşma çekimi." },
+            { time: "16:00 - 18:00", title: "Dış Mekan Fotoğraf & Video Çekimi", tag: "Ekibe Özel", tagClass: "team", desc: "Gün batımı ışığında çift ve nedime/sağdıç konsept çekimleri. Ardından düğün salonundaki dinlenme odasına geçiş." },
+            { time: "19:00 - 19:45", title: "Kokteyl & Misafir Karşılama", tag: "Davetiyede Açık", tagClass: "guest", desc: "Trio müzik eşliğinde hoş geldiniz kokteyli ve davetlilerin masalarına yerleşimi." },
+            { time: "20:00 - 20:30", title: "Görkemli Giriş & Nikah Merasimi", tag: "Davetiyede Açık", tagClass: "guest", desc: "Çiftin salona girişi, nikah memuru eşliğinde 'Evet' imzaları ve ilk dans." },
+            { time: "20:30 - 22:00", title: "Yemek Servisi & Müzik / Eğlence", tag: "Davetiyede Açık", tagClass: "guest", desc: "Orkestra veya DJ eşliğinde yemek sunumu, danslar ve eğlence akışı." },
+            { time: "22:00 - 23:30", title: "Pasta Kesimi & Takı Merasimi", tag: "Davetiyede Açık", tagClass: "guest", desc: "Düğün pastası seremonisi, tebrik ve takı takdimi." },
+            { time: "23:30 - 01:30", title: "After Party & Kapanış", tag: "Davetiyede Açık", tagClass: "guest", desc: "Yakın arkadaşlarla gece kulübü konseptinde DJ performansı ve gece atıştırmalıkları." }
+        ],
+        kir: [
+            { time: "10:30 - 14:00", title: "Kuaför & Makyaj Hazırlığı", tag: "Ekibe Özel", tagClass: "team", desc: "Doğal dalgalar ve bohem makyaj hazırlığı. Nedimelerin açık hava konsept kıyafetleri." },
+            { time: "14:30 - 16:00", title: "Gelin Çıkışı & İlk Buluşma", tag: "Ekibe Özel", tagClass: "team", desc: "Gelin evinden çıkış, akustik müzik eşliğinde konvoy ve kır bahçesine hareket." },
+            { time: "16:30 - 18:00", title: "Kır Bahçesi & Doğa Fotoğraf Çekimi", tag: "Ekibe Özel", tagClass: "team", desc: "Altın saat (golden hour) ışığında doğa ve rustik dekor çekimleri." },
+            { time: "18:30 - 19:30", title: "Açık Hava Gün Batımı Kokteyli", tag: "Davetiyede Açık", tagClass: "guest", desc: "Canlı akustik müzik, hoş geldiniz içecekleri ve 'Finger Food' sunumları." },
+            { time: "19:30 - 20:00", title: "Çim Alanda Nikah Merasimi & Dans", tag: "Davetiyede Açık", tagClass: "guest", desc: "Işıklı rustik tak altında 'Evet' merasimi, ilk dans ve konfeti yağmuru." },
+            { time: "20:00 - 22:00", title: "Barbekü / Açık Büfe Ziyafeti & Canlı Müzik", tag: "Davetiyede Açık", tagClass: "guest", desc: "Lezzetli kır düğünü menüsü, geniş çim pistte dans ve eğlence." },
+            { time: "22:00 - 23:15", title: "Pasta & Dilek Feneri / Takı", tag: "Davetiyede Açık", tagClass: "guest", desc: "Naked cake kesimi, maytap geçidi ve takı seremonisi." },
+            { time: "23:15 - 01:00", title: "Kamp Ateşi & DJ Performansı", tag: "Davetiyede Açık", tagClass: "guest", desc: "Ateş başında sıcak şarap/marshmallow ve dinamik DJ setleri." }
+        ],
+        gunduz: [
+            { time: "08:00 - 11:00", title: "Erken Kuaför & Çift Hazırlığı", tag: "Ekibe Özel", tagClass: "team", desc: "Sabah kahvaltısı eşliğinde saç, makyaj ve damat tıraşı." },
+            { time: "11:30 - 12:30", title: "Gelin Alma & Nikah Dairesine Geçiş", tag: "Ekibe Özel", tagClass: "team", desc: "Ailelerle fotoğraf çekimi ve nikah dairesine/kokteyl salonuna hareket." },
+            { time: "13:00 - 14:00", title: "Nikah Öncesi Karşılama & Kokteyl", tag: "Davetiyede Açık", tagClass: "guest", desc: "Davetlilerin salona kabulü, tebrik defteri imzaları." },
+            { time: "14:00 - 14:45", title: "Resmi Nikah Merasimi & İmzalar", tag: "Davetiyede Açık", tagClass: "guest", desc: "Nikah akdinin gerçekleşmesi, aile cüzdanı takdimi ve toplu aile fotoğrafı." },
+            { time: "14:45 - 16:30", title: "Tebrik & Takı Kabulü & İkram", tag: "Davetiyede Açık", tagClass: "guest", desc: "Ayakta kokteyl ikramları, nikah şekeri dağıtımı ve tebriklerin kabulü." },
+            { time: "17:00 - 19:30", title: "Çift & Arkadaş Yemeği (Butik)", tag: "Ekibe Özel", tagClass: "team", desc: "En yakın dostlarla günün yorgunluğunu atan şık bir akşamüstü kutlaması." }
+        ]
+    };
+
+    let currentMode = 'aksam';
+
+    function setTimelineMode(mode) {
+        currentMode = mode;
+        document.getElementById('modeAksam').classList.toggle('active', mode === 'aksam');
+        document.getElementById('modeKir').classList.toggle('active', mode === 'kir');
+        document.getElementById('modeGunduz').classList.toggle('active', mode === 'gunduz');
+        renderTimeline();
+    }
+
+    function renderTimeline() {
+        const container = document.getElementById('timelineRowsContainer');
+        const rows = timelineData[currentMode] || timelineData.aksam;
+
+        container.innerHTML = rows.map(r => `
+            <div class="time-row">
+                <div class="time-badge"><span class="time-dot"></span>${r.time}</div>
+                <div class="time-content">
+                    <div class="time-content-title">
+                        <span>${r.title}</span>
+                        <span class="scope-tag ${r.tagClass}">${r.tag}</span>
+                    </div>
+                    <p class="time-content-desc">${r.desc}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function copyTimelineSchedule() {
+        const rows = timelineData[currentMode] || timelineData.aksam;
+        const modeTitle = currentMode === 'aksam' ? "Akşam Yemekli Düğün (19:30)" : (currentMode === 'kir' ? "Kır Düğünü & Kokteyl (18:30)" : "Öğlen Nikahı & Kokteyl (14:00)");
+
+        let text = `⏱️ İmece Düğün — Düğün Günü Saat Saat Akış Planımız (${modeTitle}):\n\n`;
+        rows.forEach(r => {
+            text += `🔹 ${r.time}: ${r.title} (${r.tag})\n`;
+        });
+        text += `\nDetaylı canlı plan: https://imecedugun.com/rehber/dugun-gunu-akisi.html`;
+
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.getElementById('copyTimelineBtn');
+            const orig = btn.innerHTML;
+            btn.innerHTML = `<span class="material-icons-round" style="font-size: 18px;">check</span> Kopyalandı!`;
+            btn.style.background = 'rgba(46, 204, 113, 0.2)';
+            btn.style.borderColor = '#2ecc71';
+            btn.style.color = '#2ecc71';
+            setTimeout(() => {
+                btn.innerHTML = orig;
+                btn.style.background = 'rgba(212, 175, 55, 0.15)';
+                btn.style.borderColor = 'rgba(212, 175, 55, 0.5)';
+                btn.style.color = '#ECC880';
+            }, 2500);
+        }).catch(err => alert('Kopyalanamadı: ' + err));
+    }
+
+    renderTimeline();
+
+    // Mobil Menü Çekmecesi
     (function() {
         var toggle = document.getElementById("navToggle");
         var drawer = document.getElementById("navDrawer");

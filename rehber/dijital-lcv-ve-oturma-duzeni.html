@@ -315,6 +315,66 @@
                 <h3>Canlı Oturma Planı</h3>
                 <p>Masaları kapasitelerine göre tanımlayın. 'Atanmamış davetliler' havuzundan kişileri masalara sürükleyerek kimsenin ayakta kalmamasını sağlayın.</p>
             </div>
+        <!-- Interactive Seating & RSVP Calculator -->
+        <section class="budget-calc-card" style="margin-bottom: 48px;">
+            <h3 style="color: #fff; font-size: 1.3rem; margin: 0 0 8px; font-family: var(--font-header, 'Playfair Display', serif);">
+                Canlı Masa Sayısı &amp; LCV Kuver Simülatörü
+            </h3>
+            <p style="color: #B5B5BE; font-size: 0.92rem; margin: 0 0 24px;">
+                Davetli sayınıza göre salonunuza kaç masa açılması gerektiğini, protokol yerleşimini ve mutfağa verilecek garanti kuver sayısını anında hesaplayın.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                <div class="calc-input-group" style="margin: 0;">
+                    <label for="guestSlider" class="calc-label">Tahmini Davetli Sayısı</label>
+                    <input type="range" id="guestSlider" class="calc-slider" min="50" max="800" step="10" value="250" oninput="calculateSeating(this.value, currentTableCap)">
+                    <div class="budget-display-amount" id="guestDisplay" style="font-size: 1.8rem; margin-top: 8px;">250 Davetli</div>
+                </div>
+
+                <div>
+                    <label class="calc-label" style="display: block; margin-bottom: 12px;">Masa Başı Sandalye Kapasitesi</label>
+                    <div style="display: flex; gap: 8px;">
+                        <button type="button" class="cat-pill" id="cap8Btn" onclick="setTableCap(8)" style="flex: 1; padding: 10px; font-size: 0.9rem;">8 Kişilik</button>
+                        <button type="button" class="cat-pill active" id="cap10Btn" onclick="setTableCap(10)" style="flex: 1; padding: 10px; font-size: 0.9rem;">10 Kişilik</button>
+                        <button type="button" class="cat-pill" id="cap12Btn" onclick="setTableCap(12)" style="flex: 1; padding: 10px; font-size: 0.9rem;">12 Kişilik</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-time calculation output cards -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                <div style="background: #181822; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 14px; padding: 18px; text-align: center;">
+                    <div style="color: #ECC880; font-size: 0.78rem; font-weight: 700; text-transform: uppercase;">Toplam Masa İhtiyacı</div>
+                    <div id="totalTablesVal" style="font-size: 2rem; font-weight: 800; color: #fff; margin: 4px 0;">25 Masa</div>
+                    <div style="color: #9A9AA2; font-size: 0.8rem;">Yuvarlak Ziyafet Düzeni</div>
+                </div>
+                <div style="background: #181822; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 14px; padding: 18px; text-align: center;">
+                    <div style="color: #ECC880; font-size: 0.78rem; font-weight: 700; text-transform: uppercase;">Protokol &amp; Aile Masası</div>
+                    <div id="protokolTablesVal" style="font-size: 2rem; font-weight: 800; color: #fff; margin: 4px 0;">4 Masa</div>
+                    <div style="color: #9A9AA2; font-size: 0.8rem;">Piste En Yakın Konum</div>
+                </div>
+                <div style="background: #181822; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 14px; padding: 18px; text-align: center;">
+                    <div style="color: #ECC880; font-size: 0.78rem; font-weight: 700; text-transform: uppercase;">Arkadaş &amp; Eğlence</div>
+                    <div id="friendsTablesVal" style="font-size: 2rem; font-weight: 800; color: #fff; margin: 4px 0;">12 Masa</div>
+                    <div style="color: #9A9AA2; font-size: 0.8rem;">Müzik &amp; Sahne Çevresi</div>
+                </div>
+                <div style="background: #181822; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 14px; padding: 18px; text-align: center;">
+                    <div style="color: #ECC880; font-size: 0.78rem; font-weight: 700; text-transform: uppercase;">Mutfak Garanti Kuveri</div>
+                    <div id="guaranteeKuverVal" style="font-size: 2rem; font-weight: 800; color: #ECC880; margin: 4px 0;">263 Porsiyon</div>
+                    <div style="color: #9A9AA2; font-size: 0.8rem;">+%5 Güvenlik Payı Dahil</div>
+                </div>
+            </div>
+
+            <!-- WhatsApp RSVP Message Template -->
+            <div style="background: #101016; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+                <div>
+                    <div style="color: #fff; font-weight: 600; font-size: 0.95rem; margin-bottom: 2px;">💬 Hazır WhatsApp LCV Davet Metni</div>
+                    <div style="color: #9A9AA2; font-size: 0.85rem;">Davetlilerinize göndereceğiniz nazik teyit ve yemek tercihi toplama mesajı şablonu.</div>
+                </div>
+                <button type="button" id="copyRsvpBtn" onclick="copyRsvpTemplate()" class="btn" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.5); color: #ECC880; padding: 10px 18px; border-radius: 12px; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 600;">
+                    <span class="material-icons-round" style="font-size: 18px;">content_copy</span> Örnek LCV Metnini Kopyala
+                </button>
+            </div>
         </section>
 
         <!-- Editorial Content -->
@@ -394,6 +454,58 @@
     </footer>
 
     <script>
+    let currentTableCap = 10;
+    let currentGuests = 250;
+
+    function setTableCap(cap) {
+        currentTableCap = cap;
+        document.getElementById('cap8Btn').classList.toggle('active', cap === 8);
+        document.getElementById('cap10Btn').classList.toggle('active', cap === 10);
+        document.getElementById('cap12Btn').classList.toggle('active', cap === 12);
+        calculateSeating(currentGuests, cap);
+    }
+
+    function calculateSeating(guests, cap) {
+        currentGuests = parseInt(guests, 10);
+        document.getElementById('guestDisplay').innerText = `${currentGuests} Davetli`;
+
+        const totalTables = Math.ceil(currentGuests / cap);
+        const protokolTables = Math.max(2, Math.round(totalTables * 0.15));
+        const friendsTables = Math.round(totalTables * 0.50);
+        const guaranteeKuver = Math.round(currentGuests * 1.05);
+
+        document.getElementById('totalTablesVal').innerText = `${totalTables} Masa`;
+        document.getElementById('protokolTablesVal').innerText = `${protokolTables} Masa`;
+        document.getElementById('friendsTablesVal').innerText = `${friendsTables} Masa`;
+        document.getElementById('guaranteeKuverVal').innerText = `${guaranteeKuver} Porsiyon`;
+    }
+
+    function copyRsvpTemplate() {
+        const text = `Sevgili Misafirimiz,\n\nEn özel günümüzde sizleri aramızda görmekten büyük mutluluk duyacağız. Düğün salonumuzda adınıza özel ayrılan masanızı ve menü tercihinizi teyit etmek için aşağıdaki dijital LCV bağlantısına tıklayabilirsiniz:\n\n🔗 https://imecedugun.com/lcv/ornek\n\nKatılım durumunuzu bildirmenizi rica eder, sevgi ve saygılarımızı sunarız.\n💍 İmece Düğün`;
+
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.getElementById('copyRsvpBtn');
+            const origHtml = btn.innerHTML;
+            btn.innerHTML = `<span class="material-icons-round" style="font-size: 18px;">check</span> Kopyalandı!`;
+            btn.style.background = 'rgba(46, 204, 113, 0.2)';
+            btn.style.borderColor = '#2ecc71';
+            btn.style.color = '#2ecc71';
+
+            setTimeout(() => {
+                btn.innerHTML = origHtml;
+                btn.style.background = 'rgba(212, 175, 55, 0.15)';
+                btn.style.borderColor = 'rgba(212, 175, 55, 0.5)';
+                btn.style.color = '#ECC880';
+            }, 2500);
+        }).catch(err => {
+            alert('Metin kopyalanamadı: ' + err);
+        });
+    }
+
+    // Init
+    calculateSeating(250, 10);
+
+    // Mobil Menü Çekmecesi
     (function() {
         var toggle = document.getElementById("navToggle");
         var drawer = document.getElementById("navDrawer");

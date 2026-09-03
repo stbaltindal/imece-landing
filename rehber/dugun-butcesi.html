@@ -350,15 +350,43 @@
         <section class="budget-calc-card">
             <div class="calc-input-group">
                 <label for="budgetSlider" class="calc-label">Toplam Düğün Bütçenizi Belirleyin</label>
-                <input type="range" id="budgetSlider" class="calc-slider" min="100000" max="2000000" step="25000" value="450000" oninput="calculateBudget(this.value)">
-                <div class="budget-display-amount" id="budgetDisplay">₺450.000</div>
+                <input type="range" id="budgetSlider" class="calc-slider" min="100000" max="2500000" step="25000" value="500000" oninput="calculateBudget(this.value)">
+                <div class="budget-display-amount" id="budgetDisplay">₺500.000</div>
+                
+                <!-- Quick Preset Pills -->
+                <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px;">
+                    <button type="button" onclick="setBudgetPreset(250000)" class="cat-pill" style="font-size: 0.8rem; padding: 6px 12px;">₺250.000 (Butik)</button>
+                    <button type="button" onclick="setBudgetPreset(500000)" class="cat-pill active" id="preset500" style="font-size: 0.8rem; padding: 6px 12px;">₺500.000 (Standart)</button>
+                    <button type="button" onclick="setBudgetPreset(850000)" class="cat-pill" style="font-size: 0.8rem; padding: 6px 12px;">₺850.000 (Kır Düğünü)</button>
+                    <button type="button" onclick="setBudgetPreset(1500000)" class="cat-pill" style="font-size: 0.8rem; padding: 6px 12px;">₺1.500.000 (Lüks Otel)</button>
+                </div>
             </div>
 
-            <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
+            <!-- Tab Switcher -->
+            <div style="display: flex; gap: 10px; margin: 24px 0 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+                <div style="display: flex; gap: 8px;">
+                    <button type="button" id="tabCatBtn" class="cat-pill active" onclick="switchBudgetTab('cat')" style="font-size: 0.88rem; font-weight: 600;">Kategori Altın Oranları</button>
+                    <button type="button" id="tabSidesBtn" class="cat-pill" onclick="switchBudgetTab('sides')" style="font-size: 0.88rem; font-weight: 600;">Gelin &amp; Damat Paylaşımı</button>
+                </div>
+                <button type="button" id="copyBudgetBtn" onclick="copyBudgetPlan()" class="btn" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.5); color: #ECC880; padding: 8px 16px; border-radius: 10px; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 600;">
+                    <span class="material-icons-round" style="font-size: 16px;">content_copy</span> Bütçeyi Kopyala
+                </button>
+            </div>
+
+            <!-- View 1: Category Breakdown -->
+            <div id="categoryBreakdownView" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
                 <h4 style="color: #fff; margin: 0 0 16px; font-size: 1.1rem;">Önerilen İdeal Bütçe Dağılımı (Altın Oranlar)</h4>
-                
                 <div class="budget-breakdown-grid" id="breakdownGrid">
                     <!-- Dynamic Breakdown Items -->
+                </div>
+            </div>
+
+            <!-- View 2: Traditional vs Equal Sharing Breakdown -->
+            <div id="sidesBreakdownView" style="display: none; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
+                <h4 style="color: #fff; margin: 0 0 8px; font-size: 1.1rem;">Geleneksel Türk Düğün Adetleri vs. Modern Eşit Paylaşım</h4>
+                <p style="color: #A0A0AB; font-size: 0.88rem; margin: 0 0 20px;">Geleneksel dağılımda masraflar taraflar arasında teamüllere göre ayrılırken, modern İmece modelinde taraflar eşit (%50 - %50) katkı sağlar.</p>
+                <div id="sidesGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+                    <!-- Dynamic Sides Items -->
                 </div>
             </div>
         </section>
@@ -452,17 +480,48 @@
             { name: "Beklenmeyen Acil Havuz", pct: 0.06, icon: "🛡️" }
         ];
 
+        let currentBudget = 500000;
+        let activeTab = 'cat';
+
         function formatCurrency(num) {
             return "₺" + num.toLocaleString('tr-TR');
         }
 
-        function calculateBudget(amount) {
-            const total = parseInt(amount, 10);
-            document.getElementById('budgetDisplay').innerText = formatCurrency(total);
+        function setBudgetPreset(val) {
+            currentBudget = val;
+            document.getElementById('budgetSlider').value = val;
+            calculateBudget(val);
+        }
 
+        function switchBudgetTab(tab) {
+            activeTab = tab;
+            const tabCat = document.getElementById('tabCatBtn');
+            const tabSides = document.getElementById('tabSidesBtn');
+            const catView = document.getElementById('categoryBreakdownView');
+            const sidesView = document.getElementById('sidesBreakdownView');
+
+            if (tab === 'cat') {
+                tabCat.classList.add('active');
+                tabSides.classList.remove('active');
+                catView.style.display = 'block';
+                sidesView.style.display = 'none';
+            } else {
+                tabSides.classList.add('active');
+                tabCat.classList.remove('active');
+                catView.style.display = 'none';
+                sidesView.style.display = 'block';
+            }
+            calculateBudget(currentBudget);
+        }
+
+        function calculateBudget(amount) {
+            currentBudget = parseInt(amount, 10);
+            document.getElementById('budgetDisplay').innerText = formatCurrency(currentBudget);
+
+            // 1. Render Category Breakdown
             const grid = document.getElementById('breakdownGrid');
             grid.innerHTML = categories.map(cat => {
-                const val = Math.round(total * cat.pct);
+                const val = Math.round(currentBudget * cat.pct);
                 return `
                     <div class="breakdown-item">
                         <div class="breakdown-header">
@@ -473,10 +532,76 @@
                     </div>
                 `;
             }).join('');
+
+            // 2. Render Sides Breakdown (Geleneksel vs Modern İmece)
+            const sidesGrid = document.getElementById('sidesGrid');
+            const gelinGeleneksel = Math.round(currentBudget * 0.35);
+            const damatGeleneksel = Math.round(currentBudget * 0.65);
+            const esitPay = Math.round(currentBudget * 0.50);
+
+            sidesGrid.innerHTML = `
+                <div style="background: #181822; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 16px; padding: 22px;">
+                    <div style="color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Geleneksel Dağılım</div>
+                    <h5 style="color: #fff; font-size: 1.15rem; margin: 0 0 12px;">Gelin Tarafı Payı (~%35)</h5>
+                    <div style="font-size: 1.6rem; font-weight: 800; color: #ECC880; margin-bottom: 12px;">${formatCurrency(gelinGeleneksel)}</div>
+                    <ul style="color: #B5B5BE; font-size: 0.88rem; line-height: 1.6; margin: 0; padding-left: 18px;">
+                        <li>Yatak odası &amp; mutfak gereçleri</li>
+                        <li>Kına gecesi &amp; organizasyonu</li>
+                        <li>Damatlık &amp; damat saati</li>
+                        <li>Düğün fotoğrafçısı payı</li>
+                    </ul>
+                </div>
+                <div style="background: #181822; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 16px; padding: 22px;">
+                    <div style="color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Geleneksel Dağılım</div>
+                    <h5 style="color: #fff; font-size: 1.15rem; margin: 0 0 12px;">Damat Tarafı Payı (~%65)</h5>
+                    <div style="font-size: 1.6rem; font-weight: 800; color: #ECC880; margin-bottom: 12px;">${formatCurrency(damatGeleneksel)}</div>
+                    <ul style="color: #B5B5BE; font-size: 0.88rem; line-height: 1.6; margin: 0; padding-left: 18px;">
+                        <li>Düğün salonu, yemek &amp; orkestra</li>
+                        <li>Beyaz eşyalar &amp; salon mobilyası</li>
+                        <li>Gelinlik &amp; kuaför masrafları</li>
+                        <li>Takı &amp; alyans harcamaları</li>
+                    </ul>
+                </div>
+                <div style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, #121218 100%); border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 16px; padding: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                    <div>
+                        <div style="color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">İmece Usulü (Modern Eşit Paylaşım)</div>
+                        <h5 style="color: #fff; font-size: 1.1rem; margin: 0 0 4px;">Kişi Başı Eşit Sorumluluk: %50 / %50</h5>
+                        <p style="color: #B5B5BE; font-size: 0.88rem; margin: 0;">Her iki taraf da ortak bütçe havuzuna kişi başı <strong>${formatCurrency(esitPay)}</strong> yatırarak masrafları birlikte karşılar.</p>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: #ECC880; white-space: nowrap;">${formatCurrency(esitPay)} / kişi</div>
+                </div>
+            `;
+        }
+
+        function copyBudgetPlan() {
+            let text = `💰 İmece Düğün — Düğün Bütçesi Planımız (${formatCurrency(currentBudget)}):\n\n`;
+            categories.forEach(cat => {
+                const val = Math.round(currentBudget * cat.pct);
+                text += `${cat.icon} ${cat.name} (%${Math.round(cat.pct * 100)}): ${formatCurrency(val)}\n`;
+            });
+            text += `\nDetaylı hesaplama ve takip: https://imecedugun.com/rehber/dugun-butcesi.html`;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copyBudgetBtn');
+                const origHtml = btn.innerHTML;
+                btn.innerHTML = `<span class="material-icons-round" style="font-size: 16px;">check</span> Kopyalandı!`;
+                btn.style.background = 'rgba(46, 204, 113, 0.2)';
+                btn.style.borderColor = '#2ecc71';
+                btn.style.color = '#2ecc71';
+
+                setTimeout(() => {
+                    btn.innerHTML = origHtml;
+                    btn.style.background = 'rgba(212, 175, 55, 0.15)';
+                    btn.style.borderColor = 'rgba(212, 175, 55, 0.5)';
+                    btn.style.color = '#ECC880';
+                }, 2500);
+            }).catch(err => {
+                alert('Bütçe planı kopyalanamadı: ' + err);
+            });
         }
 
         // Init
-        calculateBudget(450000);
+        calculateBudget(500000);
 
         // Mobil Menü Çekmecesi
         (function() {

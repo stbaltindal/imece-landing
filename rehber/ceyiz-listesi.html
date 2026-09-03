@@ -392,17 +392,28 @@
                 <div class="tracker-progress-fill" id="trackerFill"></div>
             </div>
 
+            <!-- Instant Search & Action Bar -->
+            <div style="display: flex; gap: 12px; margin: 20px 0 16px; flex-wrap: wrap;">
+                <div style="position: relative; flex: 1; min-width: 240px;">
+                    <span class="material-icons-round" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #ECC880; font-size: 20px; pointer-events: none;">search</span>
+                    <input type="text" id="ceyizSearch" oninput="onCeyizSearch(this.value)" placeholder="Çeyiz kalemi ara (örn: Düdüklü Tencere, Blender, Nevresim)..." style="width: 100%; background: #0E0E14; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 12px; padding: 12px 16px 12px 42px; color: #fff; font-size: 0.92rem; outline: none; font-family: inherit;">
+                </div>
+                <button type="button" id="copyEksikBtn" onclick="copyUncheckedItems()" class="btn" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.5); color: #ECC880; padding: 10px 18px; border-radius: 12px; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 600;">
+                    <span class="material-icons-round" style="font-size: 18px;">content_copy</span> Kalan Eksikleri Kopyala
+                </button>
+            </div>
+
             <!-- Category Filter Pills -->
             <div class="category-pills" id="categoryPills">
                 <button type="button" class="cat-pill active" onclick="filterCategory('all', this)">Tümü (118)</button>
-                <button type="button" class="cat-pill" onclick="filterCategory('Mutfak', this)">Mutfak (24)</button>
-                <button type="button" class="cat-pill" onclick="filterCategory('Beyaz Eşya', this)">Beyaz Eşya (6)</button>
-                <button type="button" class="cat-pill" onclick="filterCategory('Küçük Ev Aletleri', this)">Küçük Ev Aletleri (14)</button>
-                <button type="button" class="cat-pill" onclick="filterCategory('Yatak Odası', this)">Yatak Odası (16)</button>
+                <button type="button" class="cat-pill" onclick="filterCategory('Mutfak', this)">Mutfak (20)</button>
+                <button type="button" class="cat-pill" onclick="filterCategory('Yatak Odası', this)">Yatak Odası (19)</button>
+                <button type="button" class="cat-pill" onclick="filterCategory('Sofra & Sunum', this)">Sofra &amp; Sunum (17)</button>
+                <button type="button" class="cat-pill" onclick="filterCategory('Temizlik & Düzen', this)">Temizlik &amp; Düzen (17)</button>
+                <button type="button" class="cat-pill" onclick="filterCategory('Küçük Ev Aletleri', this)">Küçük Ev Aletleri (15)</button>
+                <button type="button" class="cat-pill" onclick="filterCategory('Salon & Oturma', this)">Salon &amp; Oturma (12)</button>
                 <button type="button" class="cat-pill" onclick="filterCategory('Banyo', this)">Banyo (12)</button>
-                <button type="button" class="cat-pill" onclick="filterCategory('Salon & Oturma', this)">Salon &amp; Oturma (18)</button>
-                <button type="button" class="cat-pill" onclick="filterCategory('Sofra & Sunum', this)">Sofra &amp; Sunum (16)</button>
-                <button type="button" class="cat-pill" onclick="filterCategory('Temizlik & Düzen', this)">Temizlik &amp; Düzen (12)</button>
+                <button type="button" class="cat-pill" onclick="filterCategory('Beyaz Eşya', this)">Beyaz Eşya (6)</button>
             </div>
 
             <!-- Checklist Grid Items -->
@@ -553,16 +564,109 @@
             { id: 53, name: "Ütü Masası & Kurutmalık", cat: "Temizlik & Düzen" },
             { id: 54, name: "Vileda & Paspas Seti", cat: "Temizlik & Düzen" },
             { id: 55, name: "Askılıklar (Ahşap / Kadife 30+)", cat: "Temizlik & Düzen" },
-            { id: 56, name: "Hurçlar & Vakumlu Poşetler", cat: "Temizlik & Düzen" }
+            { id: 56, name: "Hurçlar & Vakumlu Poşetler", cat: "Temizlik & Düzen" },
+            // Mutfak İlave
+            { id: 57, name: "Döküm Izgara Tava", cat: "Mutfak" },
+            { id: 58, name: "Rende & Sarımsak Ezici", cat: "Mutfak" },
+            { id: 59, name: "Kek Fanusu & Pasta Servis Tabağı", cat: "Mutfak" },
+            { id: 60, name: "Baharat Değirmeni (Tuz/Karabiber)", cat: "Mutfak" },
+            { id: 61, name: "Fırın Tepsisi & Borcam Seti (3'lü)", cat: "Mutfak" },
+            { id: 62, name: "Süzgeçli Yağdanlık & Sirkelik", cat: "Mutfak" },
+            { id: 63, name: "Silikon Pişirme Spatulaları", cat: "Mutfak" },
+            { id: 64, name: "Mutfak Önlüğü & Tutacak Seti", cat: "Mutfak" },
+            // Küçük Ev Aletleri İlave
+            { id: 65, name: "Narenciye Sıkacağı", cat: "Küçük Ev Aletleri" },
+            { id: 66, name: "Mutfak Tartısı (Dijital Hassas)", cat: "Küçük Ev Aletleri" },
+            { id: 67, name: "Dikiş Makinesi (Portatif)", cat: "Küçük Ev Aletleri" },
+            { id: 68, name: "Buharlı Kırışık Giderici (Dikey)", cat: "Küçük Ev Aletleri" },
+            { id: 69, name: "Ekmek Kızartma Makinesi", cat: "Küçük Ev Aletleri" },
+            { id: 70, name: "Yoğurt & Yumurta Pişirici", cat: "Küçük Ev Aletleri" },
+            // Yatak Odası İlave
+            { id: 71, name: "Dört Mevsim Kapitone Yatak Örtüsü", cat: "Yatak Odası" },
+            { id: 72, name: "Yün / Bambu Yorgan", cat: "Yatak Odası" },
+            { id: 73, name: "İpek Saten Yastık Kılıfları (2'li)", cat: "Yatak Odası" },
+            { id: 74, name: "Dolap İçi Organizer Sepetler", cat: "Yatak Odası" },
+            { id: 75, name: "Çorap & İç Çamaşırı Çekmece Düzenleyici", cat: "Yatak Odası" },
+            { id: 76, name: "Yatak Yanı Abajur Seti", cat: "Yatak Odası" },
+            { id: 77, name: "Dekoratif Yatak Kırlentleri", cat: "Yatak Odası" },
+            { id: 78, name: "Makyaj Masası & Taburesi", cat: "Yatak Odası" },
+            // Banyo İlave
+            { id: 79, name: "Banyo Ayak Havluları (4 Adet)", cat: "Banyo" },
+            { id: 80, name: "Misafir Havlu Seti (6'lı)", cat: "Banyo" },
+            { id: 81, name: "Banyo Tartısı (Akıllı Bluetooth)", cat: "Banyo" },
+            { id: 82, name: "Banyo Çöp Kovası & WC Fırça Takımı", cat: "Banyo" },
+            { id: 83, name: "Doğal Kese & Masaj Fırçası Seti", cat: "Banyo" },
+            { id: 84, name: "Bornoz Terlikleri (2 Çift)", cat: "Banyo" },
+            // Salon & Oturma İlave
+            { id: 85, name: "Konsol & Ayna Takımı", cat: "Salon & Oturma" },
+            { id: 86, name: "Kitaplık / Dekoratif Raf", cat: "Salon & Oturma" },
+            { id: 87, name: "Dekoratif Salon Kırlentleri & Şal", cat: "Salon & Oturma" },
+            { id: 88, name: "Giriş Portmanto & Ayakkabılık", cat: "Salon & Oturma" },
+            { id: 89, name: "Koridor & Antre Yolluk Halısı", cat: "Salon & Oturma" },
+            { id: 90, name: "Balkon Oturma Masası & Sandalyeleri", cat: "Salon & Oturma" },
+            // Sofra & Sunum İlave
+            { id: 91, name: "Çay Bardağı & Tabağı Takımı (12'li)", cat: "Sofra & Sunum" },
+            { id: 92, name: "Türk Kahvesi Fincan Seti (6'lı)", cat: "Sofra & Sunum" },
+            { id: 93, name: "Cam Su Karafı & Sürahi Seti", cat: "Sofra & Sunum" },
+            { id: 94, name: "Sunum Tepsileri (Aynalı / Ahşap / Mermer)", cat: "Sofra & Sunum" },
+            { id: 95, name: "Meze & Çerez Kase Seti (6'lı)", cat: "Sofra & Sunum" },
+            { id: 96, name: "Büyük Salata Kasesi & Ahşap Servis Maşası", cat: "Sofra & Sunum" },
+            { id: 97, name: "Peynir Servis Tahtası & Özel Bıçakları", cat: "Sofra & Sunum" },
+            { id: 98, name: "Amerikan Servis & Hasır Supla (12'li)", cat: "Sofra & Sunum" },
+            { id: 99, name: "Şampanya / Şarap Kadeh Seti", cat: "Sofra & Sunum" },
+            { id: 100, name: "Kahve Yanı Su Bardağı (6'lı)", cat: "Sofra & Sunum" },
+            // Temizlik & Ev Düzeni İlave
+            { id: 101, name: "Çamaşır Mandalları & Sepeti", cat: "Temizlik & Düzen" },
+            { id: 102, name: "Mikrofiber Temizlik Bezleri (10'lu)", cat: "Temizlik & Düzen" },
+            { id: 103, name: "Bavul & Valiz Seti (Kabin + Orta + Büyük)", cat: "Temizlik & Düzen" },
+            { id: 104, name: "Tüy Toplama Rulosu & Yedekleri", cat: "Temizlik & Düzen" },
+            // Hırdavat & Güvenlik
+            { id: 105, name: "Temel Alet Çantası & Şarjlı Matkap", cat: "Temizlik & Düzen" },
+            { id: 106, name: "Merdiven (3 Basamaklı Alüminyum)", cat: "Temizlik & Düzen" },
+            { id: 107, name: "Dikiş Kutusu & İğne-İplik Seti", cat: "Temizlik & Düzen" },
+            { id: 108, name: "İlk Yardım Çantası & Acil Sağlık Kiti", cat: "Temizlik & Düzen" },
+            { id: 109, name: "Yangın Söndürme Tüpü (2 kg)", cat: "Temizlik & Düzen" },
+            { id: 110, name: "Akım Korumalı Uzatma Prizleri", cat: "Temizlik & Düzen" },
+            // İkram & Özel Çeyiz Parçaları
+            { id: 111, name: "Gelin Çeyiz Sandığı", cat: "Yatak Odası" },
+            { id: 112, name: "Damat Bohçası Seti", cat: "Yatak Odası" },
+            { id: 113, name: "Gelin Bohçası Seti", cat: "Yatak Odası" },
+            { id: 114, name: "Nişan & Söz Tepsisi", cat: "Sofra & Sunum" },
+            { id: 115, name: "Kahve Değirmeni / French Press", cat: "Küçük Ev Aletleri" },
+            { id: 116, name: "Balkon Çamaşır İpi / Kompakt Askılık", cat: "Temizlik & Düzen" },
+            { id: 117, name: "Ayakkabı Çekeceği & Boya Bakım Kiti", cat: "Temizlik & Düzen" },
+            { id: 118, name: "Yedek Kapı Anahtarları & Anahtarlık Pano", cat: "Temizlik & Düzen" }
         ];
 
         let selectedCat = 'all';
+        let searchQuery = '';
         let checkedIds = JSON.parse(localStorage.getItem('imece_ceyiz_checked') || '[]');
+
+        function onCeyizSearch(val) {
+            searchQuery = (val || '').toLowerCase().trim();
+            renderChecklist();
+        }
 
         function renderChecklist() {
             const grid = document.getElementById('checklistGrid');
-            const items = selectedCat === 'all' ? ceyizItems : ceyizItems.filter(i => i.cat === selectedCat);
+            let items = selectedCat === 'all' ? ceyizItems : ceyizItems.filter(i => i.cat === selectedCat);
+
+            if (searchQuery) {
+                items = items.filter(i => i.name.toLowerCase().includes(searchQuery) || i.cat.toLowerCase().includes(searchQuery));
+            }
             
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 36px 16px; color: #9A9AA2;">
+                        <span class="material-icons-round" style="font-size: 36px; color: #ECC880; margin-bottom: 8px;">search_off</span>
+                        <p style="margin: 0; font-size: 1rem; color: #fff;">"${searchQuery}" ile eşleşen çeyiz kalemi bulunamadı.</p>
+                        <p style="margin: 6px 0 0; font-size: 0.85rem;">Arama terimini değiştirin veya kategori filtresini sıfırlayın.</p>
+                    </div>
+                `;
+                updateProgress();
+                return;
+            }
+
             grid.innerHTML = items.map(item => {
                 const isDone = checkedIds.includes(item.id);
                 return `
@@ -598,7 +702,7 @@
         function filterCategory(cat, btn) {
             selectedCat = cat;
             document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-            btn.classList.add('active');
+            if (btn) btn.classList.add('active');
             renderChecklist();
         }
 
@@ -608,6 +712,51 @@
                 localStorage.removeItem('imece_ceyiz_checked');
                 renderChecklist();
             }
+        }
+
+        function copyUncheckedItems() {
+            const unchecked = ceyizItems.filter(i => !checkedIds.includes(i.id));
+            if (unchecked.length === 0) {
+                alert('Tebrikler! Çeyiz listenizdeki tüm 118 kalemi tamamladınız! 🎉');
+                return;
+            }
+
+            let text = `💍 İmece Düğün — Alınacak Kalan Çeyiz Eksiklerimiz (${unchecked.length} Kalem):\n\n`;
+            
+            // Group by category
+            const grouped = {};
+            unchecked.forEach(item => {
+                if (!grouped[item.cat]) grouped[item.cat] = [];
+                grouped[item.cat].push(item.name);
+            });
+
+            for (const [cat, items] of Object.entries(grouped)) {
+                text += `📌 ${cat}:\n`;
+                items.forEach(name => {
+                    text += `  • ${name}\n`;
+                });
+                text += `\n`;
+            }
+
+            text += `✨ Detaylı canlı takip için: https://imecedugun.com/rehber/ceyiz-listesi.html`;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copyEksikBtn');
+                const origHtml = btn.innerHTML;
+                btn.innerHTML = `<span class="material-icons-round" style="font-size: 18px;">check</span> Kopyalandı! (WhatsApp'a Yapıştırın)`;
+                btn.style.background = 'rgba(46, 204, 113, 0.2)';
+                btn.style.borderColor = '#2ecc71';
+                btn.style.color = '#2ecc71';
+
+                setTimeout(() => {
+                    btn.innerHTML = origHtml;
+                    btn.style.background = 'rgba(212, 175, 55, 0.15)';
+                    btn.style.borderColor = 'rgba(212, 175, 55, 0.5)';
+                    btn.style.color = '#ECC880';
+                }, 3000);
+            }).catch(err => {
+                alert('Liste panoya kopyalanamadı: ' + err);
+            });
         }
 
         // Initialize

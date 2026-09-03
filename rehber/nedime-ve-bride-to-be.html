@@ -356,6 +356,38 @@
             </div>
         </section>
 
+        <!-- Interactive Bridesmaid Emergency Kit Checklist -->
+        <section class="ceyiz-tracker-card" style="margin-top: 36px; margin-bottom: 36px;">
+            <div class="tracker-header">
+                <div>
+                    <h3 style="color: #fff; margin: 0 0 4px; font-size: 1.25rem; font-family: var(--font-header, 'Playfair Display', serif);">
+                        Gelin Acil Durum Çantası Kontrol Listesi
+                    </h3>
+                    <span id="kitStats" style="color: var(--gold, #C5A059); font-size: 0.9rem; font-weight: 600;">0 / 15 Malzeme Hazır (%0)</span>
+                </div>
+                <div class="tracker-actions" style="display: flex; gap: 10px;">
+                    <button type="button" id="copyKitBtn" onclick="copyKitList()" class="btn" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.5); color: #ECC880; padding: 8px 16px; border-radius: 10px; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 600;">
+                        <span class="material-icons-round" style="font-size: 16px;">content_copy</span> Nedimelerle Paylaş
+                    </button>
+                    <button type="button" onclick="resetKitList()" class="btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.15); color: var(--n-muted, #9a9aa2); padding: 8px 14px; border-radius: 10px; font-size: 0.85rem; cursor: pointer;">
+                        Sıfırla
+                    </button>
+                </div>
+            </div>
+
+            <div class="tracker-progress-bar">
+                <div class="tracker-progress-fill" id="kitFill"></div>
+            </div>
+
+            <p style="color: #A0A0AB; font-size: 0.88rem; margin: 0 0 16px;">
+                Düğün günü gelinin çantasını baş nedime taşır. Küçük kazalarda (elbise söküğü, makyaj akması, baş ağrısı) düğünü kurtaracak 15 altın malzeme:
+            </p>
+
+            <div class="checklist-grid" id="kitGrid">
+                <!-- Injected by JS -->
+            </div>
+        </section>
+
         <!-- App Bridge Banner -->
         <section class="app-bridge-box">
             <div class="app-bridge-text">
@@ -419,6 +451,92 @@
     </footer>
 
     <script>
+    const emergencyItems = [
+        { id: 1, name: "Çift Taraflı Kumaş Bandı (Dekolte / Boyunluk)" },
+        { id: 2, name: "Mini Dikiş Seti (İğne, Beyaz İplik, Çengelli İğneler)" },
+        { id: 3, name: "Ağrı Kesici & Mide Koruyucu Tabletler" },
+        { id: 4, name: "Yedek Şeffaf Külotlu Çorap (2 Adet)" },
+        { id: 5, name: "Acil Leke Çıkarıcı Mendil / Kalem" },
+        { id: 6, name: "Mini Saç Spreyi & Bolca Tel Toka" },
+        { id: 7, name: "Şeffaf Matlaştırıcı Pudra & Yağ Emici Kağıt" },
+        { id: 8, name: "Yara Bandı & Topuk Vurma Koruyucu Jel" },
+        { id: 9, name: "Nane Şekeri / Ağız Spreyi" },
+        { id: 10, name: "Gelin Rujunun Birebir Aynısı / Lip Gloss" },
+        { id: 11, name: "İnce Pipetler (Ruj Bozulmadan Su İçmek İçin)" },
+        { id: 12, name: "Islak Mendil, Kuru Mendil & Göz Damlası" },
+        { id: 13, name: "Dolu Powerbank & Şarj Kablosu" },
+        { id: 14, name: "Mini Parfüm & Ter Önleyici Deodorant" },
+        { id: 15, name: "Kan Şekeri İçin Protein Bar / Ceviz-Badem" }
+    ];
+
+    let kitChecked = JSON.parse(localStorage.getItem('imece_kit_checked') || '[]');
+
+    function renderKit() {
+        const grid = document.getElementById('kitGrid');
+        if (!grid) return;
+        grid.innerHTML = emergencyItems.map(item => {
+            const isDone = kitChecked.includes(item.id);
+            return `
+                <div class="check-item ${isDone ? 'done' : ''}" onclick="toggleKitItem(${item.id})">
+                    <div class="check-box">${isDone ? '✓' : ''}</div>
+                    <span>${item.name}</span>
+                </div>
+            `;
+        }).join('');
+
+        const total = emergencyItems.length;
+        const count = kitChecked.length;
+        const pct = Math.round((count / total) * 100);
+
+        document.getElementById('kitStats').innerText = `${count} / ${total} Malzeme Hazır (%${pct})`;
+        document.getElementById('kitFill').style.width = `${pct}%`;
+    }
+
+    function toggleKitItem(id) {
+        if (kitChecked.includes(id)) {
+            kitChecked = kitChecked.filter(x => x !== id);
+        } else {
+            kitChecked.push(id);
+        }
+        localStorage.setItem('imece_kit_checked', JSON.stringify(kitChecked));
+        renderKit();
+    }
+
+    function resetKitList() {
+        if (confirm('Acil durum çantası işaretlerini sıfırlamak istiyor musunuz?')) {
+            kitChecked = [];
+            localStorage.removeItem('imece_kit_checked');
+            renderKit();
+        }
+    }
+
+    function copyKitList() {
+        let text = `🌸 İmece Düğün — Gelin Acil Durum Çantası & Nedime Görev Listesi:\n\n`;
+        emergencyItems.forEach(item => {
+            const done = kitChecked.includes(item.id) ? "✅" : "⏳";
+            text += `${done} ${item.name}\n`;
+        });
+        text += `\nDetaylı rehber: https://imecedugun.com/rehber/nedime-ve-bride-to-be.html`;
+
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.getElementById('copyKitBtn');
+            const orig = btn.innerHTML;
+            btn.innerHTML = `<span class="material-icons-round" style="font-size: 16px;">check</span> Kopyalandı!`;
+            btn.style.background = 'rgba(46, 204, 113, 0.2)';
+            btn.style.borderColor = '#2ecc71';
+            btn.style.color = '#2ecc71';
+            setTimeout(() => {
+                btn.innerHTML = orig;
+                btn.style.background = 'rgba(212, 175, 55, 0.15)';
+                btn.style.borderColor = 'rgba(212, 175, 55, 0.5)';
+                btn.style.color = '#ECC880';
+            }, 2500);
+        }).catch(err => alert('Kopyalanamadı: ' + err));
+    }
+
+    renderKit();
+
+    // Mobil Menü Çekmecesi
     (function() {
         var toggle = document.getElementById("navToggle");
         var drawer = document.getElementById("navDrawer");
