@@ -33,15 +33,13 @@
     --gold-pale: #F3E7D5;                /* Soluk altin - ince vurgu tonlari (muzik rozeti, sekme ilerleme cubugu) */
     --rose-gold-tint: #F7EAEA;           /* Rose Gold strictly for structural card backgrounds/underlay tints */
     
-    --bg-cream: #FAF8F6;                 /* Warm Apple Cream/Champagne */
-    --surface: #FFFFFF;
+    --bg-cream: #08080A;                 /* Pure Luxury Dark Black */
+    --surface: #131318;
     
-    --text-main: #1D1D1F;                /* Apple Deep Charcoal */
-    --text-muted: #6E6E73;
-    --text-light: #86868B;
-    /* Koyu yuzeylerde ikincil metin (navbar, rsvp/timeline/sablon kartlari).
-       Onceden hic tanimlanmamisti: renk devralinip okunmaz hale geliyordu. */
-    --text-secondary: #B4AEAB;
+    --text-main: #FFFFFF;                /* High Contrast Pure White */
+    --text-muted: #E2E2E8;
+    --text-light: #B5B5BE;
+    --text-secondary: #E2E2E8;
     
     --border-color: rgba(29, 29, 31, 0.08);
     --shadow-soft: 0 12px 32px rgba(29, 29, 31, 0.04);
@@ -96,8 +94,8 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: var(--bg-cream);
-    color: var(--text-main);
+    background-color: #08080A !important;
+    color: #FFFFFF !important;
     line-height: 1.6;
     overflow-x: hidden;
     /* Uzun Turkce kelimeler dar ekranda tasmasin. hyphens kullanilmadi:
