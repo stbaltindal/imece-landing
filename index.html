@@ -38,7 +38,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon-solid.png">
 
     <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="style.css?v=33.0">
+    <link rel="stylesheet" href="style.css?v=34.0">
     <!-- Refresh Layer: gece paleti, sadelestirme, kaydirma etkilesimleri -->
     <link rel="stylesheet" href="refresh.css?v=33.0">
 
@@ -2961,7 +2961,7 @@
                 duration: 0.3
             }, 0.5)
             .to(["#mockup-team-section", "#mockup-task-section", "#mockup-roles-list-section"], {
-                opacity: 0.3,
+                opacity: 0.6,
                 duration: 0.3
             }, 0.5)
             .to("#text-slide-1", {
@@ -2983,7 +2983,7 @@
                 borderColor: "transparent",
                 boxShadow: "none",
                 scale: 1.0,
-                opacity: 0.3,
+                opacity: 0.6,
                 duration: 0.4
             }, 1.5)
             .to("#mockup-task-section", {
@@ -2994,7 +2994,7 @@
                 duration: 0.4
             }, 1.7)
             .to(["#mockup-team-section", "#mockup-roles-list-section"], {
-                opacity: 0.3,
+                opacity: 0.6,
                 duration: 0.4
             }, 1.5)
             
@@ -3007,7 +3007,7 @@
                 borderColor: "transparent",
                 boxShadow: "none",
                 scale: 1.0,
-                opacity: 0.3,
+                opacity: 0.6,
                 duration: 0.4
             }, 2.2)
             .to("#mockup-roles-list-section", {
@@ -3018,7 +3018,7 @@
                 duration: 0.4
             }, 2.4)
             .to(["#mockup-team-section", "#mockup-budget-section"], {
-                opacity: 0.3,
+                opacity: 0.6,
                 duration: 0.4
             }, 2.2)
 
@@ -3068,7 +3068,7 @@
                 borderColor: "transparent",
                 boxShadow: "none",
                 scale: 1.0,
-                opacity: 0.3,
+                opacity: 0.6,
                 duration: 0.8
             }, 7.5)
             .to("#mockup-team-section", {
@@ -3079,7 +3079,7 @@
                 duration: 0.8
             }, 8.3)
             .to(["#mockup-budget-section", "#mockup-task-section", "#mockup-roles-list-section"], {
-                opacity: 0.3,
+                opacity: 0.6,
                 duration: 0.8
             }, 7.5)
 
@@ -3471,13 +3471,15 @@
                 "#text-slide-3",
                 "#heroContent"
             ];
+            let exitTl = null;
 
             // Telefonun aniden kaybolmasi yerine olculu bir veda: kart hafifce
             // yukselip odaktan cikar, metin yukari suzulur, HUD soner. Sayfa
             // kaydirmasi fade bitmeden basliyor ki gecis kesintisiz hissedilsin.
             function runExitChoreography(onHandoff) {
-                const tl = gsap.timeline({ defaults: { overwrite: "auto" } });
-                tl.to("#heroStoryHud", { opacity: 0, y: 10, duration: 0.28, ease: "power2.in" }, 0)
+                if (exitTl) exitTl.kill();
+                exitTl = gsap.timeline({ defaults: { overwrite: "auto" } });
+                exitTl.to("#heroStoryHud", { opacity: 0, y: 10, duration: 0.28, ease: "power2.in" }, 0)
                   .to("#phoneMockup", {
                       scale: 0.93,
                       y: -22,
@@ -3493,13 +3495,17 @@
                       ease: "power2.in"
                   }, 0.04)
                   .add(() => { if (onHandoff) onHandoff(); }, 0.34);
-                return tl;
+                return exitTl;
             }
 
             function restoreHeroVisuals() {
-                gsap.killTweensOf(["#phoneMockup", "#heroStoryHud", ...STORY_EXIT_TARGETS]);
-                gsap.set("#phoneMockup", { clearProps: "opacity,filter,scale,y" });
-                gsap.set(STORY_EXIT_TARGETS, { clearProps: "opacity,y" });
+                if (exitTl) {
+                    exitTl.kill();
+                    exitTl = null;
+                }
+                // masterTl elemanlarini yok etme! Sadece cikis animasyonunun
+                // inline kalintilarini temizle, boylece zaman cizelgesi canli kalir:
+                gsap.set("#phoneMockup", { clearProps: "filter,y,opacity" });
                 gsap.set("#heroStoryHud", { clearProps: "opacity,y" });
             }
 

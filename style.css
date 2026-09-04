@@ -1101,7 +1101,7 @@ label,
     max-width: 540px;
     opacity: 1;
     transform: none;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: none; /* GSAP ticker manages opacity & transform */
 }
 
 .showcase-slide-text {
@@ -1109,7 +1109,7 @@ label,
     max-width: 480px;
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: none; /* GSAP ticker manages opacity & transform */
     display: none;
 }
 
@@ -3915,10 +3915,10 @@ footer {
 }
 
 /* ==========================================================================
-   MODULAR SCOPE: Phone Mockup & Bottom Sheet Isolation
-   100% self-contained styling for the phone app interface and action sheets.
-   Protects the internal mobile app UI from inheriting landing page dark-theme
-   tokens, ensuring crisp, high-contrast readability across all mockups.
+   MODULAR SCOPE: Phone Mockup, Bottom Sheets & Action Dialogs Isolation
+   100% self-contained styling for the phone app interface, action sheets,
+   and dialogs. Protects the mobile app UI from inheriting landing page
+   dark-theme tokens, ensuring crisp WCAG AAA legibility.
    ========================================================================== */
 .phone-frame,
 #phoneMockup,
@@ -3928,7 +3928,10 @@ footer {
 #inviteBottomSheet,
 #cohostBottomSheetMobile,
 #inviteBottomSheetMobile,
-.mobile-interactive-showcase {
+#cohostCreateDialog,
+#cohostDialogMobile,
+.mobile-interactive-showcase,
+#phoneMockupMobile {
     --text-main: #1D1D1F;
     --text-muted: #55555E;
     --text-light: #767680;
@@ -3936,6 +3939,163 @@ footer {
     --surface: #FFFFFF;
     --bg-cream: #FAF6F3;
     --border-color: rgba(29, 29, 31, 0.08);
+}
+
+/* Unified Phone Canvas (Eliminates Frankenstein two-tone header split) */
+#phoneMockup .phone-screen,
+.phone-frame .phone-screen,
+#phoneMockup .phone-header,
+#phoneMockup .app-header,
+#phoneMockup .app-content-slider-wrapper,
+#phoneMockupMobile .phone-screen,
+#phoneMockupMobile .phone-header,
+#phoneMockupMobile .app-header,
+#phoneMockupMobile .app-content-slider-wrapper {
+    background-color: #FAF6F3 !important;
+}
+
+/* Primary Typography (Headings, Titles, and Large Amounts) */
+#phoneMockup .phone-header,
+#phoneMockup .phone-header .time,
+#phoneMockup .phone-header .status-icon,
+#phoneMockup .app-title,
+#phoneMockup .back-icon,
+#phoneMockup .calendar-icon,
+#phoneMockup .team-title,
+#phoneMockup .section-title,
+#phoneMockup .section-title-large,
+#phoneMockup .role-card-title,
+#phoneMockup .budget-val-amount,
+.mobile-interactive-showcase .phone-header,
+.mobile-interactive-showcase .app-title,
+.mobile-interactive-showcase .team-title,
+.mobile-interactive-showcase .role-card-title,
+.mobile-interactive-showcase .section-title-large,
+.mobile-interactive-showcase .budget-val-amount,
+#phoneMockupMobile strong {
+    color: #1D1D1F !important;
+    font-weight: 700 !important;
+}
+
+/* Secondary Typography, Tasks & Assignees (High-Contrast 13:1 to 15:1 WCAG AAA) */
+#phoneMockup .task-title-text,
+#phoneMockup .assignee-name,
+#phoneMockup .legend-item,
+#phoneMockup .legend-item span,
+#phoneMockup .mockup-task-item,
+.mobile-interactive-showcase .task-title-text,
+.mobile-interactive-showcase .assignee-name,
+.mobile-interactive-showcase .legend-item,
+.mobile-interactive-showcase .legend-item span,
+#phoneMockupMobile .mockup-task-item,
+#phoneMockupMobile .task-title-text {
+    color: #2C2A29 !important;
+    font-weight: 600 !important;
+}
+
+#phoneMockup .mockup-task-item.done .task-title-text,
+.mobile-interactive-showcase .mockup-task-item.done .task-title-text,
+#phoneMockupMobile .mockup-task-item.done .task-title-text {
+    color: #767680 !important;
+    text-decoration: line-through !important;
+}
+
+/* Metrics, Secondary Labels & Helper Text */
+#phoneMockup .avatar-label,
+#phoneMockup .coverage-text,
+#phoneMockup .detail-click-text,
+#phoneMockup .budget-val-label,
+.mobile-interactive-showcase .avatar-chip span,
+.mobile-interactive-showcase .coverage-text,
+.mobile-interactive-showcase .detail-click-text,
+.mobile-interactive-showcase .budget-val-label {
+    color: #55555E !important;
+    font-weight: 600 !important;
+}
+
+/* Actual Budget Amount (Accessible Gold with 6.34:1 WCAG AA contrast) */
+#phoneMockup .budget-val-amount.actual,
+.mobile-interactive-showcase .budget-val-amount.actual,
+#phoneMockupMobile .budget-val-amount.actual {
+    color: #7A5A20 !important;
+    font-weight: 700 !important;
+}
+
+/* Donut Chart & Hole */
+#phoneMockup .donut-hole,
+.mobile-interactive-showcase .donut-hole,
+#phoneMockupMobile .donut-hole {
+    background-color: #FAF6F3 !important;
+    color: #1D1D1F !important;
+    font-weight: 700 !important;
+}
+
+/* Crisp Clean Dividers */
+#phoneMockup .card-divider,
+.mobile-interactive-showcase .card-divider,
+#phoneMockupMobile .card-divider {
+    background-color: rgba(29, 29, 31, 0.12) !important;
+    height: 1px !important;
+    border: none !important;
+}
+
+/* Add Task Button */
+#phoneMockup .add-task-btn,
+.mobile-interactive-showcase .add-task-btn {
+    color: #55555E !important;
+    font-weight: 600 !important;
+}
+#phoneMockup .add-task-btn:hover,
+.mobile-interactive-showcase .add-task-btn:hover {
+    color: #1D1D1F !important;
+    background-color: rgba(29, 29, 31, 0.06) !important;
+}
+
+/* Icons & Action Buttons */
+#phoneMockup .swap-icon,
+#phoneMockup .swap-icon svg,
+.mobile-interactive-showcase .swap-icon svg {
+    color: #55555E !important;
+    stroke: #55555E !important;
+}
+
+#phoneMockup .capsule-send-btn,
+#phoneMockup .capsule-send-btn svg,
+.mobile-interactive-showcase .capsule-send-btn svg {
+    color: #8B5A5A !important;
+    stroke: #8B5A5A !important;
+}
+
+#phoneMockup .cohost-heart-btn,
+.mobile-interactive-showcase .cohost-heart-btn {
+    color: #8B5A5A !important;
+    background: rgba(201, 162, 39, 0.12) !important;
+}
+
+#phoneMockup .phone-header .status-icon,
+#phoneMockup .back-icon svg,
+#phoneMockup .calendar-icon svg {
+    color: #1D1D1F !important;
+    stroke: #1D1D1F !important;
+}
+
+/* Card Surfaces & Gradients */
+#phoneMockup .dashboard-summary-card-gradient,
+.mobile-interactive-showcase .dashboard-summary-card-gradient {
+    background: linear-gradient(135deg, rgba(212, 165, 165, 0.16) 0%, #ffffff 100%) !important;
+    border: 1px solid rgba(29, 29, 31, 0.08) !important;
+}
+
+#phoneMockup .mockup-role-card,
+.mobile-interactive-showcase .mockup-role-card {
+    background: #ffffff !important;
+    border: 1px solid rgba(29, 29, 31, 0.08) !important;
+}
+
+#phoneMockup .assignee-capsule-row,
+.mobile-interactive-showcase .assignee-capsule-row {
+    background: #FAF6F3 !important;
+    border: 1px solid rgba(29, 29, 31, 0.1) !important;
 }
 
 /* Bottom Sheet Modals (Action Sheets) - Always High Contrast */
@@ -3968,69 +4128,73 @@ footer {
 
 .mockup-bottom-sheet .sheet-code-card,
 #cohostBottomSheet .sheet-code-card,
-#inviteBottomSheet .sheet-code-card {
+#inviteBottomSheet .sheet-code-card,
+#cohostBottomSheetMobile .sheet-code-card,
+#inviteBottomSheetMobile .sheet-code-card {
     background: rgba(201, 162, 39, 0.09) !important;
     border: 1px solid rgba(201, 162, 39, 0.35) !important;
 }
 
 .mockup-bottom-sheet .sheet-code-text,
 #cohostBottomSheet .sheet-code-text,
-#inviteBottomSheet .sheet-code-text {
-    color: #8C6207 !important;
+#inviteBottomSheet .sheet-code-text,
+#cohostBottomSheetMobile .sheet-code-text,
+#inviteBottomSheetMobile .sheet-code-text {
+    color: #7A5A20 !important;
     font-weight: 700 !important;
 }
 
 .mockup-bottom-sheet .sheet-send-btn,
 #cohostBottomSheet .sheet-send-btn,
-#inviteBottomSheet .sheet-send-btn {
+#inviteBottomSheet .sheet-send-btn,
+#cohostBottomSheetMobile .sheet-send-btn,
+#inviteBottomSheetMobile .sheet-send-btn {
     background: #8B5A5A !important;
     color: #FFFFFF !important;
     font-weight: 600 !important;
 }
 
-/* Phone Screen Internal Elements */
-#phoneMockup .phone-screen,
-.phone-frame .phone-screen {
-    background-color: #FAF6F3 !important;
-}
-
-#phoneMockup .phone-header,
-#phoneMockup .app-title,
-#phoneMockup .team-title,
-#phoneMockup .section-title,
-#phoneMockup .section-title-large,
-#phoneMockup .role-card-title,
-#phoneMockup .assignee-name,
-#phoneMockup .mockup-task-name,
-#phoneMockup .budget-val-amount,
-.mobile-interactive-showcase .app-title,
-.mobile-interactive-showcase .team-title {
+/* Modal Dialogs (#cohostCreateDialog & #cohostDialogMobile) Isolation */
+#cohostCreateDialog .dialog-container,
+#cohostDialogMobile .dialog-container {
+    background: #FFFFFF !important;
     color: #1D1D1F !important;
+    border: 1px solid rgba(29, 29, 31, 0.1) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25) !important;
 }
 
-#phoneMockup .avatar-label,
-#phoneMockup .coverage-text,
-#phoneMockup .detail-click-text,
-#phoneMockup .budget-val-label,
-#phoneMockup .back-icon,
-#phoneMockup .calendar-icon,
-.mobile-interactive-showcase .avatar-chip span {
+#cohostCreateDialog .dialog-title,
+#cohostDialogMobile .dialog-title,
+body.dark-active #cohostCreateDialog h4,
+body.dark-active #cohostDialogMobile h4 {
+    color: #1D1D1F !important;
+    font-weight: 700 !important;
+}
+
+#cohostCreateDialog .dialog-label,
+#cohostDialogMobile .dialog-label,
+body.dark-active #cohostCreateDialog label,
+body.dark-active #cohostDialogMobile label {
+    color: #55555E !important;
+    font-weight: 600 !important;
+}
+
+#cohostCreateDialog .dialog-subtitle,
+#cohostDialogMobile .dialog-subtitle {
     color: #55555E !important;
 }
 
-#phoneMockup .dashboard-summary-card-gradient {
-    background: linear-gradient(135deg, rgba(212, 165, 165, 0.16) 0%, #ffffff 100%) !important;
-    border: 1px solid rgba(29, 29, 31, 0.08) !important;
+#cohostCreateDialog .dialog-input-box,
+#cohostDialogMobile .dialog-input-box {
+    background: #F5F5F7 !important;
+    border: 1px solid rgba(29, 29, 31, 0.12) !important;
+    color: #1D1D1F !important;
+    font-weight: 500 !important;
 }
 
-#phoneMockup .mockup-role-card {
-    background: #ffffff !important;
-    border: 1px solid rgba(29, 29, 31, 0.08) !important;
-}
-
-#phoneMockup .assignee-capsule-row {
-    background: #FAF6F3 !important;
-    border: 1px solid rgba(29, 29, 31, 0.08) !important;
+#cohostCreateDialog .cancel-btn,
+#cohostDialogMobile .cancel-btn {
+    color: #8B5A5A !important;
 }
 
 /* ==========================================================================
@@ -7779,11 +7943,11 @@ body.dark-active .sim-block-label {
     gap: 18px;
     padding: 9px 10px 9px 18px;
     border-radius: 50px;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(197, 160, 89, 0.32);
+    background: rgba(18, 18, 22, 0.88);
+    border: 1px solid rgba(201, 162, 39, 0.35);
     backdrop-filter: blur(18px) saturate(160%);
     -webkit-backdrop-filter: blur(18px) saturate(160%);
-    box-shadow: 0 12px 34px rgba(29, 29, 31, 0.12);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.45);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -7805,12 +7969,12 @@ html.hero-story-active .hero-story-hud {
     width: 7px;
     height: 7px;
     border-radius: 50px;
-    background: rgba(29, 29, 31, 0.16);
+    background: rgba(255, 255, 255, 0.22);
     transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s ease;
 }
 
 .hero-hud-dot.seen {
-    background: rgba(197, 160, 89, 0.5);
+    background: rgba(201, 162, 39, 0.65);
 }
 
 .hero-hud-dot.active {
@@ -7824,19 +7988,20 @@ html.hero-story-active .hero-story-hud {
     gap: 5px;
     padding: 7px 14px;
     border-radius: 50px;
-    border: 1px solid rgba(29, 29, 31, 0.1);
-    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.08);
     font-family: inherit;
     font-size: 0.78rem;
     font-weight: 600;
-    color: var(--text-muted);
+    color: #E2E2E8;
     cursor: pointer;
     transition: var(--transition-smooth);
 }
 
 .hero-hud-skip:hover {
     border-color: var(--gold);
-    color: var(--text-main);
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.16);
     transform: translateY(-1px);
 }
 
@@ -7871,7 +8036,7 @@ html.hero-story-active .hero-story-hud {
 .hero-hud-hint {
     font-size: 0.74rem;
     font-weight: 600;
-    color: var(--text-light);
+    color: #B5B5BE;
     white-space: nowrap;
     padding-right: 2px;
 }
@@ -7891,7 +8056,7 @@ html.hero-story-active .hero-story-hud {
 }
 
 .hero-story-hud.awaiting .hero-hud-hint {
-    color: var(--gold-text);
+    color: #E5B869 !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
