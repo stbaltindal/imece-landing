@@ -54,19 +54,206 @@
         .navbar .nav-links a:hover {
             color: #ECC880 !important;
         }
-        footer {
-            background-color: #08080A !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        /* Luxury Modern Footer */
+        footer.luxury-footer {
+            background: #09090D !important;
+            border-top: 1px solid rgba(212, 175, 55, 0.22) !important;
+            padding: 64px 0 40px !important;
+            position: relative;
+            overflow: hidden;
         }
-        footer .footer-brand p,
-        footer .footer-nav a,
-        footer .footer-links a,
-        footer .footer-legal-copy {
-            color: #B5B5BE !important;
+        .luxury-footer-divider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 900px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(236, 200, 128, 0.5) 50%, transparent 100%);
         }
-        footer .footer-heading,
-        footer .footer-links h4 {
+        footer.luxury-footer .footer-container {
+            display: grid !important;
+            grid-template-columns: 1.4fr 1.1fr 1fr !important;
+            gap: 48px !important;
+            align-items: flex-start !important;
+            max-width: 1140px !important;
+            margin: 0 auto !important;
+            padding: 0 24px !important;
+        }
+        footer.luxury-footer .footer-brand {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 14px !important;
+        }
+        footer.luxury-footer .footer-brand .logo {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            text-decoration: none !important;
+        }
+        footer.luxury-footer .footer-logo-img {
+            width: 34px !important;
+            height: 34px !important;
+            object-fit: contain !important;
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.35));
+        }
+        footer.luxury-footer .footer-brand .logo-text {
+            font-family: var(--font-header, 'Playfair Display', serif) !important;
             color: #FFFFFF !important;
+            font-size: 1.35rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.3px !important;
+        }
+        footer.luxury-footer .footer-slogan {
+            color: #ECC880 !important;
+            font-size: 0.95rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.2px !important;
+            margin: 0 !important;
+        }
+        footer.luxury-footer .footer-desc {
+            color: #9A9AA6 !important;
+            font-size: 0.88rem !important;
+            line-height: 1.65 !important;
+            margin: 0 !important;
+            max-width: 360px !important;
+        }
+        footer.luxury-footer .footer-platform-badge {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            background: rgba(212, 175, 55, 0.08) !important;
+            border: 1px solid rgba(212, 175, 55, 0.28) !important;
+            padding: 6px 14px !important;
+            border-radius: 20px !important;
+            width: fit-content !important;
+            color: #ECC880 !important;
+            font-size: 0.8rem !important;
+            font-weight: 600 !important;
+            margin-top: 2px !important;
+        }
+        footer.luxury-footer .footer-platform-badge .badge-dot {
+            width: 7px !important;
+            height: 7px !important;
+            border-radius: 50% !important;
+            background: #4cd964 !important;
+            box-shadow: 0 0 8px #4cd964 !important;
+            display: inline-block !important;
+            animation: pulse-live 2.5s infinite ease-in-out;
+        }
+        @keyframes pulse-live {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.85); }
+        }
+        footer.luxury-footer .footer-legal-copy {
+            color: #71717A !important;
+            font-size: 0.8rem !important;
+            margin-top: 8px !important;
+        }
+        footer.luxury-footer .footer-nav-col {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 16px !important;
+        }
+        footer.luxury-footer .footer-heading {
+            color: #FFFFFF !important;
+            font-size: 0.84rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1.2px !important;
+            margin: 0 !important;
+            padding-bottom: 8px !important;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.4) !important;
+            display: inline-block !important;
+            width: fit-content !important;
+        }
+        footer.luxury-footer .footer-link-list {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+        }
+        footer.luxury-footer .footer-link-list li {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        footer.luxury-footer .footer-link-list a {
+            color: #B5B5C2 !important;
+            font-size: 0.9rem !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            padding: 2px 0 !important;
+        }
+        footer.luxury-footer .footer-link-list a:hover {
+            color: #ECC880 !important;
+            transform: translateX(5px) !important;
+            text-shadow: 0 0 10px rgba(236, 200, 128, 0.35) !important;
+        }
+        footer.luxury-footer .footer-icon {
+            font-size: 1rem !important;
+            opacity: 0.85 !important;
+            display: inline-block !important;
+            transition: transform 0.2s ease !important;
+            flex-shrink: 0 !important;
+        }
+        footer.luxury-footer .footer-link-list a:hover .footer-icon {
+            transform: scale(1.22) !important;
+        }
+        footer.luxury-footer .all-guides-link {
+            color: #ECC880 !important;
+            font-weight: 600 !important;
+            margin-top: 4px !important;
+            padding-top: 6px !important;
+            border-top: 1px dashed rgba(212, 175, 55, 0.25) !important;
+        }
+        footer.luxury-footer .all-guides-link:hover {
+            color: #FFF2CE !important;
+        }
+        footer.luxury-footer .support-mail-link {
+            color: #ECC880 !important;
+            font-weight: 600 !important;
+            background: rgba(212, 175, 55, 0.08) !important;
+            border: 1px solid rgba(212, 175, 55, 0.24) !important;
+            padding: 6px 12px !important;
+            border-radius: 8px !important;
+            margin-top: 4px !important;
+            width: fit-content !important;
+        }
+        footer.luxury-footer .support-mail-link:hover {
+            background: rgba(212, 175, 55, 0.16) !important;
+            border-color: rgba(212, 175, 55, 0.45) !important;
+            color: #FFF2CE !important;
+            transform: translateX(4px) !important;
+        }
+        @media (max-width: 900px) {
+            footer.luxury-footer .footer-container {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 36px !important;
+            }
+            footer.luxury-footer .footer-brand {
+                grid-column: span 2 !important;
+            }
+        }
+        @media (max-width: 600px) {
+            footer.luxury-footer {
+                padding: 48px 0 32px !important;
+            }
+            footer.luxury-footer .footer-container {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+            footer.luxury-footer .footer-brand {
+                grid-column: span 1 !important;
+            }
+            footer.luxury-footer .footer-desc {
+                max-width: 100% !important;
+            }
         }
         .guide-article {
             max-width: 920px;
@@ -563,30 +750,49 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="luxury-footer">
+        <div class="luxury-footer-divider"></div>
         <div class="container footer-container">
             <div class="footer-brand">
                 <div class="logo">
-                    <img src="../assets/img/logo_wax_seal_96.png" alt="" width="28" height="28" style="width: 28px; height: 28px; object-fit: contain; margin-right: 10px;">
+                    <img src="../assets/img/logo_wax_seal_96.png" alt="İmece Düğün" width="34" height="34" class="footer-logo-img">
                     <span class="logo-text">İmece Düğün</span>
                 </div>
                 <p class="footer-slogan">En Özel Gününüze Altın Mühür.</p>
+                <p class="footer-desc">Düğün, nişan ve çeyiz hazırlıklarınızı sevdiklerinizle birlikte kolayca planlayın; bütçe, görev ve davetli takibinizi imece usulü yönetin.</p>
+                <div class="footer-platform-badge">
+                    <span class="badge-dot"></span>
+                    <span>iOS Sürümü App Store'da Yayında</span>
+                </div>
                 <div class="footer-legal-copy">&copy; 2026 İmece Düğün. Tüm hakları saklıdır.</div>
             </div>
-            <div class="footer-nav">
-                <div class="footer-col">
-                    <span class="footer-heading">Rehberler</span>
-                    <a href="ceyiz-listesi.html">Çeyiz Listesi</a>
-                    <a href="dugun-butcesi.html">Düğün Bütçesi</a>
-                    <a href="nedime-ve-bride-to-be.html">Nedime &amp; Bride</a>
-                    <a href="dugun-gunu-akisi.html">Düğün Günü Akışı</a>
-                </div>
-                <div class="footer-col">
-                    <span class="footer-heading">Bağlantılar</span>
-                    <a href="https://imecedugun.com/">Ana Sayfa</a>
-                    <a href="../gizlilik.html">Gizlilik</a>
-                    <a href="../kosullar.html">Koşullar</a>
-                </div>
+            
+            <div class="footer-nav-col">
+                <h4 class="footer-heading">İnteraktif Rehberler</h4>
+                <ul class="footer-link-list">
+                    <li><a href="ceyiz-listesi.html"><span class="footer-icon">📋</span><span>Çeyiz Listesi (118 Kalem)</span></a></li>
+                    <li><a href="dugun-butcesi.html"><span class="footer-icon">💰</span><span>Düğün Bütçesi Hesaplayıcı</span></a></li>
+                    <li><a href="nedime-ve-bride-to-be.html"><span class="footer-icon">👰</span><span>Nedime &amp; Bride Kılavuzu</span></a></li>
+                    <li><a href="dugun-gunu-akisi.html"><span class="footer-icon">⏱️</span><span>Düğün Günü Akış Planı</span></a></li>
+                    <li><a href="dijital-lcv-ve-oturma-duzeni.html"><span class="footer-icon">🪑</span><span>Dijital LCV &amp; Masa Düzeni</span></a></li>
+                    <li><a href="index.html" class="all-guides-link"><span class="footer-icon">📚</span><span>Tüm Rehberler Merkezi →</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-nav-col">
+                <h4 class="footer-heading">Platform &amp; Yasal</h4>
+                <ul class="footer-link-list">
+                    <li><a href="https://imecedugun.com/"><span class="footer-icon">✨</span><span>Ana Sayfa</span></a></li>
+                    <li><a href="../gizlilik.html"><span class="footer-icon">🛡️</span><span>KVKK &amp; Gizlilik Politikası</span></a></li>
+                    <li><a href="../kosullar.html"><span class="footer-icon">⚖️</span><span>Kullanım Koşulları</span></a></li>
+                    <li><a href="../eula.html"><span class="footer-icon">📄</span><span>EULA (Lisans Sözleşmesi)</span></a></li>
+                    <li>
+                        <a href="mailto:destek@imecedugun.com" class="support-mail-link">
+                            <span class="footer-icon">✉️</span>
+                            <span>destek@imecedugun.com</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </footer>
