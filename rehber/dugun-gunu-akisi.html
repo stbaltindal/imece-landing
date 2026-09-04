@@ -115,55 +115,116 @@
         }
         .time-row {
             display: flex;
-            gap: 22px;
+            gap: 20px;
+            align-items: stretch;
             position: relative;
-            padding-bottom: 30px;
+            padding-bottom: 24px;
+            margin: 0;
         }
         .time-row:last-child {
             padding-bottom: 0;
         }
-        .time-row::before {
+        .time-col {
+            width: 140px;
+            flex-shrink: 0;
+            text-align: right;
+            padding-top: 8px;
+        }
+        .time-pill {
+            display: inline-block;
+            color: #ECC880;
+            font-weight: 700;
+            font-size: 0.92rem;
+            letter-spacing: 0.3px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 20px;
+            padding: 6px 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .time-spine {
+            width: 28px;
+            flex-shrink: 0;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .time-spine::before {
             content: '';
             position: absolute;
-            left: 63px;
-            top: 34px;
+            top: 0;
             bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 2px;
-            background: rgba(212, 175, 55, 0.35);
+            background: linear-gradient(180deg, #ECC880 0%, rgba(212, 175, 55, 0.4) 50%, #ECC880 100%);
+            box-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
+            z-index: 1;
         }
-        .time-row:last-child::before {
-            display: none;
+        .time-row:first-child .time-spine::before {
+            top: 20px;
         }
-        .time-badge {
-            width: 128px;
-            font-weight: 700;
-            color: #ECC880;
-            font-size: 0.96rem;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .time-row:last-child .time-spine::before {
+            bottom: calc(100% - 20px);
         }
         .time-dot {
-            width: 14px;
-            height: 14px;
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ECC880, #D4AF37);
-            border: 2px solid #08080A;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
-            flex-shrink: 0;
+            background: radial-gradient(circle, #FFF2CE 0%, #ECC880 50%, #C5A059 100%);
+            border: 3px solid #121218;
+            box-shadow: 0 0 10px rgba(236, 200, 128, 0.9), 0 0 20px rgba(212, 175, 55, 0.45);
+            z-index: 2;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .time-row:hover .time-dot {
+            transform: translateX(-50%) scale(1.25);
+            box-shadow: 0 0 15px rgba(236, 200, 128, 1), 0 0 30px rgba(212, 175, 55, 0.7);
         }
         .time-content {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            padding: 18px 22px;
+            background: #181822;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 16px;
+            padding: 20px 24px;
             flex-grow: 1;
             transition: all 0.25s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
         }
         .time-content:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(212, 175, 55, 0.4);
+            background: #1c1c28;
+            border-color: rgba(212, 175, 55, 0.55);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+        .time-mobile-badge {
+            display: none;
+        }
+        @media (max-width: 680px) {
+            .time-col {
+                display: none;
+            }
+            .time-mobile-badge {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 10px;
+            }
+            .time-row {
+                gap: 12px;
+                padding-bottom: 18px;
+            }
+            .timeline-card {
+                padding: 24px 16px;
+            }
+            .time-content {
+                padding: 16px 18px;
+            }
         }
         .time-content-title {
             color: #FFFFFF;
@@ -367,8 +428,16 @@
 
             <div id="timelineRowsContainer">
             <div class="time-row">
-                <div class="time-badge"><span class="time-dot"></span>09:00 - 13:30</div>
+                <div class="time-col">
+                    <span class="time-pill">09:00 - 13:30</span>
+                </div>
+                <div class="time-spine">
+                    <span class="time-dot"></span>
+                </div>
                 <div class="time-content">
+                    <div class="time-mobile-badge">
+                        <span class="time-pill">09:00 - 13:30</span>
+                    </div>
                     <div class="time-content-title">
                         <span>Gelin &amp; Damat Hazırlığı &amp; Kuaför</span>
                         <span class="scope-tag team">Ekibe Özel</span>
@@ -378,8 +447,16 @@
             </div>
 
             <div class="time-row">
-                <div class="time-badge"><span class="time-dot"></span>14:00 - 15:30</div>
+                <div class="time-col">
+                    <span class="time-pill">14:00 - 15:30</span>
+                </div>
+                <div class="time-spine">
+                    <span class="time-dot"></span>
+                </div>
                 <div class="time-content">
+                    <div class="time-mobile-badge">
+                        <span class="time-pill">14:00 - 15:30</span>
+                    </div>
                     <div class="time-content-title">
                         <span>Gelin Alma &amp; İlk Bakış (First Look)</span>
                         <span class="scope-tag team">Ekibe Özel</span>
@@ -389,8 +466,16 @@
             </div>
 
             <div class="time-row">
-                <div class="time-badge"><span class="time-dot"></span>16:00 - 18:00</div>
+                <div class="time-col">
+                    <span class="time-pill">16:00 - 18:00</span>
+                </div>
+                <div class="time-spine">
+                    <span class="time-dot"></span>
+                </div>
                 <div class="time-content">
+                    <div class="time-mobile-badge">
+                        <span class="time-pill">16:00 - 18:00</span>
+                    </div>
                     <div class="time-content-title">
                         <span>Dış Mekan Fotoğraf &amp; Video Çekimi</span>
                         <span class="scope-tag team">Ekibe Özel</span>
@@ -400,8 +485,16 @@
             </div>
 
             <div class="time-row">
-                <div class="time-badge"><span class="time-dot"></span>19:00 - 19:45</div>
+                <div class="time-col">
+                    <span class="time-pill">19:00 - 19:45</span>
+                </div>
+                <div class="time-spine">
+                    <span class="time-dot"></span>
+                </div>
                 <div class="time-content">
+                    <div class="time-mobile-badge">
+                        <span class="time-pill">19:00 - 19:45</span>
+                    </div>
                     <div class="time-content-title">
                         <span>Kokteyl &amp; Misafir Karşılama</span>
                         <span class="scope-tag guest">Davetiyede Açık</span>
@@ -411,8 +504,16 @@
             </div>
 
             <div class="time-row">
-                <div class="time-badge"><span class="time-dot"></span>20:00 - 20:30</div>
+                <div class="time-col">
+                    <span class="time-pill">20:00 - 20:30</span>
+                </div>
+                <div class="time-spine">
+                    <span class="time-dot"></span>
+                </div>
                 <div class="time-content">
+                    <div class="time-mobile-badge">
+                        <span class="time-pill">20:00 - 20:30</span>
+                    </div>
                     <div class="time-content-title">
                         <span>Görkemli Giriş &amp; Nikah Merasimi</span>
                         <span class="scope-tag guest">Davetiyede Açık</span>
@@ -422,8 +523,16 @@
             </div>
 
             <div class="time-row">
-                <div class="time-badge"><span class="time-dot"></span>20:30 - 22:00</div>
+                <div class="time-col">
+                    <span class="time-pill">20:30 - 22:00</span>
+                </div>
+                <div class="time-spine">
+                    <span class="time-dot"></span>
+                </div>
                 <div class="time-content">
+                    <div class="time-mobile-badge">
+                        <span class="time-pill">20:30 - 22:00</span>
+                    </div>
                     <div class="time-content-title">
                         <span>Yemek Servisi &amp; Müzik / Eğlence</span>
                         <span class="scope-tag guest">Davetiyede Açık</span>
@@ -433,8 +542,16 @@
             </div>
 
             <div class="time-row">
-                <div class="time-badge"><span class="time-dot"></span>22:00 - 23:30</div>
+                <div class="time-col">
+                    <span class="time-pill">22:00 - 23:30</span>
+                </div>
+                <div class="time-spine">
+                    <span class="time-dot"></span>
+                </div>
                 <div class="time-content">
+                    <div class="time-mobile-badge">
+                        <span class="time-pill">22:00 - 23:30</span>
+                    </div>
                     <div class="time-content-title">
                         <span>Pasta Kesimi &amp; Takı Merasimi</span>
                         <span class="scope-tag guest">Davetiyede Açık</span>
@@ -444,8 +561,16 @@
             </div>
 
             <div class="time-row">
-                <div class="time-badge"><span class="time-dot"></span>23:30 - 01:30</div>
+                <div class="time-col">
+                    <span class="time-pill">23:30 - 01:30</span>
+                </div>
+                <div class="time-spine">
+                    <span class="time-dot"></span>
+                </div>
                 <div class="time-content">
+                    <div class="time-mobile-badge">
+                        <span class="time-pill">23:30 - 01:30</span>
+                    </div>
                     <div class="time-content-title">
                         <span>After Party &amp; Kapanış</span>
                         <span class="scope-tag guest">Davetiyede Açık</span>
@@ -567,8 +692,16 @@
 
         container.innerHTML = rows.map(r => `
             <div class="time-row">
-                <div class="time-badge"><span class="time-dot"></span>${r.time}</div>
+                <div class="time-col">
+                    <span class="time-pill">${r.time}</span>
+                </div>
+                <div class="time-spine">
+                    <span class="time-dot"></span>
+                </div>
                 <div class="time-content">
+                    <div class="time-mobile-badge">
+                        <span class="time-pill">${r.time}</span>
+                    </div>
                     <div class="time-content-title">
                         <span>${r.title}</span>
                         <span class="scope-tag ${r.tagClass}">${r.tag}</span>
