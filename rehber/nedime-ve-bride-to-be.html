@@ -7,6 +7,7 @@
     <meta name="keywords" content="nedime görevleri, bride to be nasıl planlanır, bekarlığa veda organizasyonu, nedime görev dağılımı listesi, baş nedime rehberi, sürpriz bekarlığa veda">
     <title>Nedime Görev Dağılımı &amp; Bride-to-Be Planlama — İmece Düğün</title>
     <link rel="canonical" href="https://imecedugun.com/rehber/nedime-ve-bride-to-be.html">
+    <meta name="apple-itunes-app" content="app-id=6794826834">
 
     <!-- Social & Open Graph -->
     <meta property="og:type" content="article">
@@ -253,6 +254,95 @@
             }
             footer.luxury-footer .footer-desc {
                 max-width: 100% !important;
+            }
+        }
+        /* Aha-Moment Web-to-App Bridge Toast */
+        .aha-bridge-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            max-width: 360px;
+            background: rgba(18, 18, 24, 0.96);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            border-radius: 18px;
+            padding: 16px 20px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 24px rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 9999;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            transform: translateY(140%);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .aha-bridge-toast.is-visible {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .aha-toast-icon {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.4));
+        }
+        .aha-toast-content {
+            flex: 1;
+        }
+        .aha-toast-title {
+            color: #FFFFFF;
+            font-size: 0.94rem;
+            font-weight: 700;
+            margin: 0 0 4px;
+            font-family: var(--font-header, 'Playfair Display', serif);
+        }
+        .aha-toast-desc {
+            color: #B5B5BE;
+            font-size: 0.82rem;
+            line-height: 1.45;
+            margin: 0 0 10px;
+        }
+        .aha-toast-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #ECC880 0%, #D4AF37 100%);
+            color: #08080A !important;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 6px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
+            transition: transform 0.2s ease;
+        }
+        .aha-toast-btn:hover {
+            transform: translateX(3px);
+            background: linear-gradient(135deg, #FFF0CA 0%, #ECC880 100%);
+        }
+        .aha-toast-close {
+            background: transparent;
+            border: none;
+            color: #71717A;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .aha-toast-close:hover {
+            color: #FFFFFF;
+        }
+        @media (max-width: 600px) {
+            .aha-bridge-toast {
+                left: 16px;
+                right: 16px;
+                bottom: 16px;
+                max-width: none;
             }
         }
         .guide-article {
@@ -708,7 +798,7 @@
                         <span>•</span>
                         <span class="stars">★★★★★</span>
                     </div>
-                    <h4>Nedime Ekibinizi Davet Koduyla Birleştirin</h4>
+                    <h4>Nedime Ekibini Kurun: Görevleri Sevdiklerinize Delege Edin</h4>
                     <p>Uygulamayı indiren nedimeler davet kodunuzla etkinliğe katılır. Görev teklif edebilir, tamamlanan işleri işaretleyebilir ve bütçeyi paylaşabilir.</p>
                     <ul class="app-bridge-features">
                         <li><span>✦</span> Gelinden gizli sürpriz parti odası</li>
@@ -722,7 +812,7 @@
                     <svg class="apple-svg" viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true">
                         <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
                     </svg>
-                    <span>App Store'dan Ücretsiz İndir</span>
+                    <span>Nedime Ekibini Hemen Kur — Ücretsiz</span>
                 </a>
             </div>
         </section>
@@ -836,6 +926,25 @@
         document.getElementById('kitFill').style.width = `${pct}%`;
     }
 
+    function triggerKitToast() {
+        if (!sessionStorage.getItem('imece_kit_toast_closed')) {
+            setTimeout(function() {
+                const toast = document.getElementById('ahaKitToast');
+                if (toast && !toast.classList.contains('is-visible')) {
+                    toast.classList.add('is-visible');
+                }
+            }, 1000);
+        }
+    }
+
+    function closeKitToast() {
+        const toast = document.getElementById('ahaKitToast');
+        if (toast) {
+            toast.classList.remove('is-visible');
+            sessionStorage.setItem('imece_kit_toast_closed', '1');
+        }
+    }
+
     function toggleKitItem(id) {
         if (kitChecked.includes(id)) {
             kitChecked = kitChecked.filter(x => x !== id);
@@ -844,6 +953,9 @@
         }
         localStorage.setItem('imece_kit_checked', JSON.stringify(kitChecked));
         renderKit();
+        if (kitChecked.length >= 3) {
+            triggerKitToast();
+        }
     }
 
     function resetKitList() {
@@ -875,6 +987,7 @@
                 btn.style.borderColor = 'rgba(212, 175, 55, 0.5)';
                 btn.style.color = '#ECC880';
             }, 2500);
+            triggerKitToast();
         }).catch(err => alert('Kopyalanamadı: ' + err));
     }
 
@@ -913,5 +1026,17 @@
         });
     })();
     </script>
+    <!-- Aha-Moment Floating Bridge Toast -->
+    <div id="ahaKitToast" class="aha-bridge-toast" role="dialog" aria-label="Nedime ekibi önerisi">
+        <img src="../assets/img/logo_wax_seal_96.png" alt="İmece Düğün" class="aha-toast-icon">
+        <div class="aha-toast-content">
+            <div class="aha-toast-title">👰 Nedime Ekibinizi Kurun!</div>
+            <div class="aha-toast-desc">Gelin çantasını ve bekarlığa veda görevlerini nedimelerinizle ortaklaşa yönetmek için İmece Düğün'e aktarın.</div>
+            <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="aha-toast-btn">
+                <span>Ekibi Hemen Kur</span> →
+            </a>
+        </div>
+        <button type="button" class="aha-toast-close" onclick="closeKitToast()" aria-label="Kapat">✕</button>
+    </div>
 </body>
 </html>

@@ -278,8 +278,9 @@
         var bar = document.createElement("div");
         bar.className = "sticky-cta";
         bar.innerHTML =
-            '<span class="sticky-cta-copy"><b>İmece Düğün</b><span>App Store\'da Yayında</span></span>' +
-            '<a class="btn btn-primary" href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener">Hemen İndir</a>';
+            '<img src="assets/img/logo_wax_seal_96.png" width="34" height="34" alt="İmece Düğün" class="sticky-cta-seal" style="width:34px;height:34px;object-fit:contain;flex-shrink:0;border-radius:8px;filter:drop-shadow(0 2px 6px rgba(212,175,55,0.4));">' +
+            '<span class="sticky-cta-copy"><b>İmece Düğün</b><span style="color:#ECC880;font-weight:600;font-size:0.75rem;">★★★★★ 4.9 • Ücretsiz iOS</span></span>' +
+            '<a class="btn btn-primary" href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener">Aç</a>';
 
         footer.parentNode.insertBefore(bar, footer);
         document.body.classList.add("has-sticky-cta");
