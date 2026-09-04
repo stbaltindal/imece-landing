@@ -470,7 +470,7 @@
        Gorunur bolume karsilik gelen nav linkine (hem ust menu hem cekmece)
        aria-current="true" ekler.
        ---------------------------------------------------------------------- */
-    var SPY_SECTIONS = ["tanidik", "neden-imece", "gun-ici", "hesaplayici", "paketler", "sss"];
+    var SPY_SECTIONS = ["tanidik", "interactive-rsvp-showcase", "neden-imece", "hesaplayici", "paketler", "sss"];
 
     function initScrollSpy() {
         if (!("IntersectionObserver" in window)) return;
