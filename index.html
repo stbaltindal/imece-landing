@@ -852,7 +852,7 @@
         </div>
     </section>
 
-<!-- Empati Modülü: Tanıdık Gelenler -->
+        <!-- Empati Modülü: Tanıdık Gelenler -->
         <section id="tanidik" class="pain-check-section">
             <div class="container">
                 <div class="section-header">
@@ -861,133 +861,446 @@
                     <p class="section-subtitle">Hepsi gerçek çiftlerden dinlediğimiz cümleler ve hepsinin uygulamada çalışan bir karşılığı var. Size tanıdık gelenlere dokunun; çözümü hemen yanında çıksın.</p>
                 </div>
 
-                <div class="pain-check-layout">
-                    <div class="pain-check-list" id="painCheckList" role="group" aria-label="Tanıdık gelen sorunlar">
-                        <button type="button" class="pain-item" data-target="interactive-rsvp-showcase" data-solution="Canlı interaktif davetiye & anlık LCV sistemi" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Nereden başlayacağımızı bile bilmiyoruz; liste yapmaya oturup bırakıyoruz.”</span>
-                                <span class="pain-meta">Boş sayfa korkusu</span>
-                            </span>
+                <!-- Kategori Filtre Hapları -->
+                <div class="pain-filter-wrap">
+                    <div class="pain-filter-group" role="tablist" aria-label="Sorun kategorileri">
+                        <button type="button" class="pain-filter-btn active" data-filter="all" role="tab" aria-selected="true" onclick="filterPain('all', this)">
+                            <span>✨ Tümü</span>
+                            <span class="pain-filter-count">14</span>
                         </button>
-                        <button type="button" class="pain-item" data-target="cozum-sifre" data-solution="Ortak Yönetici (Co-Host) & görev paylaşımı" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Herkes ‘ne yapabilirim?’ diye soruyor ama sonunda hepsini yine ben yapıyorum.”</span>
-                                <span class="pain-meta">Tüm yükün tek kişide toplanması</span>
-                            </span>
+                        <button type="button" class="pain-filter-btn" data-filter="planlama" role="tab" aria-selected="false" onclick="filterPain('planlama', this)">
+                            <span>📋 Planlama &amp; Görev</span>
+                            <span class="pain-filter-count">4</span>
                         </button>
-                        <button type="button" class="pain-item" data-target="cozum-muzik" data-solution="Kategorili müzik ve lojistik asistanı" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Mekan teklifi kimdeydi? 200 mesaj yukarıda kaldı, bulamıyorum.”</span>
-                                <span class="pain-meta">WhatsApp grubunda kaybolan belgeler</span>
-                            </span>
+                        <button type="button" class="pain-filter-btn" data-filter="davetli" role="tab" aria-selected="false" onclick="filterPain('davetli', this)">
+                            <span>👥 Davetli &amp; Masa</span>
+                            <span class="pain-filter-count">3</span>
                         </button>
-                        <button type="button" class="pain-item" data-target="interactive-rsvp-showcase" data-solution="Kişiye özel bağlantı ile tek tıkla LCV toplama" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Kapora kimden çıktı, ne kadar harcadık… kimse tam olarak bilmiyor.”</span>
-                                <span class="pain-meta">Kontrolden çıkan bütçe</span>
-                            </span>
+                        <button type="button" class="pain-filter-btn" data-filter="butce" role="tab" aria-selected="false" onclick="filterPain('butce', this)">
+                            <span>💰 Bütçe &amp; Kasa</span>
+                            <span class="pain-filter-count">3</span>
                         </button>
-                        <button type="button" class="pain-item" data-target="interactive-rsvp-showcase" data-solution="Kişiye özel davetiye linki & anlık katılım bildirimi" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Düğüne bir hafta kaldı, kaç kişi geleceğini hâlâ bilmiyoruz.”</span>
-                                <span class="pain-meta">Toplanamayan katılım teyidi</span>
-                            </span>
-                        </button>
-                        <button type="button" class="pain-item" data-target="interactive-rsvp-showcase" data-solution="Menü tercihi, alerji notu ve mutfak listesi" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Kaç vejetaryen var, kimin alerjisi var? Mutfağa ne söyleyeceğiz?”</span>
-                                <span class="pain-meta">Dağınık yemek ve alerji bilgisi</span>
-                            </span>
-                        </button>
-                        <button type="button" class="pain-item" data-target="cozum-sifre" data-solution="Bağımsız eş yetkisi & anlık ilerleme takibi" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“‘Hallettim’ dedi ama yapılmamış; düğün haftası ortaya çıktı.”</span>
-                                <span class="pain-meta">Takip edilemeyen ‘tamam’ sözü</span>
-                            </span>
-                        </button>
-                        <button type="button" class="pain-item" data-target="cozum-sifre" data-solution="Rol ve görev paylaşımı: İmece usulü yönetim" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Grupta ‘ben varım’ diyen çok; işi bitiren hep aynı üç kişi.”</span>
-                                <span class="pain-meta">Sessiz kahramanlar ve ‘ben varım’cılar</span>
-                            </span>
-                        </button>
-                        <button type="button" class="pain-item" data-target="cozum-muzik" data-solution="Kategorili müzik listeleri, tek dokunuşta DJ'e" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“DJ ne çalacak? Herkesin isteği ayrı, listeyi kimse toparlamıyor.”</span>
-                                <span class="pain-meta">Toparlanamayan müzik istekleri</span>
-                            </span>
-                        </button>
-                        <button type="button" class="pain-item" data-target="cozum-pdf" data-solution="Baskıya hazır PDF oturma planı & kuver dökümü" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Hangi akraba kiminle aynı masada oturamaz, defterde takip ediyoruz.”</span>
-                                <span class="pain-meta">Masa düzeni ve protokol çilesi</span>
-                            </span>
-                        </button>
-                        <button type="button" class="pain-item" data-target="cozum-gunakis" data-solution="Düğün günü saat saat canlı akış programı" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Gelin arabası gecikti, pasta da kaydı; kimse bir sonraki adımı bilmiyor.”</span>
-                                <span class="pain-meta">Düğün günü zaman kayması</span>
-                            </span>
-                        </button>
-                        <button type="button" class="pain-item" data-target="cozum-takvim" data-solution="Otomatik takvim kaydırma (Shift Dates)" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Tarih iki hafta ertelendi, bütün listeyi baştan yazmam gerekti.”</span>
-                                <span class="pain-meta">Ertelemede bozulan takvim</span>
-                            </span>
-                        </button>
-                        <button type="button" class="pain-item" data-target="cozum-sifre" data-solution="Ortak Yönetici (Co-Host) bağımsız yetki" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Eşim de görsün diye hesabımın şifresini paylaşmak zorunda kaldım.”</span>
-                                <span class="pain-meta">Tek hesabı paylaşma karmaşası</span>
-                            </span>
-                        </button>
-                        <button type="button" class="pain-item" data-target="cozum-surpriz" data-solution="Gelin Koruması (Surprise Guard)" aria-pressed="false" onclick="togglePain(this)">
-                            <span class="pain-box"><span class="material-icons-round">check</span></span>
-                            <span class="pain-body">
-                                <span class="pain-quote">“Sürpriz partiyi konuşurken gelin ekrana bakarsa her şey biter.”</span>
-                                <span class="pain-meta">İfşa olan Bride-to-Be sürprizi</span>
-                            </span>
+                        <button type="button" class="pain-filter-btn" data-filter="gun" role="tab" aria-selected="false" onclick="filterPain('gun', this)">
+                            <span>⏱️ Düğün Günü &amp; Gizlilik</span>
+                            <span class="pain-filter-count">4</span>
                         </button>
                     </div>
+                </div>
 
-                    <aside class="pain-result-card" id="painResultCard">
-                        <div class="pain-gauge-wrap">
-                            <svg class="pain-gauge" viewBox="0 0 120 120" aria-hidden="true">
-                                <circle class="pain-gauge-track" cx="60" cy="60" r="52"></circle>
-                                <circle class="pain-gauge-fill" id="painGaugeFill" cx="60" cy="60" r="52"></circle>
-                            </svg>
-                            <div class="pain-gauge-center">
-                                <span class="pain-score-num" id="painScoreNum">0</span>
-                                <span class="pain-score-den" id="painScoreDen">/ 14</span>
+                <div class="pain-check-layout">
+                    <!-- Sol Liste: 14 Kriz Maddesi -->
+                    <div class="pain-check-list" id="painCheckList" role="group" aria-label="Tanıdık gelen sorunlar">
+                        <div class="pain-item" id="pain-1" data-category="planlama" data-id="pain-1" data-crisis="Boş Sayfa Korkusu & Başlangıç Felci" data-solution="250+ Hazır Görev & Akıllı Takvim" data-desc="Düğün tarihinize göre 12 aya yayılmış hazır kontrol listesi. Neyi, hangi ayda yapacağınızı düşünmenize gerek kalmaz." data-badge="Otomatik Takvim" data-target="#hero-showcase-story" data-cta="Ekranı İncele" data-icon="checklist" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Nereden başlayacağımızı bile bilmiyoruz; liste yapmaya oturup bırakıyoruz.”</span>
+                                    <span class="pain-meta">Boş sayfa korkusu</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>250+ Hazır Görev & Akıllı Takvim</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Düğün tarihinize göre 12 aya yayılmış hazır kontrol listesi. Neyi, hangi ayda yapacağınızı düşünmenize gerek kalmaz.</p>
+                                    <a href="#hero-showcase-story" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Ekranı İncele</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div class="pain-result-body" aria-live="polite">
-                            <span class="pain-result-tag" id="painResultTag">HENÜZ SEÇİM YOK</span>
-                            <h3 id="painResultTitle">Yukarıdaki cümlelere dokunun</h3>
-                            <p id="painResultDesc">Her cümle, gerçek çiftlerden dinlediğimiz bir hazırlık sorunu. Size tanıdık gelenleri işaretleyin; hangi çözümün sizin için yazıldığını burada görün.</p>
-                            <div class="pain-solution-list" id="painSolutionList"></div>
-                            <a href="#interactive-rsvp-showcase" class="btn btn-primary btn-gold-effect pain-result-cta" id="painResultCta" onclick="return revealFirstSolution(event)">
-                                <span>Çözümleri sırayla gör</span>
-                                <span class="material-icons-round">arrow_forward</span>
-                            </a>
+                        <div class="pain-item" id="pain-2" data-category="planlama" data-id="pain-2" data-crisis="Tüm Yükün Tek Kişide Toplanması" data-solution="Görev Delegasyonu & Aile Rolleri" data-desc="Nedimelere, sağdıçlara ve aileye özel görevler atayın; yapıldığında telefonunuza anında bildirim gelsin, yük tek kişiye kalmasın." data-badge="Ortak Yönetici" data-target="#neden-imece" data-cta="Çözümü Gör" data-icon="group_add" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Herkes ‘ne yapabilirim?’ diye soruyor ama sonunda hepsini yine ben yapıyorum.”</span>
+                                    <span class="pain-meta">Tüm yükün tek kişide toplanması</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Görev Delegasyonu & Aile Rolleri</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Nedimelere, sağdıçlara ve aileye özel görevler atayın; yapıldığında telefonunuza anında bildirim gelsin, yük tek kişiye kalmasın.</p>
+                                    <a href="#neden-imece" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Çözümü Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-3" data-category="butce" data-id="pain-3" data-crisis="WhatsApp Grubunda Kaybolan Belgeler" data-solution="Tedarikçi & Sözleşme Kasası" data-desc="Mekan, fotoğrafçı, kuaför sözleşmeleri, teklif tutarları ve kapora dekontları tek bir güvenli kasada saklanır." data-badge="Tedarikçi Kasası" data-target="#neden-imece" data-cta="Çözümü Gör" data-icon="folder_shared" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Mekan teklifi kimdeydi? 200 mesaj yukarıda kaldı, bulamıyorum.”</span>
+                                    <span class="pain-meta">WhatsApp grubunda kaybolan belgeler</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Tedarikçi & Sözleşme Kasası</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Mekan, fotoğrafçı, kuaför sözleşmeleri, teklif tutarları ve kapora dekontları tek bir güvenli kasada saklanır.</p>
+                                    <a href="#neden-imece" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Çözümü Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-4" data-category="butce" data-id="pain-4" data-crisis="Kontrolden Çıkan Bütçe & Gizli Masraflar" data-solution="Ortak Cüzdan & Kapora Takibi" data-desc="Kimin ne kadar harcadığı kuruşu kuruşuna kayıtlıdır. Kalan bütçe ve yaklaşan ödemeler anlık grafiklerle cebinizdedir." data-badge="Canlı Bütçe" data-target="#hero-showcase-story" data-cta="Bütçe Ekranını Gör" data-icon="account_balance_wallet" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Kapora kimden çıktı, ne kadar harcadık… kimse tam olarak bilmiyor.”</span>
+                                    <span class="pain-meta">Kontrolden çıkan bütçe</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Ortak Cüzdan & Kapora Takibi</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Kimin ne kadar harcadığı kuruşu kuruşuna kayıtlıdır. Kalan bütçe ve yaklaşan ödemeler anlık grafiklerle cebinizdedir.</p>
+                                    <a href="#hero-showcase-story" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Bütçe Ekranını Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-5" data-category="davetli" data-id="pain-5" data-crisis="Toplanamayan Katılım (LCV Çilesi)" data-solution="Kişiye Özel Akıllı LCV Linki" data-desc="Davetliler hiçbir uygulama yüklemeden tek tıkla katılım durumunu ve kişi sayısını bildirir; listeniz saniyeler içinde netleşir." data-badge="Dijital LCV" data-target="#interactive-rsvp-showcase" data-cta="Simülatörde Canlı Dene" data-icon="mark_email_read" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Düğüne bir hafta kaldı, kaç kişi geleceğini hâlâ bilmiyoruz.”</span>
+                                    <span class="pain-meta">Toplanamayan katılım teyidi</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Kişiye Özel Akıllı LCV Linki</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Davetliler hiçbir uygulama yüklemeden tek tıkla katılım durumunu ve kişi sayısını bildirir; listeniz saniyeler içinde netleşir.</p>
+                                    <a href="#interactive-rsvp-showcase" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Simülatörde Canlı Dene</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-6" data-category="davetli" data-id="pain-6" data-crisis="Mutfak & Alerji Belirsizliği" data-solution="Otomatik Mutfak & Diyet Raporu" data-desc="Vegan, vejetaryen, çocuk menüsü ve alerjen tercihleri otomatik listelenir; mutfak şefine teslim edilecek hazır rapor tek tıkla alınır." data-badge="Diyet & Alerji" data-target="#interactive-rsvp-showcase" data-cta="Menü Seçimini Dene" data-icon="restaurant_menu" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Kaç vejetaryen var, kimin alerjisi var? Mutfağa ne söyleyeceğiz?”</span>
+                                    <span class="pain-meta">Dağınık yemek ve alerji bilgisi</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Otomatik Mutfak & Diyet Raporu</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Vegan, vejetaryen, çocuk menüsü ve alerjen tercihleri otomatik listelenir; mutfak şefine teslim edilecek hazır rapor tek tıkla alınır.</p>
+                                    <a href="#interactive-rsvp-showcase" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Menü Seçimini Dene</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-7" data-category="planlama" data-id="pain-7" data-crisis="Takip Edilemeyen Sözler & Son Hafta Şoku" data-solution="Onay Korumalı Görev Takibi" data-desc="Görevli 'Yaptım' dese bile siz onaylamadan tamamlandı sayılmaz; son hafta telafisi imkansız krizler yaşanmaz." data-badge="Çift Onayı" data-target="#neden-imece" data-cta="Çözümü Gör" data-icon="verified" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“‘Hallettim’ dedi ama yapılmamış; düğün haftası ortaya çıktı.”</span>
+                                    <span class="pain-meta">Takip edilemeyen ‘tamam’ sözü</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Onay Korumalı Görev Takibi</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Görevli 'Yaptım' dese bile siz onaylamadan tamamlandı sayılmaz; son hafta telafisi imkansız krizler yaşanmaz.</p>
+                                    <a href="#neden-imece" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Çözümü Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-8" data-category="butce" data-id="pain-8" data-crisis="Dengesiz İş Yükü & İletişim Stresi" data-solution="Şeffaf İlerleme & İmece Karnesi" data-desc="Kimin hangi görevi ne zaman tamamladığı tüm ekip tarafından şeffafça görülür; gerçek yardım edenler netleşir." data-badge="İmece Ruhu" data-target="#neden-imece" data-cta="Çözümü Gör" data-icon="leaderboard" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Grupta ‘ben varım’ diyen çok; işi bitiren hep aynı üç kişi.”</span>
+                                    <span class="pain-meta">Sessiz kahramanlar ve ‘ben varım’cılar</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Şeffaf İlerleme & İmece Karnesi</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Kimin hangi görevi ne zaman tamamladığı tüm ekip tarafından şeffafça görülür; gerçek yardım edenler netleşir.</p>
+                                    <a href="#neden-imece" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Çözümü Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-9" data-category="gun" data-id="pain-9" data-crisis="Müzik Listesi Karmaşası & DJ Krizi" data-solution="DJ & Müzik Listesi Asistanı" data-desc="Giriş, ilk dans, pasta müziği ve kesinlikle çalınmayacak şarkılar kategorili olarak DJ'e tek bir şık bağlantıyla teslim edilir." data-badge="Müzik Asistanı" data-target="#cozum-muzik" data-cta="Müzik Modülünü Gör" data-icon="library_music" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“DJ ne çalacak? Herkesin isteği ayrı, listeyi kimse toparlamıyor.”</span>
+                                    <span class="pain-meta">Toparlanamayan müzik istekleri</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>DJ & Müzik Listesi Asistanı</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Giriş, ilk dans, pasta müziği ve kesinlikle çalınmayacak şarkılar kategorili olarak DJ'e tek bir şık bağlantıyla teslim edilir.</p>
+                                    <a href="#cozum-muzik" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Müzik Modülünü Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-10" data-category="davetli" data-id="pain-10" data-crisis="Masa Düzeni & Protokol Gerginliği" data-solution="Sürükle-Bırak Masa Düzeni & PDF" data-desc="Birbirini sevmeyen akrabaları farklı masalara yerleştirin, masa kapasitelerini aşmayın; şemayı salon şefine hazır PDF çıktısı olarak verin." data-badge="Masa Planı" data-target="#cozum-pdf" data-cta="PDF Baskı Modunu Gör" data-icon="table_restaurant" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Hangi akraba kiminle aynı masada oturamaz, defterde takip ediyoruz.”</span>
+                                    <span class="pain-meta">Masa düzeni ve protokol çilesi</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Sürükle-Bırak Masa Düzeni & PDF</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Birbirini sevmeyen akrabaları farklı masalara yerleştirin, masa kapasitelerini aşmayın; şemayı salon şefine hazır PDF çıktısı olarak verin.</p>
+                                    <a href="#cozum-pdf" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>PDF Baskı Modunu Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-11" data-category="gun" data-id="pain-11" data-crisis="Düğün Günü Zaman Kayması & Koordinasyon Kaosu" data-solution="Canlı Düğün Günü Akış Programı" data-desc="Kuaförden pastaya tüm akış ekibin cebindedir. 20 dakikalık bir gecikmede tüm sonraki saatler tek tuşla otomatik ötelenir." data-badge="Canlı Akış" data-target="#cozum-gunakis" data-cta="Akış Modülünü Gör" data-icon="schedule" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Gelin arabası gecikti, pasta da kaydı; kimse bir sonraki adımı bilmiyor.”</span>
+                                    <span class="pain-meta">Düğün günü zaman kayması</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Canlı Düğün Günü Akış Programı</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Kuaförden pastaya tüm akış ekibin cebindedir. 20 dakikalık bir gecikmede tüm sonraki saatler tek tuşla otomatik ötelenir.</p>
+                                    <a href="#cozum-gunakis" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Akış Modülünü Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-12" data-category="planlama" data-id="pain-12" data-crisis="Ertelemede Takvim Çöküşü" data-solution="Otomatik Takvim Kaydırma (Shift Dates)" data-desc="Düğün tarihi değiştiğinde tüm 250 görevin, kaporaların ve randevuların tarihleri tek dokunuşla yeni tarihe senkronize olur." data-badge="Shift Dates" data-target="#cozum-takvim" data-cta="Kaydırma Modunu Gör" data-icon="event_repeat" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Tarih iki hafta ertelendi, bütün listeyi baştan yazmam gerekti.”</span>
+                                    <span class="pain-meta">Ertelemede bozulan takvim</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Otomatik Takvim Kaydırma (Shift Dates)</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Düğün tarihi değiştiğinde tüm 250 görevin, kaporaların ve randevuların tarihleri tek dokunuşla yeni tarihe senkronize olur.</p>
+                                    <a href="#cozum-takvim" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Kaydırma Modunu Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-13" data-category="gun" data-id="pain-13" data-crisis="Güvenlik Riski & Tek Hesap Paylaşımı" data-solution="Eş-Yönetici (Co-Host) Çift Girişi" data-desc="Eşiniz kendi Apple veya Google hesabıyla giriş yapar, aynı düğün paneline bağımsız ve tam yetkiyle erişir; şifre paylaşmaya son." data-badge="Çift Girişi" data-target="#cozum-sifre" data-cta="Eş Yöneticiyi Gör" data-icon="passkey" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Eşim de görsün diye hesabımın şifresini paylaşmak zorunda kaldım.”</span>
+                                    <span class="pain-meta">Tek hesabı paylaşma karmaşası</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Eş-Yönetici (Co-Host) Çift Girişi</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Eşiniz kendi Apple veya Google hesabıyla giriş yapar, aynı düğün paneline bağımsız ve tam yetkiyle erişir; şifre paylaşmaya son.</p>
+                                    <a href="#cozum-sifre" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Eş Yöneticiyi Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pain-item" id="pain-14" data-category="gun" data-id="pain-14" data-crisis="İfşa Olan Bride-to-Be & Damat Sürprizi" data-solution="Gelin Koruması (Surprise Guard)" data-desc="Bride-to-be partisi, hediye veya dans sürprizleri nişanlınızın ekranında filtrelenir ve gizlenir; ortak yönetimde bile sürprizler korunur." data-badge="Gelin Koruması" data-target="#cozum-surpriz" data-cta="Gelin Korumasını Gör" data-icon="visibility_off" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                            <div class="pain-item-main">
+                                <span class="pain-box"><span class="material-icons-round">check</span></span>
+                                <span class="pain-body">
+                                    <span class="pain-quote">“Sürpriz partiyi konuşurken gelin ekrana bakarsa her şey biter.”</span>
+                                    <span class="pain-meta">İfşa olan Bride-to-Be sürprizi</span>
+                                </span>
+                                <span class="material-icons-round pain-item-arrow" aria-hidden="true">chevron_right</span>
+                            </div>
+                            <!-- Mobilde Satır İçi Açılan Çözüm Çekmecesi -->
+                            <div class="pain-inline-solution" aria-hidden="true">
+                                <div class="pain-inline-inner">
+                                    <div class="pain-inline-badge">
+                                        <span class="material-icons-round">auto_awesome</span>
+                                        <span>İmece Çözümü: <strong>Gelin Koruması (Surprise Guard)</strong></span>
+                                    </div>
+                                    <p class="pain-inline-desc">Bride-to-be partisi, hediye veya dans sürprizleri nişanlınızın ekranında filtrelenir ve gizlenir; ortak yönetimde bile sürprizler korunur.</p>
+                                    <a href="#cozum-surpriz" class="pain-inline-action" onclick="event.stopPropagation()">
+                                        <span>Gelin Korumasını Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sağ Kolon: Canlı Çözüm Sahnesi (Master-Detail Showcase) -->
+                    <aside class="pain-result-card" id="painResultCard">
+                        <!-- Üst Bar: Stres & Rahatlama İbresi -->
+                        <div class="pain-result-header">
+                            <div class="pain-gauge-wrap">
+                                <svg class="pain-gauge" viewBox="0 0 120 120" aria-hidden="true">
+                                    <circle class="pain-gauge-track" cx="60" cy="60" r="52"></circle>
+                                    <circle class="pain-gauge-fill" id="painGaugeFill" cx="60" cy="60" r="52"></circle>
+                                </svg>
+                                <div class="pain-gauge-center">
+                                    <span class="pain-score-num" id="painScoreNum">0</span>
+                                    <span class="pain-score-den" id="painScoreDen">/ 14</span>
+                                </div>
+                            </div>
+                            <div class="pain-result-header-text">
+                                <span class="pain-result-tag" id="painResultTag">HENÜZ SEÇİM YOK</span>
+                                <h3 id="painResultTitle">Size tanıdık gelenlere dokunun</h3>
+                                <p id="painResultDesc">Gerçek çift krizleri arasından yaşadıklarınızı işaretleyin; çözümü anında burada canlansın.</p>
+                            </div>
+                        </div>
+
+                        <!-- Canlı Çözüm Sahnesi (Active Solution Stage) -->
+                        <div class="pain-active-solution-stage" id="painActiveStage">
+                            <div class="pain-stage-placeholder" id="painStagePlaceholder">
+                                <div class="pain-placeholder-icon">
+                                    <span class="material-icons-round">touch_app</span>
+                                </div>
+                                <h4>Sol taraftan bir kriz seçin</h4>
+                                <p>İşaretlediğiniz her cümlenin İmece Düğün'de çalışan somut bir karşılığı var.</p>
+                            </div>
+
+                            <div class="pain-stage-card" id="painStageCard" style="display: none;">
+                                <div class="pain-stage-crisis-badge">
+                                    <span class="material-icons-round">error_outline</span>
+                                    <span id="stageCrisisTitle">Boş Sayfa Korkusu</span>
+                                </div>
+                                <div class="pain-stage-solution-header">
+                                    <div class="pain-stage-seal-wrap">
+                                        <img src="assets/img/logo_wax_seal_96.png" alt="Mühür" class="pain-stage-seal" width="38" height="38">
+                                    </div>
+                                    <div>
+                                        <span class="pain-stage-eyebrow">İmece Çözümü</span>
+                                        <h4 id="stageSolutionTitle" class="pain-stage-solution-name">250+ Hazır Görev &amp; Akıllı Takvim</h4>
+                                    </div>
+                                </div>
+                                <p id="stageSolutionDesc" class="pain-stage-desc">
+                                    Düğün tarihinize göre 12 aya yayılmış hazır kontrol listesi. Sıfırdan düşünmenize gerek kalmaz.
+                                </p>
+                                <div class="pain-stage-features" id="stageFeatures">
+                                    <span class="pain-feature-pill" id="stageBadge">Otomatik Takvim</span>
+                                    <span class="pain-feature-pill">App Store Yayında</span>
+                                    <span class="pain-feature-pill">Sıfır Sürtünme</span>
+                                </div>
+                                <div class="pain-stage-cta-wrap">
+                                    <a href="#interactive-rsvp-showcase" class="btn btn-primary btn-gold-effect pain-stage-cta" id="stageCtaBtn">
+                                        <span id="stageCtaText">Simülatörde Canlı Dene</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seçilen Çözümler Çubuğu -->
+                        <div class="pain-selected-summary" id="painSelectedSummary" style="display: none;">
+                            <div class="pain-summary-label">Seçtiğiniz Çözümler (Hızlı Geçiş):</div>
+                            <div class="pain-summary-chips" id="painSummaryChips"></div>
                         </div>
                     </aside>
                 </div>
             </div>
         </section>
+
+        
 
         <!-- 3. Canlı İnteraktif Deneyim & LCV Simülatörü -->
         <section id="interactive-rsvp-showcase" class="rsvp-showcase-section">
@@ -3643,15 +3956,89 @@
             return document.querySelectorAll('#neden-imece .flip-card');
         }
 
-        function togglePain(btn) {
-            const isChecked = btn.classList.toggle('checked');
-            btn.setAttribute('aria-pressed', isChecked ? 'true' : 'false');
+        function togglePain(item, event) {
+            if (event && event.target && event.target.closest && event.target.closest('.pain-inline-action')) {
+                return;
+            }
+
+            const isChecked = item.classList.toggle('checked');
+            item.setAttribute('aria-pressed', isChecked ? 'true' : 'false');
+            
+            // Mobilde satır içi çekmece kontrolü
+            const drawer = item.querySelector('.pain-inline-solution');
+            if (drawer) {
+                if (isChecked) {
+                    drawer.classList.add('inline-open');
+                    drawer.setAttribute('aria-hidden', 'false');
+                } else {
+                    drawer.classList.remove('inline-open');
+                    drawer.setAttribute('aria-hidden', 'true');
+                }
+            }
+
+            // Aktif kart vurgusu ve sağ panel güncellemesi
+            document.querySelectorAll('#painCheckList .pain-item').forEach(el => el.classList.remove('is-active'));
+            if (isChecked) {
+                item.classList.add('is-active');
+                displayActiveSolution(item);
+            } else {
+                const lastChecked = document.querySelector('#painCheckList .pain-item.checked');
+                if (lastChecked) {
+                    lastChecked.classList.add('is-active');
+                    displayActiveSolution(lastChecked);
+                } else {
+                    resetActiveSolution();
+                }
+            }
+
+            updatePainResult();
+        }
+
+        function displayActiveSolution(item) {
+            const placeholder = document.getElementById('painStagePlaceholder');
+            const card = document.getElementById('painStageCard');
+            if (!placeholder || !card) return;
+
+            placeholder.style.display = 'none';
+            card.style.display = 'block';
+            card.classList.remove('anim-stage');
+            void card.offsetWidth; // Reflow tetiklemesi
+            card.classList.add('anim-stage');
+
+            const crisisEl = document.getElementById('stageCrisisTitle');
+            const solTitleEl = document.getElementById('stageSolutionTitle');
+            const descEl = document.getElementById('stageSolutionDesc');
+            const badgeEl = document.getElementById('stageBadge');
+            const ctaBtn = document.getElementById('stageCtaBtn');
+            const ctaText = document.getElementById('stageCtaText');
+
+            if (crisisEl) crisisEl.textContent = item.dataset.crisis || 'Düğün Hazırlık Stresi';
+            if (solTitleEl) solTitleEl.textContent = item.dataset.solution || 'İmece Akıllı Çözümü';
+            if (descEl) descEl.textContent = item.dataset.desc || '';
+            if (badgeEl) badgeEl.textContent = item.dataset.badge || 'İmece Usulü';
+            if (ctaText) ctaText.textContent = item.dataset.cta || 'Çözümü İncele';
+            if (ctaBtn) ctaBtn.setAttribute('href', item.dataset.target || '#interactive-rsvp-showcase');
+        }
+
+        function resetActiveSolution() {
+            const placeholder = document.getElementById('painStagePlaceholder');
+            const card = document.getElementById('painStageCard');
+            if (placeholder) placeholder.style.display = '';
+            if (card) card.style.display = 'none';
+        }
+
+        function selectPainItem(itemId) {
+            const item = document.getElementById(itemId);
+            if (!item) return;
+            document.querySelectorAll('#painCheckList .pain-item').forEach(el => el.classList.remove('is-active'));
+            item.classList.add('is-active');
+            displayActiveSolution(item);
             updatePainResult();
         }
 
         function updatePainResult() {
             const items = Array.from(document.querySelectorAll('#painCheckList .pain-item'));
-            const total = items.length || 1;
+            const total = items.length || 14;
             const chosen = items.filter(item => item.classList.contains('checked'));
             const count = chosen.length;
 
@@ -3679,32 +4066,60 @@
             const card = document.getElementById('painResultCard');
             if (card) card.classList.toggle('has-selection', count > 0);
 
-            const list = document.getElementById('painSolutionList');
-            if (list) {
-                list.innerHTML = chosen.map(item => {
-                    const target = item.dataset.target;
-                    const solution = item.dataset.solution;
-                    return '<button type="button" class="pain-solution-row" onclick="revealSolution(\'' + target + '\')">' +
-                        '<span class="material-icons-round pain-solution-check">check_circle</span>' +
-                        '<span class="pain-solution-name">' + solution + '</span>' +
-                        '<span class="material-icons-round pain-solution-arrow">arrow_forward</span>' +
-                        '</button>';
-                }).join('');
-            }
-
-            const cta = document.getElementById('painResultCta');
-            if (cta) {
-                const label = cta.querySelector('span:first-child');
-                if (label) {
-                    label.textContent = count > 0
-                        ? 'Seçtiğim ' + count + ' sorunun çözümünü gör'
-                        : 'Tüm çözümleri gör';
+            // Seçilen çözümler çubuğu (Quick Switcher)
+            const summaryWrap = document.getElementById('painSelectedSummary');
+            const chipsEl = document.getElementById('painSummaryChips');
+            if (summaryWrap && chipsEl) {
+                if (count > 0) {
+                    summaryWrap.style.display = 'block';
+                    chipsEl.innerHTML = chosen.map(item => {
+                        const sol = item.dataset.solution || '';
+                        const id = item.id;
+                        const isCurrent = item.classList.contains('is-active');
+                        return '<button type="button" class="pain-summary-chip' + (isCurrent ? ' active' : '') + '" onclick="selectPainItem(\'' + id + '\')">' +
+                            '<span class="material-icons-round">check</span>' +
+                            '<span>' + sol + '</span>' +
+                            '</button>';
+                    }).join('');
+                } else {
+                    summaryWrap.style.display = 'none';
+                    chipsEl.innerHTML = '';
                 }
             }
         }
 
-        // Seçilen sorunun çözüm yüzeyine götürür; hedef bir çevrilebilir kartsa
-        // çözüm yüzüne çevirir, değilse kısa bir vurgu darbesi uygular.
+        window.filterPain = function(category, btn) {
+            document.querySelectorAll('.pain-filter-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            if (btn) {
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+            }
+
+            const items = document.querySelectorAll('#painCheckList .pain-item');
+            const list = document.getElementById('painCheckList');
+            const moreBtn = list ? list.querySelector('.pain-more') : null;
+
+            if (category === 'all') {
+                if (moreBtn && list.classList.contains('is-collapsed')) {
+                    moreBtn.style.display = '';
+                    items.forEach(it => {
+                        it.style.display = it.hasAttribute('data-overflow') ? 'none' : '';
+                    });
+                } else {
+                    items.forEach(it => it.style.display = '');
+                    if (moreBtn) moreBtn.style.display = '';
+                }
+            } else {
+                if (moreBtn) moreBtn.style.display = 'none';
+                items.forEach(it => {
+                    it.style.display = it.dataset.category === category ? '' : 'none';
+                });
+            }
+        };
+
         function revealSolution(targetId) {
             const target = document.getElementById(targetId);
             if (!target) return;
@@ -3734,7 +4149,7 @@
 
         function revealFirstSolution(event) {
             const first = document.querySelector('#painCheckList .pain-item.checked');
-            if (!first) return true; // seçim yoksa normal ankor davranışı
+            if (!first) return true;
             if (event) event.preventDefault();
             revealSolution(first.dataset.target);
             return false;

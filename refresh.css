@@ -1348,3 +1348,67 @@ body:not(.dark-active) .founder-mail {
 .skip-link:focus {
     left: 0;
 }
+
+/* --------------------------------------------------------------------------
+   DARK MODE OVERRIDES FOR TANIDIK & PAIN STAGE
+   -------------------------------------------------------------------------- */
+body.dark-active .pain-filter-group {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: var(--n-line) !important;
+}
+body.dark-active .pain-filter-btn {
+    color: var(--n-text-muted) !important;
+}
+body.dark-active .pain-filter-btn:hover {
+    color: var(--n-text) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+body.dark-active .pain-filter-btn.active {
+    background: var(--n-2) !important;
+    color: var(--accent) !important;
+    border-color: var(--accent) !important;
+}
+body.dark-active .pain-filter-count {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+body.dark-active .pain-item-arrow {
+    color: var(--n-text-faint) !important;
+}
+body.dark-active .pain-item:hover .pain-item-arrow {
+    color: var(--accent) !important;
+}
+body.dark-active .pain-inline-inner {
+    background: var(--n-2) !important;
+    border-color: var(--n-line-strong) !important;
+}
+body.dark-active .pain-inline-desc {
+    color: var(--n-text-muted) !important;
+}
+body.dark-active .pain-inline-badge strong {
+    color: var(--n-text) !important;
+}
+body.dark-active .pain-result-card {
+    background: var(--n-1) !important;
+    border-color: var(--n-line) !important;
+}
+body.dark-active .pain-stage-card {
+    background: var(--n-2) !important;
+    border-color: var(--n-line-strong) !important;
+}
+body.dark-active .pain-stage-desc {
+    color: var(--n-text-muted) !important;
+}
+body.dark-active .pain-stage-placeholder {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-color: var(--n-line) !important;
+}
+body.dark-active .pain-summary-chip {
+    background: var(--n-2) !important;
+    color: var(--n-text) !important;
+    border-color: var(--n-line) !important;
+}
+body.dark-active .pain-summary-chip.active {
+    background: var(--accent) !important;
+    color: #121217 !important;
+    border-color: var(--accent) !important;
+}

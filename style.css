@@ -6419,12 +6419,82 @@ body.dark-active .app-header-mini {
         radial-gradient(circle at 88% 30%, rgba(197, 160, 89, 0.10) 0%, transparent 55%);
 }
 
+/* ============================================================
+   EMPATİ & KRİZ-ÇÖZÜM MODÜLÜ — TANIDIK GELENLER
+   ============================================================ */
+
+/* Kategori Filtre Hapları */
+.pain-filter-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 32px;
+}
+
+.pain-filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    background: rgba(29, 29, 31, 0.04);
+    padding: 6px;
+    border-radius: 999px;
+    border: 1px solid rgba(29, 29, 31, 0.08);
+}
+
+.pain-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.pain-filter-btn:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.pain-filter-btn.active {
+    background: #ffffff;
+    color: var(--text-main);
+    border-color: rgba(197, 160, 89, 0.45);
+    box-shadow: 0 4px 16px rgba(197, 160, 89, 0.18);
+}
+
+.pain-filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(29, 29, 31, 0.06);
+    color: inherit;
+}
+
+.pain-filter-btn.active .pain-filter-count {
+    background: rgba(197, 160, 89, 0.2);
+    color: var(--gold-text);
+}
+
+/* Düzen (Layout) */
 .pain-check-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
     gap: var(--space-xl);
     align-items: start;
-    margin-top: var(--space-2xl);
+    margin-top: 10px;
 }
 
 .pain-check-list {
@@ -6433,10 +6503,10 @@ body.dark-active .app-header-mini {
     gap: 10px;
 }
 
+/* Kriz Maddesi (Pain Item) */
 .pain-item {
     display: flex;
-    align-items: flex-start;
-    gap: 14px;
+    flex-direction: column;
     width: 100%;
     text-align: left;
     padding: 16px 18px;
@@ -6455,7 +6525,7 @@ body.dark-active .app-header-mini {
 .pain-item:hover {
     transform: translateX(4px);
     border-color: rgba(197, 160, 89, 0.5);
-    box-shadow: 0 10px 26px rgba(29, 29, 31, 0.07);
+    box-shadow: 0 8px 24px rgba(29, 29, 31, 0.06);
 }
 
 .pain-item:focus-visible {
@@ -6463,10 +6533,21 @@ body.dark-active .app-header-mini {
     outline-offset: 3px;
 }
 
+.pain-item.is-active {
+    border-color: var(--gold);
+    box-shadow: 0 8px 26px rgba(197, 160, 89, 0.22);
+}
+
 .pain-item.checked {
     background: linear-gradient(135deg, #FFFDF8 0%, var(--rose-gold-tint) 100%);
     border-color: var(--gold);
-    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.18);
+}
+
+.pain-item-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    width: 100%;
 }
 
 .pain-box {
@@ -6506,6 +6587,7 @@ body.dark-active .app-header-mini {
     flex-direction: column;
     gap: 5px;
     min-width: 0;
+    flex: 1;
 }
 
 .pain-quote {
@@ -6530,19 +6612,109 @@ body.dark-active .app-header-mini {
     color: var(--primary-dark);
 }
 
-/* Sonuç kartı */
+.pain-item-arrow {
+    margin-left: auto;
+    color: var(--text-light);
+    font-size: 20px;
+    transition: transform 0.25s ease, color 0.25s ease;
+    align-self: center;
+}
+
+.pain-item:hover .pain-item-arrow {
+    color: var(--gold);
+    transform: translateX(3px);
+}
+
+/* Mobilde Satır İçi Açılan Çözüm Çekmecesi */
+.pain-inline-solution {
+    display: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                opacity 0.35s ease,
+                margin-top 0.35s ease;
+    width: 100%;
+}
+
+.pain-inline-inner {
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, rgba(244, 236, 225, 0.7) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pain-inline-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.84rem;
+    color: var(--gold-text);
+}
+
+.pain-inline-badge .material-icons-round {
+    font-size: 16px;
+    color: var(--gold);
+}
+
+.pain-inline-badge strong {
+    color: var(--text-main);
+}
+
+.pain-inline-desc {
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.pain-inline-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-decoration: none;
+    margin-top: 4px;
+    align-self: flex-start;
+}
+
+.pain-inline-action .material-icons-round {
+    font-size: 15px;
+    transition: transform 0.2s ease;
+}
+
+.pain-inline-action:hover .material-icons-round {
+    transform: translateX(4px);
+}
+
+@media (max-width: 991px) {
+    .pain-inline-solution {
+        display: block;
+    }
+    .pain-inline-solution.inline-open {
+        max-height: 320px;
+        opacity: 1;
+    }
+}
+
+/* Sağ Kolon: Canlı Çözüm Vitrini (Result Card) */
 .pain-result-card {
     position: sticky;
     top: 104px;
     background: var(--surface);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
-    padding: var(--space-xl);
+    padding: 24px;
     box-shadow: var(--shadow-medium);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    gap: 18px;
     overflow: hidden;
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
@@ -6552,32 +6724,39 @@ body.dark-active .app-header-mini {
     box-shadow: 0 24px 55px rgba(197, 160, 89, 0.16);
 }
 
+.pain-result-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border-color);
+}
+
 .pain-gauge-wrap {
     position: relative;
-    width: 128px;
-    height: 128px;
+    width: 96px;
+    height: 96px;
     flex-shrink: 0;
-    margin-bottom: 6px;
 }
 
 .pain-gauge {
-    width: 128px;
-    height: 128px;
+    width: 96px;
+    height: 96px;
     transform: rotate(-90deg);
 }
 
 .pain-gauge circle {
     fill: none;
-    stroke-width: 7;
+    stroke-width: 8;
     stroke-linecap: round;
 }
 
 .pain-gauge-track {
-    stroke: rgba(29, 29, 31, 0.07);
+    stroke: rgba(29, 29, 31, 0.08);
 }
 
 .pain-gauge-fill {
-    stroke: #C5A059;
+    stroke: var(--gold);
     stroke-dasharray: 326.7;
     stroke-dashoffset: 326.7;
     transition: stroke-dashoffset 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -6595,7 +6774,7 @@ body.dark-active .app-header-mini {
 
 .pain-score-num {
     font-family: var(--font-heading);
-    font-size: 2.6rem;
+    font-size: 2.1rem;
     font-weight: 700;
     color: var(--text-main);
     line-height: 1;
@@ -6603,118 +6782,243 @@ body.dark-active .app-header-mini {
 }
 
 .pain-score-den {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--text-light);
     align-self: center;
-    margin-top: 6px;
+    margin-top: 4px;
+}
+
+.pain-result-header-text {
+    flex: 1;
+    text-align: left;
 }
 
 .pain-result-tag {
     display: inline-block;
-    margin-top: 8px;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.12em;
     color: var(--gold-text);
 }
 
-.pain-result-body h3 {
+.pain-result-header-text h3 {
     font-family: var(--font-heading);
-    font-size: 1.35rem;
+    font-size: 1.12rem;
     line-height: 1.3;
-    margin: 8px 0 10px;
+    margin: 4px 0 6px;
     color: var(--text-main);
 }
 
-.pain-result-body p {
-    font-size: 0.92rem;
+.pain-result-header-text p {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Canlı Çözüm Sahnesi (Active Solution Stage) */
+.pain-active-solution-stage {
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pain-stage-placeholder {
+    padding: 32px 20px;
+    text-align: center;
+    background: rgba(29, 29, 31, 0.02);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+.pain-placeholder-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(197, 160, 89, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+}
+
+.pain-placeholder-icon .material-icons-round {
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.pain-stage-placeholder h4 {
+    font-family: var(--font-heading);
+    font-size: 1.08rem;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.pain-stage-placeholder p {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.pain-stage-card {
+    text-align: left;
+    background: linear-gradient(135deg, rgba(255, 253, 248, 0.95) 0%, rgba(244, 236, 225, 0.45) 100%);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    box-shadow: 0 12px 30px rgba(197, 160, 89, 0.12);
+}
+
+.pain-stage-card.anim-stage {
+    animation: painStageIn 0.38s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+}
+
+@keyframes painStageIn {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.pain-stage-crisis-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(220, 53, 69, 0.08);
+    color: #c93b2b;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.pain-stage-crisis-badge .material-icons-round {
+    font-size: 14px;
+}
+
+.pain-stage-solution-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.pain-stage-seal-wrap {
+    flex-shrink: 0;
+}
+
+.pain-stage-eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+}
+
+.pain-stage-solution-name {
+    font-family: var(--font-heading);
+    font-size: 1.22rem;
+    color: var(--text-main);
+    line-height: 1.3;
+    margin: 2px 0 0;
+}
+
+.pain-stage-desc {
+    font-size: 0.88rem;
     line-height: 1.6;
     color: var(--text-muted);
     margin-bottom: 16px;
 }
 
-.pain-solution-list {
+.pain-stage-features {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
+    flex-wrap: wrap;
+    gap: 6px;
     margin-bottom: 18px;
 }
 
-.pain-solution-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    text-align: left;
-    padding: 11px 13px;
-    border-radius: var(--radius-sm);
-    border: 1px solid rgba(197, 160, 89, 0.28);
-    background: linear-gradient(135deg, rgba(244, 236, 225, 0.55) 0%, rgba(255, 255, 255, 0.9) 100%);
-    cursor: pointer;
-    font-family: inherit;
-    animation: painSolutionIn 0.42s cubic-bezier(0.25, 0.8, 0.25, 1) both;
-    transition: var(--transition-smooth);
+.pain-feature-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(197, 160, 89, 0.12);
+    color: var(--gold-text);
+    border: 1px solid rgba(197, 160, 89, 0.25);
 }
 
-.pain-solution-row:hover {
-    border-color: var(--gold);
-    transform: translateX(3px);
-    box-shadow: 0 8px 18px rgba(197, 160, 89, 0.15);
+.pain-stage-cta-wrap {
+    margin-top: 6px;
 }
 
-.pain-solution-check {
-    font-size: 18px;
-    color: var(--gold);
-    flex-shrink: 0;
-}
-
-.pain-solution-name {
-    flex: 1;
-    font-size: 0.86rem;
-    font-weight: 600;
-    color: var(--text-main);
-    line-height: 1.35;
-}
-
-.pain-solution-arrow {
-    font-size: 17px;
-    color: var(--text-light);
-    flex-shrink: 0;
-    transition: transform 0.25s ease, color 0.25s ease;
-}
-
-.pain-solution-row:hover .pain-solution-arrow {
-    color: var(--gold);
-    transform: translateX(3px);
-}
-
-@keyframes painSolutionIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.pain-result-cta {
+.pain-stage-cta {
     width: 100%;
     justify-content: center;
     text-align: center;
-    box-sizing: border-box;
+    padding: 12px 20px;
 }
 
-/* Çözüm kartı vurgusu */
-.flip-card.pain-highlight {
-    animation: painCardPulse 2.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border-radius: var(--radius-lg);
+/* Seçilen Çözümler Çubuğu (Quick Switcher) */
+.pain-selected-summary {
+    padding-top: 14px;
+    border-top: 1px solid var(--border-color);
+    text-align: left;
 }
 
-@keyframes painCardPulse {
-    0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.55); }
-    35% { box-shadow: 0 0 0 14px rgba(197, 160, 89, 0); }
-    70% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.35); }
-    100% { box-shadow: 0 0 0 12px rgba(197, 160, 89, 0); }
+.pain-summary-label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    margin-bottom: 8px;
 }
 
+.pain-summary-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.pain-summary-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    background: #ffffff;
+    color: var(--text-main);
+    font-size: 0.76rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pain-summary-chip:hover {
+    border-color: var(--gold);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.15);
+}
+
+.pain-summary-chip.active {
+    background: var(--gold);
+    color: #ffffff;
+    border-color: var(--gold);
+}
+
+.pain-summary-chip .material-icons-round {
+    font-size: 13px;
+    color: inherit;
+}
+
+/* Responsive Düzenler */
 @media (max-width: 991px) {
     .pain-check-layout {
         grid-template-columns: 1fr;
@@ -6722,9 +7026,9 @@ body.dark-active .app-header-mini {
     }
     .pain-result-card {
         position: static;
+        margin-top: 16px;
     }
 }
-
 @media (max-width: 767px) {
     .pain-check-section {
         padding: var(--space-3xl) 0 var(--space-2xl);
