@@ -1327,7 +1327,7 @@
                                 <input type="text" id="simCoupleInput" value="Ayşe & Tolga" placeholder="Örn: Ayşe & Tolga" oninput="updateSimCoupleName(this.value)">
                             </div>
                             <div class="sim-input-group" style="margin-bottom: 0;">
-                                <label for="simPartySelect">Kontenjan</label>
+                                <label for="simPartySelect">Davetli Sayısı</label>
                                 <select id="simPartySelect" class="sim-select" onchange="updateSimPartyCount(this.value)">
                                     <option value="1">1 Kişi</option>
                                     <option value="2" selected>2 Kişi (+1)</option>
@@ -1411,7 +1411,7 @@
                                     <!-- Dynamic Party Count Pill -->
                                     <div class="sim-party-chip" id="simPartyChip">
                                         <span class="material-icons-round">groups</span>
-                                        <span id="simPartyText">Kontenjan: 2 Kişilik Davet</span>
+                                        <span id="simPartyText">2 Kişilik Özel Davet</span>
                                     </div>
 
                                     <div class="sim-timeline">
@@ -4091,7 +4091,7 @@
             simState.partyCount = parseInt(val, 10) || 1;
             const partyText = document.getElementById('simPartyText');
             if (partyText) {
-                partyText.textContent = `Kontenjan: ${simState.partyCount} Kişilik Davet`;
+                partyText.textContent = simState.partyCount === 1 ? '1 Kişilik Özel Davet' : `${simState.partyCount} Kişilik Özel Davet`;
             }
             if (simState.rsvpStatus === 'confirmed') {
                 const statusText = document.getElementById('simStatusText');
@@ -4168,7 +4168,7 @@
                     notifTitle.textContent = `Beklenen Yanıt: ${simState.guestName}`;
                 }
                 if (notifDesc) {
-                    notifDesc.textContent = `Davetli henüz yanıt vermedi · ${simState.partyCount} Kişilik kontenjan ayrıldı`;
+                    notifDesc.textContent = `Davetli henüz yanıt vermedi · ${simState.partyCount} Kişilik yer ayrıldı`;
                 }
             }
         }
