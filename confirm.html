@@ -18,6 +18,14 @@
     <meta name="twitter:image" content="https://imecedugun.com/assets/icons/apple-touch-icon-solid.png">
     <title>Hesap Onayı — İmece Düğün</title>
 
+    <!-- Favicon & App Icons -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon-solid.png">
+
     <!-- Google Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,8 +38,6 @@
             --text-muted: #6E6E73;
             --text-light: #8C857B;
             --gold: #C5A059;
-            /* Metin olarak kullanilan altin: --gold beyaz zeminde 2.46:1,
-               bu ton 6.34:1. Zemin/ikon kullanimlari --gold ile devam ediyor. */
             --gold-text: #7A5A20;
             --gold-accent: #D4AF37;
             --gold-light: #F9F3EA;
@@ -69,7 +75,7 @@
         .confirm-card {
             background-color: #FFFFFF;
             border-radius: var(--radius-lg);
-            padding: 48px 36px;
+            padding: 42px 36px;
             max-width: 480px;
             width: 100%;
             text-align: center;
@@ -98,6 +104,36 @@
                 transform: translateY(0);
                 opacity: 1;
             }
+        }
+
+        .confirm-header-brand {
+            margin-bottom: 24px;
+        }
+
+        .header-brand-link {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 16px;
+            border-radius: 999px;
+            background: rgba(197, 160, 89, 0.08);
+            border: 1px solid var(--gold-border);
+            transition: all 0.2s ease;
+            min-height: 44px;
+        }
+
+        .header-brand-link:hover {
+            background: rgba(197, 160, 89, 0.16);
+            transform: translateY(-1px);
+        }
+
+        .header-brand-text {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: 0.3px;
         }
 
         .emblem-wrapper {
@@ -225,11 +261,9 @@
             width: 100%;
             text-align: center;
             font-family: var(--font-body);
+            min-height: 48px;
         }
 
-        /* Altin zemin uzerinde koyu metin: beyaz metin ~2.5:1 ile WCAG AA'yi
-           saglamiyordu. Koyu metin 6.85:1, hover tonu 6.35:1 veriyor.
-           style.css'teki .btn-primary ile ayni yaklasim. */
         .btn-primary {
             background-color: var(--gold);
             color: var(--text-main);
@@ -243,25 +277,87 @@
             box-shadow: 0 12px 28px rgba(184, 134, 11, 0.3);
         }
 
-        .footer-branding {
-            margin-top: 32px;
-            padding-top: 18px;
+        .support-hint {
+            margin-top: 20px;
+            font-size: 0.84rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        .support-hint a {
+            color: var(--gold-text);
+            text-decoration: underline;
+            padding: 4px 2px;
+            display: inline-block;
+        }
+
+        .footer-legal {
+            margin-top: 24px;
+            padding-top: 14px;
             border-top: 1px solid #F0ECE6;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 8px 10px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--gold-text);
+            text-decoration: underline;
+        }
+
+        .footer-sep {
+            color: var(--gold-border);
+            user-select: none;
+            margin: 0 2px;
+        }
+
+        .footer-branding {
+            margin-top: 6px;
             font-size: 0.78rem;
             color: var(--text-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
         }
 
-        .footer-branding strong {
+        .footer-brand-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            min-height: 44px;
+            border-radius: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-brand-link strong {
             color: var(--gold-text);
+        }
+
+        .footer-brand-link:hover strong {
+            color: var(--gold-accent);
         }
 
         @media (max-width: 480px) {
             .confirm-card {
-                padding: 38px 24px;
+                padding: 36px 20px;
             }
             .status-title {
                 font-size: 1.65rem;
@@ -272,6 +368,14 @@
 <body>
 
     <div class="confirm-card" id="confirmCard">
+
+        <!-- Top Brand Identity Header -->
+        <div class="confirm-header-brand">
+            <a href="index.html" class="header-brand-link" title="İmece Düğün Ana Sayfa">
+                <img src="/assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Logo" width="32" height="32">
+                <span class="header-brand-text">İmece Düğün</span>
+            </a>
+        </div>
 
         <!-- Loading State -->
         <div id="stateLoading">
@@ -316,9 +420,21 @@
             <a href="index.html" class="btn btn-primary">Ana Sayfaya Dön</a>
         </div>
 
+        <div class="support-hint">
+            Yardıma mı ihtiyacınız var? <a href="mailto:destek@imecedugun.com">destek@imecedugun.com</a> adresinden bize ulaşabilirsiniz (en geç 24 saat içinde yanıt verilir).
+        </div>
+
+        <div class="footer-legal">
+            <a href="/gizlilik.html">KVKK Aydınlatma Metni</a>
+            <span class="footer-sep">•</span>
+            <a href="/kosullar.html">Kullanım Koşulları</a>
+        </div>
+
         <div class="footer-branding">
-            <span>Hesap Onayı</span>
-            <strong>• İmece Düğün</strong>
+            <a href="index.html" class="footer-brand-link">
+                <span>Hesap Onayı</span>
+                <strong>• İmece Düğün</strong>
+            </a>
         </div>
     </div>
 

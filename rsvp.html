@@ -1284,15 +1284,36 @@
         }
 
         .legal-footer-link {
-            margin-top: 10px;
+            margin-top: 12px;
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.76rem;
             color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            flex-wrap: wrap;
         }
 
         .legal-footer-link a {
-            color: var(--text-light);
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 8px 10px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .legal-footer-link a:hover {
+            color: var(--gold-text);
             text-decoration: underline;
+        }
+
+        .legal-footer-link .legal-sep {
+            color: var(--gold-border);
+            user-select: none;
         }
 
         .card-brand-arrow {
@@ -1396,8 +1417,8 @@
             position: absolute;
             top: 14px;
             right: 14px;
-            width: 32px;
-            height: 32px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             border: none;
             background-color: var(--gray-light);
@@ -1684,11 +1705,11 @@
 
         <!-- Unified Luxury Signature Hallmark -->
         <div class="card-footer-hallmark">
-            <a href="https://imecedugun.com" target="_blank" rel="noopener" class="hallmark-brand-row" title="İmece Düğün — En Özel Günüze Altın Mühür">
-                <img src="assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Altın Mühür" class="card-footer-seal">
+            <a href="https://imecedugun.com" target="_blank" rel="noopener" class="hallmark-brand-row" title="İmece Düğün — En Özel Gününüze Altın Mühür">
+                <img src="/assets/img/logo_wax_seal_transparent.png" alt="İmece Düğün Altın Mühür" class="card-footer-seal">
                 <div class="card-footer-info">
                     <span class="card-brand-title">İmece Düğün</span>
-                    <span class="card-brand-slogan">En Özel Günüze Altın Mühür ↗</span>
+                    <span class="card-brand-slogan">En Özel Gününüze Altın Mühür ↗</span>
                 </div>
             </a>
             <div class="app-cta hidden" id="appCta">
@@ -1704,7 +1725,11 @@
             </div>
         </div>
 
-        <p class="legal-footer-link"><a href="/gizlilik.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a></p>
+        <p class="legal-footer-link">
+            <a href="/gizlilik.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>
+            <span class="legal-sep" aria-hidden="true"> · </span>
+            <a href="/kosullar.html" target="_blank" rel="noopener">Kullanım Koşulları</a>
+        </p>
     </div>
 
     <!-- KVKK Aydınlatma Metni Modal -->
@@ -1720,7 +1745,8 @@
                 <p><strong>Veri sorumlusu:</strong> Bu verilerin işlenmesinden İmece Düğün, davet sahibi ile birlikte veri sorumlusu sıfatıyla sorumludur. İmece Düğün, davetiyenin dijital olarak iletilmesi ve yanıtların toplanması için teknik altyapıyı sağlar; yanıtınız doğrudan davet sahibiyle paylaşılır.</p>
                 <p><strong>Saklama süresi:</strong> Verileriniz, etkinliğin gerçekleşmesini takiben makul bir süre boyunca saklanır ve bu sürenin sonunda silinir veya anonim hale getirilir.</p>
                 <p><strong>Haklarınız:</strong> 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun (KVKK) 11. maddesi uyarınca; verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, eksik veya yanlış işlenmişse düzeltilmesini isteme, kanuni şartlar çerçevesinde silinmesini veya yok edilmesini isteme ve bu işlemlerin ilgililere bildirilmesini isteme hakkına sahipsiniz.</p>
-                <p><strong>İletişim:</strong> Haklarınızı kullanmak veya sorularınız için <a href="mailto:destek@imecedugun.com">destek@imecedugun.com</a> adresinden bize ulaşabilirsiniz.</p>
+                <p><strong>İletişim:</strong> Haklarınızı kullanmak veya sorularınız için <a href="mailto:destek@imecedugun.com">destek@imecedugun.com</a> adresinden bize ulaşabilirsiniz. Talepleriniz en geç 24 saat içinde değerlendirilir.</p>
+                <p>Metnin tamamı için <a href="/gizlilik.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni sayfamızı</a> inceleyebilirsiniz.</p>
             </div>
         </div>
     </div>
