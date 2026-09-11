@@ -33,7 +33,7 @@
     <link rel="shortcut icon" href="/favicon.ico?v=20260909" type="image/x-icon">
 <!-- Stylesheets -->
     <link rel="stylesheet" href="../style.css?v=33.0">
-    <link rel="stylesheet" href="../refresh.css?v=33.0">
+    <link rel="stylesheet" href="../refresh.css?v=34.0">
 
     <style>
         html, body {
@@ -427,6 +427,240 @@
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
         }
 
+        /* Luxury Quick Preset Pills */
+        .budget-presets-wrap {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+        .budget-preset-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #E2E2E8;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.86rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            user-select: none;
+            outline: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        }
+        .budget-preset-pill .preset-icon {
+            font-size: 0.95rem;
+            line-height: 1;
+        }
+        .budget-preset-pill .preset-amount {
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: -0.01em;
+        }
+        .budget-preset-pill .preset-tag {
+            color: #9A9AA6;
+            font-size: 0.78rem;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 8px;
+            border-radius: 12px;
+            transition: all 0.22s ease;
+        }
+        .budget-preset-pill:hover {
+            background: rgba(212, 175, 55, 0.08);
+            border-color: rgba(212, 175, 55, 0.38);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35), 0 0 12px rgba(212, 175, 55, 0.12);
+        }
+        .budget-preset-pill:hover .preset-tag {
+            background: rgba(212, 175, 55, 0.16);
+            color: #ECC880;
+        }
+        .budget-preset-pill.active {
+            background: linear-gradient(135deg, rgba(236, 200, 128, 0.2) 0%, rgba(212, 175, 55, 0.08) 100%);
+            border-color: #ECC880;
+            color: #FFFFFF;
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+        .budget-preset-pill.active .preset-amount {
+            color: #ECC880;
+        }
+        .budget-preset-pill.active .preset-tag {
+            background: rgba(212, 175, 55, 0.25);
+            color: #FFF2CE;
+            font-weight: 600;
+        }
+        .budget-preset-pill:active {
+            transform: scale(0.97);
+        }
+
+        /* Budget Control Bar & Segmented Tab Switcher */
+        .budget-control-bar {
+            display: flex;
+            gap: 16px;
+            margin: 32px 0 20px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .budget-segmented-control {
+            display: inline-flex;
+            background: rgba(14, 14, 20, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 4px;
+            gap: 4px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        .budget-tab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: 1px solid transparent;
+            color: #9A9AA6;
+            padding: 9px 18px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+            white-space: nowrap;
+            outline: none;
+        }
+        .budget-tab-btn .material-icons-round {
+            font-size: 18px;
+            opacity: 0.85;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        .budget-tab-btn:hover {
+            color: #FFFFFF;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .budget-tab-btn.active {
+            background: linear-gradient(135deg, rgba(236, 200, 128, 0.16) 0%, rgba(212, 175, 55, 0.08) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            color: #ECC880;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), 0 0 14px rgba(212, 175, 55, 0.15);
+        }
+        .budget-tab-btn.active .material-icons-round {
+            opacity: 1;
+            color: #ECC880;
+        }
+        .budget-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #ECC880;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            user-select: none;
+            outline: none;
+        }
+        .budget-action-btn .material-icons-round {
+            font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+        .budget-action-btn:hover {
+            background: linear-gradient(135deg, rgba(236, 200, 128, 0.22) 0%, rgba(212, 175, 55, 0.12) 100%);
+            border-color: #ECC880;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+        }
+        .budget-action-btn:hover .material-icons-round {
+            transform: scale(1.1);
+            color: #ECC880;
+        }
+        .budget-action-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* Fallback .cat-pill style */
+        .cat-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.04) !important;
+            border: 1px solid rgba(255, 255, 255, 0.12) !important;
+            color: #D4D4DC !important;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            user-select: none;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+        .cat-pill:hover {
+            background: rgba(212, 175, 55, 0.09) !important;
+            border-color: rgba(212, 175, 55, 0.4) !important;
+            color: #FFFFFF !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 12px rgba(212, 175, 55, 0.12);
+        }
+        .cat-pill.active {
+            background: linear-gradient(135deg, rgba(236, 200, 128, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%) !important;
+            border-color: #ECC880 !important;
+            color: #FFF2CE !important;
+            font-weight: 600;
+            box-shadow: 0 0 16px rgba(212, 175, 55, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+        }
+
+        @media (max-width: 768px) {
+            .budget-calc-card {
+                padding: 24px 18px;
+            }
+            .budget-presets-wrap {
+                gap: 8px;
+            }
+            .budget-preset-pill {
+                padding: 7px 12px;
+                font-size: 0.8rem;
+            }
+            .budget-control-bar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            .budget-segmented-control {
+                width: 100%;
+            }
+            .budget-tab-btn {
+                flex: 1;
+                justify-content: center;
+                padding: 8px 12px;
+                font-size: 0.82rem;
+            }
+            .budget-action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         .budget-breakdown-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -756,23 +990,46 @@
                 <input type="range" id="budgetSlider" class="calc-slider" min="100000" max="2500000" step="25000" value="500000" oninput="calculateBudget(this.value); triggerBudgetToast();">
                 <div class="budget-display-amount" id="budgetDisplay">₺500.000</div>
                 
-                <!-- Quick Preset Pills -->
-                <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px;">
-                    <button type="button" onclick="setBudgetPreset(250000)" class="cat-pill" style="font-size: 0.8rem; padding: 6px 12px;">₺250.000 (Butik)</button>
-                    <button type="button" onclick="setBudgetPreset(500000)" class="cat-pill active" id="preset500" style="font-size: 0.8rem; padding: 6px 12px;">₺500.000 (Standart)</button>
-                    <button type="button" onclick="setBudgetPreset(850000)" class="cat-pill" style="font-size: 0.8rem; padding: 6px 12px;">₺850.000 (Kır Düğünü)</button>
-                    <button type="button" onclick="setBudgetPreset(1500000)" class="cat-pill" style="font-size: 0.8rem; padding: 6px 12px;">₺1.500.000 (Lüks Otel)</button>
+                <!-- Quick Preset Luxury Pills -->
+                <div class="budget-presets-wrap" role="group" aria-label="Hızlı Bütçe Paketleri">
+                    <button type="button" onclick="setBudgetPreset(250000, this)" class="budget-preset-pill" data-amount="250000">
+                        <span class="preset-icon">🏛️</span>
+                        <span class="preset-amount">₺250.000</span>
+                        <span class="preset-tag">Butik</span>
+                    </button>
+                    <button type="button" onclick="setBudgetPreset(500000, this)" class="budget-preset-pill active" id="preset500" data-amount="500000">
+                        <span class="preset-icon">🥂</span>
+                        <span class="preset-amount">₺500.000</span>
+                        <span class="preset-tag">Standart</span>
+                    </button>
+                    <button type="button" onclick="setBudgetPreset(850000, this)" class="budget-preset-pill" data-amount="850000">
+                        <span class="preset-icon">🌿</span>
+                        <span class="preset-amount">₺850.000</span>
+                        <span class="preset-tag">Kır Düğünü</span>
+                    </button>
+                    <button type="button" onclick="setBudgetPreset(1500000, this)" class="budget-preset-pill" data-amount="1500000">
+                        <span class="preset-icon">✨</span>
+                        <span class="preset-amount">₺1.500.000</span>
+                        <span class="preset-tag">Lüks Otel</span>
+                    </button>
                 </div>
             </div>
 
-            <!-- Tab Switcher -->
-            <div style="display: flex; gap: 10px; margin: 24px 0 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; flex-wrap: wrap; justify-content: space-between; align-items: center;">
-                <div style="display: flex; gap: 8px;">
-                    <button type="button" id="tabCatBtn" class="cat-pill active" onclick="switchBudgetTab('cat')" style="font-size: 0.88rem; font-weight: 600;">Kategori Altın Oranları</button>
-                    <button type="button" id="tabSidesBtn" class="cat-pill" onclick="switchBudgetTab('sides')" style="font-size: 0.88rem; font-weight: 600;">Gelin &amp; Damat Paylaşımı</button>
+            <!-- Tab Switcher & Actions Bar -->
+            <div class="budget-control-bar">
+                <div class="budget-segmented-control" role="tablist" aria-label="Bütçe Görünümü">
+                    <button type="button" id="tabCatBtn" class="budget-tab-btn active" role="tab" aria-selected="true" onclick="switchBudgetTab('cat')">
+                        <span class="material-icons-round">pie_chart</span>
+                        <span>Kategori Altın Oranları</span>
+                    </button>
+                    <button type="button" id="tabSidesBtn" class="budget-tab-btn" role="tab" aria-selected="false" onclick="switchBudgetTab('sides')">
+                        <span class="material-icons-round">people_outline</span>
+                        <span>Gelin &amp; Damat Paylaşımı</span>
+                    </button>
                 </div>
-                <button type="button" id="copyBudgetBtn" onclick="copyBudgetPlan()" class="btn" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.5); color: #ECC880; padding: 8px 16px; border-radius: 10px; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 600;">
-                    <span class="material-icons-round" style="font-size: 16px;">content_copy</span> Bütçeyi Kopyala
+                <button type="button" id="copyBudgetBtn" onclick="copyBudgetPlan()" class="budget-action-btn" title="Bütçe dökümünü panoya kopyala">
+                    <span class="material-icons-round">content_copy</span>
+                    <span>Bütçeyi Kopyala</span>
                 </button>
             </div>
 
@@ -931,11 +1188,31 @@
             return "₺" + num.toLocaleString('tr-TR');
         }
 
-        function setBudgetPreset(val) {
+        function updateSliderTrack(slider) {
+            const min = parseFloat(slider.min) || 100000;
+            const max = parseFloat(slider.max) || 2500000;
+            const val = parseFloat(slider.value);
+            const pct = Math.max(0, Math.min(100, ((val - min) / (max - min)) * 100));
+            slider.style.background = `linear-gradient(to right, #ECC880 0%, #D4AF37 ${pct}%, rgba(255, 255, 255, 0.12) ${pct}%, rgba(255, 255, 255, 0.12) 100%)`;
+        }
+
+        function setBudgetPreset(val, btn) {
             currentBudget = val;
-            document.getElementById('budgetSlider').value = val;
+            const slider = document.getElementById('budgetSlider');
+            if (slider) {
+                slider.value = val;
+                updateSliderTrack(slider);
+            }
             calculateBudget(val);
             triggerBudgetToast();
+
+            document.querySelectorAll('.budget-preset-pill').forEach(p => p.classList.remove('active'));
+            if (btn) {
+                btn.classList.add('active');
+            } else {
+                const match = document.querySelector(`.budget-preset-pill[data-amount="${val}"]`);
+                if (match) match.classList.add('active');
+            }
         }
 
         function triggerBudgetToast() {
@@ -966,12 +1243,16 @@
 
             if (tab === 'cat') {
                 tabCat.classList.add('active');
+                tabCat.setAttribute('aria-selected', 'true');
                 tabSides.classList.remove('active');
+                tabSides.setAttribute('aria-selected', 'false');
                 catView.style.display = 'block';
                 sidesView.style.display = 'none';
             } else {
                 tabSides.classList.add('active');
+                tabSides.setAttribute('aria-selected', 'true');
                 tabCat.classList.remove('active');
+                tabCat.setAttribute('aria-selected', 'false');
                 catView.style.display = 'none';
                 sidesView.style.display = 'block';
             }
@@ -981,6 +1262,18 @@
         function calculateBudget(amount) {
             currentBudget = parseInt(amount, 10);
             document.getElementById('budgetDisplay').innerText = formatCurrency(currentBudget);
+
+            const slider = document.getElementById('budgetSlider');
+            if (slider) updateSliderTrack(slider);
+
+            // Sync preset active state
+            document.querySelectorAll('.budget-preset-pill').forEach(p => {
+                if (parseInt(p.getAttribute('data-amount'), 10) === currentBudget) {
+                    p.classList.add('active');
+                } else {
+                    p.classList.remove('active');
+                }
+            });
 
             // 1. Render Category Breakdown
             const grid = document.getElementById('breakdownGrid');
@@ -1048,16 +1341,12 @@
             navigator.clipboard.writeText(text).then(() => {
                 const btn = document.getElementById('copyBudgetBtn');
                 const origHtml = btn.innerHTML;
-                btn.innerHTML = `<span class="material-icons-round" style="font-size: 16px;">check</span> Kopyalandı!`;
-                btn.style.background = 'rgba(46, 204, 113, 0.2)';
-                btn.style.borderColor = '#2ecc71';
-                btn.style.color = '#2ecc71';
+                btn.innerHTML = `<span class="material-icons-round" style="font-size: 18px; color: #4cd964;">check_circle</span> <span style="color: #FFFFFF;">Plan Kopyalandı!</span>`;
+                btn.classList.add('is-copied');
 
                 setTimeout(() => {
                     btn.innerHTML = origHtml;
-                    btn.style.background = 'rgba(212, 175, 55, 0.15)';
-                    btn.style.borderColor = 'rgba(212, 175, 55, 0.5)';
-                    btn.style.color = '#ECC880';
+                    btn.classList.remove('is-copied');
                 }, 2500);
             }).catch(err => {
                 alert('Bütçe planı kopyalanamadı: ' + err);
