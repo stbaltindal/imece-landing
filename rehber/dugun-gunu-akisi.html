@@ -380,21 +380,146 @@
             margin: 0 auto;
         }
 
-        /* Timeline Box */
+        /* Timeline Box & Controls */
         .timeline-card {
             background: #121218;
             border: 1px solid rgba(212, 175, 55, 0.35);
-            border-radius: 22px;
+            border-radius: 24px;
             padding: 36px;
             margin: 36px 0 52px;
-            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
+        .timeline-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+        }
+        .timeline-toolbar-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .timeline-toolbar-label {
+            color: #ECC880;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .concept-pills-wrap {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .cat-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.04) !important;
+            border: 1px solid rgba(255, 255, 255, 0.14) !important;
+            color: #D4D4DC !important;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            white-space: nowrap;
+            min-height: 44px;
+            box-sizing: border-box;
+            transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            user-select: none;
+            outline: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .cat-pill .material-icons-round {
+            font-size: 18px;
+            color: #ECC880;
+            transition: transform 0.2s ease;
+        }
+        .cat-pill:hover {
+            background: rgba(212, 175, 55, 0.12) !important;
+            border-color: rgba(212, 175, 55, 0.45) !important;
+            color: #FFFFFF !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 14px rgba(212, 175, 55, 0.15);
+        }
+        .cat-pill:active {
+            transform: scale(0.97);
+        }
+        .cat-pill.active {
+            background: linear-gradient(135deg, rgba(236, 200, 128, 0.24) 0%, rgba(212, 175, 55, 0.12) 100%) !important;
+            border-color: #ECC880 !important;
+            color: #FFF2CE !important;
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+        }
+        .cat-pill.active .material-icons-round {
+            color: #FFF2CE;
+            transform: scale(1.1);
+        }
+        .timeline-action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: #ECC880;
+            padding: 10px 22px;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            min-height: 44px;
+            box-sizing: border-box;
+            transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            user-select: none;
+            outline: none;
+        }
+        .timeline-action-btn .material-icons-round {
+            font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+        .timeline-action-btn:hover {
+            background: rgba(212, 175, 55, 0.22);
+            border-color: #ECC880;
+            color: #FFF2CE;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+        }
+        .timeline-action-btn:active {
+            transform: scale(0.97);
+        }
+        .timeline-action-btn.is-copied {
+            background: rgba(46, 204, 113, 0.18) !important;
+            border-color: #2ecc71 !important;
+            color: #2ecc71 !important;
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.35) !important;
+        }
+
+        /* Timeline Rows */
         .time-row {
             display: flex;
             gap: 20px;
             align-items: stretch;
             position: relative;
-            padding-bottom: 24px;
+            padding-bottom: 28px;
             margin: 0;
         }
         .time-row:last-child {
@@ -404,7 +529,7 @@
             width: 140px;
             flex-shrink: 0;
             text-align: right;
-            padding-top: 8px;
+            padding-top: 14px;
         }
         .time-pill {
             display: inline-block;
@@ -412,12 +537,12 @@
             font-weight: 700;
             font-size: 0.92rem;
             letter-spacing: 0.3px;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.08);
             border: 1px solid rgba(212, 175, 55, 0.35);
             border-radius: 20px;
             padding: 6px 14px;
             white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
         .time-spine {
             width: 28px;
@@ -434,19 +559,19 @@
             left: 50%;
             transform: translateX(-50%);
             width: 2px;
-            background: linear-gradient(180deg, #ECC880 0%, rgba(212, 175, 55, 0.4) 50%, #ECC880 100%);
+            background: linear-gradient(180deg, #ECC880 0%, rgba(212, 175, 55, 0.35) 50%, #ECC880 100%);
             box-shadow: 0 0 6px rgba(212, 175, 55, 0.3);
             z-index: 1;
         }
         .time-row:first-child .time-spine::before {
-            top: 20px;
+            top: 24px;
         }
         .time-row:last-child .time-spine::before {
-            bottom: calc(100% - 20px);
+            bottom: calc(100% - 24px);
         }
         .time-dot {
             position: absolute;
-            top: 12px;
+            top: 16px;
             left: 50%;
             transform: translateX(-50%);
             width: 16px;
@@ -456,67 +581,75 @@
             border: 3px solid #121218;
             box-shadow: 0 0 10px rgba(236, 200, 128, 0.9), 0 0 20px rgba(212, 175, 55, 0.45);
             z-index: 2;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
         .time-row:hover .time-dot {
-            transform: translateX(-50%) scale(1.25);
-            box-shadow: 0 0 15px rgba(236, 200, 128, 1), 0 0 30px rgba(212, 175, 55, 0.7);
+            transform: translateX(-50%) scale(1.3);
+            box-shadow: 0 0 16px rgba(236, 200, 128, 1), 0 0 32px rgba(212, 175, 55, 0.75);
         }
         .time-content {
             background: #181822;
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            border-radius: 16px;
-            padding: 20px 24px;
+            border: 1px solid rgba(212, 175, 55, 0.24);
+            border-radius: 18px;
+            padding: 22px 24px;
             flex-grow: 1;
             transition: all 0.25s ease;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+            position: relative;
         }
         .time-content:hover {
             background: #1c1c28;
             border-color: rgba(212, 175, 55, 0.55);
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 18px rgba(212, 175, 55, 0.18);
         }
         .time-mobile-badge {
             display: none;
         }
-        @media (max-width: 680px) {
-            .time-col {
-                display: none;
-            }
-            .time-mobile-badge {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                margin-bottom: 10px;
-            }
-            .time-row {
-                gap: 12px;
-                padding-bottom: 18px;
-            }
-            .timeline-card {
-                padding: 24px 16px;
-            }
-            .time-content {
-                padding: 16px 18px;
-            }
+        .time-header-wrap {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
         }
-        .time-content-title {
-            color: #FFFFFF;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 8px;
+        .time-title-group {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 12px;
             flex-wrap: wrap;
+        }
+        .time-step-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.32);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ECC880;
+            flex-shrink: 0;
+            font-size: 18px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+        }
+        .time-content-title-text {
+            color: #FFFFFF;
+            font-size: 1.12rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        .time-meta-badges {
+            display: flex;
+            align-items: center;
             gap: 8px;
+            flex-wrap: wrap;
         }
         .scope-tag {
-            font-size: 0.75rem;
+            font-size: 0.74rem;
             font-weight: 700;
-            padding: 3px 10px;
+            padding: 4px 10px;
             border-radius: 8px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -531,11 +664,296 @@
             color: #4cd964;
             border: 1px solid rgba(76, 217, 100, 0.4);
         }
+        .buffer-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 8px;
+            background: rgba(236, 200, 128, 0.1);
+            border: 1px solid rgba(236, 200, 128, 0.32);
+            color: #ECC880;
+        }
+        .role-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #D4D4DC;
+            margin-bottom: 10px;
+        }
+        .role-tag .material-icons-round {
+            font-size: 15px;
+            color: #ECC880;
+        }
         .time-content-desc {
             color: #E2E2E8;
             font-size: 0.94rem;
             line-height: 1.65;
+            margin: 0 0 10px;
+        }
+        .crisis-alert-box {
+            background: rgba(235, 87, 87, 0.08);
+            border: 1px solid rgba(235, 87, 87, 0.28);
+            border-left: 3px solid #EB5757;
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .crisis-alert-box .material-icons-round {
+            color: #EB5757;
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .crisis-alert-body {
+            flex: 1;
+            color: #FFCECE;
+            font-size: 0.86rem;
+            line-height: 1.5;
+        }
+        .crisis-alert-title {
+            color: #FFA3A3;
+            font-weight: 700;
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .timeline-action-btn {
+                width: 100%;
+            }
+            .concept-pills-wrap {
+                width: 100%;
+            }
+            .cat-pill {
+                flex: 1;
+                text-align: center;
+                padding: 10px 14px;
+                font-size: 0.82rem;
+            }
+        }
+        @media (max-width: 680px) {
+            .time-col {
+                display: none;
+            }
+            .time-mobile-badge {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 10px;
+            }
+            .time-row {
+                gap: 12px;
+                padding-bottom: 20px;
+            }
+            .timeline-card {
+                padding: 24px 16px;
+                border-radius: 20px;
+            }
+            .time-content {
+                padding: 16px 16px;
+            }
+            .time-content-title-text {
+                font-size: 1.02rem;
+            }
+        }
+
+        /* Editorial Sections */
+        .editorial-section {
+            margin: 60px 0;
+            position: relative;
+        }
+        .editorial-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #ECC880;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
+            margin-bottom: 10px;
+        }
+        .editorial-title {
+            font-family: var(--font-header, 'Playfair Display', serif);
+            font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+            color: #FFFFFF;
+            margin: 0 0 14px;
+            line-height: 1.3;
+        }
+        .editorial-lead {
+            font-size: 0.98rem;
+            color: #B5B5BE;
+            line-height: 1.7;
+            margin-bottom: 28px;
+            max-width: 820px;
+        }
+        .golden-rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .golden-rule-card {
+            background: #121218;
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            border-radius: 18px;
+            padding: 24px;
+            position: relative;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
+        .golden-rule-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(212, 175, 55, 0.55);
+            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.55), 0 0 16px rgba(212, 175, 55, 0.15);
+        }
+        .golden-rule-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #ECC880;
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+        .golden-rule-card h4 {
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            margin: 0 0 8px;
+            line-height: 1.4;
+        }
+        .golden-rule-card p {
+            color: #B5B5BE;
+            font-size: 0.9rem;
+            line-height: 1.6;
             margin: 0;
+        }
+
+        /* Role Matrix */
+        .role-matrix-card {
+            background: #121218;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        .role-card-item {
+            background: #181822;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 18px;
+            transition: border-color 0.2s ease;
+        }
+        .role-card-item:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        .role-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .role-card-icon {
+            font-size: 20px;
+            color: #ECC880;
+        }
+        .role-card-title {
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.98rem;
+        }
+        .role-card-focus {
+            color: #ECC880;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .role-card-desc {
+            color: #A0A0AB;
+            font-size: 0.86rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* FAQ Accordion */
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .faq-item {
+            background: #121218;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+        .faq-item:hover, .faq-item.is-open {
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        .faq-question {
+            width: 100%;
+            padding: 18px 20px;
+            background: transparent;
+            border: none;
+            text-align: left;
+            color: #FFFFFF;
+            font-size: 0.98rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: inherit;
+            gap: 12px;
+        }
+        .faq-icon {
+            color: #ECC880;
+            font-size: 20px;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+        .faq-item.is-open .faq-icon {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding: 0 20px 18px;
+            color: #B5B5BE;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            display: none;
+        }
+        .faq-item.is-open .faq-answer {
+            display: block;
         }
 
         /* Luxury App Bridge Banner */
@@ -733,6 +1151,46 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Düğün günü kuaför hazırlığı ne kadar sürer ve gelin saçı ne zaman bitmelidir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kuaför hazırlığı toplamda 4 ila 4.5 saat sürer. En kritik altın kural, gelinin saç ve makyajının en son değil, nedimelerden hemen önce (sondan ikinci sırada) tamamlanmasıdır. Bu sayede gelinlik giyme, duvak yerleşimi ve hazırlık odası fotoğraf çekimi için en az 45 dakikalık tampon süre kalır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dış çekim (fotoğraf & video) için en ideal saat hangisidir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dış mekan çekimlerinde en estetik ışık gün batımından önceki son 1.5 - 2 saattir (Altın Saat). Akşam düğünlerinde 16:00 - 18:00 arası çekime ayrılmalı, çekim bitimi ile salona giriş arasına dinlenme ve makyaj tazeleme için en az 45 dakika pay konmalıdır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Düğün günü zaman kayması yaşanırsa ne yapılmalıdır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Düğün günü gelin ve damadın telefonlara bakması kesinlikle engellenmelidir. Tüm tedarikçi iletişimi yetkilendirilmiş Baş Nedime veya Sağdıç tarafından yürütülmelidir. İmece Düğün Rejisi kullanılarak tüm görevlilere tek dokunuşla canlı gecikme bildirimi iletilir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Düğün günü gelin alma ve konvoy için ne kadar ek süre ayrılmalıdır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Şehir içi trafik, araç süsleme gecikmesi ve kapı tutma/davul-zurna merasimleri için navigasyon süresine ek olarak mutlaka en az +30 dakika tampon süre ayrılmalıdır."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="has-sticky-cta dark-active" style="background-color: #08080A !important; color: #FFFFFF !important;">
 
@@ -815,177 +1273,141 @@
         <!-- Timeline Schedule Section -->
         <section class="timeline-card">
             
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                <div>
-                    <span style="color: #ECC880; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Düğün Konseptinizi Seçin</span>
-                    <div style="display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap;">
-                        <button type="button" class="cat-pill active" id="modeAksam" onclick="setTimelineMode('aksam')">Akşam Yemekli (19:30)</button>
-                        <button type="button" class="cat-pill" id="modeKir" onclick="setTimelineMode('kir')">Kır &amp; Kokteyl (18:30)</button>
-                        <button type="button" class="cat-pill" id="modeGunduz" onclick="setTimelineMode('gunduz')">Öğlen Nikahı (14:00)</button>
+            <div class="timeline-toolbar">
+                <div class="timeline-toolbar-left">
+                    <span class="timeline-toolbar-label">
+                        <span class="material-icons-round" style="font-size: 16px; color: #ECC880;">tune</span>
+                        Düğün Konseptinizi Seçin
+                    </span>
+                    <div class="concept-pills-wrap" role="tablist" aria-label="Düğün Konseptleri">
+                        <button type="button" class="cat-pill active" id="modeAksam" role="tab" aria-selected="true" onclick="setTimelineMode('aksam')">
+                            <span class="material-icons-round">dinner_dining</span>
+                            <span>Akşam Yemekli (19:30)</span>
+                        </button>
+                        <button type="button" class="cat-pill" id="modeKir" role="tab" aria-selected="false" onclick="setTimelineMode('kir')">
+                            <span class="material-icons-round">park</span>
+                            <span>Kır &amp; Kokteyl (18:30)</span>
+                        </button>
+                        <button type="button" class="cat-pill" id="modeGunduz" role="tab" aria-selected="false" onclick="setTimelineMode('gunduz')">
+                            <span class="material-icons-round">wb_sunny</span>
+                            <span>Öğlen Nikahı (14:00)</span>
+                        </button>
                     </div>
                 </div>
-                <button type="button" id="copyTimelineBtn" onclick="copyTimelineSchedule()" class="btn" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.5); color: #ECC880; padding: 10px 18px; border-radius: 12px; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 600;">
-                    <span class="material-icons-round" style="font-size: 18px;">content_copy</span> Programı Ekiple Paylaş
+                <button type="button" id="copyTimelineBtn" onclick="copyTimelineSchedule()" class="timeline-action-btn" aria-label="Saat saat akış planını panoya kopyala ve ekiple paylaş">
+                    <span class="material-icons-round">content_copy</span>
+                    <span id="copyBtnText">Programı Ekiple Paylaş</span>
                 </button>
             </div>
 
-            <div id="timelineRowsContainer">
-            <div class="time-row">
-                <div class="time-col">
-                    <span class="time-pill">09:00 - 13:30</span>
-                </div>
-                <div class="time-spine">
-                    <span class="time-dot"></span>
-                </div>
-                <div class="time-content">
-                    <div class="time-mobile-badge">
-                        <span class="time-pill">09:00 - 13:30</span>
-                    </div>
-                    <div class="time-content-title">
-                        <span>Gelin &amp; Damat Hazırlığı &amp; Kuaför</span>
-                        <span class="scope-tag team">Ekibe Özel</span>
-                    </div>
-                    <p class="time-content-desc">Saç, makyaj ve nedimelerin hazırlığı. Fotoğrafçının kuaföre gelişi ve hazırlık detay çekimleri.</p>
-                </div>
-            </div>
-
-            <div class="time-row">
-                <div class="time-col">
-                    <span class="time-pill">14:00 - 15:30</span>
-                </div>
-                <div class="time-spine">
-                    <span class="time-dot"></span>
-                </div>
-                <div class="time-content">
-                    <div class="time-mobile-badge">
-                        <span class="time-pill">14:00 - 15:30</span>
-                    </div>
-                    <div class="time-content-title">
-                        <span>Gelin Alma &amp; İlk Bakış (First Look)</span>
-                        <span class="scope-tag team">Ekibe Özel</span>
-                    </div>
-                    <p class="time-content-desc">Damat tarafının gelin evine gelişi, davul-zurna veya bando eşliğinde gelin alma merasimi ve duygusal ilk karşılaşma çekimi.</p>
-                </div>
-            </div>
-
-            <div class="time-row">
-                <div class="time-col">
-                    <span class="time-pill">16:00 - 18:00</span>
-                </div>
-                <div class="time-spine">
-                    <span class="time-dot"></span>
-                </div>
-                <div class="time-content">
-                    <div class="time-mobile-badge">
-                        <span class="time-pill">16:00 - 18:00</span>
-                    </div>
-                    <div class="time-content-title">
-                        <span>Dış Mekan Fotoğraf &amp; Video Çekimi</span>
-                        <span class="scope-tag team">Ekibe Özel</span>
-                    </div>
-                    <p class="time-content-desc">Gün batımı ışığında çift ve nedime/sağdıç konsept çekimleri. Ardından düğün salonundaki dinlenme odasına geçiş.</p>
-                </div>
-            </div>
-
-            <div class="time-row">
-                <div class="time-col">
-                    <span class="time-pill">19:00 - 19:45</span>
-                </div>
-                <div class="time-spine">
-                    <span class="time-dot"></span>
-                </div>
-                <div class="time-content">
-                    <div class="time-mobile-badge">
-                        <span class="time-pill">19:00 - 19:45</span>
-                    </div>
-                    <div class="time-content-title">
-                        <span>Kokteyl &amp; Misafir Karşılama</span>
-                        <span class="scope-tag guest">Davetiyede Açık</span>
-                    </div>
-                    <p class="time-content-desc">Trio müzik eşliğinde hoş geldiniz kokteyli ve davetlilerin masalarına yerleşimi.</p>
-                </div>
-            </div>
-
-            <div class="time-row">
-                <div class="time-col">
-                    <span class="time-pill">20:00 - 20:30</span>
-                </div>
-                <div class="time-spine">
-                    <span class="time-dot"></span>
-                </div>
-                <div class="time-content">
-                    <div class="time-mobile-badge">
-                        <span class="time-pill">20:00 - 20:30</span>
-                    </div>
-                    <div class="time-content-title">
-                        <span>Görkemli Giriş &amp; Nikah Merasimi</span>
-                        <span class="scope-tag guest">Davetiyede Açık</span>
-                    </div>
-                    <p class="time-content-desc">Çiftin salona girişi, nikah memuru eşliğinde 'Evet' imzaları ve ilk dans.</p>
-                </div>
-            </div>
-
-            <div class="time-row">
-                <div class="time-col">
-                    <span class="time-pill">20:30 - 22:00</span>
-                </div>
-                <div class="time-spine">
-                    <span class="time-dot"></span>
-                </div>
-                <div class="time-content">
-                    <div class="time-mobile-badge">
-                        <span class="time-pill">20:30 - 22:00</span>
-                    </div>
-                    <div class="time-content-title">
-                        <span>Yemek Servisi &amp; Müzik / Eğlence</span>
-                        <span class="scope-tag guest">Davetiyede Açık</span>
-                    </div>
-                    <p class="time-content-desc">Orkestra veya DJ eşliğinde yemek sunumu, danslar ve eğlence akışı.</p>
-                </div>
-            </div>
-
-            <div class="time-row">
-                <div class="time-col">
-                    <span class="time-pill">22:00 - 23:30</span>
-                </div>
-                <div class="time-spine">
-                    <span class="time-dot"></span>
-                </div>
-                <div class="time-content">
-                    <div class="time-mobile-badge">
-                        <span class="time-pill">22:00 - 23:30</span>
-                    </div>
-                    <div class="time-content-title">
-                        <span>Pasta Kesimi &amp; Takı Merasimi</span>
-                        <span class="scope-tag guest">Davetiyede Açık</span>
-                    </div>
-                    <p class="time-content-desc">Düğün pastası seremonisi, tebrik ve takı takdimi.</p>
-                </div>
-            </div>
-
-            <div class="time-row">
-                <div class="time-col">
-                    <span class="time-pill">23:30 - 01:30</span>
-                </div>
-                <div class="time-spine">
-                    <span class="time-dot"></span>
-                </div>
-                <div class="time-content">
-                    <div class="time-mobile-badge">
-                        <span class="time-pill">23:30 - 01:30</span>
-                    </div>
-                    <div class="time-content-title">
-                        <span>After Party &amp; Kapanış</span>
-                        <span class="scope-tag guest">Davetiyede Açık</span>
-                    </div>
-                    <p class="time-content-desc">Yakın arkadaşlarla gece kulübü konseptinde DJ performansı ve gece atıştırmalıkları.</p>
-                </div>
-            </div>
-
+            <div id="timelineRowsContainer" aria-live="polite">
+                <!-- Rendered dynamically by renderTimeline() with luxury cards, buffer indicators & crisis alerts -->
             </div>
         </section>
 
-        <!-- App Bridge Banner -->
+        <!-- Editorial Section 1: 5 Golden Buffer Rules -->
+        <section class="editorial-section">
+            <div class="editorial-badge">
+                <span class="material-icons-round" style="font-size: 16px;">verified</span>
+                <span>ZAMAN KAYMASINI ÖNLEME</span>
+            </div>
+            <h2 class="editorial-title">Düğün Günü Zaman Yönetiminin <br><span class="text-gold-gradient">5 Altın Kuralı &amp; Tampon Süreler</span></h2>
+            <p class="editorial-lead">
+                Düğün günlerinin %80'inde en az 45 dakikalık zaman kayması yaşanır. Kuafördeki 20 dakikalık gecikme, gün batımı fotoğraf çekimini ve nihayetinde nikah saatini zincirleme bozar. İşte gününüzü sıfır stresle kurtaracak 5 profesyonel reji kuralı:
+            </p>
+
+            <div class="golden-rules-grid">
+                <div class="golden-rule-card">
+                    <div class="golden-rule-num">1</div>
+                    <h4>Kuaförde 'Gelin En Son Biter' Yanılgısı</h4>
+                    <p>Gelinin saç ve makyajı en son değil, sondan ikinci sırada bitmelidir. Gelin bittikten sonra nedimelerin hazırlığı sürerken gelinlik fermuarı, duvak takılması ve gelin odası çekimleri için en az 45 dakika tampon payı kalmalıdır.</p>
+                </div>
+
+                <div class="golden-rule-card">
+                    <div class="golden-rule-num">2</div>
+                    <h4>Gelin Alma &amp; Konvoy Trafik Tamponu</h4>
+                    <p>Navigasyon 25 dakika gösterse bile çiçekçiden araç teslimi, kapı tutma, davul-zurna merasimi ve konvoy hızı hesaba katılarak en az +35 dakika ek tampon konmalıdır. Gelin alma hiçbir zaman aceleye getirilmemelidir.</p>
+                </div>
+
+                <div class="golden-rule-card">
+                    <div class="golden-rule-num">3</div>
+                    <h4>Altın Saat (Golden Hour) Kutsallığı</h4>
+                    <p>En büyüleyici dış mekan fotoğrafları gün batımından önceki 90 dakikada çekilir. Bu saati kaçırmamak için fotoğraf ekibiyle önceden koordinasyon sağlanmalı; gelinlik altına yedek düz ayakkabı hazır tutulmalıdır.</p>
+                </div>
+
+                <div class="golden-rule-card">
+                    <div class="golden-rule-num">4</div>
+                    <h4>Nikah Memuru ve Şahit Protokolü</h4>
+                    <p>Nikah saatinden 20 dakika önce nüfus cüzdanları ve şahitler nikah odasında hazır olmalıdır. Memurun başka bir nikaha yetişme telaşı varsa ilk nikahın saatinde gecikme yaşanması memurun ayrılmasına neden olabilir.</p>
+                </div>
+
+                <div class="golden-rule-card">
+                    <div class="golden-rule-num">5</div>
+                    <h4>Takı Sandığı ve Kasa Güvenliği</h4>
+                    <p>Takı töreni başladığında çiftin ve ailesinin dikkati dağılabilir. Takı sandığı ve zarf torbasından sorumlu önceden belirlenmiş 2 güvenilir aile büyüğü salonda sabit durmalı, çift hiçbir zaman para veya altın taşımamalıdır.</p>
+                </div>
+
+                <div class="golden-rule-card">
+                    <div class="golden-rule-num">✦</div>
+                    <h4>İmece Düğün Reji Prensibi</h4>
+                    <p>Gelin ve damadın düğün günü telefonla aranması yasaklanmalıdır! Çiftin telefonları baş nedime veya sağdıca teslim edilir; mekan ve tedarikçi trafiği tamamen atanan görevliler üzerinden yönetilir.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editorial Section 2: Role Matrix -->
+        <section class="editorial-section">
+            <div class="editorial-badge">
+                <span class="material-icons-round" style="font-size: 16px;">groups</span>
+                <span>REJİ KADROSU</span>
+            </div>
+            <h2 class="editorial-title">Düğün Günü Görev Dağılımı: <br><span class="text-gold-gradient">Kimin Elinde Ne Olmalı?</span></h2>
+            <p class="editorial-lead">
+                Düğünü çift değil, görevlendirilmiş çekirdek ekip yönetir. İmece Düğün felsefesi gereği sorumlulukları önceden paylaştırarak düğün gününüzde sadece mutluluğunuza odaklanın:
+            </p>
+
+            <div class="role-matrix-card">
+                <div class="role-grid">
+                    <div class="role-card-item">
+                        <div class="role-card-header">
+                            <span class="material-icons-round role-card-icon">favorite</span>
+                            <span class="role-card-title">Gelin &amp; Damat</span>
+                        </div>
+                        <div class="role-card-focus">Stresten Muaf / Yıldız Rol</div>
+                        <p class="role-card-desc">Hiçbir tedarikçiyle telefonda konuşmaz, para ödemesi yapmaz. Yalnızca akışa uyar, gülümser ve anın tadını çıkarır.</p>
+                    </div>
+
+                    <div class="role-card-item">
+                        <div class="role-card-header">
+                            <span class="material-icons-round role-card-icon">face</span>
+                            <span class="role-card-title">Baş Nedime</span>
+                        </div>
+                        <div class="role-card-focus">Zaman &amp; Gelin Acil Çantası</div>
+                        <p class="role-card-desc">Gelin hazırlık odası akışını takip eder; iğne-iplik, yara bandı, makyaj tazeleme ve su ikramından sorumludur.</p>
+                    </div>
+
+                    <div class="role-card-item">
+                        <div class="role-card-header">
+                            <span class="material-icons-round role-card-icon">directions_car</span>
+                            <span class="role-card-title">Sağdıç</span>
+                        </div>
+                        <div class="role-card-focus">Lojistik &amp; Bahşiş Rejisi</div>
+                        <p class="role-card-desc">Gelin arabası güzergahını, konvoy koordinasyonunu, zarf bahşişlerini ve damadın hazırlık ihtiyaçlarını koordine eder.</p>
+                    </div>
+
+                    <div class="role-card-item">
+                        <div class="role-card-header">
+                            <span class="material-icons-round role-card-icon">lock</span>
+                            <span class="role-card-title">Aile Sorumluları (2 Kişi)</span>
+                        </div>
+                        <div class="role-card-focus">Takı Sandığı &amp; Protokol</div>
+                        <p class="role-card-desc">Takı merasiminde sandığın başında durur, tebrik zarflarını kasaya aktarır ve VIP misafirlerin masalarını teyit eder.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Bridge Banner (Upgraded Düğün Günü Rejisi) -->
         <section class="app-bridge-box">
             <div class="app-bridge-left">
                 <div class="app-bridge-seal">
@@ -995,14 +1417,16 @@
                     <div class="app-bridge-tag">
                         <span>RESMİ İOS UYGULAMASI</span>
                         <span>•</span>
+                        <span>DÜĞÜN GÜNÜ REJİSİ</span>
+                        <span>•</span>
                         <span class="stars">★★★★★</span>
                     </div>
-                    <h4>Kuaförden İlk Dansa: Saatlik Akışınız Cebinizde</h4>
-                    <p>İmece Düğün ile hangi aşamanın davetliye açık, hangisinin sadece hazırlık ekibine özel olduğunu tek tıkla belirleyin. Düğün günü kimse 'şimdi ne yapıyoruz?' diye sormasın.</p>
+                    <h4>Kuaförden İlk Dansa: Canlı Reji Cebinizde</h4>
+                    <p>Düğün günü kimse 'şimdi nereye gidiyoruz?' diye çifti aramasın. İmece Düğün ile saat saat canlı akışı ekibinize dağıtın, görev atayın ve olası bir gecikmede tek tıkla tüm kadroya +15 dk kaydırma bildirimi iletin.</p>
                     <ul class="app-bridge-features">
-                        <li><span>✦</span> Saat saat canlı gün takibi</li>
-                        <li><span>✦</span> Ekip &amp; nedime senkronizasyonu</li>
-                        <li><span>✦</span> Sürpriz ve gecikmeleri önleme</li>
+                        <li><span>✦</span> Tek dokunuşla canlı akış kaydırma (+15/+30 dk)</li>
+                        <li><span>✦</span> Arayanları otomatik olarak sorumlu sağdıç/nedimeye yönlendirme</li>
+                        <li><span>✦</span> Ekibe özel ve davetliye açık iki katmanlı akış gizliliği</li>
                     </ul>
                 </div>
             </div>
@@ -1011,8 +1435,62 @@
                     <svg class="apple-svg" viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true">
                         <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
                     </svg>
-                    <span>Saatlik Akışını Cebinde Tut — Ücretsiz</span>
+                    <span>Düğün Günü Rejisini Başlat — Ücretsiz</span>
                 </a>
+            </div>
+        </section>
+
+        <!-- Editorial Section 3: Interactive FAQ Accordion -->
+        <section class="editorial-section">
+            <div class="editorial-badge">
+                <span class="material-icons-round" style="font-size: 16px;">help_outline</span>
+                <span>MERAK EDİLENLER</span>
+            </div>
+            <h2 class="editorial-title">Düğün Günü Zaman Yönetimi <br><span class="text-gold-gradient">Sıkça Sorulan Sorular</span></h2>
+            <p class="editorial-lead">
+                Düğün gününüzün dakikası dakikasına kusursuz ilerlemesi için en sık sorulan soruların profesyonel yanıtları:
+            </p>
+
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                        <span>Düğün günü kuaför hazırlığı ne kadar sürer ve gelin saçı ne zaman bitmelidir?</span>
+                        <span class="material-icons-round faq-icon">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        Kuaför hazırlığı gelin ve nedimelerle birlikte ortalama 4 ila 4.5 saat sürer. En kritik kural, gelinin saç ve makyajının en son değil, nedimelerden hemen önce (sondan ikinci sırada) tamamlanmasıdır. Bu sayede gelinlik giyme, duvak yerleşimi ve kuaför detay fotoğrafları için en az 45 dakikalık tampon süre kalır.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                        <span>Dış çekim (fotoğraf &amp; video) için en ideal saat hangisidir?</span>
+                        <span class="material-icons-round faq-icon">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        Dış mekan çekimlerinde en estetik doğal ışık gün batımından önceki son 1.5 - 2 saattir (Altın Saat). Akşam düğünlerinde 16:00 - 18:00 arası çekime ayrılmalı, çekim bitimi ile salona giriş arasına dinlenme ve makyaj tazeleme için en az 45 dakika pay konmalıdır.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                        <span>Düğün günü zaman kayması yaşanırsa ne yapılmalıdır?</span>
+                        <span class="material-icons-round faq-icon">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        Düğün günü gelin ve damadın telefonlara bakması kesinlikle engellenmelidir. Tüm tedarikçi iletişimi yetkilendirilmiş Baş Nedime veya Sağdıç tarafından yürütülmelidir. İmece Düğün Rejisi kullanılarak tüm görevlilere tek dokunuşla canlı gecikme bildirimi iletilir ve pasta/yemek akışı mekan şefiyle anında revize edilir.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                        <span>Düğün günü gelin alma ve konvoy için ne kadar ek süre ayrılmalıdır?</span>
+                        <span class="material-icons-round faq-icon">expand_more</span>
+                    </button>
+                    <div class="faq-answer">
+                        Şehir içi trafik, araç süsleme gecikmesi ve kapı tutma/davul-zurna merasimleri için navigasyon süresine ek olarak mutlaka en az +30-35 dakika tampon süre ayrılmalıdır.
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1090,67 +1568,283 @@
     <script>
     const timelineData = {
         aksam: [
-            { time: "09:00 - 13:30", title: "Gelin & Damat Hazırlığı & Kuaför", tag: "Ekibe Özel", tagClass: "team", desc: "Saç, makyaj ve nedimelerin hazırlığı. Fotoğrafçının kuaföre gelişi ve hazırlık detay çekimleri." },
-            { time: "14:00 - 15:30", title: "Gelin Alma & İlk Bakış (First Look)", tag: "Ekibe Özel", tagClass: "team", desc: "Damat tarafının gelin evine gelişi, davul-zurna veya bando eşliğinde gelin alma merasimi ve duygusal ilk karşılaşma çekimi." },
-            { time: "16:00 - 18:00", title: "Dış Mekan Fotoğraf & Video Çekimi", tag: "Ekibe Özel", tagClass: "team", desc: "Gün batımı ışığında çift ve nedime/sağdıç konsept çekimleri. Ardından düğün salonundaki dinlenme odasına geçiş." },
-            { time: "19:00 - 19:45", title: "Kokteyl & Misafir Karşılama", tag: "Davetiyede Açık", tagClass: "guest", desc: "Trio müzik eşliğinde hoş geldiniz kokteyli ve davetlilerin masalarına yerleşimi." },
-            { time: "20:00 - 20:30", title: "Görkemli Giriş & Nikah Merasimi", tag: "Davetiyede Açık", tagClass: "guest", desc: "Çiftin salona girişi, nikah memuru eşliğinde 'Evet' imzaları ve ilk dans." },
-            { time: "20:30 - 22:00", title: "Yemek Servisi & Müzik / Eğlence", tag: "Davetiyede Açık", tagClass: "guest", desc: "Orkestra veya DJ eşliğinde yemek sunumu, danslar ve eğlence akışı." },
-            { time: "22:00 - 23:30", title: "Pasta Kesimi & Takı Merasimi", tag: "Davetiyede Açık", tagClass: "guest", desc: "Düğün pastası seremonisi, tebrik ve takı takdimi." },
-            { time: "23:30 - 01:30", title: "After Party & Kapanış", tag: "Davetiyede Açık", tagClass: "guest", desc: "Yakın arkadaşlarla gece kulübü konseptinde DJ performansı ve gece atıştırmalıkları." }
+            { 
+                time: "09:00 - 13:30", 
+                title: "Gelin & Damat Hazırlığı & Kuaför", 
+                tag: "Ekibe Özel", 
+                tagClass: "team", 
+                icon: "face_retouching_natural",
+                role: "Baş Nedime & Kuaför Ekibi",
+                buffer: "+45 dk Duvak & Hazırlık Tamponu",
+                crisisAlert: "Gelin saçı ve makyajı en son değil, sondan bir önceki sırada bitmelidir. Gelinlik giyme ve duvak yerleşimi genelde 30 dakika daha uzun sürer.",
+                desc: "Saç, makyaj ve nedimelerin hazırlığı. Fotoğrafçının kuaföre gelişi, gelin detay çekimleri ve heyecan dolu ilk hazırlık kareleri." 
+            },
+            { 
+                time: "14:00 - 15:30", 
+                title: "Gelin Alma & İlk Bakış (First Look)", 
+                tag: "Ekibe Özel", 
+                tagClass: "team", 
+                icon: "directions_car",
+                role: "Sağdıç & Konvoy Lojistik Şefi",
+                buffer: "+30 dk Trafik & Merasim Tamponu",
+                crisisAlert: "Çiçekçiden araç teslimi ve konvoy trafiği için Maps süresine +30 dk ekleyin. Zarf bahşişlerini sağdıcın cebinde hazır tutun.",
+                desc: "Damat tarafının gelin evine gelişi, bando/davul eşliğinde gelin alma merasimi, aile duaları ve duygusal ilk karşılaşma (First Look) çekimi." 
+            },
+            { 
+                time: "16:00 - 18:00", 
+                title: "Dış Mekan Fotoğraf & Video Çekimi", 
+                tag: "Ekibe Özel", 
+                tagClass: "team", 
+                icon: "photo_camera",
+                role: "Fotoğraf Ekibi & Nedimeler",
+                buffer: "+30 dk Altın Saat Payı",
+                crisisAlert: "Gün batımı (Altın Saat) ışığı asla beklemez. Gelinliğin kirlenmemesi ve çim batmaması için gelin altına yedek düz ayakkabı bulundurun.",
+                desc: "Altın saat ışığında çift, nedime ve sağdıç konsept çekimleri. Ardından salondaki dinlenme odasına geçiş ve gelinlik tazeleme." 
+            },
+            { 
+                time: "19:00 - 19:45", 
+                title: "Kokteyl & Misafir Karşılama", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "local_bar",
+                role: "Karşılama Ekibi & Mekan Şefi",
+                buffer: "+15 dk Karşılama Esnekliği",
+                crisisAlert: "Gelin ve damat bu sırada dinlenme odasında atıştırmalık yemeli ve dinlenmelidir. Salona erken çıkıp enerjinizi tüketmeyin.",
+                desc: "Trio akustik müzik eşliğinde hoş geldiniz kokteyli, tebrik defteri imzaları ve davetlilerin masa numaralarına göre yerleşimi." 
+            },
+            { 
+                time: "20:00 - 20:30", 
+                title: "Görkemli Giriş & Nikah Merasimi", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "favorite",
+                role: "Nikah Memuru & Şahitler",
+                buffer: "+15 dk Tören Tamponu",
+                crisisAlert: "Nüfus cüzdanları ve şahitler nikah saatinden 20 dakika önce nikah masası arkasında hazır olmalıdır. Müzik giriş ipucu DJ ile teyit edilmelidir.",
+                desc: "Özel giriş müziğiyle salona adım atış, nikah memuru eşliğinde 'Evet' imzaları, aile cüzdanı takdimi ve büyülü ilk dans." 
+            },
+            { 
+                time: "20:30 - 22:00", 
+                title: "Yemek Servisi & Müzik / Eğlence", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "restaurant",
+                role: "Mekan Şefi & Orkestra",
+                buffer: "+20 dk Servis Akışı",
+                crisisAlert: "Orkestra veya DJ ses seviyesi misafirlerin sohbet edebileceği tonda başlamalıdır; ana yemek servisi aksamadan sahneye geçilmelidir.",
+                desc: "Orkestra eşliğinde sıcak yemek sunumu, çiftin masaları tebrik selamı ve yavaş yavaş hızlanan pist dansları." 
+            },
+            { 
+                time: "22:00 - 23:30", 
+                title: "Pasta Kesimi & Takı Merasimi", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "cake",
+                role: "Takı Sorumluları (2 Aile Büyüğü)",
+                buffer: "+20 dk Merasim Tamponu",
+                crisisAlert: "Takı sandığı ve altın torbası ASLA gelin ve damadın elinde kalmamalıdır. Önceden görevlendirilmiş 2 aile üyesi sandığın başında nöbet tutmalıdır.",
+                desc: "Işıklı pasta seremonisi, şampanya kadehleri, tebrik kuyruğu ve takı kabulü. Ardından hareketli oyun havalarıyla coşku doruğa çıkar." 
+            },
+            { 
+                time: "23:30 - 01:30", 
+                title: "After Party & Kapanış", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "nightlife",
+                role: "DJ & Nedime / Sağdıç Ekibi",
+                buffer: "+30 dk Esnek Kapanış",
+                crisisAlert: "Gelinlikten after party elbisesine geçiş için hazırlık odasında 15 dk ayrılmalı; gece sonu transfer araçları önceden rezerve edilmelidir.",
+                desc: "Genç dostlarla dinamik kulüp DJ seti, gece atıştırmalıkları (mini burger, çorba) ve unutulmaz bir final kutlaması." 
+            }
         ],
         kir: [
-            { time: "10:30 - 14:00", title: "Kuaför & Makyaj Hazırlığı", tag: "Ekibe Özel", tagClass: "team", desc: "Doğal dalgalar ve bohem makyaj hazırlığı. Nedimelerin açık hava konsept kıyafetleri." },
-            { time: "14:30 - 16:00", title: "Gelin Çıkışı & İlk Buluşma", tag: "Ekibe Özel", tagClass: "team", desc: "Gelin evinden çıkış, akustik müzik eşliğinde konvoy ve kır bahçesine hareket." },
-            { time: "16:30 - 18:00", title: "Kır Bahçesi & Doğa Fotoğraf Çekimi", tag: "Ekibe Özel", tagClass: "team", desc: "Altın saat (golden hour) ışığında doğa ve rustik dekor çekimleri." },
-            { time: "18:30 - 19:30", title: "Açık Hava Gün Batımı Kokteyli", tag: "Davetiyede Açık", tagClass: "guest", desc: "Canlı akustik müzik, hoş geldiniz içecekleri ve 'Finger Food' sunumları." },
-            { time: "19:30 - 20:00", title: "Çim Alanda Nikah Merasimi & Dans", tag: "Davetiyede Açık", tagClass: "guest", desc: "Işıklı rustik tak altında 'Evet' merasimi, ilk dans ve konfeti yağmuru." },
-            { time: "20:00 - 22:00", title: "Barbekü / Açık Büfe Ziyafeti & Canlı Müzik", tag: "Davetiyede Açık", tagClass: "guest", desc: "Lezzetli kır düğünü menüsü, geniş çim pistte dans ve eğlence." },
-            { time: "22:00 - 23:15", title: "Pasta & Dilek Feneri / Takı", tag: "Davetiyede Açık", tagClass: "guest", desc: "Naked cake kesimi, maytap geçidi ve takı seremonisi." },
-            { time: "23:15 - 01:00", title: "Kamp Ateşi & DJ Performansı", tag: "Davetiyede Açık", tagClass: "guest", desc: "Ateş başında sıcak şarap/marshmallow ve dinamik DJ setleri." }
+            { 
+                time: "10:30 - 14:00", 
+                title: "Kuaför & Bohem Makyaj Hazırlığı", 
+                tag: "Ekibe Özel", 
+                tagClass: "team", 
+                icon: "face_retouching_natural",
+                role: "Baş Nedime & Saç Sanatçısı",
+                buffer: "+45 dk Doğal Saç & Çelenk Tamponu",
+                crisisAlert: "Kır düğünlerinde rüzgar ve nem makyajı çabuk etkiler. Sabitleyici sprey ve nedimelerde yedek matlaştırıcı pudra hazır olmalıdır.",
+                desc: "Doğal dalgalar, bohem makyaj ve canlı çiçekli taç/toka hazırlığı. Nedimelerin açık hava konsept kıyafetleri ve hazırlık çekimleri." 
+            },
+            { 
+                time: "14:30 - 16:00", 
+                title: "Gelin Çıkışı & Kır Bahçesine Hareket", 
+                tag: "Ekibe Özel", 
+                tagClass: "team", 
+                icon: "directions_car",
+                role: "Sağdıç & Konvoy Koordinatörü",
+                buffer: "+35 dk Yol & Doğa Trafik Payı",
+                crisisAlert: "Kır bahçeleri genelde şehir dışı güzergahlardadır. Hafta sonu çevre yolu trafiği için navigasyon süresine en az 35 dakika ekleyin.",
+                desc: "Gelin evinden çıkış, akustik müzik eşliğinde neşeli konvoy ve doğayla iç içe kır bahçesine varış." 
+            },
+            { 
+                time: "16:30 - 18:00", 
+                title: "Kır Bahçesi & Doğa Konsept Çekimi", 
+                tag: "Ekibe Özel", 
+                tagClass: "team", 
+                icon: "park",
+                role: "Dış Çekim & Drone Ekibi",
+                buffer: "+30 dk Işık & Rüzgar Tamponu",
+                crisisAlert: "Topuklu ayakkabıların çime saplanmaması için topuk koruyucu şeffaf tıpa veya şık dolgu topuk yedek ayakkabı kullanın.",
+                desc: "Ağaçlar arasında, rustik tak ve çim alanda altın saat ışığıyla romantik doğa çekimleri ve drone video kayıtları." 
+            },
+            { 
+                time: "18:30 - 19:30", 
+                title: "Açık Hava Gün Batımı Kokteyli", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "deck",
+                role: "Karşılama Ekibi & Mekan Sorumlusu",
+                buffer: "+15 dk Gün Batımı Esnekliği",
+                crisisAlert: "Güneş batarken serinlik başlar. Giriş alanında misafirler için şal sepeti ve sinek kovucu spreyler hazır bulundurulmalıdır.",
+                desc: "Canlı akustik gitar/saksafon ezgileri, gün batımı kokteylleri ve lezzetli finger food sunumlarıyla konukların karşılanması." 
+            },
+            { 
+                time: "19:30 - 20:00", 
+                title: "Çim Alanda Rustik Nikah & Dans", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "favorite",
+                role: "Nikah Memuru & Şahitler",
+                buffer: "+15 dk Işıklandırma Tamponu",
+                crisisAlert: "Açık hava ses sistemi mikrofonunda rüzgar filtresi (windshield) takılı olduğunu müzik şefine önceden kontrol ettirin.",
+                desc: "Işıklı rustik tak altında 'Evet' merasimi, konfeti ve kuru çiçek yaprakları yağmuru eşliğinde çim pistte ilk dans." 
+            },
+            { 
+                time: "20:00 - 22:00", 
+                title: "Barbekü / Açık Büfe Ziyafeti & Canlı Müzik", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "restaurant",
+                role: "Catering Şefi & Canlı Orkestra",
+                buffer: "+20 dk Büfe Sırası Yönetimi",
+                crisisAlert: "Açık büfe kır konseptinde masaların sırayla büfeye yönlendirilmesi için anons koordinasyonu mekan şefiyle planlanmalıdır.",
+                desc: "Lezzetli ziyafet menüsü, masalar arası sıcak sohbetler ve ardından ritmi yükselen hareketli kır eğlencesi." 
+            },
+            { 
+                time: "22:00 - 23:15", 
+                title: "Naked Cake & Dilek Feneri / Takı", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "cake",
+                role: "Takı Sandığı Sorumlusu Aile Üyeleri",
+                buffer: "+20 dk Merasim Payı",
+                crisisAlert: "Maytap ve dilek fenerleri yakılırken ağaçlık alan güvenliği ve yangın tüpü kontrolü mekan personeline teyit ettirilmelidir.",
+                desc: "Rustik naked cake kesimi, konukların ellerinde maytap koridoru, dilek fenerleri ve samimi takı tebrikleri." 
+            },
+            { 
+                time: "23:15 - 01:00", 
+                title: "Kamp Ateşi & Akustik DJ Performansı", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "nightlife",
+                role: "DJ & Nedime Ekibi",
+                buffer: "+30 dk Esnek Kapanış",
+                crisisAlert: "Gece açık havada sıcak kalmak için kamp ateşi çevresinde battaniye ve sıcak içecek servisi koordine edilmelidir.",
+                desc: "Dev kamp ateşi başında sıcak içecekler, marshmallow, gitar soloları ve gençlerle süren dinamik DJ kapanışı." 
+            }
         ],
         gunduz: [
-            { time: "08:00 - 11:00", title: "Erken Kuaför & Çift Hazırlığı", tag: "Ekibe Özel", tagClass: "team", desc: "Sabah kahvaltısı eşliğinde saç, makyaj ve damat tıraşı." },
-            { time: "11:30 - 12:30", title: "Gelin Alma & Nikah Dairesine Geçiş", tag: "Ekibe Özel", tagClass: "team", desc: "Ailelerle fotoğraf çekimi ve nikah dairesine/kokteyl salonuna hareket." },
-            { time: "13:00 - 14:00", title: "Nikah Öncesi Karşılama & Kokteyl", tag: "Davetiyede Açık", tagClass: "guest", desc: "Davetlilerin salona kabulü, tebrik defteri imzaları." },
-            { time: "14:00 - 14:45", title: "Resmi Nikah Merasimi & İmzalar", tag: "Davetiyede Açık", tagClass: "guest", desc: "Nikah akdinin gerçekleşmesi, aile cüzdanı takdimi ve toplu aile fotoğrafı." },
-            { time: "14:45 - 16:30", title: "Tebrik & Takı Kabulü & İkram", tag: "Davetiyede Açık", tagClass: "guest", desc: "Ayakta kokteyl ikramları, nikah şekeri dağıtımı ve tebriklerin kabulü." },
-            { time: "17:00 - 19:30", title: "Çift & Arkadaş Yemeği (Butik)", tag: "Ekibe Özel", tagClass: "team", desc: "En yakın dostlarla günün yorgunluğunu atan şık bir akşamüstü kutlaması." }
+            { 
+                time: "08:00 - 11:00", 
+                title: "Erken Kuaför & Çift Hazırlığı", 
+                tag: "Ekibe Özel", 
+                tagClass: "team", 
+                icon: "wb_sunny",
+                role: "Baş Nedime & Kuaför",
+                buffer: "+30 dk Erken Sabah Tamponu",
+                crisisAlert: "Öğlen nikahlarında sabah gecikmesi tolere edilemez çünkü belediye nikah salonlarında saatler dakiktir. Kahvaltı hazırlık esnasında atlanmamalıdır.",
+                desc: "Hafif ve enerjik bir kahvaltı eşliğinde saç, sade nikah makyajı ve damat tıraşının tamamlanması." 
+            },
+            { 
+                time: "11:30 - 12:30", 
+                title: "Gelin Çıkışı & Nikah Dairesine Geçiş", 
+                tag: "Ekibe Özel", 
+                tagClass: "team", 
+                icon: "directions_car",
+                role: "Sağdıç & Konvoy Ekibi",
+                buffer: "+25 dk Şehir Trafiği Tamponu",
+                crisisAlert: "Gelin arabası ve aile araçlarının nikah dairesi otoparkında yer bulması için 1 kişi 20 dk önceden park alanı tutmalıdır.",
+                desc: "Aile büyükleriyle fotoğraf çekimi, kapı merasimi ve nikah dairesi / kokteyl mekanına hareket." 
+            },
+            { 
+                time: "13:00 - 14:00", 
+                title: "Nikah Öncesi Karşılama & Kokteyl", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "local_bar",
+                role: "Karşılama Ekibi & Nedimeler",
+                buffer: "+15 dk Konuk Kabul Esnekliği",
+                crisisAlert: "Davetlilerin salona vaktinde girmesi için giriş fuayesinde anons yapılmalı, nikah şekeri ve anı defteri hazır tutulmalıdır.",
+                desc: "Davetlilerin nikah salonu fuayesine kabulü, tebrik defteri imzaları ve hafif kokteyl içecekleri." 
+            },
+            { 
+                time: "14:00 - 14:45", 
+                title: "Resmi Nikah Merasimi & İmzalar", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "favorite",
+                role: "Nikah Memuru & Şahitler",
+                buffer: "+15 dk Tören Tamponu",
+                crisisAlert: "Nikah memuruna kimliklerin teslim edildiği ve şahitlerin kimlik fotokopilerinin eksiksiz olduğu tören öncesi teyit edilmelidir.",
+                desc: "Nikah memuru eşliğinde resmi nikah akdi, 'Evet' imzaları, aile cüzdanının geline takdimi ve sahne aile fotoğrafları." 
+            },
+            { 
+                time: "14:45 - 16:30", 
+                title: "Tebrik, Takı Kabulü & İkram", 
+                tag: "Davetiyede Açık", 
+                tagClass: "guest", 
+                icon: "cake",
+                role: "Takı Sandığı Sorumlusu (2 Aile Üyesi)",
+                buffer: "+20 dk Tebrik Kuyruğu Tamponu",
+                crisisAlert: "Ayakta kokteyl ve takı sırasında uzun kuyruk oluşursa çiftin yanındaki görevliler misafir akışını nezaketle yönlendirmelidir.",
+                desc: "Kokteyl salonunda tebriklerin kabulü, takı takdimi, nikah hediyeliklerinin dağıtımı ve ayaküstü leziz ikramlar." 
+            },
+            { 
+                time: "17:00 - 19:30", 
+                title: "Butik Çift & Arkadaş Kutlama Yemeği", 
+                tag: "Ekibe Özel", 
+                tagClass: "team", 
+                icon: "restaurant",
+                role: "Sağdıç & Nedimeler",
+                buffer: "+30 dk Esnek Kutlama",
+                crisisAlert: "Restoran rezervasyonu en az 2 gün önceden teyit edilmeli, günün tüm yorgunluğu yakın dostlarla neşeli bir sohbetle atılmalıdır.",
+                desc: "En yakın aile ve arkadaş grubuyla şık bir restoranda günün tatlı yorgunluğunu atan butik kutlama yemeği." 
+            }
         ]
     };
 
     let currentMode = 'aksam';
+    let copyDebounceTimer = null;
 
     function setTimelineMode(mode) {
         currentMode = mode;
-        document.getElementById('modeAksam').classList.toggle('active', mode === 'aksam');
-        document.getElementById('modeKir').classList.toggle('active', mode === 'kir');
-        document.getElementById('modeGunduz').classList.toggle('active', mode === 'gunduz');
+        const btnAksam = document.getElementById('modeAksam');
+        const btnKir = document.getElementById('modeKir');
+        const btnGunduz = document.getElementById('modeGunduz');
+
+        if (btnAksam) {
+            btnAksam.classList.toggle('active', mode === 'aksam');
+            btnAksam.setAttribute('aria-selected', mode === 'aksam' ? 'true' : 'false');
+        }
+        if (btnKir) {
+            btnKir.classList.toggle('active', mode === 'kir');
+            btnKir.setAttribute('aria-selected', mode === 'kir' ? 'true' : 'false');
+        }
+        if (btnGunduz) {
+            btnGunduz.classList.toggle('active', mode === 'gunduz');
+            btnGunduz.setAttribute('aria-selected', mode === 'gunduz' ? 'true' : 'false');
+        }
+
         renderTimeline();
-        triggerTimelineToast();
-    }
-
-    function triggerTimelineToast() {
-        if (!sessionStorage.getItem('imece_timeline_toast_closed')) {
-            setTimeout(function() {
-                const toast = document.getElementById('ahaTimelineToast');
-                if (toast && !toast.classList.contains('is-visible')) {
-                    toast.classList.add('is-visible');
-                }
-            }, 1200);
-        }
-    }
-
-    function closeTimelineToast() {
-        const toast = document.getElementById('ahaTimelineToast');
-        if (toast) {
-            toast.classList.remove('is-visible');
-            sessionStorage.setItem('imece_timeline_toast_closed', '1');
-        }
     }
 
     function renderTimeline() {
         const container = document.getElementById('timelineRowsContainer');
+        if (!container) return;
         const rows = timelineData[currentMode] || timelineData.aksam;
 
         container.innerHTML = rows.map(r => `
@@ -1165,11 +1859,33 @@
                     <div class="time-mobile-badge">
                         <span class="time-pill">${r.time}</span>
                     </div>
-                    <div class="time-content-title">
-                        <span>${r.title}</span>
-                        <span class="scope-tag ${r.tagClass}">${r.tag}</span>
+                    <div class="time-header-wrap">
+                        <div class="time-title-group">
+                            <div class="time-step-icon">
+                                <span class="material-icons-round">${r.icon || 'schedule'}</span>
+                            </div>
+                            <span class="time-content-title-text">${r.title}</span>
+                        </div>
+                        <div class="time-meta-badges">
+                            <span class="scope-tag ${r.tagClass}">${r.tag}</span>
+                            <span class="buffer-tag">
+                                <span class="material-icons-round" style="font-size: 14px;">hourglass_top</span>
+                                ${r.buffer}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="role-tag">
+                        <span class="material-icons-round">person</span>
+                        <span>Reji Sorumlusu: <strong>${r.role}</strong></span>
                     </div>
                     <p class="time-content-desc">${r.desc}</p>
+                    <div class="crisis-alert-box">
+                        <span class="material-icons-round">report_problem</span>
+                        <div class="crisis-alert-body">
+                            <div class="crisis-alert-title">Kriz Önleme &amp; Tampon Kuralı</div>
+                            <div>${r.crisisAlert}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         `).join('');
@@ -1177,29 +1893,102 @@
 
     function copyTimelineSchedule() {
         const rows = timelineData[currentMode] || timelineData.aksam;
-        const modeTitle = currentMode === 'aksam' ? "Akşam Yemekli Düğün (19:30)" : (currentMode === 'kir' ? "Kır Düğünü & Kokteyl (18:30)" : "Öğlen Nikahı & Kokteyl (14:00)");
+        const modeTitle = currentMode === 'aksam' 
+            ? "Akşam Yemekli Düğün (19:30)" 
+            : (currentMode === 'kir' ? "Kır Düğünü & Kokteyl (18:30)" : "Öğlen Nikahı & Kokteyl (14:00)");
 
-        let text = `⏱️ İmece Düğün — Düğün Günü Saat Saat Akış Planımız (${modeTitle}):\n\n`;
+        let text = `⏱️ *İMECE DÜĞÜN — DÜĞÜN GÜNÜ CANLI AKIŞ PROGRAMI*\n`;
+        text += `💍 *Konsept:* ${modeTitle}\n`;
+        text += `═══════════════════════════════════════\n\n`;
+
         rows.forEach(r => {
-            text += `🔹 ${r.time}: ${r.title} (${r.tag})\n`;
+            text += `🔹 *${r.time}* • *${r.title}*\n`;
+            text += `   👤 *Sorumlu:* ${r.role}\n`;
+            text += `   ⏳ *Tampon:* ${r.buffer} [${r.tag}]\n`;
+            text += `   📝 *Detay:* ${r.desc}\n`;
+            text += `   ⚠️ *Kriz Uyarısı:* ${r.crisisAlert}\n\n`;
         });
-        text += `\nDetaylı canlı plan: https://imecedugun.com/rehber/dugun-gunu-akisi.html`;
 
-        navigator.clipboard.writeText(text).then(() => {
-            const btn = document.getElementById('copyTimelineBtn');
-            const orig = btn.innerHTML;
-            btn.innerHTML = `<span class="material-icons-round" style="font-size: 18px;">check</span> Kopyalandı!`;
-            btn.style.background = 'rgba(46, 204, 113, 0.2)';
-            btn.style.borderColor = '#2ecc71';
-            btn.style.color = '#2ecc71';
-            setTimeout(() => {
-                btn.innerHTML = orig;
-                btn.style.background = 'rgba(212, 175, 55, 0.15)';
-                btn.style.borderColor = 'rgba(212, 175, 55, 0.5)';
-                btn.style.color = '#ECC880';
-            }, 2500);
+        text += `═══════════════════════════════════════\n`;
+        text += `📲 Düğün günü bu akışı tüm ekiple canlı senkronize etmek için:\n`;
+        text += `https://imecedugun.com/rehber/dugun-gunu-akisi.html`;
+
+        const btn = document.getElementById('copyTimelineBtn');
+
+        function setCopiedSuccess() {
+            if (btn) {
+                btn.classList.add('is-copied');
+                btn.innerHTML = `<span class="material-icons-round">check_circle</span> <span id="copyBtnText">Program Kopyalandı!</span>`;
+            }
+            if (copyDebounceTimer) clearTimeout(copyDebounceTimer);
+            copyDebounceTimer = setTimeout(() => {
+                if (btn) {
+                    btn.classList.remove('is-copied');
+                    btn.innerHTML = `<span class="material-icons-round">content_copy</span> <span id="copyBtnText">Programı Ekiple Paylaş</span>`;
+                }
+            }, 3000);
             triggerTimelineToast();
-        }).catch(err => alert('Kopyalanamadı: ' + err));
+        }
+
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(setCopiedSuccess).catch(err => {
+                fallbackCopy(text, setCopiedSuccess);
+            });
+        } else {
+            fallbackCopy(text, setCopiedSuccess);
+        }
+    }
+
+    function fallbackCopy(text, successCallback) {
+        try {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.left = "-9999px";
+            ta.style.top = "-9999px";
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            const successful = document.execCommand('copy');
+            document.body.removeChild(ta);
+            if (successful && successCallback) successCallback();
+        } catch (e) {
+            console.error('Kopyalama hatası:', e);
+        }
+    }
+
+    function toggleFaq(btn) {
+        const item = btn.closest('.faq-item');
+        if (!item) return;
+        const isOpen = item.classList.contains('is-open');
+
+        // Close all other items
+        document.querySelectorAll('.faq-item').forEach(el => {
+            el.classList.remove('is-open');
+        });
+
+        if (!isOpen) {
+            item.classList.add('is-open');
+        }
+    }
+
+    function triggerTimelineToast() {
+        if (!sessionStorage.getItem('imece_timeline_toast_closed')) {
+            setTimeout(function() {
+                const toast = document.getElementById('ahaTimelineToast');
+                if (toast && !toast.classList.contains('is-visible')) {
+                    toast.classList.add('is-visible');
+                }
+            }, 1000);
+        }
+    }
+
+    function closeTimelineToast() {
+        const toast = document.getElementById('ahaTimelineToast');
+        if (toast) {
+            toast.classList.remove('is-visible');
+            sessionStorage.setItem('imece_timeline_toast_closed', '1');
+        }
     }
 
     renderTimeline();

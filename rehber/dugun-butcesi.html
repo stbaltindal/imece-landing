@@ -1023,8 +1023,8 @@
                         <span>Kategori Altın Oranları</span>
                     </button>
                     <button type="button" id="tabSidesBtn" class="budget-tab-btn" role="tab" aria-selected="false" onclick="switchBudgetTab('sides')">
-                        <span class="material-icons-round">people_outline</span>
-                        <span>Gelin &amp; Damat Paylaşımı</span>
+                        <span class="material-icons-round">handshake</span>
+                        <span>Ortak Bütçe &amp; Eşit Paylaşım (%50 / %50)</span>
                     </button>
                 </div>
                 <button type="button" id="copyBudgetBtn" onclick="copyBudgetPlan()" class="budget-action-btn" title="Bütçe dökümünü panoya kopyala">
@@ -1041,10 +1041,10 @@
                 </div>
             </div>
 
-            <!-- View 2: Traditional vs Equal Sharing Breakdown -->
+            <!-- View 2: Equal Sharing & Budget Discipline Breakdown -->
             <div id="sidesBreakdownView" style="display: none; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
-                <h4 style="color: #fff; margin: 0 0 8px; font-size: 1.1rem;">Geleneksel Türk Düğün Adetleri vs. Modern Eşit Paylaşım</h4>
-                <p style="color: #A0A0AB; font-size: 0.88rem; margin: 0 0 20px;">Geleneksel dağılımda masraflar taraflar arasında teamüllere göre ayrılırken, modern İmece modelinde taraflar eşit (%50 - %50) katkı sağlar.</p>
+                <h4 style="color: #fff; margin: 0 0 8px; font-size: 1.1rem;">Ortak Bütçe &amp; Planlanan Bütçeden Sapmama Modeli</h4>
+                <p style="color: #A0A0AB; font-size: 0.88rem; margin: 0 0 20px;">Düğün hazırlıklarında en sık yaşanan kriz, kontrolsüz eklemelerle bütçenin aşılmasıdır. İmece modeli, her iki tarafın baştan mutabık kaldığı ortak bütçe tavanına sadık kalmasını (%50 - %50 eşit sorumluluk) ve sürpriz harcamalara geçit verilmemesini hedefler.</p>
                 <div id="sidesGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
                     <!-- Dynamic Sides Items -->
                 </div>
@@ -1092,8 +1092,8 @@
             <h3 style="color: var(--gold, #C5A059); font-size: 1.2rem; margin: 20px 0 8px;">2. Kapora ve Kalan Ödemeleri Tarihlere Bağlayın</h3>
             <p>Birçok tedarikçi sözleşme anında %30 kapora, düğünden bir hafta önce kalan bakiyeyi talep eder. Tüm ödeme vadelerini tek bir ortak takvimde görmezseniz aynı haftaya denk gelen 4-5 büyük ödeme nakit akışınızı kilitleyebilir.</p>
 
-            <h3 style="color: var(--gold, #C5A059); font-size: 1.2rem; margin: 20px 0 8px;">3. Gelin ve Damat Tarafının Masraf Dağılımında Şeffaflık</h3>
-            <p>Hangi tarafın hangi kalemi üstlendiği önceden netleşmeli ve ortak panoda görünür olmalıdır. İmece Düğün uygulaması çoklu bütçe havuzu desteği ile iki tarafın da gönül rahatlığıyla harcamalarını kaydetmesini sağlar.</p>
+            <h3 style="color: var(--gold, #C5A059); font-size: 1.2rem; margin: 20px 0 8px;">3. Belirlenen Bütçeden Asla Sapmama Disiplini ve Şeffaflık</h3>
+            <p>Bütçe aşımının en büyük sebebi plansız, anlık eklemelerdir. Gelin ve damat tarafı önceden mutabık kalınan harcama tavanına sadık kalmalı ve ortak panoda her kalemi şeffafça takip etmelidir. İmece Düğün uygulaması çoklu bütçe havuzu desteği ile iki tarafın da hedeften sapmadan harcamalarını kaydetmesini sağlar.</p>
         </article>
 
         <!-- Related Guides Cross-linking -->
@@ -1102,8 +1102,8 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                 <a href="ceyiz-listesi.html" style="background: #121218; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 22px; text-decoration: none; display: block; transition: all 0.25s ease;">
                     <div style="color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">İnteraktif Liste</div>
-                    <h4 style="color: #FFFFFF; font-size: 1.15rem; margin: 0 0 8px;">Eksiksiz Çeyiz Listesi (118 Kalem)</h4>
-                    <p style="color: #B5B5BE; font-size: 0.88rem; margin: 0; line-height: 1.5;">13 ana kategoride ev kurma ve çeyiz ihtiyaçlarını canlı işaretleyerek takip edin.</p>
+                    <h4 style="color: #FFFFFF; font-size: 1.15rem; margin: 0 0 8px;">Eksiksiz Çeyiz Listesi (8 Kategori · 118 Kalem)</h4>
+                    <p style="color: #B5B5BE; font-size: 0.88rem; margin: 0; line-height: 1.5;">8 ana kategoride ev kurma ve çeyiz ihtiyaçlarını canlı işaretleyerek takip edin.</p>
                 </a>
                 <a href="dugun-gunu-akisi.html" style="background: #121218; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 22px; text-decoration: none; display: block; transition: all 0.25s ease;">
                     <div style="color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">Zaman Yönetimi</div>
@@ -1290,42 +1290,61 @@
                 `;
             }).join('');
 
-            // 2. Render Sides Breakdown (Geleneksel vs Modern İmece)
+            // 2. Render Sides Breakdown (Ortak Bütçe & Eşit Paylaşım)
             const sidesGrid = document.getElementById('sidesGrid');
-            const gelinGeleneksel = Math.round(currentBudget * 0.35);
-            const damatGeleneksel = Math.round(currentBudget * 0.65);
             const esitPay = Math.round(currentBudget * 0.50);
 
             sidesGrid.innerHTML = `
-                <div style="background: #181822; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 16px; padding: 22px;">
-                    <div style="color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Geleneksel Dağılım</div>
-                    <h5 style="color: #fff; font-size: 1.15rem; margin: 0 0 12px;">Gelin Tarafı Payı (~%35)</h5>
-                    <div style="font-size: 1.6rem; font-weight: 800; color: #ECC880; margin-bottom: 12px;">${formatCurrency(gelinGeleneksel)}</div>
-                    <ul style="color: #B5B5BE; font-size: 0.88rem; line-height: 1.6; margin: 0; padding-left: 18px;">
-                        <li>Yatak odası &amp; mutfak gereçleri</li>
-                        <li>Kına gecesi &amp; organizasyonu</li>
-                        <li>Damatlık &amp; damat saati</li>
-                        <li>Düğün fotoğrafçısı payı</li>
-                    </ul>
-                </div>
-                <div style="background: #181822; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 16px; padding: 22px;">
-                    <div style="color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Geleneksel Dağılım</div>
-                    <h5 style="color: #fff; font-size: 1.15rem; margin: 0 0 12px;">Damat Tarafı Payı (~%65)</h5>
-                    <div style="font-size: 1.6rem; font-weight: 800; color: #ECC880; margin-bottom: 12px;">${formatCurrency(damatGeleneksel)}</div>
-                    <ul style="color: #B5B5BE; font-size: 0.88rem; line-height: 1.6; margin: 0; padding-left: 18px;">
-                        <li>Düğün salonu, yemek &amp; orkestra</li>
-                        <li>Beyaz eşyalar &amp; salon mobilyası</li>
-                        <li>Gelinlik &amp; kuaför masrafları</li>
-                        <li>Takı &amp; alyans harcamaları</li>
-                    </ul>
-                </div>
-                <div style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, #121218 100%); border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 16px; padding: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                <div style="background: #181822; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div style="color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">İmece Usulü (Modern Eşit Paylaşım)</div>
-                        <h5 style="color: #fff; font-size: 1.1rem; margin: 0 0 4px;">Kişi Başı Eşit Sorumluluk: %50 / %50</h5>
-                        <p style="color: #B5B5BE; font-size: 0.88rem; margin: 0;">Her iki taraf da ortak bütçe havuzuna kişi başı <strong>${formatCurrency(esitPay)}</strong> yatırarak masrafları birlikte karşılar.</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Eşit Paylaşım Modeli</span>
+                            <span style="background: rgba(212, 175, 55, 0.15); color: #ECC880; font-size: 0.78rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">%50 Pay</span>
+                        </div>
+                        <h5 style="color: #fff; font-size: 1.18rem; margin: 0 0 10px; font-family: var(--font-header, 'Playfair Display', serif);">Gelin Tarafı Sorumluluk Havuzu</h5>
+                        <div style="font-size: 1.8rem; font-weight: 800; color: #ECC880; margin-bottom: 12px; letter-spacing: -0.02em;">${formatCurrency(esitPay)}</div>
+                        <p style="color: #B5B5BE; font-size: 0.85rem; line-height: 1.5; margin: 0 0 16px;">Önceden mutabık kalınan kalemler şeffafça kaydedilir; belirlenen bütçe tavanı aşılmaz.</p>
+                        <ul style="color: #D4D4DC; font-size: 0.88rem; line-height: 1.7; margin: 0; padding-left: 18px;">
+                            <li>Yatak odası &amp; ev tekstili gereçleri</li>
+                            <li>Kına / bekarlığa veda &amp; gelin hazırlıkları</li>
+                            <li>Damatlık, damat saati &amp; kişisel aksesuarlar</li>
+                            <li>Fotoğraf, video &amp; çekim anı payı</li>
+                        </ul>
                     </div>
-                    <div style="font-size: 1.5rem; font-weight: 800; color: #ECC880; white-space: nowrap;">${formatCurrency(esitPay)} / kişi</div>
+                </div>
+                <div style="background: #181822; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Eşit Paylaşım Modeli</span>
+                            <span style="background: rgba(212, 175, 55, 0.15); color: #ECC880; font-size: 0.78rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;">%50 Pay</span>
+                        </div>
+                        <h5 style="color: #fff; font-size: 1.18rem; margin: 0 0 10px; font-family: var(--font-header, 'Playfair Display', serif);">Damat Tarafı Sorumluluk Havuzu</h5>
+                        <div style="font-size: 1.8rem; font-weight: 800; color: #ECC880; margin-bottom: 12px; letter-spacing: -0.02em;">${formatCurrency(esitPay)}</div>
+                        <p style="color: #B5B5BE; font-size: 0.85rem; line-height: 1.5; margin: 0 0 16px;">Harcama tavanına sadık kalınır; son dakika ani eklemeler bütçe dışı bırakılır.</p>
+                        <ul style="color: #D4D4DC; font-size: 0.88rem; line-height: 1.7; margin: 0; padding-left: 18px;">
+                            <li>Düğün salonu, yemek &amp; orkestra protokolü</li>
+                            <li>Salon mobilyası &amp; büyük beyaz eşyalar</li>
+                            <li>Gelinlik, gelin buketi &amp; saç-makyaj payı</li>
+                            <li>Takı &amp; alyans harcama tavanı</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(236, 200, 128, 0.16) 0%, #161622 100%); border: 1px solid rgba(212, 175, 55, 0.55); border-radius: 18px; padding: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.45);">
+                    <div style="max-width: 620px;">
+                        <div style="display: inline-flex; align-items: center; gap: 8px; color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">
+                            <span>🎯</span>
+                            <span>İmece Disiplini: Planlanan Bütçeden Asla Sapmayın</span>
+                        </div>
+                        <h5 style="color: #fff; font-size: 1.15rem; margin: 0 0 8px; font-weight: 700;">Harcama Tavanına Sadık Kalın, Sürpriz Krizleri Önleyin</h5>
+                        <p style="color: #B5B5BE; font-size: 0.9rem; line-height: 1.6; margin: 0;">Düğün sürecinde 'nasıl olsa bir kere evleniyoruz' diyerek kontrolsüz yapılan küçük eklemeler bütçeyi %30-40 oranında deler. İmece Düğün ile ortak bütçe tavanı koyun, kimin ne kadar harcadığını şeffafça görün ve planlanan limitlerin kesinlikle dışına çıkmayın.</p>
+                    </div>
+                    <div style="text-align: right; background: rgba(0,0,0,0.35); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 14px; padding: 14px 20px; min-width: 200px;">
+                        <div style="color: #9A9AA6; font-size: 0.78rem; text-transform: uppercase; font-weight: 600; margin-bottom: 2px;">Kişi Başı Eşit Pay</div>
+                        <div style="font-size: 1.7rem; font-weight: 800; color: #ECC880; white-space: nowrap;">${formatCurrency(esitPay)}</div>
+                        <div style="color: #4cd964; font-size: 0.78rem; font-weight: 600; margin-top: 4px; display: flex; align-items: center; gap: 4px; justify-content: flex-end;">
+                            <span class="material-icons-round" style="font-size: 14px;">verified</span> Hedef: %0 Bütçe Sapması
+                        </div>
+                    </div>
                 </div>
             `;
         }

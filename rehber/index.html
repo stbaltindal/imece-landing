@@ -337,6 +337,97 @@
             text-transform: uppercase;
             letter-spacing: 0.6px;
             box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        .guide-card-footer .material-icons-round {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+        }
+        .guide-card:hover .guide-card-footer .material-icons-round {
+            transform: translateX(6px);
+            color: #FFF2CE;
+        }
+        /* Luxury Search & Filter Pills */
+        .guide-search-container {
+            max-width: 680px;
+            margin: 28px auto 20px;
+            position: relative;
+        }
+        .guide-search-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .guide-search-input {
+            width: 100%;
+            background: #121218;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 16px;
+            padding: 16px 20px 16px 50px;
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+        .guide-search-input:focus {
+            border-color: #ECC880;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25), 0 8px 24px rgba(0,0,0,0.4);
+            background: #161622;
+        }
+        .guide-search-input::placeholder {
+            color: #71717A;
+        }
+        .guide-search-icon {
+            position: absolute;
+            left: 18px;
+            color: #ECC880;
+            font-size: 22px;
+            pointer-events: none;
+        }
+        .guide-filter-pills {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 18px auto 0;
+            max-width: 760px;
+        }
+        .guide-filter-btn {
+            background: #14141E;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            color: #B5B5BE;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 24px;
+            cursor: pointer;
+            transition: all 0.22s ease;
+            font-family: inherit;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .guide-filter-btn:hover {
+            border-color: rgba(212, 175, 55, 0.6);
+            color: #FFFFFF;
+            background: #181826;
+            transform: translateY(-2px);
+        }
+        .guide-filter-btn.active {
+            background: linear-gradient(135deg, rgba(236, 200, 128, 0.22) 0%, rgba(212, 175, 55, 0.12) 100%);
+            border-color: #ECC880;
+            color: #ECC880;
+            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.2);
+        }
+        .no-results-msg {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 48px 24px;
+            background: #121218;
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            display: none;
         }
         .breadcrumb-nav {
             padding: 24px 0 12px;
@@ -350,26 +441,66 @@
         }
     </style>
 
-    <!-- Schema.org Breadcrumb & Collection -->
+    <!-- Schema.org Breadcrumb & ItemList Collection -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Ana Sayfa",
-          "item": "https://imecedugun.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Rehberler",
-          "item": "https://imecedugun.com/rehber/"
-        }
-      ]
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Ana Sayfa",
+            "item": "https://imecedugun.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Rehberler",
+            "item": "https://imecedugun.com/rehber/"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "İmece Düğün Hazırlık Rehberleri",
+        "description": "Düğün bütçesi, çeyiz listesi, nedime görev dağılımı, düğün günü akış planı ve dijital LCV rehberleri.",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://imecedugun.com/rehber/ceyiz-listesi.html",
+            "name": "Eksiksiz Çeyiz Listesi (118 Kalem)"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://imecedugun.com/rehber/dugun-butcesi.html",
+            "name": "Düğün Bütçesi Hesaplayıcı"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://imecedugun.com/rehber/nedime-ve-bride-to-be.html",
+            "name": "Nedime Görev Dağılımı ve Bride-to-Be Planlama"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://imecedugun.com/rehber/dugun-gunu-akisi.html",
+            "name": "Düğün Günü Saat Saat Canlı Akış Programı"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "url": "https://imecedugun.com/rehber/dijital-lcv-ve-oturma-duzeni.html",
+            "name": "Dijital LCV ve Masa Oturma Düzeni Kılavuzu"
+          }
+        ]
+      }
+    ]
     </script>
 </head>
 <body class="has-sticky-cta dark-active" style="background-color: #08080A !important; color: #FFFFFF !important;">
@@ -412,7 +543,7 @@
                     <img src="../assets/img/logo_wax_seal_96.png" alt="Logo" width="28" height="28" style="width: 28px; height: 28px; object-fit: contain;">
                     <span style="font-weight: 700; color: #fff; font-size: 1.05rem;">İmece Düğün</span>
                 </div>
-                <button type="button" data-nav-close style="background: none; border: none; color: #ECC880; font-size: 28px; cursor: pointer; padding: 0 4px; line-height: 1;" aria-label="Menüyü Kapat">&times;</button>
+                <button type="button" data-nav-close style="background: none; border: none; color: #ECC880; font-size: 28px; cursor: pointer; min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; line-height: 1;" aria-label="Menüyü Kapat">&times;</button>
             </div>
             <a href="https://imecedugun.com/#interactive-rsvp-showcase" data-nav-close>Davetiye &amp; LCV</a>
             <a href="https://imecedugun.com/#neden-imece" data-nav-close>Çözümler</a>
@@ -454,22 +585,38 @@
                 <p style="max-width: 680px; margin: 0 auto; color: var(--n-muted, #9a9aa2); font-size: 1.05rem; line-height: 1.6;">
                     Çeyiz listesinden bütçe hesaplamaya, nedime organizasyonundan düğün günü saat saat akışına kadar en özel gününüzü kolaylaştıracak uzman kılavuzlar ve interaktif şablonlar.
                 </p>
+
+                <!-- Search & Filters -->
+                <div class="guide-search-container">
+                    <div class="guide-search-wrapper">
+                        <span class="material-icons-round guide-search-icon">search</span>
+                        <input type="text" id="guideSearchInput" class="guide-search-input" placeholder="Rehberlerde ara... (örn: çeyiz, bütçe, LCV, nedime, akış)" aria-label="Rehberlerde arama yapın">
+                    </div>
+                    <div class="guide-filter-pills" role="tablist" aria-label="Kategori Filtreleri">
+                        <button class="guide-filter-btn active" data-filter="all" role="tab" aria-selected="true">Tümü (5)</button>
+                        <button class="guide-filter-btn" data-filter="ceyiz" role="tab" aria-selected="false">📋 Çeyiz &amp; Ev Kurma</button>
+                        <button class="guide-filter-btn" data-filter="butce" role="tab" aria-selected="false">💰 Bütçe &amp; Masraflar</button>
+                        <button class="guide-filter-btn" data-filter="nedime" role="tab" aria-selected="false">👰 Nedime &amp; Görevler</button>
+                        <button class="guide-filter-btn" data-filter="akis" role="tab" aria-selected="false">⏱️ Gün Akışı &amp; Reji</button>
+                        <button class="guide-filter-btn" data-filter="lcv" role="tab" aria-selected="false">🪑 LCV &amp; Masa Düzeni</button>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="guide-hub-content">
             <div class="container">
-                <div class="guide-hub-grid">
+                <div class="guide-hub-grid" id="guideHubGrid">
                     
                     <!-- Guide 1: Çeyiz Listesi -->
-                    <a href="ceyiz-listesi.html" class="guide-card">
+                    <a href="ceyiz-listesi.html" class="guide-card" data-category="ceyiz" data-keywords="çeyiz listesi ev kurma mutfak yatak odası salon banyo 118 kalem checklist interaktif liste">
                         <span class="guide-badge-popular">İnteraktif Araç · 118 Kalem</span>
                         <div>
                             <div class="guide-card-icon">
                                 <span class="material-icons-round">checkroom</span>
                             </div>
                             <h3>Eksiksiz Çeyiz &amp; Ev Kurma Listesi (118 Kalem)</h3>
-                            <p>13 kategoride eksiksiz çeyiz listesi. Mutfaktan yatak odasına anlık arama yapın, aldıklarınızı işaretleyin, kalan eksikleri tek tıkla WhatsApp'a kopyalayın.</p>
+                            <p>8 kategoride eksiksiz çeyiz listesi. Mutfaktan yatak odasına anlık arama yapın, aldıklarınızı işaretleyin, kalan eksikleri tek tıkla WhatsApp'a kopyalayın.</p>
                         </div>
                         <div class="guide-card-footer">
                             <span>İnteraktif Listeyi Aç</span>
@@ -478,14 +625,14 @@
                     </a>
 
                     <!-- Guide 2: Düğün Bütçesi -->
-                    <a href="dugun-butcesi.html" class="guide-card">
+                    <a href="dugun-butcesi.html" class="guide-card" data-category="butce" data-keywords="düğün bütçesi masraf hesaplama altın oran simülatör gelin damat eşit %50 harcama tavanı sapmama">
                         <span class="guide-badge-popular">Altın Oran Simülatörü</span>
                         <div>
                             <div class="guide-card-icon">
                                 <span class="material-icons-round">account_balance_wallet</span>
                             </div>
                             <h3>Düğün Bütçesi &amp; Masraf Hesaplama Rehberi</h3>
-                            <p>Toplam bütçenizi belirleyin; mekan, gelinlik, fotoğraf harcama havuzlarını ve geleneksel vs. eşit (%50 - %50) paylaşım oranlarını anında görün.</p>
+                            <p>Toplam bütçenizi belirleyin; mekan, gelinlik, fotoğraf harcama havuzlarını ve mutabık kalınan eşit (%50 - %50) paylaşım oranlarını anında görün.</p>
                         </div>
                         <div class="guide-card-footer">
                             <span>Bütçe Aracını Başlat</span>
@@ -494,7 +641,7 @@
                     </a>
 
                     <!-- Guide 3: Nedime & Bride -->
-                    <a href="nedime-ve-bride-to-be.html" class="guide-card">
+                    <a href="nedime-ve-bride-to-be.html" class="guide-card" data-category="nedime" data-keywords="nedime bride to be gelin acil çantası sağdıç görev dağılımı kriz protokolü co-host">
                         <span class="guide-badge-popular">Gelin Acil Çantası Kiti</span>
                         <div>
                             <div class="guide-card-icon">
@@ -510,7 +657,7 @@
                     </a>
 
                     <!-- Guide 4: Düğün Günü Akışı -->
-                    <a href="dugun-gunu-akisi.html" class="guide-card">
+                    <a href="dugun-gunu-akisi.html" class="guide-card" data-category="akis" data-keywords="düğün günü saat saat canlı akış programı kuaför fotoğraf nikah reji zaman yönetimi after party">
                         <span class="guide-badge-popular">Saat Saat Akış Planlayıcı</span>
                         <div>
                             <div class="guide-card-icon">
@@ -526,7 +673,7 @@
                     </a>
 
                     <!-- Guide 5: Dijital LCV & Oturma Düzeni -->
-                    <a href="dijital-lcv-ve-oturma-duzeni.html" class="guide-card">
+                    <a href="dijital-lcv-ve-oturma-duzeni.html" class="guide-card" data-category="lcv" data-keywords="dijital lcv masa oturma düzeni kuver hesaplayıcı whatsapp davet şablonu protokol diyet alerjen">
                         <span class="guide-badge-popular">Masa &amp; Kuver Hesaplayıcı</span>
                         <div>
                             <div class="guide-card-icon">
@@ -540,6 +687,13 @@
                             <span class="material-icons-round">arrow_forward</span>
                         </div>
                     </a>
+
+                    <!-- Empty State Message -->
+                    <div id="noResultsMsg" class="no-results-msg">
+                        <span class="material-icons-round" style="font-size: 40px; color: #ECC880; margin-bottom: 12px; display: block;">search_off</span>
+                        <p style="color: #ECC880; font-size: 1.1rem; margin: 0 0 8px; font-weight: 600;">Aradığınız kriterlere uygun rehber bulunamadı.</p>
+                        <p style="color: #9A9AA6; margin: 0; font-size: 0.9rem;">Farklı bir arama kelimesi yazabilir veya kategori filtresini 'Tümü' olarak değiştirebilirsiniz.</p>
+                    </div>
 
                 </div>
 
@@ -624,34 +778,95 @@
 
     <script>
     (function() {
+        // Mobile Navigation Drawer
         var toggle = document.getElementById("navToggle");
         var drawer = document.getElementById("navDrawer");
-        if (!toggle || !drawer) return;
-        function openDrawer() {
-            drawer.removeAttribute("hidden");
-            void drawer.offsetWidth;
-            drawer.classList.add("is-open");
-            toggle.setAttribute("aria-expanded", "true");
-            document.body.classList.add("nav-open");
-        }
-        function closeDrawer() {
-            drawer.classList.remove("is-open");
-            toggle.setAttribute("aria-expanded", "false");
-            document.body.classList.remove("nav-open");
-            setTimeout(function() {
-                if (toggle.getAttribute("aria-expanded") !== "true") {
-                    drawer.setAttribute("hidden", "");
-                }
-            }, 450);
-        }
-        toggle.addEventListener("click", function() {
-            var isOpen = toggle.getAttribute("aria-expanded") === "true";
-            if (isOpen) closeDrawer(); else openDrawer();
-        });
-        drawer.addEventListener("click", function(e) {
-            if (e.target.hasAttribute("data-nav-close") || e.target.closest("[data-nav-close]")) {
-                closeDrawer();
+        if (toggle && drawer) {
+            function openDrawer() {
+                drawer.removeAttribute("hidden");
+                void drawer.offsetWidth;
+                drawer.classList.add("is-open");
+                toggle.setAttribute("aria-expanded", "true");
+                document.body.classList.add("nav-open");
             }
+            function closeDrawer() {
+                drawer.classList.remove("is-open");
+                toggle.setAttribute("aria-expanded", "false");
+                document.body.classList.remove("nav-open");
+                setTimeout(function() {
+                    if (toggle.getAttribute("aria-expanded") !== "true") {
+                        drawer.setAttribute("hidden", "");
+                    }
+                }, 450);
+            }
+            toggle.addEventListener("click", function() {
+                var isOpen = toggle.getAttribute("aria-expanded") === "true";
+                if (isOpen) closeDrawer(); else openDrawer();
+            });
+            drawer.addEventListener("click", function(e) {
+                if (e.target.hasAttribute("data-nav-close") || e.target.closest("[data-nav-close]")) {
+                    closeDrawer();
+                }
+            });
+            document.addEventListener("keydown", function(e) {
+                if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+                    closeDrawer();
+                }
+            });
+        }
+
+        // Live Search & Category Filtering
+        var searchInput = document.getElementById("guideSearchInput");
+        var filterBtns = document.querySelectorAll(".guide-filter-btn");
+        var cards = document.querySelectorAll("#guideHubGrid .guide-card");
+        var noResultsMsg = document.getElementById("noResultsMsg");
+
+        var activeFilter = "all";
+        var searchQuery = "";
+
+        function filterCards() {
+            var visibleCount = 0;
+            var query = searchQuery.trim().toLowerCase();
+
+            cards.forEach(function(card) {
+                var category = card.getAttribute("data-category") || "";
+                var keywords = (card.getAttribute("data-keywords") || "").toLowerCase();
+                var textContent = card.innerText.toLowerCase();
+
+                var matchesCat = (activeFilter === "all" || category === activeFilter);
+                var matchesSearch = !query || keywords.indexOf(query) !== -1 || textContent.indexOf(query) !== -1;
+
+                if (matchesCat && matchesSearch) {
+                    card.style.display = "flex";
+                    visibleCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            if (noResultsMsg) {
+                noResultsMsg.style.display = (visibleCount === 0) ? "block" : "none";
+            }
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener("input", function(e) {
+                searchQuery = e.target.value;
+                filterCards();
+            });
+        }
+
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                filterBtns.forEach(function(b) {
+                    b.classList.remove("active");
+                    b.setAttribute("aria-selected", "false");
+                });
+                btn.classList.add("active");
+                btn.setAttribute("aria-selected", "true");
+                activeFilter = btn.getAttribute("data-filter") || "all";
+                filterCards();
+            });
         });
     })();
     </script>

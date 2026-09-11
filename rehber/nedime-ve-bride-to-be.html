@@ -380,64 +380,562 @@
             margin: 0 auto;
         }
 
-        .roles-timeline-card {
+        /* Surprise Guard & Co-Host Card */
+        .surprise-guard-card {
+            background: radial-gradient(circle at 90% 10%, rgba(212, 175, 55, 0.12) 0%, #111117 65%);
+            border: 1px solid rgba(212, 175, 55, 0.38);
+            border-radius: 22px;
+            padding: 32px 34px;
+            margin: 32px 0 44px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .surprise-guard-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ECC880 0%, #D4AF37 100%);
+        }
+        .surprise-guard-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 16px;
+        }
+        .surprise-guard-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: rgba(212, 175, 55, 0.14);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ECC880;
+            font-size: 26px;
+            flex-shrink: 0;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        }
+        .guard-pill {
+            display: inline-block;
+            color: #ECC880;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .guard-title {
+            color: #FFFFFF;
+            font-family: var(--font-header, 'Playfair Display', serif);
+            font-size: 1.35rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        .guard-lead {
+            color: #C7C7D2;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin: 0 0 20px;
+            max-width: 820px;
+        }
+        .guard-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+        .guard-feat-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: all 0.25s ease;
+        }
+        .guard-feat-item:hover {
+            background: rgba(212, 175, 55, 0.06);
+            border-color: rgba(212, 175, 55, 0.35);
+        }
+        .guard-feat-item span.material-icons-round {
+            color: #ECC880;
+            font-size: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .guard-feat-item strong {
+            display: block;
+            color: #FFFFFF;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+        }
+        .guard-feat-item span {
+            color: #A6A6B4;
+            font-size: 0.84rem;
+            line-height: 1.45;
+        }
+
+        /* Section Badges & Micro Pills */
+        .section-badge-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .mini-gold-pill {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #ECC880;
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        /* Roles & Task Matrix */
+        .roles-matrix-section {
+            margin: 48px 0 56px;
+        }
+        .matrix-main-title {
+            font-family: var(--font-header, 'Playfair Display', serif);
+            font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+            color: #FFFFFF;
+            margin: 0 0 10px;
+            line-height: 1.3;
+        }
+        .matrix-main-desc {
+            color: #B5B5BE;
+            font-size: 0.96rem;
+            line-height: 1.65;
+            margin: 0 0 24px;
+            max-width: 800px;
+        }
+        .category-pills {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+            scrollbar-width: thin;
+            -webkit-overflow-scrolling: touch;
+        }
+        .cat-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: #E2E2E8;
+            padding: 10px 20px;
+            border-radius: 24px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+        }
+        .cat-pill:hover {
+            background: rgba(212, 175, 55, 0.16);
+            border-color: rgba(212, 175, 55, 0.6);
+            color: #FFFFFF;
+            transform: translateY(-1px);
+        }
+        .cat-pill.active {
+            background: linear-gradient(135deg, rgba(236, 200, 128, 0.32) 0%, rgba(212, 175, 55, 0.22) 100%);
+            border-color: #ECC880;
+            color: #FFFFFF;
+            box-shadow: 0 0 16px rgba(212, 175, 55, 0.28);
+        }
+        .role-matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 20px;
+        }
+        .role-card {
+            background: #121218;
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            border-radius: 20px;
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        }
+        .role-card:hover {
+            border-color: rgba(212, 175, 55, 0.55);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 18px rgba(212, 175, 55, 0.12);
+        }
+        .role-card.is-hidden {
+            display: none !important;
+        }
+        .role-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .role-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .role-badge.maid-of-honor {
+            background: rgba(236, 200, 128, 0.16);
+            border: 1px solid rgba(236, 200, 128, 0.45);
+            color: #ECC880;
+        }
+        .role-badge.bridesmaids {
+            background: rgba(255, 154, 162, 0.16);
+            border: 1px solid rgba(255, 154, 162, 0.4);
+            color: #FFB7B2;
+        }
+        .role-badge.groomsmen {
+            background: rgba(110, 180, 255, 0.16);
+            border: 1px solid rgba(110, 180, 255, 0.4);
+            color: #92C5FD;
+        }
+        .role-badge.cohost {
+            background: rgba(52, 211, 153, 0.16);
+            border: 1px solid rgba(52, 211, 153, 0.4);
+            color: #6EE7B7;
+        }
+        .role-phase-pill {
+            color: #8E8E9A;
+            font-size: 0.78rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .role-card-title {
+            color: #FFFFFF;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 0 0 10px;
+            line-height: 1.35;
+        }
+        .role-card-desc {
+            color: #B5B5BE;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin: 0 0 16px;
+        }
+        .role-duty-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+        .role-duty-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            color: #E2E2E8;
+            font-size: 0.88rem;
+            line-height: 1.45;
+        }
+        .role-duty-item span.dot {
+            color: #ECC880;
+            font-size: 14px;
+            margin-top: 1px;
+            flex-shrink: 0;
+        }
+        .role-app-pill {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px dashed rgba(212, 175, 55, 0.35);
+            border-radius: 10px;
+            padding: 9px 12px;
+            color: #ECC880;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: auto;
+        }
+
+        /* Interactive Checklist Tracker */
+        .ceyiz-tracker-card {
             background: #121218;
             border: 1px solid rgba(212, 175, 55, 0.35);
             border-radius: 22px;
-            padding: 36px;
-            margin: 36px 0 52px;
+            padding: 34px;
             box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
         }
-        .task-role-item {
-            background: rgba(255, 255, 255, 0.04);
-            border-left: 4px solid #ECC880;
-            border-radius: 0 16px 16px 0;
-            padding: 20px 24px;
-            margin-bottom: 18px;
-            transition: all 0.25s ease;
+        .tracker-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-bottom: 22px;
         }
-        .task-role-item:hover {
+        .tracker-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn-tracker-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            color: #ECC880;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.22s ease;
+            min-height: 44px;
+            text-decoration: none;
+            user-select: none;
+        }
+        .btn-tracker-action:hover {
+            background: rgba(212, 175, 55, 0.26);
+            border-color: #ECC880;
+            color: #FFFFFF;
+            transform: translateY(-1px);
+        }
+        .btn-tracker-action.btn-whatsapp {
+            background: rgba(37, 211, 102, 0.16);
+            border-color: rgba(37, 211, 102, 0.45);
+            color: #4ade80;
+        }
+        .btn-tracker-action.btn-whatsapp:hover {
+            background: rgba(37, 211, 102, 0.26);
+            border-color: #4ade80;
+            color: #FFFFFF;
+        }
+        .btn-tracker-action.btn-reset {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.18);
+            color: #A0A0AB;
+        }
+        .btn-tracker-action.btn-reset:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+        }
+        .tracker-progress-bar {
+            background: rgba(255, 255, 255, 0.08);
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 14px 0 22px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .tracker-progress-fill {
+            background: linear-gradient(90deg, #C5A059 0%, #ECC880 50%, #D4AF37 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 0 14px rgba(212, 175, 55, 0.5);
+        }
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .check-item {
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 14px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+            color: #EDEDF2;
+            font-size: 0.94rem;
+            min-height: 52px;
+        }
+        .check-item:hover {
             background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(212, 175, 55, 0.45);
+            transform: translateY(-2px);
+        }
+        .check-item.done {
+            background: rgba(212, 175, 55, 0.07);
+            border-color: rgba(212, 175, 55, 0.3);
+            text-decoration: line-through;
+            color: #8E8E98;
+        }
+        .check-item.is-hidden {
+            display: none !important;
+        }
+        .check-box {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            border: 1.5px solid rgba(212, 175, 55, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #08080A;
+            font-size: 13px;
+            font-weight: 800;
+            background: rgba(212, 175, 55, 0.08);
+            transition: all 0.2s ease;
+        }
+        .check-item.done .check-box {
+            background: linear-gradient(135deg, #ECC880, #D4AF37);
+            border-color: #ECC880;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.45);
+        }
+
+        /* Wedding Day Crisis Scenarios */
+        .crisis-section {
+            margin: 54px 0;
+        }
+        .crisis-main-title {
+            font-family: var(--font-header, 'Playfair Display', serif);
+            font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+            color: #FFFFFF;
+            margin: 0 0 10px;
+            line-height: 1.3;
+        }
+        .crisis-main-desc {
+            color: #B5B5BE;
+            font-size: 0.96rem;
+            line-height: 1.65;
+            margin: 0 0 28px;
+            max-width: 820px;
+        }
+        .crisis-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .crisis-card {
+            background: #121218;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #ECC880;
+            border-radius: 0 18px 18px 0;
+            padding: 24px 28px;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        .crisis-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(212, 175, 55, 0.4);
             transform: translateX(4px);
         }
-        .task-role-title {
+        .crisis-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .crisis-scenario-title {
             color: #FFFFFF;
+            font-size: 1.12rem;
             font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+            margin: 0;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .task-role-desc {
+        .crisis-responder-pill {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #ECC880;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+        .crisis-protocol-box {
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .crisis-protocol-label {
+            color: #4ade80;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .crisis-protocol-text {
             color: #E2E2E8;
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 0.92rem;
+            line-height: 1.6;
             margin: 0;
         }
-
-        .surprise-guard-badge {
-            background: linear-gradient(135deg, rgba(235, 87, 87, 0.2), rgba(18, 18, 24, 0.95));
-            border: 1px solid rgba(235, 87, 87, 0.45);
-            border-radius: 18px;
-            padding: 28px;
-            margin: 36px 0;
+        .crisis-footer-meta {
             display: flex;
             align-items: center;
-            gap: 22px;
-            box-shadow: 0 10px 30px rgba(235, 87, 87, 0.15);
+            gap: 16px;
+            font-size: 0.84rem;
+            color: #9A9AA6;
+            flex-wrap: wrap;
         }
-        .surprise-guard-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(235, 87, 87, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ff6b6b;
-            font-size: 24px;
-            flex-shrink: 0;
+        .crisis-footer-meta span.item-needed {
+            color: #ECC880;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .surprise-guard-card {
+                padding: 24px 20px;
+            }
+            .role-matrix-grid {
+                grid-template-columns: 1fr;
+            }
+            .ceyiz-tracker-card {
+                padding: 24px 18px;
+            }
+            .tracker-actions {
+                width: 100%;
+            }
+            .btn-tracker-action {
+                flex: 1;
+                font-size: 0.82rem;
+                padding: 10px 12px;
+            }
+            .checklist-grid {
+                grid-template-columns: 1fr;
+            }
+            .crisis-card {
+                padding: 20px 18px;
+            }
         }
 
         /* Luxury App Bridge Banner */
@@ -714,66 +1212,259 @@
             </p>
         </header>
 
-        <!-- Surprise Guard Callout -->
-        <div class="surprise-guard-badge">
-            <div class="surprise-guard-icon">
-                <span class="material-icons-round">security</span>
+        <!-- Surprise Guard & Co-Host Card -->
+        <div class="surprise-guard-card">
+            <div class="surprise-guard-header">
+                <div class="surprise-guard-icon">
+                    <span class="material-icons-round">verified_user</span>
+                </div>
+                <div>
+                    <span class="guard-pill">GİZLİLİK &amp; DİJİTAL YETKİLENDİRME</span>
+                    <h3 class="guard-title">Gelin Koruması (Surprise Guard) &amp; Eş-Yönetici Sistemi</h3>
+                </div>
             </div>
-            <div>
-                <h4 style="color: #fff; margin: 0 0 6px; font-size: 1.15rem;">İmece Düğün "Gelin Koruması (Surprise Guard)"</h4>
-                <p style="color: var(--n-muted, #9a9aa2); margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                    WhatsApp gruplarında sürpriz mekan konuşulurken gelinin görme riski her zaman vardır. İmece Düğün uygulamasında nedimeler gelin görmeden kilitli gizli oda açabilir; görev ve bütçeyi gelin görmeden gizlice planlar.
-                </p>
+            <p class="guard-lead">
+                WhatsApp gruplarında sürpriz mekan veya pasta konuşulurken gelinin bildirimi görme riski daima vardır. İmece Düğün ile gelin ve damadın haberi olmadan gizli bekarlığa veda odası açabilir, organizasyonu sıfır sızıntıyla ve tam yetkilendirmeyle yönetebilirsiniz.
+            </p>
+            <div class="guard-features-grid">
+                <div class="guard-feat-item">
+                    <span class="material-icons-round">lock</span>
+                    <div>
+                        <strong>Kilitli Gizli Oda (Surprise Guard)</strong>
+                        <span>Gelin görmeden bride-to-be konsepti, bütçe kasası ve pasta siparişi gizlice koordine edilir.</span>
+                    </div>
+                </div>
+                <div class="guard-feat-item">
+                    <span class="material-icons-round">supervisor_account</span>
+                    <div>
+                        <strong>Eş-Yönetici (Co-Host) Yetkisi</strong>
+                        <span>Çift, davet koduyla baş nedimeye yetki vererek kuaför ve fotoğrafçı takibini güvenle delege eder.</span>
+                    </div>
+                </div>
+                <div class="guard-feat-item">
+                    <span class="material-icons-round">playlist_add_check</span>
+                    <div>
+                        <strong>Görev Teklifi &amp; Onay (Task Proposal)</strong>
+                        <span>Nedime ve sağdıçlar yeni görev ve bütçe teklif edebilir; çift tek tıkla onaylar veya düzenler.</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Task Distribution Timeline -->
-        <section class="roles-timeline-card">
-            <h3 style="color: #fff; font-size: 1.25rem; margin: 0 0 20px; font-family: var(--font-header, 'Playfair Display', serif);">
-                Nedimelerin 5 Kritik Sorumluluk Alanı
-            </h3>
+        <!-- Interactive Role & Task Matrix (Nedime & Sağdıç Görev Matrisi) -->
+        <section class="roles-matrix-section" id="gorev-matrisi">
+            <div class="section-badge-wrap">
+                <span class="mini-gold-pill">GÖREV DAĞILIM MATRİSİ</span>
+            </div>
+            <h2 class="matrix-main-title">Nedime &amp; Sağdıç Sorumluluk Matrisi</h2>
+            <p class="matrix-main-desc">
+                Düğünün kusursuz geçmesi ve çiftin sıfır stres yaşaması için görev paylaşımı net olmalıdır. Rolünüzü veya ilgilendiğiniz alanı seçerek düğün öncesi, sabahı ve tören anındaki sorumlulukları filtreleyin:
+            </p>
 
-            <div class="task-role-item">
-                <div class="task-role-title"><span class="material-icons-round" style="color: var(--gold);">cake</span> 1. Bride-to-Be / Bekarlığa Veda Partisi Organizasyonu</div>
-                <p class="task-role-desc">Tarihin ve konseptin (Pijama partisi, havuz başı, hafta sonu tatili) belirlenmesi, kız kıza bütçenin toplanması, mekan rezervasyonu ve pasta siparişinin verilmesi.</p>
+            <div class="category-pills matrix-pills" role="tablist" aria-label="Görev Dağılım Rolleri">
+                <button type="button" class="cat-pill active" data-role="all" onclick="filterRoleMatrix('all')">Tüm Roller (8 Alan)</button>
+                <button type="button" class="cat-pill" data-role="maid-of-honor" onclick="filterRoleMatrix('maid-of-honor')">👑 Baş Nedime (2)</button>
+                <button type="button" class="cat-pill" data-role="bridesmaids" onclick="filterRoleMatrix('bridesmaids')">🌸 Nedime Ekibi (2)</button>
+                <button type="button" class="cat-pill" data-role="groomsmen" onclick="filterRoleMatrix('groomsmen')">🎩 Baş Sağdıç &amp; Ekip (2)</button>
+                <button type="button" class="cat-pill" data-role="cohost" onclick="filterRoleMatrix('cohost')">🤝 Eş-Yönetici (Co-Host) (2)</button>
             </div>
 
-            <div class="task-role-item">
-                <div class="task-role-title"><span class="material-icons-round" style="color: var(--gold);">checkroom</span> 2. Gelinlik Provaları &amp; Alışveriş Desteği</div>
-                <p class="task-role-desc">Gelinlik ve kaftan provalarında fotoğraf çekmek, tarafsız ama destekleyici fikirler vermek ve gelinin yorulmaması için randevu saatlerini koordine etmek.</p>
-            </div>
+            <div class="role-matrix-grid" id="roleMatrixGrid">
+                <!-- Card 1: Baş Nedime - Hazırlık & Kuaför -->
+                <div class="role-card" data-role-card="maid-of-honor">
+                    <div>
+                        <div class="role-card-header">
+                            <span class="role-badge maid-of-honor">👑 Baş Nedime</span>
+                            <span class="role-phase-pill"><span class="material-icons-round" style="font-size: 14px;">wb_sunny</span> Düğün Sabahı</span>
+                        </div>
+                        <h3 class="role-card-title">Gelin Odası &amp; Kuaför Zaman Yöneticisi</h3>
+                        <p class="role-card-desc">Kuaför ve makyaj koltuğu sıralamasını yönetir; gelinin susuz ve aç kalmaması için atıştırmalık servisini aksatmaz.</p>
+                        <ul class="role-duty-list">
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Kuaför, makyöz ve nedimelerin randevu akışını dakikası dakikasına denetler.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Gelinlik giydirme, korse bağlama ve duvak sabitleme anında bizzat eşlik eder.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Gelin odasında panik havasını engelleyip sakin ve neşeli atmosfer kurar.</span></li>
+                        </ul>
+                    </div>
+                    <div class="role-app-pill">
+                        <span class="material-icons-round" style="font-size: 16px;">phone_iphone</span>
+                        <span>İmece Düğün: Saat Saat Akış Planı ile senkronize</span>
+                    </div>
+                </div>
 
-            <div class="task-role-item">
-                <div class="task-role-title"><span class="material-icons-round" style="color: var(--gold);">medical_services</span> 3. Düğün Günü "Gelin Acil Durum Çantası"</div>
-                <p class="task-role-desc">İğne-iplik, çengelli iğne, yara bandı, çift taraflı bant, nane şekeri, pudra, mini saç spreyi, ağrı kesici ve yedek düz taban ayakkabı içeren hayat kurtarıcı çanta.</p>
-            </div>
+                <!-- Card 2: Baş Nedime - Tören & Acil Çanta -->
+                <div class="role-card" data-role-card="maid-of-honor">
+                    <div>
+                        <div class="role-card-header">
+                            <span class="role-badge maid-of-honor">👑 Baş Nedime</span>
+                            <span class="role-phase-pill"><span class="material-icons-round" style="font-size: 14px;">auto_awesome</span> Tören &amp; Gece</span>
+                        </div>
+                        <h3 class="role-card-title">Acil Çanta Kalkanı &amp; Nikah Şahitliği</h3>
+                        <p class="role-card-desc">15 parçalık Gelin Acil Durum Çantası'nı yanından ayırmaz; nikah anında çiçeği ve duvağı kusursuz tutar.</p>
+                        <ul class="role-duty-list">
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Nikah masasına yürürken duvak ve kuyruğu düzeltip fotoğrafa hazırlar.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Nikah kıyılırken gelin buketini ve eldivenleri teslim alır.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Makyaj tazeleme ve ayakkabı değişimi anında gelin odası kapısını tutar.</span></li>
+                        </ul>
+                    </div>
+                    <div class="role-app-pill">
+                        <span class="material-icons-round" style="font-size: 16px;">check_circle</span>
+                        <span>İmece Düğün: Acil çanta checklist görevini üstlenir</span>
+                    </div>
+                </div>
 
-            <div class="task-role-item">
-                <div class="task-role-title"><span class="material-icons-round" style="color: var(--gold);">schedule</span> 4. Kuaför &amp; Hazırlık Odası Zaman Yönetimi</div>
-                <p class="task-role-desc">Gelin hazırlık odasında makyaj ve saç sıralamasını yönetmek, gelinin aç kalmaması için atıştırmalık ve su servisi sağlamak.</p>
-            </div>
+                <!-- Card 3: Nedime Ekibi - Bride to Be -->
+                <div class="role-card" data-role-card="bridesmaids">
+                    <div>
+                        <div class="role-card-header">
+                            <span class="role-badge bridesmaids">🌸 Nedime Ekibi</span>
+                            <span class="role-phase-pill"><span class="material-icons-round" style="font-size: 14px;">celebration</span> Düğün Öncesi</span>
+                        </div>
+                        <h3 class="role-card-title">Sürpriz Bride-to-Be &amp; Bekarlığa Veda Partisi</h3>
+                        <p class="role-card-desc">Gelinin haberi olmadan konsept, mekan, hediye havuzu ve pasta siparişini organize eder.</p>
+                        <ul class="role-duty-list">
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Tarih, mekan ve konsepti (pijama, havuz başı, spa) ortaklaşa seçer.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Kız kıza masraf bütçesini toplayıp pasta ve süsleme rezervasyonunu yapar.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Gelinin çeyiz ve kaftan alışverişlerinde moral desteği ve objektif fikir verir.</span></li>
+                        </ul>
+                    </div>
+                    <div class="role-app-pill">
+                        <span class="material-icons-round" style="font-size: 16px;">lock</span>
+                        <span>İmece Düğün: "Gelin Koruması" gizli parti odasında planlanır</span>
+                    </div>
+                </div>
 
-            <div class="task-role-item">
-                <div class="task-role-title"><span class="material-icons-round" style="color: var(--gold);">celebration</span> 5. Pist Canlılığı &amp; After Party Coşkusu</div>
-                <p class="task-role-desc">İlk dans ve pasta kesiminde misafirleri piste yönlendirmek, DJ listesindeki şarkıların sırasını takip etmek ve enerjiyi gece boyunca yüksek tutmak.</p>
+                <!-- Card 4: Nedime Ekibi - Pist Dinamizmi -->
+                <div class="role-card" data-role-card="bridesmaids">
+                    <div>
+                        <div class="role-card-header">
+                            <span class="role-badge bridesmaids">🌸 Nedime Ekibi</span>
+                            <span class="role-phase-pill"><span class="material-icons-round" style="font-size: 14px;">music_note</span> Düğün Gecesi</span>
+                        </div>
+                        <h3 class="role-card-title">Pist Dinamizmi, Reels &amp; Sosyal Medya</h3>
+                        <p class="role-card-desc">İlk dans ve pasta kesiminde misafirleri piste yönlendirir; en samimi anları dikey video açılarıyla yakalar.</p>
+                        <ul class="role-duty-list">
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>İlk dansta ve hareketli parçalarda pistin asla boş kalmamasını sağlar.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>DJ çalma listesindeki favori şarkı geçişlerini kontrol eder.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Çiftin gece sonunda paylaşabileceği 4K dikey arka plan videoları çeker.</span></li>
+                        </ul>
+                    </div>
+                    <div class="role-app-pill">
+                        <span class="material-icons-round" style="font-size: 16px;">group</span>
+                        <span>İmece Düğün: Ortak çalma listesi takibi</span>
+                    </div>
+                </div>
+
+                <!-- Card 5: Baş Sağdıç - Damat & Konvoy -->
+                <div class="role-card" data-role-card="groomsmen">
+                    <div>
+                        <div class="role-card-header">
+                            <span class="role-badge groomsmen">🎩 Baş Sağdıç</span>
+                            <span class="role-phase-pill"><span class="material-icons-round" style="font-size: 14px;">directions_car</span> Düğün Sabahı</span>
+                        </div>
+                        <h3 class="role-card-title">Damat Hazırlığı, Konvoy &amp; Bahşiş Zarfları</h3>
+                        <p class="role-card-desc">Damat tıraşı ve giyinme saatlerini yönetir; gelin arabası süslemesi ve bahşiş zarflarını eksiksiz hazırlar.</p>
+                        <ul class="role-duty-list">
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Damat odası moralini yüksek tutar; kol düğmesi ve kravat iğnesini kontrol eder.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Gelin alma kapısı ve davul-zurna için bozuk para / bahşiş zarflarını taşır.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Konvoyun güvenli rotasını ve araç plakası süslemesini koordine eder.</span></li>
+                        </ul>
+                    </div>
+                    <div class="role-app-pill">
+                        <span class="material-icons-round" style="font-size: 16px;">assignment</span>
+                        <span>İmece Düğün: Damat tarafı iş paketlerini üstlenir</span>
+                    </div>
+                </div>
+
+                <!-- Card 6: Baş Sağdıç - Takı & Güvenlik -->
+                <div class="role-card" data-role-card="groomsmen">
+                    <div>
+                        <div class="role-card-header">
+                            <span class="role-badge groomsmen">🎩 Baş Sağdıç</span>
+                            <span class="role-phase-pill"><span class="material-icons-round" style="font-size: 14px;">shield</span> Tören &amp; Kutlama</span>
+                        </div>
+                        <h3 class="role-card-title">Takı Sandığı Güvenliği &amp; Emanet Yönetimi</h3>
+                        <p class="role-card-desc">Takı töreninde altın kesesi ve sandığın güvenliğini sağlar; emanetleri güvenli aile büyüğüne devreder.</p>
+                        <ul class="role-duty-list">
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Takı sandığının başında durur; iğneleme sırasında damada yedek kurdele uzatır.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Tören sonunda takı sandığını çiftin belirlediği aile büyüğüne veya kasaya teslim eder.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Müzisyen ve fotoğrafçı kaporalarını son ödeme anında teslim eder.</span></li>
+                        </ul>
+                    </div>
+                    <div class="role-app-pill">
+                        <span class="material-icons-round" style="font-size: 16px;">lock</span>
+                        <span>İmece Düğün: Masraf ve emanet sorumluluk yetkilendirmesi</span>
+                    </div>
+                </div>
+
+                <!-- Card 7: Eş-Yönetici - Co-Host -->
+                <div class="role-card" data-role-card="cohost">
+                    <div>
+                        <div class="role-card-header">
+                            <span class="role-badge cohost">🤝 Eş-Yönetici</span>
+                            <span class="role-phase-pill"><span class="material-icons-round" style="font-size: 14px;">vpn_key</span> Tüm Süreç</span>
+                        </div>
+                        <h3 class="role-card-title">Eş-Yönetici (Co-Host) Yetkilendirmesi</h3>
+                        <p class="role-card-desc">Çiftin gönderdiği özel davet koduyla etkinliğe eş-yönetici olarak katılır; tedarikçi telefonlarını çift adına yönetir.</p>
+                        <ul class="role-duty-list">
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Organizasyon şefi, kuaför ve DJ ile doğrudan iletişim kurup çifti aratmaz.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Davetli LCV teyitlerini ve masa oturma değişikliklerini anlık denetler.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Düğün günü acil kararları çifti strese sokmadan soğukkanlılıkla verir.</span></li>
+                        </ul>
+                    </div>
+                    <div class="role-app-pill">
+                        <span class="material-icons-round" style="font-size: 16px;">security</span>
+                        <span>İmece Düğün: Eş-Yönetici (isCoHost) yetkisiyle tam kontrol</span>
+                    </div>
+                </div>
+
+                <!-- Card 8: Eş-Yönetici - Görev Teklifi -->
+                <div class="role-card" data-role-card="cohost">
+                    <div>
+                        <div class="role-card-header">
+                            <span class="role-badge cohost">🤝 Eş-Yönetici</span>
+                            <span class="role-phase-pill"><span class="material-icons-round" style="font-size: 14px;">handshake</span> Planlama &amp; Görev</span>
+                        </div>
+                        <h3 class="role-card-title">Görev Teklifi (Task Proposal) &amp; Bütçe Paylaşımı</h3>
+                        <p class="role-card-desc">Nedimeler kendi aralarında görev önerir; tamamlanan işleri host onayına sunarak şeffaf ilerleme sağlar.</p>
+                        <ul class="role-duty-list">
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>"Dış çekim şemsiyesi", "Bekarlığa veda t-shirtleri" gibi görevleri teklif eder.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>Tahmini bütçeyi girer; çift tek dokunuşla onayladığında görev listesine işlenir.</span></li>
+                            <li class="role-duty-item"><span class="dot">✦</span> <span>İş tamamlandığında 'tamamlama talebi' gönderir; çift bildirimle onaylar.</span></li>
+                        </ul>
+                    </div>
+                    <div class="role-app-pill">
+                        <span class="material-icons-round" style="font-size: 16px;">task_alt</span>
+                        <span>İmece Düğün: Görev Teklifi &amp; Tamamlama Onayı</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Interactive Bridesmaid Emergency Kit Checklist -->
-        <section class="ceyiz-tracker-card" style="margin-top: 36px; margin-bottom: 36px;">
+        <section class="ceyiz-tracker-card" id="acil-canta" style="margin-top: 48px; margin-bottom: 48px;">
             <div class="tracker-header">
                 <div>
-                    <h3 style="color: #fff; margin: 0 0 4px; font-size: 1.25rem; font-family: var(--font-header, 'Playfair Display', serif);">
+                    <div style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                        <span class="material-icons-round" style="color: #ECC880; font-size: 18px;">medical_services</span>
+                        <span style="color: #ECC880; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;">BAŞ NEDİME HAYAT KURTARAN LİSTE</span>
+                    </div>
+                    <h3 style="color: #fff; margin: 0 0 6px; font-size: 1.35rem; font-family: var(--font-header, 'Playfair Display', serif);">
                         Gelin Acil Durum Çantası Kontrol Listesi
                     </h3>
-                    <span id="kitStats" style="color: var(--gold, #C5A059); font-size: 0.9rem; font-weight: 600;">0 / 15 Malzeme Hazır (%0)</span>
+                    <span id="kitStats" style="color: #ECC880; font-size: 0.92rem; font-weight: 600;">0 / 15 Malzeme Hazır (%0)</span>
                 </div>
-                <div class="tracker-actions" style="display: flex; gap: 10px;">
-                    <button type="button" id="copyKitBtn" onclick="copyKitList()" class="btn" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.5); color: #ECC880; padding: 8px 16px; border-radius: 10px; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 600;">
-                        <span class="material-icons-round" style="font-size: 16px;">content_copy</span> Nedimelerle Paylaş
+                <div class="tracker-actions">
+                    <button type="button" id="copyKitBtn" onclick="copyKitList()" class="btn-tracker-action" aria-label="Listeyi Kopyala">
+                        <span class="material-icons-round" style="font-size: 18px;">content_copy</span>
+                        <span>Kopyala</span>
                     </button>
-                    <button type="button" onclick="resetKitList()" class="btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.15); color: var(--n-muted, #9a9aa2); padding: 8px 14px; border-radius: 10px; font-size: 0.85rem; cursor: pointer;">
-                        Sıfırla
+                    <button type="button" id="whatsappKitBtn" onclick="shareKitWhatsApp()" class="btn-tracker-action btn-whatsapp" aria-label="WhatsApp ile Nedimelere Gönder">
+                        <span class="material-icons-round" style="font-size: 18px;">chat</span>
+                        <span>WhatsApp ile Paylaş</span>
+                    </button>
+                    <button type="button" onclick="resetKitList()" class="btn-tracker-action btn-reset" aria-label="Seçimleri Sıfırla">
+                        <span class="material-icons-round" style="font-size: 16px;">restart_alt</span>
+                        <span>Sıfırla</span>
                     </button>
                 </div>
             </div>
@@ -782,12 +1473,138 @@
                 <div class="tracker-progress-fill" id="kitFill"></div>
             </div>
 
-            <p style="color: #A0A0AB; font-size: 0.88rem; margin: 0 0 16px;">
-                Düğün günü gelinin çantasını baş nedime taşır. Küçük kazalarda (elbise söküğü, makyaj akması, baş ağrısı) düğünü kurtaracak 15 altın malzeme:
+            <div class="category-pills kit-filter-pills" role="tablist" aria-label="Acil Çanta Kategorileri" style="margin-bottom: 20px;">
+                <button type="button" class="cat-pill active" data-cat="all" onclick="filterKitCategory('all')">Tümü (15)</button>
+                <button type="button" class="cat-pill" data-cat="makyaj" onclick="filterKitCategory('makyaj')">💄 Makyaj &amp; Rötuş (4)</button>
+                <button type="button" class="cat-pill" data-cat="terzilik" onclick="filterKitCategory('terzilik')">🪡 Terzilik &amp; Kıyafet (4)</button>
+                <button type="button" class="cat-pill" data-cat="medikal" onclick="filterKitCategory('medikal')">🩹 Medikal &amp; Konfor (4)</button>
+                <button type="button" class="cat-pill" data-cat="teknoloji" onclick="filterKitCategory('teknoloji')">⚡ Teknoloji &amp; Enerji (3)</button>
+            </div>
+
+            <p style="color: #A0A0AB; font-size: 0.9rem; line-height: 1.6; margin: 0 0 18px;">
+                Düğün günü gelinin acil durum çantasını baş nedime taşır. Küçük kazalarda (elbise söküğü, makyaj akması, ani baş ağrısı) düğünü saniyeler içinde kurtaracak 15 altın malzeme:
             </p>
 
             <div class="checklist-grid" id="kitGrid">
-                <!-- Injected by JS -->
+                <!-- Injected by JS with categories and checkboxes -->
+            </div>
+        </section>
+
+        <!-- Wedding Day Crisis Scenarios (Düğün Günü Kriz Senaryoları & Soğukkanlı Müdahale) -->
+        <section class="crisis-section" id="kriz-senaryolari">
+            <div class="section-badge-wrap">
+                <span class="mini-gold-pill">KRİZ YÖNETİM PROTOKOLÜ</span>
+            </div>
+            <h2 class="crisis-main-title">Düğün Günü 5 Kriz Senaryosu &amp; Hızlı Çözüm Kılavuzu</h2>
+            <p class="crisis-main-desc">
+                En lüks düğünlerde dahi küçük aksilikler yaşanabilir. Başarının sırrı, çiftin ruhunun bile duymamasıdır. Baş nedime ve sağdıcın soğukkanlılıkla yönetmesi gereken 5 kritik kriz senaryosu:
+            </p>
+
+            <div class="crisis-grid">
+                <!-- Kriz 1 -->
+                <div class="crisis-card">
+                    <div class="crisis-header-row">
+                        <h3 class="crisis-scenario-title">
+                            <span class="material-icons-round" style="color: #f87171;">warning</span>
+                            <span>1. Gelinliğe Kırmızı Şarap, Fondöten veya Çamur Bulaştı</span>
+                        </h3>
+                        <span class="crisis-responder-pill">👑 Baş Nedime</span>
+                    </div>
+                    <div class="crisis-protocol-box">
+                        <div class="crisis-protocol-label"><span class="material-icons-round" style="font-size: 15px;">check_circle</span> Acil Müdahale Protokolü</div>
+                        <p class="crisis-protocol-text">
+                            <strong>ASLA ISLAK BEZLE OVMAYIN!</strong> Suyla ovalamak lekeyi saten ve tül dokusunun derinlerine yayar ve matlaştırır. Temiz kuru peçeteyle lekeye sadece tampon yapın. Ardından beyaz tebeşir tozu veya acil leke çıkarıcı mendil uygulayarak pigmenti gizleyin.
+                        </p>
+                    </div>
+                    <div class="crisis-footer-meta">
+                        <span>Gerekli Malzeme: <span class="item-needed">Acil leke mendili, tebeşir, kuru havlu</span></span>
+                        <span>Çifte Bilgi: <strong style="color: #4ade80;">Gerek yok, sessizce çözün</strong></span>
+                    </div>
+                </div>
+
+                <!-- Kriz 2 -->
+                <div class="crisis-card">
+                    <div class="crisis-header-row">
+                        <h3 class="crisis-scenario-title">
+                            <span class="material-icons-round" style="color: #fbbf24;">schedule</span>
+                            <span>2. Kuaför 45 Dakika Gecikti, Fotoğraf Çekimi Sıkışıyor</span>
+                        </h3>
+                        <span class="crisis-responder-pill">🤝 Eş-Yönetici &amp; Sağdıç</span>
+                    </div>
+                    <div class="crisis-protocol-box">
+                        <div class="crisis-protocol-label"><span class="material-icons-round" style="font-size: 15px;">check_circle</span> Acil Müdahale Protokolü</div>
+                        <p class="crisis-protocol-text">
+                            Geline asla gecikme saatini fısıldayıp panikletmeyin. Baş nedime fotoğrafçıyı arayıp kuaföre davet eder; gelinlik, ayakkabı, duvak ve hazırlık detay çekimlerini kuaförde başlatır. Baş sağdıç araç konvoy saatini 20 dakika esnetir.
+                        </p>
+                    </div>
+                    <div class="crisis-footer-meta">
+                        <span>Gerekli Malzeme: <span class="item-needed">Dolu Powerbank, telefon rehberi</span></span>
+                        <span>Çifte Bilgi: <strong style="color: #ECC880;">"Her şey plana uygun ilerliyor" telkini</strong></span>
+                    </div>
+                </div>
+
+                <!-- Kriz 3 -->
+                <div class="crisis-card">
+                    <div class="crisis-header-row">
+                        <h3 class="crisis-scenario-title">
+                            <span class="material-icons-round" style="color: #f87171;">healing</span>
+                            <span>3. Gelin Ayakkabısı Ayağını Vurdu veya Topuk Kırıldı</span>
+                        </h3>
+                        <span class="crisis-responder-pill">🌸 Nedime Ekibi</span>
+                    </div>
+                    <div class="crisis-protocol-box">
+                        <div class="crisis-protocol-label"><span class="material-icons-round" style="font-size: 15px;">check_circle</span> Acil Müdahale Protokolü</div>
+                        <p class="crisis-protocol-text">
+                            Gelin odasında vurulan bölgeye silikon topuk koruyucu jel ve yara bandı yapıştırılır. Nikah töreni tamamlandıktan hemen sonra çift taraflı bantla elbise boyu hizalanır ve gelinliğin altına önceden hazırlanan beyaz şık sneaker veya dolgu taban babet giydirilir.
+                        </p>
+                    </div>
+                    <div class="crisis-footer-meta">
+                        <span>Gerekli Malzeme: <span class="item-needed">Silikon jel, yara bandı, yedek beyaz babet/sneaker</span></span>
+                        <span>Çözüm Süresi: <strong style="color: #4ade80;">2 dakika</strong></span>
+                    </div>
+                </div>
+
+                <!-- Kriz 4 -->
+                <div class="crisis-card">
+                    <div class="crisis-header-row">
+                        <h3 class="crisis-scenario-title">
+                            <span class="material-icons-round" style="color: #fbbf24;">sentiment_dissatisfied</span>
+                            <span>4. Gelin Açlıktan ve Stresten Baş Dönmesi / Titreme Yaşıyor</span>
+                        </h3>
+                        <span class="crisis-responder-pill">👑 Baş Nedime</span>
+                    </div>
+                    <div class="crisis-protocol-box">
+                        <div class="crisis-protocol-label"><span class="material-icons-round" style="font-size: 15px;">check_circle</span> Acil Müdahale Protokolü</div>
+                        <p class="crisis-protocol-text">
+                            Gelinliği gevşetmeden oturmasını sağlayın. Asla asitli içecek veya ağır yemek vermeyin. Rujunu bozmamak için ince bir pipetle soğuk su yudumlatın. Glisemik indeksi dengeli kuruyemiş (badem, ceviz) veya protein bar ile kan şekerini toparlayın.
+                        </p>
+                    </div>
+                    <div class="crisis-footer-meta">
+                        <span>Gerekli Malzeme: <span class="item-needed">İnce pipet, soğuk su, protein bar / kuru yemiş</span></span>
+                        <span>Önlem: <strong style="color: #4ade80;">Odayı kalabalıktan arındırıp havalandırın</strong></span>
+                    </div>
+                </div>
+
+                <!-- Kriz 5 -->
+                <div class="crisis-card">
+                    <div class="crisis-header-row">
+                        <h3 class="crisis-scenario-title">
+                            <span class="material-icons-round" style="color: #60a5fa;">shield</span>
+                            <span>5. Davetliler Arasında Masa / Protokol Gerginliği veya Takı Karışıklığı</span>
+                        </h3>
+                        <span class="crisis-responder-pill">🎩 Baş Sağdıç</span>
+                    </div>
+                    <div class="crisis-protocol-box">
+                        <div class="crisis-protocol-label"><span class="material-icons-round" style="font-size: 15px;">check_circle</span> Acil Müdahale Protokolü</div>
+                        <p class="crisis-protocol-text">
+                            Çiftin kulağına tek bir olumsuz fısıltı gitmemelidir. Baş sağdıç organizasyon şefiyle koordineli olarak yedek protokol kuverini devreye alır. Takı töreninde sandığın başından ayrılmayarak kutuları mühürlü torbaya aktarır ve güvenli aile büyüğüne teslim eder.
+                        </p>
+                    </div>
+                    <div class="crisis-footer-meta">
+                        <span>Gerekli Malzeme: <span class="item-needed">İmece Düğün Masa Oturma Planı, takı sandığı anahtarı</span></span>
+                        <span>Hedef: <strong style="color: #4ade80;">Sıfır sızıntı, çiftin düğün keyfi kesintisiz</strong></span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -803,12 +1620,12 @@
                         <span>•</span>
                         <span class="stars">★★★★★</span>
                     </div>
-                    <h4>Nedime Ekibini Kurun: Görevleri Sevdiklerinize Delege Edin</h4>
-                    <p>Uygulamayı indiren nedimeler davet kodunuzla etkinliğe katılır. Görev teklif edebilir, tamamlanan işleri işaretleyebilir ve bütçeyi paylaşabilir.</p>
+                    <h4>Nedime &amp; Sağdıç Ekibinizi Kurun: Görevleri Sevdiklerinize Delege Edin</h4>
+                    <p>Uygulamayı indiren nedime ve sağdıçlar davet kodunuzla etkinliğe katılır. Eş-yönetici olarak görev teklif edebilir, tamamlanan işleri işaretleyebilir ve sürpriz odayı çift görmeden yönetebilir.</p>
                     <ul class="app-bridge-features">
                         <li><span>✦</span> Gelinden gizli sürpriz parti odası</li>
-                        <li><span>✦</span> Rol ve görev paylaşımı</li>
-                        <li><span>✦</span> Ortak hediye &amp; masraf kasası</li>
+                        <li><span>✦</span> Eş-Yönetici (Co-Host) &amp; Görev Teklifi</li>
+                        <li><span>✦</span> Ortak hediye havuzu &amp; masraf kasası</li>
                     </ul>
                 </div>
             </div>
@@ -817,7 +1634,7 @@
                     <svg class="apple-svg" viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true">
                         <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
                     </svg>
-                    <span>Nedime Ekibini Hemen Kur — Ücretsiz</span>
+                    <span>Nedime &amp; Sağdıç Ekibini Hemen Kur — Ücretsiz</span>
                 </a>
             </div>
         </section>
@@ -895,33 +1712,44 @@
 
     <script>
     const emergencyItems = [
-        { id: 1, name: "Çift Taraflı Kumaş Bandı (Dekolte / Boyunluk)" },
-        { id: 2, name: "Mini Dikiş Seti (İğne, Beyaz İplik, Çengelli İğneler)" },
-        { id: 3, name: "Ağrı Kesici & Mide Koruyucu Tabletler" },
-        { id: 4, name: "Yedek Şeffaf Külotlu Çorap (2 Adet)" },
-        { id: 5, name: "Acil Leke Çıkarıcı Mendil / Kalem" },
-        { id: 6, name: "Mini Saç Spreyi & Bolca Tel Toka" },
-        { id: 7, name: "Şeffaf Matlaştırıcı Pudra & Yağ Emici Kağıt" },
-        { id: 8, name: "Yara Bandı & Topuk Vurma Koruyucu Jel" },
-        { id: 9, name: "Nane Şekeri / Ağız Spreyi" },
-        { id: 10, name: "Gelin Rujunun Birebir Aynısı / Lip Gloss" },
-        { id: 11, name: "İnce Pipetler (Ruj Bozulmadan Su İçmek İçin)" },
-        { id: 12, name: "Islak Mendil, Kuru Mendil & Göz Damlası" },
-        { id: 13, name: "Dolu Powerbank & Şarj Kablosu" },
-        { id: 14, name: "Mini Parfüm & Ter Önleyici Deodorant" },
-        { id: 15, name: "Kan Şekeri İçin Protein Bar / Ceviz-Badem" }
+        { id: 1, cat: "terzilik", name: "Çift Taraflı Kumaş Bandı (Dekolte / Boyunluk Sabitleme)" },
+        { id: 2, cat: "terzilik", name: "Mini Dikiş Seti (İğne, Beyaz İplik, Çengelli İğneler)" },
+        { id: 3, cat: "terzilik", name: "Yedek Şeffaf Külotlu Çorap (2 Adet — Acil Kaçma Önlemi)" },
+        { id: 4, cat: "terzilik", name: "Acil Leke Çıkarıcı Mendil / Beyaz Tebeşir" },
+        { id: 5, cat: "makyaj", name: "Gelin Rujunun Birebir Aynısı / Nemlendirici Lip Gloss" },
+        { id: 6, cat: "makyaj", name: "Şeffaf Matlaştırıcı Pudra & Yağ Emici Kağıt" },
+        { id: 7, cat: "makyaj", name: "Mini Saç Spreyi & Bolca Siyah/Sarı Tel Toka" },
+        { id: 8, cat: "makyaj", name: "İnce Pipetler (Ruj Bozulmadan Su & İçecek İçin)" },
+        { id: 9, cat: "medikal", name: "Ağrı Kesici, Mide Koruyucu & Alerji Tableti" },
+        { id: 10, cat: "medikal", name: "Yara Bandı & Silikon Topuk Vurma Koruyucu Jel" },
+        { id: 11, cat: "medikal", name: "Göz Damlası (Kızarıklık Önleyici) & Lens Solüsyonu" },
+        { id: 12, cat: "medikal", name: "Nane Şekeri / Ferahlatıcı Ağız Spreyi" },
+        { id: 13, cat: "teknoloji", name: "Dolu Powerbank & Çoklu Hızlı Şarj Kablosu" },
+        { id: 14, cat: "teknoloji", name: "Kan Şekeri İçin Protein Bar / Hurma / Badem" },
+        { id: 15, cat: "teknoloji", name: "Mini Parfüm & Ter Önleyici Deodorant Mendil" }
     ];
 
+    let currentKitCat = 'all';
     let kitChecked = JSON.parse(localStorage.getItem('imece_kit_checked') || '[]');
 
     function renderKit() {
         const grid = document.getElementById('kitGrid');
         if (!grid) return;
-        grid.innerHTML = emergencyItems.map(item => {
+
+        const visibleItems = currentKitCat === 'all' 
+            ? emergencyItems 
+            : emergencyItems.filter(item => item.cat === currentKitCat);
+
+        grid.innerHTML = visibleItems.map(item => {
             const isDone = kitChecked.includes(item.id);
             return `
-                <div class="check-item ${isDone ? 'done' : ''}" onclick="toggleKitItem(${item.id})">
-                    <div class="check-box">${isDone ? '✓' : ''}</div>
+                <div class="check-item ${isDone ? 'done' : ''}" 
+                     role="checkbox" 
+                     aria-checked="${isDone}" 
+                     tabindex="0" 
+                     onclick="toggleKitItem(${item.id})"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleKitItem(${item.id});}">
+                    <div class="check-box" aria-hidden="true">${isDone ? '✓' : ''}</div>
                     <span>${item.name}</span>
                 </div>
             `;
@@ -931,8 +1759,36 @@
         const count = kitChecked.length;
         const pct = Math.round((count / total) * 100);
 
-        document.getElementById('kitStats').innerText = `${count} / ${total} Malzeme Hazır (%${pct})`;
-        document.getElementById('kitFill').style.width = `${pct}%`;
+        const statsEl = document.getElementById('kitStats');
+        if (statsEl) {
+            statsEl.innerText = `${count} / ${total} Malzeme Hazır (%${pct})`;
+        }
+        const fillEl = document.getElementById('kitFill');
+        if (fillEl) {
+            fillEl.style.width = `${pct}%`;
+        }
+    }
+
+    function filterKitCategory(cat) {
+        currentKitCat = cat;
+        document.querySelectorAll('.kit-filter-pills .cat-pill').forEach(pill => {
+            pill.classList.toggle('active', pill.getAttribute('data-cat') === cat);
+        });
+        renderKit();
+    }
+
+    function filterRoleMatrix(role) {
+        document.querySelectorAll('.matrix-pills .cat-pill').forEach(pill => {
+            pill.classList.toggle('active', pill.getAttribute('data-role') === role);
+        });
+        const cards = document.querySelectorAll('#roleMatrixGrid .role-card');
+        cards.forEach(card => {
+            if (role === 'all' || card.getAttribute('data-role-card') === role) {
+                card.classList.remove('is-hidden');
+            } else {
+                card.classList.add('is-hidden');
+            }
+        });
     }
 
     function triggerKitToast() {
@@ -976,28 +1832,43 @@
     }
 
     function copyKitList() {
-        let text = `🌸 İmece Düğün — Gelin Acil Durum Çantası & Nedime Görev Listesi:\n\n`;
+        let text = `🌸 İmece Düğün — Gelin Acil Durum Çantası Kontrol Listesi:\n\n`;
         emergencyItems.forEach(item => {
             const done = kitChecked.includes(item.id) ? "✅" : "⏳";
             text += `${done} ${item.name}\n`;
         });
-        text += `\nDetaylı rehber: https://imecedugun.com/rehber/nedime-ve-bride-to-be.html`;
+        text += `\nNedime Görev Dağılımı ve Kriz Kılavuzu: https://imecedugun.com/rehber/nedime-ve-bride-to-be.html`;
 
         navigator.clipboard.writeText(text).then(() => {
             const btn = document.getElementById('copyKitBtn');
-            const orig = btn.innerHTML;
-            btn.innerHTML = `<span class="material-icons-round" style="font-size: 16px;">check</span> Kopyalandı!`;
-            btn.style.background = 'rgba(46, 204, 113, 0.2)';
-            btn.style.borderColor = '#2ecc71';
-            btn.style.color = '#2ecc71';
-            setTimeout(() => {
-                btn.innerHTML = orig;
-                btn.style.background = 'rgba(212, 175, 55, 0.15)';
-                btn.style.borderColor = 'rgba(212, 175, 55, 0.5)';
-                btn.style.color = '#ECC880';
-            }, 2500);
+            if (btn) {
+                const orig = btn.innerHTML;
+                btn.innerHTML = `<span class="material-icons-round" style="font-size: 16px;">check</span> Kopyalandı!`;
+                btn.style.background = 'rgba(46, 204, 113, 0.2)';
+                btn.style.borderColor = '#2ecc71';
+                btn.style.color = '#2ecc71';
+                setTimeout(() => {
+                    btn.innerHTML = orig;
+                    btn.style.background = '';
+                    btn.style.borderColor = '';
+                    btn.style.color = '';
+                }, 2500);
+            }
             triggerKitToast();
         }).catch(err => alert('Kopyalanamadı: ' + err));
+    }
+
+    function shareKitWhatsApp() {
+        let text = `🌸 *İmece Düğün — Gelin Acil Durum Çantası & Nedime Kontrol Listesi*\n\n`;
+        emergencyItems.forEach(item => {
+            const done = kitChecked.includes(item.id) ? "✅" : "⏳";
+            text += `${done} ${item.name}\n`;
+        });
+        text += `\n👰 Detaylı görev matrisi ve kriz senaryoları:\nhttps://imecedugun.com/rehber/nedime-ve-bride-to-be.html`;
+
+        const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank', 'noopener');
+        triggerKitToast();
     }
 
     renderKit();
