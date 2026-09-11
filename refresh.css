@@ -436,8 +436,12 @@ button:focus-visible,
    7. Yogunluk — "Tanidik gelenler" listesi katlanir
    14 madde bir anda ekrani doldurmuyor; 6 gorunur, gerisi istege bagli.
    -------------------------------------------------------------------------- */
-.pain-check-list.is-collapsed .pain-item[data-overflow] {
+.pain-check-list.is-collapsed:not(.is-filtered) .pain-item[data-overflow] {
     display: none;
+}
+
+.pain-check-list.is-filtered .pain-more {
+    display: none !important;
 }
 
 .pain-more {

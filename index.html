@@ -260,7 +260,7 @@
                         <!-- Micro-Trust Signal for First 3-Second Conversion -->
                         <div class="hero-trust-proof">
                             <span class="trust-stars" aria-hidden="true">★★★★★</span>
-                            <span class="trust-text">iOS 17+ • Ücretsiz Başlayın • Reklamsız &amp; KVKK Güvenceli</span>
+                            <span class="trust-text">iOS 16+ Tam Uyumlu • Ücretsiz Başlayın • Reklamsız &amp; KVKK Güvenceli</span>
                         </div>
 
                         <a href="#tanidik" class="hero-scroll-hint">
@@ -329,10 +329,10 @@
                                     <div class="app-dashboard-scroller" id="mockupScroller">
                                         
                                         <!-- 1) TeamPoolBar ("Ekibim") -->
-                                        <div class="team-pool-section mockup-section-focus" id="mockup-team-section" onclick="jumpStory(5)">
+                                        <div class="team-pool-section mockup-section-focus" id="mockup-team-section" onclick="jumpStory(4)">
                                             <div class="team-pool-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                                                 <span class="team-title">Ekibim</span>
-                                                <div class="cohost-heart-btn" title="Ortak Yönetici Ekle" onclick="openCohostCreateDialog()">
+                                                <div class="cohost-heart-btn" title="Ortak Yönetici Ekle" onclick="event.stopPropagation(); openCohostCreateDialog()">
                                                     <svg viewBox="0 0 24 24" class="heart-icon"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                                                     <!-- Automatic Click Ripple for Heart -->
                                                     <div class="auto-tap-ripple" id="heartTapRipple" style="width: 20px; height: 20px;"></div>
@@ -794,7 +794,7 @@
                                         <div style="border: 1px solid var(--border-color); border-radius: 4px; padding: 5px; font-size: 10px; background: var(--bg-cream); color: var(--text-main);">Mert</div>
                                     </div>
                                     <div style="display: flex; gap: 6px;">
-                                        <button style="background: var(--border-color); border: none; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; flex: 1; color: var(--text-main);">İptal</button>
+                                        <button type="button" onclick="closeCohostDialogMobile()" style="background: var(--border-color); border: none; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; flex: 1; color: var(--text-main); cursor: pointer;">İptal</button>
                                         <button id="cohostSubmitMobile" style="background: var(--gold); border: none; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; flex: 1; color: white; position: relative;">
                                             Ekle
                                             <!-- Tap Ripple for dialog Submit button -->
@@ -806,23 +806,23 @@
                             
                             <!-- Mobile Bottom Sheets inside Phone Frame -->
                             <div class="mockup-bottom-sheet" id="inviteBottomSheetMobile" style="position: absolute; inset: 0; z-index: 95; pointer-events: none; overflow: hidden;">
-                                <div class="sheet-scrim" id="inviteScrimMobile" style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; transition: opacity 0.3s; pointer-events: none;"></div>
+                                <div class="sheet-scrim" id="inviteScrimMobile" onclick="closeMobileSheets()" style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; transition: opacity 0.3s; cursor: pointer;"></div>
                                 <div class="sheet-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--surface); border-top-left-radius: 14px; border-top-right-radius: 14px; box-shadow: 0 -3px 15px rgba(0,0,0,0.06); padding: 12px; border-top: 1px solid var(--border-color); text-align: center; transform: translateY(105%); z-index: 100;">
                                     <div style="width: 25px; height: 3px; background: var(--border-color); border-radius: 2px; margin: 0 auto 8px auto;"></div>
                                     <strong style="font-size: 12px; color: var(--text-main); display: block; margin-bottom: 2px;">Ece (Nedime) için Davet Kodu</strong>
                                     <p style="font-size: 9px; color: var(--text-light); margin: 0 0 8px 0;">Bu kodu paylaşarak ekibe katılmasını sağlayın.</p>
                                     <div style="background: var(--bg-cream); border: 1px dashed var(--gold); padding: 6px; border-radius: 4px; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">DN-ECE-572</div>
-                                    <div style="background: var(--gold); color: white; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; cursor: pointer;">Kodu Kopyala</div>
+                                    <div role="button" tabindex="0" onclick="copyInviteCode('DN-ECE-572')" style="background: var(--gold); color: white; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; cursor: pointer;">Kodu Kopyala</div>
                                 </div>
                             </div>
                             
                             <div class="mockup-bottom-sheet" id="cohostBottomSheetMobile" style="position: absolute; inset: 0; z-index: 95; pointer-events: none; overflow: hidden;">
-                                <div class="sheet-scrim" id="cohostScrimMobile" style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; transition: opacity 0.3s; pointer-events: none;"></div>
+                                <div class="sheet-scrim" id="cohostScrimMobile" onclick="closeMobileSheets()" style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; transition: opacity 0.3s; cursor: pointer;"></div>
                                 <div class="sheet-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--surface); border-top-left-radius: 14px; border-top-right-radius: 14px; box-shadow: 0 -3px 15px rgba(0,0,0,0.06); padding: 12px; border-top: 1px solid var(--border-color); text-align: center; transform: translateY(105%); z-index: 100;">
                                     <div style="width: 25px; height: 3px; background: var(--border-color); border-radius: 2px; margin: 0 auto 8px auto;"></div>
                                     <strong style="font-size: 12px; color: var(--text-main); display: block; margin-bottom: 2px;">Mert ortak yönetici olarak eklendi</strong>
                         <div style="background: var(--bg-cream); border: 1px dashed var(--gold); padding: 6px; border-radius: 4px; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">DN-MERT-984</div>
-                                    <div style="background: var(--gold); color: white; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; cursor: pointer;">Kodu Kopyala</div>
+                                    <div role="button" tabindex="0" onclick="copyInviteCode('DN-MERT-984')" style="background: var(--gold); color: white; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; cursor: pointer;">Kodu Kopyala</div>
                                 </div> <!-- Closes .sheet-container -->
                             </div> <!-- Closes #cohostBottomSheetMobile -->
                         </div> <!-- Closes .phone-screen -->
@@ -937,7 +937,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pain-item" id="pain-3" data-category="butce" data-id="pain-3" data-crisis="WhatsApp Grubunda Kaybolan Detaylar" data-solution="Tedarikçi &amp; Anlaşma Takibi" data-desc="Mekan, fotoğrafçı ve kuaför için anlaşılan fiyatlar, iletişim bilgileri ve kritik notlar tek yerde kayıtlıdır; WhatsApp sohbetlerinde kaybolmaz." data-badge="Tedarikçi Takibi" data-icon="storefront" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                        <div class="pain-item" id="pain-3" data-category="butce" data-id="pain-3" data-crisis="WhatsApp Grubunda Kaybolan Detaylar" data-solution="Tedarikçi &amp; Anlaşma Takibi" data-desc="Mekan, fotoğrafçı ve kuaför için anlaşılan fiyatlar, iletişim bilgileri ve kritik notlar tek yerde kayıtlıdır; WhatsApp sohbetlerinde kaybolmaz." data-badge="Tedarikçi Takibi" data-target="#indirin" data-cta="Tedarikçi Listesini Başlat" data-icon="storefront" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
                             <div class="pain-item-main">
                                 <span class="pain-box"><span class="material-icons-round">check</span></span>
                                 <span class="pain-body">
@@ -954,10 +954,14 @@
                                         <span>İmece Çözümü: <strong>Tedarikçi &amp; Anlaşma Takibi</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Mekan, fotoğrafçı ve kuaför için anlaşılan fiyatlar, iletişim bilgileri ve kritik notlar tek yerde kayıtlıdır; WhatsApp sohbetlerinde kaybolmaz.</p>
+                                    <a href="#indirin" class="pain-inline-action" onclick="event.stopPropagation();">
+                                        <span>Tedarikçi Listesini Başlat</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="pain-item" id="pain-4" data-category="butce" data-id="pain-4" data-crisis="Kontrolden Çıkan Bütçe & Gizli Masraflar" data-solution="Ortak Cüzdan & Kapora Takibi" data-desc="Kimin ne kadar harcadığı kuruşu kuruşuna kayıtlıdır. Kalan bütçe ve yaklaşan ödemeler anlık grafiklerle cebinizdedir." data-badge="Canlı Bütçe" data-icon="account_balance_wallet" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                        <div class="pain-item" id="pain-4" data-category="butce" data-id="pain-4" data-crisis="Kontrolden Çıkan Bütçe & Gizli Masraflar" data-solution="Ortak Cüzdan & Kapora Takibi" data-desc="Kimin ne kadar harcadığı kuruşu kuruşuna kayıtlıdır. Kalan bütçe ve yaklaşan ödemeler anlık grafiklerle cebinizdedir." data-badge="Canlı Bütçe" data-target="#text-slide-1" data-cta="Bütçe Akışını İncele" data-icon="account_balance_wallet" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
                             <div class="pain-item-main">
                                 <span class="pain-box"><span class="material-icons-round">check</span></span>
                                 <span class="pain-body">
@@ -974,6 +978,10 @@
                                         <span>İmece Çözümü: <strong>Ortak Cüzdan & Kapora Takibi</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Kimin ne kadar harcadığı kuruşu kuruşuna kayıtlıdır. Kalan bütçe ve yaklaşan ödemeler anlık grafiklerle cebinizdedir.</p>
+                                    <a href="rehber/dugun-butcesi.html" class="pain-inline-action" onclick="event.stopPropagation();">
+                                        <span>Bütçe Rehberini Aç</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1025,7 +1033,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pain-item" id="pain-7" data-category="planlama" data-id="pain-7" data-crisis="Takip Edilemeyen Sözler & Son Hafta Şoku" data-solution="Onay Korumalı Görev Takibi" data-desc="Görevli 'Yaptım' dese bile siz onaylamadan tamamlandı sayılmaz; son hafta telafisi imkansız krizler yaşanmaz." data-badge="Çift Onayı" data-icon="verified" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                        <div class="pain-item" id="pain-7" data-category="planlama" data-id="pain-7" data-crisis="Takip Edilemeyen Sözler & Son Hafta Şoku" data-solution="Onay Korumalı Görev Takibi" data-desc="Görevli 'Yaptım' dese bile siz onaylamadan tamamlandı sayılmaz; son hafta telafisi imkansız krizler yaşanmaz." data-badge="Çift Onayı" data-target="#cozum-sifre" data-cta="Eş-Yönetici Kartını Gör" data-icon="verified" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
                             <div class="pain-item-main">
                                 <span class="pain-box"><span class="material-icons-round">check</span></span>
                                 <span class="pain-body">
@@ -1042,10 +1050,14 @@
                                         <span>İmece Çözümü: <strong>Onay Korumalı Görev Takibi</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Görevli 'Yaptım' dese bile siz onaylamadan tamamlandı sayılmaz; son hafta telafisi imkansız krizler yaşanmaz.</p>
+                                    <a href="#cozum-sifre" class="pain-inline-action" onclick="event.stopPropagation(); revealSolution('cozum-sifre'); return false;">
+                                        <span>Eş-Yönetici Kartını Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="pain-item" id="pain-8" data-category="butce" data-id="pain-8" data-crisis="Dengesiz İş Yükü & İletişim Stresi" data-solution="Şeffaf İlerleme & İmece Karnesi" data-desc="Kimin hangi görevi ne zaman tamamladığı tüm ekip tarafından şeffafça görülür; gerçek yardım edenler netleşir." data-badge="İmece Ruhu" data-icon="leaderboard" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
+                        <div class="pain-item" id="pain-8" data-category="butce" data-id="pain-8" data-crisis="Dengesiz İş Yükü & İletişim Stresi" data-solution="Şeffaf İlerleme & İmece Karnesi" data-desc="Kimin hangi görevi ne zaman tamamladığı tüm ekip tarafından şeffafça görülür; gerçek yardım edenler netleşir." data-badge="İmece Ruhu" data-target="#mockup-team-section" data-cta="Ekip Yönetimini Gör" data-icon="leaderboard" role="button" tabindex="0" aria-pressed="false" onclick="togglePain(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePain(this,event);}">
                             <div class="pain-item-main">
                                 <span class="pain-box"><span class="material-icons-round">check</span></span>
                                 <span class="pain-body">
@@ -1062,6 +1074,10 @@
                                         <span>İmece Çözümü: <strong>Şeffaf İlerleme & İmece Karnesi</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Kimin hangi görevi ne zaman tamamladığı tüm ekip tarafından şeffafça görülür; gerçek yardım edenler netleşir.</p>
+                                    <a href="#hero-showcase-story" class="pain-inline-action" onclick="event.stopPropagation(); jumpStory(4); return false;">
+                                        <span>Ekip Akışını Gör</span>
+                                        <span class="material-icons-round">arrow_forward</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1416,9 +1432,9 @@
                                         <div class="sim-tl-row"><span class="sim-tl-dot"></span><span class="sim-tl-text"><b>21:15</b> İlk dans</span></div>
                                     </div>
 
-                                    <div class="sim-status-badge pending" id="simStatusBadge">
-                                        <span class="material-icons-round">schedule</span>
-                                        <span id="simStatusText">Yanıtınız bekleniyor</span>
+                                    <div class="sim-status-badge confirmed" id="simStatusBadge">
+                                        <span class="material-icons-round">check_circle</span>
+                                        <span id="simStatusText">Katılımınız onaylandı</span>
                                     </div>
 
                                     <div class="sim-rsvp-actions">
@@ -1443,7 +1459,7 @@
                                             <span class="sim-allergy-switch"><i></i></span>
                                         </button>
                                         <div class="sim-allergy-row" id="simAllergyRow" hidden>
-                                            <input type="text" id="simAllergyInput" placeholder="Örn: Glütensiz, fındık alerjisi" maxlength="60" aria-label="Alerji veya diyet notunuz">
+                                            <input type="text" id="simAllergyInput" placeholder="Örn: Glütensiz, fındık alerjisi" maxlength="60" aria-label="Alerji veya diyet notunuz" onkeydown="if(event.key==='Enter'){event.preventDefault();saveSimAllergy();}">
                                             <button type="button" onclick="saveSimAllergy()">Kaydet</button>
                                         </div>
                                     </div>
@@ -1863,7 +1879,7 @@
                                             </div>
                                             <div class="mini-todo-item alert">
                                                 <span class="todo-uncheck"></span>
-                                                <span class="todo-text">45 görev tarihi tek tek değişecek</span>
+                                                <span class="todo-text">Aktif listedeki 45 görevin tarihi tek tek değişecek</span>
                                             </div>
                                         </div>
                                         <p class="card-desc">Tören tarihi ertelendiğinde veya öne alındığında tüm hazırlık takviminin çökmesi ve <strong class="highlight-gold">tek tek tarih güncelleme eziyeti</strong>.</p>
@@ -1900,7 +1916,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <p class="card-desc">Sadece yeni tören tarihini seçin; sistem tüm 45 görevin son tarihlerini <strong class="highlight-gold">otomatik olarak aynı gün kadar kaydırır</strong>.</p>
+                                        <p class="card-desc">Sadece yeni tören tarihini seçin; sistem aktif plandaki 45 görevin ve 250+ şablonun son tarihlerini <strong class="highlight-gold">otomatik olarak aynı gün kadar kaydırır</strong>.</p>
                                     </div>
                                     <div class="flip-back-footer">
                                         <a href="#indirin" class="card-cta-btn" onclick="event.stopPropagation()">Takvimi Yönet →</a>
@@ -1921,7 +1937,7 @@
                 <div class="section-header">
                     <span class="section-tag gold">Kişiselleştirilmiş Öneri</span>
                     <h2>Hangi Plan İhtiyacınıza Uygun?</h2>
-                    <p class="section-subtitle">Planlayacağınız törenleri, davetli sayınızı ve hazırlık ekibinizi belirleyin; size en uygun ve ekonomik çözümü hemen görün.</p>
+                    <p class="section-subtitle">Planlayacağınız törenleri, davetli sayınızı, görev hacminizi ve hazırlık ekibinizi belirleyin; size en uygun ve ekonomik çözümü hemen görün.</p>
                 </div>
                 
                 <div class="calculator-container">
@@ -1975,20 +1991,20 @@
                         <div class="calc-input-group" style="margin-top: 14px;">
                             <label class="calc-label">Hazırlıklara Katılacak Ekip:</label>
                             <div class="team-cards-grid">
-                                <div class="team-card active" data-size="2" role="button" tabindex="0" aria-pressed="true" onclick="selectTeamSize(this, 2)" onkeydown="handleActivationKey(event)">
+                                <div class="team-card active" data-size="3" role="button" tabindex="0" aria-pressed="true" onclick="selectTeamSize(this, 3)" onkeydown="handleActivationKey(event)">
                                     <span class="material-icons-round">favorite</span>
-                                    <h4>Çekirdek Çift</h4>
-                                    <p>1-2 Kişi (Eşim ve Ben)</p>
+                                    <h4>Çekirdek Çift &amp; Destek</h4>
+                                    <p>1-3 Kişi (Çift + 1 Yardımcı)</p>
                                 </div>
-                                <div class="team-card" data-size="5" role="button" tabindex="0" aria-pressed="false" onclick="selectTeamSize(this, 5)" onkeydown="handleActivationKey(event)">
+                                <div class="team-card" data-size="6" role="button" tabindex="0" aria-pressed="false" onclick="selectTeamSize(this, 6)" onkeydown="handleActivationKey(event)">
                                     <span class="material-icons-round">groups</span>
-                                    <h4>Aile Ekibi</h4>
-                                    <p>3-5 Kişi (+Aileler)</p>
+                                    <h4>Aile &amp; Yakın Ekip</h4>
+                                    <p>4-6 Kişi (+Aileler &amp; Sağdıçlar)</p>
                                 </div>
                                 <div class="team-card" data-size="25" role="button" tabindex="0" aria-pressed="false" onclick="selectTeamSize(this, 25)" onkeydown="handleActivationKey(event)">
                                     <span class="material-icons-round">group_add</span>
                                     <h4>Büyük İmece</h4>
-                                    <p>6+ Kişi (Tüm Ekip)</p>
+                                    <p>7+ Kişi (Tüm Ekip)</p>
                                 </div>
                             </div>
                         </div>
@@ -2112,11 +2128,12 @@
                         </div>
                         <ul class="pricing-features">
                             <li><span class="material-icons-round icon gold">done</span> 1 Adet Sınırsız Tören (Düğün, Nişan veya Kına)</li>
+                            <li><span class="material-icons-round icon gold">done</span> 6 Ay Boyunca Seçilen Tören İçin Kesintisiz Erişim</li>
                             <li><span class="material-icons-round icon gold">done</span> Sınırsız Görev, Kategori ve Kontrol Listesi</li>
                             <li><span class="material-icons-round icon gold">done</span> Sınırsız Ekip Üyesi &amp; Sınırsız Ortak Yönetici (Co-host)</li>
                             <li><span class="material-icons-round icon gold">done</span> Sınırsız Davetli, Masa &amp; Kuver Düzeni ve LCV Takibi</li>
                             <li><span class="material-icons-round icon gold">done</span> Mutfak &amp; Diyet / Alerji Raporu Dışa Aktarma</li>
-                            <li><span class="material-icons-round icon gold">done</span> Ekip İçi Gerçek Zamanlı Sohbet &amp; Görev Yorumları</li>
+                            <li><span class="material-icons-round icon gold">done</span> Ekip İçi Gerçek Zamanlı Sohbet &amp; Görev Onay Sistemi</li>
                         </ul>
                         <div class="pricing-card-footer">
                             <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="btn btn-outline btn-full">Tek Organizasyon Başlat</a>
@@ -3342,11 +3359,12 @@
             }
         }
 
-        function copyInviteCode() {
-            navigator.clipboard.writeText("DN-ECE-572").then(() => {
-                showToast("Davet kodu kopyalandı");
+        function copyInviteCode(code) {
+            const codeVal = (typeof code === 'string' && code) ? code : "DN-ECE-572";
+            navigator.clipboard.writeText(codeVal).then(() => {
+                showToast("Davet kodu kopyalandı: " + codeVal);
             }).catch(() => {
-                showToast("Davet kodu kopyalandı");
+                showToast("Davet kodu kopyalandı: " + codeVal);
             });
         }
 
@@ -3375,9 +3393,9 @@
 
         function copyCohostCode() {
             navigator.clipboard.writeText("DN-MERT-984").then(() => {
-                showToast("Davet kodu kopyalandı");
+                showToast("Davet kodu kopyalandı: DN-MERT-984");
             }).catch(() => {
-                showToast("Davet kodu kopyalandı");
+                showToast("Davet kodu kopyalandı: DN-MERT-984");
             });
         }
 
@@ -3403,6 +3421,25 @@
             if (typeof gsap !== "undefined") {
                 gsap.set(dialog, { pointerEvents: "none", opacity: 0 });
                 gsap.set(dialog.querySelector(".dialog-container"), { scale: 0.8 });
+            }
+        }
+
+        function closeCohostDialogMobile() {
+            const cohostDialog = document.getElementById('cohostDialogMobile');
+            if (cohostDialog) {
+                cohostDialog.style.display = 'none';
+                cohostDialog.style.opacity = '0';
+            }
+        }
+
+        function closeMobileSheets() {
+            const inviteSheet = document.getElementById('inviteBottomSheetMobile');
+            const cohostSheet = document.getElementById('cohostBottomSheetMobile');
+            if (inviteSheet) inviteSheet.style.pointerEvents = 'none';
+            if (cohostSheet) cohostSheet.style.pointerEvents = 'none';
+            if (typeof gsap !== 'undefined') {
+                gsap.to(['#inviteScrimMobile', '#cohostScrimMobile'], { opacity: 0, duration: 0.2 });
+                gsap.to(['#inviteBottomSheetMobile .sheet-container', '#cohostBottomSheetMobile .sheet-container'], { y: '105%', duration: 0.25 });
             }
         }
 
@@ -3448,7 +3485,7 @@
 
         // Interactive Pricing Plan Calculator Globals & Helpers
         let selectedEventCount = 2; // Default (Söz & Nişan + Düğün Planı)
-        let selectedTeamSize = 2;   // Default (Çekirdek Çift)
+        let selectedTeamSize = 3;   // Default (Çekirdek Çift & Destek, 1-3 Kişi)
         let selectedGuestCount = 150; // Default (150 Davetli)
         let selectedTaskCount = 30;   // Default (30 Görev)
         let currentRecommendedCardId = 'card-season';
@@ -3582,7 +3619,7 @@
                 featuresHtml = `
                     <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <span>Tüm Törenler Sınırsız (Söz, Kına, Düğün, Bride)</span>
+                        <span>Tüm Törenler Sınırsız (Söz, Nişan, Kına, Düğün, Bride)</span>
                     </div>
                     <div style="display:flex; align-items:center; font-size:0.85rem; color:var(--text-main); font-weight:500;">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -4065,7 +4102,7 @@
             guestName: 'Sayın Mehmet Güneşli',
             coupleName: 'Ayşe & Tolga',
             partyCount: 2,
-            rsvpStatus: 'pending', // 'confirmed' | 'declined'
+            rsvpStatus: 'confirmed', // 'confirmed' | 'declined'
             mealChoice: 'Normal menü',
             allergyNote: ''
         };
@@ -4134,7 +4171,8 @@
 
             if (simState.rsvpStatus === 'confirmed') {
                 if (confirmedEl) {
-                    confirmedEl.innerHTML = `142 Kişi <small class="highlight-green">+${simState.partyCount}</small>`;
+                    const totalConfirmed = 140 + simState.partyCount;
+                    confirmedEl.innerHTML = `${totalConfirmed} Kişi <small class="highlight-green">+${simState.partyCount}</small>`;
                 }
                 if (notifTitle) {
                     notifTitle.textContent = `Son Bildirim: ${simState.guestName} (Onaylandı)`;
@@ -4144,7 +4182,10 @@
                     notifDesc.textContent = `${simState.partyCount} Kişi katılım bildirdi · ${simState.mealChoice}${allergyText}`;
                 }
                 if (mealSummary) {
-                    mealSummary.textContent = `128 Normal · 14 Özel (${simState.mealChoice})`;
+                    const isSpecial = simState.mealChoice && !simState.mealChoice.toLowerCase().includes('normal');
+                    mealSummary.textContent = isSpecial 
+                        ? `128 Normal · 14 Özel (${simState.mealChoice})`
+                        : `128 Normal Menü · 14 Özel Diyet Menüsü`;
                 }
             } else if (simState.rsvpStatus === 'declined') {
                 if (confirmedEl) {
@@ -4397,6 +4438,14 @@
         function selectPainItem(itemId) {
             const item = document.getElementById(itemId);
             if (!item) return;
+            const currentFilter = document.querySelector('.pain-filter-btn.active');
+            const activeCategory = currentFilter ? currentFilter.dataset.filter : 'all';
+            if (activeCategory !== 'all' && item.dataset.category !== activeCategory) {
+                const targetBtn = document.querySelector(`.pain-filter-btn[data-filter="${item.dataset.category}"]`) || document.querySelector('.pain-filter-btn[data-filter="all"]');
+                if (window.filterPain && targetBtn) {
+                    window.filterPain(item.dataset.category || 'all', targetBtn);
+                }
+            }
             document.querySelectorAll('#painCheckList .pain-item').forEach(el => el.classList.remove('is-active'));
             item.classList.add('is-active');
             displayActiveSolution(item);
@@ -4470,16 +4519,25 @@
             const moreBtn = list ? list.querySelector('.pain-more') : null;
 
             if (category === 'all') {
-                if (moreBtn && list.classList.contains('is-collapsed')) {
-                    moreBtn.style.display = '';
-                    items.forEach(it => {
-                        it.style.display = it.hasAttribute('data-overflow') ? 'none' : '';
-                    });
-                } else {
-                    items.forEach(it => it.style.display = '');
-                    if (moreBtn) moreBtn.style.display = '';
+                if (list) {
+                    list.classList.remove('is-filtered');
+                    const isExpanded = moreBtn && moreBtn.getAttribute('aria-expanded') === 'true';
+                    if (!isExpanded && items.length > 6) {
+                        list.classList.add('is-collapsed');
+                        items.forEach(it => {
+                            it.style.display = it.hasAttribute('data-overflow') ? 'none' : '';
+                        });
+                    } else {
+                        list.classList.remove('is-collapsed');
+                        items.forEach(it => it.style.display = '');
+                    }
                 }
+                if (moreBtn) moreBtn.style.display = '';
             } else {
+                if (list) {
+                    list.classList.add('is-filtered');
+                    list.classList.remove('is-collapsed');
+                }
                 if (moreBtn) moreBtn.style.display = 'none';
                 items.forEach(it => {
                     it.style.display = it.dataset.category === category ? '' : 'none';

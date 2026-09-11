@@ -146,12 +146,13 @@
             btn.querySelector(".pain-more-label").textContent = collapsed
                 ? hidden.length + " cümle daha göster"
                 : "Listeyi kısalt";
-            if (!collapsed) {
-                // Yeni acilanlar da kaydirma animasyonuna dahil olsun.
-                hidden.forEach(function (el, i) {
+            hidden.forEach(function (el, i) {
+                el.style.display = collapsed ? "none" : "";
+                if (!collapsed) {
                     el.style.setProperty("--reveal-delay", Math.min(i, 5) * 60 + "ms");
-                });
-            } else {
+                }
+            });
+            if (collapsed) {
                 list.scrollIntoView({ behavior: "smooth", block: "start" });
             }
         });
