@@ -44,6 +44,10 @@
     --stack-lg: clamp(40px, 5vw, 72px);
 }
 
+html {
+    scroll-padding-top: 68px;
+}
+
 html,
 body,
 body.dark-active {
@@ -1173,6 +1177,8 @@ body:not(.dark-active) .founder-mail {
     -webkit-backdrop-filter: blur(8px);
     opacity: 0;
     transition: opacity 0.4s var(--ease-out-expo);
+    touch-action: none;
+    overscroll-behavior: contain;
 }
 .nav-drawer.is-open .nav-drawer-scrim {
     opacity: 1;
@@ -1186,9 +1192,12 @@ body:not(.dark-active) .founder-mail {
     display: flex;
     flex-direction: column;
     width: min(86vw, 360px);
-    background: var(--n-1);
-    border-left: 1px solid var(--n-line);
-    box-shadow: -24px 0 60px rgba(0, 0, 0, 0.4);
+    background: rgba(13, 13, 16, 0.84) !important;
+    backdrop-filter: blur(24px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+    border-left: 1px solid rgba(212, 175, 55, 0.22) !important;
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.75), inset 1px 0 0 rgba(255, 255, 255, 0.05) !important;
+    overscroll-behavior: contain;
     padding: calc(20px + env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) calc(20px + env(safe-area-inset-bottom)) 20px;
     overflow-y: auto;
     transform: translate3d(100%, 0, 0);
@@ -1759,4 +1768,322 @@ input[type="range"].calc-slider:active::-moz-range-thumb {
     color: #FFF2CE !important;
     font-weight: 600;
     box-shadow: 0 0 16px rgba(212, 175, 55, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ==========================================================================
+   19. Global Mobil Optimizasyon (320px - 430px) & Dokunmatik Mimarisi
+   ========================================================================== */
+
+/* Global Scroll Padding (Navbar telafisi) */
+html {
+    scroll-padding-top: 68px;
+}
+
+/* Mobil Medya Sorgusu (max-width: 767px) */
+@media (max-width: 767px) {
+    /* 1. Mobil Navbar & Çekmece */
+    .container {
+        padding: 0 16px !important;
+    }
+    .nav-toggle {
+        display: inline-flex !important;
+        order: 3 !important;
+        margin-left: auto !important;
+    }
+    .nav-drawer-panel {
+        background: rgba(13, 13, 16, 0.84) !important;
+        backdrop-filter: blur(24px) saturate(190%) !important;
+        -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+        border-left: 1px solid rgba(212, 175, 55, 0.22) !important;
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.75), inset 1px 0 0 rgba(255, 255, 255, 0.05) !important;
+        overscroll-behavior: contain;
+    }
+    .nav-drawer-scrim {
+        touch-action: none;
+        overscroll-behavior: contain;
+    }
+
+    /* 2. Hero Fold & Rozet */
+    .story-slide-hero h1,
+    h1 {
+        font-size: clamp(1.65rem, 1.25rem + 2vw, 2.2rem) !important;
+        line-height: 1.22 !important;
+        margin-bottom: 12px !important;
+        text-align: center;
+    }
+    .story-slide-hero .hero-lead {
+        font-size: 0.92rem !important;
+        line-height: 1.48 !important;
+        margin-bottom: 18px !important;
+        text-align: center;
+        max-width: 100% !important;
+    }
+    .hero-brand-badge {
+        display: inline-flex !important;
+        justify-content: center !important;
+        margin: 0 auto 16px auto !important;
+        white-space: nowrap !important;
+        padding: 4px 14px 4px 6px !important;
+    }
+    .hero-badge-subtitle,
+    .hero-badge-sep {
+        display: none !important;
+    }
+    .hero-trust-proof {
+        flex-direction: column !important;
+        text-align: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        margin: 10px auto 16px auto !important;
+    }
+
+    /* 3. Story Mockup & Dots */
+    .mobile-mockup-wrap {
+        width: 100% !important;
+        max-width: 310px !important;
+        height: 440px !important;
+        margin: 0 auto !important;
+        display: flex;
+        justify-content: center;
+    }
+    #phoneMockupMobile {
+        position: relative !important;
+        width: 320px !important;
+        height: 520px !important;
+        transform: scale(0.78) !important;
+        transform-origin: top center !important;
+        left: auto !important;
+    }
+    #phoneMockupMobile .mockup-task-item,
+    #phoneMockupMobile .task-title-text,
+    #phoneMockupMobile #mockup-task-to-complete-mobile span {
+        color: #F5F5F7 !important;
+        font-weight: 500 !important;
+    }
+    .flow-indicators .flow-dot {
+        position: relative;
+        width: 12px !important;
+        height: 12px !important;
+        margin: 0 4px;
+    }
+    .flow-indicators .flow-dot::before {
+        content: '';
+        position: absolute;
+        inset: -14px;
+        cursor: pointer;
+    }
+    .mobile-flow-text-card {
+        min-height: 155px !important;
+    }
+
+    /* 4. #tanidik Kriz Listesi */
+    .pain-filter-wrap {
+        margin: 16px -16px 24px -16px !important;
+        padding: 0 16px !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        justify-content: flex-start !important;
+    }
+    .pain-filter-wrap::-webkit-scrollbar {
+        display: none !important;
+    }
+    .pain-filter-group {
+        display: inline-flex !important;
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+        padding: 4px 6px !important;
+        border-radius: 999px !important;
+        white-space: nowrap !important;
+        width: max-content !important;
+    }
+    .pain-filter-btn {
+        padding: 8px 14px !important;
+        font-size: 0.82rem !important;
+        min-height: 44px !important;
+        flex-shrink: 0 !important;
+    }
+    .pain-inline-solution.inline-open {
+        max-height: 480px !important;
+        opacity: 1 !important;
+    }
+    .pain-inline-inner {
+        padding: 12px 14px !important;
+    }
+    .pain-inline-action {
+        display: flex !important;
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        font-size: 0.82rem !important;
+        padding: 12px 14px !important;
+        min-height: 44px !important;
+    }
+    .pain-result-card {
+        padding: 18px 16px !important;
+    }
+    .pain-result-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 12px !important;
+    }
+    .pain-gauge-wrap,
+    .pain-gauge {
+        width: 80px !important;
+        height: 80px !important;
+        margin: 0 auto !important;
+    }
+
+    /* 5. #interactive-rsvp-showcase */
+    .rsvp-sim-controls {
+        padding: 18px 14px !important;
+        border-radius: 18px !important;
+    }
+    .sim-input-row {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+    .sim-host-stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+    .sim-preset-chip {
+        min-height: 44px !important;
+        padding: 8px 14px !important;
+        font-size: 0.78rem !important;
+        display: inline-flex !important;
+        align-items: center !important;
+    }
+    .sim-phone-frame,
+    .rsvp-sim-frame-wrap {
+        width: min(330px, 94vw) !important;
+        height: min(600px, 82vh) !important;
+        border-width: 8px !important;
+    }
+    .sim-btn {
+        min-height: 46px !important;
+        font-size: 0.76rem !important;
+        padding: 8px 6px !important;
+        white-space: nowrap !important;
+    }
+    .sim-meal-chip {
+        min-height: 44px !important;
+        padding: 10px 14px !important;
+        font-size: 0.78rem !important;
+    }
+    .sim-allergy-toggle,
+    .sim-allergy-row input,
+    .sim-allergy-row button {
+        min-height: 44px !important;
+    }
+
+    /* 6. 6 Çözüm Flip Kartı */
+    .flip-card:focus-within {
+        transform: none !important;
+    }
+    .flip-card-inner {
+        -webkit-transform-style: preserve-3d !important;
+        transform-style: preserve-3d !important;
+    }
+    .flip-card-front,
+    .flip-card-back {
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        transform: translateZ(0);
+    }
+
+    /* 7. Hesaplayıcı, Fiyatlandırma, SSS, Alt CTA */
+    .calculator-container {
+        padding: 20px 14px !important;
+    }
+    .calculator-result {
+        padding: 22px 16px !important;
+    }
+    .team-cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+    .team-card {
+        flex-direction: row !important;
+        text-align: left !important;
+        padding: 10px 14px !important;
+        gap: 12px !important;
+    }
+    .calc-scale-labels {
+        font-size: 0.7rem !important;
+    }
+    .pricing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    .pricing-card {
+        padding: 32px 18px 24px 18px !important;
+    }
+    .pricing-card.premium-card .card-badge {
+        right: auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        top: -13px !important;
+    }
+    .pricing-features li,
+    .plan-features-list > div {
+        align-items: flex-start !important;
+    }
+    .pricing-features .icon,
+    .plan-features-list svg {
+        flex-shrink: 0 !important;
+        margin-top: 2px !important;
+    }
+    .faq-question {
+        align-items: flex-start !important;
+        gap: 14px !important;
+        font-size: 1.02rem !important;
+        padding: 14px 0 !important;
+    }
+    .faq-arrow {
+        flex-shrink: 0 !important;
+        margin-top: 2px !important;
+    }
+    .cta-bottom .cta-container {
+        padding: 36px 18px !important;
+    }
+    .cta-container h2 {
+        font-size: 1.75rem !important;
+        line-height: 1.25 !important;
+    }
+    .cta-bottom .central-store-buttons {
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 290px !important;
+        margin: 20px auto 12px auto !important;
+    }
+    .cta-bottom .central-store-buttons .store-badge-official {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+/* Ekran Genişliğine Özel Hassas Kırılımlar */
+@media (max-width: 390px) {
+    .navbar .nav-cta {
+        display: none !important;
+    }
+}
+
+@media (min-width: 390px) {
+    #phoneMockupMobile {
+        transform: scale(0.85) !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .flip-back-footer {
+        flex-direction: column-reverse !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+    }
+    .flip-back-close {
+        justify-content: center !important;
+    }
 }

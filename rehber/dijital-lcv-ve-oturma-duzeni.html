@@ -56,8 +56,8 @@
       })();
     </script>
 <!-- Stylesheets -->
-    <link rel="stylesheet" href="../style.css?v=33.0">
-    <link rel="stylesheet" href="../refresh.css?v=34.0">
+    <link rel="stylesheet" href="../style.css?v=35.0">
+    <link rel="stylesheet" href="../refresh.css?v=35.0">
 
     <style>
         html, body {
@@ -633,6 +633,12 @@
             text-transform: uppercase;
             margin-bottom: 10px;
         }
+        .sim-inputs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 28px;
+        }
         .calc-input-group {
             margin: 0;
         }
@@ -1085,6 +1091,37 @@
             justify-content: center;
             font-size: 20px;
         }
+
+        @media (max-width: 768px) {
+            .budget-calc-card {
+                padding: 22px 16px !important;
+            }
+            .sim-inputs-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .seating-stat-grid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            .featured-stat {
+                grid-column: 1 / -1 !important;
+            }
+            .app-bridge-left {
+                min-width: 0 !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .seating-cap-btn {
+                padding: 8px 4px !important;
+                font-size: 0.8rem !important;
+            }
+            .lcv-metric-pills-row {
+                grid-template-columns: 1fr !important;
+            }
+        }
     </style>
 
     <!-- Schema.org Article & Breadcrumb -->
@@ -1246,7 +1283,7 @@
                 Davetli sayınıza göre salonunuza kaç masa açılması gerektiğini, protokol ve akraba yerleşimini, mutfağa bildirilecek kesin kuveri ve menü dağılımını canlı hesaplayın.
             </p>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 28px;">
+            <div class="sim-inputs-grid">
                 <div class="calc-input-group">
                     <div class="calc-label">
                         <span>Tahmini Davetli Sayısı</span>

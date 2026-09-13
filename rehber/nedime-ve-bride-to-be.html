@@ -56,8 +56,8 @@
       })();
     </script>
 <!-- Stylesheets -->
-    <link rel="stylesheet" href="../style.css?v=33.0">
-    <link rel="stylesheet" href="../refresh.css?v=34.0">
+    <link rel="stylesheet" href="../style.css?v=35.0">
+    <link rel="stylesheet" href="../refresh.css?v=35.0">
 
     <style>
         html, body {
@@ -824,15 +824,29 @@
             justify-content: center;
             flex-shrink: 0;
             color: #08080A;
-            font-size: 13px;
-            font-weight: 800;
             background: rgba(212, 175, 55, 0.08);
             transition: all 0.2s ease;
+        }
+        .check-box svg {
+            width: 14px;
+            height: 14px;
+            stroke: #08080A;
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .check-item.done .check-box {
             background: linear-gradient(135deg, #ECC880, #D4AF37);
             border-color: #ECC880;
             box-shadow: 0 0 10px rgba(212, 175, 55, 0.45);
+        }
+        .check-item.done .check-box svg {
+            opacity: 1;
+            transform: scale(1);
         }
 
         /* Wedding Day Crisis Scenarios */
@@ -959,6 +973,25 @@
             }
             .crisis-card {
                 padding: 20px 18px;
+            }
+        }
+        @media (max-width: 600px) {
+            .role-card {
+                padding: 18px 16px !important;
+            }
+            .app-bridge-left {
+                min-width: 0 !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .tracker-actions {
+                flex-direction: column !important;
+                width: 100%;
+            }
+            .tracker-actions .btn,
+            .tracker-actions .btn-tracker-action {
+                width: 100% !important;
+                justify-content: center !important;
             }
         }
 
@@ -1773,7 +1806,7 @@
                      tabindex="0" 
                      onclick="toggleKitItem(${item.id})"
                      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleKitItem(${item.id});}">
-                    <div class="check-box" aria-hidden="true">${isDone ? '✓' : ''}</div>
+                    <div class="check-box" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
                     <span>${item.name}</span>
                 </div>
             `;

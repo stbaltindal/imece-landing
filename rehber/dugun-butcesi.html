@@ -56,8 +56,8 @@
       })();
     </script>
 <!-- Stylesheets -->
-    <link rel="stylesheet" href="../style.css?v=33.0">
-    <link rel="stylesheet" href="../refresh.css?v=34.0">
+    <link rel="stylesheet" href="../style.css?v=35.0">
+    <link rel="stylesheet" href="../refresh.css?v=35.0">
 
     <style>
         html, body {
@@ -654,6 +654,12 @@
             box-shadow: 0 0 16px rgba(212, 175, 55, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
         }
 
+        #sidesGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
         @media (max-width: 768px) {
             .budget-calc-card {
                 padding: 24px 18px;
@@ -671,10 +677,13 @@
                 gap: 12px;
             }
             .budget-segmented-control {
+                flex-direction: column;
                 width: 100%;
             }
             .budget-tab-btn {
-                flex: 1;
+                width: 100%;
+                white-space: normal;
+                text-align: center;
                 justify-content: center;
                 padding: 8px 12px;
                 font-size: 0.82rem;
@@ -683,6 +692,17 @@
                 width: 100%;
                 justify-content: center;
             }
+            #sidesGrid {
+                grid-template-columns: 1fr !important;
+            }
+            .sides-target-box {
+                text-align: left !important;
+                width: 100% !important;
+                min-width: 0 !important;
+            }
+            .sides-target-box .sides-target-badge {
+                justify-content: flex-start !important;
+            }
         }
 
         .budget-breakdown-grid {
@@ -690,6 +710,12 @@
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 16px;
             margin-top: 24px;
+        }
+
+        @media (max-width: 480px) {
+            .budget-breakdown-grid {
+                grid-template-columns: 1fr;
+            }
         }
         .breakdown-item {
             background: rgba(255, 255, 255, 0.04);
@@ -878,6 +904,17 @@
                 width: 100%;
                 padding: 15px 20px;
                 font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .budget-presets-wrap {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                width: 100%;
+            }
+            .app-bridge-left {
+                min-width: 0 !important;
             }
         }
     </style>
@@ -1069,7 +1106,7 @@
             <div id="sidesBreakdownView" style="display: none; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
                 <h4 style="color: #fff; margin: 0 0 8px; font-size: 1.1rem;">Ortak Bütçe &amp; Planlanan Bütçeden Sapmama Modeli</h4>
                 <p style="color: #A0A0AB; font-size: 0.88rem; margin: 0 0 20px;">Düğün hazırlıklarında en sık yaşanan kriz, kontrolsüz eklemelerle bütçenin aşılmasıdır. İmece modeli, her iki tarafın baştan mutabık kaldığı ortak bütçe tavanına sadık kalmasını (%50 - %50 eşit sorumluluk) ve sürpriz harcamalara geçit verilmemesini hedefler.</p>
-                <div id="sidesGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+                <div id="sidesGrid">
                     <!-- Dynamic Sides Items -->
                 </div>
             </div>
@@ -1362,10 +1399,10 @@
                         <h5 style="color: #fff; font-size: 1.15rem; margin: 0 0 8px; font-weight: 700;">Harcama Tavanına Sadık Kalın, Sürpriz Krizleri Önleyin</h5>
                         <p style="color: #B5B5BE; font-size: 0.9rem; line-height: 1.6; margin: 0;">Düğün sürecinde 'nasıl olsa bir kere evleniyoruz' diyerek kontrolsüz yapılan küçük eklemeler bütçeyi %30-40 oranında deler. İmece Düğün ile ortak bütçe tavanı koyun, kimin ne kadar harcadığını şeffafça görün ve planlanan limitlerin kesinlikle dışına çıkmayın.</p>
                     </div>
-                    <div style="text-align: right; background: rgba(0,0,0,0.35); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 14px; padding: 14px 20px; min-width: 200px;">
+                    <div class="sides-target-box" style="text-align: right; background: rgba(0,0,0,0.35); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 14px; padding: 14px 20px; min-width: 200px;">
                         <div style="color: #9A9AA6; font-size: 0.78rem; text-transform: uppercase; font-weight: 600; margin-bottom: 2px;">Kişi Başı Eşit Pay</div>
                         <div style="font-size: 1.7rem; font-weight: 800; color: #ECC880; white-space: nowrap;">${formatCurrency(esitPay)}</div>
-                        <div style="color: #4cd964; font-size: 0.78rem; font-weight: 600; margin-top: 4px; display: flex; align-items: center; gap: 4px; justify-content: flex-end;">
+                        <div class="sides-target-badge" style="color: #4cd964; font-size: 0.78rem; font-weight: 600; margin-top: 4px; display: flex; align-items: center; gap: 4px; justify-content: flex-end;">
                             <span class="material-icons-round" style="font-size: 14px;">verified</span> Hedef: %0 Bütçe Sapması
                         </div>
                     </div>

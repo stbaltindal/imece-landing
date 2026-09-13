@@ -56,8 +56,8 @@
       })();
     </script>
 <!-- Stylesheets -->
-    <link rel="stylesheet" href="../style.css?v=33.0">
-    <link rel="stylesheet" href="../refresh.css?v=34.0">
+    <link rel="stylesheet" href="../style.css?v=35.0">
+    <link rel="stylesheet" href="../refresh.css?v=35.0">
 
     <style>
         html, body {
@@ -759,15 +759,14 @@
             overflow-x: auto;
             padding-bottom: 16px;
             margin-bottom: 22px;
-            scrollbar-width: thin;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
             -webkit-overflow-scrolling: touch;
+            mask-image: linear-gradient(to right, black 88%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, black 88%, transparent 100%);
         }
         .category-pills::-webkit-scrollbar {
-            height: 5px;
-        }
-        .category-pills::-webkit-scrollbar-thumb {
-            background: rgba(212, 175, 55, 0.3);
-            border-radius: 4px;
+            display: none;
         }
         .cat-pill {
             display: inline-flex;
@@ -1024,6 +1023,97 @@
             }
         }
 
+        @media (max-width: 480px) {
+            .tracker-header-info {
+                min-width: 0 !important;
+            }
+            .app-bridge-left {
+                min-width: 0 !important;
+            }
+            .ceyiz-status-tab {
+                padding: 8px 6px;
+                font-size: 0.78rem;
+                gap: 4px;
+            }
+            .ceyiz-status-tab .tab-icon {
+                font-size: 15px;
+            }
+            .status-count-badge {
+                padding: 2px 5px;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Floating Sticky Progress Pill for Mobile */
+        .mobile-sticky-progress-pill {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-sticky-progress-pill {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                position: fixed;
+                bottom: 16px;
+                left: 16px;
+                right: 16px;
+                z-index: 95;
+                background: rgba(18, 18, 24, 0.88);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(212, 175, 55, 0.38);
+                border-radius: 18px;
+                padding: 11px 16px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 18px rgba(212, 175, 55, 0.15);
+                transform: translateY(120%);
+                opacity: 0;
+                pointer-events: none;
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            }
+            .mobile-sticky-progress-pill.is-visible {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .sticky-progress-info {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .sticky-progress-label {
+                color: #FFFFFF;
+                font-size: 0.84rem;
+                font-weight: 600;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .sticky-progress-badge {
+                color: #FFF2CE;
+                background: rgba(212, 175, 55, 0.22);
+                border: 1px solid rgba(212, 175, 55, 0.45);
+                padding: 3px 9px;
+                border-radius: 12px;
+                font-size: 0.75rem;
+                font-weight: 700;
+                letter-spacing: 0.2px;
+            }
+            .sticky-progress-bar-wrap {
+                height: 6px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 6px;
+                overflow: hidden;
+            }
+            .sticky-progress-fill {
+                height: 100%;
+                width: 0%;
+                background: linear-gradient(90deg, #ECC880, #D4AF37);
+                border-radius: 6px;
+                transition: width 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+                box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            }
+        }
+
         /* Luxury App Bridge Banner */
         .app-bridge-box {
             position: relative;
@@ -1175,7 +1265,7 @@
         /* Print Style */
         @media print {
             body { background: #fff !important; color: #000 !important; }
-            .navbar, .app-bridge-box, footer, .tracker-top-actions, .category-pills, .ceyiz-tools-bar, .ceyiz-filter-control-bar, .filter-status-hint, .ceyiz-feedback-toast, .aha-bridge-toast { display: none !important; }
+            .navbar, .app-bridge-box, footer, .tracker-top-actions, .category-pills, .ceyiz-tools-bar, .ceyiz-filter-control-bar, .filter-status-hint, .ceyiz-feedback-toast, .aha-bridge-toast, .mobile-sticky-progress-pill { display: none !important; }
             .ceyiz-tracker-card { border: none !important; box-shadow: none !important; padding: 0 !important; background: transparent !important; }
             .check-item { border: 1px solid #ddd !important; color: #000 !important; background: #fff !important; }
             .check-item.done { text-decoration: line-through !important; color: #777 !important; }
@@ -1374,7 +1464,7 @@
                     </button>
                     <button type="button" class="ceyiz-status-tab" data-status="pending" onclick="filterStatus('pending', this)" role="tab" aria-selected="false">
                         <span class="material-icons-round tab-icon">radio_button_unchecked</span>
-                        <span>Kalan Eksikler</span>
+                        <span>Eksikler</span>
                         <span class="status-count-badge badge-pending" id="badgePendingCount">118</span>
                     </button>
                     <button type="button" class="ceyiz-status-tab" data-status="completed" onclick="filterStatus('completed', this)" role="tab" aria-selected="false">
@@ -1442,6 +1532,20 @@
                 <!-- Generated by JS -->
             </div>
         </section>
+
+        <!-- Mobile Floating Sticky Progress Pill -->
+        <div class="mobile-sticky-progress-pill" id="mobileStickyProgress" aria-hidden="true">
+            <div class="sticky-progress-info">
+                <span class="sticky-progress-label">
+                    <span class="material-icons-round" style="font-size: 16px; color: #ECC880;">fact_check</span>
+                    Çeyiz İlerlemesi
+                </span>
+                <span class="sticky-progress-badge" id="stickyProgressBadge">%0 Tamamlandı</span>
+            </div>
+            <div class="sticky-progress-bar-wrap">
+                <div class="sticky-progress-fill" id="stickyProgressFill"></div>
+            </div>
+        </div>
 
         <!-- App Bridge Banner -->
         <section class="app-bridge-box">
@@ -1918,6 +2022,13 @@
                 }
             }
 
+            // Mobile sticky progress pill
+            const stickyBadge = document.getElementById('stickyProgressBadge');
+            if (stickyBadge) stickyBadge.innerText = `%${pct} Tamamlandı`;
+
+            const stickyFill = document.getElementById('stickyProgressFill');
+            if (stickyFill) stickyFill.style.width = `${pct}%`;
+
             checkAhaToast(completed, pct);
         }
 
@@ -2049,6 +2160,26 @@
 
         // Initialize
         renderChecklist();
+
+        // Mobile Sticky Progress Pill Scroll Trigger
+        function handleStickyProgressScroll() {
+            const stickyPill = document.getElementById('mobileStickyProgress');
+            const trackerCard = document.querySelector('.ceyiz-tracker-card');
+            if (!stickyPill || !trackerCard) return;
+
+            if (window.innerWidth <= 768) {
+                const rect = trackerCard.getBoundingClientRect();
+                if (rect.top < -60 && rect.bottom > 200) {
+                    stickyPill.classList.add('is-visible');
+                } else {
+                    stickyPill.classList.remove('is-visible');
+                }
+            } else {
+                stickyPill.classList.remove('is-visible');
+            }
+        }
+        window.addEventListener('scroll', handleStickyProgressScroll, { passive: true });
+        window.addEventListener('resize', handleStickyProgressScroll, { passive: true });
 
         // Mobil Menü Çekmecesi
         (function() {

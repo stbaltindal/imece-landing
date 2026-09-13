@@ -4751,45 +4751,39 @@ body.dark-active .app-header-mini {
     
     .mobile-mockup-wrap {
         position: relative;
-        width: 280px;
-        margin: 0 auto 10px auto;
+        width: 100% !important;
+        max-width: 310px !important;
+        height: 440px !important;
+        margin: 0 auto !important;
+        display: flex;
+        justify-content: center;
         overflow: visible !important;
-        /* Default small screen sizes (under 360px viewport) */
-        height: 302px;
     }
     
     #phoneMockupMobile {
-        width: 280px;
-        height: 550px;
+        position: relative !important;
+        width: 320px !important;
+        height: 520px !important;
         border-width: 9px;
         border-radius: 38px;
         box-shadow: var(--shadow-medium);
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: scale(0.52) !important;
-        transform-origin: top center;
+        transform: scale(0.78) !important;
+        transform-origin: top center !important;
+        left: auto !important;
         pointer-events: auto;
     }
     
-    /* Medium mobile screen sizes (viewport >= 360px) */
-    @media (min-width: 360px) {
-        .mobile-mockup-wrap {
-            height: 349px;
-        }
+    @media (min-width: 390px) {
         #phoneMockupMobile {
-            transform: scale(0.60) !important;
+            transform: scale(0.85) !important;
         }
     }
     
-    /* Large mobile screen sizes (viewport >= 400px) */
-    @media (min-width: 400px) {
-        .mobile-mockup-wrap {
-            height: 396px;
-        }
-        #phoneMockupMobile {
-            transform: scale(0.68) !important;
-        }
+    #phoneMockupMobile .mockup-task-item,
+    #phoneMockupMobile .task-title-text,
+    #phoneMockupMobile #mockup-task-to-complete-mobile span {
+        color: #F5F5F7 !important;
+        font-weight: 500 !important;
     }
     
     /* Active step texts styles inside swiper */
@@ -4804,8 +4798,23 @@ body.dark-active .app-header-mini {
         opacity: 1;
     }
     
-    .flow-dot {
+    .flow-indicators .flow-dot {
+        position: relative;
+        width: 12px !important;
+        height: 12px !important;
+        margin: 0 4px;
         background-color: rgba(29, 29, 31, 0.15) !important;
+    }
+    
+    .flow-indicators .flow-dot::before {
+        content: '';
+        position: absolute;
+        inset: -14px;
+        cursor: pointer;
+    }
+    
+    .mobile-flow-text-card {
+        min-height: 155px !important;
     }
     
     .flow-dot.active {

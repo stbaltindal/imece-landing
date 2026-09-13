@@ -56,8 +56,8 @@
       })();
     </script>
 <!-- Stylesheets -->
-    <link rel="stylesheet" href="../style.css?v=33.0">
-    <link rel="stylesheet" href="../refresh.css?v=34.0">
+    <link rel="stylesheet" href="../style.css?v=35.0">
+    <link rel="stylesheet" href="../refresh.css?v=35.0">
 
     <style>
         html, body {
@@ -759,21 +759,35 @@
             .timeline-toolbar {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 14px;
+                margin-bottom: 22px;
+            }
+            .timeline-toolbar-left {
+                gap: 8px;
             }
             .timeline-action-btn {
                 width: 100%;
+                padding: 10px 16px;
+                min-height: 42px;
+                font-size: 0.88rem;
             }
             .concept-pills-wrap {
                 width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
             }
             .cat-pill {
-                flex: 1;
+                flex: 1 1 auto;
                 text-align: center;
-                padding: 10px 14px;
-                font-size: 0.82rem;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+                min-height: 38px;
+                gap: 6px;
             }
-        }
-        @media (max-width: 680px) {
+            .cat-pill .material-icons-round {
+                font-size: 16px;
+            }
             .time-col {
                 display: none;
             }
@@ -796,6 +810,30 @@
             }
             .time-content-title-text {
                 font-size: 1.02rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .app-bridge-left {
+                min-width: 0 !important;
+            }
+            .related-guides-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .concept-pills-wrap {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 4px;
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+            }
+            .concept-pills-wrap::-webkit-scrollbar {
+                display: none;
+            }
+            .concept-pills-wrap .cat-pill {
+                flex: 0 0 auto;
+                white-space: nowrap;
             }
         }
 
@@ -1521,7 +1559,7 @@
         <!-- Related Guides Cross-linking -->
         <section style="margin: 48px 0 24px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
             <h3 style="color: #FFFFFF; font-family: var(--font-header, 'Playfair Display', serif); font-size: 1.4rem; margin-bottom: 20px;">Sıradaki Hazırlık Adımları</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <div class="related-guides-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                 <a href="dijital-lcv-ve-oturma-duzeni.html" style="background: #121218; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 22px; text-decoration: none; display: block; transition: all 0.25s ease;">
                     <div style="color: #ECC880; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">LCV &amp; Protokol</div>
                     <h4 style="color: #FFFFFF; font-size: 1.15rem; margin: 0 0 8px;">Dijital LCV &amp; Masa Oturma Düzeni</h4>

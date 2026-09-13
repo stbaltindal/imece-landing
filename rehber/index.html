@@ -56,8 +56,8 @@
       })();
     </script>
 <!-- Stylesheets -->
-    <link rel="stylesheet" href="../style.css?v=33.0">
-    <link rel="stylesheet" href="../refresh.css?v=34.0">
+    <link rel="stylesheet" href="../style.css?v=35.0">
+    <link rel="stylesheet" href="../refresh.css?v=35.0">
 
     <style>
         html, body {
@@ -361,6 +361,7 @@
             text-transform: uppercase;
             letter-spacing: 0.6px;
             box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
         .guide-card-footer .material-icons-round {
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
         }
@@ -462,6 +463,37 @@
             color: #ECC880;
             text-decoration: none;
             font-weight: 500;
+        }
+        @media (max-width: 600px) {
+            .guide-hub-grid {
+                grid-template-columns: 1fr !important;
+                gap: 18px !important;
+            }
+            .guide-card {
+                padding: 24px 18px !important;
+                border-radius: 18px !important;
+            }
+            .guide-badge-popular {
+                position: static !important;
+                align-self: flex-start !important;
+                margin-bottom: 12px !important;
+            }
+            .guide-filter-pills {
+                overflow-x: auto !important;
+                flex-wrap: nowrap !important;
+                -webkit-overflow-scrolling: touch !important;
+                scrollbar-width: none !important;
+                justify-content: flex-start !important;
+                padding-bottom: 8px !important;
+                width: 100% !important;
+            }
+            .guide-filter-pills::-webkit-scrollbar {
+                display: none;
+            }
+            .guide-filter-btn {
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
         }
     </style>
 
