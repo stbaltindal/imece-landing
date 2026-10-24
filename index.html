@@ -246,14 +246,12 @@
     </div>
 
     <main id="anaicerik">
-        <!-- Unified Pinned Section for Hero + Showcase Story -->
+        <!-- Interactive Hero & Live App Studio Section -->
         <section id="hero-showcase-story" class="unified-story-section">
             <div class="container story-container">
                 
-                <!-- Left Side Content Stack -->
+                <!-- Left Side Narrative & Scenario Dock -->
                 <div class="story-content-left">
-                    
-                    <!-- Hero Content Block -->
                     <div class="story-slide-hero" id="heroContent">
                         <div class="hero-brand-badge">
                             <img src="assets/img/logo_wax_seal_96.png" decoding="async" alt="İmece Düğün Altın Mühür Logo" class="hero-seal-img" width="42" height="42" style="width: 34px; height: 34px; max-width: 42px; max-height: 42px; object-fit: contain;">
@@ -263,7 +261,44 @@
                         </div>
                         <h1>Düğünü zorlaştıran hazırlık değil, <span class="text-gold-gradient">her şeyi tek başınıza taşımak.</span></h1>
                         <p class="hero-lead">Bütçe, görev dağılımı, akıllı LCV ve düğün günü akışı… İmece Düğün hazırlığın tüm yükünü sevdiklerinizle paylaşılabilir bir ekibe dönüştürür. Herkes ne yapacağını bilir, siz günün tadını çıkarırsınız.</p>
-                        
+
+                        <!-- Interactive Scenario Dock (4 Action-Driven Scenarios) -->
+                        <div class="hero-scenario-dock" role="tablist" aria-label="İmece Canlı Hazırlık Senaryoları">
+                            <button type="button" class="scenario-tab active" role="tab" id="scenario-tab-0" aria-selected="true" aria-controls="phoneMockup" onclick="selectScenario(0, true)">
+                                <span class="material-icons-round scenario-tab-icon" aria-hidden="true">checklist_rtl</span>
+                                <div class="scenario-tab-content">
+                                    <strong class="scenario-tab-title">01 · Görevi Devret</strong>
+                                    <span class="scenario-tab-sub">Ekibe iş ata, canlı takip et</span>
+                                </div>
+                                <div class="scenario-tab-progress"><div class="scenario-progress-fill" id="prog-fill-0"></div></div>
+                            </button>
+                            <button type="button" class="scenario-tab" role="tab" id="scenario-tab-1" aria-selected="false" aria-controls="phoneMockup" onclick="selectScenario(1, true)">
+                                <span class="material-icons-round scenario-tab-icon" aria-hidden="true">account_balance_wallet</span>
+                                <div class="scenario-tab-content">
+                                    <strong class="scenario-tab-title">02 · Bütçeyi &amp; Kaporayı Gör</strong>
+                                    <span class="scenario-tab-sub">Kimin ne ödediği anında kayıtta</span>
+                                </div>
+                                <div class="scenario-tab-progress"><div class="scenario-progress-fill" id="prog-fill-1"></div></div>
+                            </button>
+                            <button type="button" class="scenario-tab" role="tab" id="scenario-tab-2" aria-selected="false" aria-controls="phoneMockup" onclick="selectScenario(2, true)">
+                                <span class="material-icons-round scenario-tab-icon" aria-hidden="true">qr_code_2</span>
+                                <div class="scenario-tab-content">
+                                    <strong class="scenario-tab-title">03 · Tek Kodu Paylaş</strong>
+                                    <span class="scenario-tab-sub">Nedime ve sağdıcı tek tıkla ekle</span>
+                                </div>
+                                <div class="scenario-tab-progress"><div class="scenario-progress-fill" id="prog-fill-2"></div></div>
+                            </button>
+                            <button type="button" class="scenario-tab" role="tab" id="scenario-tab-3" aria-selected="false" aria-controls="phoneMockup" onclick="selectScenario(3, true)">
+                                <span class="material-icons-round scenario-tab-icon" aria-hidden="true">volunteer_activism</span>
+                                <div class="scenario-tab-content">
+                                    <strong class="scenario-tab-title">04 · Eşini Ortak Yap</strong>
+                                    <span class="scenario-tab-sub">Eşit yetkiyle tam uyumlu çalış</span>
+                                </div>
+                                <div class="scenario-tab-progress"><div class="scenario-progress-fill" id="prog-fill-3"></div></div>
+                            </button>
+                        </div>
+                        <div class="scenario-dock-caption" id="scenarioDockCaption">Nedimelere veya sağdıca görev atayın; yapıldığında telefonunuza anında canlı bildirim gelsin.</div>
+
                         <!-- Official App Store & Google Play Store Badges -->
                         <div class="hero-actions store-buttons">
                             <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="store-badge-official app-store-official" aria-label="App Store'dan İndirin" style="text-decoration: none; cursor: pointer;">
@@ -291,599 +326,374 @@
                             </span>
                         </div>
 
-                        <!-- Micro-Trust Signal for First 3-Second Conversion -->
-                        <div class="hero-trust-proof">
+                        <!-- Micro-Trust & Conversion Bridge Signal -->
+                        <div class="hero-trust-proof" id="heroTrustProof">
                             <span class="trust-stars" aria-hidden="true">★★★★★</span>
-                            <span class="trust-text">iOS 16+ Tam Uyumlu • Ücretsiz Başlayın • Reklamsız &amp; KVKK Güvenceli</span>
+                            <span class="trust-text" id="heroTrustText">iOS 16+ Tam Uyumlu • Ücretsiz Başlayın • Reklamsız &amp; KVKK Güvenceli</span>
                         </div>
 
-                        <a href="#tanidik" class="hero-scroll-hint">
-                            <span>Yaşadığınız 14 sorunu tanıyoruz</span>
-                            <span class="material-icons-round">south</span>
-                        </a>
+                        <!-- Screen-Reader Status Announcer -->
+                        <div class="sr-only" id="heroLiveAnnouncer" role="status" aria-live="polite" aria-atomic="true"></div>
                     </div>
+                </div>
+                
+                <!-- Right Side Interactive Phone Stage -->
+                <div class="story-phone-column">
                     
-                    <!-- Feature Slide 1 -->
-                    <div class="showcase-slide-text" id="text-slide-1">
-                        <div class="badge gold-badge">01 / BÜTÇE YÖNETİMİ</div>
-                        <h2>Her harcama gözünüzün önünde olsun.</h2>
-                        <p>Kategori bazında bütçe limitleri koyun. Ödemeleri eşinizle veya ailelerinizle kimin gerçekleştirdiğine göre anlık olarak takip edin. Bütçe aşımında anında uyarılar alın.</p>
+                    <!-- Ceremony Switcher Bar directly above phone -->
+                    <div class="ceremony-switcher-bar" role="group" aria-label="Hazırlık töreni seçimi">
+                        <button type="button" class="ceremony-switch-btn active" data-ceremony="dugun" onclick="selectCeremony('dugun', this)" aria-pressed="true">
+                            <span class="ceremony-emoji" aria-hidden="true">💍</span>
+                            <span>Düğün Planı</span>
+                        </button>
+                        <button type="button" class="ceremony-switch-btn" data-ceremony="nisan" onclick="selectCeremony('nisan', this)" aria-pressed="false">
+                            <span class="ceremony-emoji" aria-hidden="true">✨</span>
+                            <span>Söz &amp; Nişan</span>
+                        </button>
+                        <button type="button" class="ceremony-switch-btn" data-ceremony="kina" onclick="selectCeremony('kina', this)" aria-pressed="false">
+                            <span class="ceremony-emoji" aria-hidden="true">💃</span>
+                            <span>Kına &amp; Bride</span>
+                        </button>
                     </div>
 
-                    <!-- Feature Slide 2 -->
-                    <div class="showcase-slide-text" id="text-slide-2">
-                        <div class="badge gold-badge">02 / GÖREV DAĞITIMI</div>
-                        <h2>Hazırlıkları paylaşın, sürecin tadını çıkarın.</h2>
-                        <p>Yapılacak her işi sorumlularına atayın. Görevlerin yapıldı, yapılıyor veya beklemede olma durumunu pasta grafiği üzerinden canlı olarak analiz edin.</p>
-                    </div>
+                    <!-- Phone Frame Wrapper with Floating Callouts -->
+                    <div class="phone-frame-wrapper">
+                        
+                        <!-- Floating Interactive Callouts (Desktop / Tablet) -->
+                        <button type="button" class="hero-floating-callout callout-top-right" onclick="triggerFloatingAction('task')" aria-label="Görevi tamamla ve yükü azalt">
+                            <span class="callout-icon material-icons-round" aria-hidden="true">task_alt</span>
+                            <span class="callout-text">
+                                <strong>Görevi Tamamla</strong>
+                                <small>Omuzunuzdaki yük azalsın</small>
+                            </span>
+                            <span class="callout-pulse" aria-hidden="true"></span>
+                        </button>
 
-                    <!-- Feature Slide 2c: Inclusive team invite flow step -->
-                    <div class="showcase-slide-text" id="text-slide-2c" style="display: none; opacity: 0;">
-                        <div class="badge gold-badge">03 / KOLAY DAVET</div>
-                        <h2>Sevdikleriniz iş başında: Hazırlıkları tek tıkla paylaşın.</h2>
-                        <p>Nedimelerinizi, sağdıçlarınızı ve ailenizi davet koduyla ekibe dahil edin. Bekarlığa veda sürprizinden konvoy organizasyonuna kadar her işi sevdikleriniz arasında kolayca paylaştırın.</p>
-                    </div>
+                        <button type="button" class="hero-floating-callout callout-bottom-left" onclick="triggerFloatingAction('deposit')" aria-label="Kapora ödemesi simüle et">
+                            <span class="callout-icon material-icons-round" aria-hidden="true">add_circle</span>
+                            <span class="callout-text">
+                                <strong>+₺15.000 Kapora</strong>
+                                <small>Ortak bütçeyi güncelle</small>
+                            </span>
+                            <span class="callout-pulse" aria-hidden="true"></span>
+                        </button>
 
-                    <!-- Feature Slide 3 -->
-                    <div class="showcase-slide-text" id="text-slide-3">
-                        <div class="badge gold-badge">04 / ORTAK YÖNETİCİ</div>
-                        <h2>Eşit yetkiyle, tam uyumla çalışın.</h2>
-                        <p>Eşinizi ortak yönetici (Co-host) olarak ekleyin. Aynı ekranları görün, aynı yetkilerle bütçeyi yönetin; yapılacaklar bir bir tamamlanırken özel gününüzü kutlamanın keyfini çıkarın.</p>
-                    </div>
-                </div>
-                
-                <!-- Right Side Empty Space for Mockup Align on Desktop -->
-                <div class="story-content-right-placeholder"></div>
-                
-                <!-- Desktop Sticky Phone Mockup (Pin target) -->
-                <div class="story-sticky-phone" id="desktopStickyPhone">
-                    <div class="phone-frame interactive-phone retina-phone" id="phoneMockup">
-                        <div class="phone-speaker"></div>
-                        <div class="phone-screen">
-                            <div class="phone-header">
-                                <span class="time">09:41</span>
-                                <span class="material-icons-round status-icon">signal_cellular_alt</span>
-                                <span class="material-icons-round status-icon">wifi</span>
-                                <span class="material-icons-round status-icon">battery_full</span>
-                            </div>
-                            
-                            <div class="phone-body">
-                                <div class="app-header">
-                                    <span class="back-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                                    </span>
-                                    <div class="app-title">Düğün Planlama</div>
-                                    <span class="calendar-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                    </span>
+                        <!-- Single Unified Interactive Phone Component -->
+                        <div class="phone-frame interactive-phone retina-phone" id="phoneMockup">
+                            <div class="phone-speaker" aria-hidden="true"></div>
+                            <div class="phone-screen">
+                                <div class="phone-header">
+                                    <span class="time">09:41</span>
+                                    <span class="material-icons-round status-icon" aria-hidden="true">signal_cellular_alt</span>
+                                    <span class="material-icons-round status-icon" aria-hidden="true">wifi</span>
+                                    <span class="material-icons-round status-icon" aria-hidden="true">battery_full</span>
+                                </div>
+
+                                <!-- Simulated iOS Dynamic Island / In-App Live Push Banner -->
+                                <div class="sim-hero-push" id="simHeroPush" role="status" aria-live="polite">
+                                    <div class="sim-push-header">
+                                        <span class="push-app-badge">
+                                            <img src="assets/img/logo_wax_seal_96.png" width="14" height="14" alt="" aria-hidden="true">
+                                            <span>İmece Düğün</span>
+                                        </span>
+                                        <span class="push-time">Şimdi</span>
+                                    </div>
+                                    <div class="sim-push-title" id="simPushTitle">Mert bir ödeme kaydetti</div>
+                                    <div class="sim-push-sub" id="simPushSub">Fotoğrafçı kaporası için ₺15.000 ödendi • Bütçe dengede</div>
                                 </div>
                                 
-                                <div class="app-content-slider-wrapper">
-                                    <!-- Dynamic vertical dashboard layout mirroring the real Flutter app -->
-                                    <div class="app-dashboard-scroller" id="mockupScroller">
-                                        
-                                        <!-- 1) TeamPoolBar ("Ekibim") -->
-                                        <div class="team-pool-section mockup-section-focus" id="mockup-team-section" onclick="jumpStory(4)">
-                                            <div class="team-pool-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                                                <span class="team-title">Ekibim</span>
-                                                <div class="cohost-heart-btn" title="Ortak Yönetici Ekle" onclick="event.stopPropagation(); openCohostCreateDialog()">
-                                                    <svg viewBox="0 0 24 24" class="heart-icon"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                                    <!-- Automatic Click Ripple for Heart -->
-                                                    <div class="auto-tap-ripple" id="heartTapRipple" style="width: 20px; height: 20px;"></div>
-                                                </div>
-                                            </div>
-                                            <div class="team-pool-bar">
-                                                <div class="avatar-chip">
-                                                    <div class="avatar add-btn">
-                                                        <svg viewBox="0 0 24 24" class="add-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                                                    </div>
-                                                    <span class="avatar-label">Yeni Kişi</span>
-                                                </div>
-                                                <div class="avatar-chip">
-                                                    <div class="avatar admin">M<div class="avatar-badge done"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
-                                                    <span class="avatar-label">Mert</span>
-                                                </div>
-                                                <div class="avatar-chip">
-                                                    <div class="avatar">E<div class="avatar-badge pending"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div></div>
-                                                    <span class="avatar-label">Ece (Nedime)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- 2) DashboardSummaryCard (Unified Budget & Task stats) -->
-                                        <div class="app-card dashboard-summary-card-gradient">
-                                            
-                                            <!-- TaskStatsSection -->
-                                            <div class="task-stats-section-layout mockup-section-focus" id="mockup-task-section" onclick="jumpStory(2)">
-                                                <span class="section-title-large">Görev Özeti</span>
-                                                <div class="task-stats-row">
-                                                    <div class="donut-chart-container">
-                                                        <div class="donut-chart" style="background: conic-gradient(var(--gold) 0% 66%, var(--text-light) 66% 100%);">
-                                                            <div class="donut-hole">12/18</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="donut-legend">
-                                                        <div class="legend-item"><span class="dot done"></span><span>Yapıldı</span></div>
-                                                        <div class="legend-item"><span class="dot progress"></span><span>Yapılıyor</span></div>
-                                                        <div class="legend-item"><span class="dot pending"></span><span>Bekliyor</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="coverage-text">12/18 göreve kişi atandı</div>
-                                                <div class="detail-click-text">Detay için grafiğe dokun</div>
-                                            </div>
-                                            
-                                            <div class="card-divider" style="margin: 16px 0;"></div>
-                                            
-                                            <!-- BudgetSummarySection -->
-                                            <div class="budget-summary-section-layout mockup-section-focus" id="mockup-budget-section" onclick="jumpStory(1)">
-                                                <span class="section-title-large">Bütçe Özeti</span>
-                                                <div class="budget-stats-row">
-                                                    <div class="budget-val-col">
-                                                        <span class="budget-val-label">Tahmini</span>
-                                                        <span class="budget-val-amount">₺150.000</span>
-                                                    </div>
-                                                    <div class="budget-val-col">
-                                                        <span class="budget-val-label">Gerçekleşen</span>
-                                                        <span class="budget-val-amount actual">₺92.000</span>
-                                                    </div>
-                                                </div>
-                                                <div class="budget-progress-bar-wrapper" style="margin-top: 12px;">
-                                                    <div class="budget-progress-bar-fill" style="width: 61%"></div>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                        
-                                        <!-- 3) RolesSection ("İş Paketleri") -->
-                                        <div class="roles-list-section mockup-section-focus" id="mockup-roles-list-section" onclick="jumpStory(3)">
-                                            <span class="team-title" style="margin-bottom: 12px; display: block;">Yapılacaklar Listesi</span>
-                                            <div class="mockup-role-cards-container">
-                                                <!-- Role Card 1: Mekan & Nikah (Ece is Assigned but unverified/pending) -->
-                                                <div class="mockup-role-card accent-pink" id="mockup-role-card-1">
-                                                    <div class="role-card-header">
-                                                        <div class="role-icon-circle">
-                                                            <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                                        </div>
-                                                        <span class="role-card-title">Mekan & Nikah</span>
-                                                        
-                                                        <!-- EventProgressRing mockup: rotating bar with outline heart (incomplete) -->
-                                                        <div class="progress-ring-mock" id="mockup-progress-ring-1">
-                                                            <svg class="ring-svg" viewBox="0 0 36 36">
-                                                                <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                                                <path class="ring-fill" stroke-dasharray="60, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                                            </svg>
-                                                            <div class="ring-heart-container" id="ring-heart-1">
-                                                                <svg viewBox="0 0 24 24" class="ring-heart-svg outline"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="assignee-capsule-row" id="eceCapsuleRow" onclick="openInviteSheet(event)">
-                                                        <!-- Left Area: Avatar & Name -->
-                                                        <div class="assignee-picker-area">
-                                                            <div class="assignee-avatar-wrapper pending-border">
-                                                                <div class="assignee-avatar-mini">E</div>
-                                                            </div>
-                                                            <span class="assignee-name">Ece</span>
-                                                            <span class="swap-icon">
-                                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
-                                                            </span>
-                                                        </div>
-                                                        <!-- Divider -->
-                                                        <div class="capsule-divider"></div>
-                                                        <!-- Right Area: Send Button -->
-                                                        <div class="capsule-send-btn" title="Davetiye Gönder">
-                                                            <svg viewBox="0 0 24 24" class="send-icon"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                                                        </div>
-                                                        <!-- Automatic Click Ripple Indicator -->
-                                                        <div class="auto-tap-ripple" id="eceTapRipple"></div>
-                                                    </div>
-                                                    <div class="card-divider" style="margin: 8px 0;"></div>
-                                                    <div class="mockup-tasks-list">
-                                                        <div class="mockup-task-item done">
-                                                            <div class="mockup-status-chip compact done">
-                                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                                            </div>
-                                                            <span class="task-title-text">Nikah salonu tutulacak</span>
-                                                        </div>
-                                                        <div class="mockup-task-item progress" id="mockup-task-to-complete">
-                                                            <div class="mockup-status-chip compact progress" id="task-status-badge">
-                                                                <svg viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-                                                            </div>
-                                                            <span class="task-title-text">Organizasyon firması ayarlanacak</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="add-task-btn">
-                                                        <svg viewBox="0 0 24 24" class="add-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                                                        Görev ekle
-                                                    </div>
-                                                </div>
- 
-                                                <!-- Role Card 2: Müzik & Eğlence (Mert is Assigned & Verified) -->
-                                                <div class="mockup-role-card accent-blue">
-                                                    <div class="role-card-header">
-                                                        <div class="role-icon-circle">
-                                                            <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
-                                                        </div>
-                                                        <span class="role-card-title">Müzik & Eğlence</span>
-                                                        
-                                                        <!-- EventProgressRing mockup: rotating bar with filled heart (complete) -->
-                                                        <div class="progress-ring-mock complete">
-                                                            <svg class="ring-svg" viewBox="0 0 36 36">
-                                                                <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                                                <path class="ring-fill" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                                            </svg>
-                                                            <div class="ring-heart-container">
-                                                                <svg viewBox="0 0 24 24" class="ring-heart-svg filled"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="assignee-capsule-row verified-style">
-                                                        <div class="assignee-picker-area">
-                                                            <div class="assignee-avatar-wrapper verified-border">
-                                                                <div class="assignee-avatar-mini">M</div>
-                                                            </div>
-                                                            <span class="assignee-name">Mert</span>
-                                                            <span class="swap-icon">
-                                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-divider" style="margin: 8px 0;"></div>
-                                                    <div class="mockup-tasks-list">
-                                                        <div class="mockup-task-item done">
-                                                            <div class="mockup-status-chip compact done">
-                                                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                                            </div>
-                                                            <span class="task-title-text">Müzisyen/DJ seçimi yapılacak</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="add-task-btn">
-                                                        <svg viewBox="0 0 24 24" class="add-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                                                        Görev ekle
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
+                                <div class="phone-body">
+                                    <div class="app-header">
+                                        <span class="back-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                                        </span>
+                                        <div class="app-title" id="mockupAppTitle">Düğün Planlama</div>
+                                        <span class="calendar-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                        </span>
                                     </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Real App Create Co-Host Central Dialog Mockup -->
-                            <div class="mockup-dialog-overlay" id="cohostCreateDialog">
-                                <div class="dialog-container">
-                                    <h4 class="dialog-title">Ortak Yönetici Ekle</h4>
-                                    <p class="dialog-subtitle">Ortağınız tüm yetkilere sahip olacak ve hazırlıkları birlikte yöneteceksiniz.</p>
-                                    
-                                    <div class="dialog-input-group">
-                                        <label class="dialog-label">Adı Soyadı</label>
-                                        <div class="dialog-input-box">Mert</div>
-                                    </div>
-                                    
-                                    <div class="dialog-input-group" style="margin-top: 10px;">
-                                        <label class="dialog-label">Telefon Numarası</label>
-                                        <div class="dialog-input-box">+90 (532) 123 45 67</div>
-                                    </div>
-                                    
-                                    <div class="dialog-actions-row">
-                                        <button class="dialog-btn cancel-btn" onclick="closeCohostCreateDialog()">Vazgeç</button>
-                                        <button class="dialog-btn confirm-btn" onclick="submitCohostCreateForm()">
-                                            Ekle
-                                            <!-- Ripple click for form submit -->
-                                            <div class="auto-tap-ripple" id="dialogSubmitRipple" style="width: 14px; height: 14px;"></div>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Real App Bottom Sheet Mockup (Invited / Code sheet for Team Member Ece) -->
-                            <div class="mockup-bottom-sheet" id="inviteBottomSheet">
-                                <div class="sheet-scrim" onclick="closeInviteSheet()"></div>
-                                <div class="sheet-container">
-                                    <div class="sheet-drag-handle"></div>
-                                    <div class="sheet-content">
-                                        <div class="sheet-icon-circle">
-                                            <svg viewBox="0 0 24 24" class="heart-svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                        </div>
-                                        <h3 class="sheet-title">Ece (Nedime)</h3>
-                                        <p class="sheet-subtitle">Davet kodunu paylaş, katıldığında görevleri birlikte yönetin.</p>
-                                        <div class="sheet-code-card" role="button" tabindex="0" aria-label="Davet kodunu kopyala" onclick="copyInviteCode()" onkeydown="handleActivationKey(event)">
-                                            <span class="sheet-code-text">DN-ECE-572</span>
-                                            <svg viewBox="0 0 24 24" class="copy-icon"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                                        </div>
-                                        <button class="sheet-send-btn" onclick="sendInviteWhatsApp()">
-                                            <svg viewBox="0 0 24 24" class="link-icon"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                                            Davetiye Gönder
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <!-- Real App Bottom Sheet Mockup (Invited / Code sheet for Co-Host Mert) -->
-                            <div class="mockup-bottom-sheet" id="cohostBottomSheet">
-                                <div class="sheet-scrim" onclick="closeCohostSheet()"></div>
-                                <div class="sheet-container">
-                                    <div class="sheet-drag-handle"></div>
-                                    <div class="sheet-content">
-                                        <div class="sheet-icon-circle">
-                                            <svg viewBox="0 0 24 24" class="heart-svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    <!-- Top "İmece Yük Hafifletme" Relief Meter -->
+                                    <div class="relief-meter-strip" id="reliefMeterStrip">
+                                        <span class="relief-sparkle" aria-hidden="true">✨</span>
+                                        <span class="relief-label">İmece Etkisi:</span>
+                                        <strong class="relief-value" id="reliefValue">%66 Yük Paylaşıldı</strong>
+                                        <div class="relief-bar" aria-hidden="true"><div class="relief-bar-fill" id="reliefBarFill" style="width: 66%;"></div></div>
+                                    </div>
+                                    
+                                    <div class="app-content-slider-wrapper" id="mockupViewport">
+                                        <div class="app-dashboard-scroller" id="mockupScroller">
+                                            
+                                            <!-- 1) TeamPoolBar ("Ekibim") -->
+                                            <div class="team-pool-section mockup-section-focus" id="mockup-team-section">
+                                                <div class="team-pool-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                                                    <span class="team-title">Ekibim</span>
+                                                    <button type="button" class="cohost-heart-btn" id="cohostHeartBtn" title="Ortak Yönetici Ekle" aria-label="Ortak Yönetici Ekle" onclick="openCohostCreateDialog()">
+                                                        <svg viewBox="0 0 24 24" class="heart-icon"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                                    </button>
+                                                </div>
+                                                <div class="team-pool-bar">
+                                                    <div class="avatar-chip">
+                                                        <div class="avatar add-btn" role="button" tabindex="0" aria-label="Yeni kişi ekle" onclick="openInviteSheet(event)">
+                                                            <svg viewBox="0 0 24 24" class="add-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                                        </div>
+                                                        <span class="avatar-label">Yeni Kişi</span>
+                                                    </div>
+                                                    <div class="avatar-chip">
+                                                        <div class="avatar admin">M<div class="avatar-badge done"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div>
+                                                        <span class="avatar-label" id="mockupAdminName">Mert (Eş)</span>
+                                                    </div>
+                                                    <div class="avatar-chip">
+                                                        <div class="avatar" style="background:#EAD0D0; color:#754B4B;">E<div class="avatar-badge pending" id="eceAvatarBadge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div></div>
+                                                        <span class="avatar-label" id="mockupHelperName">Ece (Nedime)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- 2) DashboardSummaryCard (Unified Budget & Task stats) -->
+                                            <div class="app-card dashboard-summary-card-gradient">
+                                                
+                                                <!-- TaskStatsSection -->
+                                                <div class="task-stats-section-layout mockup-section-focus" id="mockup-task-section">
+                                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                        <span class="section-title-large">Görev Özeti</span>
+                                                        <span class="mockup-quick-badge" id="taskCoverageText">12/18 atandı</span>
+                                                    </div>
+                                                    <div class="task-stats-row">
+                                                        <div class="donut-chart-container">
+                                                            <div class="donut-chart" id="mockupDonutChart" style="background: conic-gradient(#C5A059 0% 66%, rgba(29,29,31,0.12) 66% 100%);">
+                                                                <div class="donut-hole" id="mockupDonutHole">12/18</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="donut-legend">
+                                                            <div class="legend-item"><span class="dot done"></span><span id="legendDoneText">12 Yapıldı</span></div>
+                                                            <div class="legend-item"><span class="dot progress"></span><span id="legendProgressText">4 Yapılıyor</span></div>
+                                                            <div class="legend-item"><span class="dot pending"></span><span id="legendPendingText">2 Bekliyor</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card-divider" style="margin: 12px 0;"></div>
+                                                
+                                                <!-- BudgetSummarySection -->
+                                                <div class="budget-summary-section-layout mockup-section-focus" id="mockup-budget-section">
+                                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                        <span class="section-title-large">Bütçe Özeti</span>
+                                                        <button type="button" class="mockup-budget-action-btn" id="btnSimDeposit" onclick="simulateBudgetDeposit(event)" aria-label="15 bin lira kapora ekle">
+                                                            <span class="material-icons-round" aria-hidden="true">add</span>
+                                                            <span id="btnSimDepositText">+₺15.000 Kapora</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="budget-stats-row">
+                                                        <div class="budget-val-col">
+                                                            <span class="budget-val-label">Tahmini</span>
+                                                            <span class="budget-val-amount" id="mockupEstBudget">₺150.000</span>
+                                                        </div>
+                                                        <div class="budget-val-col">
+                                                            <span class="budget-val-label">Gerçekleşen</span>
+                                                            <span class="budget-val-amount actual" id="mockupActualBudget">₺92.000</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="budget-progress-bar-wrapper" style="margin-top: 10px;">
+                                                        <div class="budget-progress-bar-fill" id="mockupBudgetBarFill" style="width: 61%"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                            <!-- 3) RolesSection ("Yapılacaklar Listesi") -->
+                                            <div class="roles-list-section mockup-section-focus" id="mockup-roles-list-section">
+                                                <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                                    <span class="team-title">Yapılacaklar Listesi</span>
+                                                    <span class="mockup-sub-badge" id="mockupCeremonyTag">Düğün</span>
+                                                </div>
+                                                <div class="mockup-role-cards-container">
+                                                    <!-- Role Card 1: Mekan & Nikah -->
+                                                    <div class="mockup-role-card accent-pink" id="mockup-role-card-1">
+                                                        <div class="role-card-header">
+                                                            <div class="role-icon-circle" id="roleIconCircle1">
+                                                                <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                                            </div>
+                                                            <span class="role-card-title" id="roleCardTitle1">Mekan &amp; Nikah</span>
+                                                            
+                                                            <!-- EventProgressRing mockup -->
+                                                            <div class="progress-ring-mock" id="mockup-progress-ring-1" aria-hidden="true">
+                                                                <svg class="ring-svg" viewBox="0 0 36 36">
+                                                                    <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                                    <path class="ring-fill" id="ringFill1" stroke-dasharray="60, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                                </svg>
+                                                                <div class="ring-heart-container" id="ring-heart-1">
+                                                                    <svg viewBox="0 0 24 24" class="ring-heart-svg outline" id="ringHeartSvg1"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <!-- Assignee Capsule -->
+                                                        <div class="assignee-capsule-row" id="eceCapsuleRow" role="button" tabindex="0" aria-label="Ece için davet kodu aç" onclick="openInviteSheet(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openInviteSheet(event);}">
+                                                            <div class="assignee-picker-area">
+                                                                <div class="assignee-avatar-wrapper pending-border" id="capsuleAvatarBorder">
+                                                                    <div class="assignee-avatar-mini" id="capsuleAvatarMini">E</div>
+                                                                </div>
+                                                                <span class="assignee-name" id="capsuleAssigneeName">Ece</span>
+                                                                <span class="swap-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+                                                                </span>
+                                                            </div>
+                                                            <div class="capsule-divider"></div>
+                                                            <div class="capsule-send-btn" id="capsuleActionBtn">
+                                                                <span id="capsuleActionLabel" style="font-size: 0.68rem; font-weight: 700; color: #7A5A20; margin-right: 4px;">Davet Et</span>
+                                                                <svg viewBox="0 0 24 24" class="send-icon" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="card-divider" style="margin: 8px 0;"></div>
+                                                        
+                                                        <div class="mockup-tasks-list">
+                                                            <div class="mockup-task-item done">
+                                                                <div class="mockup-status-chip compact done" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                                                </div>
+                                                                <span class="task-title-text" id="taskDoneTitle1">Nikah salonu tutulacak</span>
+                                                            </div>
+                                                            
+                                                            <!-- Interactive Toggleable Task 1 -->
+                                                            <button type="button" class="mockup-task-item progress interactive-task-row" id="mockup-task-to-complete" onclick="toggleTaskInteractive(this, event)" aria-pressed="false" aria-label="Organizasyon firması ayarlanacak görevini tamamla">
+                                                                <div class="mockup-status-chip compact progress" id="task-status-badge">
+                                                                    <svg viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                                                                </div>
+                                                                <span class="task-title-text" id="interactiveTaskTitle">Organizasyon firması ayarlanacak</span>
+                                                                <span class="task-tap-hint" aria-hidden="true">👆 Dokun</span>
+                                                            </button>
+
+                                                            <!-- Interactive Toggleable Task 2 -->
+                                                            <button type="button" class="mockup-task-item pending interactive-task-row" id="mockup-task-item-3" onclick="toggleTaskInteractive(this, event)" aria-pressed="false" aria-label="Masa süslemesi ve çiçek seçimi görevini tamamla">
+                                                                <div class="mockup-status-chip compact pending">
+                                                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                                                </div>
+                                                                <span class="task-title-text" id="interactiveTaskTitle2">Masa süslemesi &amp; çiçek seçimi</span>
+                                                            </button>
+                                                        </div>
+                                                        
+                                                        <div class="add-task-btn" role="button" tabindex="0" onclick="addNewDemoTask()">
+                                                            <svg viewBox="0 0 24 24" class="add-icon" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                                            <span>Görev ekle</span>
+                                                        </div>
+                                                    </div>
+     
+                                                    <!-- Role Card 2: Müzik & Eğlence -->
+                                                    <div class="mockup-role-card accent-blue">
+                                                        <div class="role-card-header">
+                                                            <div class="role-icon-circle">
+                                                                <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                                                            </div>
+                                                            <span class="role-card-title" id="roleCardTitle2">Müzik &amp; Eğlence</span>
+                                                            
+                                                            <div class="progress-ring-mock complete" aria-hidden="true">
+                                                                <svg class="ring-svg" viewBox="0 0 36 36">
+                                                                    <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                                    <path class="ring-fill" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                                </svg>
+                                                                <div class="ring-heart-container">
+                                                                    <svg viewBox="0 0 24 24" class="ring-heart-svg filled"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="assignee-capsule-row verified-style">
+                                                            <div class="assignee-picker-area">
+                                                                <div class="assignee-avatar-wrapper verified-border">
+                                                                    <div class="assignee-avatar-mini">M</div>
+                                                                </div>
+                                                                <span class="assignee-name">Mert</span>
+                                                            </div>
+                                                            <span style="font-size: 0.65rem; color: #5C9468; font-weight: 700; margin-left: auto; padding-right: 6px;">Tamamlandı</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
-                                        <h3 class="sheet-title">Mert ortak yönetici olarak eklendi</h3>
-                                        <p class="sheet-subtitle">Davet kodunu paylaş, katıldığında etkinliği birlikte yönetin.</p>
-                                        <div class="sheet-code-card" role="button" tabindex="0" aria-label="Ortak yonetici davet kodunu kopyala" onclick="copyCohostCode()" onkeydown="handleActivationKey(event)">
-                                            <span class="sheet-code-text">DN-MERT-984</span>
-                                            <svg viewBox="0 0 24 24" class="copy-icon"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                                        </div>
-                                        <button class="sheet-send-btn" onclick="sendCohostWhatsApp()">
-                                            <svg viewBox="0 0 24 24" class="link-icon"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                                            Davetiye Gönder
-                                        </button>
                                     </div>
                                 </div>
+                                
+                                <!-- Real App Create Co-Host Central Dialog Mockup -->
+                                <div class="mockup-dialog-overlay" id="cohostCreateDialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitleCohost">
+                                    <div class="dialog-container">
+                                        <h4 class="dialog-title" id="dialogTitleCohost">Ortak Yönetici Ekle</h4>
+                                        <p class="dialog-subtitle">Ortağınız tüm yetkilere sahip olacak ve hazırlıkları birlikte yöneteceksiniz.</p>
+                                        
+                                        <div class="dialog-input-group">
+                                            <label class="dialog-label">Adı Soyadı</label>
+                                            <div class="dialog-input-box">Mert</div>
+                                        </div>
+                                        
+                                        <div class="dialog-input-group" style="margin-top: 10px;">
+                                            <label class="dialog-label">Telefon Numarası</label>
+                                            <div class="dialog-input-box">+90 (532) 123 45 67</div>
+                                        </div>
+                                        
+                                        <div class="dialog-actions-row">
+                                            <button type="button" class="dialog-btn cancel-btn" onclick="closeCohostCreateDialog()">Vazgeç</button>
+                                            <button type="button" class="dialog-btn confirm-btn" onclick="submitCohostCreateForm()">
+                                                <span>Ekle</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Real App Bottom Sheet Mockup (Invited / Code sheet for Team Member Ece) -->
+                                <div class="mockup-bottom-sheet" id="inviteBottomSheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitleEce">
+                                    <div class="sheet-scrim" onclick="closeInviteSheet()"></div>
+                                    <div class="sheet-container">
+                                        <div class="sheet-drag-handle"></div>
+                                        <div class="sheet-content">
+                                            <div class="sheet-icon-circle">
+                                                <svg viewBox="0 0 24 24" class="heart-svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                            </div>
+                                            <h3 class="sheet-title" id="sheetTitleEce">Ece (Nedime) için Davet Kodu</h3>
+                                            <p class="sheet-subtitle">Davet kodunu paylaşın; katıldığında görevleri birlikte yönetin.</p>
+                                            <div class="sheet-code-card" role="button" tabindex="0" aria-label="Davet kodunu kopyala: DN-ECE-572" onclick="copyInviteCode('DN-ECE-572')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyInviteCode('DN-ECE-572');}">
+                                                <span class="sheet-code-text">DN-ECE-572</span>
+                                                <svg viewBox="0 0 24 24" class="copy-icon" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                            </div>
+                                            <button type="button" class="sheet-send-btn" onclick="sendInviteWhatsApp()">
+                                                <svg viewBox="0 0 24 24" class="link-icon" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                                                <span>WhatsApp ile Davet Gönder</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Real App Bottom Sheet Mockup (Invited / Code sheet for Co-Host Mert) -->
+                                <div class="mockup-bottom-sheet" id="cohostBottomSheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitleMert">
+                                    <div class="sheet-scrim" onclick="closeCohostSheet()"></div>
+                                    <div class="sheet-container">
+                                        <div class="sheet-drag-handle"></div>
+                                        <div class="sheet-content">
+                                            <div class="sheet-icon-circle">
+                                                <svg viewBox="0 0 24 24" class="heart-svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                            </div>
+                                            <h3 class="sheet-title" id="sheetTitleMert">Mert Eş-Yönetici Olarak Eklendi</h3>
+                                            <p class="sheet-subtitle">Bu özel kodu eşinizle paylaşın; girdiğinde tüm yetkilere sahip olacak.</p>
+                                            <div class="sheet-code-card" role="button" tabindex="0" aria-label="Ortak yönetici davet kodunu kopyala: DN-MERT-984" onclick="copyCohostCode()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyCohostCode();}">
+                                                <span class="sheet-code-text">DN-MERT-984</span>
+                                                <svg viewBox="0 0 24 24" class="copy-icon" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                            </div>
+                                            <button type="button" class="sheet-send-btn" onclick="sendCohostWhatsApp()">
+                                                <svg viewBox="0 0 24 24" class="link-icon" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                                                <span>WhatsApp ile Kodu İlet</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mockup-toast" id="mockupToast" role="status" aria-live="polite">Davet kodu kopyalandı</div>
                             </div>
-                            
-                            <div class="mockup-toast" id="mockupToast" role="status" aria-live="polite">Davet kodu kopyalandı</div>
                         </div>
                     </div>
                 </div>
-                
 
-                                               <!-- Mobile Only Interactive Showcase Section (Screen < 768px) -->
-            <div class="mobile-interactive-showcase">
-                <div class="section-header" style="margin-bottom: 16px; text-align: center; width: 100%;">
-                    <div class="badge gold-badge" style="margin: 0 auto 8px auto; display: table;">NASIL ÇALIŞIR?</div>
-                    <h2 style="font-size: 1.5rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 4px 0;">Uygulama Akışını Keşfedin</h2>
-                    <p class="section-subtitle" style="font-size: 0.8rem; margin: 0; max-width: 100%;">Butonları kullanarak İmece planlama sürecini adım adım canlandırın.</p>
-                </div>
-                
-                <!-- Swiper Navigation Controls placed ABOVE mockup -->
-                <div class="mobile-flow-controls" style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 12px; position: relative; z-index: 10;">
-                    <button class="flow-nav-btn prev" onclick="prevMobileStep()" aria-label="Önceki adım" style="background: var(--surface); border: 1px solid var(--border-color); width: 44px; height: 44px; min-width: 44px; min-height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main); font-weight: bold; font-size: 16px;">
-                        ←
-                    </button>
-                    <div class="flow-indicators" style="display: flex; gap: 8px; align-items: center;">
-                        <span class="flow-dot active" onclick="setMobileFlowStep(0)" role="button" aria-label="1. Adım: Bütçe Yönetimi" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setMobileFlowStep(0);}" style="width: 10px; height: 10px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s; display: inline-block;"></span>
-                        <span class="flow-dot" onclick="setMobileFlowStep(1)" role="button" aria-label="2. Adım: Görev Dağıtımı" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setMobileFlowStep(1);}" style="width: 10px; height: 10px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s; display: inline-block;"></span>
-                        <span class="flow-dot" onclick="setMobileFlowStep(2)" role="button" aria-label="3. Adım: Kolay Davet" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setMobileFlowStep(2);}" style="width: 10px; height: 10px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s; display: inline-block;"></span>
-                        <span class="flow-dot" onclick="setMobileFlowStep(3)" role="button" aria-label="4. Adım: Ortak Yönetici" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setMobileFlowStep(3);}" style="width: 10px; height: 10px; border-radius: 50%; background: var(--border-color); cursor: pointer; transition: background 0.3s; display: inline-block;"></span>
-                    </div>
-                    <button class="flow-nav-btn next" onclick="nextMobileStep()" aria-label="Sonraki adım" style="background: var(--surface); border: 1px solid var(--border-color); width: 44px; height: 44px; min-width: 44px; min-height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main); font-weight: bold; font-size: 16px;">
-                        →
-                    </button>
-                </div>
-                
-                <!-- Swiper Text Description Card placed ABOVE mockup -->
-                <div class="mobile-flow-text-card" style="width: 100%; max-width: 450px; min-height: 130px; position: relative; background: var(--surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 12px 16px; box-sizing: border-box; box-shadow: var(--shadow-soft); margin-bottom: 20px;">
-                    <div id="mobile-slide-text-0" class="mobile-slide-text active" style="opacity: 1; transition: opacity 0.4s ease; display: block; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">01 / BÜTÇE YÖNETİMİ</div>
-                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Her harcama gözünüzün önünde olsun.</h3>
-                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Kategori bazında bütçe limitleri koyun. Ödemeleri eşinizle veya ailelerinizle kimin gerçekleştirdiğine göre anlık olarak takip edin. Bütçe aşımında anında uyarılar alın.</p>
-                    </div>
-                    <div id="mobile-slide-text-1" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">02 / GÖREV DAĞITIMI</div>
-                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Hazırlıkları paylaşın, sürecin tadını çıkarın.</h3>
-                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Yapılacak her işi sorumlularına atayın. Görevlerin yapıldı, yapılıyor veya beklemede olma durumunu pasta grafiği üzerinden canlı olarak analiz edin.</p>
-                    </div>
-                    <div id="mobile-slide-text-2" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">03 / KOLAY DAVET</div>
-                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Sevdikleriniz iş başında: Hazırlıkları tek tıkla paylaşın.</h3>
-                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Nedimelerinizi, sağdıçlarınızı ve ailenizi davet koduyla ekibe dahil edin. Bekarlığa veda sürprizinden konvoy organizasyonuna kadar her işi sevdikleriniz arasında kolayca paylaştırın.</p>
-                    </div>
-                    <div id="mobile-slide-text-3" class="mobile-slide-text" style="opacity: 0; transition: opacity 0.4s ease; display: none; text-align: center;">
-                        <div class="badge gold-badge" style="margin: 0 auto 6px auto; display: table; font-size: 0.7rem;">04 / ORTAK YÖNETİCİ</div>
-                        <h3 style="font-size: 1.1rem; font-family: var(--font-header); letter-spacing: -0.01em; margin: 0 0 6px 0; color: var(--text-main);">Eşit yetkiyle, tam uyumla çalışın.</h3>
-                        <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-light); margin: 0;">Eşinizi ortak yönetici (Co-host) olarak ekleyin. Aynı ekranları görün, aynı yetkilerle bütçeyi yönetin; yapılacaklar bir bir tamamlanırken özel gününüzü kutlamanın keyfini çıkarın.</p>
-                    </div>
-                </div>
-
-                <!-- Swiper Phone Frame Wrap (Height limited to 370px to fit viewports) placed at the bottom -->
-                <div class="mobile-mockup-wrap">
-                    <div class="phone-frame interactive-phone retina-phone" id="phoneMockupMobile">
-                        <div class="phone-speaker" style="width: 50px; height: 4px; top: 6px;"></div>
-                        <div class="phone-screen" style="border-radius: 30px;">
-                            <div class="phone-header" style="height: 24px; font-size: 10px; padding: 0 16px;">
-                                <span class="time" style="left: 14px; top: 4px;">09:41</span>
-                                <div style="right: 14px; top: 4px; position: absolute; display: flex; gap: 4px; align-items: center;">
-                                    <span class="material-icons-round" style="font-size: 10px;">signal_cellular_alt</span>
-                                    <span class="material-icons-round" style="font-size: 10px;">wifi</span>
-                                    <span class="material-icons-round" style="font-size: 10px;">battery_full</span>
-                                </div>
-                            </div>
-                            
-                            <div class="phone-body" style="height: calc(100% - 24px); display: flex; flex-direction: column;">
-                                <div class="app-header" style="height: 44px; padding: 0 12px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-color); background: var(--surface);">
-                                    <span class="back-icon" style="font-size: 12px; cursor: pointer;">←</span>
-                                    <div class="app-title" style="font-size: 13px; font-weight: 700;">Düğün Planlama</div>
-                                    <span class="calendar-icon material-icons-round" style="font-size: 14px; color: var(--text-light); line-height: 1;">calendar_today</span>
-                                </div>
-                                
-                                <div class="app-content-slider-wrapper" style="flex: 1; overflow: hidden; position: relative;">
-                                    <div class="app-dashboard-scroller" id="mockupScrollerMobile" style="padding: 12px; display: flex; flex-direction: column; gap: 12px; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);">
-                                        
-                                        <!-- 1) TeamPoolBar ("Ekibim") -->
-                                        <div class="team-pool-section" id="mockup-team-section-mobile" style="background: var(--surface); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); position: relative;">
-                                            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px;">
-                                                <span style="font-size: 12px; font-weight: 700;">Ekibim</span>
-                                                <div class="cohost-heart-btn" id="cohostHeartBtnMobile" style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--gold-light); cursor: pointer; transition: transform 0.2s; position: relative;">
-                                                    <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: var(--gold);"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                                    <!-- Tap Ripple for Heart -->
-                                                    <div class="auto-tap-ripple" id="heartTapRippleMobile" style="width: 20px; height: 20px;"></div>
-                                                </div>
-                                            </div>
-                                            <div style="display: flex; gap: 10px;">
-                                                <div class="avatar-chip" style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-                                                    <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 14px;">+</div>
-                                                    <span style="font-size: 9px; color: var(--text-light);">Yeni</span>
-                                                </div>
-                                                <div class="avatar-chip" style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-                                                    <div style="width: 32px; height: 32px; border-radius: 50%; background: #C5A059; color: white; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; position: relative;">
-                                                        M
-                                                        <div style="position: absolute; bottom: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: #4CD964; display: flex; align-items: center; justify-content: center; color: white; line-height: 1;"><span class="material-icons-round" style="font-size: 8px; display: block;">done</span></div>
-                                                    </div>
-                                                    <span style="font-size: 9px; color: var(--text-main); font-weight: 600;">Mert</span>
-                                                </div>
-                                                <div class="avatar-chip" style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-                                                    <div style="width: 32px; height: 32px; border-radius: 50%; background: #EAD0D0; color: #754B4B; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; position: relative;">
-                                                        E
-                                                        <div style="position: absolute; bottom: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: #FFCC00; display: flex; align-items: center; justify-content: center; color: white; line-height: 1;"><span class="material-icons-round" style="font-size: 8px; display: block;">schedule</span></div>
-                                                    </div>
-                                                    <span style="font-size: 9px; color: var(--text-main); font-weight: 600;">Ece (Nedime)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- 2) DashboardSummaryCard (Unified Budget & Task stats) -->
-                                        <div class="app-card" style="background: linear-gradient(135deg, rgba(212, 165, 165, 0.12) 0%, #ffffff 100%); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 12px;">
-                                            <!-- TaskStatsSection -->
-                                            <div id="mockup-task-section-mobile" style="display: flex; flex-direction: column; gap: 6px; border: 1px solid transparent; border-radius: 8px; padding: 4px;">
-                                                <span style="font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Görev Özeti</span>
-                                                <div style="display: flex; align-items: center; justify-content: space-between;">
-                                                    <div style="width: 50px; height: 50px; border-radius: 50%; background: conic-gradient(var(--gold) 0% 66%, var(--border-color) 66% 100%); display: flex; align-items: center; justify-content: center;">
-                                                        <div style="width: 34px; height: 34px; border-radius: 50%; background: white; font-size: 9px; font-weight: 700; display: flex; align-items: center; justify-content: center;">12/18</div>
-                                                    </div>
-                                                    <div style="display: flex; flex-direction: column; gap: 2px; font-size: 9px; text-align: right;">
-                                                        <div><span style="display: inline-block; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; margin-right: 4px;"></span>Yapıldı (12)</div>
-                                                        <div><span style="display: inline-block; width: 6px; height: 6px; background: var(--text-light); border-radius: 50%; margin-right: 4px;"></span>Bekliyor (6)</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div style="height: 1px; background: var(--border-color); width: 100%;"></div>
-                                            
-                                            <!-- BudgetSummarySection -->
-                                            <div id="mockup-budget-section-mobile" style="display: flex; flex-direction: column; gap: 6px; border: 1px solid transparent; border-radius: 8px; padding: 4px;">
-                                                <span style="font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Bütçe Özeti</span>
-                                                <div style="display: flex; justify-content: space-between; font-size: 10px;">
-                                                    <div>
-                                                        <div style="color: var(--text-light); font-size: 8px;">Tahmini</div>
-                                                        <strong style="font-size: 12px;">₺150.000</strong>
-                                                    </div>
-                                                    <div style="text-align: right;">
-                                                        <div style="color: var(--text-light); font-size: 8px;">Gerçekleşen</div>
-                                                        <strong style="font-size: 12px; color: var(--gold);">₺92.000</strong>
-                                                    </div>
-                                                </div>
-                                                <div style="background: rgba(197, 160, 89, 0.15); height: 6px; border-radius: 3px; overflow: hidden; margin-top: 4px;">
-                                                    <div style="background: var(--gold); width: 61%; height: 100%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- 3) RolesSection -->
-                                        <div class="roles-list-section" id="mockup-roles-list-section-mobile" style="background: var(--surface); border-radius: 12px; padding: 12px; border: 1px solid var(--border-color); text-align: left;">
-                                            <span style="font-size: 12px; font-weight: 700; margin-bottom: 8px; display: block;">Yapılacaklar Listesi</span>
-                                            <div class="mockup-role-card accent-pink" id="mockup-role-card-1-mobile" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; background: rgba(212,165,165,0.04); display: flex; flex-direction: column; gap: 8px;">
-                                                <div style="display: flex; justify-content: space-between; align-items: center;">
-                                                    <span style="font-size: 11px; font-weight: 700; color: var(--text-main);">Mekan & Nikah</span>
-                                                    <div id="mockup-progress-ring-1-mobile" style="width: 20px; height: 20px; position: relative;">
-                                                        <svg viewBox="0 0 36 36" style="width: 20px; height: 20px; transform: rotate(-90deg);">
-                                                            <path stroke="var(--border-color)" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                                            <path class="ring-fill" stroke="var(--gold)" stroke-width="3" stroke-dasharray="60, 100" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                                        </svg>
-                                                        <div id="ring-heart-1-mobile" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
-                                                            <svg viewBox="0 0 24 24" class="ring-heart-svg outline" style="width: 8px; height: 8px; fill: none; stroke: var(--gold); stroke-width: 3;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="assignee-capsule-row" id="eceCapsuleRowMobile" style="display: flex; justify-content: space-between; align-items: center; background: var(--surface); border: 1px solid var(--border-color); border-radius: 15px; padding: 4px 8px; font-size: 10px; position: relative;">
-                                                    <div style="display: flex; align-items: center; gap: 4px;">
-                                                        <div style="width: 16px; height: 16px; border-radius: 50%; background: #EAD0D0; color: #754B4B; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700;">E</div>
-                                                        <span>Ece</span>
-                                                    </div>
-                                                    <span style="color: var(--gold); font-weight: 700; font-size: 9px;">Davet Et</span>
-                                                    <!-- Tap Ripple for Ece Capsule -->
-                                                    <div class="auto-tap-ripple" id="eceTapRippleMobile" style="width: 20px; height: 20px;"></div>
-                                                </div>
-                                                
-                                                <div style="height: 1px; background: var(--border-color); width: 100%;"></div>
-                                                
-                                                <div style="display: flex; flex-direction: column; gap: 4px; font-size: 10px;">
-                                                    <div style="display: flex; align-items: center; gap: 6px;">
-                                                        <span style="color: #4CD964; font-size: 10px;">✓</span>
-                                                        <span class="task-title-text" style="text-decoration: line-through; color: #767680;">Nikah salonu tutulacak</span>
-                                                    </div>
-                                                    <div class="mockup-task-item progress" id="mockup-task-to-complete-mobile" style="display: flex; align-items: center; gap: 6px; color: #F5F5F7;">
-                                                        <div id="task-status-badge-mobile" style="color: var(--gold); font-size: 10px; display: flex; align-items: center;">
-                                                            <svg viewBox="0 0 24 24" style="width: 10px; height: 10px; fill: none; stroke: var(--gold); stroke-width: 3;"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-                                                        </div>
-                                                        <span class="task-title-text" style="color: #F5F5F7; font-weight: 600;">Organizasyon firması ayarlanacak</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Overlays are children of phone-screen and siblings of phone-body to cover the entire screen! -->
-                            
-                            <!-- Mobile Dialog overlay inside Phone Frame -->
-                            <div id="cohostDialogMobile" style="position: absolute; inset: 0; background: rgba(0,0,0,0.55); display: none; align-items: center; justify-content: center; padding: 12px; z-index: 100; opacity: 0; transition: opacity 0.3s ease;">
-                                <div style="background: var(--surface); border-radius: 12px; padding: 14px; width: 100%; box-shadow: 0 8px 24px rgba(0,0,0,0.15); text-align: center; border: 1px solid var(--border-color);">
-                                    <strong style="font-size: 12px; display: block; margin-bottom: 4px; color: var(--text-main);">Ortak Yönetici Ekle</strong>
-                                    <p style="font-size: 9px; color: var(--text-light); margin: 0 0 10px 0;">Eşinize tüm ekranları düzenleme yetkisi verin.</p>
-                                    <div style="text-align: left; margin-bottom: 10px;">
-                                        <div style="font-size: 8px; color: var(--text-light); font-weight: 600; margin-bottom: 2px;">KİŞİ ADI</div>
-                                        <div style="border: 1px solid var(--border-color); border-radius: 4px; padding: 5px; font-size: 10px; background: var(--bg-cream); color: var(--text-main);">Mert</div>
-                                    </div>
-                                    <div style="display: flex; gap: 6px;">
-                                        <button type="button" onclick="closeCohostDialogMobile()" style="background: var(--border-color); border: none; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; flex: 1; color: var(--text-main); cursor: pointer;">İptal</button>
-                                        <button id="cohostSubmitMobile" style="background: var(--gold); border: none; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; flex: 1; color: white; position: relative;">
-                                            Ekle
-                                            <!-- Tap Ripple for dialog Submit button -->
-                                            <div class="auto-tap-ripple" id="dialogSubmitRippleMobile" style="width: 20px; height: 20px;"></div>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Mobile Bottom Sheets inside Phone Frame -->
-                            <div class="mockup-bottom-sheet" id="inviteBottomSheetMobile" style="position: absolute; inset: 0; z-index: 95; pointer-events: none; overflow: hidden;">
-                                <div class="sheet-scrim" id="inviteScrimMobile" onclick="closeMobileSheets()" style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; transition: opacity 0.3s; cursor: pointer;"></div>
-                                <div class="sheet-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--surface); border-top-left-radius: 14px; border-top-right-radius: 14px; box-shadow: 0 -3px 15px rgba(0,0,0,0.06); padding: 12px; border-top: 1px solid var(--border-color); text-align: center; transform: translateY(105%); z-index: 100;">
-                                    <div style="width: 25px; height: 3px; background: var(--border-color); border-radius: 2px; margin: 0 auto 8px auto;"></div>
-                                    <strong style="font-size: 12px; color: var(--text-main); display: block; margin-bottom: 2px;">Ece (Nedime) için Davet Kodu</strong>
-                                    <p style="font-size: 9px; color: var(--text-light); margin: 0 0 8px 0;">Bu kodu paylaşarak ekibe katılmasını sağlayın.</p>
-                                    <div style="background: var(--bg-cream); border: 1px dashed var(--gold); padding: 6px; border-radius: 4px; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">DN-ECE-572</div>
-                                    <div role="button" tabindex="0" onclick="copyInviteCode('DN-ECE-572')" style="background: var(--gold); color: white; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; cursor: pointer;">Kodu Kopyala</div>
-                                </div>
-                            </div>
-                            
-                            <div class="mockup-bottom-sheet" id="cohostBottomSheetMobile" style="position: absolute; inset: 0; z-index: 95; pointer-events: none; overflow: hidden;">
-                                <div class="sheet-scrim" id="cohostScrimMobile" onclick="closeMobileSheets()" style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); opacity: 0; transition: opacity 0.3s; cursor: pointer;"></div>
-                                <div class="sheet-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--surface); border-top-left-radius: 14px; border-top-right-radius: 14px; box-shadow: 0 -3px 15px rgba(0,0,0,0.06); padding: 12px; border-top: 1px solid var(--border-color); text-align: center; transform: translateY(105%); z-index: 100;">
-                                    <div style="width: 25px; height: 3px; background: var(--border-color); border-radius: 2px; margin: 0 auto 8px auto;"></div>
-                                    <strong style="font-size: 12px; color: var(--text-main); display: block; margin-bottom: 2px;">Mert ortak yönetici olarak eklendi</strong>
-                        <div style="background: var(--bg-cream); border: 1px dashed var(--gold); padding: 6px; border-radius: 4px; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">DN-MERT-984</div>
-                                    <div role="button" tabindex="0" onclick="copyInviteCode('DN-MERT-984')" style="background: var(--gold); color: white; font-size: 10px; font-weight: 700; padding: 6px; border-radius: 4px; cursor: pointer;">Kodu Kopyala</div>
-                                </div> <!-- Closes .sheet-container -->
-                            </div> <!-- Closes #cohostBottomSheetMobile -->
-                        </div> <!-- Closes .phone-screen -->
-                    </div> <!-- Closes #phoneMockupMobile -->
-                </div> <!-- Closes .mobile-mockup-wrap -->
-                <!-- Swiper bottom padding -->
-                <div style="height: 10px;"></div>
-            </div> <!-- Closes .mobile-interactive-showcase -->
-        </div> <!-- Closes .story-container -->
-
-        <!-- Hikaye HUD: ilerleme + cikis (yalnizca masaustu pinli akista gorunur) -->
-        <div class="hero-story-hud" id="heroStoryHud" aria-hidden="true">
-            <div class="hero-hud-dots" id="heroHudDots" role="group" aria-label="Hikâye adımları">
-                <span class="hero-hud-dot active" role="button" tabindex="0" aria-label="Adım 1: Birlikte Başlayın" onclick="jumpStory(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpStory(0);}"></span>
-                <span class="hero-hud-dot" role="button" tabindex="0" aria-label="Adım 2: Ortak Görevler" onclick="jumpStory(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpStory(1);}"></span>
-                <span class="hero-hud-dot" role="button" tabindex="0" aria-label="Adım 3: Dijital LCV" onclick="jumpStory(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpStory(2);}"></span>
-                <span class="hero-hud-dot" role="button" tabindex="0" aria-label="Adım 4: Masalar &amp; Oturma" onclick="jumpStory(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpStory(3);}"></span>
-                <span class="hero-hud-dot" role="button" tabindex="0" aria-label="Adım 5: Bütçe &amp; Harcama" onclick="jumpStory(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpStory(4);}"></span>
-                <span class="hero-hud-dot" role="button" tabindex="0" aria-label="Adım 6: Ortak Yönetici" onclick="jumpStory(5)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpStory(5);}"></span>
             </div>
-            <span class="hero-hud-hint" id="heroHudHint">Devam etmek için kaydırın</span>
-            <button type="button" class="hero-hud-skip" id="heroHudSkip" onclick="skipHeroStory()">
-                <span>Hikâyeyi atla</span>
-                <span class="material-icons-round">south</span>
-            </button>
-        </div>
-    </section>
+        </section>
 
                 <!-- Empati Modülü: Tanıdık Gelenler -->
         <section id="tanidik" class="pain-check-section">
@@ -2556,823 +2366,563 @@
 
     <!-- Interactive Scripts -->
     <script>
-        // Check window width for responsive degradation (down to tablet 768px wide)
-        const isDesktop = window.innerWidth >= 768;
+        /* ==========================================================================
+           İMECE DÜĞÜN — HERO INTERACTIVE STUDIO (120FPS GPU ARCHITECTURE)
+           Obsidian & Champagne Gold Design System (#09090D / #D9B46A)
+           ========================================================================== */
 
-        // Hareket hassasiyeti olan kullanicilar icin kacis yolu. Pin/scrub
-        // timeline'i hic kurulmaz; mockup bolumleri CSS varsayilaniyla tam
-        // opak ve statik kalir, HUD (html.hero-story-active'e bagli) hic
-        // gorunmez. Sayfanin geri kalani normal calisir.
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // GSAP ScrollTrigger Animations (Only on Desktop/Wide Screens)
-        if (isDesktop && !prefersReducedMotion) {
-            gsap.registerPlugin(ScrollTrigger);
+        // --- Ceremony Presets ---
+        const CEREMONY_DATA = {
+            dugun: {
+                title: "Düğün Planlama",
+                tag: "Düğün",
+                reliefVal: 66,
+                reliefText: "%66 Yük Paylaşıldı",
+                roleTitle: "Mekan & Nikah",
+                budgetActual: "₺92.000",
+                budgetMax: "₺150.000",
+                budgetPct: 61,
+                donutHole: "12/18",
+                taskCoverage: "12/18 atandı",
+                chartGrad: "conic-gradient(#C5A059 0% 66%, rgba(29,29,31,0.12) 66% 100%)",
+                legendDone: "12 Yapıldı",
+                legendProg: "4 Yapılıyor",
+                legendPending: "2 Bekliyor",
+                tasks: [
+                    { title: "Nikah salonu tutulacak", done: true },
+                    { title: "Organizasyon firması ayarlanacak", done: false },
+                    { title: "Masa süslemesi & çiçek seçimi", done: false }
+                ],
+                pushTitle: "Düğün Panosu Aktif",
+                pushSub: "18 görev tamamlandı • Mert bütçeyi güncelledi"
+            },
+            nisan: {
+                title: "Söz & Nişan Panosu",
+                tag: "Söz & Nişan",
+                reliefVal: 80,
+                reliefText: "%80 Yük Paylaşıldı",
+                roleTitle: "Nişan Tepsisi & İkram",
+                budgetActual: "₺28.500",
+                budgetMax: "₺40.000",
+                budgetPct: 71,
+                donutHole: "12/15",
+                taskCoverage: "12/15 atandı",
+                chartGrad: "conic-gradient(#C5A059 0% 80%, rgba(29,29,31,0.12) 80% 100%)",
+                legendDone: "12 Yapıldı",
+                legendProg: "2 Yapılıyor",
+                legendPending: "1 Bekliyor",
+                tasks: [
+                    { title: "Nişan tepsisi & makas hazır", done: true },
+                    { title: "Mekân & catering teyidi", done: false },
+                    { title: "Fotoğrafçı & müzik listesi", done: false }
+                ],
+                pushTitle: "Söz & Nişan Seçildi",
+                pushSub: "Aile görev dağılımı yüklendi • %80 yük paylaşıldı"
+            },
+            kina: {
+                title: "Kına & Bekarlığa Veda",
+                tag: "Kına Gecesi",
+                reliefVal: 75,
+                reliefText: "%75 Yük Paylaşıldı",
+                roleTitle: "Kına Kaftanı & Hediyelikler",
+                budgetActual: "₺18.000",
+                budgetMax: "₺25.000",
+                budgetPct: 72,
+                donutHole: "9/12",
+                taskCoverage: "9/12 atandı",
+                chartGrad: "conic-gradient(#C5A059 0% 75%, rgba(29,29,31,0.12) 75% 100%)",
+                legendDone: "9 Yapıldı",
+                legendProg: "2 Yapılıyor",
+                legendPending: "1 Bekliyor",
+                tasks: [
+                    { title: "Kına kaftanı kiralandı", done: true },
+                    { title: "Nedime hediyelikleri paketleme", done: false },
+                    { title: "Kına tepsisi & türkü listesi", done: false }
+                ],
+                pushTitle: "Kına Gecesi Seçildi",
+                pushSub: "Nedime görev grubu hazır • Hazırlıklar kontrol altında"
+            }
+        };
 
-            // Create Master Timeline for Showcase Layout - Dynamic card focus dimming
-            const masterTl = gsap.timeline({ paused: true });
+        // --- Scenario Presets ---
+        const SCENARIO_CAPTIONS = [
+            "Nedimelere veya sağdıca görev atayın; yapıldığında telefonunuza anında canlı bildirim gelsin.",
+            "Kapora ve harcamaları tek dokunuşla girin; bütçe aşımını anında önleyip tasarruf edin.",
+            "Hangi işler tamamlandı, hangi törene ne kadar kaldı tek ekranda net görün; stres sıfırlansın.",
+            "Eşinizi ortak yönetici ekleyin; aynı panoyu senkronize yönetin, kararları birlikte verin."
+        ];
 
-            // Initial layout settings for mockups
-            gsap.set(["#inviteBottomSheet", "#cohostBottomSheet"], { pointerEvents: "none" });
-            gsap.set(["#inviteBottomSheet .sheet-scrim", "#cohostBottomSheet .sheet-scrim"], { opacity: 0 });
-            gsap.set(["#inviteBottomSheet .sheet-container", "#cohostBottomSheet .sheet-container"], { y: "100%" });
-            gsap.set("#cohostCreateDialog", { pointerEvents: "none", opacity: 0 });
-            gsap.set("#cohostCreateDialog .dialog-container", { scale: 0.8 });
-            gsap.set(["#eceTapRipple", "#heartTapRipple", "#dialogSubmitRipple"], { scale: 0, opacity: 0 });
+        // Scroller target positions within mockup viewport
+        const SCENARIO_SCROLL_TARGETS = [
+            -230, // 0: Roles list & tasks
+            -155, // 1: Budget section
+            -70,  // 2: Donut chart & tasks overview
+            0     // 3: Team pool (Eş & Nedimeler)
+        ];
 
-            // 0. Explicit reset to full opacity at starting scroll position
-            masterTl.to(["#mockup-team-section", "#mockup-budget-section", "#mockup-task-section", "#mockup-roles-list-section"], {
-                opacity: 1.0,
-                duration: 0.1
-            }, 0);
+        let activeScenarioIndex = 0;
+        let activeCeremonyKey = 'dugun';
+        let scenarioProgressRaf = null;
+        let scenarioStartTime = 0;
+        const SCENARIO_DURATION_MS = 6000;
+        let isUserInteracting = false;
+        let userInteractionTimeout = null;
+        let taskInteractiveState = false;
+        let depositSimulatedState = false;
 
-            // 1. Hero Phase (0% to 25% progress)
-            masterTl.to("#heroContent", {
-                opacity: 0,
-                y: -100,
-                duration: 1
-            })
-            .to("#phoneMockup", {
-                rotationY: 0,
-                rotationX: 0,
-                scale: 1.15,
-                x: "-30%", // Shove left for Split Screen Showcase
-                duration: 1
-            }, 0)
-            // Initial focus on Slide 1: Bütçe
-            .to("#mockupScroller", {
-                y: "-260px", 
-                duration: 0.5
-            }, 0.5)
-            .to("#mockup-budget-section", {
-                borderColor: "rgba(201, 162, 39, 0.35)",
-                boxShadow: "0 0 20px rgba(201, 162, 39, 0.2)",
-                scale: 1.025,
-                opacity: 1.0,
-                duration: 0.3
-            }, 0.5)
-            .to(["#mockup-team-section", "#mockup-task-section", "#mockup-roles-list-section"], {
-                opacity: 0.6,
-                duration: 0.3
-            }, 0.5)
-            .to("#text-slide-1", {
-                display: "block",
-                opacity: 1,
-                y: 0,
-                duration: 0.5
-            }, 0.8);
+        // Live Push Banner Controller
+        let pushHideTimeout = null;
+        function showHeroPush(title, sub, duration = 3800) {
+            const pushEl = document.getElementById('simHeroPush');
+            const titleEl = document.getElementById('simPushTitle');
+            const subEl = document.getElementById('simPushSub');
+            if (!pushEl) return;
 
-            // 2. Showcase Slide 1 -> Slide 2 (25% to 50% progress)
-            // Phase 2a: Focus on Donut Chart (Görev Özeti)
-            masterTl.to("#mockupScroller", {
-                y: "-90px", 
-                duration: 0.7
-            }, 1.5)
-            .to("#text-slide-1", { opacity: 0, y: -50, display: "none", duration: 0.3 }, 1.5)
-            .to("#text-slide-2", { display: "block", opacity: 1, y: 0, duration: 0.5 }, 1.8)
-            .to("#mockup-budget-section", {
-                borderColor: "transparent",
-                boxShadow: "none",
-                scale: 1.0,
-                opacity: 0.6,
-                duration: 0.4
-            }, 1.5)
-            .to("#mockup-task-section", {
-                borderColor: "rgba(201, 162, 39, 0.35)",
-                boxShadow: "0 0 20px rgba(201, 162, 39, 0.2)",
-                scale: 1.025,
-                opacity: 1.0,
-                duration: 0.4
-            }, 1.7)
-            .to(["#mockup-team-section", "#mockup-roles-list-section"], {
-                opacity: 0.6,
-                duration: 0.4
-            }, 1.5)
-            
-            // Phase 2b: Mid-Slide 2 scroll down to show role assignment cards (İş Paketleri)
-            .to("#mockupScroller", {
-                y: "-390px", 
-                duration: 0.7
-            }, 2.2)
-            .to("#mockup-task-section", {
-                borderColor: "transparent",
-                boxShadow: "none",
-                scale: 1.0,
-                opacity: 0.6,
-                duration: 0.4
-            }, 2.2)
-            .to("#mockup-roles-list-section", {
-                borderColor: "rgba(201, 162, 39, 0.35)",
-                boxShadow: "0 0 20px rgba(201, 162, 39, 0.2)",
-                scale: 1.025,
-                opacity: 1.0,
-                duration: 0.4
-            }, 2.4)
-            .to(["#mockup-team-section", "#mockup-budget-section"], {
-                opacity: 0.6,
-                duration: 0.4
-            }, 2.2)
+            if (titleEl && title) titleEl.textContent = title;
+            if (subEl && sub) subEl.textContent = sub;
 
-            // 3. Showcase Slide 2 -> Slide 2c (Davet & Kod Ekranı)
-            .to("#text-slide-2", { opacity: 0, y: -50, display: "none", duration: 0.3 }, 2.9)
-            .to("#text-slide-2c", { display: "block", opacity: 1, y: 0, duration: 0.5 }, 3.1)
+            clearTimeout(pushHideTimeout);
+            pushEl.classList.remove('visible');
+            void pushEl.offsetWidth; // Force Reflow
+            pushEl.classList.add('visible');
 
-            // --- Ece Tap 1 ---
-            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.25 }, 3.8)
-            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 3.8)
-            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.15 }, 4.05)
-            .to("#eceTapRipple", { opacity: 0, duration: 0.25 }, 4.05)
-            .set("#eceTapRipple", { scale: 0 }, 4.3)
+            pushHideTimeout = setTimeout(() => {
+                pushEl.classList.remove('visible');
+            }, duration);
+        }
 
-            // --- Ece Tap 2 ---
-            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.25 }, 4.6)
-            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 4.6)
-            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.15 }, 4.85)
-            .to("#eceTapRipple", { opacity: 0, duration: 0.25 }, 4.85)
-            .set("#eceTapRipple", { scale: 0 }, 5.1)
+        // Scenario Selector
+        function selectScenario(index, manual = false) {
+            if (index < 0 || index >= SCENARIO_CAPTIONS.length) return;
+            activeScenarioIndex = index;
 
-            // --- Ece Tap 3 ---
-            .to("#eceCapsuleRow", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.25 }, 5.4)
-            .to("#eceTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 5.4)
-            .to("#eceCapsuleRow", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.15 }, 5.65)
-            .to("#eceTapRipple", { opacity: 0, duration: 0.25 }, 5.65)
-
-            // --- Ece Sheet Opens ---
-            .to("#inviteBottomSheet", { pointerEvents: "auto", duration: 0.02 }, 6.2)
-            .to("#inviteBottomSheet .sheet-scrim", { opacity: 1, duration: 0.4 }, 6.2)
-            .to("#inviteBottomSheet .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" }, 6.2)
-
-            // 4. Showcase Slide 2c -> Slide 3 (Ortak Yönetici)
-            // --- Ece Sheet Closes ---
-            .to("#inviteBottomSheet .sheet-container", { y: "100%", duration: 0.4 }, 7.5)
-            .to("#inviteBottomSheet .sheet-scrim", { opacity: 0, duration: 0.4 }, 7.5)
-            .to("#inviteBottomSheet", { pointerEvents: "none", duration: 0.02 }, 7.9)
-
-            // --- Scroll back to top & Focus team ---
-            .to("#mockupScroller", {
-                y: "0px", 
-                duration: 0.8
-            }, 7.5)
-            .to("#text-slide-2c", { opacity: 0, y: -50, display: "none", duration: 0.3 }, 7.5)
-            .to("#text-slide-3", { display: "block", opacity: 1, y: 0, duration: 0.5 }, 8.3)
-            .to("#mockup-roles-list-section", {
-                borderColor: "transparent",
-                boxShadow: "none",
-                scale: 1.0,
-                opacity: 0.6,
-                duration: 0.8
-            }, 7.5)
-            .to("#mockup-team-section", {
-                borderColor: "var(--gold)",
-                boxShadow: "0 0 15px rgba(197, 160, 89, 0.3)",
-                scale: 1.025,
-                opacity: 1.0,
-                duration: 0.8
-            }, 8.3)
-            .to(["#mockup-budget-section", "#mockup-task-section", "#mockup-roles-list-section"], {
-                opacity: 0.6,
-                duration: 0.8
-            }, 7.5)
-
-            // --- Heart Tap 1 ---
-            .to(".cohost-heart-btn", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.25 }, 9.5)
-            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 9.5)
-            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.15 }, 9.75)
-            .to("#heartTapRipple", { opacity: 0, duration: 0.25 }, 9.75)
-            .set("#heartTapRipple", { scale: 0 }, 10.0)
-
-            // --- Heart Tap 2 ---
-            .to(".cohost-heart-btn", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.25 }, 10.3)
-            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 10.3)
-            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.15 }, 10.55)
-            .to("#heartTapRipple", { opacity: 0, duration: 0.25 }, 10.55)
-            .set("#heartTapRipple", { scale: 0 }, 10.8)
-
-            // --- Heart Tap 3 ---
-            .to(".cohost-heart-btn", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.25 }, 11.1)
-            .to("#heartTapRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 11.1)
-            .to(".cohost-heart-btn", { scale: 1.0, backgroundColor: "", duration: 0.15 }, 11.35)
-            .to("#heartTapRipple", { opacity: 0, duration: 0.25 }, 11.35)
-
-            // --- Dialog Opens (giving human reading time) ---
-            .to("#cohostCreateDialog", { pointerEvents: "auto", opacity: 1, duration: 0.3 }, 12.0)
-            .to("#cohostCreateDialog .dialog-container", { scale: 1, duration: 0.4, ease: "back.out(1.5)" }, 12.0)
-            .to({}, { duration: 1.0 }) // Hold dialog pre-filled details visual stage (1.0 seconds!)
-
-            // --- Confirm Button Tap ---
-            .to("#cohostCreateDialog .dialog-btn.confirm-btn", { scale: 0.93, backgroundColor: "#754B4B", duration: 0.25 }, 13.4)
-            .to("#dialogSubmitRipple", { scale: 2.6, opacity: 0.6, duration: 0.5 }, 13.4)
-            .to("#cohostCreateDialog .dialog-btn.confirm-btn", { scale: 1.0, backgroundColor: "", duration: 0.15 }, 13.65)
-            .to("#dialogSubmitRipple", { opacity: 0, duration: 0.25 }, 13.65)
-
-            // --- Dialog Closes & Mert Sheet Opens ---
-            .to("#cohostCreateDialog .dialog-container", { scale: 0.8, duration: 0.3 }, 14.3)
-            .to("#cohostCreateDialog", { opacity: 0, pointerEvents: "none", duration: 0.3 }, 14.3)
-            
-            .to("#cohostBottomSheet", { pointerEvents: "auto", duration: 0.02 }, 15.0)
-            .to("#cohostBottomSheet .sheet-scrim", { opacity: 1, duration: 0.4 }, 15.0)
-            .to("#cohostBottomSheet .sheet-container", { y: "0%", duration: 0.6, ease: "power2.out" }, 15.0)
-
-            // Slide 3 Hold (until Exit animation starts)
-            .to({}, { duration: 1.0 })
-
-            // 5. Fade out and Exit (90% to 100% progress)
-            .to("#phoneMockup", {
-                scale: 0.8,
-                opacity: 0,
-                y: 100,
-                duration: 1.0
-            }, 17.0)
-            .to("#text-slide-3", {
-                opacity: 0,
-                y: -50,
-                duration: 1.0
-            }, 17.0)
-            .to(["#mockup-team-section", "#mockup-budget-section", "#mockup-task-section", "#mockup-roles-list-section"], {
-                opacity: 1.0,
-                duration: 0.1
-            }, 17.0)
-
-            // 6. GPU-Accelerated Dynamic Dark Theme Shift
-            gsap.to("#darkOverlay", {
-                scrollTrigger: {
-                    trigger: "#neden-imece",
-                    start: "top 78%",
-                    end: "top 28%",
-                    scrub: 1
-                },
-                opacity: 1
-            });
-
-            // 8. Custom heartbeat pulsating effect toggle for co-host heart button icon
-            ScrollTrigger.create({
-                trigger: "#text-slide-3",
-                start: "top 60%",
-                end: "bottom 40%",
-                onEnter: () => document.getElementById("mockup-team-section").classList.add("heartbeat-active"),
-                onLeave: () => document.getElementById("mockup-team-section").classList.remove("heartbeat-active"),
-                onEnterBack: () => document.getElementById("mockup-team-section").classList.add("heartbeat-active"),
-                onLeaveBack: () => document.getElementById("mockup-team-section").classList.remove("heartbeat-active")
-            });
-
-            // Step controller setup for slide-by-slide Observer layout - Targeting EXACT completion times
-            const steps = [0, 1.3, 2.3, 2.9, 7.5, 17.0];
-            let currentIndex = 0;
-            let isAnimating = false;
-
-            // Hikaye asamalara bolunmustur. Her asamanin basinda akis durur ve
-            // kaydirma darbesi bekler; darbe gelince o asama kendi sabit
-            // hizinda oynar. Asama oynarken gelen ek darbeler yalnizca hizi
-            // artirir -- hicbir darbe asama atlatmaz.
-            const SEG_TARGET_SEC = 1.8;   // her asamanin hedef suresi
-            const SEG_MIN_SCALE = 1.2;
-            const SEG_MAX_SCALE = 5.0;
-            const SEG_BOOST_STEP = 1.8;   // her yeni harekette hiz carpani
-            const SEG_BOOST_MAX = 6.0;    // taban hizin en fazla bu kati
-            const BOOST_DECAY_MS = 520;   // hareket bitince normale donus
-            // Trackpad'de parmak kalkana ve momentum sonene kadar akan tum
-            // wheel olaylari TEK hareket sayilir: son olaydan bu araliktan
-            // fazla sessizlik gecmedikce yeni hareket baslamis olmaz.
-            const GESTURE_GAP_MS = 200;
-            let lastWheelTs = 0;
-            let boostDecayTimer = null;
-            let storyFinished = false;
-            let segIndex = 0;
-            let segBaseScale = 1;
-            let awaitingImpulse = true;
-            let storyMarks = [];
-
-            // Not: body.overflow kilidi bilerek kullanilmiyor -- scrollbar kaybolunca
-            // sayfa yatayda ziplyor. Tekerlek/dokunus zaten observer'da
-            // preventDefault ile tutuluyor, klavye ise kasitli kacis kapisi.
-            function lockScroll() {
-                document.documentElement.classList.add("hero-story-active");
-                const hud = document.getElementById("heroStoryHud");
-                if (hud) hud.setAttribute("aria-hidden", "false");
-                intentObserver.enable();
-                updateHeroHudByTime();
+            if (manual) {
+                markUserInteraction();
             }
 
-            function unlockScroll() {
-                document.documentElement.classList.remove("hero-story-active");
-                const hud = document.getElementById("heroStoryHud");
-                if (hud) hud.setAttribute("aria-hidden", "true");
-                intentObserver.disable();
+            // Update Tab states & Progress bars
+            for (let i = 0; i < 4; i++) {
+                const tab = document.getElementById(`scenario-tab-${i}`);
+                const fill = document.getElementById(`prog-fill-${i}`);
+                if (tab) {
+                    const isCur = i === index;
+                    tab.classList.toggle('active', isCur);
+                    tab.setAttribute('aria-selected', isCur ? 'true' : 'false');
+                }
+                if (fill) {
+                    if (i < index) fill.style.width = '100%';
+                    else if (i > index) fill.style.width = '0%';
+                    else if (manual) fill.style.width = '100%';
+                }
             }
 
-            function updateHeroHud(index) {
-                const dots = document.querySelectorAll("#heroHudDots .hero-hud-dot");
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle("active", i === index);
-                    dot.classList.toggle("seen", i < index);
-                });
-            }
-
-            // Hikayeyi atla: kilidi birak, pinli alanin altina gec.
-            window.skipHeroStory = function () {
-                finishStory(1);
-            };
-
-            document.addEventListener("keydown", (e) => {
-                if (e.key === "Escape" && document.documentElement.classList.contains("hero-story-active")) {
-                    window.skipHeroStory();
-                }
-            });
-
-            // Pin showcase trigger (without scrub to lock intent per step)
-            const pinTrigger = ScrollTrigger.create({
-                trigger: "#hero-showcase-story",
-                start: "top top",
-                end: "+=400%",
-                pin: true,
-                scrub: false,
-                onEnter: () => {
-                    startStory();
-                },
-                onEnterBack: () => {
-                    // Asagidan yukari donuste hikayeyi tekrar oynatmiyoruz:
-                    // ziyaretci sayfayi terk ediyor, onu tutmak sinir bozucu.
-                    storyFinished = true;
-                    restoreHeroVisuals();
-                    masterTl.pause();
-                    masterTl.time(masterTl.duration());
-                    segIndex = 5;
-                    updateHeroHudByTime();
-                    unlockScroll();
-                },
-                onLeave: () => {
-                    unlockScroll();
-                },
-                onLeaveBack: () => {
-                    unlockScroll();
-                }
-            });
-
-            let taskCompletedState = false;
-
-            function completeMockupTask() {
-                if (taskCompletedState) return;
-                taskCompletedState = true;
-                
-                // 1. Change task badge to green done state
-                const badge = document.getElementById("task-status-badge");
-                if (badge) {
-                    badge.classList.remove("progress");
-                    badge.classList.add("done");
-                    badge.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-                }
-                
-                // 2. Cross out task or make item look done
-                const taskItem = document.getElementById("mockup-task-to-complete");
-                if (taskItem) {
-                    taskItem.classList.remove("progress");
-                    taskItem.classList.add("done");
-                }
-                
-                // 3. Fill progress ring to 100%
-                const fillPath = document.querySelector("#mockup-progress-ring-1 .ring-fill");
-                if (fillPath) {
-                    gsap.to(fillPath, {
-                        attr: { "stroke-dasharray": "100, 100" },
-                        duration: 0.8,
-                        ease: "power2.out"
-                    });
-                }
-                
-                // 4. Fill heart inside ring
-                const heartSvg = document.querySelector("#ring-heart-1 svg");
-                if (heartSvg) {
-                    heartSvg.classList.remove("outline");
-                    heartSvg.classList.add("filled");
-                }
-                
-                // 5. Fire canvas confetti!
+            // Update Caption
+            const captionEl = document.getElementById('scenarioDockCaption');
+            if (captionEl) {
+                captionEl.style.opacity = '0';
                 setTimeout(() => {
-                    if (window.confetti) {
-                        const rect = document.getElementById('phoneMockup').getBoundingClientRect();
+                    captionEl.textContent = SCENARIO_CAPTIONS[index];
+                    captionEl.style.opacity = '1';
+                }, 150);
+            }
+
+            // Announce to Screen Reader
+            const announcer = document.getElementById('heroLiveAnnouncer');
+            if (announcer) {
+                announcer.textContent = `Senaryo ${index + 1}: ${SCENARIO_CAPTIONS[index]}`;
+            }
+
+            // Scroll Phone Viewport
+            const scroller = document.getElementById('mockupScroller');
+            if (scroller) {
+                const targetY = SCENARIO_SCROLL_TARGETS[index];
+                scroller.style.transform = `translateY(${targetY}px)`;
+            }
+
+            // Highlight in-phone focus sections
+            const teamSec = document.getElementById('mockup-team-section');
+            const budgetSec = document.getElementById('mockup-budget-section');
+            const taskSec = document.getElementById('mockup-task-section');
+            const rolesSec = document.getElementById('mockup-roles-list-section');
+            const allSecs = [rolesSec, budgetSec, taskSec, teamSec];
+
+            allSecs.forEach((sec, idx) => {
+                if (!sec) return;
+                sec.classList.remove('active-focus');
+                if (idx === index) {
+                    sec.classList.add('active-focus');
+                }
+            });
+
+            // If scenario 3 (Co-host), pulse heart
+            if (index === 3 && teamSec) {
+                teamSec.classList.add('heartbeat-active');
+            } else if (teamSec) {
+                teamSec.classList.remove('heartbeat-active');
+            }
+
+            // Reset progress animation start time
+            scenarioStartTime = performance.now();
+        }
+
+        // Ceremony Selector
+        function selectCeremony(ceremonyKey, btn) {
+            const data = CEREMONY_DATA[ceremonyKey];
+            if (!data) return;
+            activeCeremonyKey = ceremonyKey;
+            markUserInteraction();
+
+            // Button states
+            document.querySelectorAll('.ceremony-switch-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-pressed', 'false');
+            });
+            if (btn) {
+                btn.classList.add('active');
+                btn.setAttribute('aria-pressed', 'true');
+            }
+
+            // Phone DOM Updates
+            const appTitle = document.getElementById('mockupAppTitle');
+            if (appTitle) appTitle.textContent = data.title;
+
+            const ceremonyTag = document.getElementById('mockupCeremonyTag');
+            if (ceremonyTag) ceremonyTag.textContent = data.tag;
+
+            const reliefVal = document.getElementById('reliefValue');
+            if (reliefVal) reliefVal.textContent = data.reliefText;
+
+            const reliefBar = document.getElementById('reliefBarFill');
+            if (reliefBar) reliefBar.style.width = `${data.reliefVal}%`;
+
+            const roleTitle = document.getElementById('roleCardTitle1');
+            if (roleTitle) roleTitle.textContent = data.roleTitle;
+
+            const actualBudget = document.getElementById('mockupActualBudget');
+            if (actualBudget) actualBudget.textContent = data.budgetActual;
+
+            const budgetBar = document.getElementById('mockupBudgetBarFill');
+            if (budgetBar) budgetBar.style.width = `${data.budgetPct}%`;
+
+            const donut = document.getElementById('mockupDonutChart');
+            if (donut) donut.style.background = data.chartGrad;
+
+            const donutHole = document.getElementById('mockupDonutHole');
+            if (donutHole) donutHole.textContent = data.donutHole;
+
+            const coverage = document.getElementById('taskCoverageText');
+            if (coverage) coverage.textContent = data.taskCoverage;
+
+            const lDone = document.getElementById('legendDoneText');
+            if (lDone) lDone.textContent = data.legendDone;
+
+            const lProg = document.getElementById('legendProgressText');
+            if (lProg) lProg.textContent = data.legendProg;
+
+            const lPend = document.getElementById('legendPendingText');
+            if (lPend) lPend.textContent = data.legendPending;
+
+            // Update Task titles
+            const taskDone = document.getElementById('taskDoneTitle1');
+            if (taskDone && data.tasks[0]) taskDone.textContent = data.tasks[0].title;
+
+            const taskInteractive = document.getElementById('interactiveTaskTitle');
+            if (taskInteractive && data.tasks[1]) taskInteractive.textContent = data.tasks[1].title;
+
+            const task3 = document.getElementById('interactiveTaskTitle2');
+            if (task3 && data.tasks[2]) task3.textContent = data.tasks[2].title;
+
+            // Reset interaction states for new ceremony
+            taskInteractiveState = false;
+            depositSimulatedState = false;
+            const taskBtn = document.getElementById('mockup-task-to-complete');
+            if (taskBtn) {
+                taskBtn.classList.remove('done');
+                taskBtn.classList.add('progress');
+                taskBtn.setAttribute('aria-pressed', 'false');
+            }
+
+            showHeroPush(data.pushTitle, data.pushSub);
+        }
+
+        // In-phone Task Interactive Toggle
+        function toggleTaskInteractive(btn, event) {
+            if (event) event.stopPropagation();
+            markUserInteraction();
+
+            const targetBtn = btn || document.getElementById('mockup-task-to-complete');
+            if (!targetBtn) return;
+
+            taskInteractiveState = !taskInteractiveState;
+            targetBtn.setAttribute('aria-pressed', taskInteractiveState ? 'true' : 'false');
+
+            const badge = targetBtn.querySelector('.mockup-status-chip');
+            const data = CEREMONY_DATA[activeCeremonyKey];
+
+            if (taskInteractiveState) {
+                targetBtn.classList.remove('progress', 'pending');
+                targetBtn.classList.add('done');
+                if (badge) {
+                    badge.classList.remove('progress', 'pending');
+                    badge.classList.add('done');
+                    badge.innerHTML = '<svg viewBox="0 0 24 24" style="width: 10px; height: 10px; fill: none; stroke: #34C759; stroke-width: 3;"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                }
+
+                // Update Progress Ring
+                const ring = document.getElementById('ringFill1');
+                if (ring) ring.setAttribute('stroke-dasharray', '100, 100');
+
+                const ringHeart = document.getElementById('ringHeartSvg1');
+                if (ringHeart) {
+                    ringHeart.classList.remove('outline');
+                    ringHeart.classList.add('filled');
+                }
+
+                // Increase relief meter
+                const newRelief = Math.min(data.reliefVal + 14, 100);
+                const reliefVal = document.getElementById('reliefValue');
+                if (reliefVal) reliefVal.textContent = `%${newRelief} Yük Paylaşıldı`;
+                const reliefBar = document.getElementById('reliefBarFill');
+                if (reliefBar) reliefBar.style.width = `${newRelief}%`;
+
+                // Update Donut & Counts
+                const donut = document.getElementById('mockupDonutChart');
+                if (donut) donut.style.background = "conic-gradient(#C5A059 0% 72%, rgba(29,29,31,0.12) 72% 100%)";
+                const donutHole = document.getElementById('mockupDonutHole');
+                if (donutHole) donutHole.textContent = "13/18";
+                const coverage = document.getElementById('taskCoverageText');
+                if (coverage) coverage.textContent = "13/18 tamamlandı";
+                const lDone = document.getElementById('legendDoneText');
+                if (lDone) lDone.textContent = "13 Yapıldı";
+                const lProg = document.getElementById('legendProgressText');
+                if (lProg) lProg.textContent = "3 Yapılıyor";
+
+                showHeroPush("Görev Tamamlandı 🎉", "Nedime Ece teyidi sisteme işlendi • Yük %14 hafifledi");
+
+                // Confetti burst from phone center
+                if (window.confetti) {
+                    const phoneEl = document.getElementById('phoneMockup');
+                    if (phoneEl) {
+                        const rect = phoneEl.getBoundingClientRect();
                         const x = (rect.left + rect.width / 2) / window.innerWidth;
                         const y = (rect.top + rect.height / 2) / window.innerHeight;
-                        
-                        // Burst 1
                         window.confetti({
-                            particleCount: 75,
+                            particleCount: 65,
                             spread: 55,
-                            origin: { x, y }
+                            origin: { x, y },
+                            colors: ['#D9B46A', '#F5E6C8', '#4CD964', '#FFFFFF']
                         });
                     }
-                }, 400);
-            }
-
-            function resetMockupTask() {
-                if (!taskCompletedState) return;
-                taskCompletedState = false;
-                
-                // 1. Reset task badge
-                const badge = document.getElementById("task-status-badge");
+                }
+            } else {
+                targetBtn.classList.remove('done');
+                targetBtn.classList.add('progress');
                 if (badge) {
-                    badge.classList.remove("done");
-                    badge.classList.add("progress");
-                    badge.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>';
-                }
-                
-                // 2. Reset task item
-                const taskItem = document.getElementById("mockup-task-to-complete");
-                if (taskItem) {
-                    taskItem.classList.remove("done");
-                    taskItem.classList.add("progress");
-                }
-                
-                // 3. Reset progress ring fill
-                const fillPath = document.querySelector("#mockup-progress-ring-1 .ring-fill");
-                if (fillPath) {
-                    gsap.set(fillPath, {
-                        attr: { "stroke-dasharray": "60, 100" }
-                    });
-                }
-                
-                // 4. Reset heart inside ring
-                const heartSvg = document.querySelector("#ring-heart-1 svg");
-                if (heartSvg) {
-                    heartSvg.classList.remove("filled");
-                    heartSvg.classList.add("outline");
-                }
-            }
-
-            function goToStepDirect(index) {
-                if (index < 0 || index >= steps.length) return;
-                if (storyFinished) {
-                    storyFinished = false;
-                    restoreHeroVisuals();
-                    lockScroll();
-                }
-                const cohostDialog = document.getElementById("cohostCreateDialog");
-                if (cohostDialog) cohostDialog.classList.remove("active");
-                const inviteSheet = document.getElementById("inviteBottomSheet");
-                if (inviteSheet) inviteSheet.classList.remove("active");
-
-                // Sync task completed state instantly
-                if (index >= 3) {
-                    taskCompletedState = true;
-                    const badge = document.getElementById("task-status-badge");
-                    if (badge) {
-                        badge.classList.remove("progress");
-                        badge.classList.add("done");
-                        badge.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-                    }
-                    const taskItem = document.getElementById("mockup-task-to-complete");
-                    if (taskItem) {
-                        taskItem.classList.remove("progress");
-                        taskItem.classList.add("done");
-                    }
-                    const fillPath = document.querySelector("#mockup-progress-ring-1 .ring-fill");
-                    if (fillPath) gsap.set(fillPath, { attr: { "stroke-dasharray": "100, 100" } });
-                    const heartSvg = document.querySelector("#ring-heart-1 svg");
-                    if (heartSvg) {
-                        heartSvg.classList.remove("outline");
-                        heartSvg.classList.add("filled");
-                    }
-                } else {
-                    taskCompletedState = false;
-                    const badge = document.getElementById("task-status-badge");
-                    if (badge) {
-                        badge.classList.remove("done");
-                        badge.classList.add("progress");
-                        badge.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>';
-                    }
-                    const taskItem = document.getElementById("mockup-task-to-complete");
-                    if (taskItem) {
-                        taskItem.classList.remove("done");
-                        taskItem.classList.add("progress");
-                    }
-                    const fillPath = document.querySelector("#mockup-progress-ring-1 .ring-fill");
-                    if (fillPath) gsap.set(fillPath, { attr: { "stroke-dasharray": "60, 100" } });
-                    const heartSvg = document.querySelector("#ring-heart-1 svg");
-                    if (heartSvg) {
-                        heartSvg.classList.remove("filled");
-                        heartSvg.classList.add("outline");
-                    }
+                    badge.classList.remove('done');
+                    badge.classList.add('progress');
+                    badge.innerHTML = '<svg viewBox="0 0 24 24" style="width: 10px; height: 10px; fill: none; stroke: var(--gold, #D9B46A); stroke-width: 2.5;"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>';
                 }
 
-                gsap.killTweensOf(masterTl);
-                masterTl.time(steps[index]);
-                currentIndex = index;
-                updateHeroHud(index);
-            }
+                const ring = document.getElementById('ringFill1');
+                if (ring) ring.setAttribute('stroke-dasharray', '60, 100');
 
-            // --- Hikaye akis kontrolu -------------------------------------
-            // Asama sinirlari: steps[] uzerine zaman cizelgesinin sonu (cikis
-            // animasyonu) da bir asama olarak eklenir -> 6 asama, 6 nokta.
-            function buildStoryMarks() {
-                // Zaman cizelgesinin kendi fade-out'u (17.0 sonrasi) bilerek
-                // disarida birakildi: kapanisi runExitChoreography yonetiyor,
-                // boylece "atla" ile dogal bitis ayni vedayi paylasiyor.
-                storyMarks = steps.slice();
-                return storyMarks;
-            }
-
-            function segmentCount() {
-                return Math.max(storyMarks.length - 1, 1);
-            }
-
-            function segmentScale(i) {
-                const diff = Math.abs(storyMarks[i + 1] - storyMarks[i]);
-                return Math.min(Math.max(diff / SEG_TARGET_SEC, SEG_MIN_SCALE), SEG_MAX_SCALE);
-            }
-
-            function setHudWaiting(waiting) {
-                const hud = document.getElementById("heroStoryHud");
-                if (hud) hud.classList.toggle("awaiting", waiting);
-                const hint = document.getElementById("heroHudHint");
-                if (hint) {
-                    if (!waiting) {
-                        hint.textContent = "Kaydırdıkça hızlanır";
-                    } else {
-                        hint.textContent = segIndex >= segmentCount()
-                            ? "Devam etmek için kaydırın · hikâye tamam"
-                            : "Devam etmek için kaydırın";
-                    }
-                }
-            }
-
-            function syncMockupTaskState() {
-                if (masterTl.time() >= steps[3]) {
-                    completeMockupTask();
-                } else {
-                    resetMockupTask();
-                }
-            }
-
-            function startStory() {
-                storyFinished = false;
-                buildStoryMarks();
-                restoreHeroVisuals();
-                gsap.killTweensOf(masterTl);
-                masterTl.pause(0);
-                segIndex = 0;
-                awaitingImpulse = true;
-                resetMockupTask();
-                updateHeroHud(0);
-                lockScroll();
-                setHudWaiting(true);
-            }
-
-            const STORY_EXIT_TARGETS = [
-                "#text-slide-1",
-                "#text-slide-2",
-                "#text-slide-2c",
-                "#text-slide-3",
-                "#heroContent"
-            ];
-            let exitTl = null;
-
-            // Telefonun aniden kaybolmasi yerine olculu bir veda: kart hafifce
-            // yukselip odaktan cikar, metin yukari suzulur, HUD soner. Sayfa
-            // kaydirmasi fade bitmeden basliyor ki gecis kesintisiz hissedilsin.
-            function runExitChoreography(onHandoff) {
-                if (exitTl) exitTl.kill();
-                exitTl = gsap.timeline({ defaults: { overwrite: "auto" } });
-                exitTl.to("#heroStoryHud", { opacity: 0, y: 10, duration: 0.28, ease: "power2.in" }, 0)
-                  .to("#phoneMockup", {
-                      scale: 0.93,
-                      y: -22,
-                      opacity: 0,
-                      duration: 0.62,
-                      ease: "power2.inOut"
-                  }, 0)
-                  .to(STORY_EXIT_TARGETS, {
-                      opacity: 0,
-                      y: -26,
-                      duration: 0.5,
-                      ease: "power2.in"
-                  }, 0.04)
-                  .add(() => { if (onHandoff) onHandoff(); }, 0.34);
-                return exitTl;
-            }
-
-            function restoreHeroVisuals() {
-                if (exitTl) {
-                    exitTl.kill();
-                    exitTl = null;
-                }
-                // masterTl elemanlarini yok etme! Sadece cikis animasyonunun
-                // inline kalintilarini temizle, boylece zaman cizelgesi canli kalir:
-                gsap.set("#phoneMockup", { clearProps: "filter,y,opacity" });
-                gsap.set("#heroStoryHud", { clearProps: "opacity,y" });
-            }
-
-            function finishStory(direction) {
-                if (storyFinished) return;
-                storyFinished = true;
-                clearTimeout(boostDecayTimer);
-                gsap.killTweensOf(masterTl);
-                masterTl.pause();
-                setHudWaiting(false);
-
-                const scrollOut = () => {
-                    unlockScroll();
-                    window.scrollTo({
-                        top: direction < 0 ? Math.max(pinTrigger.start - 5, 0) : pinTrigger.end + 5,
-                        behavior: "smooth"
-                    });
-                };
-
-                if (direction < 0) {
-                    // Yukari cikista sahneyi bozmuyoruz: ziyaretci hikayeye
-                    // geri donebilir, telefon oldugu gibi kalsin.
-                    gsap.to("#heroStoryHud", { opacity: 0, y: 10, duration: 0.22, ease: "power2.in" });
-                    scrollOut();
-                    return;
+                const ringHeart = document.getElementById('ringHeartSvg1');
+                if (ringHeart) {
+                    ringHeart.classList.remove('filled');
+                    ringHeart.classList.add('outline');
                 }
 
-                runExitChoreography(scrollOut);
+                const reliefVal = document.getElementById('reliefValue');
+                if (reliefVal) reliefVal.textContent = data.reliefText;
+                const reliefBar = document.getElementById('reliefBarFill');
+                if (reliefBar) reliefBar.style.width = `${data.reliefVal}%`;
+
+                const donut = document.getElementById('mockupDonutChart');
+                if (donut) donut.style.background = data.chartGrad;
+                const donutHole = document.getElementById('mockupDonutHole');
+                if (donutHole) donutHole.textContent = data.donutHole;
+                const coverage = document.getElementById('taskCoverageText');
+                if (coverage) coverage.textContent = data.taskCoverage;
+                const lDone = document.getElementById('legendDoneText');
+                if (lDone) lDone.textContent = data.legendDone;
+                const lProg = document.getElementById('legendProgressText');
+                if (lProg) lProg.textContent = data.legendProg;
+
+                showHeroPush("Görev Güncellendi", "Görev devam ediyor durumuna alındı");
             }
+        }
 
-            // Bekleyen asamayi baslatir.
-            function playSegment() {
-                if (storyFinished) return;
-                // Tum asamalar bitti: son hareket vedayi baslatir.
-                if (segIndex >= segmentCount()) {
-                    finishStory(1);
-                    return;
-                }
-                awaitingImpulse = false;
-                segBaseScale = segmentScale(segIndex);
-                clearTimeout(boostDecayTimer);
-                lastWheelTs = performance.now();
-                gsap.killTweensOf(masterTl);
-                masterTl.timeScale(segBaseScale);
-                masterTl.play();
-                setHudWaiting(false);
+        // In-phone Budget Deposit Simulation
+        function simulateBudgetDeposit(event) {
+            if (event) event.stopPropagation();
+            markUserInteraction();
+
+            depositSimulatedState = !depositSimulatedState;
+            const actualBudgetEl = document.getElementById('mockupActualBudget');
+            const budgetBarEl = document.getElementById('mockupBudgetBarFill');
+            const btnEl = document.getElementById('btnSimDeposit');
+
+            if (depositSimulatedState) {
+                if (actualBudgetEl) actualBudgetEl.textContent = "₺107.000";
+                if (budgetBarEl) budgetBarEl.style.width = "71%";
+                if (btnEl) btnEl.textContent = "✓ ₺15.000 Eklendi";
+                showHeroPush("Mert bir ödeme kaydetti 💳", "Fotoğrafçı kaporası için ₺15.000 ödendi • Bütçe dengede");
+            } else {
+                const data = CEREMONY_DATA[activeCeremonyKey];
+                if (actualBudgetEl) actualBudgetEl.textContent = data.budgetActual;
+                if (budgetBarEl) budgetBarEl.style.width = `${data.budgetPct}%`;
+                if (btnEl) btnEl.textContent = "+ ₺15.000 Kapora";
+                showHeroPush("Ödeme Geri Alındı", "Simüle edilen kapora kaydı sıfırlandı");
             }
+        }
 
-            // Bir hareketin devami mi, yoksa yeni bir hareket mi? Momentum
-            // kuyrugu son olay zamanini tazeledigi icin, parmak kalkip
-            // momentum sonmeden yeni hareket sayilmaz.
-            function isNewGesture() {
-                const now = performance.now();
-                const isNew = now - lastWheelTs > GESTURE_GAP_MS;
-                lastWheelTs = now;
-                return isNew;
+        // Floating Callout Actions
+        function triggerFloatingAction(action) {
+            if (action === 'task') {
+                selectScenario(0, true);
+                setTimeout(() => {
+                    toggleTaskInteractive();
+                }, 350);
+            } else if (action === 'deposit') {
+                selectScenario(1, true);
+                setTimeout(() => {
+                    simulateBudgetDeposit();
+                }, 350);
             }
+        }
 
-            // Asagi hareket: asama bekliyorsa baslatir, oynuyorsa bir kademe
-            // hizlandirir. Tek hareket = tek kademe.
-            function impulseForward() {
-                if (storyFinished) return;
-                if (awaitingImpulse) {
-                    playSegment();
-                    return;
-                }
-                const current = masterTl.timeScale();
-                const next = Math.min(current * SEG_BOOST_STEP, segBaseScale * SEG_BOOST_MAX);
-                gsap.killTweensOf(masterTl);
-                masterTl.timeScale(next);
-                clearTimeout(boostDecayTimer);
-                boostDecayTimer = setTimeout(() => {
-                    if (storyFinished || awaitingImpulse) return;
-                    gsap.to(masterTl, { timeScale: segBaseScale, duration: 0.45, ease: "power2.out" });
-                }, BOOST_DECAY_MS);
-            }
+        function addNewDemoTask() {
+            markUserInteraction();
+            showHeroPush("Yeni Görev Paneli", "Görev ve sorumlu atama formu açıldı");
+        }
 
-            // Yukari darbe: ilk asamada bekliyorsa akistan cikar, degilse bir
-            // onceki asamanin basina doner.
-            function impulseBack() {
-                if (storyFinished) return;
-                if (segIndex === 0) {
-                    finishStory(-1);
-                    return;
-                }
-                clearTimeout(boostDecayTimer);
-                gsap.killTweensOf(masterTl);
-                segIndex -= 1;
-                awaitingImpulse = true;
-                masterTl.pause(storyMarks[segIndex]);
-                updateHeroHud(segIndex);
-                syncMockupTaskState();
-                setHudWaiting(true);
-            }
+        // User Interaction Detection & Timer Pause
+        function markUserInteraction() {
+            isUserInteracting = true;
+            clearTimeout(userInteractionTimeout);
+            // Resume auto cycle after 12 seconds of inactivity
+            userInteractionTimeout = setTimeout(() => {
+                isUserInteracting = false;
+                scenarioStartTime = performance.now();
+            }, 12000);
+        }
 
-            function updateHeroHudByTime() {
-                updateHeroHud(Math.min(segIndex, 5));
-            }
+        // Auto Cycle Animation Loop (rAF-driven, viewport-aware)
+        let heroSectionVisible = true;
+        const heroSectionEl = document.getElementById('hero-showcase-story');
 
-            // Mockup icindeki bolume tiklaninca hikayeyi o asamaya tasi.
-            window.jumpStory = function (index) {
-                if (index < 0 || index >= steps.length) return;
-                if (storyFinished) {
-                    storyFinished = false;
-                    restoreHeroVisuals();
-                    lockScroll();
-                }
-                const cohostDialog = document.getElementById("cohostCreateDialog");
-                if (cohostDialog) cohostDialog.classList.remove("active");
-                const inviteSheet = document.getElementById("inviteBottomSheet");
-                if (inviteSheet) inviteSheet.classList.remove("active");
-
-                clearTimeout(boostDecayTimer);
-                gsap.killTweensOf(masterTl);
-                masterTl.pause();
-                gsap.to(masterTl, {
-                    time: steps[index],
-                    duration: 0.5,
-                    ease: "power2.inOut",
-                    onComplete: () => {
-                        segIndex = index;
-                        awaitingImpulse = true;
-                        updateHeroHud(segIndex);
-                        setHudWaiting(true);
-                    }
+        if ('IntersectionObserver' in window && heroSectionEl) {
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    heroSectionVisible = entry.isIntersecting;
                 });
-            };
-
-            // Asama sinirinda dur ve yeni darbe bekle.
-            masterTl.eventCallback("onUpdate", () => {
-                syncMockupTaskState();
-                if (storyFinished || awaitingImpulse || !storyMarks.length) return;
-                const edge = storyMarks[segIndex + 1];
-                if (edge !== undefined && masterTl.time() >= edge - 0.001) {
-                    clearTimeout(boostDecayTimer);
-                    gsap.killTweensOf(masterTl);
-                    masterTl.pause(edge);
-                    segIndex += 1;
-                    awaitingImpulse = true;
-                    updateHeroHud(Math.min(segIndex, 5));
-                    setHudWaiting(true);
-                }
-            });
-
-            // Scroll intent Observer - locks vertical scroll and transitions slide-by-slide
-            const intentObserver = ScrollTrigger.observe({
-                type: "wheel,touch",
-                onUp: () => {
-                    if (!isNewGesture()) return;
-                    impulseBack();
-                },
-                onDown: () => {
-                    if (!isNewGesture()) return;
-                    impulseForward();
-                },
-                tolerance: 30,
-                preventDefault: true
-            });
-            intentObserver.disable(); // Disabled on start
+            }, { threshold: 0.15 });
+            heroObserver.observe(heroSectionEl);
         }
 
-        // Masaustu disi yuklemelerde mockup tiklamalari mobil akisi yonetsin.
-        if (typeof window.jumpStory !== "function") {
-            window.jumpStory = function (index) {
-                if (typeof setMobileFlowStep === "function") {
-                    setMobileFlowStep(Math.min(index, (typeof mobileFlowStepsCount !== "undefined" ? mobileFlowStepsCount - 1 : 3)));
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                heroSectionVisible = false;
+            } else if (heroSectionEl) {
+                const rect = heroSectionEl.getBoundingClientRect();
+                heroSectionVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+            }
+        });
+
+        function runScenarioProgressLoop(now) {
+            if (!prefersReducedMotion && heroSectionVisible && !isUserInteracting) {
+                const elapsed = now - scenarioStartTime;
+                const progressPct = Math.min((elapsed / SCENARIO_DURATION_MS) * 100, 100);
+
+                const fillEl = document.getElementById(`prog-fill-${activeScenarioIndex}`);
+                if (fillEl) {
+                    fillEl.style.width = `${progressPct}%`;
                 }
-            };
+
+                if (elapsed >= SCENARIO_DURATION_MS) {
+                    const nextIndex = (activeScenarioIndex + 1) % 4;
+                    selectScenario(nextIndex, false);
+                }
+            }
+            scenarioProgressRaf = requestAnimationFrame(runScenarioProgressLoop);
         }
 
-        // Phone Mockup Interactive Data Swapper (Fallbacks / Mobile clicks)
-        function changeMockupData(type) {
-            const scroller = document.getElementById('mockupScroller');
-            if (type === 'music') {
-                scroller.style.transform = 'translateY(-90px)';
-            } else if (type === 'location') {
-                scroller.style.transform = 'translateY(0px)';
+        // Initialize Hero Studio
+        function initHeroInteractiveStudio() {
+            selectScenario(0, false);
+            scenarioStartTime = performance.now();
+            scenarioProgressRaf = requestAnimationFrame(runScenarioProgressLoop);
+
+            // Listeners for touch / hover pause
+            if (heroSectionEl) {
+                heroSectionEl.addEventListener('mouseenter', () => { isUserInteracting = true; }, { passive: true });
+                heroSectionEl.addEventListener('mouseleave', () => { markUserInteraction(); }, { passive: true });
+                heroSectionEl.addEventListener('touchstart', () => { markUserInteraction(); }, { passive: true });
             }
         }
 
-        // Invite Modal Sheet controllers for co-hosts/team members
-        // GSAP, sayfa acilisinda bu sheet/dialog elemanlarina inline stil
-        // yaziyor (opacity/pointerEvents/transform). Inline stil CSS'teki
-        // .active kuralini eziyordu, bu yuzden kullanici gercekten
-        // tikladiginda hicbir sey acilmiyordu. Class'i eklemeden once inline
-        // stilleri temizliyoruz; kapanista GSAP'in baslangic durumunu geri
-        // yaziyoruz ki timeline tekrar oynatildiginda bozulma olmasin.
-        function clearGsapInline(root, childSelectors) {
-            if (typeof gsap === "undefined" || !root) return;
-            gsap.set(root, { clearProps: "opacity,pointerEvents,transform" });
-            (childSelectors || []).forEach(sel => {
-                const child = root.querySelector(sel);
-                if (child) gsap.set(child, { clearProps: "opacity,pointerEvents,transform" });
-            });
-        }
-
-        function restoreSheetGsapState(sheet) {
-            if (typeof gsap === "undefined" || !sheet) return;
-            gsap.set(sheet, { pointerEvents: "none" });
-            gsap.set(sheet.querySelector(".sheet-scrim"), { opacity: 0 });
-            gsap.set(sheet.querySelector(".sheet-container"), { y: "100%" });
-        }
-
+        // Modal Sheet & Dialog Controllers
         function openInviteSheet(event) {
             if (event) event.stopPropagation();
+            markUserInteraction();
             const sheet = document.getElementById("inviteBottomSheet");
-            if (!sheet) return;
-            clearGsapInline(sheet, [".sheet-scrim", ".sheet-container"]);
-            sheet.classList.add("active");
+            if (sheet) {
+                sheet.classList.add("active");
+                sheet.setAttribute("aria-hidden", "false");
+            }
         }
 
         function closeInviteSheet() {
             const sheet = document.getElementById("inviteBottomSheet");
-            if (!sheet) return;
-            sheet.classList.remove("active");
-            restoreSheetGsapState(sheet);
+            if (sheet) {
+                sheet.classList.remove("active");
+                sheet.setAttribute("aria-hidden", "true");
+            }
+        }
+
+        function openCohostSheet(event) {
+            if (event) event.stopPropagation();
+            markUserInteraction();
+            const sheet = document.getElementById("cohostBottomSheet");
+            if (sheet) {
+                sheet.classList.add("active");
+                sheet.setAttribute("aria-hidden", "false");
+            }
+        }
+
+        function closeCohostSheet() {
+            const sheet = document.getElementById("cohostBottomSheet");
+            if (sheet) {
+                sheet.classList.remove("active");
+                sheet.setAttribute("aria-hidden", "true");
+            }
+        }
+
+        function openCohostCreateDialog() {
+            markUserInteraction();
+            const dialog = document.getElementById("cohostCreateDialog");
+            if (dialog) {
+                dialog.classList.add("active");
+                dialog.setAttribute("aria-hidden", "false");
+            }
+        }
+
+        function closeCohostCreateDialog() {
+            const dialog = document.getElementById("cohostCreateDialog");
+            if (dialog) {
+                dialog.classList.remove("active");
+                dialog.setAttribute("aria-hidden", "true");
+            }
+        }
+
+        function submitCohostCreateForm() {
+            closeCohostCreateDialog();
+            setTimeout(() => {
+                openCohostSheet();
+                showHeroPush("Ortak Yönetici Eklendi 💍", "Mert davet kodu oluşturuldu ve panoya bağlandı");
+            }, 300);
         }
 
         function showToast(message) {
@@ -3382,17 +2932,21 @@
                 toast.classList.add("active");
                 setTimeout(() => {
                     toast.classList.remove("active");
-                }, 2000);
+                }, 2200);
             }
         }
 
         function copyInviteCode(code) {
             const codeVal = (typeof code === 'string' && code) ? code : "DN-ECE-572";
-            navigator.clipboard.writeText(codeVal).then(() => {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(codeVal).then(() => {
+                    showToast("Davet kodu kopyalandı: " + codeVal);
+                }).catch(() => {
+                    showToast("Davet kodu kopyalandı: " + codeVal);
+                });
+            } else {
                 showToast("Davet kodu kopyalandı: " + codeVal);
-            }).catch(() => {
-                showToast("Davet kodu kopyalandı: " + codeVal);
-            });
+            }
         }
 
         function sendInviteWhatsApp() {
@@ -3402,28 +2956,17 @@
             }, 800);
         }
 
-        // Co-Host Modal Sheet controllers for spouse/partner Mert
-        function openCohostSheet(event) {
-            if (event) event.stopPropagation();
-            const sheet = document.getElementById("cohostBottomSheet");
-            if (!sheet) return;
-            clearGsapInline(sheet, [".sheet-scrim", ".sheet-container"]);
-            sheet.classList.add("active");
-        }
-
-        function closeCohostSheet() {
-            const sheet = document.getElementById("cohostBottomSheet");
-            if (!sheet) return;
-            sheet.classList.remove("active");
-            restoreSheetGsapState(sheet);
-        }
-
         function copyCohostCode() {
-            navigator.clipboard.writeText("DN-MERT-984").then(() => {
-                showToast("Davet kodu kopyalandı: DN-MERT-984");
-            }).catch(() => {
-                showToast("Davet kodu kopyalandı: DN-MERT-984");
-            });
+            const codeVal = "DN-MERT-984";
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(codeVal).then(() => {
+                    showToast("Davet kodu kopyalandı: " + codeVal);
+                }).catch(() => {
+                    showToast("Davet kodu kopyalandı: " + codeVal);
+                });
+            } else {
+                showToast("Davet kodu kopyalandı: " + codeVal);
+            }
         }
 
         function sendCohostWhatsApp() {
@@ -3433,85 +2976,28 @@
             }, 800);
         }
 
-        // Cohost Form Dialog Mockup controllers
-        function openCohostCreateDialog() {
-            const dialog = document.getElementById("cohostCreateDialog");
-            if (!dialog) return;
-            clearGsapInline(dialog, [".dialog-container"]);
-            dialog.classList.add("active");
+        // Initialize Studio on DOM Ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initHeroInteractiveStudio);
+        } else {
+            initHeroInteractiveStudio();
         }
 
-        function closeCohostCreateDialog() {
-            const dialog = document.getElementById("cohostCreateDialog");
-            if (!dialog) return;
-            dialog.classList.remove("active");
-            if (typeof gsap !== "undefined") {
-                gsap.set(dialog, { pointerEvents: "none", opacity: 0 });
-                gsap.set(dialog.querySelector(".dialog-container"), { scale: 0.8 });
-            }
-        }
-
-        function closeCohostDialogMobile() {
-            const cohostDialog = document.getElementById('cohostDialogMobile');
-            if (cohostDialog) {
-                cohostDialog.style.display = 'none';
-                cohostDialog.style.opacity = '0';
-            }
-        }
-
-        function closeMobileSheets() {
-            const inviteSheet = document.getElementById('inviteBottomSheetMobile');
-            const cohostSheet = document.getElementById('cohostBottomSheetMobile');
-            if (inviteSheet) inviteSheet.style.pointerEvents = 'none';
-            if (cohostSheet) cohostSheet.style.pointerEvents = 'none';
-            if (typeof gsap !== 'undefined') {
-                gsap.to(['#inviteScrimMobile', '#cohostScrimMobile'], { opacity: 0, duration: 0.2 });
-                gsap.to(['#inviteBottomSheetMobile .sheet-container', '#cohostBottomSheetMobile .sheet-container'], { y: '105%', duration: 0.25 });
-            }
-        }
-
-        function submitCohostCreateForm() {
-            closeCohostCreateDialog();
-            setTimeout(() => {
-                openCohostSheet();
-            }, 300);
-        }
-
-        // 3D Phone Tilt Effect (Desktop Hover Only, disable during scroll)
-        const phone = document.getElementById('phoneMockup');
-        if (window.innerWidth > 991 && phone) {
-            let tiltRafId = null;
-            phone.addEventListener('mousemove', (e) => {
-                if (window.scrollY > 80 || document.documentElement.classList.contains('hero-story-active') || (typeof masterTl !== 'undefined' && masterTl.time() > 0.05)) return; 
-                const rect = phone.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width/2;
-                const y = e.clientY - rect.top - rect.height/2;
-                
-                const tiltX = (y / rect.height) * -12;
-                const tiltY = (x / rect.width) * 12;
-                
-                if (tiltRafId) cancelAnimationFrame(tiltRafId);
-                tiltRafId = requestAnimationFrame(() => {
-                    phone.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
-                });
-            });
-            
-            phone.addEventListener('mouseleave', () => {
-                if (window.scrollY > 80 || document.documentElement.classList.contains('hero-story-active') || (typeof masterTl !== 'undefined' && masterTl.time() > 0.05)) return;
-                if (tiltRafId) cancelAnimationFrame(tiltRafId);
-                phone.style.transform = 'perspective(1000px) rotateX(8deg) rotateY(-8deg) scale3d(1, 1, 1)'; // Initial posture
-            });
-        }
 
         // Progressive Disclosure Drawers Handler
+        function closeSpecDrawer() {
+            const backdrop = document.getElementById('modalBackdrop');
+            if (backdrop) backdrop.classList.remove('active');
+            document.querySelectorAll('.spec-drawer').forEach(d => d.classList.remove('active'));
+            document.body.style.overflow = '';
+        }
+
         function openSpecDrawer(drawerId) {
             closeSpecDrawer();
-            
             const backdrop = document.getElementById('modalBackdrop');
             const drawer = document.getElementById(drawerId);
-            
-            backdrop.classList.add('active');
-            drawer.classList.add('active');
+            if (backdrop) backdrop.classList.add('active');
+            if (drawer) drawer.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
@@ -3839,372 +3325,10 @@
             });
         }, { passive: true });
 
-        // Mobile Flow Chart Swiper Logic
-        let currentMobileFlowStep = 0;
-        const mobileFlowStepsCount = 4;
-        let taskCompletedStateMobile = false;
-
-        function setMobileFlowStep(stepIndex) {
-            if (stepIndex < 0 || stepIndex >= mobileFlowStepsCount) return;
-            
-            currentMobileFlowStep = stepIndex;
-            
-            // Update navigation dots
-            const dots = document.querySelectorAll('.flow-dot');
-            dots.forEach((dot, idx) => {
-                if (idx === stepIndex) dot.classList.add('active');
-                else dot.classList.remove('active');
-            });
-            
-            // Update text slides
-            const textSlides = document.querySelectorAll('.mobile-slide-text');
-            textSlides.forEach((slide, idx) => {
-                if (idx === stepIndex) {
-                    slide.style.display = 'block';
-                    setTimeout(() => {
-                        slide.style.opacity = '1';
-                    }, 50);
-                } else {
-                    slide.style.opacity = '0';
-                    slide.style.display = 'none';
-                }
-            });
-            
-            // Reset dialog, sheets, and ripples
-            const inviteSheet = document.getElementById('inviteBottomSheetMobile');
-            const cohostSheet = document.getElementById('cohostBottomSheetMobile');
-            const cohostDialog = document.getElementById('cohostDialogMobile');
-            
-            // Kill active tweens
-            gsap.killTweensOf([
-                "#eceTapRippleMobile", 
-                "#heartTapRippleMobile", 
-                "#dialogSubmitRippleMobile", 
-                "#inviteScrimMobile", 
-                "#cohostScrimMobile", 
-                "#inviteBottomSheetMobile .sheet-container", 
-                "#cohostBottomSheetMobile .sheet-container", 
-                "#cohostDialogMobile",
-                "#mockupScrollerMobile"
-            ]);
-            
-            // Instantly hide sheets on reset
-            inviteSheet.style.pointerEvents = 'none';
-            cohostSheet.style.pointerEvents = 'none';
-            
-            gsap.set(["#inviteScrimMobile", "#cohostScrimMobile"], { opacity: 0 });
-            gsap.set(["#inviteBottomSheetMobile .sheet-container", "#cohostBottomSheetMobile .sheet-container"], { y: "105%" });
-            
-            cohostDialog.style.display = 'none';
-            cohostDialog.style.opacity = '0';
-            
-            // Reset ripples
-            gsap.set(["#eceTapRippleMobile", "#heartTapRippleMobile", "#dialogSubmitRippleMobile"], { scale: 0, opacity: 0 });
-            
-            resetMockupTaskMobile();
-            
-            const scroller = document.getElementById('mockupScrollerMobile');
-            
-            // Mobile mockups references
-            const teamSec = document.getElementById('mockup-team-section-mobile');
-            const budgetSec = document.getElementById('mockup-budget-section-mobile');
-            const taskSec = document.getElementById('mockup-task-section-mobile');
-            const rolesSec = document.getElementById('mockup-roles-list-section-mobile');
-            const allMobileSecs = [budgetSec, taskSec, rolesSec, teamSec];
-            
-            // Helper function to set focus styling (stage lights)
-            function highlightMobileSection(activeSec) {
-                allMobileSecs.forEach(sec => {
-                    if (sec === activeSec) {
-                        gsap.to(sec, {
-                            borderColor: "var(--gold)",
-                            boxShadow: "0 0 15px rgba(197, 160, 89, 0.3)",
-                            scale: 1.03,
-                            opacity: 1.0,
-                            duration: 0.4,
-                            ease: "power2.out"
-                        });
-                    } else {
-                        gsap.to(sec, {
-                            borderColor: sec.id.includes('budget') || sec.id.includes('task') ? "transparent" : "var(--border-color)",
-                            boxShadow: "none",
-                            scale: 1.0,
-                            opacity: 0.3,
-                            duration: 0.4,
-                            ease: "power2.out"
-                        });
-                    }
-                });
-            }
-
-            if (stepIndex === 0) {
-                // Focus: Budget summary card
-                highlightMobileSection(budgetSec);
-                gsap.to(scroller, { y: -195, duration: 0.6, ease: "power2.out" });
-                
-            } else if (stepIndex === 1) {
-                // Focus: Task stats donut
-                highlightMobileSection(taskSec);
-                gsap.to(scroller, { y: -125, duration: 0.6, ease: "power2.out" });
-                
-            } else if (stepIndex === 2) {
-                // Focus: Task checklist and Ece invite button
-                highlightMobileSection(rolesSec);
-                gsap.to(scroller, { y: -230, duration: 0.5, ease: "power2.out" });
-                
-                // Create a timeline for Ece tap simulation (3 taps) - Ultra-snappy premium speed
-                const eceTl = gsap.timeline();
-                eceTl.set("#eceTapRippleMobile", { scale: 0, opacity: 0, xPercent: -50, yPercent: -50 })
-                     // Tap 1
-                     .to("#eceCapsuleRowMobile", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.18 }, 0.3)
-                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.35 }, 0.3)
-                     .to("#eceCapsuleRowMobile", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.12 })
-                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.18 }, "-=0.12")
-                     .set("#eceTapRippleMobile", { scale: 0 })
-                     // Tap 2
-                     .to("#eceCapsuleRowMobile", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.18 }, "+=0.18")
-                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.35 }, "-=0.18")
-                     .to("#eceCapsuleRowMobile", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.12 })
-                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.18 }, "-=0.12")
-                     .set("#eceTapRippleMobile", { scale: 0 })
-                     // Tap 3
-                     .to("#eceCapsuleRowMobile", { scale: 0.96, backgroundColor: "rgba(29, 29, 31, 0.08)", borderColor: "var(--gold)", duration: 0.18 }, "+=0.18")
-                     .to("#eceTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.35 }, "-=0.18")
-                     .to("#eceCapsuleRowMobile", { scale: 1.0, backgroundColor: "", borderColor: "", duration: 0.12 })
-                     .to("#eceTapRippleMobile", { opacity: 0, duration: 0.18 }, "-=0.12")
-                     .set("#eceTapRippleMobile", { scale: 0 })
-                     // Open sheet
-                     .add(() => {
-                         if (currentMobileFlowStep === 2) {
-                             inviteSheet.style.pointerEvents = 'auto';
-                             gsap.to("#inviteScrimMobile", { opacity: 1, duration: 0.3 });
-                             gsap.to("#inviteBottomSheetMobile .sheet-container", { y: "0%", duration: 0.45, ease: "power2.out" });
-                         }
-                     }, "+=0.18");
-                
-            } else if (stepIndex === 3) {
-                // Focus: Team section (co-host Mert add)
-                highlightMobileSection(teamSec);
-                gsap.to(scroller, { y: 0, duration: 0.5, ease: "power2.out" });
-                
-                // Create a timeline for Mert co-host simulation (3 taps on heart + dialog submit) - Ultra-snappy premium speed
-                const mertTl = gsap.timeline();
-                mertTl.set("#heartTapRippleMobile", { scale: 0, opacity: 0, xPercent: -50, yPercent: -50 })
-                      // Heart Tap 1
-                      .to("#cohostHeartBtnMobile", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.18 }, 0.3)
-                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.35 }, 0.3)
-                      .to("#cohostHeartBtnMobile", { scale: 1.0, backgroundColor: "", duration: 0.12 })
-                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.18 }, "-=0.12")
-                      .set("#heartTapRippleMobile", { scale: 0 })
-                      // Heart Tap 2
-                      .to("#cohostHeartBtnMobile", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.18 }, "+=0.18")
-                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.35 }, "-=0.18")
-                      .to("#cohostHeartBtnMobile", { scale: 1.0, backgroundColor: "", duration: 0.12 })
-                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.18 }, "-=0.12")
-                      .set("#heartTapRippleMobile", { scale: 0 })
-                      // Heart Tap 3
-                      .to("#cohostHeartBtnMobile", { scale: 0.82, backgroundColor: "rgba(197, 160, 89, 0.25)", duration: 0.18 }, "+=0.18")
-                      .to("#heartTapRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.35 }, "-=0.18")
-                      .to("#cohostHeartBtnMobile", { scale: 1.0, backgroundColor: "", duration: 0.12 })
-                      .to("#heartTapRippleMobile", { opacity: 0, duration: 0.18 }, "-=0.12")
-                      .set("#heartTapRippleMobile", { scale: 0 })
-                      // Open dialog
-                      .add(() => {
-                          if (currentMobileFlowStep === 3) {
-                              cohostDialog.style.display = 'flex';
-                              gsap.to(cohostDialog, { opacity: 1, duration: 0.25 });
-                          }
-                      }, "+=0.18")
-                      // Dialog Submit Button Tap (Ekle)
-                      .set("#dialogSubmitRippleMobile", { scale: 0, opacity: 0, xPercent: -50, yPercent: -50 }, "+=0.4")
-                      .to("#cohostSubmitMobile", { scale: 0.93, backgroundColor: "#754B4B", duration: 0.18 })
-                      .to("#dialogSubmitRippleMobile", { scale: 2.6, opacity: 0.8, duration: 0.35 }, "-=0.18")
-                      .to("#cohostSubmitMobile", { scale: 1.0, backgroundColor: "", duration: 0.12 })
-                      .to("#dialogSubmitRippleMobile", { opacity: 0, duration: 0.18 }, "-=0.12")
-                      .set("#dialogSubmitRippleMobile", { scale: 0 })
-                      // Submit, close dialog, complete task, slide up Mert sheet, fire confetti
-                      .add(() => {
-                          if (currentMobileFlowStep === 3) {
-                              gsap.to(cohostDialog, { 
-                                  opacity: 0, 
-                                  duration: 0.2,
-                                  onComplete: () => {
-                                      cohostDialog.style.display = 'none';
-                                  }
-                              });
-                              
-                              completeMockupTaskMobile();
-                              
-                              cohostSheet.style.pointerEvents = 'auto';
-                              gsap.to("#cohostScrimMobile", { opacity: 1, duration: 0.3 });
-                              gsap.to("#cohostBottomSheetMobile .sheet-container", { y: "0%", duration: 0.45, ease: "power2.out" });
-                              
-                              // FİRE CANVAS CONFETTİ
-                              if (window.confetti) {
-                                  const rect = document.getElementById('phoneMockupMobile').getBoundingClientRect();
-                                  const x = (rect.left + rect.width / 2) / window.innerWidth;
-                                  const y = (rect.top + rect.height / 2) / window.innerHeight;
-                                  window.confetti({
-                                      particleCount: 70,
-                                      spread: 60,
-                                      origin: { x: x, y: y }
-                                  });
-                              }
-                          }
-                      }, "+=0.35");
-            }
+        // Initialize interactive calculator on page load
+        if (typeof calculatePlan === 'function') {
+            calculatePlan();
         }
-
-        function nextMobileStep() {
-            if (currentMobileFlowStep < mobileFlowStepsCount - 1) {
-                setMobileFlowStep(currentMobileFlowStep + 1);
-            } else {
-                setMobileFlowStep(0);
-            }
-        }
-
-        function prevMobileStep() {
-            if (currentMobileFlowStep > 0) {
-                setMobileFlowStep(currentMobileFlowStep - 1);
-            } else {
-                setMobileFlowStep(mobileFlowStepsCount - 1);
-            }
-        }
-
-        function completeMockupTaskMobile() {
-            if (taskCompletedStateMobile) return;
-            taskCompletedStateMobile = true;
-            
-            const badge = document.getElementById("task-status-badge-mobile");
-            if (badge) {
-                badge.classList.remove("progress");
-                badge.classList.add("done");
-                badge.innerHTML = '<svg viewBox="0 0 24 24" style="width: 10px; height: 10px; fill: none; stroke: #4CD964; stroke-width: 3;"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-            }
-            
-            const taskItem = document.getElementById("mockup-task-to-complete-mobile");
-            if (taskItem) {
-                taskItem.classList.remove("progress");
-                taskItem.classList.add("done");
-                const taskSpan = taskItem.querySelector(".task-title-text");
-                if (taskSpan) {
-                    taskSpan.style.color = '#767680';
-                    taskSpan.style.textDecoration = 'line-through';
-                }
-            }
-            
-            const fillPath = document.querySelector("#mockup-progress-ring-1-mobile .ring-fill");
-            if (fillPath && window.gsap) {
-                gsap.to(fillPath, {
-                    attr: { "stroke-dasharray": "100, 100" },
-                    duration: 0.8,
-                    ease: "power2.out"
-                });
-            }
-            
-            const heartSvg = document.querySelector("#ring-heart-1-mobile svg");
-            if (heartSvg) {
-                heartSvg.style.fill = 'var(--gold)';
-            }
-        }
-
-        function resetMockupTaskMobile() {
-            if (!taskCompletedStateMobile) return;
-            taskCompletedStateMobile = false;
-            
-            const badge = document.getElementById("task-status-badge-mobile");
-            if (badge) {
-                badge.classList.remove("done");
-                badge.classList.add("progress");
-                badge.innerHTML = '<svg viewBox="0 0 24 24" style="width: 10px; height: 10px; fill: none; stroke: var(--gold); stroke-width: 3;"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>';
-            }
-            
-            const taskItem = document.getElementById("mockup-task-to-complete-mobile");
-            if (taskItem) {
-                taskItem.classList.remove("done");
-                taskItem.classList.add("progress");
-                const taskSpan = taskItem.querySelector(".task-title-text");
-                if (taskSpan) {
-                    taskSpan.style.color = '#F5F5F7';
-                    taskSpan.style.textDecoration = 'none';
-                }
-            }
-            
-            const fillPath = document.querySelector("#mockup-progress-ring-1-mobile .ring-fill");
-            if (fillPath && window.gsap) {
-                gsap.to(fillPath, {
-                    attr: { "stroke-dasharray": "60, 100" },
-                    duration: 0.6,
-                    ease: "power2.out"
-                });
-            }
-            
-            const heartSvg = document.querySelector("#ring-heart-1-mobile svg");
-            if (heartSvg) {
-                heartSvg.style.fill = 'none';
-            }
-        }
-
-        // Initialize calculator and mobile values on page load
-        calculatePlan();
-        setMobileFlowStep(0);
-
-        // Otomatik İlerleme Zamanlayıcısı (4.5s - kullanıcı dokunana kadar)
-        let mobileFlowTimer = null;
-        function startMobileFlowTimer() {
-            if (mobileFlowTimer) clearInterval(mobileFlowTimer);
-            mobileFlowTimer = setInterval(() => {
-                nextMobileStep();
-            }, 4500);
-        }
-        function stopMobileFlowTimer() {
-            if (mobileFlowTimer) {
-                clearInterval(mobileFlowTimer);
-                mobileFlowTimer = null;
-            }
-        }
-        startMobileFlowTimer();
-
-        // Dokunmatik Ekranlar İçin Swipe (Kaydırma) Jesti (.mobile-interactive-showcase)
-        function initMobileShowcaseSwipe() {
-            const showcase = document.querySelector('.mobile-interactive-showcase');
-            if (!showcase || showcase.dataset.swipeInitialized) return;
-            showcase.dataset.swipeInitialized = 'true';
-
-            showcase.addEventListener('touchstart', stopMobileFlowTimer, { passive: true });
-            showcase.addEventListener('pointerdown', stopMobileFlowTimer, { passive: true });
-            showcase.addEventListener('mouseenter', stopMobileFlowTimer, { passive: true });
-
-            let touchStartX = 0;
-            let touchStartY = 0;
-
-            showcase.addEventListener('touchstart', (e) => {
-                if (e.touches && e.touches.length > 0) {
-                    touchStartX = e.touches[0].clientX;
-                    touchStartY = e.touches[0].clientY;
-                }
-            }, { passive: true });
-
-            showcase.addEventListener('touchend', (e) => {
-                if (e.changedTouches && e.changedTouches.length > 0) {
-                    const touchEndX = e.changedTouches[0].clientX;
-                    const touchEndY = e.changedTouches[0].clientY;
-                    const diffX = touchEndX - touchStartX;
-                    const diffY = touchEndY - touchStartY;
-
-                    // 45px eşik ile parmağı sola çekince nextMobileStep(), sağa çekince prevMobileStep()
-                    if (Math.abs(diffX) >= 45 && Math.abs(diffX) > Math.abs(diffY)) {
-                        stopMobileFlowTimer();
-                        if (diffX < 0) {
-                            nextMobileStep();
-                        } else {
-                            prevMobileStep();
-                        }
-                    }
-                }
-            }, { passive: true });
-        }
-        initMobileShowcaseSwipe();
 
         // 3D Flip Card handlers & Global Tease Disabler
         let globalSolutionDiscovered = false;
