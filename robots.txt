@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /rsvp.html
-Disallow: /hediye.html
-Disallow: /success.html
-Disallow: /confirm.html
 
 Sitemap: https://imecedugun.com/sitemap.xml

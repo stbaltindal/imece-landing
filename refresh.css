@@ -196,18 +196,21 @@ body.dark-active .comparison-card {
     background-color: var(--n-2) !important;
     background-image: none !important;
     border: 1px solid var(--n-line) !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.08) !important;
     transition:
         transform 0.45s var(--ease-out-expo),
         border-color 0.45s ease,
         box-shadow 0.45s ease,
         background-color 0.45s ease;
-}
-
-body.dark-active .flip-card-front,
-body.dark-active .flip-card-back {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+}
+
+/* Karanlık yüzey specular highlight (üst ışık kırılması) */
+body.dark-active .pain-item,
+body.dark-active .calculator-wrapper,
+body.dark-active .faq-item {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Kart ici mockup panelleri: bir alt basamak, kenarlik yok. */
@@ -302,7 +305,8 @@ body.dark-active .flip-card-front p strong {
     body.dark-active .asistan-card:hover,
     body.dark-active .gunici-card:hover,
     body.dark-active .feature-card:hover,
-    body.dark-active .details-card:hover {
+    body.dark-active .details-card:hover,
+    body.dark-active .pricing-card:hover {
         transform: translateY(-4px);
         border-color: var(--n-line-strong) !important;
         background-color: var(--n-3) !important;
@@ -521,7 +525,7 @@ body.dark-active .pain-item.checked .pain-meta {
 body.dark-active .pain-result-card {
     background-color: var(--n-2) !important;
     border: 1px solid var(--n-line) !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.08) !important;
 }
 body.dark-active .pain-result-body p,
 body.dark-active .pain-solution-name {
@@ -585,6 +589,28 @@ body.dark-active .pain-solution-row {
     height: 470px;
 }
 
+/* Flip Card Klavye & 3D Peek & Arka Yüz Kontrastı */
+.flip-card:not(.flipped) .flip-card-back {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.flip-card.flipped .flip-card-back {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body.dark-active .flip-card:not(.flipped):hover .flip-card-inner {
+        transform: rotateY(6deg) translateY(-4px);
+    }
+}
+
+body.dark-active .flip-card-back {
+    background: linear-gradient(165deg, #1A1712 0%, #121217 100%) !important;
+    border-color: rgba(236, 200, 128, 0.32) !important;
+}
+
 /* Ray kontrolleri */
 .kriz-rail-nav {
     display: flex;
@@ -637,11 +663,13 @@ body:not(.dark-active) .kriz-rail-btn {
 .kriz-rail-progress i {
     display: block;
     height: 100%;
-    width: 18%;
+    width: 100% !important;
     background: var(--accent);
     border-radius: 2px;
-    transform-origin: left;
-    transition: width 0.25s ease, transform 0.25s ease;
+    transform: scaleX(0.16);
+    transform-origin: left center;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
 }
 
 .kriz-rail-hint {
@@ -755,6 +783,20 @@ body:not(.dark-active) .kriz-rail-btn {
         box-shadow 0.4s ease,
         padding 0.4s var(--ease-out-expo);
 }
+.navbar.navbar-scrolled {
+    background: rgba(11, 11, 14, 0.88) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+/* Çift shimmer ve layout shift iptali */
+.navbar .btn-primary::before {
+    display: none !important;
+}
+.btn-gold-effect:hover::after {
+    left: 0 !important;
+}
 /* Logo artik <div> degil <a> (sayfa basina donuyor). style.css'te global bir
    `a { text-decoration: none }` kurali yok ve .logo kendi kuralinda da
    tanimlamiyordu; bag haline gelince tarayici varsayilani alt cizgi bastı. */
@@ -806,10 +848,13 @@ a.logo:hover {
         white-space: nowrap;
     }
 }
+body.dark-active .pricing-card.premium-card,
+body.dark-active .pricing-card.active-recommend,
 body.dark-active .pricing-card.featured,
 body.dark-active .pricing-card.popular {
-    border-color: rgba(217, 180, 106, 0.45) !important;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5) !important;
+    border: 1.5px solid rgba(217, 180, 106, 0.65) !important;
+    background: linear-gradient(180deg, rgba(217, 180, 106, 0.10) 0%, #14141A 45%, #111116 100%) !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 32px rgba(217, 180, 106, 0.18), inset 0 1px 0 0 rgba(255, 232, 185, 0.28) !important;
 }
 body.dark-active .faq-item {
     border-bottom-color: var(--n-line) !important;
@@ -1387,6 +1432,12 @@ body.dark-active .pain-filter-count {
 body.dark-active .pain-item-arrow {
     color: var(--n-text-faint) !important;
 }
+.pain-item.checked,
+body.dark-active .pain-item.checked {
+    background: linear-gradient(180deg, rgba(217, 180, 106, 0.14) 0%, rgba(22, 22, 29, 0.96) 100%) !important;
+    border-color: rgba(217, 180, 106, 0.45) !important;
+    color: #F5F5F7 !important;
+}
 body.dark-active .pain-item:hover .pain-item-arrow {
     color: var(--accent) !important;
 }
@@ -1486,7 +1537,8 @@ input[type="range"].calc-slider {
     appearance: none;
     width: 100%;
     height: 44px; /* WCAG 2.5.5 - Minimum 44px dokunma hedefi */
-    background: transparent;
+    background: linear-gradient(90deg, var(--accent, #D9B46A) var(--slider-pct, 30%), rgba(255, 255, 255, 0.14) var(--slider-pct, 30%)) !important;
+    border-radius: 999px;
     cursor: pointer;
     touch-action: pan-y;
     margin: 0;
@@ -1496,11 +1548,23 @@ input[type="range"].calc-slider:focus-visible {
     outline: none;
 }
 
+input[type="range"].calc-slider:focus-visible::-webkit-slider-thumb {
+    outline: 2px solid #ECC880;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px rgba(217, 180, 106, 0.25), 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+input[type="range"].calc-slider:focus-visible::-moz-range-thumb {
+    outline: 2px solid #ECC880;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px rgba(217, 180, 106, 0.25), 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
 input[type="range"].calc-slider::-webkit-slider-runnable-track {
     width: 100%;
     height: 8px;
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.12);
+    background: transparent;
     transition: background 0.3s ease;
 }
 
@@ -1508,7 +1572,7 @@ input[type="range"].calc-slider::-moz-range-track {
     width: 100%;
     height: 8px;
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.12);
+    background: transparent;
 }
 
 input[type="range"].calc-slider::-webkit-slider-thumb {
@@ -2085,5 +2149,283 @@ html {
     }
     .flip-back-close {
         justify-content: center !important;
+    }
+}
+
+/* ==========================================================================
+   20. Telefon Maketleri (#phoneMockup & #phoneMockupMobile) Açık Renk Zemin
+       Beyaz-Üstüne-Beyaz Görünmez Metin Onarımı (WCAG AAA)
+   ========================================================================== */
+#phoneMockup .phone-screen,
+#phoneMockupMobile .app-card,
+#phoneMockup .app-card {
+    --text-main: #1D1D1F;
+    --text-muted: #55555A;
+    --text-light: #767680;
+    --text-secondary: #55555A;
+    color: #1D1D1F;
+}
+
+#phoneMockup .phone-screen .app-section-title,
+#phoneMockup .phone-screen .task-summary-fraction,
+#phoneMockup .phone-screen .task-summary-Fraction,
+#phoneMockup .phone-screen .task-pill,
+#phoneMockup .phone-screen .finance-stat-val,
+#phoneMockup .phone-screen .cat-item-title,
+#phoneMockup .phone-screen .cat-item-amount,
+#phoneMockup .phone-screen .team-member-name,
+#phoneMockup .phone-screen .section-title-large,
+#phoneMockup .phone-screen .donut-hole,
+#phoneMockup .phone-screen .budget-val-amount:not(.actual),
+#phoneMockup .phone-screen .role-card-title,
+#phoneMockup .phone-screen .team-title,
+#phoneMockup .phone-screen .app-title,
+#phoneMockup .phone-screen .section-title,
+#phoneMockup .phone-screen .legend-item span,
+#phoneMockup .phone-screen .task-title-text,
+#phoneMockup .phone-screen .assignee-name,
+#phoneMockupMobile .app-card .app-section-title,
+#phoneMockupMobile .app-card .task-summary-fraction,
+#phoneMockupMobile .app-card .task-summary-Fraction,
+#phoneMockupMobile .app-card .task-pill,
+#phoneMockupMobile .app-card .finance-stat-val,
+#phoneMockupMobile .app-card .cat-item-title,
+#phoneMockupMobile .app-card .cat-item-amount,
+#phoneMockupMobile .app-card .team-member-name,
+#phoneMockupMobile .app-card strong:not([style*="color"]),
+#phoneMockupMobile .app-card span:not([style*="color"]):not(.dot),
+#phoneMockupMobile .app-card div:not([style*="color"]):not(.donut-chart):not([style*="background"]) {
+    color: #1D1D1F !important;
+}
+
+#phoneMockup .phone-screen .budget-val-label,
+#phoneMockup .phone-screen .coverage-text,
+#phoneMockup .phone-screen .detail-click-text,
+#phoneMockup .phone-screen .cat-item-subtitle,
+#phoneMockup .phone-screen .task-pill-sub,
+#phoneMockup .phone-screen .avatar-label,
+#phoneMockupMobile .app-card .budget-val-label,
+#phoneMockupMobile .app-card .cat-item-subtitle,
+#phoneMockupMobile .app-card .task-pill-sub {
+    color: #55555A !important;
+}
+
+/* Donut hole ve özet metinleri */
+#phoneMockup .donut-hole,
+#phoneMockupMobile .app-card [style*="border-radius: 50%"][style*="background: white"],
+#phoneMockupMobile .app-card [style*="border-radius: 50%"][style*="background: #ffffff"] {
+    color: #1D1D1F !important;
+}
+
+/* Dikkat: #phoneMockupMobile içindeki koyu zeminli özel kartların
+   (#mockup-roles-list-section-mobile, #flow-step-3 içindeki koyu ekip kartı ve rozetleri)
+   açık renk metinlerini (#F5F5F7 / #ECC880) koru! */
+#phoneMockupMobile #mockup-roles-list-section-mobile,
+#phoneMockupMobile #mockup-roles-list-section-mobile span:not([style*="var(--gold)"]),
+#phoneMockupMobile #mockup-roles-list-section-mobile strong,
+#phoneMockupMobile #mockup-roles-list-section-mobile .task-title-text,
+#phoneMockupMobile #mockup-roles-list-section-mobile #mockup-task-to-complete-mobile span,
+#phoneMockupMobile .role-card-dark,
+#phoneMockupMobile .role-card-dark *,
+#phoneMockupMobile .mockup-role-badge,
+#phoneMockupMobile [id*="flow-step-3"] .mockup-role-card,
+#phoneMockupMobile [id*="flow-step-3"] .mockup-role-card * {
+    color: #F5F5F7 !important;
+}
+#phoneMockupMobile #mockup-roles-list-section-mobile .role-badge-gold,
+#phoneMockupMobile .role-card-dark .role-badge-gold,
+#phoneMockupMobile .mockup-role-badge.gold {
+    color: #ECC880 !important;
+}
+
+/* ==========================================================================
+   21. 44px Dokunma Hedefleri (WCAG 2.1 AA/AAA) & LCV Simülatör Durumları
+   ========================================================================== */
+.ceremony-tag,
+.sim-meal-chip,
+.sim-allergy-toggle,
+.pain-summary-chip {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.hero-hud-dot {
+    cursor: pointer !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* LCV Simülatör Seçim & Durum Vurguları */
+.sim-btn.is-selected {
+    border-color: var(--accent) !important;
+    background: linear-gradient(135deg, rgba(236, 200, 128, 0.25) 0%, rgba(212, 175, 55, 0.15) 100%) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 0 16px rgba(212, 175, 55, 0.35) !important;
+}
+
+.sim-btn.yes.is-selected {
+    border-color: #4ade80 !important;
+    background: rgba(74, 222, 128, 0.18) !important;
+    color: #4ade80 !important;
+    box-shadow: 0 0 16px rgba(74, 222, 128, 0.25) !important;
+}
+
+.sim-btn.no.is-selected {
+    border-color: #f87171 !important;
+    background: rgba(248, 113, 113, 0.18) !important;
+    color: #f87171 !important;
+    box-shadow: 0 0 16px rgba(248, 113, 113, 0.25) !important;
+}
+
+.sim-meal-block.is-disabled {
+    opacity: 0.38 !important;
+    pointer-events: none !important;
+    filter: grayscale(0.4) !important;
+    transition: opacity 0.25s ease, filter 0.25s ease !important;
+}
+
+@keyframes simFlashPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(217, 180, 106, 0.6);
+        border-color: var(--accent);
+    }
+    50% {
+        box-shadow: 0 0 24px 4px rgba(217, 180, 106, 0.4);
+        border-color: #FFFFFF;
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(217, 180, 106, 0);
+        border-color: rgba(201, 162, 39, 0.4);
+    }
+}
+
+.sim-flash {
+    animation: simFlashPulse 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* ==========================================================================
+   22. Rehber Vitrini (#rehber-vitrin) — Lüks Obsidyen & Altın Grid Mimarisi
+   ========================================================================== */
+.rehber-showcase-section {
+    padding-top: var(--sec-pad);
+    padding-bottom: var(--sec-pad);
+    position: relative;
+    border-top: 1px solid var(--n-line);
+}
+
+.rehber-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 36px;
+}
+
+.rehber-showcase-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--n-2) !important;
+    border: 1px solid var(--n-line) !important;
+    border-radius: 18px;
+    padding: 28px 24px;
+    text-decoration: none !important;
+    color: var(--n-text) !important;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.08) !important;
+    transition: transform 0.4s var(--ease-out-expo), border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .rehber-showcase-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(217, 180, 106, 0.45) !important;
+        background: var(--n-3) !important;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 24px rgba(217, 180, 106, 0.12), inset 0 1px 0 0 rgba(255, 232, 185, 0.2) !important;
+    }
+}
+
+.rehber-showcase-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.rehber-card-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.rehber-card-category {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.rehber-card-tool-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.rehber-card-title {
+    font-family: var(--font-body);
+    font-size: 1.18rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    letter-spacing: -0.015em;
+}
+
+.rehber-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--n-text-muted);
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.rehber-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--n-line);
+    font-size: 0.82rem;
+    color: var(--n-text-faint);
+}
+
+.rehber-card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    color: var(--accent);
+    transition: transform 0.2s ease, gap 0.2s ease;
+}
+
+.rehber-showcase-card:hover .rehber-card-action {
+    gap: 10px;
+}
+
+@media (max-width: 767px) {
+    .rehber-showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .rehber-showcase-card {
+        padding: 22px 18px;
+    }
+    .rehber-card-title {
+        font-size: 1.08rem;
     }
 }

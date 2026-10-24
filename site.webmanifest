@@ -1,0 +1,27 @@
+{
+  "name": "İmece Düğün — Düğün Planlama & Dijital LCV",
+  "short_name": "İmece Düğün",
+  "description": "Düğün, nişan ve kına hazırlıklarınızı eşiniz, aileniz ve nedimelerinizle birlikte yönetin.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090D",
+  "theme_color": "#09090D",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "/assets/img/seal-favicon-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

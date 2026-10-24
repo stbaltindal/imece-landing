@@ -4335,9 +4335,11 @@ body.dark-active #cohostDialogMobile label {
 /* Thinner state on scroll */
 .navbar.navbar-scrolled {
     padding: var(--space-xs) 0 !important; /* 8px padding */
-    background: rgba(250, 248, 246, 0.96) !important;
-    border-bottom: 1px solid rgba(201, 162, 39, 0.15) !important;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02) !important;
+    background: rgba(11, 11, 14, 0.88) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
 }
 
 /* Sliding underline hover animation for navbar links */
@@ -6883,8 +6885,9 @@ body.dark-active .app-header-mini {
 }
 
 .pain-item.checked {
-    background: linear-gradient(135deg, #FFFDF8 0%, var(--rose-gold-tint) 100%);
-    border-color: var(--gold);
+    background: linear-gradient(180deg, rgba(217, 180, 106, 0.14) 0%, rgba(22, 22, 29, 0.96) 100%) !important;
+    border-color: rgba(217, 180, 106, 0.45) !important;
+    color: #F5F5F7 !important;
 }
 
 .pain-item-main {
@@ -8879,18 +8882,18 @@ html.hero-story-active .hero-story-hud {
 }
 
 
-/* Navbar acik zemine gecince menu linkleri de koyulasir */
+/* Scrolled navbar obsidian kontrastı */
 .navbar.navbar-scrolled .nav-links a {
-    color: var(--text-muted);
+    color: #E2E2E8 !important;
 }
 
 .navbar.navbar-scrolled .nav-links a:hover {
-    color: var(--text-main);
+    color: #FFFFFF !important;
     text-shadow: none;
 }
 
 .navbar.navbar-scrolled .logo-text {
-    color: var(--text-main);
+    color: #FFFFFF !important;
 }
 
 .hero-hud-hint {

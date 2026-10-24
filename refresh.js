@@ -26,32 +26,9 @@
        Ayni esik burada IntersectionObserver ile karsilaniyor.
        ---------------------------------------------------------------------- */
     function initNightTheme() {
-        var gsapDrivesIt = isDesktop && !reduceMotion && window.gsap && window.ScrollTrigger;
-        if (gsapDrivesIt) return;
-
-        var trigger = document.getElementById("neden-imece");
+        document.body.classList.add("dark-active");
         var overlay = document.getElementById("darkOverlay");
-        if (!trigger || !overlay) return;
-
-        function setNight(on) {
-            document.body.classList.toggle("dark-active", on);
-            overlay.classList.toggle("is-on", on);
-        }
-
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                // Bolumun ustu ekranin alt %25'ine girdiginde gece baslar;
-                // yukari cikarken ayni noktada geri doner.
-                setNight(entry.isIntersecting || entry.boundingClientRect.top < 0);
-            });
-        }, { rootMargin: "0px 0px -75% 0px", threshold: 0 });
-
-        io.observe(trigger);
-
-        // Sayfa ortasindan yenilenirse dogru durumla acilsin.
-        if (trigger.getBoundingClientRect().top < window.innerHeight * 0.75) {
-            setNight(true);
-        }
+        if (overlay) overlay.classList.add("is-on");
     }
 
     /* ----------------------------------------------------------------------
@@ -205,8 +182,8 @@
             var ratio = max > 0 ? grid.scrollLeft / max : 0;
             // Cubuk genisligi = gorunen oran; kaydigi mesafe kendi genisliginin katı.
             var visible = Math.max(grid.clientWidth / grid.scrollWidth, 0.08);
-            bar.style.width = visible * 100 + "%";
-            bar.style.transform = "translateX(" + (ratio * (100 / visible - 100)) + "%)";
+            bar.style.transformOrigin = "left center";
+            bar.style.transform = "scaleX(" + visible + ") translateX(" + (ratio * (100 / visible - 100)) + "%)";
             buttons[0].disabled = grid.scrollLeft <= 2;
             buttons[1].disabled = grid.scrollLeft >= max - 2;
         }
@@ -251,19 +228,6 @@
                     if (other !== card) other.classList.remove("flipped");
                 });
         });
-
-        // "Cozumleri sirayla gor" hedef karta dikey kaydiriyordu; rayda hedef
-        // yatayda kalabiliyor. Once rayi hizala, sonra orijinal davranis.
-        var originalReveal = window.revealSolution;
-        if (typeof originalReveal === "function") {
-            window.revealSolution = function (targetId) {
-                var target = document.getElementById(targetId);
-                if (target && grid.contains(target)) {
-                    grid.scrollTo({ left: Math.max(target.offsetLeft - 8, 0), behavior: "smooth" });
-                }
-                return originalReveal.apply(this, arguments);
-            };
-        }
     }
 
     /* ----------------------------------------------------------------------
@@ -280,8 +244,8 @@
         bar.className = "sticky-cta";
         bar.innerHTML =
             '<img src="assets/img/logo_wax_seal_96.png" width="34" height="34" alt="İmece Düğün" class="sticky-cta-seal" style="width:34px;height:34px;object-fit:contain;flex-shrink:0;border-radius:8px;filter:drop-shadow(0 2px 6px rgba(212,175,55,0.4));">' +
-            '<span class="sticky-cta-copy"><b>İmece Düğün</b><span style="color:#ECC880;font-weight:600;font-size:0.75rem;">★★★★★ 4.9 • Ücretsiz iOS</span></span>' +
-            '<a class="btn btn-primary" href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener">Aç</a>';
+            '<span class="sticky-cta-copy"><b>İmece Düğün</b><div class="sticky-cta-sub">iOS 16+ Tam Uyumlu • Ücretsiz Başlayın</div></span>' +
+            '<a class="btn btn-primary" href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener">Ücretsiz İndir</a>';
 
         footer.parentNode.insertBefore(bar, footer);
         document.body.classList.add("has-sticky-cta");
