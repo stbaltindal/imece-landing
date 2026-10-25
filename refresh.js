@@ -503,6 +503,24 @@
         apply();
     }
 
+    /* --------------------------------------------------------------------------
+       10. Google Analytics 4 (GA4) Etkileşim & Dönüşüm Takibi
+       App Store indirme butonlarını ve dönüşümleri otomatik olarak GA4'e aktarır.
+       -------------------------------------------------------------------------- */
+    function initAnalyticsTracking() {
+        document.addEventListener("click", function (e) {
+            var appStoreLink = e.target.closest('a[href*="apps.apple.com"]');
+            if (appStoreLink && typeof window.gtag === "function") {
+                var label = appStoreLink.getAttribute("aria-label") || appStoreLink.textContent.trim() || "app_store_download";
+                window.gtag("event", "app_store_click", {
+                    event_category: "conversion",
+                    event_label: label.substring(0, 60),
+                    link_url: appStoreLink.href
+                });
+            }
+        });
+    }
+
     ready(function () {
         initNightTheme();
         initPainCollapse();
@@ -512,6 +530,7 @@
         initReadProgress();
         initScrollSpy();
         initToTop();
+        initAnalyticsTracking();
         // Reveal en sona: ray/liste DOM'u yerine oturduktan sonra baglanir.
         initReveal();
     });
