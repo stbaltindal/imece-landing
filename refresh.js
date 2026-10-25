@@ -504,19 +504,30 @@
     }
 
     /* --------------------------------------------------------------------------
-       10. Google Analytics 4 (GA4) Etkileşim & Dönüşüm Takibi
-       App Store indirme butonlarını ve dönüşümleri otomatik olarak GA4'e aktarır.
+       10. Analitik & Dönüşüm Takibi (GA4 & Meta Pixel)
+       App Store indirme butonlarını ve dönüşümleri GA4 ve Meta Pixel'e aktarır.
        -------------------------------------------------------------------------- */
     function initAnalyticsTracking() {
         document.addEventListener("click", function (e) {
             var appStoreLink = e.target.closest('a[href*="apps.apple.com"]');
-            if (appStoreLink && typeof window.gtag === "function") {
+            if (appStoreLink) {
                 var label = appStoreLink.getAttribute("aria-label") || appStoreLink.textContent.trim() || "app_store_download";
-                window.gtag("event", "app_store_click", {
-                    event_category: "conversion",
-                    event_label: label.substring(0, 60),
-                    link_url: appStoreLink.href
-                });
+                // Google Analytics 4 Event
+                if (typeof window.gtag === "function") {
+                    window.gtag("event", "app_store_click", {
+                        event_category: "conversion",
+                        event_label: label.substring(0, 60),
+                        link_url: appStoreLink.href
+                    });
+                }
+                // Meta Pixel (Facebook & Instagram) Conversion Event
+                if (typeof window.fbq === "function") {
+                    window.fbq("track", "Lead", {
+                        content_name: label.substring(0, 60),
+                        content_category: "App Store Download",
+                        source: "imece_landing"
+                    });
+                }
             }
         });
     }
