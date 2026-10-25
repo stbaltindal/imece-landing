@@ -1843,19 +1843,81 @@ html {
     scroll-padding-top: 68px;
 }
 
-/* Mobil Medya Sorgusu (max-width: 767px) */
-@media (max-width: 767px) {
-    /* 1. Mobil Navbar & Çekmece */
-    .container {
+/* Mobil Medya Sorgusu (max-width: 768px) */
+@media (max-width: 768px) {
+    /* 1. Mobil Navbar: Ultra-Sleek 52px Obsidian & Gold Header */
+    .navbar {
+        height: 52px !important;
+        min-height: 52px !important;
         padding: 0 16px !important;
+        background: rgba(9, 9, 13, 0.94) !important;
+        backdrop-filter: blur(24px) saturate(190%) !important;
+        -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+        border-bottom: 1px solid rgba(217, 180, 106, 0.18) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+    }
+    .nav-container {
+        height: 100% !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+    .navbar .logo {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        text-decoration: none !important;
+    }
+    .navbar .logo img,
+    .nav-brand-logo {
+        width: 28px !important;
+        height: 28px !important;
+        max-width: 28px !important;
+        max-height: 28px !important;
+        margin-right: 0 !important;
+        filter: drop-shadow(0 2px 6px rgba(217, 180, 106, 0.35));
+    }
+    .navbar .logo-text {
+        font-size: 0.96rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.2px !important;
+        color: #FFFFFF !important;
+    }
+    /* Mobilde çift indirme butonu karmaşasını bitir: Sadece menü çekmecesinde ve sayfa içi kartlarda tut */
+    .navbar .nav-cta {
+        display: none !important;
     }
     .nav-toggle {
         display: inline-flex !important;
-        order: 3 !important;
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        min-height: 42px !important;
+        align-items: center !important;
+        justify-content: center !important;
         margin-left: auto !important;
+        border: 1px solid rgba(217, 180, 106, 0.28) !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        border-radius: 12px !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        position: relative !important;
+    }
+    .nav-toggle:active {
+        transform: scale(0.95);
+        background: rgba(217, 180, 106, 0.12) !important;
+        border-color: var(--gold, #D9B46A) !important;
+    }
+    .nav-toggle-bar {
+        left: 11px !important;
+        right: 11px !important;
+        background: var(--gold, #D9B46A) !important;
+        height: 2px !important;
+        border-radius: 1px !important;
     }
     .nav-drawer-panel {
-        background: rgba(13, 13, 16, 0.84) !important;
+        background: rgba(13, 13, 16, 0.88) !important;
         backdrop-filter: blur(24px) saturate(190%) !important;
         -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
         border-left: 1px solid rgba(212, 175, 55, 0.22) !important;
@@ -1865,6 +1927,113 @@ html {
     .nav-drawer-scrim {
         touch-action: none;
         overscroll-behavior: contain;
+    }
+
+    /* 1.1 Rehber Sayfaları First-Fold & Üst Alan Ergonomisi */
+    .guide-article {
+        padding: 58px 16px 44px !important;
+        max-width: 100% !important;
+    }
+    .breadcrumb-nav {
+        padding: 8px 0 6px !important;
+        font-size: 0.76rem !important;
+        letter-spacing: 0.2px !important;
+        color: #8E8E93 !important;
+        text-align: center !important;
+    }
+    .breadcrumb-nav a {
+        color: var(--gold, #D9B46A) !important;
+        text-decoration: none !important;
+        font-weight: 500 !important;
+    }
+    .guide-header {
+        text-align: center !important;
+        margin-bottom: 20px !important;
+        position: relative !important;
+    }
+    .guide-header::before {
+        content: "" !important;
+        position: absolute !important;
+        top: -16px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 260px !important;
+        height: 140px !important;
+        background: radial-gradient(circle, rgba(217, 180, 106, 0.14) 0%, transparent 70%) !important;
+        pointer-events: none !important;
+        z-index: 0 !important;
+    }
+    .guide-header > * {
+        position: relative !important;
+        z-index: 1 !important;
+    }
+    .guide-title {
+        font-size: clamp(1.48rem, 5.2vw, 1.88rem) !important;
+        line-height: 1.22 !important;
+        letter-spacing: -0.015em !important;
+        margin: 8px 0 10px 0 !important;
+    }
+    .guide-lead {
+        font-size: 0.90rem !important;
+        line-height: 1.52 !important;
+        color: #C7C7CC !important;
+        margin: 0 auto 12px auto !important;
+        max-width: 100% !important;
+    }
+    /* Meta Strip: 3 ayrı satır yerine tek satır lüks yatay kapsül */
+    .guide-meta-strip {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        flex-wrap: wrap !important;
+        margin: 8px auto 14px auto !important;
+        padding: 6px 14px !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(217, 180, 106, 0.22) !important;
+        border-radius: 999px !important;
+        font-size: 0.74rem !important;
+        color: #A0A0A5 !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+    }
+    .guide-meta-strip .meta-item,
+    .guide-meta-strip span {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        white-space: nowrap !important;
+        font-size: 0.74rem !important;
+    }
+    .guide-meta-strip .meta-item .material-icons-round {
+        font-size: 13px !important;
+        color: var(--gold, #D9B46A) !important;
+    }
+    /* Rehber Araç Çipleri (ToC): Safari URL çubuğu altında kalmaz, doğrudan tıklanabilir */
+    .guide-toc-nav {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        flex-wrap: wrap !important;
+        margin: 10px auto 18px auto !important;
+    }
+    .toc-chip {
+        padding: 6px 12px !important;
+        font-size: 0.76rem !important;
+        border-radius: 16px !important;
+        background: rgba(217, 180, 106, 0.08) !important;
+        border: 1px solid rgba(217, 180, 106, 0.28) !important;
+        color: #F5F5F7 !important;
+        transition: all 0.2s ease !important;
+    }
+    .toc-chip:active {
+        transform: scale(0.96) !important;
+        background: var(--gold, #D9B46A) !important;
+        color: #09090D !important;
+    }
+    .guide-hub-hero {
+        padding: 58px 0 32px !important;
     }
 
     /* 2. Hero Fold & Rozet */
@@ -2128,12 +2297,7 @@ html {
     }
 }
 
-/* Ekran Genişliğine Özel Hassas Kırılımlar */
-@media (max-width: 390px) {
-    .navbar .nav-cta {
-        display: none !important;
-    }
-}
+/* Ekran Genişliğine Özel Hassas Kırılımlar: 768px kuralına konsolide edildi */
 
 @media (min-width: 390px) {
     #phoneMockupMobile {
