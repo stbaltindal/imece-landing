@@ -590,14 +590,26 @@ body.dark-active .pain-solution-row {
 }
 
 /* Flip Card Klavye & 3D Peek & Arka Yüz Kontrastı */
+.flip-card:not(.flipped) .flip-card-front {
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 5;
+}
 .flip-card:not(.flipped) .flip-card-back {
     visibility: hidden;
     pointer-events: none;
+    z-index: 1;
 }
 
+.flip-card.flipped .flip-card-front {
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
 .flip-card.flipped .flip-card-back {
     visibility: visible;
     pointer-events: auto;
+    z-index: 5;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -2211,19 +2223,59 @@ html {
         min-height: 44px !important;
     }
 
-    /* 6. 6 Çözüm Flip Kartı */
+    /* 6. 6 Çözüm Flip Kartı (Mobil 3D Döndürme & Çözüm Yüzü Güvencesi) */
     .flip-card:focus-within {
         transform: none !important;
+    }
+    .flip-card {
+        -webkit-perspective: 1200px !important;
+        perspective: 1200px !important;
+    }
+    .flip-card-wobble {
+        -webkit-transform-style: preserve-3d !important;
+        transform-style: preserve-3d !important;
     }
     .flip-card-inner {
         -webkit-transform-style: preserve-3d !important;
         transform-style: preserve-3d !important;
+        transition: -webkit-transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
-    .flip-card-front,
+    .flip-card.flipped .flip-card-inner {
+        -webkit-transform: rotateY(180deg) !important;
+        transform: rotateY(180deg) !important;
+    }
+    .flip-card-front {
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        -webkit-transform: rotateY(0deg) translateZ(1px) !important;
+        transform: rotateY(0deg) translateZ(1px) !important;
+    }
     .flip-card-back {
         -webkit-backface-visibility: hidden !important;
         backface-visibility: hidden !important;
-        transform: translateZ(0);
+        -webkit-transform: rotateY(180deg) translateZ(1px) !important;
+        transform: rotateY(180deg) translateZ(1px) !important;
+        overflow-y: auto !important;
+    }
+    .flip-card.flipped .flip-card-front {
+        visibility: hidden !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+    }
+    .flip-card.flipped .flip-card-back {
+        visibility: visible !important;
+        pointer-events: auto !important;
+        z-index: 5 !important;
+    }
+    .flip-card:not(.flipped) .flip-card-front {
+        visibility: visible !important;
+        pointer-events: auto !important;
+        z-index: 5 !important;
+    }
+    .flip-card:not(.flipped) .flip-card-back {
+        visibility: hidden !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
     }
 
     /* 7. Hesaplayıcı, Fiyatlandırma, SSS, Alt CTA */
