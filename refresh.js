@@ -170,11 +170,27 @@
             acc.classList.remove("is-collapsed");
             if (btn.parentNode) btn.remove();
         }
-        btn.addEventListener("click", expand);
+        // Tek handler: once gorunur yap, sonra odakla (gizli oge odak alamaz).
+        btn.addEventListener("click", function () {
+            expand();
+            var first = hidden[0] && hidden[0].querySelector(".faq-question");
+            if (!first) return;
+            first.scrollIntoView({ block: "center", behavior: "instant" });
+            first.focus({ preventScroll: true });
+        });
+
+        // Ertelenmis odak yalniz hala ayni hash gecerliyse ve kullanici arada
+        // etkilesime girmediyse uygulanir.
+        var pendingFocus = 0;
+        function cancelPendingFocus() { pendingFocus++; }
+        ["keydown", "pointerdown", "wheel", "touchstart"].forEach(function (ev) {
+            window.addEventListener(ev, cancelPendingFocus, { capture: true, passive: true });
+        });
 
         // #faq-answer-N (veya soru ogesi) hedeflenirse: gizliyse ac, cevabi
         // goster, odagi soruya ver. Hem ilk yuklemede hem hashchange'de calisir.
         function revealFromHash() {
+            cancelPendingFocus();
             var raw = (location.hash || "").slice(1);
             if (!raw) return;
             var target;
@@ -186,12 +202,17 @@
             if (q && !item.classList.contains("active") && typeof window.toggleFaq === "function") {
                 window.toggleFaq(q);
             }
-            item.scrollIntoView({ block: "center", behavior: "auto" });
-            // Ilk yuklemede tarayici odagi belgeye geri verir; odak load sonrasi.
+            item.scrollIntoView({ block: "center", behavior: "instant" });
             if (!q) return;
-            if (document.readyState === "complete") q.focus({ preventScroll: true });
-            else window.addEventListener("load", function () {
-                setTimeout(function () { q.focus({ preventScroll: true }); }, 0);
+            if (document.readyState === "complete") { q.focus({ preventScroll: true }); return; }
+            // Ilk yuklemede tarayici odagi belgeye geri verir; odak load sonrasi.
+            var token = pendingFocus;
+            var hashAtQueue = location.hash;
+            window.addEventListener("load", function () {
+                setTimeout(function () {
+                    if (token !== pendingFocus || location.hash !== hashAtQueue) return;
+                    q.focus({ preventScroll: true });
+                }, 0);
             }, { once: true });
         }
         window.addEventListener("hashchange", revealFromHash);
