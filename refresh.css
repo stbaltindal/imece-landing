@@ -2878,28 +2878,32 @@ body.dark-active .pricing-features li.disabled .icon { color: var(--n-text-faint
         font: 600 var(--fs-small, .9375rem)/1.2 var(--font-body);
         cursor: pointer;
     }
-    footer .footer-container {
-        grid-template-columns: 1fr 1fr;
-        column-gap: var(--space-lg);
-        row-gap: var(--space-xl);
-    }
-    footer .footer-brand,
-    footer .footer-contact,
-    footer .footer-links:nth-child(3) { grid-column: 1 / -1; }
-    footer .footer-links:nth-child(3) { order: 1; }
-    footer .footer-contact { order: 2; }
-    footer .footer-links:nth-child(3) ul {
+    /* Gruplar DOM sirasiyla alt alta; uzun listeler iki sutun. Gorsel sira
+       ile klavye sirasi ayni kalir. */
+    footer .footer-container { row-gap: var(--space-xl); }
+    footer .footer-links ul {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        column-gap: var(--space-lg);
+        gap: 0 var(--space-lg);
     }
     footer .footer-links h3,
-    footer .footer-contact h3 { margin-bottom: var(--space-md); }
-    footer .footer-links a { display: inline-flex; align-items: center; min-height: 40px; }
-    footer .footer-links ul { gap: 0; }
+    footer .footer-contact h3 { margin-bottom: var(--space-sm); }
+    footer .footer-links a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 44px;
+    }
     footer .footer-contact-desc,
     footer .footer-response-badge { display: none; }
+    footer { padding-top: var(--space-2xl, 48px); }
+    footer .footer-container { padding-bottom: var(--space-xl); }
+    /* 521-767px: callout'lar telefon ekranindaki kontrollerin ustune biniyordu;
+       ayni eylemler telefon arayuzunde var. */
+    .hero-floating-callout { display: none; }
 }
+/* #faq-answer-N hedeflenince soru basligi sabit menunun altinda kalmasin. */
+.faq-answer { scroll-margin-top: 150px; }
 @media (max-width: 767px) {
     .hero-actions.store-buttons {
         flex-direction: row;

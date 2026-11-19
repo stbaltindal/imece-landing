@@ -161,12 +161,41 @@
             '<span class="faq-more-label">' + hidden.length + " soru daha göster</span>" +
             '<span class="material-icons-round" aria-hidden="true">expand_more</span>';
         btn.addEventListener("click", function () {
-            acc.classList.remove("is-collapsed");
-            btn.remove();
             var first = hidden[0] && hidden[0].querySelector(".faq-question");
             if (first) first.focus({ preventScroll: true });
         });
         acc.insertAdjacentElement("afterend", btn);
+
+        function expand() {
+            acc.classList.remove("is-collapsed");
+            if (btn.parentNode) btn.remove();
+        }
+        btn.addEventListener("click", expand);
+
+        // #faq-answer-N (veya soru ogesi) hedeflenirse: gizliyse ac, cevabi
+        // goster, odagi soruya ver. Hem ilk yuklemede hem hashchange'de calisir.
+        function revealFromHash() {
+            var raw = (location.hash || "").slice(1);
+            if (!raw) return;
+            var target;
+            try { target = document.getElementById(decodeURIComponent(raw)); } catch (err) { return; }
+            var item = target && target.closest ? target.closest(".faq-item") : null;
+            if (!item || !acc.contains(item)) return;
+            expand();
+            var q = item.querySelector(".faq-question");
+            if (q && !item.classList.contains("active") && typeof window.toggleFaq === "function") {
+                window.toggleFaq(q);
+            }
+            item.scrollIntoView({ block: "center", behavior: "auto" });
+            // Ilk yuklemede tarayici odagi belgeye geri verir; odak load sonrasi.
+            if (!q) return;
+            if (document.readyState === "complete") q.focus({ preventScroll: true });
+            else window.addEventListener("load", function () {
+                setTimeout(function () { q.focus({ preventScroll: true }); }, 0);
+            }, { once: true });
+        }
+        window.addEventListener("hashchange", revealFromHash);
+        revealFromHash();
     }
 
     /* ----------------------------------------------------------------------
