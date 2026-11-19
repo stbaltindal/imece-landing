@@ -160,10 +160,6 @@
         btn.innerHTML =
             '<span class="faq-more-label">' + hidden.length + " soru daha göster</span>" +
             '<span class="material-icons-round" aria-hidden="true">expand_more</span>';
-        btn.addEventListener("click", function () {
-            var first = hidden[0] && hidden[0].querySelector(".faq-question");
-            if (first) first.focus({ preventScroll: true });
-        });
         acc.insertAdjacentElement("afterend", btn);
 
         function expand() {
