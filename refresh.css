@@ -390,7 +390,7 @@ button:focus-visible,
     [data-reveal] {
         opacity: 1;
         transform: none;
-        transition: none;
+        transition: none !important;
     }
     .btn-primary::after {
         display: none;
@@ -1877,7 +1877,7 @@ html {
         background: rgba(255, 255, 255, 0.04);
         border-radius: 12px;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.2s ease !important;
         position: relative;
     }
     .nav-toggle:active {
@@ -2204,7 +2204,7 @@ html {
     .flip-card-inner {
         -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
-        transition: -webkit-transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: -webkit-transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
     .flip-card.flipped .flip-card-inner {
         -webkit-transform: rotateY(180deg);
@@ -2463,7 +2463,7 @@ html {
     opacity: 0.38;
     pointer-events: none;
     filter: grayscale(0.4);
-    transition: opacity 0.25s ease, filter 0.25s ease;
+    transition: opacity 0.25s ease, filter 0.25s ease !important;
 }
 
 @keyframes simFlashPulse {

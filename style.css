@@ -5525,7 +5525,7 @@ body.dark-active .app-header-mini {
     border-radius: 30px;
     text-decoration: none;
     box-shadow: 0 4px 14px rgba(184, 134, 11, 0.35);
-    transition: all 0.25s ease;
+    transition: all 0.25s ease !important;
 }
 
 .sim-open-live-btn:hover {
