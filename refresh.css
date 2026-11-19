@@ -10,10 +10,6 @@
    -------------------------------------------------------------------------- */
 /* :root token'lari tokens.css dosyasina tasindi. */
 
-html {
-    scroll-padding-top: 68px;
-}
-
 html,
 body,
 body.dark-active {
@@ -1827,26 +1823,26 @@ html {
 @media (max-width: 767px) {
     /* 1. Mobil Navbar: Ultra-Sleek 52px Obsidian & Gold Header */
     .navbar {
-        height: 52px !important;
-        min-height: 52px !important;
-        padding: 0 16px !important;
-        background: rgba(9, 9, 13, 0.94) !important;
-        backdrop-filter: blur(24px) saturate(190%) !important;
-        -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
-        border-bottom: 1px solid rgba(217, 180, 106, 0.18) !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+        height: 52px;
+        min-height: 52px;
+        padding: 0 16px;
+        background: rgba(9, 9, 13, 0.94);
+        backdrop-filter: blur(24px) saturate(190%);
+        -webkit-backdrop-filter: blur(24px) saturate(190%);
+        border-bottom: 1px solid rgba(217, 180, 106, 0.18);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
     .nav-container {
-        height: 100% !important;
-        padding: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
+        height: 100%;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     .navbar .logo {
-        display: flex !important;
-        align-items: center !important;
-        gap: 8px !important;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none !important;
     }
     .navbar .logo img,
@@ -1874,27 +1870,27 @@ html {
         height: 42px !important;
         min-width: 42px !important;
         min-height: 42px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin-left: auto !important;
-        border: 1px solid rgba(217, 180, 106, 0.28) !important;
-        background: rgba(255, 255, 255, 0.04) !important;
-        border-radius: 12px !important;
-        cursor: pointer !important;
-        transition: all 0.2s ease !important;
-        position: relative !important;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        border: 1px solid rgba(217, 180, 106, 0.28);
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
     }
     .nav-toggle:active {
         transform: scale(0.95);
-        background: rgba(217, 180, 106, 0.12) !important;
-        border-color: var(--gold, #D9B46A) !important;
+        background: rgba(217, 180, 106, 0.12);
+        border-color: var(--gold, #D9B46A);
     }
     .nav-toggle-bar {
-        left: 11px !important;
-        right: 11px !important;
-        background: var(--gold, #D9B46A) !important;
-        height: 2px !important;
-        border-radius: 1px !important;
+        left: 11px;
+        right: 11px;
+        background: var(--gold, #D9B46A);
+        height: 2px;
+        border-radius: 1px;
     }
     .nav-drawer-panel {
         background: rgba(13, 13, 16, 0.88) !important;
@@ -2097,54 +2093,54 @@ html {
         justify-content: flex-start !important;
     }
     .pain-filter-wrap::-webkit-scrollbar {
-        display: none !important;
+        display: none;
     }
     .pain-filter-group {
-        display: inline-flex !important;
-        flex-wrap: nowrap !important;
-        gap: 8px !important;
-        padding: 4px 6px !important;
-        border-radius: 999px !important;
-        white-space: nowrap !important;
-        width: max-content !important;
+        display: inline-flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+        padding: 4px 6px;
+        border-radius: 999px;
+        white-space: nowrap;
+        width: max-content;
     }
     .pain-filter-btn {
-        padding: 8px 14px !important;
-        font-size: 0.82rem !important;
-        min-height: 44px !important;
-        flex-shrink: 0 !important;
+        padding: 8px 14px;
+        font-size: 0.82rem;
+        min-height: 44px;
+        flex-shrink: 0;
     }
     .pain-inline-solution.inline-open {
-        max-height: 480px !important;
-        opacity: 1 !important;
+        max-height: 480px;
+        opacity: 1;
     }
     .pain-inline-inner {
-        padding: 12px 14px !important;
+        padding: 12px 14px;
     }
     .pain-inline-action {
-        display: flex !important;
-        width: 100% !important;
-        justify-content: center !important;
-        text-align: center !important;
-        box-sizing: border-box !important;
-        font-size: 0.82rem !important;
-        padding: 12px 14px !important;
-        min-height: 44px !important;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+        font-size: 0.82rem;
+        padding: 12px 14px;
+        min-height: 44px;
     }
     .pain-result-card {
-        padding: 18px 16px !important;
+        padding: 18px 16px;
     }
     .pain-result-header {
-        flex-direction: row !important;
-        align-items: center !important;
-        text-align: left !important;
-        gap: 14px !important;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        gap: 14px;
     }
     .pain-gauge-wrap,
     .pain-gauge {
-        width: 64px !important;
-        height: 64px !important;
-        margin: 0 !important;
+        width: 64px;
+        height: 64px;
+        margin: 0;
         flex-shrink: 0;
     }
     /* Secim yokken aciklama, hemen altindaki ornek cozumle ayni seyi soyler. */
@@ -2152,7 +2148,7 @@ html {
 
     /* 5. #interactive-rsvp-showcase */
     .rsvp-sim-controls {
-        padding: 18px 14px !important;
+        padding: 18px 14px;
         border-radius: 18px !important;
     }
     .sim-input-row {
@@ -2180,66 +2176,66 @@ html {
         min-height: 46px !important;
         font-size: 0.76rem !important;
         padding: 8px 6px !important;
-        white-space: nowrap !important;
+        white-space: nowrap;
     }
     .sim-meal-chip {
-        min-height: 44px !important;
-        padding: 10px 14px !important;
-        font-size: 0.78rem !important;
+        min-height: 44px;
+        padding: 10px 14px;
+        font-size: 0.78rem;
     }
     .sim-allergy-toggle,
     .sim-allergy-row input,
     .sim-allergy-row button {
-        min-height: 44px !important;
+        min-height: 44px;
     }
 
     /* 6. 6 Çözüm Flip Kartı (Mobil 3D Döndürme & Çözüm Yüzü Güvencesi) */
     .flip-card:focus-within {
-        transform: none !important;
+        transform: none;
     }
     .flip-card {
-        -webkit-perspective: 1200px !important;
-        perspective: 1200px !important;
+        -webkit-perspective: 1200px;
+        perspective: 1200px;
     }
     .flip-card-wobble {
-        -webkit-transform-style: preserve-3d !important;
-        transform-style: preserve-3d !important;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
     }
     .flip-card-inner {
-        -webkit-transform-style: preserve-3d !important;
-        transform-style: preserve-3d !important;
-        transition: -webkit-transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        transition: -webkit-transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .flip-card.flipped .flip-card-inner {
-        -webkit-transform: rotateY(180deg) !important;
-        transform: rotateY(180deg) !important;
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
     }
     .flip-card-front {
-        -webkit-backface-visibility: hidden !important;
-        backface-visibility: hidden !important;
-        -webkit-transform: rotateY(0deg) translateZ(1px) !important;
-        transform: rotateY(0deg) translateZ(1px) !important;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: rotateY(0deg) translateZ(1px);
+        transform: rotateY(0deg) translateZ(1px);
     }
     .flip-card-back {
-        -webkit-backface-visibility: hidden !important;
-        backface-visibility: hidden !important;
-        -webkit-transform: rotateY(180deg) translateZ(1px) !important;
-        transform: rotateY(180deg) translateZ(1px) !important;
-        overflow-y: auto !important;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: rotateY(180deg) translateZ(1px);
+        transform: rotateY(180deg) translateZ(1px);
+        overflow-y: auto;
     }
     .flip-card.flipped .flip-card-front {
-        visibility: hidden !important;
-        pointer-events: none !important;
-        z-index: 1 !important;
+        visibility: hidden;
+        pointer-events: none;
+        z-index: 1;
     }
     .flip-card.flipped .flip-card-back {
-        visibility: visible !important;
-        pointer-events: auto !important;
-        z-index: 5 !important;
+        visibility: visible;
+        pointer-events: auto;
+        z-index: 5;
     }
     .flip-card:not(.flipped) .flip-card-front {
-        visibility: visible !important;
-        pointer-events: auto !important;
+        visibility: visible;
+        pointer-events: auto;
         z-index: 5 !important;
     }
     .flip-card:not(.flipped) .flip-card-back {
@@ -2464,10 +2460,10 @@ html {
 }
 
 .sim-meal-block.is-disabled {
-    opacity: 0.38 !important;
-    pointer-events: none !important;
-    filter: grayscale(0.4) !important;
-    transition: opacity 0.25s ease, filter 0.25s ease !important;
+    opacity: 0.38;
+    pointer-events: none;
+    filter: grayscale(0.4);
+    transition: opacity 0.25s ease, filter 0.25s ease;
 }
 
 @keyframes simFlashPulse {
@@ -2486,7 +2482,7 @@ html {
 }
 
 .sim-flash {
-    animation: simFlashPulse 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    animation: simFlashPulse 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ==========================================================================
@@ -2510,24 +2506,24 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: var(--n-2) !important;
-    border: 1px solid var(--n-line) !important;
+    background: var(--n-2);
+    border: 1px solid var(--n-line);
     border-radius: 18px;
     padding: 28px 24px;
-    text-decoration: none !important;
-    color: var(--n-text) !important;
+    text-decoration: none;
+    color: var(--n-text);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
     transition: transform 0.4s var(--ease-out-expo), border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
     .rehber-showcase-card:hover {
         transform: translateY(-5px);
-        border-color: rgba(217, 180, 106, 0.45) !important;
-        background: var(--n-3) !important;
-        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 24px rgba(217, 180, 106, 0.12), inset 0 1px 0 0 rgba(255, 232, 185, 0.2) !important;
+        border-color: rgba(217, 180, 106, 0.45);
+        background: var(--n-3);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 24px rgba(217, 180, 106, 0.12), inset 0 1px 0 0 rgba(255, 232, 185, 0.2);
     }
 }
 
@@ -2622,9 +2618,9 @@ html {
 /* Ekran okuyucu yardimcisi: sinif hic tanimli degildi, duyurucu metin
    mobilde gorunur kalip kahraman alanindaki aciklamayi tekrarliyordu. */
 .sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
+    position: absolute;
+    width: 1px;
+    height: 1px;
     padding: 0 !important;
     margin: -1px !important;
     overflow: hidden !important;
