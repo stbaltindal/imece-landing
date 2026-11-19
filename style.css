@@ -3900,17 +3900,10 @@ footer {
     .hero-scenario-dock {
         grid-template-columns: 1fr !important;
     }
+    /* Dar ekranda telefonun ustune yigilip ~115px yer kapliyordu; ayni
+       eylemler telefon arayuzunun icinde zaten var. */
     .hero-floating-callout {
-        position: relative !important;
-        top: auto !important;
-        bottom: auto !important;
-        left: auto !important;
-        right: auto !important;
-        animation: none !important;
-        width: 100% !important;
-        max-width: 290px !important;
-        margin: 6px auto !important;
-        justify-content: center;
+        display: none;
     }
     .phone-frame {
         width: 290px !important;

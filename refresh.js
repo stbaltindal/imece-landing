@@ -139,6 +139,36 @@
         list.appendChild(btn);
     }
 
+    /* Mobilde SSS ilk 5 soruyla baslar; geri kalani tek dokunusla acilir.
+       Sorular DOM'da kalir (arama motoru ve FAQPage verisi etkilenmez);
+       gizleme yalniz CSS'te ve <768px'te uygulanir. */
+    function initFaqCollapse() {
+        var acc = document.getElementById("faqAccordion");
+        if (!acc) return;
+        var items = Array.prototype.slice.call(acc.querySelectorAll(".faq-item"));
+        var VISIBLE = 5;
+        if (items.length <= VISIBLE + 1) return;
+        var hidden = items.slice(VISIBLE);
+        hidden.forEach(function (el) { el.setAttribute("data-overflow", ""); });
+        acc.classList.add("is-collapsed");
+
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "faq-more";
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-controls", "faqAccordion");
+        btn.innerHTML =
+            '<span class="faq-more-label">' + hidden.length + " soru daha göster</span>" +
+            '<span class="material-icons-round" aria-hidden="true">expand_more</span>';
+        btn.addEventListener("click", function () {
+            acc.classList.remove("is-collapsed");
+            btn.remove();
+            var first = hidden[0] && hidden[0].querySelector(".faq-question");
+            if (first) first.focus({ preventScroll: true });
+        });
+        acc.insertAdjacentElement("afterend", btn);
+    }
+
     /* ----------------------------------------------------------------------
        4. 12 cozum karti: uc satirlik izgara yerine yatay ray
        Mobilde parmakla, masaustunde ok dugmeleri ve klavyeyle gezilir.
@@ -627,6 +657,7 @@
         initScenarioKeyboard();
         initPhoneDepth();
         initPainCollapse();
+        initFaqCollapse();
         initKrizRail();
         initStickyCta();
         initNavDrawer();

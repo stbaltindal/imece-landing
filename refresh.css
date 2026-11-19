@@ -2135,16 +2135,20 @@ html {
         padding: 18px 16px !important;
     }
     .pain-result-header {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 12px !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        text-align: left !important;
+        gap: 14px !important;
     }
     .pain-gauge-wrap,
     .pain-gauge {
-        width: 80px !important;
-        height: 80px !important;
-        margin: 0 auto !important;
+        width: 64px !important;
+        height: 64px !important;
+        margin: 0 !important;
+        flex-shrink: 0;
     }
+    /* Secim yokken aciklama, hemen altindaki ornek cozumle ayni seyi soyler. */
+    .pain-result-card:not(.has-selection) #painResultDesc { display: none; }
 
     /* 5. #interactive-rsvp-showcase */
     .rsvp-sim-controls {
@@ -2852,3 +2856,59 @@ body.dark-active .pricing-features li.disabled {
     text-decoration: none;
 }
 body.dark-active .pricing-features li.disabled .icon { color: var(--n-text-faint) !important; }
+
+/* Faz 3: mobil sayfa ritmi. Tekrar eden bloklar kisalir, icerik DOM'da kalir. */
+.faq-more {
+    display: none;
+}
+@media (max-width: 767px) {
+    .faq-accordion.is-collapsed .faq-item[data-overflow] { display: none; }
+    .faq-more {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        min-height: 48px;
+        margin-top: var(--space-md);
+        border: 1px dashed var(--n-border, rgba(255,255,255,.18));
+        border-radius: 14px;
+        background: transparent;
+        color: var(--n-text, #fff);
+        font: 600 var(--fs-small, .9375rem)/1.2 var(--font-body);
+        cursor: pointer;
+    }
+    footer .footer-container {
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--space-lg);
+        row-gap: var(--space-xl);
+    }
+    footer .footer-brand,
+    footer .footer-contact,
+    footer .footer-links:nth-child(3) { grid-column: 1 / -1; }
+    footer .footer-links:nth-child(3) { order: 1; }
+    footer .footer-contact { order: 2; }
+    footer .footer-links:nth-child(3) ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--space-lg);
+    }
+    footer .footer-links h3,
+    footer .footer-contact h3 { margin-bottom: var(--space-md); }
+    footer .footer-links a { display: inline-flex; align-items: center; min-height: 40px; }
+    footer .footer-links ul { gap: 0; }
+    footer .footer-contact-desc,
+    footer .footer-response-badge { display: none; }
+}
+@media (max-width: 767px) {
+    .hero-actions.store-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .pricing-card .pricing-features { gap: 10px; margin-bottom: var(--space-lg); }
+    .pricing-card .pricing-header { margin-bottom: var(--space-lg); }
+    .pricing-trust-guarantee { padding: 20px 18px; }
+    #painResultCard #painStageCard { padding: 16px; }
+    #painResultCard .pain-feature-pill { letter-spacing: 0.02em; padding: 4px 8px; }
+}
