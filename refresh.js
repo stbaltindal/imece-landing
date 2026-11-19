@@ -48,7 +48,7 @@
         ".gunici-card",
         ".rsvp-showcase-section .section-header",
         ".interactive-calculator .section-header",
-        ".calculator-container",
+        ".calculator-container:not(.demo-content)",
         ".features .section-header",
         ".feature-card",
         ".founder-card",
@@ -95,7 +95,7 @@
        14 madde ayni anda ekranda durunca hicbiri okunmuyordu.
        JS yoksa liste tam haliyle acik kalir.
        ---------------------------------------------------------------------- */
-    var PAIN_VISIBLE = 6;
+    var PAIN_VISIBLE = window.innerWidth < 768 ? 3 : 6;
 
     function initPainCollapse() {
         var list = document.getElementById("painCheckList");
@@ -130,7 +130,7 @@
                 }
             });
             if (collapsed) {
-                list.scrollIntoView({ behavior: "smooth", block: "start" });
+                list.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
             }
         });
 
@@ -190,7 +190,7 @@
 
         buttons.forEach(function (b) {
             b.addEventListener("click", function () {
-                grid.scrollBy({ left: step() * Number(b.dataset.dir), behavior: "smooth" });
+                grid.scrollBy({ left: step() * Number(b.dataset.dir), behavior: reduceMotion ? "auto" : "smooth" });
             });
         });
 
@@ -205,10 +205,10 @@
         grid.addEventListener("keydown", function (e) {
             if (e.key === "ArrowRight") {
                 e.preventDefault();
-                grid.scrollBy({ left: step(), behavior: "smooth" });
+                grid.scrollBy({ left: step(), behavior: reduceMotion ? "auto" : "smooth" });
             } else if (e.key === "ArrowLeft") {
                 e.preventDefault();
-                grid.scrollBy({ left: -step(), behavior: "smooth" });
+                grid.scrollBy({ left: -step(), behavior: reduceMotion ? "auto" : "smooth" });
             }
         });
 
@@ -321,7 +321,7 @@
         }
 
         function onResize() {
-            if (isOpen && window.innerWidth >= 768) close();
+            if (isOpen && window.innerWidth >= 1024) close();
         }
 
         function open() {
@@ -532,8 +532,100 @@
         });
     }
 
+    // Uzun demolar istege bagli acilir; JS yoksa tum icerik gorunur kalir.
+    function initDemoDisclosures() {
+        var pain = document.querySelector("#tanidik > .container");
+        var solutions = document.getElementById("neden-imece");
+        if (pain && solutions) {
+            var fold = document.createElement("details");
+            fold.className = "demo-disclosure solution-disclosure";
+            var heading = document.createElement("summary");
+            heading.textContent = "Bu sorunları nasıl çözüyoruz? · Çözümleri keşfedin";
+            fold.appendChild(heading);
+            pain.appendChild(fold);
+            fold.appendChild(solutions);
+            // Bir bolum linki kapali detay icine denk gelirse hedefi gorunur kil.
+            function revealLinkedSection() {
+                if (location.hash === "#neden-imece") fold.open = true;
+            }
+            revealLinkedSection();
+            window.addEventListener("hashchange", revealLinkedSection);
+        }
+        [
+            [".rsvp-sim-wrapper", "Davetiyenizi birlikte deneyelim", "İsimleri değiştirin, katılım yanıtının çiftin ekranına düşmesini görün."],
+            [".calculator-container", "Size uygun paketi hesaplayın", "Misafir sayınızı seçin, bütçenize uygun öneriyi anında görün."]
+        ].forEach(function (config) {
+            var content = document.querySelector(config[0]);
+            if (!content) return;
+            var details = document.createElement("details");
+            details.className = "demo-disclosure";
+            var summary = document.createElement("summary");
+            var title = document.createElement("strong");
+            title.textContent = config[1];
+            var text = document.createElement("span");
+            text.textContent = config[2];
+            summary.appendChild(title);
+            summary.appendChild(text);
+            details.appendChild(summary);
+            content.parentNode.insertBefore(details, content);
+            details.appendChild(content);
+            // Gizliyken reveal olcumu yapilmasin; acilinca demo hemen kullanilabilir.
+            content.classList.add("demo-content");
+        });
+    }
+
+    function initScenarioKeyboard() {
+        var tabs = Array.prototype.slice.call(document.querySelectorAll(".scenario-tab"));
+        tabs.forEach(function (tab, index) {
+            tab.tabIndex = tab.getAttribute("aria-selected") === "true" ? 0 : -1;
+            tab.addEventListener("keydown", function (event) {
+                var next;
+                if (event.key === "ArrowRight" || event.key === "ArrowDown") next = (index + 1) % tabs.length;
+                else if (event.key === "ArrowLeft" || event.key === "ArrowUp") next = (index + tabs.length - 1) % tabs.length;
+                else if (event.key === "Home") next = 0;
+                else if (event.key === "End") next = tabs.length - 1;
+                else return;
+                event.preventDefault();
+                tabs[next].click();
+                tabs[next].focus();
+            });
+        });
+    }
+
+    // Yalnizca hassas isaretci ve hareket izniyle hafif derinlik hissi.
+    function initPhoneDepth() {
+        var phone = document.getElementById("phoneMockup");
+        var allowed = window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
+        if (!phone) return;
+        var frame = 0;
+        function reset() {
+            cancelAnimationFrame(frame);
+            phone.style.removeProperty("rotate");
+        }
+        phone.addEventListener("pointermove", function (event) {
+            if (!allowed.matches) return reset();
+            var rect = phone.getBoundingClientRect();
+            var x = (event.clientX - rect.left) / rect.width - 0.5;
+            var y = (event.clientY - rect.top) / rect.height - 0.5;
+            cancelAnimationFrame(frame);
+            frame = requestAnimationFrame(function () {
+                phone.style.rotate = (-y) + " " + x + " 0 " + (Math.hypot(x, y) * 5) + "deg";
+            });
+        });
+        phone.addEventListener("pointerleave", reset);
+        if (allowed.addEventListener) allowed.addEventListener("change", reset);
+    }
+
     ready(function () {
         initNightTheme();
+        initDemoDisclosures();
+        document.querySelectorAll(".pricing-grid, .guide-vitrin-grid").forEach(function (grid) {
+            grid.tabIndex = 0;
+            grid.setAttribute("role", "region");
+            grid.setAttribute("aria-label", grid.classList.contains("pricing-grid") ? "Paketler · yatay kaydırarak karşılaştırın" : "Ücretsiz rehberler · yatay kaydırın");
+        });
+        initScenarioKeyboard();
+        initPhoneDepth();
         initPainCollapse();
         initKrizRail();
         initStickyCta();
@@ -544,5 +636,51 @@
         initAnalyticsTracking();
         // Reveal en sona: ray/liste DOM'u yerine oturduktan sonra baglanir.
         initReveal();
+        initHashSettle();
     });
+
+    /* ----------------------------------------------------------------------
+       Paylasilan /#bolum linkleri: tarayici hedefe ilk boyamada kayiyor,
+       ardindan liste daraltma ve gorseller yerlesip icerik kayiyordu
+       (mobilde hedef 300-600px yukarida kaliyordu). Yerlesim oturunca
+       hedefe yeniden hizala; kullanici bu arada kaydirdiysa dokunma.
+       ---------------------------------------------------------------------- */
+    function initHashSettle() {
+        function currentTarget() {
+            var raw = (location.hash || "").slice(1);
+            if (!raw) return null;
+            var id;
+            try { id = decodeURIComponent(raw); } catch (err) { id = raw; }
+            return document.getElementById(id);
+        }
+        if (!currentTarget()) return;
+        var cancelled = false;
+        var timer = 0;
+        var events = ["wheel", "touchstart", "keydown", "mousedown"];
+        function cancel() {
+            if (cancelled) return;
+            cancelled = true;
+            clearTimeout(timer);
+            events.forEach(function (ev) { window.removeEventListener(ev, cancel, true); });
+        }
+        // Kullanici kendisi kaydirir/tiklarsa duzeltme hemen biter.
+        events.forEach(function (ev) {
+            window.addEventListener(ev, cancel, { capture: true, passive: true });
+        });
+        // Hedef her seferinde guncel hash'ten okunur: yukleme sirasinda
+        // fragment degisirse eski hedefe geri kaydirilmaz.
+        function settle() {
+            if (cancelled) return;
+            var target = currentTarget();
+            if (!target) return cancel();
+            target.scrollIntoView({ block: "start", behavior: "auto" });
+        }
+        requestAnimationFrame(settle);
+        function onLoad() {
+            settle();
+            timer = setTimeout(function () { settle(); cancel(); }, 350);
+        }
+        if (document.readyState === "complete") onLoad();
+        else window.addEventListener("load", onLoad, { once: true });
+    }
 })();

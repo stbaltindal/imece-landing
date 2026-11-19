@@ -105,8 +105,9 @@
       })();
     </script>
 <!-- Stylesheets -->
-    <link rel="stylesheet" href="../style.css?v=38.0">
-    <link rel="stylesheet" href="../refresh.css?v=38.0">
+    <link rel="stylesheet" href="../tokens.css?v=1.0">
+    <link rel="stylesheet" href="../style.css?v=39.0">
+    <link rel="stylesheet" href="../refresh.css?v=39.0">
 
     <style>
         html, body {
@@ -968,6 +969,13 @@
                     closeDrawer();
                 }
             });
+            // Masaustu menusu 1024px ve uzerinde geri geliyor; acik cekmece kalmasin.
+            var desktopMq = window.matchMedia("(min-width: 1024px)");
+            var onDesktop = function(e) {
+                if (e.matches && toggle.getAttribute("aria-expanded") === "true") closeDrawer();
+            };
+            if (desktopMq.addEventListener) desktopMq.addEventListener("change", onDesktop);
+            else if (desktopMq.addListener) desktopMq.addListener(onDesktop);
         }
 
         // Live Search & Category Filtering

@@ -3,65 +3,7 @@
    ========================================================================== */
 
 /* Design Tokens & Theme Variables */
-:root {
-    /* Fonts */
-    --font-heading: 'Playfair Display', Georgia, serif;
-    --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    /* index.html ve asistan-card h3, --font-heading yerine bu adlarla cagiriyordu.
-       Onceden hic tanimlanmamislardi: Playfair Display sessizce fallback fonta duseriyordu. */
-    --font-header: var(--font-heading);
-    --font-title: var(--font-heading);
-
-    /* Colors (HSL & Premium Apple Harmony) */
-    --primary: hsl(0, 36%, 74%);         /* Pastel Rose: #D4A5A5 */
-    --primary-dark: hsl(0, 30%, 60%);
-    --primary-light: hsl(0, 35%, 96%);
-    --gold: #C5A059;
-    /* Metin olarak kullanilan altin. --gold beyaz zeminde 2.46:1 veriyordu
-       (WCAG AA 4.5:1 ister); bu koyu ton 6.34:1. Zemin/dolgu/ikon
-       kullanimlarinda --gold aynen korunuyor. */
-    --gold-text: #7A5A20;                     /* Premium Champagne Gold for interactive states */
-    --gold-light: #F4ECE1;
-    /* Denetimde --gold disinda tespit edilen tekrarlanan altin tonlari:
-       hardcoded hex'ler yerine kullanim baglamina gore adlandirilmis token'lar. */
-    --gold-bright: #D4AF37;              /* Parlak vurgu - gradyan baslangici (cozum/showcase ikonlari) */
-    --gold-deep: #AA7C11;                /* Koyu vurgu - gradyan sonu, --gold-bright ile eslesir */
-    --gold-bronze: #B8860B;              /* Bronz ton - alternatif gradyan sonu (canli izleme/next-step butonlari) */
-    --gold-accent: #C9A227;              /* Aksan rengi - metin/stroke ve gradyan baslangici */
-    --gold-warm: #C59B27;                /* Sicak altin - RSVP simulasyon karti metin/kenarlik/arka plan */
-    --gold-mustard: #C98A3D;             /* Hardal tonu - "bekliyor" durum rozetleri/simgeleri */
-    --gold-pale: #F3E7D5;                /* Soluk altin - ince vurgu tonlari (muzik rozeti, sekme ilerleme cubugu) */
-    --rose-gold-tint: #F7EAEA;           /* Rose Gold strictly for structural card backgrounds/underlay tints */
-    
-    --bg-cream: #08080A;                 /* Pure Luxury Dark Black */
-    --surface: #131318;
-    
-    --text-main: #FFFFFF;                /* High Contrast Pure White */
-    --text-muted: #E2E2E8;
-    --text-light: #B5B5BE;
-    --text-secondary: #E2E2E8;
-    
-    --border-color: rgba(29, 29, 31, 0.08);
-    --shadow-soft: 0 12px 32px rgba(29, 29, 31, 0.04);
-    --shadow-medium: 0 20px 48px rgba(29, 29, 31, 0.08);
-    
-    /* Spacing Grid */
-    --space-2xs: 4px;
-    --space-xs: 8px;
-    --space-sm: 12px;
-    --space-md: 16px;
-    --space-lg: 24px;
-    --space-xl: 32px;
-    --space-2xl: 48px;
-    --space-3xl: 64px;
-    --space-4xl: 96px;
-    
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 20px;
-    
-    --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
+/* :root token'lari tokens.css dosyasina tasindi. */
 
 /* GPU-Accelerated Dark Transition Layer */
 .dark-overlay {
@@ -116,16 +58,13 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    /* 480px'te 2.4rem, 1200px'te 3.2rem; eski breakpoint yamasinin
-       iki ucunu da koruyor. */
-    font-size: clamp(2.4rem, 1.867rem + 1.778vw, 3.2rem);
+    font-size: var(--fs-display);
     letter-spacing: -0.005em; /* Clean Serif kerning */
     margin-bottom: var(--space-md);
 }
 
 h2 {
-    /* 480px'te 1.95rem, 1200px'te 2.4rem. */
-    font-size: clamp(1.95rem, 1.65rem + 1vw, 2.4rem);
+    font-size: var(--fs-h2);
     letter-spacing: -0.005em;
     margin-bottom: var(--space-md);
 }
@@ -163,9 +102,9 @@ label,
 /* Containers */
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
-    padding: 0 var(--space-xl);
+    padding: 0 var(--gutter);
 }
 
 /* Badges */
@@ -468,7 +407,7 @@ label,
 }
 
 .hero-lead {
-    font-size: 1.25rem;
+    font-size: var(--fs-lead);
     color: var(--text-muted);
     margin-bottom: var(--space-xl);
     max-width: 95%;
@@ -1954,7 +1893,7 @@ label,
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .kriz-cozum-grid {
         grid-template-columns: 1fr;
     }
@@ -3547,7 +3486,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 .cta-container h2 {
-    font-size: 2.5rem;
+    font-size: var(--fs-h2);
     font-family: var(--font-heading);
     margin-bottom: var(--space-md);
     color: #ffffff;
@@ -3710,8 +3649,8 @@ footer {
     max-width: 95%;
 }
 
-.footer-links h4,
-.footer-contact h4 {
+.footer-links h3,
+.footer-contact h3 {
     color: #ffffff;
     font-family: var(--font-body);
     font-weight: 700;
@@ -4010,7 +3949,7 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .navbar {
         height: 52px !important;
         min-height: 52px !important;
@@ -6135,7 +6074,7 @@ body.dark-active .app-header-mini {
 }
 
 /* Responsive adjustments */
-@media (max-width: 992px) {
+@media (max-width: 991px) {
     .rsvp-sim-wrapper {
         grid-template-columns: 1fr;
     }
@@ -6321,7 +6260,7 @@ body.dark-active .app-header-mini {
     margin-top: var(--space-3xl);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
     .asistan-grid {
         grid-template-columns: 1fr;
     }
@@ -6655,7 +6594,7 @@ body.dark-active .app-header-mini {
     transform: translateY(2px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .showcase-pipeline-btn-wrap {
         bottom: 16px;
         right: 16px;
@@ -6732,7 +6671,7 @@ body.dark-active .app-header-mini {
     -webkit-text-fill-color: transparent;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
     .showcase-tabs-nav {
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
@@ -6978,7 +6917,7 @@ body.dark-active .app-header-mini {
     background: linear-gradient(135deg, #F0E68C 0%, var(--gold) 100%);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .showcase-next-step-bar {
         flex-direction: column;
         align-items: stretch;

@@ -105,8 +105,9 @@
       })();
     </script>
 <!-- Stylesheets -->
-    <link rel="stylesheet" href="../style.css?v=38.0">
-    <link rel="stylesheet" href="../refresh.css?v=38.0">
+    <link rel="stylesheet" href="../tokens.css?v=1.0">
+    <link rel="stylesheet" href="../style.css?v=39.0">
+    <link rel="stylesheet" href="../refresh.css?v=39.0">
 
     <style>
         html, body {
@@ -1100,7 +1101,7 @@
             font-size: 20px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .ceyiz-tracker-card {
                 padding: 22px 16px;
                 border-radius: 18px;
@@ -1168,7 +1169,7 @@
         .mobile-sticky-progress-pill {
             display: none;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .mobile-sticky-progress-pill {
                 display: flex;
                 flex-direction: column;
@@ -2610,7 +2611,7 @@
             const trackerCard = document.querySelector('.ceyiz-tracker-card');
             if (!stickyPill || !trackerCard) return;
 
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth < 768) {
                 const rect = trackerCard.getBoundingClientRect();
                 if (rect.top < -60 && rect.bottom > 200) {
                     stickyPill.classList.add('is-visible');
@@ -2704,6 +2705,13 @@
                     closeDrawer();
                 }
             });
+            // Masaustu menusu 1024px ve uzerinde geri geliyor; acik cekmece kalmasin.
+            var desktopMq = window.matchMedia("(min-width: 1024px)");
+            var onDesktop = function(e) {
+                if (e.matches && toggle.getAttribute("aria-expanded") === "true") closeDrawer();
+            };
+            if (desktopMq.addEventListener) desktopMq.addEventListener("change", onDesktop);
+            else if (desktopMq.addListener) desktopMq.addListener(onDesktop);
         })();
     </script>
     <!-- In-page Feedback Notification Toast -->

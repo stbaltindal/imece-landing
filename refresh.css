@@ -8,41 +8,7 @@
 /* --------------------------------------------------------------------------
    1. Gece yuzey olcegi & hareket egrileri
    -------------------------------------------------------------------------- */
-:root {
-    /* Gece katmanlari: her basamak bir yukseklik seviyesi. */
-    --n-0: #08080A;   /* saf derin siyah sayfa zemini */
-    --n-1: #0D0D10;   /* alternatif bolum zemini */
-    --n-2: #131318;   /* kart zemini */
-    --n-3: #1B1B21;   /* yukseltilmis kart / hover */
-
-    --n-line: rgba(255, 255, 255, 0.1);
-    --n-line-strong: rgba(255, 255, 255, 0.2);
-
-    --n-text: #FFFFFF;
-    --n-text-muted: #E2E2E8;
-    --n-text-faint: #B5B5BE;
-
-    /* style.css degiskenlerini karanlik moda zorla */
-    --bg-cream: #08080A;
-    --surface: #131318;
-    --text-main: #FFFFFF;
-    --text-muted: #E2E2E8;
-    --text-light: #B5B5BE;
-    --text-secondary: #E2E2E8;
-    --border-color: rgba(255, 255, 255, 0.12);
-
-    /* Tek bir altin aksan. Kartlarda dolgu/kenarlik olarak degil,
-       CTA ve tek kelimelik vurgularda kullanilir. */
-    --accent: #ECC880;
-    --accent-deep: #D4AF37;
-
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.30, 1);
-    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-
-    /* Bolum ritmi: negatif alan burada uretiliyor. */
-    --sec-pad: clamp(72px, 7.5vw, 124px);
-    --stack-lg: clamp(40px, 5vw, 72px);
-}
+/* :root token'lari tokens.css dosyasina tasindi. */
 
 html {
     scroll-padding-top: 68px;
@@ -117,7 +83,7 @@ h2 {
 }
 
 .section-subtitle {
-    font-size: 1.0625rem;
+    font-size: var(--fs-lead);
     line-height: 1.65;
     max-width: 58ch;
     margin-left: auto;
@@ -134,7 +100,7 @@ h2 {
     box-shadow: none !important;
     color: var(--n-text-faint) !important;
     font-family: var(--font-body);
-    font-size: 0.6875rem;
+    font-size: var(--fs-label);
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -168,6 +134,7 @@ body.dark-active .text-gold-gradient {
 .features,
 .pricing,
 .faq-section,
+.guide-showcase-section,
 .cta-bottom {
     padding-top: var(--sec-pad);
     padding-bottom: var(--sec-pad);
@@ -176,7 +143,8 @@ body.dark-active .text-gold-gradient {
 /* Gece bolumleri arasinda sessiz bir zemin farki: cizgi cekmeden ayirir. */
 body.dark-active .asistan-section,
 body.dark-active .features,
-body.dark-active .faq-section {
+body.dark-active .faq-section,
+body.dark-active .guide-showcase-section {
     background-color: rgba(255, 255, 255, 0.014);
 }
 
@@ -1855,8 +1823,8 @@ html {
     scroll-padding-top: 68px;
 }
 
-/* Mobil Medya Sorgusu (max-width: 768px) */
-@media (max-width: 768px) {
+/* Mobil Medya Sorgusu (max-width: 767px) */
+@media (max-width: 767px) {
     /* 1. Mobil Navbar: Ultra-Sleek 52px Obsidian & Gold Header */
     .navbar {
         height: 52px !important;
@@ -2051,14 +2019,12 @@ html {
     /* 2. Hero Fold & Rozet */
     .story-slide-hero h1,
     h1 {
-        font-size: clamp(1.65rem, 1.25rem + 2vw, 2.2rem) !important;
-        line-height: 1.22 !important;
+        line-height: var(--lh-heading);
         margin-bottom: 12px !important;
         text-align: center;
     }
     .story-slide-hero .hero-lead {
-        font-size: 0.92rem !important;
-        line-height: 1.48 !important;
+        line-height: 1.55;
         margin-bottom: 18px !important;
         text-align: center;
         max-width: 100% !important;
@@ -2334,8 +2300,7 @@ html {
         padding: 36px 18px !important;
     }
     .cta-container h2 {
-        font-size: 1.75rem !important;
-        line-height: 1.25 !important;
+        line-height: var(--lh-heading);
     }
     .cta-bottom .central-store-buttons {
         flex-direction: column !important;
@@ -2645,3 +2610,245 @@ html {
         font-size: 1.08rem;
     }
 }
+
+/* --------------------------------------------------------------------------
+   UI-PREMIUM · Asama 1 — hizli duzeltmeler
+   -------------------------------------------------------------------------- */
+
+/* Ekran okuyucu yardimcisi: sinif hic tanimli degildi, duyurucu metin
+   mobilde gorunur kalip kahraman alanindaki aciklamayi tekrarliyordu. */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Basliklarda dengeli satir kirilimi (tek kelimelik yetim satir olmasin). */
+h1, h2, .section-header h2 {
+    text-wrap: balance;
+}
+p, .hero-lead {
+    text-wrap: pretty;
+}
+
+/* Okunabilirlik tabani: pazarlama metninde 12px alti yok.
+   Telefon mockup'larinin ici olcekli arayuz oldugu icin kapsam disi. */
+body .section-tag,
+body .pain-result-tag,
+body .sim-badge-tag,
+body .sim-host-badge-live,
+body .zorluk-tag,
+body .result-badge,
+body .discount-badge,
+body .pain-stage-crisis-badge,
+body .pain-stage-eyebrow,
+body .pain-feature-pill,
+body .hero-badge-subtitle,
+body .sim-preset-chip,
+body .highlight-green {
+    font-size: var(--fs-label) !important;      /* 12px */
+    letter-spacing: 0.08em;
+}
+body .scenario-tab-sub,
+body .pain-meta,
+body .sim-stat-label,
+body .chat-name,
+body .footer-email-label,
+body .sim-notif-text span,
+body .sim-cta-meta span,
+body .calc-scale-labels span,
+body .team-card p,
+body .hero-floating-callout small,
+body .sticky-cta-copy span,
+body .guide-meta-strip .meta-item,
+body .guide-meta-strip span {
+    font-size: var(--fs-caption) !important;    /* 13px */
+}
+body .store-badge-official .store-sub,
+body .store-badge-official.is-soon .store-sub {
+    font-size: 0.6875rem !important;    /* 11px — magaza rozeti kalibi */
+}
+
+/* Mobilde sabit indirme cubugu varken yukari don butonu icerigin ustune
+   biniyordu; cubuk zaten kalici bir eylem sunuyor. */
+@media (max-width: 767px) {
+    body.has-sticky-cta .to-top {
+        display: none !important;
+    }
+}
+
+/* Mobil kahraman: 4 sekme alt alta ~330px yer kapliyordu ve alt metinler
+   hemen altindaki aciklama kutusunu tekrarliyordu. 2x2 kompakt izgara;
+   aciklama tek kaynak olarak kaliyor. */
+@media (max-width: 520px) {
+    body .hero-scenario-dock {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px !important;
+        padding: 6px !important;
+        margin: 20px 0 12px !important;
+    }
+    body .scenario-tab {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 6px !important;
+        min-height: 72px;
+        padding: 10px 8px 12px !important;
+    }
+    body .scenario-tab-content {
+        align-items: center !important;
+        text-align: center !important;
+    }
+    body .scenario-tab-title {
+        font-size: 0.8125rem !important;
+        justify-content: center;
+        margin: 0 !important;
+        line-height: 1.25;
+    }
+    body .scenario-tab-sub {
+        display: none !important;
+    }
+    body .scenario-dock-caption {
+        text-align: left;
+        font-size: 0.9375rem !important;
+    }
+}
+
+/* Fiyat kartinda JS ile uretilen oneri rozeti (::after) 10.4px idi. */
+body .active-recommend::after {
+    font-size: 0.75rem !important;      /* 12px */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pain-stage-card.anim-stage {
+        animation: none !important;
+    }
+}
+
+/* Tablet navigasyonu (768px - 1023px): bes baglanti + CTA bu genislikte
+   sigmiyor, marka ve CTA satir kiriyordu (header ~125px). Mobildeki
+   cekmece tablette de kullaniliyor; tam menu 1024px ve uzerinde. */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .navbar .nav-links,
+    .navbar .nav-cta {
+        display: none !important;
+    }
+    .nav-toggle {
+        display: inline-flex;
+    }
+}
+
+/* Tablet (521px - 991px): sag ust bilgi balonu toren secicisinin ustune
+   biniyordu ("Kina & Bride" kapaniyordu). Telefon cercevesinin yanina indir. */
+@media (min-width: 521px) and (max-width: 991px) {
+    body .callout-top-right {
+        top: 72px !important;
+    }
+}
+
+/* Asama 3: inceleme ritmi — uzun demolar kullanici istediginde acilir. */
+.demo-disclosure {
+    border: 1px solid var(--n-line-strong);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(125deg, rgba(236,200,128,.07), var(--n-2));
+    overflow: clip;
+}
+.demo-disclosure > summary {
+    padding: var(--space-lg);
+    cursor: pointer;
+    color: var(--accent);
+    min-height: var(--tap-min);
+}
+.demo-disclosure > summary strong { font-size: var(--fs-h3); margin-left: 8px; }
+.demo-disclosure > summary > span {
+    display: block;
+    color: var(--n-text-muted);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    margin-top: var(--space-xs);
+}
+.demo-disclosure[open] > summary { border-bottom: 1px solid var(--n-line); }
+.demo-disclosure > .demo-content { margin: 24px; }
+body .asistan-tag, body .gunici-kicker { font-size: var(--fs-label) !important; }
+
+@media (max-width: 767px) {
+    body .pricing-grid, body .guide-vitrin-grid {
+        display: flex !important;
+        grid-auto-flow: column;
+        grid-template-columns: none !important;
+        grid-auto-columns: minmax(0, 88%);
+        gap: 16px !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 4px;
+        padding: 16px 4px 24px;
+        overscroll-behavior-inline: contain;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) var(--n-2);
+    }
+    body .pricing-grid > *, body .guide-vitrin-grid > * {
+        scroll-snap-align: start;
+        flex: 0 0 88%;
+        box-sizing: border-box;
+        min-width: 0;
+        width: auto;
+        margin: 0 !important;
+    }
+    body .pricing-card { padding: 24px 20px; }
+    .demo-disclosure > .demo-content { margin: 16px 10px; }
+    .demo-disclosure > summary { padding: 20px; }
+    .demo-disclosure > summary strong { font-size: 18px; }
+    body .founder-card { padding: 28px 22px; }
+    body .founder-promises { gap: 16px; }
+}
+
+/* Asama 4: isaretci ve klavye icin ayni geri bildirim. */
+#phoneMockup { transition: rotate var(--dur-base) var(--ease-out-expo); }
+.demo-disclosure > summary:focus-visible,
+.pricing-grid:focus-visible, .guide-vitrin-grid:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+.scenario-tab:active, .sim-preset-chip:active, .sim-btn:active {
+    scale: .97;
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+    #phoneMockup { rotate: none !important; }
+    .scenario-tab:active, .sim-preset-chip:active, .sim-btn:active { scale: none; }
+}
+.demo-disclosure .sim-phone-frame,
+.demo-disclosure .rsvp-sim-frame-wrap {
+    max-width: 100% !important;
+}
+.solution-disclosure { margin-top: var(--space-xl); }
+.solution-disclosure > summary { font-weight: 600; font-size: var(--fs-body); }
+body .solution-disclosure #neden-imece { padding: 32px 0; }
+.solution-disclosure #neden-imece > .container { width: 100%; padding-inline: 16px; }
+/* Son erisilebilirlik denetiminde olculen koyu-zemin kontrastlari. */
+body.dark-active .pain-filter-btn.active .pain-filter-count,
+body.dark-active .footer-email-label { color: var(--accent) !important; }
+body .store-badge-official.is-soon { opacity: .8; }
+body #rehber-vitrin .btn-secondary { background: var(--n-2); color: var(--accent) !important; }
+.demo-disclosure .rsvp-sim-wrapper > * { min-width: 0; }
+.demo-disclosure .sim-phone-frame { width: 100% !important; max-width: 330px !important; }
+/* Plan siniri okunur aciklama olarak kalir; ustu cizili satis listesi yok. */
+body.dark-active .pricing-features li.disabled {
+    opacity: 1;
+    color: var(--n-text-faint) !important;
+    text-decoration: none;
+}
+body.dark-active .pricing-features li.disabled .icon { color: var(--n-text-faint) !important; }

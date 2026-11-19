@@ -1,0 +1,109 @@
+/* ==========================================================================
+   İmece Düğün — Design Tokens (tek kaynak)
+   Tum sayfalarda style.css ve refresh.css'ten ONCE yuklenir.
+   Eskiden style.css (acik tema) ve refresh.css (gece temasi) iki ayri :root
+   tasiyordu; etkin degerler burada birlestirildi.
+
+   Breakpoint sozlesmesi (CSS degiskeni media query'de kullanilamaz):
+     kompakt telefon   max-width: 520px
+     mobil             max-width: 767px   (min-width: 768px ile cakismaz)
+     tablet            768px – 991px
+     masaustu          min-width: 992px   (max-width: 991px ile cakismaz)
+   ========================================================================== */
+:root {
+    /* ---- Yazi aileleri ---- */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-header: var(--font-heading);   /* eski ad, geriye uyumluluk */
+    --font-title: var(--font-heading);    /* eski ad, geriye uyumluluk */
+
+    /* ---- Tip olcegi (akiskan; 390px -> 1440px) ----
+       display > h2 > h3 hiyerarsisi her genislikte korunur.
+                          390px    768px    1440px            */
+    --fs-display: clamp(2.125rem, 1.2rem + 3vw, 3.5rem);     /* 34      42       56 */
+    --fs-h2:      clamp(1.875rem, 1.4rem + 1.6vw, 3rem);     /* 30      35       45 */
+    --fs-h3:      clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);    /* 20      21       24 */
+    --fs-lead:    clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);   /* 17      18       20 */
+    --fs-body:    1rem;        /* 16 */
+    --fs-small:   0.875rem;    /* 14 */
+    --fs-caption: 0.8125rem;   /* 13 — ikincil metin tabani */
+    --fs-label:   0.75rem;     /* 12 — etiket / rozet tabani */
+
+    --lh-tight: 1.15;
+    --lh-heading: 1.22;
+    --lh-body: 1.6;
+
+    /* ---- Renk rolleri (gece temasi; kontrast --n-0 #08080A uzerinde) ---- */
+    --n-0: #08080A;   /* sayfa zemini */
+    --n-1: #0D0D10;   /* alternatif bolum zemini */
+    --n-2: #131318;   /* kart */
+    --n-3: #1B1B21;   /* yukseltilmis kart / hover */
+    --n-line: rgba(255, 255, 255, 0.1);
+    --n-line-strong: rgba(255, 255, 255, 0.2);
+    --n-text: #FFFFFF;        /* 19.9:1 */
+    --n-text-muted: #E2E2E8;  /* 15.6:1 */
+    --n-text-faint: #B5B5BE;  /* 10.1:1 */
+    --accent: #ECC880;        /* 12.6:1 — CTA ve tek kelimelik vurgu */
+    --accent-deep: #D4AF37;   /*  9.4:1 */
+
+    /* style.css'in eski adlari, gece degerleriyle */
+    --bg-cream: #08080A;
+    --surface: #131318;
+    --text-main: #FFFFFF;
+    --text-muted: #E2E2E8;
+    --text-light: #B5B5BE;
+    --text-secondary: #E2E2E8;
+    --border-color: rgba(255, 255, 255, 0.12);
+    --shadow-soft: 0 12px 32px rgba(29, 29, 31, 0.04);
+    --shadow-medium: 0 20px 48px rgba(29, 29, 31, 0.08);
+
+    /* Marka paleti (style.css'ten tasindi) */
+    --primary: hsl(0, 36%, 74%);
+    --primary-dark: hsl(0, 30%, 60%);
+    --primary-light: hsl(0, 35%, 96%);
+    --gold: #C5A059;
+    --gold-text: #7A5A20;      /* yalnizca acik zeminde metin altini (6.34:1 beyazda) */
+    --gold-light: #F4ECE1;
+    --gold-bright: #D4AF37;
+    --gold-deep: #AA7C11;
+    --gold-bronze: #B8860B;
+    --gold-accent: #C9A227;
+    --gold-warm: #C59B27;
+    --gold-mustard: #C98A3D;
+    --gold-pale: #F3E7D5;
+    --rose-gold-tint: #F7EAEA;
+
+    /* ---- Bosluk (4pt taban) ---- */
+    --space-2xs: 4px;
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 96px;
+
+    /* ---- Yerlesim ---- */
+    --container: 1200px;
+    --gutter: clamp(20px, 5vw, 32px);           /* 390px: 20 · 768px+: 32 */
+    --sec-pad: clamp(56px, 7.5vw, 120px);       /* bolum dikey ritmi */
+    --stack-lg: clamp(36px, 5vw, 72px);         /* baslik -> icerik */
+
+    /* ---- Kose yaricapi ---- */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-pill: 999px;
+
+    /* ---- Dokunma hedefi ---- */
+    --tap-min: 44px;
+
+    /* ---- Hareket ---- */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.30, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --dur-fast: 160ms;
+    --dur-base: 280ms;
+    --dur-slow: 520ms;
+    --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
