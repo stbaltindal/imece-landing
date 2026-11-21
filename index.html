@@ -74,7 +74,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    
+
     <!-- Material Icons. display=swap: ikon fontu inerken metin gizli kalmasin. -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round&display=swap" rel="stylesheet">
         <!-- Favicon & Tab Icons (100% Guaranteed Transparent, Zero White Background) -->
@@ -102,10 +102,10 @@
       })();
     </script>
 <!-- Stylesheet with Cache Buster -->
-    <link rel="stylesheet" href="tokens.css?v=1.1">
-    <link rel="stylesheet" href="style.css?v=41.2">
+    <link rel="stylesheet" href="tokens.css?v=42.0">
+    <link rel="stylesheet" href="style.css?v=42.0">
     <!-- Refresh Layer: gece paleti, sadelestirme, kaydirma etkilesimleri -->
-    <link rel="stylesheet" href="refresh.css?v=41.2">
+    <link rel="stylesheet" href="refresh.css?v=42.0">
 
     <!-- Yapilandirilmis veri. aggregateRating/reviewCount bilerek YOK:
          gercek degerlendirme verisi olmadan eklemek Google politikasini ihlal eder. -->
@@ -244,14 +244,14 @@
     <header class="navbar">
         <div class="container nav-container">
             <a class="logo" href="#" aria-label="İmece Düğün — sayfa başına dön">
-                <img src="assets/img/logo_wax_seal_96.png" decoding="async" alt="İmece Düğün Mühür Logo" width="32" height="32" style="width: 32px; height: 32px; max-width: 32px; max-height: 32px; object-fit: contain; vertical-align: middle; margin-right: 10px; flex-shrink: 0;" class="nav-brand-logo">
+                <img src="assets/img/logo_wax_seal_96.png" decoding="async" alt="İmece Düğün Mühür Logo" width="32" height="32" class="nav-brand-logo inl-1">
                 <span class="logo-text">İmece Düğün</span>
             </a>
             <nav class="nav-links">
                 <a href="#interactive-rsvp-showcase">Davetiye &amp; LCV</a>
                 <a href="#neden-imece">Çözümler</a>
                 <a href="#paketler">Fiyatlandırma</a>
-                <a href="rehber/" style="color: var(--gold, #C5A059); font-weight: 600;">Rehberler</a>
+                <a class="inl-2" href="rehber/">Rehberler</a>
                 <a href="#sss">S.S.S.</a>
             </nav>
             <button class="nav-toggle" id="navToggle" type="button" aria-label="Menüyü Aç" aria-expanded="false" aria-controls="navDrawer">
@@ -260,7 +260,7 @@
             </button>
             <div class="nav-cta">
                 <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="btn btn-primary btn-gold-effect nav-download-btn">
-                    <svg class="apple-svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true">
+                    <svg class="apple-svg inl-3" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
                         <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
                     </svg>
                     App Store'dan İndir
@@ -278,10 +278,10 @@
             <a href="#interactive-rsvp-showcase" data-nav-close>Davetiye &amp; LCV</a>
             <a href="#neden-imece" data-nav-close>Çözümler</a>
             <a href="#paketler" data-nav-close>Fiyatlandırma</a>
-            <a href="rehber/" data-nav-close style="color: var(--gold, #C5A059); font-weight: 600;">Rehberler &amp; Şablonlar</a>
+            <a class="inl-2" href="rehber/" data-nav-close>Rehberler &amp; Şablonlar</a>
             <a href="#sss" data-nav-close>S.S.S.</a>
             <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="btn btn-primary nav-drawer-cta" data-nav-close>
-                <svg class="apple-svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true">
+                <svg class="apple-svg inl-3" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
                     <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
                 </svg>
                 App Store'dan İndir
@@ -293,12 +293,12 @@
         <!-- Interactive Hero & Live App Studio Section -->
         <section id="hero-showcase-story" class="unified-story-section">
             <div class="container story-container">
-                
+
                 <!-- Left Side Narrative & Scenario Dock -->
                 <div class="story-content-left">
                     <div class="story-slide-hero" id="heroContent">
                         <div class="hero-brand-badge">
-                            <img src="assets/img/logo_wax_seal_96.png" decoding="async" alt="İmece Düğün Altın Mühür Logo" class="hero-seal-img" width="42" height="42" style="width: 34px; height: 34px; max-width: 42px; max-height: 42px; object-fit: contain;">
+                            <img src="assets/img/logo_wax_seal_96.png" decoding="async" alt="İmece Düğün Altın Mühür Logo" class="hero-seal-img inl-4" width="42" height="42">
                             <span class="hero-badge-title">İMECE DÜĞÜN</span>
                             <span class="hero-badge-sep">•</span>
                             <span class="hero-badge-subtitle">EN ÖZEL GÜNÜNÜZE ALTIN MÜHÜR</span>
@@ -345,7 +345,7 @@
 
                         <!-- Official App Store & Google Play Store Badges -->
                         <div class="hero-actions store-buttons">
-                            <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="store-badge-official app-store-official" aria-label="Hemen İndirin · App Store" style="text-decoration: none; cursor: pointer;">
+                            <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="store-badge-official app-store-official inl-5" aria-label="Hemen İndirin · App Store">
                                 <svg class="apple-svg" viewBox="0 0 16 16" width="22" height="22" fill="#ffffff" aria-hidden="true">
                                     <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
                                 </svg>
@@ -380,10 +380,10 @@
                         <div class="sr-only" id="heroLiveAnnouncer" role="status" aria-live="polite" aria-atomic="true"></div>
                     </div>
                 </div>
-                
+
                 <!-- Right Side Interactive Phone Stage -->
                 <div class="story-phone-column">
-                    
+
                     <!-- Ceremony Switcher Bar directly above phone -->
                     <div class="ceremony-switcher-bar" role="group" aria-label="Hazırlık töreni seçimi">
                         <button type="button" class="ceremony-switch-btn active" data-ceremony="dugun" onclick="selectCeremony('dugun', this)" aria-pressed="true">
@@ -402,7 +402,7 @@
 
                     <!-- Phone Frame Wrapper with Floating Callouts -->
                     <div class="phone-frame-wrapper">
-                        
+
                         <!-- Floating Interactive Callouts (Desktop / Tablet) -->
                         <button type="button" class="hero-floating-callout callout-top-right" onclick="triggerFloatingAction('task')" aria-label="Görevi Tamamla · Omuzunuzdaki yük azalsın">
                             <span class="callout-icon material-icons-round" aria-hidden="true">task_alt</span>
@@ -445,7 +445,7 @@
                                     <div class="sim-push-title" id="simPushTitle">Mert bir ödeme kaydetti</div>
                                     <div class="sim-push-sub" id="simPushSub">Fotoğrafçı kaporası için ₺15.000 ödendi • Bütçe dengede</div>
                                 </div>
-                                
+
                                 <div class="phone-body">
                                     <div class="app-header">
                                         <span class="back-icon" aria-hidden="true">
@@ -464,13 +464,13 @@
                                         <strong class="relief-value" id="reliefValue">%66 Yük Paylaşıldı</strong>
                                         <div class="relief-bar" aria-hidden="true"><div class="relief-bar-fill" id="reliefBarFill" style="width: 66%;"></div></div>
                                     </div>
-                                    
+
                                     <div class="app-content-slider-wrapper" id="mockupViewport">
                                         <div class="app-dashboard-scroller" id="mockupScroller">
-                                            
+
                                             <!-- 1) TeamPoolBar ("Ekibim") -->
                                             <div class="team-pool-section mockup-section-focus" id="mockup-team-section">
-                                                <div class="team-pool-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                                                <div class="team-pool-header inl-6">
                                                     <span class="team-title">Ekibim</span>
                                                     <button type="button" class="cohost-heart-btn" id="cohostHeartBtn" title="Ortak Yönetici Ekle" aria-label="Ortak Yönetici Ekle" onclick="openCohostCreateDialog()">
                                                         <svg viewBox="0 0 24 24" class="heart-icon"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
@@ -488,18 +488,18 @@
                                                         <span class="avatar-label" id="mockupAdminName">Mert (Eş)</span>
                                                     </div>
                                                     <div class="avatar-chip">
-                                                        <div class="avatar" style="background:#EAD0D0; color:#754B4B;">E<div class="avatar-badge pending" id="eceAvatarBadge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div></div>
+                                                        <div class="avatar inl-7">E<div class="avatar-badge pending" id="eceAvatarBadge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div></div>
                                                         <span class="avatar-label" id="mockupHelperName">Ece (Nedime)</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <!-- 2) DashboardSummaryCard (Unified Budget & Task stats) -->
                                             <div class="app-card dashboard-summary-card-gradient">
-                                                
+
                                                 <!-- TaskStatsSection -->
                                                 <div class="task-stats-section-layout mockup-section-focus" id="mockup-task-section">
-                                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                    <div class="inl-8">
                                                         <span class="section-title-large">Görev Özeti</span>
                                                         <span class="mockup-quick-badge" id="taskCoverageText">12/18 atandı</span>
                                                     </div>
@@ -516,12 +516,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-                                                <div class="card-divider" style="margin: 12px 0;"></div>
-                                                
+
+                                                <div class="card-divider inl-9"></div>
+
                                                 <!-- BudgetSummarySection -->
                                                 <div class="budget-summary-section-layout mockup-section-focus" id="mockup-budget-section">
-                                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                    <div class="inl-8">
                                                         <span class="section-title-large">Bütçe Özeti</span>
                                                         <button type="button" class="mockup-budget-action-btn" id="btnSimDeposit" onclick="simulateBudgetDeposit(event)" aria-label="+₺15.000 Kapora ekle">
                                                             <span class="material-icons-round" aria-hidden="true">add</span>
@@ -538,16 +538,16 @@
                                                             <span class="budget-val-amount actual" id="mockupActualBudget">₺92.000</span>
                                                         </div>
                                                     </div>
-                                                    <div class="budget-progress-bar-wrapper" style="margin-top: 10px;">
+                                                    <div class="budget-progress-bar-wrapper inl-10">
                                                         <div class="budget-progress-bar-fill" id="mockupBudgetBarFill" style="width: 61%"></div>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
-                                            
+
                                             <!-- 3) RolesSection ("Yapılacaklar Listesi") -->
                                             <div class="roles-list-section mockup-section-focus" id="mockup-roles-list-section">
-                                                <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                                <div class="inl-11">
                                                     <span class="team-title">Yapılacaklar Listesi</span>
                                                     <span class="mockup-sub-badge" id="mockupCeremonyTag">Düğün</span>
                                                 </div>
@@ -559,7 +559,7 @@
                                                                 <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                                                             </div>
                                                             <span class="role-card-title" id="roleCardTitle1">Mekan &amp; Nikah</span>
-                                                            
+
                                                             <!-- EventProgressRing mockup -->
                                                             <div class="progress-ring-mock" id="mockup-progress-ring-1" aria-hidden="true">
                                                                 <svg class="ring-svg" viewBox="0 0 36 36">
@@ -571,7 +571,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <!-- Assignee Capsule -->
                                                         <div class="assignee-capsule-row" id="eceCapsuleRow" role="button" tabindex="0" onclick="openInviteSheet(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openInviteSheet(event);}">
                                                             <div class="assignee-picker-area">
@@ -585,13 +585,13 @@
                                                             </div>
                                                             <div class="capsule-divider"></div>
                                                             <div class="capsule-send-btn" id="capsuleActionBtn">
-                                                                <span id="capsuleActionLabel" style="font-size: 0.68rem; font-weight: 700; color: #7A5A20; margin-right: 4px;">Davet Et</span>
+                                                                <span class="inl-12" id="capsuleActionLabel">Davet Et</span>
                                                                 <svg viewBox="0 0 24 24" class="send-icon" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                                                             </div>
                                                         </div>
-                                                        
-                                                        <div class="card-divider" style="margin: 8px 0;"></div>
-                                                        
+
+                                                        <div class="card-divider inl-13"></div>
+
                                                         <div class="mockup-tasks-list">
                                                             <div class="mockup-task-item done">
                                                                 <div class="mockup-status-chip compact done" aria-hidden="true">
@@ -599,7 +599,7 @@
                                                                 </div>
                                                                 <span class="task-title-text" id="taskDoneTitle1">Nikah salonu tutulacak</span>
                                                             </div>
-                                                            
+
                                                             <!-- Interactive Toggleable Task 1 -->
                                                             <button type="button" class="mockup-task-item progress interactive-task-row" id="mockup-task-to-complete" onclick="toggleTaskInteractive(this, event)" aria-pressed="false" aria-label="Organizasyon firması ayarlanacak görevini tamamla">
                                                                 <div class="mockup-status-chip compact progress" id="task-status-badge">
@@ -617,13 +617,13 @@
                                                                 <span class="task-title-text" id="interactiveTaskTitle2">Masa süslemesi &amp; çiçek seçimi</span>
                                                             </button>
                                                         </div>
-                                                        
+
                                                         <div class="add-task-btn" role="button" tabindex="0" onclick="addNewDemoTask()">
                                                             <svg viewBox="0 0 24 24" class="add-icon" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                                                             <span>Görev ekle</span>
                                                         </div>
                                                     </div>
-     
+
                                                     <!-- Role Card 2: Müzik & Eğlence -->
                                                     <div class="mockup-role-card accent-blue">
                                                         <div class="role-card-header">
@@ -631,7 +631,7 @@
                                                                 <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
                                                             </div>
                                                             <span class="role-card-title" id="roleCardTitle2">Müzik &amp; Eğlence</span>
-                                                            
+
                                                             <div class="progress-ring-mock complete" aria-hidden="true">
                                                                 <svg class="ring-svg" viewBox="0 0 36 36">
                                                                     <path class="ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
@@ -649,32 +649,32 @@
                                                                 </div>
                                                                 <span class="assignee-name">Mert</span>
                                                             </div>
-                                                            <span style="font-size: 0.65rem; color: #5C9468; font-weight: 700; margin-left: auto; padding-right: 6px;">Tamamlandı</span>
+                                                            <span class="inl-14">Tamamlandı</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Real App Create Co-Host Central Dialog Mockup -->
                                 <div class="mockup-dialog-overlay" id="cohostCreateDialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitleCohost">
                                     <div class="dialog-container">
                                         <p class="dialog-title" id="dialogTitleCohost">Ortak Yönetici Ekle</p>
                                         <p class="dialog-subtitle">Ortağınız tüm yetkilere sahip olacak ve hazırlıkları birlikte yöneteceksiniz.</p>
-                                        
+
                                         <div class="dialog-input-group">
                                             <label class="dialog-label">Adı Soyadı</label>
                                             <div class="dialog-input-box">Mert</div>
                                         </div>
-                                        
-                                        <div class="dialog-input-group" style="margin-top: 10px;">
+
+                                        <div class="dialog-input-group inl-10">
                                             <label class="dialog-label">Telefon Numarası</label>
                                             <div class="dialog-input-box">+90 (532) 123 45 67</div>
                                         </div>
-                                        
+
                                         <div class="dialog-actions-row">
                                             <button type="button" class="dialog-btn cancel-btn" onclick="closeCohostCreateDialog()">Vazgeç</button>
                                             <button type="button" class="dialog-btn confirm-btn" onclick="submitCohostCreateForm()">
@@ -683,7 +683,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Real App Bottom Sheet Mockup (Invited / Code sheet for Team Member Ece) -->
                                 <div class="mockup-bottom-sheet" id="inviteBottomSheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitleEce">
                                     <div class="sheet-scrim" onclick="closeInviteSheet()"></div>
@@ -729,7 +729,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="mockup-toast" id="mockupToast" role="status" aria-live="polite">Davet kodu kopyalandı</div>
                             </div>
                         </div>
@@ -794,7 +794,7 @@
                                         <span>İmece Çözümü: <strong>250+ Hazır Görev & Akıllı Takvim</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Düğün tarihinize göre 12 aya yayılmış hazır kontrol listesi. Neyi, hangi ayda yapacağınızı düşünmenize gerek kalmaz.</p>
-                                    <a href="#cozum-takvim" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('cozum-takvim'); return false;">
+                                    <a href="#cozum-takvim" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('cozum-takvim'); return false;">
                                         <span>Takvim Motorunu Gör</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -818,7 +818,7 @@
                                         <span>İmece Çözümü: <strong>Görev Delegasyonu & Aile Rolleri</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Nedimelere, sağdıçlara ve aileye özel görevler atayın; yapıldığında telefonunuza anında bildirim gelsin, yük tek kişiye kalmasın.</p>
-                                    <a href="#cozum-sifre" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('cozum-sifre'); return false;">
+                                    <a href="#cozum-sifre" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('cozum-sifre'); return false;">
                                         <span>Eş-Yönetici Kartını Gör</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -842,7 +842,7 @@
                                         <span>İmece Çözümü: <strong>Tedarikçi &amp; Anlaşma Takibi</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Mekan, fotoğrafçı ve kuaför için anlaşılan fiyatlar, iletişim bilgileri ve kritik notlar tek yerde kayıtlıdır; WhatsApp sohbetlerinde kaybolmaz.</p>
-                                    <a href="#indirin" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation();">
+                                    <a href="#indirin" class="pain-inline-action inl-15" onclick="event.stopPropagation();">
                                         <span>Tedarikçi Listesini Başlat</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -866,7 +866,7 @@
                                         <span>İmece Çözümü: <strong>Ortak Cüzdan &amp; Kapora Takibi</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Kimin ne kadar harcadığı kuruşu kuruşuna kayıtlıdır. Kalan bütçe ve yaklaşan ödemeler anlık grafiklerle cebinizdedir.</p>
-                                    <a href="#hesaplayici" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation();">
+                                    <a href="#hesaplayici" class="pain-inline-action inl-15" onclick="event.stopPropagation();">
                                         <span>Plan &amp; Bütçe Hesaplayıcıyı Aç</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -890,7 +890,7 @@
                                         <span>İmece Çözümü: <strong>Kişiye Özel Akıllı LCV Linki</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Davetliler hiçbir uygulama yüklemeden tek tıkla katılım durumunu ve kişi sayısını bildirir; listeniz saniyeler içinde netleşir.</p>
-                                    <a href="#interactive-rsvp-showcase" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('interactive-rsvp-showcase'); return false;">
+                                    <a href="#interactive-rsvp-showcase" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('interactive-rsvp-showcase'); return false;">
                                         <span>Davetiyeyi Canlı Dene</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -914,7 +914,7 @@
                                         <span>İmece Çözümü: <strong>Otomatik Mutfak & Diyet Raporu</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Vegan, vejetaryen, çocuk menüsü ve alerjen tercihleri otomatik listelenir; mutfak şefine teslim edilecek hazır rapor tek tıkla alınır.</p>
-                                    <a href="#interactive-rsvp-showcase" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('interactive-rsvp-showcase'); return false;">
+                                    <a href="#interactive-rsvp-showcase" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('interactive-rsvp-showcase'); return false;">
                                         <span>Menü Seçimini Dene</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -938,7 +938,7 @@
                                         <span>İmece Çözümü: <strong>Onay Korumalı Görev Takibi</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Görevli 'Yaptım' dese bile siz onaylamadan tamamlandı sayılmaz; son hafta telafisi imkansız krizler yaşanmaz.</p>
-                                    <a href="#cozum-sifre" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('cozum-sifre'); return false;">
+                                    <a href="#cozum-sifre" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('cozum-sifre'); return false;">
                                         <span>Eş-Yönetici Kartını Gör</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -962,7 +962,7 @@
                                         <span>İmece Çözümü: <strong>Şeffaf İlerleme &amp; İmece Karnesi</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Kimin hangi görevi ne zaman tamamladığı tüm ekip tarafından şeffafça görülür; gerçek yardım edenler netleşir.</p>
-                                    <a href="#cozum-sifre" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('cozum-sifre'); return false;">
+                                    <a href="#cozum-sifre" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('cozum-sifre'); return false;">
                                         <span>Ortak Görev Çözümünü Gör</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -986,7 +986,7 @@
                                         <span>İmece Çözümü: <strong>DJ & Müzik Listesi Asistanı</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Giriş, ilk dans, pasta müziği ve kesinlikle çalınmayacak şarkılar kategorili olarak DJ'e tek bir şık bağlantıyla teslim edilir.</p>
-                                    <a href="#cozum-muzik" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('cozum-muzik'); return false;">
+                                    <a href="#cozum-muzik" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('cozum-muzik'); return false;">
                                         <span>DJ Kartını Gör</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -1010,7 +1010,7 @@
                                         <span>İmece Çözümü: <strong>Salon &amp; Kuver Matrisi (Masa &amp; Mutfak Raporu)</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Birbirini sevmeyen akrabaları farklı masalara yerleştirin, kuver kapasitelerini aşmayın; salon ve mutfak şefine eksiksiz masa &amp; kuver dökümü sunun.</p>
-                                    <a href="#cozum-pdf" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('cozum-pdf'); return false;">
+                                    <a href="#cozum-pdf" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('cozum-pdf'); return false;">
                                         <span>Masa &amp; Kuver Kartını Gör</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -1034,7 +1034,7 @@
                                         <span>İmece Çözümü: <strong>Canlı Düğün Günü Akış Programı</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Kuaförden pastaya tüm akış ekibin cebindedir. 20 dakikalık bir gecikmede tüm sonraki saatler tek tuşla otomatik ötelenir.</p>
-                                    <a href="#cozum-gunakis" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('cozum-gunakis'); return false;">
+                                    <a href="#cozum-gunakis" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('cozum-gunakis'); return false;">
                                         <span>Canlı Akış Kartını Gör</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -1058,7 +1058,7 @@
                                         <span>İmece Çözümü: <strong>Otomatik Takvim Kaydırma (Shift Dates)</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Düğün tarihi değiştiğinde tüm 250 görevin, kaporaların ve randevuların tarihleri tek dokunuşla yeni tarihe senkronize olur.</p>
-                                    <a href="#cozum-takvim" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('cozum-takvim'); return false;">
+                                    <a href="#cozum-takvim" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('cozum-takvim'); return false;">
                                         <span>Takvim Kaydırma Kartını Gör</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -1082,7 +1082,7 @@
                                         <span>İmece Çözümü: <strong>Eş-Yönetici (Co-Host) Çift Girişi</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Eşiniz kendi Apple veya Google hesabıyla giriş yapar, aynı düğün paneline bağımsız ve tam yetkiyle erişir; şifre paylaşmaya son.</p>
-                                    <a href="#cozum-sifre" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('cozum-sifre'); return false;">
+                                    <a href="#cozum-sifre" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('cozum-sifre'); return false;">
                                         <span>Eş-Yönetici Kartını Gör</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -1106,7 +1106,7 @@
                                         <span>İmece Çözümü: <strong>Gelin Koruması (Surprise Guard)</strong></span>
                                     </div>
                                     <p class="pain-inline-desc">Bride-to-be partisi, hediye veya dans sürprizleri nişanlınızın ekranında filtrelenir ve gizlenir; ortak yönetimde bile sürprizler korunur.</p>
-                                    <a href="#cozum-surpriz" class="pain-inline-action" style="width: 100%; justify-content: center; box-sizing: border-box;" onclick="event.stopPropagation(); revealSolution('cozum-surpriz'); return false;">
+                                    <a href="#cozum-surpriz" class="pain-inline-action inl-15" onclick="event.stopPropagation(); revealSolution('cozum-surpriz'); return false;">
                                         <span>Gelin Koruması Kartını Gör</span>
                                         <span class="material-icons-round">arrow_forward</span>
                                     </a>
@@ -1187,9 +1187,9 @@
             </div>
         </section>
 
-        
 
-        
+
+
 
         <!-- 3. Canlı İnteraktif Deneyim & LCV Simülatörü -->
         <section id="interactive-rsvp-showcase" class="rsvp-showcase-section">
@@ -1208,7 +1208,7 @@
                             <h3>Davetiyeyi Anlık Özelleştirin</h3>
                             <p class="sim-desc">Aşağıdan misafir ve çift adını değiştirin; sağdaki davetiye ekranının ve çiftin telefonuna düşen anlık bildirimin nasıl çalıştığını deneyimleyin.</p>
                         </div>
-                        
+
                         <!-- Guest Input Group -->
                         <div class="sim-input-group">
                             <label for="simGuestInput">Misafir Adı / Hitap</label>
@@ -1222,11 +1222,11 @@
 
                         <!-- Couple & Quota Row -->
                         <div class="sim-input-row">
-                            <div class="sim-input-group" style="margin-bottom: 0;">
+                            <div class="sim-input-group inl-16">
                                 <label for="simCoupleInput">Evlenen Çift</label>
                                 <input type="text" id="simCoupleInput" value="Ayşe & Tolga" placeholder="Örn: Ayşe & Tolga" oninput="updateSimCoupleName(this.value)">
                             </div>
-                            <div class="sim-input-group" style="margin-bottom: 0;">
+                            <div class="sim-input-group inl-16">
                                 <label for="simPartySelect">Davetli Sayısı</label>
                                 <select id="simPartySelect" class="sim-select" onchange="updateSimPartyCount(this.value)">
                                     <option value="1">1 Kişi</option>
@@ -1289,7 +1289,7 @@
                                 <div class="sim-host-push" id="simHostPush" role="alert" aria-live="assertive">
                                     <div class="sim-push-header">
                                         <div class="push-app-badge">
-                                            <img src="assets/img/logo_wax_seal_96.png" decoding="async" alt="" width="14" height="14" style="object-fit: contain;">
+                                            <img class="inl-17" src="assets/img/logo_wax_seal_96.png" decoding="async" alt="" width="14" height="14">
                                             <span>İMECE DÜĞÜN</span>
                                         </div>
                                         <span class="push-time">Şimdi</span>
@@ -1424,12 +1424,12 @@
                                         </div>
                                         <h3 class="card-title">Sürpriz Koruması (Surprise Guard)</h3>
                                         <div class="mini-app-mockup">
-                                            <div class="mockup-header" style="display: flex; align-items: center; justify-content: space-between;">
-                                                <div style="display: flex; align-items: center; gap: 6px;">
-                                                    <span class="material-icons-round" style="font-size: 11px;">security</span>
+                                            <div class="mockup-header inl-18">
+                                                <div class="inl-19">
+                                                    <span class="material-icons-round inl-20">security</span>
                                                     <span>Gizli Sürpriz Odam</span>
                                                 </div>
-                                                <div class="surprise-toggle-pills" style="display: flex; gap: 4px;" onclick="event.stopPropagation();">
+                                                <div class="surprise-toggle-pills inl-21" onclick="event.stopPropagation();">
                                                     <button type="button" id="btnViewGelin" class="surprise-role-btn active" style="font-size: 10px; padding: 2px 8px; border-radius: 8px; border: 1px solid var(--gold); background: rgba(197, 160, 89, 0.15); color: var(--gold); cursor: pointer;" onclick="event.stopPropagation(); setSurpriseView('bride');">Gelin</button>
                                                     <button type="button" id="btnViewNedime" class="surprise-role-btn" style="font-size: 10px; padding: 2px 8px; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(255,255,255,0.06); color: var(--text-muted); cursor: pointer;" onclick="event.stopPropagation(); setSurpriseView('bridesmaid');">Nedime</button>
                                                 </div>
@@ -1506,7 +1506,7 @@
                                         <h3 class="card-title">Eş-Yönetici (Co-Host) Bağımsız Yetki</h3>
                                         <div class="mini-app-mockup">
                                             <div class="mockup-header">
-                                                <span class="material-icons-round" style="font-size: 11px;">supervisor_account</span>
+                                                <span class="material-icons-round inl-20">supervisor_account</span>
                                                 <span>Düğün Eş Yöneticileri</span>
                                             </div>
                                             <div class="mockup-todo-list">
@@ -1574,13 +1574,13 @@
                                         <h3 class="card-title">Düğün Günü Rejisi (Canlı Akış)</h3>
                                         <div class="mini-app-mockup">
                                             <div class="mockup-header">
-                                                <span class="material-icons-round" style="font-size: 11px;">timer</span>
+                                                <span class="material-icons-round inl-20">timer</span>
                                                 <span>Düğün Günü Canlı Rejisi</span>
                                             </div>
                                             <div class="mockup-todo-list">
                                                 <div class="mockup-todo-row">
                                                     <span class="todo-title">09:30 · Gelin Hazırlığı</span>
-                                                    <span class="mockup-user-chip" style="background: rgba(255,255,255,0.08); color: #B5B5BE;">Ekibe Özel</span>
+                                                    <span class="mockup-user-chip inl-22">Ekibe Özel</span>
                                                 </div>
                                                 <div class="mockup-todo-row">
                                                     <span class="todo-title">16:00 · Nikah Töreni</span>
@@ -1646,7 +1646,7 @@
                                         <h3 class="card-title">DJ &amp; Ses Protokolü (Müzik Asistanı)</h3>
                                         <div class="mini-app-mockup">
                                             <div class="mockup-header">
-                                                <span class="material-icons-round" style="font-size: 11px;">headphones</span>
+                                                <span class="material-icons-round inl-20">headphones</span>
                                                 <span>DJ Şarkı &amp; Salon Listesi</span>
                                             </div>
                                             <div class="mockup-todo-list">
@@ -1660,7 +1660,7 @@
                                                 </div>
                                                 <div class="mockup-todo-row">
                                                     <span class="todo-title">📍 Salon Konumu &amp; Rota</span>
-                                                    <span class="mockup-user-chip" style="background: rgba(76, 217, 100, 0.15); color: #4CD964;">Haritada Açık</span>
+                                                    <span class="mockup-user-chip inl-23">Haritada Açık</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1718,7 +1718,7 @@
                                         <h3 class="card-title">Salon &amp; Kuver Matrisi (Masa &amp; Mutfak Raporu)</h3>
                                         <div class="mini-app-mockup">
                                             <div class="mockup-header">
-                                                <span class="material-icons-round" style="font-size: 11px;">table_restaurant</span>
+                                                <span class="material-icons-round inl-20">table_restaurant</span>
                                                 <span>Masa &amp; Kuver Matrisi</span>
                                             </div>
                                             <div class="mockup-todo-list">
@@ -1797,7 +1797,7 @@
                                         <h3 class="card-title">Dinamik Takvim Motoru (Shift Dates)</h3>
                                         <div class="mini-app-mockup">
                                             <div class="mockup-header">
-                                                <span class="material-icons-round" style="font-size: 11px;">event_repeat</span>
+                                                <span class="material-icons-round inl-20">event_repeat</span>
                                                 <span>Otomatik Takvim Senkronu</span>
                                             </div>
                                             <div class="mockup-budget-container">
@@ -1834,7 +1834,7 @@
                     <h2>Hangi Plan İhtiyacınıza Uygun?</h2>
                     <p class="section-subtitle">Törenlerinizi, davetli sayınızı, görev hacminizi ve ekibinizi seçin; en uygun ve ekonomik paketi hemen görün.</p>
                 </div>
-                
+
                 <div class="calculator-container">
                     <div class="calculator-inputs-card">
                         <!-- 1. Seçim: Hangi Etkinlikleri Yapacaksınız? -->
@@ -1847,11 +1847,11 @@
                                 <button type="button" class="ceremony-tag" data-event="fotograf" aria-pressed="false" onclick="toggleCeremony(this)">Dış Çekim &amp; Çeyiz</button>
                                 <button type="button" class="ceremony-tag" data-event="bride" aria-pressed="false" onclick="toggleCeremony(this)">Bekarlığa Veda / Bride</button>
                             </div>
-                            <span class="input-hint" style="margin-top: 6px; display: inline-block;">(Seçilen her tören için bağımsız bir hazırlık panosu ve görev akışı açılır)</span>
+                            <span class="input-hint inl-24">(Seçilen her tören için bağımsız bir hazırlık panosu ve görev akışı açılır)</span>
                         </div>
-                        
+
                         <!-- 2. Seçim: Tahmini Davetli Sayısı Sürgüsü -->
-                        <div class="calc-input-group" style="margin-top: 18px;">
+                        <div class="calc-input-group inl-25">
                             <div class="calc-label-row">
                                 <label for="calcGuestSlider" class="calc-label">Tahmini Davetli Sayısı:</label>
                                 <span id="calcGuestDisplay" class="calc-val-pill">150 Kişi · Standart Salon</span>
@@ -1867,7 +1867,7 @@
                         </div>
 
                         <!-- 3. Seçim: Görev Hacmi & Aşama Sürgüsü -->
-                        <div class="calc-input-group" style="margin-top: 14px;">
+                        <div class="calc-input-group inl-26">
                             <div class="calc-label-row">
                                 <label for="calcTaskSlider" class="calc-label">Planlanan Görev Hacmi:</label>
                                 <span id="calcTaskDisplay" class="calc-val-pill">30 Görev · Kapsamlı Akış</span>
@@ -1883,7 +1883,7 @@
                         </div>
 
                         <!-- 4. Seçim: Ekip Büyüklüğü Hızlı Seçici -->
-                        <div class="calc-input-group" style="margin-top: 14px;">
+                        <div class="calc-input-group inl-26">
                             <label class="calc-label">Hazırlıklara Katılacak Ekip:</label>
                             <div class="team-cards-grid">
                                 <div class="team-card active" data-size="3" role="button" tabindex="0" aria-pressed="true" onclick="selectTeamSize(this, 3)" onkeydown="handleActivationKey(event)">
@@ -1905,27 +1905,27 @@
                         </div>
 
                     </div>
-                    
+
                     <div class="calculator-result" id="planResultBox" aria-live="polite">
                         <div class="result-badge" id="recommendedPlanBadge">ÖNERİLEN PLAN</div>
                         <div id="recommendedPlanReason" style="font-size: 0.8rem; font-weight: 600; color: var(--gold-text); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; margin-bottom: 8px;"></div>
                         <h3 id="recommendedPlanTitle">Tüm Hazırlıklar Paketi</h3>
-                        <div class="result-price-row" style="margin: 10px 0 15px 0;">
+                        <div class="result-price-row inl-27">
                             <span class="result-price" id="recommendedPlanPrice" style="font-size: 2.8rem; font-weight: 800; color: var(--gold-text);">499 ₺</span>
                             <span class="price-period" id="recommendedPlanPeriod" style="font-size: 0.9rem; color: var(--text-light); margin-left: 6px;">/ 1 yıl geçerli</span>
                         </div>
                         <p id="recommendedPlanDesc" style="font-size: 0.9rem; line-height: 1.5; color: var(--text-muted); margin-bottom: 20px;">Söz, Nişan, Kına ve Düğün gibi birden fazla töreni tek çatı altında toplamak ve tüm hazırlıkları sınırsız ekiple yönetmek için en avantajlı çözümdür.</p>
-                        
+
                         <!-- Dynamic features list -->
-                        <div class="plan-features-list" id="recommendedPlanFeatures" style="display: flex; flex-direction: column; gap: 8px; text-align: left; margin-bottom: 25px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                        <div class="plan-features-list" id="recommendedPlanFeatures" style="display: flex; flex-direction: column; gap: 8px; text-align: left; margin-bottom: 25px; padding-top: 15px;">
                             <!-- Will be injected by JS -->
                         </div>
 
                         <a href="#card-season" id="calcCtaBtn" class="btn btn-primary btn-gold-effect" onclick="scrollToRecommendedPlan(event)" style="width: 100%; box-sizing: border-box; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
                             <span>Tüm Hazırlıklar Paketini İncele</span>
-                            <span class="material-icons-round" style="font-size: 1.15rem;">arrow_downward</span>
+                            <span class="material-icons-round inl-28">arrow_downward</span>
                         </a>
-                        <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="calc-direct-app-link" style="display: block; text-align: center; margin-top: 12px; font-size: 0.8125rem; color: var(--gold-text); text-decoration: underline; text-underline-offset: 3px;">veya App Store'dan hemen ücretsiz indirin &rarr;</a>
+                        <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="calc-direct-app-link inl-29">veya App Store'dan hemen ücretsiz indirin &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -1940,7 +1940,7 @@
                         <p>Bu uygulamayı önce kendi hazırlığımız için yazdık. Elektronik tabloların, unutulan kaporaların ve “ben hallederim” deyip herkesin yükünü tek başına taşıyan o bir kişinin yorgunluğunu bizzat yaşadık.</p>
                         <p>Sizden gelen her mesajı ekibimizle birlikte dikkatle okuyoruz. Eksik bulduğunuz bir şey varsa yazın — İmece Düğün’ün bugünkü hâli, bu tür geri bildirimlerle şekillendi.</p>
                     </blockquote>
-                    
+
                     <div class="founder-header-row">
                         <div class="founder-avatar" aria-hidden="true">BA</div>
                         <div class="founder-meta-wrap">
@@ -1960,7 +1960,7 @@
                     <a class="founder-mail" href="mailto:destek@imecedugun.com">
                         <span class="material-icons-round" aria-hidden="true">mail</span>
                         destek@imecedugun.com
-                        <span style="font-size: 0.8125rem; font-weight: 500; opacity: 0.85; margin-left: 4px;">· Ekiple İletişime Geçin</span>
+                        <span class="inl-30">· Ekiple İletişime Geçin</span>
                     </a>
                 </article>
             </div>
@@ -1973,7 +1973,7 @@
                     <span class="section-tag gold">Şeffaf Fiyatlandırma</span>
                     <h2>Her Bütçeye ve Hazırlığa Uygun Seçenekler</h2>
                     <p class="section-subtitle">Hemen ücretsiz başlayın; sınırsız imece gücü için dilediğiniz zaman yükseltin.</p>
-                    
+
                     <div class="pricing-offer-banner">
                         <span class="material-icons-round">local_offer</span>
                         <span>Lansmana özel <strong>%50 indirim</strong> — Sınırlı süre geçerli fiyatlar.</span>
@@ -1983,7 +1983,7 @@
                     <!-- Free Plan Card -->
                     <div class="pricing-card" id="card-free">
                         <div class="pricing-header">
-                            <span class="discount-badge" style="background: rgba(255,255,255,0.06); border-color: var(--n-line); color: var(--n-text-muted);">BAŞLANGIÇ PLANI</span>
+                            <span class="discount-badge inl-31">BAŞLANGIÇ PLANI</span>
                             <h3>Ücretsiz Başlangıç</h3>
                             <div class="price">0 ₺<span class="price-period">/ süresiz ücretsiz</span></div>
                             <p>Sade ve çekirdek hazırlıklar için ideal başlangıç çözümü.</p>
@@ -2002,7 +2002,7 @@
                             <span class="pricing-guarantee-note">Süre sınırı yok · Hemen başlayın</span>
                         </div>
                     </div>
-                    
+
                     <!-- Single Event Premium Card -->
                     <div class="pricing-card" id="card-single">
                         <div class="pricing-header">
@@ -2061,21 +2061,21 @@
                         <span class="material-icons-round">verified_user</span>
                         <div>
                             <strong>Tek Satın Alım Yeterlidir:</strong>
-                            <p style="margin: 4px 0 0 0; color: var(--n-text-muted); font-size: 0.8125rem;">Yalnızca hazırlığı oluşturan kişi satın alır. Eşiniz, aileniz ve tüm davetlileriniz uygulamaya 0 ₺ ile katılır.</p>
+                            <p class="inl-32">Yalnızca hazırlığı oluşturan kişi satın alır. Eşiniz, aileniz ve tüm davetlileriniz uygulamaya 0 ₺ ile katılır.</p>
                         </div>
                     </div>
                     <div class="pricing-trust-item">
                         <span class="material-icons-round">lock_clock</span>
                         <div>
                             <strong>Verileriniz Asla Silinmez:</strong>
-                            <p style="margin: 4px 0 0 0; color: var(--n-text-muted); font-size: 0.8125rem;">Premium süreniz dolsa dahi tüm kayıtlarınız güvenle görünür kalır; yalnızca yeni ekleme hakkı ücretsiz limitlere döner.</p>
+                            <p class="inl-32">Premium süreniz dolsa dahi tüm kayıtlarınız güvenle görünür kalır; yalnızca yeni ekleme hakkı ücretsiz limitlere döner.</p>
                         </div>
                     </div>
                     <div class="pricing-trust-item">
                         <span class="material-icons-round">settings_backup_restore</span>
                         <div>
                             <strong>Apple Güvencesiyle Şeffaf İptal:</strong>
-                            <p style="margin: 4px 0 0 0; color: var(--n-text-muted); font-size: 0.8125rem;">iPhone Ayarlar &gt; Apple Kimliği &gt; Abonelikler üzerinden istediğiniz an hiçbir gerekçe belirtmeden tek tıkla iptal edebilirsiniz.</p>
+                            <p class="inl-32">iPhone Ayarlar &gt; Apple Kimliği &gt; Abonelikler üzerinden istediğiniz an hiçbir gerekçe belirtmeden tek tıkla iptal edebilirsiniz.</p>
                         </div>
                     </div>
                 </div>
@@ -2091,77 +2091,77 @@
                     <p class="section-subtitle">Bütçeden çeyiz listesine, oturma düzeninden düğün günü akışına kadar kritik adımları rehberlerimizle planlayın.</p>
                 </div>
 
-                <div class="guide-vitrin-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px;">
+                <div class="guide-vitrin-grid inl-33">
                     <!-- 1. Bütçe Rehberi -->
-                    <a href="rehber/dugun-butcesi.html" class="guide-vitrin-card" style="background: var(--surface); border: 1px solid var(--border-color); border-radius: 16px; padding: 26px; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
+                    <a href="rehber/dugun-butcesi.html" class="guide-vitrin-card inl-34">
                         <div>
-                            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.25); display: flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 16px;">
+                            <div class="inl-35">
                                 <span class="material-icons-round">account_balance_wallet</span>
                             </div>
-                            <span style="font-size: 0.75rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;">BÜTÇE &amp; KAPORA</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px; line-height: 1.35;">Düğün Bütçesi ve Harcama Planlama Rehberi</h3>
-                            <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Kimin ne kadar ödediğini, kapora tarihlerini ve gizli masrafları kontrol altında tutun; bütçe aşımını engelleyin.</p>
+                            <span class="inl-36">BÜTÇE &amp; KAPORA</span>
+                            <h3 class="inl-37">Düğün Bütçesi ve Harcama Planlama Rehberi</h3>
+                            <p class="inl-38">Kimin ne kadar ödediğini, kapora tarihlerini ve gizli masrafları kontrol altında tutun; bütçe aşımını engelleyin.</p>
                         </div>
-                        <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.8125rem; font-weight: 600; color: var(--gold);">Rehberi İncele <span class="material-icons-round" style="font-size: 1rem;">arrow_forward</span></span>
+                        <span class="inl-39">Rehberi İncele <span class="material-icons-round inl-40">arrow_forward</span></span>
                     </a>
 
                     <!-- 2. Çeyiz Listesi -->
-                    <a href="rehber/ceyiz-listesi.html" class="guide-vitrin-card" style="background: var(--surface); border: 1px solid var(--border-color); border-radius: 16px; padding: 26px; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
+                    <a href="rehber/ceyiz-listesi.html" class="guide-vitrin-card inl-34">
                         <div>
-                            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.25); display: flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 16px;">
+                            <div class="inl-35">
                                 <span class="material-icons-round">checklist</span>
                             </div>
-                            <span style="font-size: 0.75rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;">EKSİKSİZ LİSTE</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px; line-height: 1.35;">Eksiksiz Çeyiz Listesi &amp; Öncelik Rehberi</h3>
-                            <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Mutfaktan yatak odasına kategori bazlı çeyiz maddeleri, bütçe tahminleri ve gereksiz harcamaları eleme ipuçları.</p>
+                            <span class="inl-36">EKSİKSİZ LİSTE</span>
+                            <h3 class="inl-37">Eksiksiz Çeyiz Listesi &amp; Öncelik Rehberi</h3>
+                            <p class="inl-38">Mutfaktan yatak odasına kategori bazlı çeyiz maddeleri, bütçe tahminleri ve gereksiz harcamaları eleme ipuçları.</p>
                         </div>
-                        <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.8125rem; font-weight: 600; color: var(--gold);">Rehberi İncele <span class="material-icons-round" style="font-size: 1rem;">arrow_forward</span></span>
+                        <span class="inl-39">Rehberi İncele <span class="material-icons-round inl-40">arrow_forward</span></span>
                     </a>
 
                     <!-- 3. Dijital LCV & Masa Düzeni -->
-                    <a href="rehber/dijital-lcv-ve-oturma-duzeni.html" class="guide-vitrin-card" style="background: var(--surface); border: 1px solid var(--border-color); border-radius: 16px; padding: 26px; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
+                    <a href="rehber/dijital-lcv-ve-oturma-duzeni.html" class="guide-vitrin-card inl-34">
                         <div>
-                            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.25); display: flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 16px;">
+                            <div class="inl-35">
                                 <span class="material-icons-round">table_restaurant</span>
                             </div>
-                            <span style="font-size: 0.75rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;">DAVETLİ &amp; SALON</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px; line-height: 1.35;">Dijital LCV ve Salon Oturma Düzeni Kılavuzu</h3>
-                            <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">WhatsApp'tan şifresiz LCV toplama, mutfak menü tercihleri ve masa yerleşiminde son dakika krizlerini önleme taktikleri.</p>
+                            <span class="inl-36">DAVETLİ &amp; SALON</span>
+                            <h3 class="inl-37">Dijital LCV ve Salon Oturma Düzeni Kılavuzu</h3>
+                            <p class="inl-38">WhatsApp'tan şifresiz LCV toplama, mutfak menü tercihleri ve masa yerleşiminde son dakika krizlerini önleme taktikleri.</p>
                         </div>
-                        <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.8125rem; font-weight: 600; color: var(--gold);">Rehberi İncele <span class="material-icons-round" style="font-size: 1rem;">arrow_forward</span></span>
+                        <span class="inl-39">Rehberi İncele <span class="material-icons-round inl-40">arrow_forward</span></span>
                     </a>
 
                     <!-- 4. Düğün Günü Akışı -->
-                    <a href="rehber/dugun-gunu-akisi.html" class="guide-vitrin-card" style="background: var(--surface); border: 1px solid var(--border-color); border-radius: 16px; padding: 26px; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
+                    <a href="rehber/dugun-gunu-akisi.html" class="guide-vitrin-card inl-34">
                         <div>
-                            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.25); display: flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 16px;">
+                            <div class="inl-35">
                                 <span class="material-icons-round">schedule</span>
                             </div>
-                            <span style="font-size: 0.75rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;">CANLI REJİ</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px; line-height: 1.35;">Düğün Günü Zaman Çizelgesi &amp; Canlı Akış</h3>
-                            <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Kuaförden gelin almaya, nikah töreninden ilk dansa kadar gecikmeleri sıfırlayan saat saat düğün günü akış planı.</p>
+                            <span class="inl-36">CANLI REJİ</span>
+                            <h3 class="inl-37">Düğün Günü Zaman Çizelgesi &amp; Canlı Akış</h3>
+                            <p class="inl-38">Kuaförden gelin almaya, nikah töreninden ilk dansa kadar gecikmeleri sıfırlayan saat saat düğün günü akış planı.</p>
                         </div>
-                        <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.8125rem; font-weight: 600; color: var(--gold);">Rehberi İncele <span class="material-icons-round" style="font-size: 1rem;">arrow_forward</span></span>
+                        <span class="inl-39">Rehberi İncele <span class="material-icons-round inl-40">arrow_forward</span></span>
                     </a>
 
                     <!-- 5. Nedime & Bride -->
-                    <a href="rehber/nedime-ve-bride-to-be.html" class="guide-vitrin-card" style="background: var(--surface); border: 1px solid var(--border-color); border-radius: 16px; padding: 26px; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
+                    <a href="rehber/nedime-ve-bride-to-be.html" class="guide-vitrin-card inl-34">
                         <div>
-                            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.25); display: flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 16px;">
+                            <div class="inl-35">
                                 <span class="material-icons-round">auto_awesome</span>
                             </div>
-                            <span style="font-size: 0.75rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px;">SÜRPRİZ &amp; NEDİME</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px; line-height: 1.35;">Nedime Görevleri &amp; Sürpriz Bride-to-Be Rehberi</h3>
-                            <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Geline fark ettirmeden gizli bekarlığa veda partisi düzenleme, ortak bütçe bölüşümü ve acil durum kiti hazırlığı.</p>
+                            <span class="inl-36">SÜRPRİZ &amp; NEDİME</span>
+                            <h3 class="inl-37">Nedime Görevleri &amp; Sürpriz Bride-to-Be Rehberi</h3>
+                            <p class="inl-38">Geline fark ettirmeden gizli bekarlığa veda partisi düzenleme, ortak bütçe bölüşümü ve acil durum kiti hazırlığı.</p>
                         </div>
-                        <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.8125rem; font-weight: 600; color: var(--gold);">Rehberi İncele <span class="material-icons-round" style="font-size: 1rem;">arrow_forward</span></span>
+                        <span class="inl-39">Rehberi İncele <span class="material-icons-round inl-40">arrow_forward</span></span>
                     </a>
                 </div>
 
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="rehber/index.html" class="btn btn-secondary" style="border: 1px solid var(--gold); color: var(--gold); padding: 13px 30px; border-radius: 99px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: all 0.25s ease;">
+                <div class="inl-41">
+                    <a href="rehber/index.html" class="btn btn-secondary inl-42">
                         <span>Tüm Düğün Rehberlerini Keşfedin</span>
-                        <span class="material-icons-round" style="font-size: 1.15rem;">arrow_forward</span>
+                        <span class="material-icons-round inl-28">arrow_forward</span>
                     </a>
                 </div>
             </div>
@@ -2175,7 +2175,7 @@
                     <h2>Sıkça Sorulan Sorular</h2>
                     <p class="section-subtitle">Aklınıza takılabilecek soruların kısa ve net cevapları.</p>
                 </div>
-                
+
                 <div class="faq-accordion" id="faqAccordion">
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-1">
@@ -2273,7 +2273,7 @@
                             <span class="material-icons-round faq-arrow">expand_more</span>
                         </button>
                         <div class="faq-answer" id="faq-answer-10">
-                            <p>İmece Düğün iOS sürümüyle Apple App Store'da yayında! <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" style="color: var(--gold); font-weight: 600;">App Store üzerinden hemen ücretsiz indirebilirsiniz</a>. Android sürümümüz geliştirme aşamasındadır. Davetlileriniz ise hangi telefonu kullanırlarsa kullansınlar davetiye bağlantısını herhangi bir tarayıcıda uygulama indirmeden kolayca açabilirler.</p>
+                            <p>İmece Düğün iOS sürümüyle Apple App Store'da yayında! <a class="inl-43" href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener">App Store üzerinden hemen ücretsiz indirebilirsiniz</a>. Android sürümümüz geliştirme aşamasındadır. Davetlileriniz ise hangi telefonu kullanırlarsa kullansınlar davetiye bağlantısını herhangi bir tarayıcıda uygulama indirmeden kolayca açabilirler.</p>
                         </div>
                     </div>
                 </div>
@@ -2284,13 +2284,13 @@
         <section id="indirin" class="cta-bottom">
             <div class="container cta-container">
                 <img src="assets/img/logo_wax_seal_96.png" decoding="async" loading="lazy" alt="İmece Düğün Altın Mühür" class="cta-wax-seal" width="80" height="80">
-                <span class="section-tag gold" style="margin-bottom: 14px;">ALTIN MÜHÜR İLE TAÇLANDIRIN</span>
+                <span class="section-tag gold inl-44">ALTIN MÜHÜR İLE TAÇLANDIRIN</span>
                 <h2>En Özel Gününüze Altın Mühür Vurun</h2>
                 <p>İmece Düğün şimdi App Store'da yayında. Düğün, nişan ve çeyiz hazırlıklarınızı sevdiklerinizle birlikte stresten uzak, kusursuz bir uyumla planlayın.</p>
 
                 <!-- Bottom Store Badges -->
-                <div class="store-buttons central-store-buttons" style="display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; margin: 28px 0 16px;">
-                    <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="store-badge-official app-store-official dark" aria-label="Hemen İndirin · App Store" style="text-decoration: none; cursor: pointer;">
+                <div class="store-buttons central-store-buttons inl-45">
+                    <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="store-badge-official app-store-official dark inl-5" aria-label="Hemen İndirin · App Store">
                         <svg class="apple-svg" viewBox="0 0 16 16" width="24" height="24" fill="#ffffff" aria-hidden="true">
                             <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
                         </svg>
@@ -2328,7 +2328,7 @@
         <div class="container footer-container">
             <div class="footer-brand">
                 <div class="logo">
-                    <img src="assets/img/logo_wax_seal_96.png" decoding="async" loading="lazy" alt="" width="28" height="28" style="width: 28px; height: 28px; object-fit: contain; margin-right: 10px; flex-shrink: 0;">
+                    <img class="inl-46" src="assets/img/logo_wax_seal_96.png" decoding="async" loading="lazy" alt="" width="28" height="28">
                     <span class="logo-text">İmece Düğün</span>
                 </div>
                 <p>Düğün, nişan, kına ve bekarlığa veda hazırlıklarını sevdiklerinizle birlikte yürütmek için bir uygulama. Bütçe, görev, davetli ve düğün günü akışı tek yerde.</p>
@@ -3137,7 +3137,7 @@
             const persons = selectedTeamSize;
             const guests = selectedGuestCount;
             const tasks = selectedTaskCount;
-            
+
             const title = document.getElementById('recommendedPlanTitle');
             const price = document.getElementById('recommendedPlanPrice');
             const desc = document.getElementById('recommendedPlanDesc');
@@ -3147,10 +3147,10 @@
             const ctaBtn = document.getElementById('calcCtaBtn');
             const badge = document.getElementById('recommendedPlanBadge');
             const reason = document.getElementById('recommendedPlanReason');
-            
+
             // Treat 0 selected ceremonies as 1
             const activeEvents = events === 0 ? 1 : events;
-            
+
             let recommendedPlan = 'free';
             let targetPrice = 0;
             let targetTitle = 'Ücretsiz Başlangıç';
@@ -3160,7 +3160,7 @@
             let targetReason = 'Çekirdek Çift & Temel Hazırlıklar İçin';
             let targetCtaText = 'Ücretsiz Başlangıç Paketini İncele';
             currentRecommendedCardId = 'card-free';
-            
+
             let featuresHtml = `
                 <div style="display:flex; align-items:flex-start; gap:8px; font-size:0.85rem; color:var(--text-main); font-weight:500;">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -3175,7 +3175,7 @@
                     <span>15 Görev &amp; 50 Davetliye Kadar LCV Takibi</span>
                 </div>
             `;
-            
+
             if (activeEvents > 1) {
                 recommendedPlan = 'season';
                 targetPrice = 499;
@@ -3186,7 +3186,7 @@
                 targetReason = `${activeEvents} Töreni Tek Çatıda Birleştirmek İçin`;
                 targetCtaText = 'Tüm Hazırlıklar Paketini İncele';
                 currentRecommendedCardId = 'card-season';
-                
+
                 featuresHtml = `
                     <div style="display:flex; align-items:flex-start; gap:8px; font-size:0.85rem; color:var(--text-main); font-weight:500;">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -3210,7 +3210,7 @@
                     targetPeriod = '/ 6 ay geçerli';
                     targetDesc = 'Seçtiğiniz tek bir tören için 6 ay boyunca sınırsız görev, sınırsız ekip ve sınırsız davetli LCV takibi sunan eksiksiz premium plan.';
                     targetBadge = 'TEKİL TÖREN İÇİN İDEAL';
-                    
+
                     if (tasks > 15 && guests > 50) {
                         targetReason = '50+ Davetli ve 15+ Görev Yönetimi İçin';
                     } else if (guests > 50) {
@@ -3220,10 +3220,10 @@
                     } else {
                         targetReason = 'Geniş Ekip & Çoklu Ortak Yönetici İçin';
                     }
-                    
+
                     targetCtaText = 'Tek Organizasyon Paketini İncele';
                     currentRecommendedCardId = 'card-single';
-                    
+
                     featuresHtml = `
                         <div style="display:flex; align-items:flex-start; gap:8px; font-size:0.85rem; color:var(--text-main); font-weight:500;">
                             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -3274,7 +3274,7 @@
                     cardFree.classList.remove('active-recommend');
                     cardSingle.classList.remove('active-recommend');
                     cardSeason.classList.remove('active-recommend');
-                    
+
                     cardFree.removeAttribute('data-badge');
                     cardSingle.removeAttribute('data-badge');
                     cardSeason.removeAttribute('data-badge');
@@ -3723,7 +3723,7 @@
 
             const isChecked = item.classList.toggle('checked');
             item.setAttribute('aria-pressed', isChecked ? 'true' : 'false');
-            
+
             // Mobilde satır içi çekmece kontrolü
             const drawer = item.querySelector('.pain-inline-solution');
             if (drawer) {

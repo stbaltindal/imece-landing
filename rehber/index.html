@@ -105,473 +105,519 @@
       })();
     </script>
 <!-- Stylesheets -->
-    <link rel="stylesheet" href="../tokens.css?v=1.1">
-    <link rel="stylesheet" href="../style.css?v=41.2">
-    <link rel="stylesheet" href="../refresh.css?v=41.2">
+    <link rel="stylesheet" href="../tokens.css?v=42.0">
+    <link rel="stylesheet" href="../style.css?v=42.0">
+    <link rel="stylesheet" href="../refresh.css?v=42.0">
 
     <style>
-        html, body {
-            background-color: #08080A !important;
-            color: #FFFFFF !important;
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .skip-link {
-            position: absolute;
-            top: -60px;
-            left: 16px;
-            background: #ECC880;
-            color: #08080A;
-            padding: 10px 18px;
-            font-weight: 700;
-            border-radius: 8px;
-            z-index: 10000;
-            text-decoration: none;
-            transition: top 0.2s ease;
-        }
-        .skip-link:focus {
-            top: 16px;
-        }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        .navbar {
-            background: rgba(8, 8, 10, 0.92) !important;
-            backdrop-filter: blur(20px) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        }
-        .navbar .nav-links a {
-            color: #E2E2E8 !important;
-        }
-        .navbar .nav-links a:hover {
-            color: #ECC880 !important;
-        }
-        /* Luxury Modern Footer */
-        footer.luxury-footer {
-            background: #09090D !important;
-            border-top: 1px solid rgba(212, 175, 55, 0.22) !important;
-            padding: 64px 0 40px !important;
-            position: relative;
-            overflow: hidden;
-        }
-        .luxury-footer-divider {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            max-width: 900px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, rgba(236, 200, 128, 0.5) 50%, transparent 100%);
-        }
-        footer.luxury-footer .footer-container {
-            display: grid !important;
-            grid-template-columns: 1.4fr 1.1fr 1fr !important;
-            gap: 48px !important;
-            align-items: flex-start !important;
-            max-width: 1140px !important;
-            margin: 0 auto !important;
-            padding: 0 24px !important;
-        }
-        footer.luxury-footer .footer-brand {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 14px !important;
-        }
-        footer.luxury-footer .footer-brand .logo {
-            display: flex !important;
-            align-items: center !important;
-            gap: 12px !important;
-            text-decoration: none !important;
-        }
-        footer.luxury-footer .footer-logo-img {
-            width: 34px !important;
-            height: 34px !important;
-            object-fit: contain !important;
-            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.35));
-        }
-        footer.luxury-footer .footer-brand .logo-text {
-            font-family: var(--font-header, 'Playfair Display', serif) !important;
-            color: #FFFFFF !important;
-            font-size: 1.35rem !important;
-            font-weight: 700 !important;
-            letter-spacing: 0.3px !important;
-        }
-        footer.luxury-footer .footer-slogan {
-            color: #ECC880 !important;
-            font-size: 0.95rem !important;
-            font-weight: 600 !important;
-            letter-spacing: 0.2px !important;
-            margin: 0 !important;
-        }
-        footer.luxury-footer .footer-desc {
-            color: #9A9AA6 !important;
-            font-size: 0.88rem !important;
-            line-height: 1.65 !important;
-            margin: 0 !important;
-            max-width: 360px !important;
-        }
-        footer.luxury-footer .footer-platform-badge {
-            display: inline-flex !important;
-            align-items: center !important;
-            gap: 8px !important;
-            background: rgba(212, 175, 55, 0.08) !important;
-            border: 1px solid rgba(212, 175, 55, 0.28) !important;
-            padding: 6px 14px !important;
-            border-radius: 20px !important;
-            width: fit-content !important;
-            color: #ECC880 !important;
-            font-size: 0.8rem !important;
-            font-weight: 600 !important;
-            margin-top: 2px !important;
-        }
-        footer.luxury-footer .footer-platform-badge .badge-dot {
-            width: 7px !important;
-            height: 7px !important;
-            border-radius: 50% !important;
-            background: #4cd964 !important;
-            box-shadow: 0 0 8px #4cd964 !important;
-            display: inline-block !important;
-            animation: pulse-live 2.5s infinite ease-in-out;
-        }
-        @keyframes pulse-live {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.85); }
-        }
-        footer.luxury-footer .footer-legal-copy {
-            color: #71717A !important;
-            font-size: 0.8rem !important;
-            margin-top: 8px !important;
-        }
-        footer.luxury-footer .footer-nav-col {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 16px !important;
-        }
-        footer.luxury-footer .footer-heading {
-            color: #FFFFFF !important;
-            font-size: 0.84rem !important;
-            font-weight: 700 !important;
-            text-transform: uppercase !important;
-            letter-spacing: 1.2px !important;
-            margin: 0 !important;
-            padding-bottom: 8px !important;
-            border-bottom: 2px solid rgba(212, 175, 55, 0.4) !important;
-            display: inline-block !important;
-            width: fit-content !important;
-        }
-        footer.luxury-footer .footer-link-list {
-            list-style: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 12px !important;
-        }
-        footer.luxury-footer .footer-link-list li {
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-        footer.luxury-footer .footer-link-list a {
-            color: #B5B5C2 !important;
-            font-size: 0.9rem !important;
-            text-decoration: none !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            gap: 10px !important;
-            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
-            padding: 2px 0 !important;
-        }
-        footer.luxury-footer .footer-link-list a:hover {
-            color: #ECC880 !important;
-            transform: translateX(5px) !important;
-            text-shadow: 0 0 10px rgba(236, 200, 128, 0.35) !important;
-        }
-        footer.luxury-footer .footer-icon {
-            font-size: 1rem !important;
-            opacity: 0.85 !important;
-            display: inline-block !important;
-            transition: transform 0.2s ease !important;
-            flex-shrink: 0 !important;
-        }
-        footer.luxury-footer .footer-link-list a:hover .footer-icon {
-            transform: scale(1.22) !important;
-        }
-        footer.luxury-footer .all-guides-link {
-            color: #ECC880 !important;
-            font-weight: 600 !important;
-            margin-top: 4px !important;
-            padding-top: 6px !important;
-            border-top: 1px dashed rgba(212, 175, 55, 0.25) !important;
-        }
-        footer.luxury-footer .all-guides-link:hover {
-            color: #FFF2CE !important;
-        }
-        footer.luxury-footer .support-mail-link {
-            color: #ECC880 !important;
-            font-weight: 600 !important;
-            background: rgba(212, 175, 55, 0.08) !important;
-            border: 1px solid rgba(212, 175, 55, 0.24) !important;
-            padding: 6px 12px !important;
-            border-radius: 8px !important;
-            margin-top: 4px !important;
-            width: fit-content !important;
-        }
-        footer.luxury-footer .support-mail-link:hover {
-            background: rgba(212, 175, 55, 0.16) !important;
-            border-color: rgba(212, 175, 55, 0.45) !important;
-            color: #FFF2CE !important;
-            transform: translateX(4px) !important;
-        }
-        @media (max-width: 900px) {
-            footer.luxury-footer .footer-container {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 36px !important;
+@layer base {
+    html, body {
+                font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+                margin: 0;
+                padding: 0;
             }
-            footer.luxury-footer .footer-brand {
-                grid-column: span 2 !important;
+            .skip-link {
+                position: absolute;
+                top: -60px;
+                left: 16px;
+                background: #ECC880;
+                color: #08080A;
+                padding: 10px 18px;
+                font-weight: 700;
+                border-radius: 8px;
+                z-index: 10000;
+                text-decoration: none;
+                transition: top 0.2s ease;
             }
-        }
-        @media (max-width: 600px) {
+            .skip-link:focus {
+                top: 16px;
+            }
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+            /* Luxury Modern Footer */
             footer.luxury-footer {
-                padding: 48px 0 32px !important;
+                position: relative;
+                overflow: hidden;
             }
-            footer.luxury-footer .footer-container {
-                grid-template-columns: 1fr !important;
-                gap: 32px !important;
+            .luxury-footer-divider {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80%;
+                max-width: 900px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent 0%, rgba(236, 200, 128, 0.5) 50%, transparent 100%);
             }
-            footer.luxury-footer .footer-brand {
-                grid-column: span 1 !important;
+            footer.luxury-footer .footer-logo-img {
+                filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.35));
             }
-            footer.luxury-footer .footer-desc {
-                max-width: 100% !important;
+            footer.luxury-footer .footer-platform-badge .badge-dot {
+                animation: pulse-live 2.5s infinite ease-in-out;
             }
-        }
-        .guide-hub-hero {
-            padding: 120px 0 60px;
-            text-align: center;
-            position: relative;
-        }
-        .guide-hub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 28px;
-            margin: 40px 0 80px;
-        }
-        .guide-card {
-            background: #121218;
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            border-radius: 22px;
-            padding: 34px 30px;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-decoration: none;
-            color: inherit;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        }
-        .guide-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(212, 175, 55, 0.7);
-            box-shadow: 0 16px 44px rgba(0, 0, 0, 0.6), 0 0 28px rgba(212, 175, 55, 0.25);
-        }
-        .guide-card-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ECC880;
-            margin-bottom: 22px;
-            font-size: 26px;
-        }
-        .guide-card h3 {
-            font-family: var(--font-header, 'Playfair Display', serif);
-            font-size: 1.4rem;
-            color: #FFFFFF;
-            margin: 0 0 14px;
-            line-height: 1.35;
-            letter-spacing: -0.01em;
-        }
-        .guide-card p {
-            color: #E2E2E8;
-            font-size: 0.96rem;
-            line-height: 1.7;
-            margin: 0 0 24px;
-            flex-grow: 1;
-        }
-        .guide-card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 18px;
-            font-size: 0.92rem;
-            font-weight: 600;
-            color: #ECC880;
-        }
-        .guide-badge-popular {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: linear-gradient(135deg, #ECC880, #D4AF37);
-            color: #08080A;
-            font-size: 0.72rem;
-            font-weight: 800;
-            padding: 5px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-        }
-        .guide-card-footer .material-icons-round {
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
-        }
-        .guide-card:hover .guide-card-footer .material-icons-round {
-            transform: translateX(6px);
-            color: #FFF2CE;
-        }
-        /* Luxury Search & Filter Pills */
-        .guide-search-container {
-            max-width: 680px;
-            margin: 28px auto 20px;
-            position: relative;
-        }
-        .guide-search-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        .guide-search-input {
-            width: 100%;
-            background: #121218;
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            border-radius: 16px;
-            padding: 16px 20px 16px 50px;
-            color: #FFFFFF;
-            font-size: 1rem;
-            font-family: inherit;
-            outline: none;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-        }
-        .guide-search-input:focus {
-            border-color: #ECC880;
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25), 0 8px 24px rgba(0,0,0,0.4);
-            background: #161622;
-        }
-        .guide-search-input::placeholder {
-            color: #71717A;
-        }
-        .guide-search-icon {
-            position: absolute;
-            left: 18px;
-            color: #ECC880;
-            font-size: 22px;
-            pointer-events: none;
-        }
-        .guide-filter-pills {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 18px auto 0;
-            max-width: 760px;
-        }
-        .guide-filter-btn {
-            background: #14141E;
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            color: #B5B5BE;
-            font-size: 0.88rem;
-            font-weight: 600;
-            padding: 8px 18px;
-            border-radius: 24px;
-            cursor: pointer;
-            transition: all 0.22s ease;
-            font-family: inherit;
-            min-height: 44px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .guide-filter-btn:hover {
-            border-color: rgba(212, 175, 55, 0.6);
-            color: #FFFFFF;
-            background: #181826;
-            transform: translateY(-2px);
-        }
-        .guide-filter-btn.active {
-            background: linear-gradient(135deg, rgba(236, 200, 128, 0.22) 0%, rgba(212, 175, 55, 0.12) 100%);
-            border-color: #ECC880;
-            color: #ECC880;
-            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.2);
-        }
-        .no-results-msg {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 48px 24px;
-            background: #121218;
-            border: 1px dashed rgba(212, 175, 55, 0.3);
-            border-radius: 20px;
-            display: none;
-        }
-        .breadcrumb-nav {
-            padding: 24px 0 12px;
-            font-size: 0.9rem;
-            color: #B5B5BE;
-        }
-        .breadcrumb-nav a {
-            color: #ECC880;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        @media (max-width: 600px) {
+            @keyframes pulse-live {
+                0%, 100% { opacity: 1; transform: scale(1); }
+                50% { opacity: 0.5; transform: scale(0.85); }
+            }
+            .guide-hub-hero {
+                padding: 120px 0 60px;
+                text-align: center;
+                position: relative;
+            }
             .guide-hub-grid {
-                grid-template-columns: 1fr !important;
-                gap: 18px !important;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 28px;
+                margin: 40px 0 80px;
             }
             .guide-card {
-                padding: 24px 18px !important;
-                border-radius: 18px !important;
+                background: #121218;
+                border: 1px solid rgba(212, 175, 55, 0.25);
+                border-radius: 22px;
+                padding: 34px 30px;
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                text-decoration: none;
+                color: inherit;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            }
+            .guide-card:hover {
+                transform: translateY(-6px);
+                border-color: rgba(212, 175, 55, 0.7);
+                box-shadow: 0 16px 44px rgba(0, 0, 0, 0.6), 0 0 28px rgba(212, 175, 55, 0.25);
+            }
+            .guide-card-icon {
+                width: 52px;
+                height: 52px;
+                border-radius: 14px;
+                background: rgba(212, 175, 55, 0.15);
+                border: 1px solid rgba(212, 175, 55, 0.4);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #ECC880;
+                margin-bottom: 22px;
+                font-size: 26px;
+            }
+            .guide-card h3 {
+                font-family: var(--font-header, 'Playfair Display', serif);
+                font-size: 1.4rem;
+                color: #FFFFFF;
+                margin: 0 0 14px;
+                line-height: 1.35;
+                letter-spacing: -0.01em;
+            }
+            .guide-card p {
+                color: #E2E2E8;
+                font-size: 0.96rem;
+                line-height: 1.7;
+                margin: 0 0 24px;
+                flex-grow: 1;
+            }
+            .guide-card-footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                padding-top: 18px;
+                font-size: 0.92rem;
+                font-weight: 600;
+                color: #ECC880;
             }
             .guide-badge-popular {
-                position: static !important;
-                align-self: flex-start !important;
-                margin-bottom: 12px !important;
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                background: linear-gradient(135deg, #ECC880, #D4AF37);
+                color: #08080A;
+                font-size: 0.72rem;
+                font-weight: 800;
+                padding: 5px 12px;
+                border-radius: 20px;
+                text-transform: uppercase;
+                letter-spacing: 0.6px;
+                box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            }
+            .guide-card-footer .material-icons-round {
+                transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+            }
+            .guide-card:hover .guide-card-footer .material-icons-round {
+                transform: translateX(6px);
+                color: #FFF2CE;
+            }
+            /* Luxury Search & Filter Pills */
+            .guide-search-container {
+                max-width: 680px;
+                margin: 28px auto 20px;
+                position: relative;
+            }
+            .guide-search-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+            }
+            .guide-search-input {
+                width: 100%;
+                background: #121218;
+                border: 1px solid rgba(212, 175, 55, 0.35);
+                border-radius: 16px;
+                padding: 16px 20px 16px 50px;
+                color: #FFFFFF;
+                font-size: 1rem;
+                font-family: inherit;
+                outline: none;
+                transition: all 0.25s ease;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            }
+            .guide-search-input:focus {
+                border-color: #ECC880;
+                box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25), 0 8px 24px rgba(0,0,0,0.4);
+                background: #161622;
+            }
+            .guide-search-input::placeholder {
+                color: #71717A;
+            }
+            .guide-search-icon {
+                position: absolute;
+                left: 18px;
+                color: #ECC880;
+                font-size: 22px;
+                pointer-events: none;
             }
             .guide-filter-pills {
-                overflow-x: auto !important;
-                flex-wrap: nowrap !important;
-                -webkit-overflow-scrolling: touch !important;
-                scrollbar-width: none !important;
-                justify-content: flex-start !important;
-                padding-bottom: 8px !important;
-                width: 100% !important;
-            }
-            .guide-filter-pills::-webkit-scrollbar {
-                display: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin: 18px auto 0;
+                max-width: 760px;
             }
             .guide-filter-btn {
-                flex-shrink: 0;
-                white-space: nowrap;
+                background: #14141E;
+                border: 1px solid rgba(212, 175, 55, 0.25);
+                color: #B5B5BE;
+                font-size: 0.88rem;
+                font-weight: 600;
+                padding: 8px 18px;
+                border-radius: 24px;
+                cursor: pointer;
+                transition: all 0.22s ease;
+                font-family: inherit;
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
             }
-        }
+            .guide-filter-btn:hover {
+                border-color: rgba(212, 175, 55, 0.6);
+                color: #FFFFFF;
+                background: #181826;
+                transform: translateY(-2px);
+            }
+            .guide-filter-btn.active {
+                background: linear-gradient(135deg, rgba(236, 200, 128, 0.22) 0%, rgba(212, 175, 55, 0.12) 100%);
+                border-color: #ECC880;
+                color: #ECC880;
+                box-shadow: 0 4px 14px rgba(212, 175, 55, 0.2);
+            }
+            .no-results-msg {
+                grid-column: 1 / -1;
+                text-align: center;
+                padding: 48px 24px;
+                background: #121218;
+                border: 1px dashed rgba(212, 175, 55, 0.3);
+                border-radius: 20px;
+                display: none;
+            }
+            .breadcrumb-nav {
+                padding: 24px 0 12px;
+                font-size: 0.9rem;
+                color: #B5B5BE;
+            }
+            .breadcrumb-nav a {
+                color: #ECC880;
+                text-decoration: none;
+                font-weight: 500;
+            }
+            @media (max-width: 600px) {
+                .guide-filter-pills::-webkit-scrollbar {
+                    display: none;
+                }
+                .guide-filter-btn {
+                    flex-shrink: 0;
+                    white-space: nowrap;
+                }
+            }
+}
+
+/* overrides: eski öncelikli bildirimler; base katmanını ezer, kaynak sırası korunur. */
+@layer overrides {
+    html, body {
+                background-color: #08080A;
+                color: #FFFFFF;
+            }
+            .navbar {
+                background: rgba(8, 8, 10, 0.92);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .navbar .nav-links a {
+                color: #E2E2E8;
+            }
+            .navbar .nav-links a:hover {
+                color: #ECC880;
+            }
+            footer.luxury-footer {
+                background: #09090D;
+                border-top: 1px solid rgba(212, 175, 55, 0.22);
+                padding: 64px 0 40px;
+            }
+            footer.luxury-footer .footer-container {
+                display: grid;
+                grid-template-columns: 1.4fr 1.1fr 1fr;
+                gap: 48px;
+                align-items: flex-start;
+                max-width: 1140px;
+                margin: 0 auto;
+                padding: 0 24px;
+            }
+            footer.luxury-footer .footer-brand {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+            }
+            footer.luxury-footer .footer-brand .logo {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                text-decoration: none;
+            }
+            footer.luxury-footer .footer-logo-img {
+                width: 34px;
+                height: 34px;
+                object-fit: contain;
+            }
+            footer.luxury-footer .footer-brand .logo-text {
+                font-family: var(--font-header, 'Playfair Display', serif);
+                color: #FFFFFF;
+                font-size: 1.35rem;
+                font-weight: 700;
+                letter-spacing: 0.3px;
+            }
+            footer.luxury-footer .footer-slogan {
+                color: #ECC880;
+                font-size: 0.95rem;
+                font-weight: 600;
+                letter-spacing: 0.2px;
+                margin: 0;
+            }
+            footer.luxury-footer .footer-desc {
+                color: #9A9AA6;
+                font-size: 0.88rem;
+                line-height: 1.65;
+                margin: 0;
+                max-width: 360px;
+            }
+            footer.luxury-footer .footer-platform-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(212, 175, 55, 0.08);
+                border: 1px solid rgba(212, 175, 55, 0.28);
+                padding: 6px 14px;
+                border-radius: 20px;
+                width: fit-content;
+                color: #ECC880;
+                font-size: 0.8rem;
+                font-weight: 600;
+                margin-top: 2px;
+            }
+            footer.luxury-footer .footer-platform-badge .badge-dot {
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: #4cd964;
+                box-shadow: 0 0 8px #4cd964;
+                display: inline-block;
+            }
+            footer.luxury-footer .footer-legal-copy {
+                color: #71717A;
+                font-size: 0.8rem;
+                margin-top: 8px;
+            }
+            footer.luxury-footer .footer-nav-col {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            footer.luxury-footer .footer-heading {
+                color: #FFFFFF;
+                font-size: 0.84rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1.2px;
+                margin: 0;
+                padding-bottom: 8px;
+                border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+                display: inline-block;
+                width: fit-content;
+            }
+            footer.luxury-footer .footer-link-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            footer.luxury-footer .footer-link-list li {
+                margin: 0;
+                padding: 0;
+            }
+            footer.luxury-footer .footer-link-list a {
+                color: #B5B5C2;
+                font-size: 0.9rem;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+                padding: 2px 0;
+            }
+            footer.luxury-footer .footer-link-list a:hover {
+                color: #ECC880;
+                transform: translateX(5px);
+                text-shadow: 0 0 10px rgba(236, 200, 128, 0.35);
+            }
+            footer.luxury-footer .footer-icon {
+                font-size: 1rem;
+                opacity: 0.85;
+                display: inline-block;
+                transition: transform 0.2s ease;
+                flex-shrink: 0;
+            }
+            footer.luxury-footer .footer-link-list a:hover .footer-icon {
+                transform: scale(1.22);
+            }
+            footer.luxury-footer .all-guides-link {
+                color: #ECC880;
+                font-weight: 600;
+                margin-top: 4px;
+                padding-top: 6px;
+                border-top: 1px dashed rgba(212, 175, 55, 0.25);
+            }
+            footer.luxury-footer .all-guides-link:hover {
+                color: #FFF2CE;
+            }
+            footer.luxury-footer .support-mail-link {
+                color: #ECC880;
+                font-weight: 600;
+                background: rgba(212, 175, 55, 0.08);
+                border: 1px solid rgba(212, 175, 55, 0.24);
+                padding: 6px 12px;
+                border-radius: 8px;
+                margin-top: 4px;
+                width: fit-content;
+            }
+            footer.luxury-footer .support-mail-link:hover {
+                background: rgba(212, 175, 55, 0.16);
+                border-color: rgba(212, 175, 55, 0.45);
+                color: #FFF2CE;
+                transform: translateX(4px);
+            }
+            @media (max-width: 900px) {
+                footer.luxury-footer .footer-container {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 36px;
+                }
+                footer.luxury-footer .footer-brand {
+                    grid-column: span 2;
+                }
+            }
+            @media (max-width: 600px) {
+                footer.luxury-footer {
+                    padding: 48px 0 32px;
+                }
+                footer.luxury-footer .footer-container {
+                    grid-template-columns: 1fr;
+                    gap: 32px;
+                }
+                footer.luxury-footer .footer-brand {
+                    grid-column: span 1;
+                }
+                footer.luxury-footer .footer-desc {
+                    max-width: 100%;
+                }
+            }
+            @media (max-width: 600px) {
+                .guide-hub-grid {
+                    grid-template-columns: 1fr;
+                    gap: 18px;
+                }
+                .guide-card {
+                    padding: 24px 18px;
+                    border-radius: 18px;
+                }
+                .guide-badge-popular {
+                    position: static;
+                    align-self: flex-start;
+                    margin-bottom: 12px;
+                }
+                .guide-filter-pills {
+                    overflow-x: auto;
+                    flex-wrap: nowrap;
+                    -webkit-overflow-scrolling: touch;
+                    scrollbar-width: none;
+                    justify-content: flex-start;
+                    padding-bottom: 8px;
+                    width: 100%;
+                }
+            }
+}
+    /* Bu sayfanın eski satır içi stilleri: inline katmanı base'i ezer, overrides'a yenilir (style özniteliğiyle aynı öncelik). */
+    @layer inline {
+        .g-1 { width: 32px; height: 32px; object-fit: contain; margin-right: 10px; }
+        .g-2 { color: var(--gold, #C5A059); font-weight: 600; }
+        .g-3 { vertical-align: -2px; margin-right: 6px; }
+        .g-4 { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .g-5 { display: flex; align-items: center; gap: 10px; }
+        .g-6 { width: 28px; height: 28px; object-fit: contain; }
+        .g-7 { font-weight: 700; color: #fff; font-size: 1.05rem; }
+        .g-8 { background: none; border: none; color: #ECC880; font-size: 28px; cursor: pointer; min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
+        .g-9 { margin: 14px 0 8px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #ECC880; font-weight: 700; }
+        .g-10 { margin-top: 20px; }
+        .g-11 { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+        .g-12 { width: 32px; height: 32px; }
+        .g-13 { font-family: var(--font-header, 'Playfair Display', serif); font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin-bottom: 16px; }
+        .g-14 { max-width: 680px; margin: 0 auto; color: var(--n-muted, #9a9aa2); font-size: 1.05rem; line-height: 1.6; }
+        .g-15 { display: flex; align-items: center; gap: 8px; color: #ECC880; font-size: 0.8rem; font-weight: 600; margin-bottom: 8px; }
+        .g-16 { font-size: 40px; color: #ECC880; margin-bottom: 12px; display: block; }
+        .g-17 { color: #ECC880; font-size: 1.1rem; margin: 0 0 8px; font-weight: 600; }
+        .g-18 { color: #9A9AA6; margin: 0; font-size: 0.9rem; }
+        .g-19 { background: radial-gradient(circle at 85% 15%, rgba(236, 200, 128, 0.18) 0%, rgba(20, 20, 28, 0.98) 65%); border: 1px solid rgba(212, 175, 55, 0.45); border-radius: 24px; padding: 48px 32px; text-align: center; margin-bottom: 80px; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6); }
+        .g-20 { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 20px; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.4); margin-bottom: 18px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+        .g-21 { display: flex; align-items: center; justify-content: center; gap: 8px; color: #ECC880; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
+        .g-22 { font-family: var(--font-header, 'Playfair Display', serif); color: #fff; font-size: 1.85rem; margin-bottom: 12px; line-height: 1.3; }
+        .g-23 { color: #B5B5BE; max-width: 580px; margin: 0 auto 28px; line-height: 1.6; font-size: 0.96rem; }
+        .g-24 { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: linear-gradient(135deg, #ECC880 0%, #D4AF37 50%, #C5A059 100%); color: #08080A; font-weight: 700; font-size: 1rem; padding: 16px 32px; border-radius: 16px; text-decoration: none; box-shadow: 0 10px 24px rgba(212, 175, 55, 0.35); transition: all 0.25s ease; }
+        .g-25 { margin-top: 8px; display: inline-flex; align-items: center; gap: 7px; font-size: 0.78rem; font-weight: 600; color: #9A9AA6; }
+        .g-26 { width: 7px; height: 7px; border-radius: 50%; background: #4cd964; display: inline-block; }
+    }
+
     </style>
 
     <!-- Schema.org Breadcrumb & ItemList Collection -->
@@ -636,21 +682,21 @@
     ]
     </script>
 </head>
-<body class="has-sticky-cta dark-active" style="background-color: #08080A !important; color: #FFFFFF !important;">
+<body class="has-sticky-cta dark-active" style="background-color: #08080A; color: #FFFFFF;">
     <a class="skip-link" href="#anaicerik">İçeriğe geç</a>
 
     <!-- Header / Navbar -->
-    <header class="navbar" style="background-color: rgba(8, 8, 10, 0.95) !important;">
+    <header class="navbar" style="background-color: rgba(8, 8, 10, 0.95);">
         <div class="container nav-container">
             <a class="logo" href="https://imecedugun.com/" aria-label="İmece Düğün — Ana Sayfa">
-                <img src="../assets/img/logo_wax_seal_96.png" alt="İmece Düğün Logo" width="32" height="32" style="width: 32px; height: 32px; object-fit: contain; margin-right: 10px;">
+                <img class="g-1" src="../assets/img/logo_wax_seal_96.png" alt="İmece Düğün Logo" width="32" height="32">
                 <span class="logo-text">İmece Düğün</span>
             </a>
             <nav class="nav-links">
                 <a href="https://imecedugun.com/#interactive-rsvp-showcase">Davetiye &amp; LCV</a>
                 <a href="https://imecedugun.com/#neden-imece">Çözümler</a>
                 <a href="https://imecedugun.com/#paketler">Fiyatlandırma</a>
-                <a href="index.html" aria-current="page" style="color: var(--gold, #C5A059); font-weight: 600;">Rehberler</a>
+                <a class="g-2" href="index.html" aria-current="page">Rehberler</a>
                 <a href="https://imecedugun.com/#sss">S.S.S.</a>
             </nav>
             <button class="nav-toggle" id="navToggle" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="navDrawer">
@@ -659,7 +705,7 @@
             </button>
             <div class="nav-cta">
                 <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="btn btn-primary btn-gold-effect nav-download-btn">
-                    <svg class="apple-svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true">
+                    <svg class="apple-svg g-3" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
                         <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
                     </svg>
                     App Store'dan İndir
@@ -672,27 +718,27 @@
     <div class="nav-drawer" id="navDrawer" hidden>
         <div class="nav-drawer-scrim" data-nav-close></div>
         <nav class="nav-drawer-panel" aria-label="Mobil menü">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <img src="../assets/img/logo_wax_seal_96.png" alt="Logo" width="28" height="28" style="width: 28px; height: 28px; object-fit: contain;">
-                    <span style="font-weight: 700; color: #fff; font-size: 1.05rem;">İmece Düğün</span>
+            <div class="g-4">
+                <div class="g-5">
+                    <img class="g-6" src="../assets/img/logo_wax_seal_96.png" alt="Logo" width="28" height="28">
+                    <span class="g-7">İmece Düğün</span>
                 </div>
-                <button type="button" data-nav-close style="background: none; border: none; color: #ECC880; font-size: 28px; cursor: pointer; min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; line-height: 1;" aria-label="Menüyü Kapat">&times;</button>
+                <button class="g-8" type="button" data-nav-close aria-label="Menüyü Kapat">&times;</button>
             </div>
             <a href="https://imecedugun.com/#interactive-rsvp-showcase" data-nav-close>Davetiye &amp; LCV</a>
             <a href="https://imecedugun.com/#neden-imece" data-nav-close>Çözümler</a>
             <a href="https://imecedugun.com/#paketler" data-nav-close>Fiyatlandırma</a>
             <a href="https://imecedugun.com/#sss" data-nav-close>S.S.S.</a>
 
-            <div style="margin: 14px 0 8px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #ECC880; font-weight: 700;">Rehberler &amp; Şablonlar</div>
-            <a href="index.html" data-nav-close style="color: var(--gold, #C5A059); font-weight: 600;">Rehberler Merkezi</a>
+            <div class="g-9">Rehberler &amp; Şablonlar</div>
+            <a class="g-2" href="index.html" data-nav-close>Rehberler Merkezi</a>
             <a href="ceyiz-listesi.html" data-nav-close>Eksiksiz Çeyiz Listesi (118 Kalem)</a>
             <a href="dugun-butcesi.html" data-nav-close>Düğün Bütçesi Hesaplayıcı</a>
             <a href="nedime-ve-bride-to-be.html" data-nav-close>Nedime &amp; Bride Kılavuzu</a>
             <a href="dugun-gunu-akisi.html" data-nav-close>Düğün Günü Akış Planı</a>
             <a href="dijital-lcv-ve-oturma-duzeni.html" data-nav-close>Dijital LCV &amp; Masa Düzeni</a>
-            <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="btn btn-primary nav-drawer-cta" data-nav-close style="margin-top: 20px;">
-                <svg class="apple-svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align: -2px; margin-right: 6px;" aria-hidden="true">
+            <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" class="btn btn-primary nav-drawer-cta g-10" data-nav-close>
+                <svg class="apple-svg g-3" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
                     <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
                 </svg>
                 App Store'dan İndir
@@ -700,7 +746,7 @@
         </nav>
     </div>
 
-    <main id="anaicerik" style="background-color: #08080A !important; color: #FFFFFF !important;">
+    <main id="anaicerik" style="background-color: #08080A; color: #FFFFFF;">
         <div class="container">
             <nav aria-label="Sayfa konumu" class="breadcrumb-nav">
                 <a href="https://imecedugun.com/">Ana Sayfa</a> &gt; <span>Rehberler</span>
@@ -709,14 +755,14 @@
 
         <section class="guide-hub-hero">
             <div class="container">
-                <div class="hero-brand-badge" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                    <img src="../assets/img/logo_wax_seal_96.png" alt="Mühür" width="32" height="32" style="width: 32px; height: 32px;">
+                <div class="hero-brand-badge g-11">
+                    <img class="g-12" src="../assets/img/logo_wax_seal_96.png" alt="Mühür" width="32" height="32">
                     <span class="hero-badge-title">İMECE DÜĞÜN KÜTÜPHANESİ</span>
                 </div>
-                <h1 style="font-family: var(--font-header, 'Playfair Display', serif); font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin-bottom: 16px;">
+                <h1 class="g-13">
                     Düğün &amp; Nişan <span class="text-gold-gradient">Hazırlık Rehberleri</span>
                 </h1>
-                <p style="max-width: 680px; margin: 0 auto; color: var(--n-muted, #9a9aa2); font-size: 1.05rem; line-height: 1.6;">
+                <p class="g-14">
                     Çeyiz listesinden bütçe hesaplamaya, nedime organizasyonundan düğün günü saat saat akışına kadar en özel gününüzü kolaylaştıracak uzman kılavuzlar ve interaktif şablonlar.
                 </p>
 
@@ -742,7 +788,7 @@
             <div class="container">
                 <h2 class="sr-only">Adım Adım Düğün Planlama Rehberleri ve Araçları</h2>
                 <div class="guide-hub-grid" id="guideHubGrid">
-                    
+
                     <!-- Guide 1: Çeyiz Listesi -->
                     <a href="ceyiz-listesi.html" class="guide-card" data-category="ceyiz" data-keywords="çeyiz listesi ev kurma mutfak yatak odası salon banyo 118 kalem checklist interaktif liste">
                         <span class="guide-badge-popular">🛠️ 118 Kalem Liste</span>
@@ -750,7 +796,7 @@
                             <div class="guide-card-icon">
                                 <span class="material-icons-round">checkroom</span>
                             </div>
-                            <div class="guide-card-meta" style="display: flex; align-items: center; gap: 8px; color: #ECC880; font-size: 0.8rem; font-weight: 600; margin-bottom: 8px;">
+                            <div class="guide-card-meta g-15">
                                 <span>⏱️ 5 dk okuma</span>
                                 <span>•</span>
                                 <span>🛠️ İnteraktif Çeyiz Tablosu</span>
@@ -771,7 +817,7 @@
                             <div class="guide-card-icon">
                                 <span class="material-icons-round">account_balance_wallet</span>
                             </div>
-                            <div class="guide-card-meta" style="display: flex; align-items: center; gap: 8px; color: #ECC880; font-size: 0.8rem; font-weight: 600; margin-bottom: 8px;">
+                            <div class="guide-card-meta g-15">
                                 <span>⏱️ 4 dk okuma</span>
                                 <span>•</span>
                                 <span>🛠️ İnteraktif Bütçe Aracı</span>
@@ -792,7 +838,7 @@
                             <div class="guide-card-icon">
                                 <span class="material-icons-round">celebration</span>
                             </div>
-                            <div class="guide-card-meta" style="display: flex; align-items: center; gap: 8px; color: #ECC880; font-size: 0.8rem; font-weight: 600; margin-bottom: 8px;">
+                            <div class="guide-card-meta g-15">
                                 <span>⏱️ 4 dk okuma</span>
                                 <span>•</span>
                                 <span>🛠️ Görev Dağılım Matrisi</span>
@@ -813,7 +859,7 @@
                             <div class="guide-card-icon">
                                 <span class="material-icons-round">schedule</span>
                             </div>
-                            <div class="guide-card-meta" style="display: flex; align-items: center; gap: 8px; color: #ECC880; font-size: 0.8rem; font-weight: 600; margin-bottom: 8px;">
+                            <div class="guide-card-meta g-15">
                                 <span>⏱️ 5 dk okuma</span>
                                 <span>•</span>
                                 <span>🛠️ Dinamik Zaman Çizelgesi</span>
@@ -834,7 +880,7 @@
                             <div class="guide-card-icon">
                                 <span class="material-icons-round">table_restaurant</span>
                             </div>
-                            <div class="guide-card-meta" style="display: flex; align-items: center; gap: 8px; color: #ECC880; font-size: 0.8rem; font-weight: 600; margin-bottom: 8px;">
+                            <div class="guide-card-meta g-15">
                                 <span>⏱️ 4 dk okuma</span>
                                 <span>•</span>
                                 <span>🛠️ Salon Simülasyonu</span>
@@ -850,30 +896,30 @@
 
                     <!-- Empty State Message -->
                     <div id="noResultsMsg" class="no-results-msg">
-                        <span class="material-icons-round" style="font-size: 40px; color: #ECC880; margin-bottom: 12px; display: block;">search_off</span>
-                        <p style="color: #ECC880; font-size: 1.1rem; margin: 0 0 8px; font-weight: 600;">Aradığınız kriterlere uygun rehber bulunamadı.</p>
-                        <p style="color: #9A9AA6; margin: 0; font-size: 0.9rem;">Farklı bir arama kelimesi yazabilir veya kategori filtresini 'Tümü' olarak değiştirebilirsiniz.</p>
+                        <span class="material-icons-round g-16">search_off</span>
+                        <p class="g-17">Aradığınız kriterlere uygun rehber bulunamadı.</p>
+                        <p class="g-18">Farklı bir arama kelimesi yazabilir veya kategori filtresini 'Tümü' olarak değiştirebilirsiniz.</p>
                     </div>
 
                 </div>
 
                 <!-- Bottom CTA Box -->
-                <div style="background: radial-gradient(circle at 85% 15%, rgba(236, 200, 128, 0.18) 0%, rgba(20, 20, 28, 0.98) 65%); border: 1px solid rgba(212, 175, 55, 0.45); border-radius: 24px; padding: 48px 32px; text-align: center; margin-bottom: 80px; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);">
-                    <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 20px; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.4); margin-bottom: 18px; box-shadow: 0 8px 24px rgba(0,0,0,0.5);">
+                <div class="g-19">
+                    <div class="g-20">
                         <img src="../assets/img/logo_wax_seal_96.png" alt="İmece Düğün Mühür" width="40" height="40">
                     </div>
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; color: #ECC880; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px;">
+                    <div class="g-21">
                         <span>İMECE DÜĞÜN</span>
                         <span>•</span>
                         <span>Ücretsiz Mobil Uygulama</span>
                     </div>
-                    <h2 style="font-family: var(--font-header, 'Playfair Display', serif); color: #fff; font-size: 1.85rem; margin-bottom: 12px; line-height: 1.3;">
+                    <h2 class="g-22">
                         Tüm Bu Hazırlıkları Tek Bir Uygulamada Yönetin
                     </h2>
-                    <p style="color: #B5B5BE; max-width: 580px; margin: 0 auto 28px; line-height: 1.6; font-size: 0.96rem;">
+                    <p class="g-23">
                         İmece Düğün şimdi App Store'da yayında. Eşiniz, nedimeleriniz ve ailenizle ekibinizi kurun; bütçe, davetli, çeyiz ve akış planını imece usulü kolayca tamamlayın.
                     </p>
-                    <a href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: linear-gradient(135deg, #ECC880 0%, #D4AF37 50%, #C5A059 100%); color: #08080A; font-weight: 700; font-size: 1rem; padding: 16px 32px; border-radius: 16px; text-decoration: none; box-shadow: 0 10px 24px rgba(212, 175, 55, 0.35); transition: all 0.25s ease;">
+                    <a class="g-24" href="https://apps.apple.com/tr/app/i-mece-d%C3%BC%C4%9F%C3%BCn/id6794826834" target="_blank" rel="noopener">
                         <svg class="apple-svg" viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true">
                             <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
                         </svg>
@@ -897,7 +943,7 @@
                 <p class="footer-desc">Düğün, nişan ve çeyiz hazırlıklarınızı sevdiklerinizle birlikte kolayca planlayın; bütçe, görev ve davetli takibinizi imece usulü yönetin.</p>
                 <div class="footer-legal-copy">&copy; 2026 İmece Düğün. Tüm hakları saklıdır.</div>
             </div>
-            
+
             <div class="footer-nav-col">
                 <h4 class="footer-heading">İnteraktif Rehberler</h4>
                 <ul class="footer-link-list">
@@ -909,7 +955,7 @@
                     <li><a href="index.html" class="all-guides-link"><span class="footer-icon">📚</span><span>Tüm Rehberler Merkezi →</span></a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-nav-col">
                 <h4 class="footer-heading">Platform &amp; Yasal</h4>
                 <ul class="footer-link-list">
@@ -922,8 +968,8 @@
                             <span class="footer-icon">✉️</span>
                             <span>destek@imecedugun.com</span>
                         </a>
-                        <div class="footer-response-badge" style="margin-top: 8px; display: inline-flex; align-items: center; gap: 7px; font-size: 0.78rem; font-weight: 600; color: #9A9AA6;">
-                            <span class="response-pulse-dot" style="width: 7px; height: 7px; border-radius: 50%; background: #4cd964; display: inline-block;"></span>
+                        <div class="footer-response-badge g-25">
+                            <span class="response-pulse-dot g-26"></span>
                             <span>24 Saat İçinde Yanıt</span>
                         </div>
                     </li>
