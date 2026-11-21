@@ -1193,6 +1193,8 @@
 }
     /* Bu sayfanın eski satır içi stilleri: inline katmanı base'i ezer, overrides'a yenilir (style özniteliğiyle aynı öncelik). */
     @layer inline {
+        .sides-target-box { text-align: right; min-width: 200px; }
+        .sides-target-badge { justify-content: flex-end; }
         .g-1 { width: 32px; height: 32px; object-fit: contain; margin-right: 10px; }
         .g-2 { color: var(--gold, #C5A059); font-weight: 600; }
         .g-3 { vertical-align: -2px; margin-right: 6px; }
@@ -1972,10 +1974,10 @@
                             <h5 style="color: #fff; font-size: 1.15rem; margin: 0 0 8px; font-weight: 700;">Harcama Tavanına Sadık Kalın, Sürpriz Krizleri Önleyin</h5>
                             <p style="color: #B5B5BE; font-size: 0.9rem; line-height: 1.6; margin: 0;">Düğün sürecinde 'nasıl olsa bir kere evleniyoruz' diyerek kontrolsüz yapılan küçük eklemeler bütçeyi %30-40 oranında deler. İmece Düğün ile ortak bütçe tavanı koyun, kimin ne kadar harcadığını şeffafça görün ve planlanan limitlerin kesinlikle dışına çıkmayın.</p>
                         </div>
-                        <div class="sides-target-box" style="text-align: right; background: rgba(0,0,0,0.35); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 14px; padding: 14px 20px; min-width: 200px;">
+                        <div class="sides-target-box" style=" background: rgba(0,0,0,0.35); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 14px; padding: 14px 20px;">
                             <div style="color: #9A9AA6; font-size: 0.78rem; text-transform: uppercase; font-weight: 600; margin-bottom: 2px;">Kişi Başı Eşit Pay</div>
                             <div style="font-size: 1.7rem; font-weight: 800; color: #ECC880; white-space: nowrap;">${formatCurrency(esitPay)}</div>
-                            <div class="sides-target-badge" style="color: #4cd964; font-size: 0.78rem; font-weight: 600; margin-top: 4px; display: flex; align-items: center; gap: 4px; justify-content: flex-end;">
+                            <div class="sides-target-badge" style="color: #4cd964; font-size: 0.78rem; font-weight: 600; margin-top: 4px; display: flex; align-items: center; gap: 4px;">
                                 <span class="material-icons-round" style="font-size: 14px;">verified</span> Hedef: %0 Bütçe Sapması
                             </div>
                         </div>
